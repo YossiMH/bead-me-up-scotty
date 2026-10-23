@@ -50,11 +50,11 @@ function boundedValues(
   return distinctValues(params, name).filter((value) => allowed.includes(value));
 }
 
-/** Parse the shared Board/List filters from bookmarkable query parameters. */
-export function filtersFromSearchParams(params: SearchParamsReader): Filters {
+/** Parse bookmarkable filters; only native projects opt into arbitrary type names. */
+export function filtersFromSearchParams(params: SearchParamsReader, customTypes = false): Filters {
   return {
     status: boundedValues(params, "status", BEAD_STATUSES),
-    type: boundedValues(params, "type", BEAD_TYPES),
+    type: customTypes ? distinctValues(params, "type") : boundedValues(params, "type", BEAD_TYPES),
     priority: [...new Set(
       distinctValues(params, "priority")
         .filter((value) => /^[0-4]$/.test(value))
@@ -145,11 +145,12 @@ export function activeFilterCount(f: Filters): number {
   );
 }
 
-export function matchesFilters(b: Bead, f: Filters, humanAllowlist: string[]): boolean {
+/** Missing creation attribution disables the Origin facet without hiding work. */
+export function matchesFilters(b: Bead, f: Filters, humanAllowlist: string[], attribution: "available" | "unavailable" = "available"): boolean {
   if (f.status.length && !f.status.includes(b.status)) return false;
   if (f.type.length && !f.type.includes(b.issue_type)) return false;
   if (f.priority.length && !f.priority.includes(b.priority)) return false;
-  if (f.origin.length && !f.origin.includes(beadOrigin(b, humanAllowlist))) return false;
+  if (attribution === "available" && f.origin.length && !f.origin.includes(beadOrigin(b, humanAllowlist))) return false;
   if (f.assignee.length && !f.assignee.includes(beadAssignee(b))) return false;
   // OR within the facet, like every other facet above; AND across facets.
   if (f.labels.length && !f.labels.some((l) => (b.labels ?? []).includes(l))) return false;

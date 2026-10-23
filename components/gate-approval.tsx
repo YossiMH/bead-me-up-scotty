@@ -4,19 +4,24 @@ import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { useApp } from "@/components/app-context";
 import { Icon } from "@/components/icons";
 import { toastError } from "@/components/error-toast";
+import { canOperate } from "@/lib/beads-view";
 import { api } from "@/lib/api-client";
 import { beadsKey, activityKey } from "@/hooks/use-beads";
 
 /** Shared by both human-gate surfaces; approval records an explicit decision. */
 export function GateApproval({ id }: { id: string }) {
-  const { projectId, meta, readOnly } = useApp();
+  const { projectId, meta, readOnly: viewerReadOnly } = useApp();
+  const readOnly = viewerReadOnly || !canOperate(meta, "gate");
   const qc = useQueryClient();
   const [showNote, setShowNote] = React.useState(false);
   const [note, setNote] = React.useState("");
   const submitting = React.useRef(false);
   const noteId = React.useId();
   const approval = useMutation({
-    mutationFn: (reason: string) => api.setStatus(projectId, id, "closed", reason),
+    mutationFn: async (reason: string) => {
+      if (readOnly) throw new Error("Approval gates are not available for this backend.");
+      return api.setStatus(projectId, id, "closed", reason);
+    },
     // Keep the gate mounted until success so a failed request preserves its note.
     onSuccess: async () => {
       setNote("");

@@ -5,6 +5,7 @@ import { useRouter } from "next/navigation";
 import { toast } from "sonner";
 import { Folder, FolderOpen, Home, ArrowUp, Check, Loader2, AlertTriangle } from "lucide-react";
 import { Dialog, DialogContent, DialogTitle, DialogDescription } from "@/components/ui/dialog";
+import type { ProjectBackend } from "@/lib/backend-contract";
 import { api } from "@/lib/api-client";
 
 export function FolderBrowserModal({
@@ -29,6 +30,7 @@ export function FolderBrowserModal({
 function Browser({ onClose }: { onClose: () => void }) {
   const router = useRouter();
   const qc = useQueryClient();
+  const [backend, setBackend] = React.useState<ProjectBackend>("bd");
   // undefined → let the server default to the home directory
   const [path, setPath] = React.useState<string | undefined>(undefined);
 
@@ -43,7 +45,7 @@ function Browser({ onClose }: { onClose: () => void }) {
   };
 
   const add = useMutation({
-    mutationFn: (p: string) => api.projects.add(p),
+    mutationFn: (p: string) => api.projects.add(p, backend),
     onSuccess: (entry) => {
       qc.invalidateQueries({ queryKey: ["projects"] });
       toast.success(`Added ${entry.name}`);
@@ -68,6 +70,17 @@ function Browser({ onClose }: { onClose: () => void }) {
           </DialogDescription>
         </div>
       </div>
+
+      <label className="flex items-center gap-3 border-b border-border px-5 py-3 text-[13px]">
+        Backend
+        <select aria-label="Backend" value={backend}
+          onChange={(event) => setBackend(event.target.value === "bead-rs" ? "bead-rs" : "bd")}
+          className="rounded-lg border border-border bg-[var(--surface-2)] px-3 py-2">
+          <option value="bd">Beads (bd)</option>
+          <option value="bead-rs">bead-rs (bead)</option>
+        </select>
+        <span className="text-[11px] text-[var(--text-3)]">Use the tool that owns this workspace.</span>
+      </label>
 
       {/* Path bar */}
       <div className="flex items-center gap-2 border-b border-border bg-[var(--surface-2)] p-[10px_16px]">

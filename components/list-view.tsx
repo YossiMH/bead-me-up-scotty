@@ -24,9 +24,11 @@ import { useOrder, useSetOrder } from "@/hooks/use-order";
 import { useSetStatus } from "@/hooks/use-beads";
 import { useUrlFilters } from "@/hooks/use-url-filters";
 import { matchesFilters, labelOptionsFrom, assigneeOptionsFrom } from "@/lib/filters";
-import { BOARD_COLUMNS, COLUMN_ORDER, colOf } from "@/lib/board-columns";
+import { boardColumns, colOf } from "@/lib/board-columns";
 import { beadOrigin, originTitle } from "@/lib/attribution";
 import {
+  canOperate,
+  canChangeStatus,
   catColor,
   statusLabel,
   typeColor,
@@ -54,15 +56,18 @@ function rankOf(order: string[] | undefined, id: string): number {
 }
 
 export function ListView() {
-  const { beads, index, humanAllowlist, openDetail, openCreate, openEpic, loading, projectId, readOnly } =
+  const { beads, index, humanAllowlist, openDetail, openCreate, openEpic, loading, projectId, readOnly, meta } =
     useApp();
+  const readyIds = React.useMemo(() => meta?.readyIds === undefined ? undefined : new Set(meta?.readyIds), [meta?.readyIds]);
+  const BOARD_COLUMNS = boardColumns(readyIds);
+  const COLUMN_ORDER = React.useMemo(() => BOARD_COLUMNS.map((column) => column.id), [BOARD_COLUMNS]);
   const setStatus = useSetStatus();
   const { data: orderData } = useOrder(projectId);
   const setOrder = useSetOrder(projectId);
   const orders = React.useMemo(() => orderData?.orders ?? {}, [orderData]);
 
   const { filters, setFilters, showArchived, setShowArchived, clearFilters } =
-    useUrlFilters();
+    useUrlFilters(meta?.kind === "bead-rs");
   // Derived from ALL beads (not the filtered set) so selecting one label
   // doesn't make the remaining options vanish from the dropdown.
   const labelOptions = React.useMemo(() => labelOptionsFrom(beads), [beads]);
@@ -76,11 +81,11 @@ export function ListView() {
   const colById = React.useMemo(() => {
     const m = new Map<string, string>();
     for (const b of beads) {
-      const c = colOf(b, index);
+      const c = colOf(b, index, readyIds);
       if (c) m.set(b.id, c);
     }
     return m;
-  }, [beads, index]);
+  }, [beads, index, readyIds]);
 
   // Sort: by board column order, then the column's shared manual rank, then priority.
   const rows = React.useMemo(() => {
@@ -88,7 +93,7 @@ export function ListView() {
       .filter((b) => {
         if (b.issue_type === "epic") return false;
         if (!showArchived && (b.labels ?? []).includes("archived")) return false;
-        return matchesFilters(b, filters, humanAllowlist);
+        return matchesFilters(b, filters, humanAllowlist, meta?.capabilities?.attribution);
       })
       .sort((a, b) => {
         const ca = COLUMN_ORDER.indexOf(colById.get(a.id) ?? "");
@@ -108,7 +113,7 @@ export function ListView() {
         if (ea !== eb) return ea - eb;
         return (b.updated_at ?? "").localeCompare(a.updated_at ?? "");
       });
-  }, [beads, filters, showArchived, humanAllowlist, colById, orders, index]);
+  }, [beads, filters, showArchived, humanAllowlist, colById, orders, index, COLUMN_ORDER, meta?.capabilities?.attribution]);
 
   // Per-column counts for the group headers. Derived from `rows` (not `beads`)
   // so the count always matches what is rendered beneath the header once the
@@ -143,7 +148,11 @@ export function ListView() {
       const target = BOARD_COLUMNS.find((c) => c.id === overCol);
       if (!target || !target.droppable || !target.status) return;
       const bead = index.get(activeId);
-      if (!bead || bead.status === target.status) return;
+      if (!bead || bead.status === target.status || !canChangeStatus(meta, bead, target.status)) return;
+      if (target.status === "closed" && meta?.capabilities?.closeReason === "required") {
+        openDetail(activeId, "close");
+        return;
+      }
       setStatus.mutate({ id: activeId, status: target.status });
     }
   }
@@ -168,7 +177,7 @@ export function ListView() {
           onClearAllAction={clearFilters}
         />
 
-        {!readOnly && (
+        {!readOnly && canOperate(meta, "create") && (
           <button
             onClick={() => openCreate()}
             className="flex h-9 flex-shrink-0 items-center gap-[6px] rounded-[9px] px-[14px] text-[13px] font-[550] text-white"
@@ -253,7 +262,7 @@ function Row({
   childCount: number;
   humanAllowlist: string[];
 }) {
-  const { readOnly, selectedBeadId, selectBead } = useApp();
+  const { readOnly, selectedBeadId, selectBead, meta } = useApp();
   const { attributes, listeners, setNodeRef, transform, transition, isDragging } = useSortable({
     id: bead.id,
     disabled: readOnly,
@@ -358,7 +367,7 @@ function Row({
         <PriorityChip p={bead.priority} />
       </span>
       <span className="hidden w-[26px] flex-shrink-0 justify-center sm:flex">
-        <OriginBadge origin={o} title={originTitle(bead.created_by, o)} />
+        <OriginBadge unavailable={meta?.capabilities?.attribution === "unavailable"} origin={o} title={originTitle(bead.created_by, o)} />
       </span>
       <span className="hidden min-w-0 max-w-[130px] flex-shrink-0 items-center gap-[6px] md:flex">
         <span

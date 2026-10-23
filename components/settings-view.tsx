@@ -6,9 +6,11 @@ import { Icon } from "@/components/icons";
 import { useTheme } from "@/components/theme-provider";
 import { THEMES } from "@/lib/themes";
 import { useApp } from "@/components/app-context";
+import { canView } from "@/lib/beads-view";
 import { api, type DoctorResponse } from "@/lib/api-client";
 import { useNotificationPrefs, type NotifPrefs } from "@/hooks/use-notifications";
 import { useBoardPrefs } from "@/hooks/use-board-prefs";
+import { useUpdateCheck } from "@/hooks/use-update-check";
 import { useDefaultFocus } from "@/hooks/use-default-view";
 import { ViewerModeSetting } from "@/components/read-only-banner";
 import { KEYBOARD_SHORTCUT_GROUPS } from "@/lib/keyboard-shortcuts";
@@ -122,7 +124,7 @@ function SettingsForm({ data }: { data: DoctorResponse }) {
     <div className="mx-auto flex max-w-[620px] flex-col gap-[18px]">
       <Card title="Project">
         <div className="flex flex-col gap-[6px]">
-          <span className="text-[12px] text-[var(--text-2)]">{data.project?.name ?? "—"}</span>
+          <span className="text-[12px] text-[var(--text-2)]">{data.project?.name ?? "—"} · {data.kind}</span>
           <span className="break-all font-mono text-[12px] text-[var(--text-3)]">
             {isDemo ? "built-in sample data (no path)" : data.repoPath}
           </span>
@@ -145,9 +147,10 @@ function SettingsForm({ data }: { data: DoctorResponse }) {
       </Card>
 
       <Card title="Attribution">
+        {data.kind === "bead-rs" && <p className="text-[12px] text-[var(--text-3)]">bead-rs does not record creation authors. The allowlist classifies comment authors only.</p>}
         <label className="flex flex-col gap-[6px]">
           <span className="text-[12px] text-[var(--text-2)]">
-            Human actor (stamps <span className="font-mono">BEADS_ACTOR</span>)
+            {data.kind === "bead-rs" ? "Actor for comments and assignment" : <>Human actor (stamps <span className="font-mono">BEADS_ACTOR</span>)</>}
           </span>
           <input className={inputClass} value={actor} onChange={(e) => setActor(e.target.value)} />
         </label>
@@ -363,8 +366,10 @@ function BoardCard() {
 function UpdatesCard() {
   const { prefs, setPrefs } = useBoardPrefs();
   const on = prefs.checkUpdates;
+  const { data: updateStatus } = useUpdateCheck();
   return (
     <Card title="Software updates">
+      {updateStatus?.manualReason && <p className="mb-3 text-[12px] text-[var(--text-2)]">{updateStatus.manualReason}</p>}
       <div className="flex items-center justify-between gap-4">
         <div>
           <div className="text-[13px]">Check for new versions</div>
@@ -414,6 +419,7 @@ function GamificationCard() {
     },
     onError: (e) => toast.error((e as Error).message),
   });
+  if (!canView(meta, "achievements")) return null;
   return (
     <Card title="Gamification">
       <div className="flex items-center justify-between">

@@ -78,7 +78,7 @@ export function BeadCardOverlay({ bead, childCount = 0 }: { bead: Bead; childCou
 }
 
 function BeadCardFace({ bead, childCount, preview = false }: { bead: Bead; childCount: number; preview?: boolean }) {
-  const { index, humanAllowlist } = useApp();
+  const { index, humanAllowlist, meta } = useApp();
   const o = beadOrigin(bead, humanAllowlist);
   const parent = parentOf(bead, index);
   const blocked = isBlocked(bead, index);
@@ -105,7 +105,7 @@ function BeadCardFace({ bead, childCount, preview = false }: { bead: Bead; child
         )}
         <span className="flex-1" />
         <PriorityChip p={bead.priority} />
-        <OriginBadge origin={o} title={originTitle(bead.created_by, o)} />
+        <OriginBadge unavailable={meta?.capabilities?.attribution === "unavailable"} origin={o} title={originTitle(bead.created_by, o)} />
       </div>
 
       <div className="text-[13.5px] font-[550] leading-[1.35] tracking-[-.006em] text-[var(--text)] [text-wrap:pretty]">
@@ -229,11 +229,15 @@ export function OriginBadge({
   origin,
   title,
   withLabel = false,
+  unavailable = false,
 }: {
   origin: "human" | "agent";
   title: string;
   withLabel?: boolean;
+  /** Native issue documents do not carry creation authorship. */
+  unavailable?: boolean;
 }) {
+  if (unavailable) return withLabel ? <span title="Creation author unavailable" className="text-[11.5px] text-[var(--text-3)]">Unknown author</span> : null;
   const human = origin === "human";
   return (
     <span

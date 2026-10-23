@@ -16,10 +16,17 @@ import { getProject, DEMO_PROJECT } from "./config";
  * `embeddeddolt/.../noms/` manifest and journal on *every* invocation, including
  * read-only ones like `bd export` (~50 file events per read). Watching
  * recursively would let a client's own refetch (which runs `bd export`) trigger
- * another change event — a self-sustaining feedback loop. Reads never touch the
- * top-level files, so a non-recursive watch fires on writes only. (Trade-off:
+ * another change event — a self-sustaining feedback loop. Snapshot exports do
+ * not touch the top-level files, so their refetches do not retrigger this watch.
+ * Other reads, such as `bd show`, may update a top-level marker. (Trade-off:
  * teammate changes pulled via `bd dolt pull` churn only `noms/` and are caught
  * by the fallback poll, not this stream.)
+ *
+ * Native bead-rs reads create/remove top-level SQLite WAL/SHM files. Watch its
+ * public checkpoint publication directory instead: successful native mutations
+ * publish there, but ordinary reads do not. Suppressed or failed publication
+ * (and a missing checkpoint directory) is covered by the existing fallback poll.
+ * No private database contents are read and no additional CLI process is started.
  *
  * One `fs.watch` per project is shared across all subscribers (browser tabs)
  * via a ref-count; the watcher is torn down when the last subscriber leaves.
@@ -41,12 +48,14 @@ interface Entry {
 
 const registry = new Map<string, Entry>();
 
-/** Resolve the `.beads` directory to watch for a project, or null if N/A. */
+/** Resolve the backend-specific publication directory, or null if N/A. */
 function beadsDirFor(projectId: string): string | null {
   if (projectId === DEMO_PROJECT.id) return null;
   const project = getProject(projectId);
   if (!project || project.path === null) return null;
-  const dir = path.join(project.path, ".beads");
+  const dir = project.backend === "bead-rs"
+    ? path.join(project.path, ".beads", "checkpoint")
+    : path.join(project.path, ".beads");
   return fs.existsSync(dir) ? dir : null;
 }
 
@@ -55,8 +64,8 @@ function startWatcher(entry: Entry) {
   try {
     const watcher = fs.watch(
       entry.beadsDir,
-      // Non-recursive on purpose — see the file header. Watching the embedded
-      // Dolt noms/ subtree would loop, since reads churn it too.
+      // Non-recursive on purpose — see the file header. Neither the bd Dolt
+      // subtree nor the native SQLite read-side WAL/SHM churn is a write signal.
       { recursive: false, persistent: false },
       () => {
         if (entry.debounce) clearTimeout(entry.debounce);
@@ -79,7 +88,7 @@ function startWatcher(entry: Entry) {
 }
 
 /**
- * Subscribe to change events for a project's `.beads` directory.
+ * Subscribe to backend publication events for a project's `.beads` workspace.
  * Returns an unsubscribe function. When the project has no watchable `.beads`
  * directory (demo, missing path, not yet initialized), this is a no-op and the
  * client falls back to interval polling.

@@ -1,8 +1,13 @@
+import type { BackendKind, BackendCapabilities, ProjectBackend, NativeMutationOutcome } from "./backend-contract";
 import type { Bead, CreateInput, UpdateInput, DepType } from "./schema";
 import type { UpdateStatus, UpdateResult, UpdateChannel, UpdateTarget } from "./update-types";
 
 export interface Meta {
-  kind: "bd" | "demo";
+  /** Absent only for older original-backend servers. */
+  capabilities?: BackendCapabilities;
+  /** Native authoritative frontier; an empty array means no ready work. */
+  readyIds?: readonly string[];
+  kind: BackendKind;
   humanActor: string;
   humanAllowlist: string[];
   pollIntervalMs: number;
@@ -74,6 +79,7 @@ export interface GamificationData {
 }
 
 export interface ProjectInfo {
+  backend?: ProjectBackend;
   id: string;
   name: string;
   path: string | null;
@@ -86,7 +92,7 @@ export interface ProjectsResponse {
 }
 
 export interface DoctorResponse {
-  kind: "bd" | "demo";
+  kind: BackendKind;
   ok: boolean;
   version?: string;
   repoPath: string;
@@ -124,30 +130,76 @@ export class ApiError extends Error {
   code?: string;
   detail?: string;
   status: number;
-  constructor(message: string, status: number, code?: string, detail?: string) {
+  outcome?: NativeMutationOutcome;
+  constructor(message: string, status: number, code?: string, detail?: string, outcome?: NativeMutationOutcome) {
     super(message);
     this.name = "ApiError";
     this.status = status;
     this.code = code;
     this.detail = detail;
+    this.outcome = outcome;
   }
 }
 
-async function request<T>(url: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(url, {
-    ...init,
-    headers: { "Content-Type": "application/json", ...(init?.headers ?? {}) },
-  });
-  const body = await res.json().catch(() => ({}));
+/** Retain the commit boundary separately from whether a fresh record was returned. */
+export function nativeMutationOutcome(error: unknown): NativeMutationOutcome | undefined {
+  return error instanceof ApiError ? error.outcome : undefined;
+}
+
+/** Receipt IDs identify comments; matching text alone cannot prove a submission succeeded. */
+export function mutationReadbackMatches(outcome: NativeMutationOutcome, bead: Bead): boolean {
+  if (outcome.state !== "committed" || !outcome.issueId || bead.id !== outcome.issueId) return false;
+  if (outcome.operation === "create") return true;
+  return outcome.operation === "comment" && !!outcome.receiptId &&
+    (bead.comments ?? []).some((comment) => comment.id === outcome.receiptId);
+}
+
+/** A failed follow-up must not invite replay of a committed or uncertain write. */
+export function mutationOutcomeText(outcome: NativeMutationOutcome): string {
+  const identity = outcome.issueId ? ` for ${outcome.issueId}` : "";
+  return outcome.state === "committed"
+    ? `The ${outcome.operation} write${identity} committed, but its current details could not be verified. Do not resubmit; refresh to reconcile.`
+    : `The ${outcome.operation} outcome${identity} is unknown. It may have committed. Do not resubmit; refresh and check the current records.`;
+}
+
+/** Enables conservative transport handling only on native mutation requests. */
+type NativeRequest = Pick<NativeMutationOutcome, "operation" | "issueId">;
+
+async function request<T>(url: string, init?: RequestInit, nativeMutation?: NativeRequest): Promise<T> {
+  const uncertain = (status: number) => {
+    const outcome: NativeMutationOutcome = { ...nativeMutation!, state: "uncertain", phase: "command" };
+    return new ApiError(mutationOutcomeText(outcome), status, "mutation_uncertain", undefined, outcome);
+  };
+  let res: Response;
+  try {
+    res = await fetch(url, {
+      ...init,
+      headers: { "Content-Type": "application/json", ...(init?.headers ?? {}) },
+    });
+  } catch (error) {
+    if (nativeMutation) throw uncertain(0);
+    throw error;
+  }
+  let body;
+  try { body = await res.json(); }
+  catch {
+    if (nativeMutation) throw uncertain(res.status);
+    body = {};
+  }
+  if (nativeMutation && (!body || typeof body !== "object")) throw uncertain(res.status);
   if (!res.ok) {
-    const b = body as { error?: string; code?: string; detail?: string };
+    const b = body as { error?: string; code?: string; detail?: string; outcome?: NativeMutationOutcome };
+    if (nativeMutation && !b.outcome && res.status >= 500) throw uncertain(res.status);
     throw new ApiError(
       b.error || `Request failed (${res.status})`,
       res.status,
       b.code,
       b.detail,
+      b.outcome,
     );
   }
+  if (nativeMutation && (!body || typeof body.id !== "string" || !body.id ||
+      (nativeMutation.issueId && body.id !== nativeMutation.issueId))) throw uncertain(res.status);
   return body as T;
 }
 
@@ -161,8 +213,8 @@ export const api = {
   }),
   list: (projectId: string) => request<BeadsResponse>(`${base(projectId)}/beads`),
   get: (projectId: string, id: string) => request<Bead>(`${base(projectId)}/beads/${enc(id)}`),
-  create: (projectId: string, input: CreateInput) =>
-    request<Bead>(`${base(projectId)}/beads`, { method: "POST", body: JSON.stringify(input) }),
+  create: (projectId: string, input: CreateInput, native = false) =>
+    request<Bead>(`${base(projectId)}/beads`, { method: "POST", body: JSON.stringify(input) }, native ? { operation: "create" } : undefined),
   update: (projectId: string, id: string, patch: UpdateInput) =>
     request<Bead>(`${base(projectId)}/beads/${enc(id)}`, {
       method: "PATCH",
@@ -175,20 +227,24 @@ export const api = {
     }),
   remove: (projectId: string, id: string) =>
     request<{ deleted: string }>(`${base(projectId)}/beads/${enc(id)}`, { method: "DELETE" }),
-  addComment: (projectId: string, id: string, text: string) =>
+  addComment: (projectId: string, id: string, text: string, native = false) =>
     request<Bead>(`${base(projectId)}/beads/${enc(id)}/comments`, {
       method: "POST",
       body: JSON.stringify({ text }),
-    }),
+    }, native ? { operation: "comment", issueId: id } : undefined),
+  labelDelta: (projectId: string, id: string, label: string, action: "add" | "remove") =>
+    request<Bead>(`${base(projectId)}/beads/${enc(id)}/labels`, {
+      method: action === "add" ? "POST" : "DELETE", body: JSON.stringify({ label }),
+    }, { operation: `label_${action}`, issueId: id }),
   addDep: (projectId: string, id: string, depends_on_id: string, type: DepType) =>
     request<Bead>(`${base(projectId)}/beads/${enc(id)}/deps`, {
       method: "POST",
       body: JSON.stringify({ depends_on_id, type }),
     }),
-  removeDep: (projectId: string, id: string, depends_on_id: string) =>
+  removeDep: (projectId: string, id: string, depends_on_id: string, type?: string) =>
     request<Bead>(`${base(projectId)}/beads/${enc(id)}/deps`, {
       method: "DELETE",
-      body: JSON.stringify({ depends_on_id }),
+      body: JSON.stringify({ depends_on_id, type }),
     }),
   createGate: (projectId: string, id: string, reason?: string) =>
     request<Bead>(`${base(projectId)}/beads/${enc(id)}/gate`, {
@@ -312,8 +368,8 @@ export const api = {
 
   projects: {
     list: () => request<ProjectsResponse>("/api/projects"),
-    add: (path: string) =>
-      request<ProjectInfo>("/api/projects", { method: "POST", body: JSON.stringify({ path }) }),
+    add: (path: string, backend?: ProjectBackend) =>
+      request<ProjectInfo>("/api/projects", { method: "POST", body: JSON.stringify({ path, backend }) }),
     remove: (id: string) =>
       request<{ removed: string }>(`/api/projects/${enc(id)}`, { method: "DELETE" }),
     rename: (id: string, name: string) =>

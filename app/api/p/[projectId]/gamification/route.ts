@@ -3,6 +3,7 @@ import { getConfig, getProject } from "@/lib/config";
 import { ok, fail } from "@/lib/api";
 import { readInteractions } from "@/lib/interactions";
 import { computeGamification } from "@/lib/gamification";
+import { requireAttribution } from "@/lib/backend-capabilities";
 
 export const dynamic = "force-dynamic";
 
@@ -12,6 +13,7 @@ export async function GET(_req: Request, { params }: Ctx) {
   try {
     const { projectId } = await params;
     const store = await getStore(projectId);
+    requireAttribution(store);
     const cfg = getConfig();
     const beads = await store.list();
     const project = getProject(projectId);

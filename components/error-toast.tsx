@@ -2,7 +2,7 @@
 import * as React from "react";
 import { toast } from "sonner";
 import { Icon } from "@/components/icons";
-import { ApiError } from "@/lib/api-client";
+import { ApiError, nativeMutationOutcome, mutationOutcomeText } from "@/lib/api-client";
 
 /**
  * One place that turns an API error into a toast, keyed by the server's stable
@@ -88,6 +88,15 @@ function SchemaMigrationMessage({ detail }: { detail?: string }) {
 
 /** Show an error as a toast, using a friendly form when we recognise its code. */
 export function toastError(err: unknown) {
+  const outcome = nativeMutationOutcome(err);
+  if (outcome) {
+    toast.error(mutationOutcomeText(outcome), {
+      description: outcome.receiptId ? `Receipt: ${outcome.receiptId}` : undefined,
+      duration: Infinity,
+      closeButton: true,
+    });
+    return;
+  }
   if (err instanceof ApiError && err.code === "schema_migration_required") {
     toast.error(<SchemaMigrationMessage detail={err.detail} />, {
       duration: Infinity,

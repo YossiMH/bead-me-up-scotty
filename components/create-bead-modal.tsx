@@ -8,14 +8,15 @@ import {
 } from "@/components/ui/dialog";
 import { useQueryClient } from "@tanstack/react-query";
 import { toast } from "sonner";
+import { MutationOutcomeNotice } from "@/components/mutation-outcome-notice";
 import { Icon } from "@/components/icons";
 import { useApp } from "@/components/app-context";
 import { useCreateBead, beadsKey } from "@/hooks/use-beads";
 import { useImageDrop } from "@/hooks/use-image-drop";
 import { useResizableWidth } from "@/hooks/use-resizable-width";
 import { DescriptionContent, hasImageRef } from "@/components/description-content";
-import { api } from "@/lib/api-client";
-import { typeLabel } from "@/lib/beads-view";
+import { api, nativeMutationOutcome } from "@/lib/api-client";
+import { typeLabel, canOperate } from "@/lib/beads-view";
 import { BEAD_TYPES, type BeadType } from "@/lib/schema";
 
 const inputClass =
@@ -25,7 +26,7 @@ const selectClass =
 const labelClass = "text-[12px] font-[550] text-[var(--text-2)]";
 
 interface FormState {
-  type: BeadType;
+  type: string;
   priority: number;
   title: string;
   description: string;
@@ -104,11 +105,14 @@ function CreateForm({
   dirtyRef: React.RefObject<boolean>;
   onClose: () => void;
 }) {
-  const { beads, meta, projectId } = useApp();
+  const { beads, meta, projectId, openDetail } = useApp();
   const create = useCreateBead();
+  const outcome = nativeMutationOutcome(create.error);
   const qc = useQueryClient();
   const actor = meta?.humanActor ?? "you";
   const isDemo = meta?.kind === "demo";
+  const attachmentsAllowed = !isDemo && canOperate(meta, "attachments");
+  const parentAllowed = canOperate(meta, "parent");
 
   const [form, setForm] = React.useState<FormState>({
     type: presetType ?? "task",
@@ -116,7 +120,7 @@ function CreateForm({
     title: "",
     description: "",
     assignee: "",
-    parent,
+    parent: parentAllowed ? parent : "",
     labels: "",
     backlog: false,
   });
@@ -140,11 +144,11 @@ function CreateForm({
 
   const hasText = [form.title, form.description, form.assignee, form.labels].some((v) => v.trim() !== "");
   React.useEffect(() => {
-    dirtyRef.current = hasText;
+    dirtyRef.current = hasText && !outcome;
     return () => {
       dirtyRef.current = false;
     };
-  }, [dirtyRef, hasText]);
+  }, [dirtyRef, hasText, outcome]);
 
   const set = <K extends keyof FormState>(k: K, v: FormState[K]) =>
     setForm((f) => ({ ...f, [k]: v }));
@@ -165,8 +169,8 @@ function CreateForm({
   const drop = useImageDrop({
     projectId,
     beadId: draftId,
-    disabled: isDemo,
-    disabledMessage: "Attachments aren't available for the Demo project.",
+    disabled: !attachmentsAllowed,
+    disabledMessage: "Attachments are not available for this backend.",
     textareaRef: taRef,
     value: form.description,
     onChange: (v) => set("description", v),
@@ -192,21 +196,21 @@ function CreateForm({
   );
 
   function submit() {
-    if (!form.title.trim() || create.isPending) return;
+    if (!form.title.trim() || !form.type.trim() || create.isPending || outcome || !canOperate(meta, "create")) return;
     create.mutate(
       {
         title: form.title.trim(),
-        issue_type: form.type,
+        issue_type: form.type.trim(),
         priority: form.priority,
         description: form.description,
         assignee: form.assignee,
         labels: form.labels.split(",").map((s) => s.trim()).filter(Boolean),
-        parent: form.parent,
+        parent: parentAllowed ? form.parent : "",
         backlog: form.backlog,
       },
       {
         onSuccess: async (newBead) => {
-          if (form.description.includes(`attachment://${draftId}/`)) {
+          if (attachmentsAllowed && form.description.includes(`attachment://${draftId}/`)) {
             try {
               await api.attachments.finalize(projectId, draftId, newBead.id);
               const rewritten = form.description.replaceAll(
@@ -253,7 +257,7 @@ function CreateForm({
             {dialogTitle}
           </DialogTitle>
           <DialogDescription className="font-mono text-[11.5px] text-[var(--text-3)]">
-            bd create … --json
+            {meta?.kind === "bead-rs" ? "bead" : "bd"} create … --json
           </DialogDescription>
         </div>
         <button
@@ -264,17 +268,27 @@ function CreateForm({
         </button>
       </div>
 
-      <div className="flex min-h-0 flex-1 flex-col gap-[14px] overflow-y-auto p-5">
+      {outcome && <div className="px-5 pt-4"><MutationOutcomeNotice outcome={outcome} projectId={projectId} mode="create" onReconciled={(bead) => {
+        onClose();
+        openDetail(bead.id);
+      }} /></div>}
+      <fieldset disabled={!!outcome} className="flex min-h-0 min-w-0 flex-1 flex-col gap-[14px] overflow-y-auto p-5">
         <div className="grid grid-cols-2 gap-3">
           <label className="flex flex-col gap-[6px]">
             <span className={labelClass}>Type</span>
-            <select className={selectClass} value={form.type} onChange={(e) => set("type", e.target.value as BeadType)}>
+            {meta?.kind === "bead-rs" ? (
+              <input aria-label="Type" list="native-create-types" className={inputClass} value={form.type}
+                onChange={(event) => set("type", event.target.value)} />
+            ) : <select className={selectClass} value={form.type} onChange={(e) => set("type", e.target.value as BeadType)}>
               {BEAD_TYPES.map((t) => (
                 <option key={t} value={t}>
                   {typeLabel(t)}
                 </option>
               ))}
-            </select>
+            </select>}
+            {meta?.kind === "bead-rs" && <datalist id="native-create-types">
+              {BEAD_TYPES.map((item) => <option key={item} value={item} />)}
+            </datalist>}
           </label>
           <label className="flex flex-col gap-[6px]">
             <span className={labelClass}>Priority</span>
@@ -320,7 +334,7 @@ function CreateForm({
         <label className="flex flex-col gap-[6px]">
           <span className={labelClass}>
             Description{" "}
-            {!isDemo && (
+            {attachmentsAllowed && (
               <span className="font-normal text-[var(--text-3)]">· drop or paste images</span>
             )}
           </span>
@@ -340,7 +354,7 @@ function CreateForm({
               onChange={(e) => set("description", e.target.value)}
               onPaste={drop.onPaste}
               placeholder={
-                isDemo
+                !attachmentsAllowed
                   ? "Optional details, acceptance criteria…"
                   : "Optional details, acceptance criteria… drag and drop screenshots and images here too!"
               }
@@ -351,7 +365,7 @@ function CreateForm({
               </span>
             )}
           </div>
-          {!isDemo && (
+          {attachmentsAllowed && (
             <div>
               <input
                 ref={fileRef}
@@ -391,7 +405,7 @@ function CreateForm({
               ))}
             </select>
           </label>
-          <label className="flex flex-col gap-[6px]">
+          {parentAllowed && <label className="flex flex-col gap-[6px]">
             <span className={labelClass}>Parent</span>
             {/* A datalist-backed input rather than a bare <select>: the option
                 list is now every open bead, which is far too long to scan. The
@@ -416,7 +430,7 @@ function CreateForm({
                 </option>
               ))}
             </datalist>
-          </label>
+          </label>}
         </div>
 
         <label className="flex flex-col gap-[6px]">
@@ -440,27 +454,28 @@ function CreateForm({
             style={{ accentColor: "var(--brand)" }}
           />
           <span className="text-[13px] text-[var(--text-2)]">
-            Start in Backlog (<span className="font-mono">deferred</span>) instead of Ready
+            Start in Backlog (<span className="font-mono">deferred</span>) instead of {meta?.kind === "bead-rs" ? "Open" : "Ready"}
           </span>
         </label>
-      </div>
+      </fieldset>
 
       <div className="flex shrink-0 items-center gap-[10px] border-t border-border p-[15px_20px]">
         <div className="flex flex-1 items-center gap-[7px] text-[11.5px] text-[var(--text-3)]">
           <Icon name="user" size={13} className="text-[var(--text-2)]" />
           <span>
-            Stamped <span className="font-mono text-[var(--text-2)]">created_by={actor}</span>
+            {meta?.capabilities?.attribution === "unavailable" ? "Creation author is not recorded by this backend." :
+              <>Stamped <span className="font-mono text-[var(--text-2)]">created_by={actor}</span></>}
           </span>
         </div>
         <button
           onClick={onClose}
           className="h-[38px] rounded-[9px] border border-border bg-[var(--surface-2)] px-4 text-[13px] font-[550] text-[var(--text)] hover:bg-[var(--surface-3)]"
         >
-          Cancel
+          {outcome ? "Close" : "Cancel"}
         </button>
         <button
           onClick={submit}
-          disabled={!form.title.trim() || create.isPending}
+          disabled={!canOperate(meta, "create") || !form.title.trim() || !form.type.trim() || create.isPending || !!outcome}
           className="flex h-[38px] items-center gap-[7px] rounded-[9px] px-4 text-[13px] font-semibold text-white disabled:opacity-50"
           style={{ background: "var(--brand)", boxShadow: "0 2px 8px -2px var(--brand)" }}
         >

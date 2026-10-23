@@ -2,6 +2,7 @@ import "server-only";
 import { NextResponse } from "next/server";
 import { ZodError } from "zod";
 import { BdError } from "./bd";
+import { NativeMutationError } from "./native-mutation";
 import { ConfigError } from "./config";
 
 export function ok(data: unknown, init?: number) {
@@ -14,6 +15,9 @@ export function fail(err: unknown) {
       { error: "Invalid input", issues: err.issues, code: "invalid_input" },
       { status: 400 },
     );
+  }
+  if (err instanceof NativeMutationError) {
+    return NextResponse.json({ error: err.message, code: err.code, outcome: err.outcome }, { status: 409 });
   }
   if (err instanceof BdError) {
     // A blocked write on a stale schema is a precondition conflict, not a bad
@@ -33,7 +37,8 @@ export function fail(err: unknown) {
     // parse_error means bd's output drifted from our schema — a server-side
     // integration failure, not a bad client request.
     const status =
-      err.code === "not_found" ? 404 : err.code === "parse_error" ? 500 : 400;
+      err.code === "not_found" ? 404 : err.code === "parse_error" ? 500
+        : err.code === "snapshot_conflict" || err.code === "claim_conflict" ? 409 : 400;
     return NextResponse.json({ error: err.message, code: err.code }, { status });
   }
   if (err instanceof ConfigError) {

@@ -1,3 +1,4 @@
+import type { BackendCapabilities, BackendKind, BackendOperation, EditableBeadField } from "./backend-contract";
 import type { Bead } from "./schema";
 import { BLOCKING_DEP_TYPES } from "./schema";
 
@@ -73,11 +74,12 @@ export function toggleTask(text: string, index: number): string {
 /**
  * `bd close` with no `--reason` still records a reason: the literal "Closed".
  * That placeholder carries no information, so treat it as absent rather than
- * rendering a "Close reason" section that just says "Closed".
+ * rendering a "Close reason" section that just says "Closed". Native reasons
+ * are explicit input and must be displayed verbatim, including "Closed".
  */
-export function closeReasonOf(b: Bead): string {
+export function closeReasonOf(b: Bead, kind?: BackendKind): string {
   const reason = b.close_reason?.trim() ?? "";
-  return reason.toLowerCase() === "closed" ? "" : reason;
+  return kind !== "bead-rs" && reason.toLowerCase() === "closed" ? "" : reason;
 }
 
 export type StatusCategory = "done" | "wip" | "blocked" | "frozen" | "active";
@@ -273,4 +275,44 @@ export function fmtDateTime(iso?: string | null): string {
     hour: "numeric",
     minute: "2-digit",
   });
+}
+
+/** Capability metadata may be absent only on legacy bd/demo responses. */
+type CapabilitySource = { kind: BackendKind; capabilities?: BackendCapabilities } | undefined;
+
+/** Missing legacy metadata preserves original controls; native fails closed. */
+export function canOperate(meta: CapabilitySource, operation: BackendOperation): boolean {
+  return meta?.capabilities?.operations.includes(operation) ?? meta?.kind !== "bead-rs";
+}
+
+/** Post-create edits follow the server's editable-field membership. */
+export function canEdit(meta: CapabilitySource, field: EditableBeadField): boolean {
+  return meta?.capabilities?.editableFields.includes(field) ?? meta?.kind !== "bead-rs";
+}
+
+/** Native readiness is membership, including an explicitly empty frontier. */
+export function isReady(bead: Bead, index: Map<string, Bead>, readyIds?: ReadonlySet<string>): boolean {
+  return readyIds !== undefined ? readyIds.has(bead.id) : bead.status === "open" && !isBlocked(bead, index);
+}
+
+/** Native blocked is an overlay; base_status controls legal lifecycle actions. */
+export function canChangeStatus(meta: CapabilitySource, bead: Bead, status: string): boolean {
+  if (!canEdit(meta, "status")) return false;
+  if (meta?.capabilities && !meta.capabilities.statuses.includes(status)) return false;
+  if (meta?.kind !== "bead-rs") return true;
+  const baseStatus = bead.base_status ?? bead.status;
+  if (status === "blocked") return baseStatus !== "closed";
+  if (baseStatus === "closed") return status === "open";
+  if (baseStatus === "deferred") return status === "open" || status === "closed";
+  return status === "open" || status === "in_progress" || status === "deferred" || status === "closed";
+}
+
+/** Views requiring bd-only writes or creation attribution are unavailable natively. */
+export function canView(meta: CapabilitySource, view: string): boolean {
+  if (view === "publish") return canOperate(meta, "publish");
+  if (view === "needsyou") return canOperate(meta, "gate");
+  if (view === "insights" || view === "activity" || view === "achievements") {
+    return meta?.capabilities?.attribution !== "unavailable";
+  }
+  return true;
 }

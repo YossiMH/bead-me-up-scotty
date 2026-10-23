@@ -3,12 +3,13 @@ import * as React from "react";
 import { useApp } from "@/components/app-context";
 import { Icon } from "@/components/icons";
 import { useUpdateBead } from "@/hooks/use-beads";
-import { avatarColor, initials } from "@/lib/beads-view";
+import { avatarColor, initials, canEdit } from "@/lib/beads-view";
 import type { Bead } from "@/lib/schema";
 
 /** Assignment is independent of the drawer's description and comment drafts. */
 export function AssigneeField({ bead }: { bead: Bead }) {
-  const { beads, meta, readOnly } = useApp();
+  const { beads, meta, readOnly: viewerReadOnly } = useApp();
+  const readOnly = viewerReadOnly || !canEdit(meta, "assignee");
   const update = useUpdateBead();
   const [editing, setEditing] = React.useState(false);
   const [draft, setDraft] = React.useState("");

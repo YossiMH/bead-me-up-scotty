@@ -3,6 +3,7 @@ import { getConfig, getProject } from "@/lib/config";
 import { ok, fail } from "@/lib/api";
 import { readInteractions } from "@/lib/interactions";
 import { computeInsights } from "@/lib/insights";
+import { requireAttribution } from "@/lib/backend-capabilities";
 
 export const dynamic = "force-dynamic";
 
@@ -15,6 +16,7 @@ export async function GET(req: Request, { params }: Ctx) {
     const days = Math.min(365, Math.max(7, Number(url.searchParams.get("days")) || 30));
 
     const store = await getStore(projectId);
+    requireAttribution(store);
     const cfg = getConfig();
     const beads = await store.list();
     const project = getProject(projectId);

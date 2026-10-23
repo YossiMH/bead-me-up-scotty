@@ -31,7 +31,8 @@ export const BEAD_TYPES = [
 ] as const;
 export type BeadType = (typeof BEAD_TYPES)[number];
 
-export const DEP_TYPES = [
+/** Original bd relationship spellings, kept separate from native additions. */
+export const BD_DEP_TYPES = [
   "blocks",
   "parent-child",
   "conditional-blocks",
@@ -45,6 +46,8 @@ export const DEP_TYPES = [
   "validates",
   "tracks",
 ] as const;
+/** Canonical accepted dependency types across the explicitly selected backends. */
+export const DEP_TYPES = [...BD_DEP_TYPES, "relates_to", "verifies"] as const;
 export type DepType = (typeof DEP_TYPES)[number];
 
 // Dep types that block the ready queue (beads semantics).
@@ -98,6 +101,9 @@ export const commentSchema = z
     author: z.string().default(""),
     text: z.string().default(""),
     created_at: z.string().optional(),
+    /** Native thread/resolution metadata, absent for original bd comments. */
+    reply_to_id: z.string().optional(),
+    resolution_state: z.string().optional(),
   });
 export type Comment = z.infer<typeof commentSchema>;
 
@@ -110,6 +116,8 @@ export const beadSchema = z
     design: z.string().optional().default(""),
     acceptance_criteria: z.string().optional().default(""),
     status: statusSchema,
+    /** Native base state when manual blocking overlays the displayed status. */
+    base_status: z.enum(["open", "in_progress", "deferred", "closed"]).optional(),
     priority: z.coerce.number().int().min(0).max(4).default(2),
     issue_type: typeSchema,
     assignee: z.string().optional().default(""),
@@ -160,7 +168,11 @@ export const createInputSchema = z.object({
   /** When true, the bead starts in the Backlog (deferred) instead of Ready. */
   backlog: z.boolean().optional().default(false),
 });
-export type CreateInput = z.infer<typeof createInputSchema>;
+/** Native creation preserves custom types while original input validation is unchanged. */
+export const nativeCreateInputSchema = createInputSchema.extend({
+  issue_type: z.string().min(1).default("task"),
+}).strict();
+export type CreateInput = z.infer<typeof nativeCreateInputSchema>;
 
 export const updateInputSchema = z.object({
   title: z.string().min(1).max(500).optional(),
@@ -193,3 +205,10 @@ export const addDepSchema = z.object({
   depends_on_id: z.string().min(1),
   type: z.enum(DEP_TYPES).default("blocks"),
 });
+/** Retain original bd's request validation while native accepts its own spellings. */
+export const originalAddDepSchema = addDepSchema.extend({ type: z.enum(BD_DEP_TYPES).default("blocks") });
+
+/** One explicit native label intent; additional edits cannot hide in this body. */
+export const nativeLabelInputSchema = z.object({
+  label: z.string().refine((label) => label.trim().length > 0, "A nonblank label is required."),
+}).strict();

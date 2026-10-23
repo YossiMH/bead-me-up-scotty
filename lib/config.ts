@@ -3,6 +3,7 @@ import fs from "node:fs";
 import path from "node:path";
 import os from "node:os";
 import { execFileSync } from "node:child_process";
+import type { ProjectBackend } from "./backend-contract";
 
 /**
  * Local app config (NOT stored in beads). Lives as a small JSON file under the
@@ -14,6 +15,8 @@ import { execFileSync } from "node:child_process";
  * "active" project is NOT stored here — only the durable list of discovered ones.
  */
 export interface ProjectEntry {
+  /** Missing selection retains the original bd backend. */
+  backend?: ProjectBackend;
   id: string;
   name: string;
   path: string;
@@ -196,6 +199,7 @@ function sanitizeProjects(input: unknown): ProjectEntry[] {
     const e = it as Record<string, unknown>;
     if (typeof e.id !== "string" || typeof e.path !== "string") continue;
     if (e.id === DEMO_PROJECT.id || seen.has(e.id)) continue;
+    if (e.backend !== undefined && e.backend !== "bd" && e.backend !== "bead-rs") continue;
     seen.add(e.id);
     out.push({
       id: e.id,
@@ -203,6 +207,7 @@ function sanitizeProjects(input: unknown): ProjectEntry[] {
       name: typeof e.name === "string" && e.name ? e.name : path.basename(e.path) || e.path,
       addedAt: typeof e.addedAt === "string" ? e.addedAt : new Date().toISOString(),
       lastOpened: typeof e.lastOpened === "string" ? e.lastOpened : new Date().toISOString(),
+      ...(e.backend === "bd" || e.backend === "bead-rs" ? { backend: e.backend } : {}),
     });
   }
   return out;
@@ -326,7 +331,7 @@ export function getProject(id: string): ProjectEntry | DemoProject | undefined {
 }
 
 /** Add (or re-touch) a project by folder path. Validates a `.beads` dir exists. */
-export function addProject(inputPath: string): ProjectEntry {
+export function addProject(inputPath: string, backend?: ProjectBackend): ProjectEntry {
   const cfg = getConfig();
   const abs = path.resolve(inputPath);
   if (!hasBeads(abs)) {
@@ -334,11 +339,15 @@ export function addProject(inputPath: string): ProjectEntry {
   }
   const existing = cfg.projects.find((p) => sameDir(p.path, abs));
   if (existing) {
+    if (backend !== undefined && backend !== (existing.backend ?? "bd")) {
+      throw new ConfigError("This folder is already registered with another backend. Remove that registration before changing its backend.", "backend_conflict");
+    }
     existing.lastOpened = new Date().toISOString();
     persist(cfg);
     return existing;
   }
   const entry = makeEntry(abs, new Set(cfg.projects.map((p) => p.id)));
+  if (backend !== undefined) entry.backend = backend;
   cfg.projects.push(entry);
   persist(cfg);
   return entry;

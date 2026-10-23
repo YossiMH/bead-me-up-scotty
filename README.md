@@ -55,9 +55,14 @@ but no interactive visualizer that also lets you *create* work. This app is that
 visualizer: a fast, graph-aware task board for humans, on top of a tracker built
 for AI agents.
 
+Original Beads (`bd`) remains the default backend. You can also add a project
+owned by [bead-rs](https://github.com/jedarden/bead-rs) using its separate `bead`
+CLI. Native setup, the supported source pin, and feature differences are in
+[Backend compatibility](docs/backend-compatibility.md).
+
 ## Quick install
 
-With [Homebrew](https://brew.sh) (macOS or Linux):
+For the upstream original-bd release, use [Homebrew](https://brew.sh) (macOS or Linux):
 
 ```bash
 brew install brendan-appstart/tap/bead-me-up-scotty
@@ -65,9 +70,13 @@ scotty
 ```
 
 Update with `brew upgrade bead-me-up-scotty`. Other options (from source, global
-npm, Docker) are below.
+npm, Docker) are below. For bead-rs support, build this checkout from source;
+the upstream v0.3.2 release does not include this adapter.
 
 ## Features
+
+These features describe original bd projects. Native projects expose the
+[operations their backend supports](docs/backend-compatibility.md#native-workflow).
 
 - **Board** — a five-column view (Backlog · Ready · In Progress · Blocked · Done)
   with dense cards showing id, type, priority, assignee, dep/comment counts, and an
@@ -114,15 +123,17 @@ detail links, and read-only protections also work in the grouped layout.
 
 ## How it works
 
-- **beads has no HTTP API**, so the app shells out to the `bd` CLI
-  (`bd … --json`, `BD_JSON_ENVELOPE=1`). `bd` stays the single source of truth —
-  the app adds **zero** new persisted schema. The only adapter is
-  [`lib/bd.ts`](lib/bd.ts); see the spec in [`design/design.md`](design/design.md).
+- Scotty invokes the selected backend's public CLI. Original Beads uses
+  [`lib/bd.ts`](lib/bd.ts) (`bd … --json`, `BD_JSON_ENVELOPE=1`); bead-rs uses
+  [`lib/native-store.ts`](lib/native-store.ts). Issue data stays in the backend.
+  Scotty stores project preferences and credentials for native claims it acquired
+  in its own configuration directory. It does not edit either backend's database
+  directly. The original bd design is in [`design/design.md`](design/design.md).
 - The UI was designed in **Claude Design** and rebuilt faithfully here with
   Next.js + shadcn/Tailwind. The original export and a screen/token map live in
   [`design/ui-export/`](design/ui-export/).
 
-### Backlog & attribution (design decisions)
+### Backlog & attribution in original bd projects
 - **Backlog** maps to beads' built-in `deferred` status; **Ready** = open &
   unblocked. Dragging between columns runs `bd update --status` / `bd close`.
 - beads has no human-vs-agent flag, so the UI stamps its own writes with a
@@ -135,6 +146,13 @@ detail links, and read-only protections also work in the grouped layout.
 [Latest stable release](https://github.com/brendan-appstart/bead-me-up-scotty/releases/latest)
 contains version-specific installation instructions, changes, and screenshots.
 The sidebar displays the running app version.
+
+A Git checkout whose `origin` differs from upstream uses manual updates. Scotty
+refuses in-app upstream updates before fetching, so they cannot replace a fork's
+adapter. Update from the fork you installed, then run `npm ci` and
+`npm run build` and restart. Preserve local changes and inspect the incoming
+revision before updating. The following in-app flow applies to upstream-origin
+checkouts.
 
 In **Settings → Software updates**, choose **Stable releases** (the default) or
 **Development (main)**. Stable checks published GitHub releases for all installation
@@ -154,24 +172,33 @@ See [v0.2.0 release notes](docs/releases/v0.2.0.md) for the first versioned rele
 
 ## Run it
 
-**Prerequisites:** Node 20+ and npm. For live mode you also need the
-[`bd`](https://github.com/gastownhall/beads) binary on your `PATH` and a `.beads`
-repo (`bd init`). No `bd`? The app falls back to demo mode automatically.
+**Prerequisites:** Node 20.9+ and npm. For original bd projects you also need
+[`bd`](https://github.com/gastownhall/beads) on your `PATH` and an initialized
+`.beads` repo. Native projects need the pinned bead-rs build described in
+[Backend compatibility](docs/backend-compatibility.md#build-the-native-cli).
+Choose the Demo project to explore without a CLI; a failed live backend does
+not fall back to demo data.
 
 ```bash
 npm install
 npm run dev            # http://localhost:3000
 ```
 
-- **With real data:** run from (or point Settings at) a directory containing a
+- **Original bd data:** run from (or point Settings at) a directory containing a
   `.beads` repo, with `bd` on your `PATH`. Override the repo with
   `BEADS_REPO=/path/to/project` and the binary with `BD_BIN=/path/to/bd`.
-- **Demo mode:** if `bd` isn't installed (or you set `BEADS_DEMO=1`), the app runs
-  against an in-memory dataset seeded from the design export — so you can explore
-  every feature without beads. The sidebar shows which mode is active.
+- **Native data:** set `BEAD_BIN=/absolute/path/to/bead`, then choose
+  **Add a project → Backend → bead-rs (bead)** and select its initialized folder.
+  `BD_BIN` still selects original bd; setting `BD_BIN=bead` does not select native
+  mode. Neither setting converts a workspace.
+- **Demo mode:** choose the Demo project for an in-memory dataset seeded from the
+  design export. The sidebar shows which backend is active.
 
 Set the human actor / allowlist, repo path, and theme in **Settings** (stored
 under your OS config dir, not in beads).
+
+For a production source installation, run `npm ci`, `npm run build`, then
+`npm run serve`. Set the backend executable variables when starting the server.
 
 ### Focus view
 
@@ -180,7 +207,8 @@ under your OS config dir, not in beads).
 project. Enable **Use Focus as the default view** in Settings to start in Focus instead. This toggle is off
 by default and saves automatically for all projects in the current browser.
 Lower-priority backlog and completed work remain
-available in Board and List.
+available in Board and List. For native projects, Next up uses bead-rs readiness;
+other open work remains visible in the Board's **Open** column.
 
 Set `SCOTTY_LANE_PREFIX=ctx:` to enable lane filters from labels such as
 `ctx:frontend`. Without a prefix, lane filters are hidden. If a selected lane
@@ -266,6 +294,8 @@ config dir to keep them:
 
 Container limitations:
 
+- Native bead-rs is not bundled or qualified in this image. Use the source
+  installation for native projects.
 - The image has no `git`, so Dolt remote sync (`refs/dolt/data`) and `bd init`
   don't work inside it — run those on the host. UI edits (create/update/close)
   work fine; they just won't auto-push until you sync from the host.
@@ -320,7 +350,7 @@ permissions error, use a user-owned npm prefix:
 
 Next.js 16 (App Router) · React 19 · TypeScript · Tailwind v4 · shadcn/ui ·
 TanStack Query (polling + optimistic DnD) · dnd-kit (board) · @xyflow/react
-(dependency graph) · Zod (validates `bd` output *and* forms).
+(dependency graph) · Zod (validates CLI output and forms).
 
 ## Project layout
 
@@ -329,10 +359,12 @@ app/                  # pages + API route handlers (the only server entry points
   api/beads/**        # GET list, POST create, [id] PATCH/DELETE, status, comments, deps, archive
   api/doctor, config  # bd preflight + local config
 lib/
-  bd.ts               # the ONLY bd CLI bridge (execFile, JSON envelope, write mutex)
-  demo-store.ts       # in-memory fallback seeded from the export
-  store.ts            # picks bd vs demo
-  schema.ts           # Zod schemas + types (bd data model)
+  bd.ts               # original bd CLI bridge (execFile, JSON envelope, write mutex)
+  native-store.ts     # bead-rs public CLI adapter
+  backend-contract.ts # project selection, capabilities, mutation outcomes
+  demo-store.ts       # explicit in-memory Demo project
+  store.ts            # selects bd, bead-rs, or demo
+  schema.ts           # Zod schemas + shared view types
   beads-view.ts       # pure view-model helpers (status/priority colors, blocked, epic progress)
   attribution.ts      # human-vs-agent origin
 components/           # sidebar, board (dnd), detail drawer, create modal, epics, graph, settings
@@ -344,6 +376,9 @@ components/           # sidebar, board (dnd), detail drawer, create modal, epics
 npm run build         # typecheck + production build
 npm run lint          # eslint
 ```
+
+See [Backend verification](docs/backend-compatibility.md#verification) for
+isolated contract tests and real CLI/API/browser checks for both backends.
 
 ## License
 

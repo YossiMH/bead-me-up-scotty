@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Icon } from "@/components/icons";
 import { useApp } from "@/components/app-context";
+import { canOperate } from "@/lib/beads-view";
 import { api, type AssistResult } from "@/lib/api-client";
 import { useUpdateBead } from "@/hooks/use-beads";
 import { DescriptionContent } from "@/components/description-content";
@@ -16,12 +17,15 @@ import type { Bead } from "@/lib/schema";
  * description is written, via the normal update path.
  */
 export function AiAssistPanel({ bead }: { bead: Bead }) {
-  const { projectId, pushDetail } = useApp();
+  const { projectId, pushDetail, meta, readOnly } = useApp();
   const update = useUpdateBead();
   const [result, setResult] = React.useState<AssistResult | null>(null);
 
   const assist = useMutation({
-    mutationFn: () => api.assist(projectId, bead.id),
+    mutationFn: async () => {
+      if (readOnly || !canOperate(meta, "refine")) throw new Error("Refinement is not available for this backend.");
+      return api.assist(projectId, bead.id);
+    },
     onSuccess: (r) => setResult(r),
     onError: (e) => toast.error((e as Error).message),
   });
@@ -43,7 +47,7 @@ export function AiAssistPanel({ bead }: { bead: Bead }) {
     <div className="mt-2">
       <button
         onClick={() => assist.mutate()}
-        disabled={assist.isPending}
+        disabled={readOnly || !canOperate(meta, "refine") || assist.isPending}
         className="inline-flex h-8 items-center gap-[6px] rounded-lg border border-border bg-[var(--surface-2)] px-3 text-[12.5px] font-[550] text-[var(--text-2)] hover:bg-[var(--surface-3)] disabled:opacity-50"
       >
         <Icon name="feature" size={14} style={{ color: "var(--brand)" }} />

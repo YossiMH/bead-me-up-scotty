@@ -3,7 +3,7 @@ import * as React from "react";
 import { toast } from "sonner";
 import { useActivity } from "@/hooks/use-beads";
 import { useApp } from "@/components/app-context";
-import { needsHuman } from "@/lib/beads-view";
+import { canOperate, needsHuman } from "@/lib/beads-view";
 
 /**
  * Opt-in desktop/toast notifications for Mission Control. Fires when an agent
@@ -132,7 +132,7 @@ function fire(title: string, body: string, projectId: string, beadId: string) {
  */
 export function useNotificationWatcher(projectId: string) {
   const { data } = useActivity(projectId);
-  const { beads, loading, error } = useApp();
+  const { beads, loading, error, meta } = useApp();
   const items = data?.items;
 
   const lastSeenRef = React.useRef<string | null>(null);
@@ -167,7 +167,7 @@ export function useNotificationWatcher(projectId: string) {
   React.useEffect(() => {
     // `beads` is an empty fallback while the query is loading. Waiting avoids
     // treating every existing human-labelled bead as a newly raised escalation.
-    if (loading || error) return;
+    if (loading || error || !canOperate(meta, "gate")) return;
     const current = new Set(beads.filter(needsHuman).map((b) => b.id));
     if (seenHumanRef.current === null) {
       seenHumanRef.current = current;
@@ -183,5 +183,5 @@ export function useNotificationWatcher(projectId: string) {
         fire(`🙋 Needs you: ${b.id}`, b.title, projectId, b.id);
       }
     }
-  }, [beads, error, loading, projectId]);
+  }, [beads, error, loading, projectId, meta]);
 }

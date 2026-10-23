@@ -153,7 +153,7 @@ function ProjectCard({ project }: { project: ProjectInfo }) {
               className="h-[6px] w-[6px] rounded-full"
               style={{ background: project.hasBeads ? "#22c55e" : "#ef4444" }}
             />
-            {project.hasBeads ? "bd repo" : "no .beads found"}
+            {project.hasBeads ? `${project.backend ?? "bd"} repo` : "no .beads found"}
           </div>
         </div>
         <button

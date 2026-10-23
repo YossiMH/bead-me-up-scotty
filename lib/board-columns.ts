@@ -12,9 +12,9 @@ export interface BoardColumn {
   color: string;
   cmd: string;
   droppable: boolean;
-  /** The bd status a drop into this column sets (undefined = not a real status). */
+  /** The status a drop into this column sets (undefined = not a real status). */
   status?: string;
-  test: (b: Bead, blocked: boolean) => boolean;
+  test: (b: Bead, blocked: boolean, readyIds?: ReadonlySet<string>) => boolean;
 }
 
 export const BOARD_COLUMNS: BoardColumn[] = [
@@ -25,12 +25,32 @@ export const BOARD_COLUMNS: BoardColumn[] = [
   { id: "done", name: "Done", color: "#16a34a", cmd: "closed", droppable: true, status: "closed", test: (b) => b.status === "closed" },
 ];
 
+/** Open native work can be assigned or resource-held without being ready or blocked. */
+const NATIVE_OPEN_COLUMN: BoardColumn = {
+  id: "not_ready", name: "Open", color: "#64748b", cmd: "not ready", droppable: false,
+  test: (bead, blocked, readyIds) => bead.status === "open" && !blocked && readyIds !== undefined && !readyIds.has(bead.id),
+};
+const NATIVE_COLUMNS: readonly BoardColumn[] = [
+  BOARD_COLUMNS[0], {
+    ...BOARD_COLUMNS[1], cmd: "bead list --ready",
+    test: (bead, _blocked, readyIds) => readyIds?.has(bead.id) ?? false,
+  }, NATIVE_OPEN_COLUMN,
+  BOARD_COLUMNS[2], { ...BOARD_COLUMNS[3], cmd: "blocked" }, BOARD_COLUMNS[4],
+];
+
+/** Original columns remain unchanged when no authoritative frontier is supplied. */
+export function boardColumns(readyIds?: ReadonlySet<string>): readonly BoardColumn[] {
+  return readyIds === undefined ? BOARD_COLUMNS : NATIVE_COLUMNS;
+}
+
 export const COLUMN_ORDER: string[] = BOARD_COLUMNS.map((c) => c.id);
 
 /** Which board column a bead belongs to (first matching test), or null. */
-export function colOf(bead: Bead, index: Map<string, Bead>): string | null {
+export function colOf(bead: Bead, index: Map<string, Bead>, readyIds?: ReadonlySet<string>): string | null {
   const blocked = isBlocked(bead, index);
-  for (const c of BOARD_COLUMNS) if (c.test(bead, blocked)) return c.id;
+  for (const column of boardColumns(readyIds)) {
+    if (column.test(bead, blocked, readyIds)) return column.id;
+  }
   return null;
 }
 

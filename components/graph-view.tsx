@@ -14,6 +14,7 @@ import {
 } from "@xyflow/react";
 import "@xyflow/react/dist/style.css";
 import { Icon, typeIconName } from "@/components/icons";
+import { canOperate } from "@/lib/beads-view";
 import { useApp } from "@/components/app-context";
 import { useAddDep } from "@/hooks/use-beads";
 import { catColor, typeColor, childrenOf } from "@/lib/beads-view";
@@ -89,6 +90,13 @@ const nodeTypes = { bead: BeadNode };
 
 const FLOW_BLOCKING = new Set(["blocks", "conditional-blocks", "waits-for"]);
 
+/** Exact native kinds share edge/legend styling; label offsets separate same-pair links. */
+const NATIVE_GRAPH_KINDS: Record<string, { color: string; dash?: string; labelOffset: number }> = {
+  blocks: { color: "#ef4444", labelOffset: 0 },
+  relates_to: { color: "var(--brand)", dash: "5 4", labelOffset: -24 },
+  verifies: { color: "#0891b2", dash: "2 3", labelOffset: 24 },
+};
+
 function nodeSpan(bead: Bead, outsideEpic = false): number {
   const title = bead.title.replace(/\s*\([^)]*\)\s*/, "");
   // At 170px wide, 16 characters per line is deliberately conservative. The
@@ -97,7 +105,7 @@ function nodeSpan(bead: Bead, outsideEpic = false): number {
   return 82 + titleLines * 18 + (outsideEpic ? 24 : 0);
 }
 
-function styledEdges(beads: Bead[], horizontal: boolean): Edge[] {
+function styledEdges(beads: Bead[], horizontal: boolean, native = false): Edge[] {
   const present = new Set(beads.map((bead) => bead.id));
   const edgeIds = new Set<string>();
   const edges: Edge[] = [];
@@ -112,6 +120,7 @@ function styledEdges(beads: Bead[], horizontal: boolean): Edge[] {
       // active blocker.
       const blocking = FLOW_BLOCKING.has(dependency.type);
       const related = dependency.type === "related" || dependency.type === "relates-to";
+      const nativeStyle = native ? NATIVE_GRAPH_KINDS[dependency.type] : undefined;
       edges.push({
         // IDs remain canonical dependent -> prerequisite in both modes so the
         // PR43 spotlight can compare them directly with graphNeighborhood.
@@ -119,10 +128,15 @@ function styledEdges(beads: Bead[], horizontal: boolean): Edge[] {
         source: horizontal ? dependency.depends_on_id : bead.id,
         target: horizontal ? bead.id : dependency.depends_on_id,
         animated: blocking,
+        ...(nativeStyle ? {
+          label: dependency.type,
+          labelStyle: { fill: nativeStyle.color, fontSize: 11, transform: `translateY(${nativeStyle.labelOffset}px)` },
+          labelBgStyle: { fill: "var(--surface)", transform: `translateY(${nativeStyle.labelOffset}px)` },
+        } : {}),
         style: {
-          stroke: blocking ? "#ef4444" : related ? "var(--brand)" : "var(--text-3)",
+          stroke: nativeStyle?.color ?? (blocking ? "#ef4444" : related ? "var(--brand)" : "var(--text-3)"),
           strokeWidth: blocking ? 2 : 1.6,
-          strokeDasharray: related ? "5 4" : undefined,
+          strokeDasharray: nativeStyle ? nativeStyle.dash : related ? "5 4" : undefined,
         },
       });
     }
@@ -153,7 +167,7 @@ function liveGraphBeads(beads: Bead[], alwaysVisible = new Set<string>()): Bead[
   );
 }
 
-function layout(beads: Bead[], onOpen: (id: string) => void): { nodes: Node[]; edges: Edge[] } {
+function layout(beads: Bead[], onOpen: (id: string) => void, native = false): { nodes: Node[]; edges: Edge[] } {
   const epics = beads.filter((b) => b.issue_type === "epic");
 
   const nodes: Node[] = [];
@@ -193,13 +207,14 @@ function layout(beads: Bead[], onOpen: (id: string) => void): { nodes: Node[]; e
     looseY[column] = (looseY[column] ?? 0) + nodeSpan(bead);
   });
 
-  return { nodes, edges: styledEdges(beads, false) };
+  return { nodes, edges: styledEdges(beads, false, native) };
 }
 
 function epicLayout(
   beads: Bead[],
   onOpen: (id: string) => void,
   outsideIds: Set<string>,
+  native = false,
 ): { nodes: Node[]; edges: Edge[] } {
   const layers = graphDependencyLayers(beads);
   const byLayer = new Map<number, Bead[]>();
@@ -227,11 +242,13 @@ function epicLayout(
       y += nodeSpan(bead, outsideEpic);
     }
   }
-  return { nodes, edges: styledEdges(beads, true) };
+  return { nodes, edges: styledEdges(beads, true, native) };
 }
 
 export function GraphView() {
-  const { beads, openDetail, readOnly } = useApp();
+  const { beads, openDetail, readOnly: viewerReadOnly, meta } = useApp();
+  const readOnly = viewerReadOnly || !canOperate(meta, "dependencies");
+  const native = meta?.kind === "bead-rs";
   const [epicId, setEpicId] = React.useState("");
   const [liveOnly, setLiveOnly] = React.useState(false);
   const [spotlight, setSpotlight] = React.useState(false);
@@ -267,13 +284,13 @@ export function GraphView() {
         ? liveGraphBeads(scope.beads, new Set([effectiveEpicId]))
         : scope.beads;
       return {
-        ...epicLayout(visible, activateNode, scope.outsideIds),
+        ...epicLayout(visible, activateNode, scope.outsideIds, native),
         considered: scope.beads.length,
       };
     }
     const visible = liveOnly ? liveGraphBeads(nonArchived) : nonArchived;
-    return { ...layout(visible, activateNode), considered: nonArchived.length };
-  }, [beads, activateNode, effectiveEpicId, liveOnly]);
+    return { ...layout(visible, activateNode, native), considered: nonArchived.length };
+  }, [beads, activateNode, effectiveEpicId, liveOnly, native]);
   const hidden = Math.max(0, considered - nodes.length);
   const focus = React.useMemo(() => {
     if (!spotlight || !focusId || !nodes.some(n => n.id === focusId)) return null;
@@ -430,6 +447,14 @@ export function GraphView() {
           </div>
         )}
         <div className="pointer-events-none absolute bottom-[18px] left-1/2 flex -translate-x-1/2 gap-[18px] rounded-[11px] border border-border bg-[var(--surface)] p-[9px_16px] text-[11.5px] text-[var(--text-2)] shadow-[var(--shadow)]">
+          {native ? Object.entries(NATIVE_GRAPH_KINDS).map(([kind, style]) => (
+            <span key={kind} className="flex items-center gap-[6px]">
+              <svg width="18" height="4" aria-hidden="true">
+                <line x1="0" y1="2" x2="18" y2="2" stroke={style.color} strokeWidth="2" strokeDasharray={style.dash} />
+              </svg>
+              {kind}
+            </span>
+          )) : <>
           <span className="flex items-center gap-[6px]">
             <span className="h-[2px] w-[18px] bg-[#ef4444]" />
             blocks
@@ -442,6 +467,7 @@ export function GraphView() {
             <span className="h-0 w-[18px] border-t-2 border-dashed border-[var(--brand)]" />
             related
           </span>
+          </>}
         </div>
       </div>
     </div>

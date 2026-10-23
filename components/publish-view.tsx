@@ -4,6 +4,7 @@ import { useMutation } from "@tanstack/react-query";
 import { toast } from "sonner";
 import { Icon } from "@/components/icons";
 import { useApp } from "@/components/app-context";
+import { canOperate } from "@/lib/beads-view";
 import { api } from "@/lib/api-client";
 
 const TEMPLATES = [
@@ -15,7 +16,8 @@ const TEMPLATES = [
 const cardBase = "rounded-[12px] border bg-[var(--surface)] p-[14px_16px] text-left transition-colors";
 
 export function PublishView() {
-  const { projectId, beads, meta, readOnly } = useApp();
+  const { projectId, beads, meta, readOnly: viewerReadOnly } = useApp();
+  const readOnly = viewerReadOnly || !canOperate(meta, "publish");
   const [template, setTemplate] = React.useState<(typeof TEMPLATES)[number]["id"]>("manager");
   const [title, setTitle] = React.useState("Look at my productivity 😄");
   const [scope, setScope] = React.useState<"project" | "all">("project");

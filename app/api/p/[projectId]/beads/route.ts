@@ -1,6 +1,6 @@
 import { getStore } from "@/lib/store";
 import { getConfig, isReadOnly, lanePrefix } from "@/lib/config";
-import { createInputSchema } from "@/lib/schema";
+import { createInputSchema, nativeCreateInputSchema } from "@/lib/schema";
 import { ok, fail } from "@/lib/api";
 
 export const dynamic = "force-dynamic";
@@ -12,11 +12,14 @@ export async function GET(_req: Request, { params }: Ctx) {
     const { projectId } = await params;
     const store = await getStore(projectId);
     const cfg = getConfig();
-    const beads = await store.list();
+    const snapshot = store.listSnapshot ? await store.listSnapshot() : undefined;
+    const beads = snapshot?.beads ?? await store.list();
     return ok({
       beads,
       meta: {
         kind: store.kind,
+        capabilities: store.capabilities,
+        ...(snapshot ? { readyIds: snapshot.readyIds } : {}),
         humanActor: cfg.humanActor,
         humanAllowlist: cfg.humanAllowlist,
         pollIntervalMs: cfg.pollIntervalMs,
@@ -35,7 +38,7 @@ export async function POST(req: Request, { params }: Ctx) {
     const { projectId } = await params;
     const store = await getStore(projectId);
     const cfg = getConfig();
-    const input = createInputSchema.parse(await req.json());
+    const input = (store.kind === "bead-rs" ? nativeCreateInputSchema : createInputSchema).parse(await req.json());
     const bead = await store.create(input, cfg.humanActor);
     return ok(bead, 201);
   } catch (e) {

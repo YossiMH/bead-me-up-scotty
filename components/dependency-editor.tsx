@@ -5,21 +5,21 @@ import { useApp } from "@/components/app-context";
 import { Icon } from "@/components/icons";
 import { useAddDep } from "@/hooks/use-beads";
 import { filterDepCandidates } from "@/lib/dep-picker";
-import { catColor, statusLabel, typeLabel } from "@/lib/beads-view";
+import { canOperate, catColor, statusLabel, typeLabel } from "@/lib/beads-view";
 import type { Bead, DepType } from "@/lib/schema";
 
 /** Search and selection stay local until the explicit Add action succeeds. */
 export function DependencyEditor({ bead, onDone }: { bead: Bead; onDone: () => void }) {
-  const { beads, readOnly } = useApp();
+  const { beads, readOnly, meta } = useApp();
   const addDep = useAddDep();
   const [query, setQuery] = React.useState("");
   const [targetId, setTargetId] = React.useState("");
   const [type, setType] = React.useState<DepType>("blocks");
   const submitting = React.useRef(false);
-  const disabled = readOnly || addDep.isPending;
+  const disabled = readOnly || !canOperate(meta, "dependencies") || addDep.isPending;
   const eligible = filterDepCandidates(beads, "", {
     currentId: bead.id,
-    linkedIds: (bead.dependencies ?? []).map(dep => dep.depends_on_id),
+    linkedIds: (bead.dependencies ?? []).filter(dep => meta?.kind !== "bead-rs" || dep.type === type).map(dep => dep.depends_on_id),
   });
   const candidates = filterDepCandidates(eligible, query, { currentId: bead.id, linkedIds: [] });
   const selected = eligible.find(candidate => candidate.id === targetId);
@@ -101,9 +101,10 @@ export function DependencyEditor({ bead, onDone }: { bead: Bead; onDone: () => v
           disabled={disabled}
           className="h-8 min-w-0 flex-1 rounded-[9px] border border-border bg-[var(--surface-2)] px-2 text-[12.5px]"
         >
-          {/* Hierarchy stays in the Parent/Subtasks controls. Preserve the existing dependency choices. */}
-          <option value="blocks">blocked by</option>
-          <option value="related">related</option>
+          {/* Hierarchy stays in Parent/Subtasks; native kinds keep their exact spelling. */}
+          {(meta?.kind === "bead-rs" ? meta.capabilities?.dependencyTypes ?? [] : ["blocks", "related"]).filter((kind) => !meta?.capabilities || meta.capabilities.dependencyTypes.includes(kind)).map((kind) => (
+            <option key={kind} value={kind}>{kind === "blocks" ? "blocked by" : kind}</option>
+          ))}
         </select>
         <button type="button" aria-label="Cancel dependency" disabled={disabled} onClick={onDone} className="h-8 rounded-md border border-border px-3 text-[12px]">Cancel</button>
         <button type="button" disabled={disabled || !selected} onClick={add} className="h-8 rounded-md bg-[var(--brand)] px-3 text-[12px] font-[550] text-white">Add</button>

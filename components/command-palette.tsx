@@ -10,7 +10,7 @@ import { useApp, type View } from "@/components/app-context";
 import { useProjects } from "@/hooks/use-projects";
 import { useSetStatus, useUpdateBead } from "@/hooks/use-beads";
 import { BEAD_STATUSES, type Bead } from "@/lib/schema";
-import { statusLabel, catColor, typeLabel } from "@/lib/beads-view";
+import { canEdit, canOperate, canChangeStatus, canView, statusLabel, catColor, typeLabel } from "@/lib/beads-view";
 import { findShortcut, type KeyboardShortcut } from "@/lib/keyboard-shortcuts";
 import { ShortcutKeys } from "@/components/keyboard-help-dialog";
 import { navViews } from "@/lib/views";
@@ -101,7 +101,7 @@ function PaletteBody({
   const projects = projectsData?.projects ?? [];
 
   const safeInitialPage =
-    readOnly && (initialPage === "status" || initialPage === "priority")
+    ((readOnly && (initialPage === "status" || initialPage === "priority")) || (initialPage === "priority" && !canEdit(meta, "priority")))
       ? initialBeadId ? "bead" : "root"
       : initialPage;
   const [page, setPage] = React.useState<PalettePage>(safeInitialPage);
@@ -185,7 +185,7 @@ function PaletteBody({
         {page === "root" && (
           <>
             <Command.Group heading="Actions">
-              {!readOnly && <Item icon="plus" value="create bead new" shortcut={SHORTCUTS.create} onSelect={() => run(() => openCreate())}>
+              {!readOnly && canOperate(meta, "create") && <Item icon="plus" value="create bead new" shortcut={SHORTCUTS.create} onSelect={() => run(() => openCreate())}>
                 Create bead…
               </Item>}
               <Item
@@ -209,7 +209,7 @@ function PaletteBody({
             </Command.Group>
 
             <Command.Group heading="Go to">
-              {navViews(!!meta?.gamification).map((v) => (
+              {navViews(!!meta?.gamification).filter((item) => canView(meta, item.key)).map((v) => (
                 <Item
                   key={v.key}
                   icon={v.icon}
@@ -248,38 +248,38 @@ function PaletteBody({
               Open details
             </Item>
             {!readOnly && <>
-            <Item
+            {canChangeStatus(meta, activeBead, "in_progress") && <Item
               icon="user"
               value="claim in progress"
               onSelect={() => runMutation(() => setStatus.mutate({ id: activeBead.id, status: "in_progress" }))}
             >
-              Claim · set In Progress
-            </Item>
-            <Item
+              {meta?.kind === "bead-rs" ? "Start work · assign to you" : "Claim · set In Progress"}
+            </Item>}
+            {canChangeStatus(meta, activeBead, "closed") && <Item
               icon="check"
               value="close done"
-              onSelect={() => runMutation(() => setStatus.mutate({ id: activeBead.id, status: "closed" }))}
+              onSelect={() => runMutation(() => meta?.capabilities?.closeReason === "required" ? openDetail(activeBead.id, "close") : setStatus.mutate({ id: activeBead.id, status: "closed" }))}
             >
               Close
-            </Item>
+            </Item>}
             <Item icon="chevron" value="set status" shortcut={SHORTCUTS.setStatus} onSelect={() => { setSearch(""); setPage("status"); }}>
               Set status…
             </Item>
-            <Item icon="chevron" value="set priority" shortcut={SHORTCUTS.setPriority} onSelect={() => { setSearch(""); setPage("priority"); }}>
+            {canEdit(meta, "priority") && <Item icon="chevron" value="set priority" shortcut={SHORTCUTS.setPriority} onSelect={() => { setSearch(""); setPage("priority"); }}>
               Set priority…
-            </Item>
+            </Item>}
             </>}
           </Command.Group>
         )}
 
         {!readOnly && page === "status" && activeBead && (
           <Command.Group heading="Set status">
-            {BEAD_STATUSES.map((s) => (
+            {BEAD_STATUSES.filter((status) => canChangeStatus(meta, activeBead, status)).map((s) => (
               <Item
                 key={s}
                 dotColor={catColor(s)}
                 value={`status ${statusLabel(s)}`}
-                onSelect={() => runMutation(() => setStatus.mutate({ id: activeBead.id, status: s }))}
+                onSelect={() => runMutation(() => s === "closed" && meta?.capabilities?.closeReason === "required" ? openDetail(activeBead.id, "close") : setStatus.mutate({ id: activeBead.id, status: s }))}
               >
                 {statusLabel(s)}
               </Item>
@@ -287,7 +287,7 @@ function PaletteBody({
           </Command.Group>
         )}
 
-        {!readOnly && page === "priority" && activeBead && (
+        {!readOnly && canEdit(meta, "priority") && page === "priority" && activeBead && (
           <Command.Group heading="Set priority">
             {[0, 1, 2, 3, 4].map((p) => (
               <Item

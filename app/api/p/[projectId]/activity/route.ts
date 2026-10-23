@@ -2,6 +2,7 @@ import { getStore } from "@/lib/store";
 import { getConfig, getProject } from "@/lib/config";
 import { ok, fail } from "@/lib/api";
 import { readInteractions, buildActivity } from "@/lib/interactions";
+import { requireAttribution } from "@/lib/backend-capabilities";
 
 export const dynamic = "force-dynamic";
 
@@ -13,6 +14,7 @@ export async function GET(_req: Request, { params }: Ctx) {
   try {
     const { projectId } = await params;
     const store = await getStore(projectId);
+    requireAttribution(store);
     const cfg = getConfig();
     const beads = await store.list();
 

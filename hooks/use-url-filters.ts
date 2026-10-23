@@ -20,12 +20,12 @@ function sameFacets(a: Filters, b: Filters): boolean {
   );
 }
 
-/** Shared, URL-backed Board/List filter state. */
-export function useUrlFilters() {
+/** Shared Board/List URL state; native custom types are opt-in, preserving bd parsing. */
+export function useUrlFilters(customTypes = false) {
   const { searchParams, updateUrl } = useUrlState();
   const filters = React.useMemo(
-    () => filtersFromSearchParams(searchParams),
-    [searchParams],
+    () => filtersFromSearchParams(searchParams, customTypes),
+    [searchParams, customTypes],
   );
   const showArchived = searchParams.get("archived") === "1";
 

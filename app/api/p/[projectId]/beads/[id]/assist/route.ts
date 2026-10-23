@@ -1,6 +1,7 @@
 import { getStore } from "@/lib/store";
 import { ok, fail } from "@/lib/api";
 import { assistBead } from "@/lib/ai";
+import { requireOperation } from "@/lib/backend-capabilities";
 
 export const dynamic = "force-dynamic";
 
@@ -12,6 +13,7 @@ export async function POST(_req: Request, { params }: Ctx) {
   try {
     const { projectId, id } = await params;
     const store = await getStore(projectId);
+    requireOperation(store, "refine");
     const beads = await store.list();
     const bead = beads.find((b) => b.id === id);
     if (!bead) return fail(new Error(`Unknown bead: ${id}`));

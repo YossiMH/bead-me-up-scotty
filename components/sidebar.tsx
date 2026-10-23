@@ -11,7 +11,7 @@ import {
   DropdownMenuItem,
   DropdownMenuLabel,
 } from "@/components/ui/dropdown-menu";
-import { initials, avatarColor, needsHuman, readyHumanGate } from "@/lib/beads-view";
+import { canView, initials, avatarColor, needsHuman, readyHumanGate } from "@/lib/beads-view";
 import { useGamification } from "@/hooks/use-beads";
 // GITHUB_REPO is shared with the build badge (where bug/feature issues are filed).
 import { GITHUB_REPO } from "@/lib/build-info";
@@ -47,7 +47,7 @@ export function Sidebar({
 }: {
   view: View;
   onView: (v: View) => void;
-  kind?: "bd" | "demo";
+  kind?: "bd" | "bead-rs" | "demo";
   projectId: string;
   live?: boolean;
   /** Render the same navigation inside the mobile Sheet. */
@@ -62,7 +62,7 @@ export function Sidebar({
   // "Needs You" = agent-flagged beads (bd human) + ready human-approval gates.
   const needsYouCount =
     beads.filter(needsHuman).length + beads.filter((b) => readyHumanGate(b, index)).length;
-  const game = useGamification(projectId, !!meta?.gamification);
+  const game = useGamification(projectId, !!meta?.gamification && canView(meta, "achievements"));
 
   return (
     <aside className={cn(
@@ -86,7 +86,7 @@ export function Sidebar({
 
 
       <nav className="flex flex-col gap-[2px]">
-        {navViews(!!meta?.gamification).map((n) => {
+        {navViews(!!meta?.gamification).filter((item) => canView(meta, item.key)).map((n) => {
           const active = view === n.key;
           return (
             <button
@@ -118,7 +118,7 @@ export function Sidebar({
       </nav>
 
       <div className="mt-auto flex flex-col gap-[10px]">
-        {meta?.gamification && game.data && (
+        {meta?.gamification && canView(meta, "achievements") && game.data && (
           <div className="rounded-[10px] border border-border bg-[var(--surface)] px-[11px] py-[9px]">
             <div className="flex items-center justify-between text-[11.5px]">
               <span className="font-[650]">Level {game.data.you.level}</span>

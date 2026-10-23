@@ -1,8 +1,9 @@
 "use client";
 
 import * as React from "react";
-import type { DetailAction, View } from "@/components/app-context";
+import { useApp, type DetailAction, type View } from "@/components/app-context";
 import { CommandPalette, type PalettePage } from "@/components/command-palette";
+import { canEdit } from "@/lib/beads-view";
 import { KeyboardHelpDialog } from "@/components/keyboard-help-dialog";
 import { useAppKeyboardShortcuts } from "@/hooks/use-app-keyboard";
 
@@ -27,6 +28,7 @@ export function KeyboardLayer({
   closeOverlaysAction: () => void;
   toggleThemeAction: () => void;
 }) {
+  const { meta } = useApp();
   const [helpOpen, setHelpOpen] = React.useState(false);
   const paletteNonce = React.useRef(0);
   const [paletteRequest, setPaletteRequest] = React.useState<{
@@ -37,14 +39,14 @@ export function KeyboardLayer({
   }>({ open: false, page: "root", beadId: null, nonce: 0 });
 
   const openPalette = React.useCallback((page: PalettePage = "root", beadId?: string) => {
-    if (readOnly && (page === "status" || page === "priority")) return;
+    if ((readOnly && (page === "status" || page === "priority")) || (page === "priority" && !canEdit(meta, "priority"))) return;
     setPaletteRequest((current) => ({
       open: page === "root" && !beadId && current.open ? false : true,
       page,
       beadId: beadId ?? null,
       nonce: (paletteNonce.current += 1),
     }));
-  }, [readOnly]);
+  }, [readOnly, meta]);
   const closeAll = React.useCallback(() => {
     setPaletteRequest((current) => ({ ...current, open: false }));
     setHelpOpen(false);

@@ -1,5 +1,7 @@
 "use client";
 import * as React from "react";
+import { nativeMutationOutcome } from "@/lib/api-client";
+import { MutationOutcomeNotice } from "@/components/mutation-outcome-notice";
 import { GateApproval } from "@/components/gate-approval";
 import { AssigneeField } from "@/components/assignee-field";
 import { DependencyEditor } from "@/components/dependency-editor";
@@ -28,9 +30,13 @@ import {
   useArchiveBead,
   useDeleteBead,
   useCreateGate,
+  useLabelDelta,
 } from "@/hooks/use-beads";
 import { beadOrigin, originOf, originTitle } from "@/lib/attribution";
 import {
+  canOperate,
+  canEdit,
+  canChangeStatus,
   catColor,
   statusLabel,
   typeColor,
@@ -83,6 +89,7 @@ type DependencyRow = {
   activeBlocking: boolean;
   removeIssueId: string;
   removeDependsOnId: string;
+  removeType: string;
 };
 
 function isDisplayedBlockingDepType(type: string): type is DisplayedBlockingDepType {
@@ -215,10 +222,14 @@ function DrawerBody({
     useApp();
   const actor = meta?.humanActor ?? "you";
   const isDemo = meta?.kind === "demo";
+  const editableContent = !readOnly && canEdit(meta, "title") && canEdit(meta, "description");
+  const attachmentsAllowed = !isDemo && canOperate(meta, "attachments");
+  const reasonRequired = meta?.capabilities?.closeReason === "required";
 
   const update = useUpdateBead();
   const setStatus = useSetStatus();
   const addComment = useAddComment();
+  const commentOutcome = nativeMutationOutcome(addComment.error);
   const removeDep = useRemoveDep();
   const archive = useArchiveBead();
   const del = useDeleteBead();
@@ -242,15 +253,14 @@ function DrawerBody({
   const [gateReason, setGateReason] = React.useState("");
   const gateBead = isHumanGate(bead);
 
-  // Closing is the only moment a reason can be recorded — bd offers no way to
-  // attach one afterwards — so picking "Closed" opens a skippable composer
-  // instead of firing the mutation straight away.
-  const [closing, setClosing] = React.useState(!readOnly && initialAction === "close");
+  // Picking "Closed" opens a reason composer before any mutation. Native
+  // requires a reason; bd permits skipping it but cannot attach one later.
+  const [closing, setClosing] = React.useState(!readOnly && canChangeStatus(meta, bead, "closed") && initialAction === "close");
   const [closeDraft, setCloseDraft] = React.useState("");
   const closeRef = React.useRef<HTMLTextAreaElement>(null);
 
   const startClosing = () => {
-    if (readOnly) return;
+    if (readOnly || !canChangeStatus(meta, bead, "closed")) return;
     setCloseDraft("");
     setClosing(true);
   };
@@ -259,7 +269,7 @@ function DrawerBody({
     setCloseDraft("");
   };
   const confirmClose = () => {
-    if (readOnly) return;
+    if (readOnly || !canChangeStatus(meta, bead, "closed") || (reasonRequired && !closeDraft.trim())) return;
     setStatus.mutate(
       { id: bead.id, status: "closed", reason: closeDraft.trim() || undefined },
       { onSuccess: cancelClosing },
@@ -271,7 +281,7 @@ function DrawerBody({
   }, [closing]);
 
   // Inline edit of title + description (with image drop/paste on the textarea).
-  const [editing, setEditing] = React.useState(!readOnly && initialAction === "edit");
+  const [editing, setEditing] = React.useState(editableContent && initialAction === "edit");
   const [previousReadOnly, setPreviousReadOnly] = React.useState(readOnly);
   if (previousReadOnly !== readOnly) {
     setPreviousReadOnly(readOnly);
@@ -289,8 +299,8 @@ function DrawerBody({
   const drop = useImageDrop({
     projectId,
     beadId: bead.id,
-    disabled: isDemo,
-    disabledMessage: "Attachments aren't available for the Demo project.",
+    disabled: !attachmentsAllowed || !editableContent,
+    disabledMessage: "Attachments are not available for this backend.",
     textareaRef: descRef,
     value: descDraft,
     onChange: setDescDraft,
@@ -298,7 +308,8 @@ function DrawerBody({
 
   const unsaved =
     (editing && (titleDraft !== bead.title || descDraft !== (bead.description ?? ""))) ||
-    [draft, closeDraft, gateReason].some((text) => text.trim() !== "");
+    (!commentOutcome && draft.trim() !== "") ||
+    [closeDraft, gateReason].some((text) => text.trim() !== "");
   React.useEffect(() => {
     dirtyRef.current = unsaved;
     return () => {
@@ -307,14 +318,14 @@ function DrawerBody({
   }, [dirtyRef, unsaved]);
 
   const startEdit = () => {
-    if (readOnly) return;
+    if (!editableContent) return;
     setTitleDraft(bead.title);
     setDescDraft(bead.description ?? "");
     setEditing(true);
   };
   const cancelEdit = () => setEditing(false);
   const saveEdit = () => {
-    if (readOnly) return;
+    if (!editableContent) return;
     const t = titleDraft.trim();
     if (!t) return;
     update.mutate(
@@ -348,6 +359,7 @@ function DrawerBody({
         activeBlocking: isDisplayedBlockingDepType(dependency.type) && !resolved,
         removeIssueId: bead.id,
         removeDependsOnId: dependency.depends_on_id,
+        removeType: dependency.type,
       };
     });
     const incomingRows = beads.flatMap<DependencyRow>((dependent) =>
@@ -369,6 +381,7 @@ function DrawerBody({
             activeBlocking: !resolved,
             removeIssueId: dependent.id,
             removeDependsOnId: bead.id,
+            removeType: dependency.type,
           },
         ];
       }),
@@ -380,7 +393,7 @@ function DrawerBody({
   const notes = bead.notes?.trim() ?? "";
   const design = bead.design?.trim() ?? "";
   const acceptance = bead.acceptance_criteria?.trim() ?? "";
-  const closeReason = closeReasonOf(bead);
+  const closeReason = closeReasonOf(bead, meta?.kind);
   const comments = bead.comments ?? [];
   const activity = [
     { label: `Created by ${bead.created_by || "unknown"}`, time: fmtDate(bead.created_at) },
@@ -417,7 +430,7 @@ function DrawerBody({
         <IconBtn title="Copy link" onClick={copyLink}>
           <Icon name="link" size={15} />
         </IconBtn>
-        {!readOnly && (
+        {editableContent && (
           <IconBtn
             title={editing ? "Stop editing" : "Edit title & description"}
             onClick={editing ? cancelEdit : startEdit}
@@ -425,12 +438,12 @@ function DrawerBody({
             <Icon name="pencil" size={15} />
           </IconBtn>
         )}
-        {!readOnly && (
+        {!readOnly && canOperate(meta, "archive") && (
           <IconBtn title="Archive (close + label)" onClick={() => archive.mutate(bead.id)}>
             <Icon name="archive" size={15} />
           </IconBtn>
         )}
-        {!readOnly && (
+        {!readOnly && canOperate(meta, "delete") && (
           <IconBtn
             title="Delete"
             danger
@@ -455,10 +468,10 @@ function DrawerBody({
             <Icon name={typeIconName(bead.issue_type)} size={13} style={{ color: typeColor(bead.issue_type) }} />
             {typeLabel(bead.issue_type)}
           </span>
-          <OriginBadge origin={o} title={originTitle(bead.created_by, o)} withLabel />
+          <OriginBadge unavailable={meta?.capabilities?.attribution === "unavailable"} origin={o} title={originTitle(bead.created_by, o)} withLabel />
         </div>
 
-        {gateBead && bead.status !== "closed" && (
+        {canOperate(meta, "gate") && gateBead && bead.status !== "closed" && (
           <div className="mb-4 flex items-center gap-3 rounded-[10px] border border-[var(--brand)]/40 bg-[var(--brand-weak)] p-[11px_13px]">
             <Icon name="gate" size={16} style={{ color: "var(--brand)" }} className="flex-shrink-0" />
             <span className="flex-1 text-[12.5px] leading-[1.45] text-[var(--text-2)]">
@@ -468,7 +481,7 @@ function DrawerBody({
           </div>
         )}
 
-        {editing && !readOnly ? (
+        {editing && editableContent ? (
           <>
             <SheetTitle className="sr-only">Edit {bead.id}</SheetTitle>
             <input
@@ -489,7 +502,7 @@ function DrawerBody({
           <label className="flex flex-col gap-[5px]">
             <span className={fieldLabel}>Status</span>
             <select
-              disabled={readOnly}
+              disabled={readOnly || !canEdit(meta, "status")}
               className={selectClass}
               value={closing && !readOnly ? "closed" : bead.status}
               onChange={(e) => {
@@ -501,9 +514,9 @@ function DrawerBody({
                 }
               }}
             >
-              {BEAD_STATUSES.map((s) => (
+              {BEAD_STATUSES.filter((status) => status === bead.status || canChangeStatus(meta, bead, status)).map((s) => (
                 <option key={s} value={s}>
-                  {statusLabel(s)}
+                  {meta?.kind === "bead-rs" && s === "open" && bead.base_status === "in_progress" ? "Open · release assignment" : meta?.kind === "bead-rs" && s === "open" && bead.base_status === "closed" ? "Open · reopen" : statusLabel(s)}
                 </option>
               ))}
             </select>
@@ -511,7 +524,7 @@ function DrawerBody({
           <label className="flex flex-col gap-[5px]">
             <span className={fieldLabel}>Priority</span>
             <select
-              disabled={readOnly}
+              disabled={readOnly || !canEdit(meta, "priority")}
               className={selectClass}
               value={String(bead.priority)}
               onChange={(e) =>
@@ -568,7 +581,7 @@ function DrawerBody({
 
         {closing && !readOnly && (
           <div className="mb-4 rounded-[10px] border border-border bg-[var(--surface-2)] p-[11px_13px]">
-            <div className={`${fieldLabel} mb-[7px]`}>Close reason — optional</div>
+            <div className={`${fieldLabel} mb-[7px]`}>Close reason — {reasonRequired ? "required" : "optional"}</div>
             <textarea
               ref={closeRef}
               value={closeDraft}
@@ -584,13 +597,13 @@ function DrawerBody({
             <div className="mt-[9px] flex flex-wrap items-center gap-2">
               <button
                 type="button"
-                disabled={readOnly || setStatus.isPending}
+                disabled={readOnly || setStatus.isPending || (reasonRequired && !closeDraft.trim())}
                 onClick={confirmClose}
                 className="flex h-8 items-center gap-[6px] rounded-lg px-3 text-[12.5px] font-[550] text-white disabled:opacity-50"
                 style={{ background: "var(--brand)" }}
               >
                 <Icon name="check" size={14} />
-                {closeDraft.trim() ? "Close with reason" : "Close without a reason"}
+                {reasonRequired || closeDraft.trim() ? "Close with reason" : "Close without a reason"}
               </button>
               <button
                 type="button"
@@ -601,7 +614,7 @@ function DrawerBody({
                 Cancel
               </button>
               <span className="text-[11.5px] text-[var(--text-3)]">
-                bd can&rsquo;t attach a reason later — this is the only chance to record one.
+                {reasonRequired ? "bead-rs requires a non-empty reason to close work." : "bd can’t attach a reason later — this is the only chance to record one."}
               </span>
             </div>
           </div>
@@ -615,12 +628,12 @@ function DrawerBody({
                 {progress.done}/{progress.total} done
               </span>
             )}
-            {editing && !readOnly && !isDemo && !previewEdit && (
+            {editing && editableContent && attachmentsAllowed && !previewEdit && (
               <span className="font-normal normal-case tracking-normal text-[var(--text-3)]">
                 · drop or paste images
               </span>
             )}
-            {editing && !readOnly && (
+            {editing && editableContent && (
               <button
                 onClick={() => setPreviewEdit((p) => !p)}
                 className="ml-auto rounded-md border border-border bg-[var(--surface-2)] px-[8px] py-[2px] text-[11px] font-normal normal-case tracking-normal text-[var(--text-2)] hover:bg-[var(--surface-3)]"
@@ -629,7 +642,7 @@ function DrawerBody({
               </button>
             )}
           </div>
-          {editing && !readOnly ? (
+          {editing && editableContent ? (
             <>
               {previewEdit ? (
                 <DescriptionContent
@@ -720,7 +733,7 @@ function DrawerBody({
             <DescriptionContent
               text={bead.description}
               projectId={projectId}
-              onToggleTask={readOnly ? undefined : (idx) =>
+              onToggleTask={readOnly || !canEdit(meta, "description") ? undefined : (idx) =>
                 update.mutate({
                   id: bead.id,
                   patch: { description: toggleTask(bead.description ?? "", idx) },
@@ -733,7 +746,7 @@ function DrawerBody({
               No description.
             </div>
           )}
-          {!editing && !readOnly && <AiAssistPanel bead={bead} />}
+          {!editing && editableContent && <AiAssistPanel bead={bead} />}
         </Section>
 
         {/* Dependencies */}
@@ -778,11 +791,12 @@ function DrawerBody({
                   </button>
                   <button
                     title="remove"
-                    disabled={readOnly}
+                    disabled={readOnly || !canOperate(meta, "dependencies")}
                     onClick={() =>
                       removeDep.mutate({
                         id: row.removeIssueId,
                         dependsOnId: row.removeDependsOnId,
+                        type: row.removeType,
                       })
                     }
                     className="flex h-[22px] w-[22px] items-center justify-center rounded-md text-[var(--text-3)] hover:bg-[#ef444415] hover:text-[#ef4444]"
@@ -802,7 +816,7 @@ function DrawerBody({
               <DependencyEditor bead={bead} onDone={() => setAddingDep(false)} />
             ) : (
               <button
-                disabled={readOnly}
+                disabled={readOnly || !canOperate(meta, "dependencies")}
                 onClick={() => setAddingDep(true)}
                 className="flex items-center gap-[7px] rounded-[9px] border border-dashed border-[var(--border-strong)] p-[8px_11px] text-[12.5px] font-medium text-[var(--text-2)] hover:border-[var(--brand)] hover:text-[var(--brand)]"
               >
@@ -814,7 +828,7 @@ function DrawerBody({
             {/* Require a human approval gate before this bead can proceed
                 (bd gate create --type human --blocks <this>). Resolved from the
                 gate's own drawer or the Needs You inbox. */}
-            {!readOnly && !gateBead && bead.status !== "closed" &&
+            {!readOnly && canOperate(meta, "gate") && !gateBead && bead.status !== "closed" &&
               (addingGate ? (
                 <div className="flex items-center gap-[7px] rounded-[9px] border border-border bg-[var(--surface)] p-[9px_11px]">
                   <input
@@ -912,6 +926,7 @@ function DrawerBody({
                 </span>
                 <PriorityChip p={k.priority} />
                 <OriginBadge
+                  unavailable={meta?.capabilities?.attribution === "unavailable"}
                   origin={beadOrigin(k, humanAllowlist)}
                   title={originTitle(k.created_by, beadOrigin(k, humanAllowlist))}
                 />
@@ -925,7 +940,7 @@ function DrawerBody({
                 <button
                   title={`Detach ${k.id} from this bead`}
                   aria-label={`Detach ${k.id}`}
-                  disabled={readOnly}
+                  disabled={readOnly || !canOperate(meta, "parent")}
                   onClick={(ev) => {
                     ev.stopPropagation();
                     update.mutate({ id: k.id, patch: { parent: "" } });
@@ -939,7 +954,7 @@ function DrawerBody({
             {kids.length === 0 && (
               <div className="px-[2px] py-1 text-[12px] text-[var(--text-3)]">No subtasks yet.</div>
             )}
-            {!readOnly && (
+            {!readOnly && canOperate(meta, "parent") && (
               <button
                 onClick={() => openCreate({ parent: bead.id })}
                 className="flex items-center gap-[7px] rounded-[9px] border border-dashed border-[var(--border-strong)] p-[8px_11px] text-[12.5px] font-medium text-[var(--text-2)] hover:border-[var(--brand)] hover:text-[var(--brand)]"
@@ -1042,14 +1057,21 @@ function DrawerBody({
                 value={draft}
                 onChange={(e) => setDraft(e.target.value)}
                 placeholder={`Comment as ${actor}…`}
-                disabled={readOnly}
+                disabled={readOnly || !canOperate(meta, "comment") || !!commentOutcome}
                 rows={2}
                 className="w-full resize-y rounded-[10px] border border-border bg-[var(--surface-2)] p-[9px_11px] text-[13px] leading-[1.5] text-[var(--text)] outline-none"
               />
+              {commentOutcome && <MutationOutcomeNotice outcome={commentOutcome} projectId={projectId} mode="comment"
+                onReconciled={() => {
+                  setDraft((current) => current.trim() === addComment.variables?.text ? "" : current);
+                  addComment.reset();
+                }}
+                onDiscard={() => { setDraft(""); addComment.reset(); }} />}
               <div className="flex justify-end">
                 <button
-                  disabled={readOnly || !draft.trim() || addComment.isPending}
+                  disabled={!!commentOutcome || readOnly || !canOperate(meta, "comment") || !draft.trim() || addComment.isPending}
                   onClick={() => {
+                    if (commentOutcome || addComment.isPending) return;
                     const submitted = draft;
                     addComment.mutate({ id: bead.id, text: submitted.trim() }, {
                       onSuccess: () => setDraft((current) => current === submitted ? "" : current),
@@ -1088,9 +1110,8 @@ function Section({ children }: { children: React.ReactNode }) {
 }
 
 /**
- * Add/remove labels on a bead. Every mutation sends the FULL desired set (the
- * update path is replace-all), and `archived` — if present — is always carried
- * through untouched so editing labels can never un-archive a bead.
+ * Native chip intents use individual label commands; original updates replace
+ * the full set. Both keep `archived` out of ordinary chip edits.
  */
 function LabelsField({
   bead,
@@ -1101,8 +1122,22 @@ function LabelsField({
   suggestions: string[];
   onChange: (labels: string[]) => void;
 }) {
-  const { readOnly } = useApp();
+  const { readOnly: viewerReadOnly, meta, projectId } = useApp();
+  const native = meta?.kind === "bead-rs";
+  const delta = useLabelDelta();
+  const outcome = nativeMutationOutcome(delta.error);
+  const readOnly = viewerReadOnly || (native ? !canOperate(meta, "label-delta") : !canEdit(meta, "labels")) || delta.isPending || !!outcome;
   const [draft, setDraft] = React.useState("");
+  const [reconciled, setReconciled] = React.useState<{ outcome: typeof outcome; bead: Bead } | null>(null);
+  const resetDelta = delta.reset;
+  React.useEffect(() => {
+    if (!outcome || reconciled?.outcome !== outcome || reconciled.bead.id !== bead.id) return;
+    const expected = reconciled.bead.labels ?? [];
+    const displayed = bead.labels ?? [];
+    if (expected.length !== displayed.length || !expected.every((label) => displayed.includes(label))) return;
+    // Release the guard only after the coherent read has reached the rendered chips.
+    resetDelta();
+  }, [bead, outcome, reconciled, resetDelta]);
   const listId = `labels-${bead.id}`;
   const all = bead.labels ?? [];
   const isArchived = all.includes(ARCHIVED_LABEL);
@@ -1112,17 +1147,28 @@ function LabelsField({
   const commitVisible = (next: string[]) =>
     !readOnly && onChange(isArchived ? [...next, ARCHIVED_LABEL] : next);
 
+  const addLabel = (label: string) => {
+    if (readOnly) return;
+    if (native) delta.mutate({ id: bead.id, label, action: "add" });
+    else commitVisible([...visible, label]);
+  };
+  const removeLabel = (label: string) => {
+    if (readOnly) return;
+    if (native) delta.mutate({ id: bead.id, label, action: "remove" });
+    else commitVisible(visible.filter((item) => item !== label));
+  };
   const add = () => {
     if (readOnly) return;
     const v = draft.trim().replace(/,+$/, "").trim();
     setDraft("");
     // Ignore empties, duplicates, and any attempt to hand-type the archive flag.
     if (!v || v === ARCHIVED_LABEL || visible.includes(v)) return;
-    commitVisible([...visible, v]);
+    addLabel(v);
   };
 
   return (
-    <fieldset disabled={readOnly} className="mb-4 flex min-w-0 flex-col gap-[5px]">
+    <div className="mb-4">
+    <fieldset disabled={readOnly} className="flex min-w-0 flex-col gap-[5px]">
       <span className={fieldLabel}>Labels</span>
       <div className="flex flex-wrap items-center gap-[6px] rounded-[9px] border border-border bg-[var(--surface-2)] p-[7px_9px]">
         {visible.map((l) => (
@@ -1130,7 +1176,7 @@ function LabelsField({
             {l}
             <button
               type="button"
-              onClick={() => commitVisible(visible.filter((x) => x !== l))}
+              onClick={() => removeLabel(l)}
               title={`Remove label “${l}”`}
               aria-label={`Remove label ${l}`}
               className="text-[var(--text-3)] hover:text-[var(--danger,#ef4444)]"
@@ -1156,7 +1202,7 @@ function LabelsField({
               const [head, ...rest] = e.target.value.split(",");
               const v = head.trim();
               if (v && v !== ARCHIVED_LABEL && !visible.includes(v)) {
-                commitVisible([...visible, v]);
+                addLabel(v);
               }
               setDraft(rest.join(",").trim());
               return;
@@ -1172,7 +1218,7 @@ function LabelsField({
               setDraft("");
             } else if (e.key === "Backspace" && !draft && visible.length) {
               // Backspace on an empty input removes the last chip, as in most tag inputs.
-              commitVisible(visible.slice(0, -1));
+              removeLabel(visible[visible.length - 1]);
             }
           }}
           onBlur={add}
@@ -1190,6 +1236,8 @@ function LabelsField({
         </datalist>
       </div>
     </fieldset>
+    {outcome && <MutationOutcomeNotice outcome={outcome} projectId={projectId} mode="labels" onReconciled={(refreshed) => setReconciled({ outcome, bead: refreshed })} />}
+    </div>
   );
 }
 

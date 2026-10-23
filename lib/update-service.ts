@@ -19,6 +19,13 @@ function newer(stable: string, current: string): boolean {
   return b.prerelease;
 }
 
+/** Compare GitHub SSH/HTTPS spellings without changing the configured fetch target. */
+function remoteIdentity(remote: string): string {
+  const github = /^(?:https?:\/\/github\.com\/|ssh:\/\/(?:git@)?github\.com\/|git@github\.com:)([^?#]+)$/i.exec(remote.trim());
+  if (github) return `github.com/${github[1].replace(/\/+$/, "").replace(/\.git$/i, "").toLowerCase()}`;
+  return remote.trim().replace(/\/+$/, "");
+}
+
 /** Release discovery and exact-target updates. The app wrapper supplies build-time version metadata. */
 export function createUpdater(options: Options) {
   const { cwd, version, repository } = options;
@@ -58,8 +65,20 @@ export function createUpdater(options: Options) {
     if (!sha || !/^[a-f0-9]{40}$/.test(sha)) throw new Error("The update target is unavailable.");
     return sha;
   }
+  /** A different or unreadable origin requires a manual update, before any fetch. */
+  async function originProblem(): Promise<string | undefined> {
+    if (!isGit()) return undefined;
+    let origin: string;
+    try { origin = await git("remote", "get-url", "origin"); }
+    catch { return "This checkout has no readable origin remote. Update it manually; its source cannot be verified."; }
+    if (remoteIdentity(origin) !== remoteIdentity(remote)) {
+      return "This checkout uses a fork or a different origin. In-app upstream updates are disabled to preserve its changes. Update from your fork manually.";
+    }
+  }
   async function checkoutProblem(): Promise<string | undefined> {
     if (!isGit()) return "This installation needs a manual update. Follow the instructions in the release notes for a global copy, source download, or Docker installation.";
+    const origin = await originProblem();
+    if (origin) return origin;
     const branch = await git("branch", "--show-current");
     if (branch && branch !== "main") return "Switch to the main branch before updating; your working branch will not be changed.";
     if (await git("status", "--porcelain")) return "Your checkout has uncommitted changes. Commit or stash them before updating.";
@@ -68,6 +87,8 @@ export function createUpdater(options: Options) {
     const base: UpdateStatus = { channel, currentVersion: version, isGitRepo: isGit(), supervised: !!options.supervised,
       updateAvailable: false, canUpdate: false, behind: 0, localSha: "", remoteSha: "" };
     try {
+      base.manualReason = await originProblem();
+      if (base.manualReason) return base;
       if (channel === "stable") {
         const tag = await latest();
         if (!tag) return base;

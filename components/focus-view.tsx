@@ -3,7 +3,7 @@ import * as React from "react";
 import { useApp } from "@/components/app-context";
 import { Icon, typeIconName } from "@/components/icons";
 import { PriorityChip } from "@/components/board/bead-card";
-import { isBlocked, blockingDeps, relTime, fmtDateTime, typeColor, catColor } from "@/lib/beads-view";
+import { isReady, isBlocked, blockingDeps, relTime, fmtDateTime, typeColor, catColor } from "@/lib/beads-view";
 import type { Bead } from "@/lib/schema";
 
 /**
@@ -71,6 +71,7 @@ function laneOf(b: Bead, prefix: string): string | null {
 
 export function FocusView() {
   const { beads, index, meta } = useApp();
+  const readyIds = React.useMemo(() => meta?.readyIds === undefined ? undefined : new Set(meta?.readyIds), [meta?.readyIds]);
   const prefix = meta?.lanePrefix ?? null;
   const [groupBy, setGroupBy] = React.useState<"none" | "assignee">("none");
   const [showRecent, setShowRecent] = React.useState(false);
@@ -117,9 +118,9 @@ export function FocusView() {
   const nextUp = React.useMemo(
     () =>
       active.filter(
-        (b) => b.status === "open" && b.priority <= 1 && !isBlocked(b, index) && inLane(b),
+        (b) => b.priority <= 1 && isReady(b, index, readyIds) && inLane(b),
       ),
-    [active, index, inLane],
+    [active, index, inLane, readyIds],
   );
 
   const recentlyFinished = active.filter(b => b.status === "closed" && inLane(b))

@@ -3,6 +3,7 @@ import * as React from "react";
 import { Icon, typeIconName } from "@/components/icons";
 import { OriginBadge, PriorityChip } from "@/components/board/bead-card";
 import { useApp } from "@/components/app-context";
+import { canOperate } from "@/lib/beads-view";
 import { beadOrigin, originTitle } from "@/lib/attribution";
 import {
   catColor,
@@ -58,6 +59,7 @@ export function EpicsView({
     selectedBeadId,
     selectBead,
     readOnly,
+    meta,
   } = useApp();
   const [expanded, setExpanded] = React.useState<Record<string, boolean>>({});
   const [hideClosed, setHideClosed] = React.useState(true);
@@ -319,7 +321,7 @@ export function EpicsView({
                           </span>
                           <LabelChips labels={k.labels ?? []} max={2} />
                           <PriorityChip p={k.priority} />
-                          <OriginBadge origin={o} title={originTitle(k.created_by, o)} />
+                          <OriginBadge unavailable={meta?.capabilities?.attribution === "unavailable"} origin={o} title={originTitle(k.created_by, o)} />
                           <span
                             className="flex h-5 w-5 flex-shrink-0 items-center justify-center rounded-full text-[9.5px] font-semibold text-white"
                             style={{ background: avatarColor(k.assignee ?? "") }}
@@ -330,7 +332,7 @@ export function EpicsView({
                       );
                     })}
                     <button
-                      disabled={readOnly}
+                      disabled={readOnly || !canOperate(meta, "parent")}
           onClick={() => openCreate({ parent: e.id })}
                       className="m-[2px] flex w-[calc(100%-4px)] items-center gap-[7px] rounded-[9px] p-[9px_12px] text-[12.5px] font-[550] text-[var(--brand)] hover:bg-[var(--surface)]"
                     >

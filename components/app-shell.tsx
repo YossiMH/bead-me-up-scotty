@@ -7,7 +7,7 @@ import { useBeads } from "@/hooks/use-beads";
 import { useBeadsStream } from "@/hooks/use-beads-stream";
 import { useLastView } from "@/hooks/use-last-view";
 import { useTheme } from "@/components/theme-provider";
-import { makeIndex } from "@/lib/beads-view";
+import { makeIndex, canOperate, canEdit, canView } from "@/lib/beads-view";
 import { AppProvider, type DetailAction, type View } from "@/components/app-context";
 import { Sidebar } from "@/components/sidebar";
 import { Board } from "@/components/board/board";
@@ -95,10 +95,10 @@ export function AppShell({ projectId }: { projectId: string }) {
     setOpenStack([id]);
     setDetailRequest({
       id,
-      action: readOnly ? "view" : action,
+      action: readOnly || (action === "edit" && !canEdit(data?.meta, "description")) ? "view" : action,
       nonce: (detailNonce.current += 1),
     });
-  }, [readOnly]);
+  }, [readOnly, data?.meta]);
   useNotificationActivation(projectId, openDetail);
   // PUSH. Drawer-internal navigation only, so back can return.
   const MAX_TRAIL = 25;
@@ -155,10 +155,10 @@ export function AppShell({ projectId }: { projectId: string }) {
   // priority) can be added without churning every call site again.
   const openCreate = React.useCallback(
     (opts: { parent?: string; type?: BeadType } = {}) => {
-      if (readOnly) return;
+      if (readOnly || !canOperate(data?.meta, "create") || (opts.parent && !canOperate(data?.meta, "parent"))) return;
       setCreate({ open: true, parent: opts.parent ?? "", type: opts.type });
     },
-    [readOnly],
+    [readOnly, data?.meta],
   );
 
   // Jump to the Epics screen and focus an epic (bead 55b). The nonce makes each
@@ -273,6 +273,8 @@ export function AppShell({ projectId }: { projectId: string }) {
                 </Link>
               </div>
             </div>
+          ) : !canView(data?.meta, view) ? (
+            <div className="p-6 text-[13px] text-[var(--text-2)]">This view is not available for {data?.meta.kind}. Board, List, Focus, Graph, and bead details remain available.</div>
           ) : (
             <>
               {view === "board" && <Board />}

@@ -19,7 +19,8 @@ export async function POST(req: Request, { params }: { params: Promise<{ project
     const cfg = getConfig();
     const { status, reason } = bodySchema.parse(await req.json());
     // bd only lets a claimed bead's assignee close it; see closeActor.
-    const actor = status === "closed" ? closeActor((await store.get(id))?.assignee) : cfg.humanActor;
+    const actor = status === "closed" && store.kind !== "bead-rs"
+      ? closeActor((await store.get(id))?.assignee) : cfg.humanActor;
     const bead = await store.setStatus(id, status, actor, reason);
     return ok(bead);
   } catch (e) {

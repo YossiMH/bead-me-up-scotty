@@ -5,6 +5,8 @@ import fs from "node:fs";
 import { z } from "zod";
 import { buildShowcase, type ShowcaseTemplate } from "@/lib/showcase/generate";
 import { ok, fail } from "@/lib/api";
+import { getProject, listProjects } from "@/lib/config";
+import { nativeCapabilities, requireOperation } from "@/lib/backend-capabilities";
 
 export const dynamic = "force-dynamic";
 export const runtime = "nodejs";
@@ -34,7 +36,16 @@ async function openLocal(target: string) {
 export async function POST(req: Request, { params }: Ctx) {
   try {
     const { projectId } = await params;
+    const project = getProject(projectId);
+    if (project?.path !== null && project?.backend === "bead-rs") {
+      requireOperation({ capabilities: nativeCapabilities }, "publish");
+    }
     const body = (await req.json().catch(() => ({}))) as Record<string, unknown>;
+    if (body.scope === "all") {
+      for (const project of listProjects()) {
+        if (project.backend === "bead-rs") requireOperation({ capabilities: nativeCapabilities }, "publish");
+      }
+    }
 
     if (body.action === "open" || body.action === "deploy") {
       const { action, path: p } = pathSchema.parse(body);

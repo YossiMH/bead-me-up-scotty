@@ -2,6 +2,7 @@ import { getStore } from "@/lib/store";
 import { getConfig } from "@/lib/config";
 import { ok, fail } from "@/lib/api";
 import { z } from "zod";
+import { requireOperation } from "@/lib/backend-capabilities";
 
 export const dynamic = "force-dynamic";
 
@@ -24,6 +25,7 @@ export async function POST(req: Request, { params }: Ctx) {
   try {
     const { projectId, id } = await params;
     const store = await getStore(projectId);
+    requireOperation(store, "gate");
     const cfg = getConfig();
     const body = bodySchema.parse(await req.json());
 

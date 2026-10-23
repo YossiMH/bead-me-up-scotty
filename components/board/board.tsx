@@ -21,11 +21,11 @@ import { useOrder, useSetOrder } from "@/hooks/use-order";
 import { useBoardPrefs } from "@/hooks/use-board-prefs";
 import { useUrlFilters } from "@/hooks/use-url-filters";
 import { useUrlState } from "@/hooks/use-url-state";
-import { isBlocked, childrenCountMap } from "@/lib/beads-view";
+import { canOperate, canChangeStatus, childrenCountMap } from "@/lib/beads-view";
 import { FilterBar } from "@/components/filter-bar";
 import { matchesFilters, labelOptionsFrom, assigneeOptionsFrom } from "@/lib/filters";
 import {
-  BOARD_COLUMNS as COLUMNS,
+  boardColumns, colOf,
   sortBoardCards,
   type BoardSortMode,
 } from "@/lib/board-columns";
@@ -44,14 +44,16 @@ const pointerFirstCollision: CollisionDetection = (args) => {
 };
 
 export function Board() {
-  const { beads, index, humanAllowlist, openCreate, loading, projectId, readOnly } = useApp();
+  const { beads, index, humanAllowlist, openCreate, loading, projectId, readOnly, meta, openDetail } = useApp();
+  const readyIds = React.useMemo(() => meta?.readyIds === undefined ? undefined : new Set(meta?.readyIds), [meta?.readyIds]);
+  const COLUMNS = boardColumns(readyIds);
   const setStatus = useSetStatus();
   const { data: orderData } = useOrder(projectId);
   const setOrder = useSetOrder(projectId);
   const { prefs: boardPrefs, setPrefs: setBoardPrefs } = useBoardPrefs();
   const orders = React.useMemo(() => orderData?.orders ?? {}, [orderData]);
   const { filters, setFilters, showArchived, setShowArchived, clearFilters } =
-    useUrlFilters();
+    useUrlFilters(meta?.kind === "bead-rs");
   const { searchParams, updateUrl } = useUrlState();
   // Derived from ALL beads (not the filtered set) so selecting one label
   // doesn't make the remaining options vanish from the dropdown.
@@ -90,16 +92,16 @@ export function Board() {
     (b: Bead) => {
       if (b.issue_type === "epic") return false;
       if (!showArchived && (b.labels ?? []).includes("archived")) return false;
-      return matchesFilters(b, filters, humanAllowlist);
+      return matchesFilters(b, filters, humanAllowlist, meta?.capabilities?.attribution);
     },
-    [filters, showArchived, humanAllowlist],
+    [filters, showArchived, humanAllowlist, meta?.capabilities?.attribution],
   );
 
   const visible = React.useMemo(() => beads.filter(matchFilters), [beads, matchFilters]);
   const columns = React.useMemo(
     () =>
       COLUMNS.map((c) => {
-        let cards = visible.filter((b) => c.test(b, isBlocked(b, index)));
+        let cards = visible.filter((b) => colOf(b, index, readyIds) === c.id);
         // Done column: optionally keep only beads closed within the chosen window.
         if (c.id === "done" && doneWindow !== null) {
           const cutoff = now - doneWindow * 86_400_000;
@@ -113,7 +115,7 @@ export function Board() {
           cards: sortBoardCards(cards, boardPrefs.sortMode, orders[c.id]),
         };
       }),
-    [visible, index, orders, boardPrefs.sortMode, doneWindow, now],
+    [visible, index, orders, boardPrefs.sortMode, doneWindow, now, COLUMNS, readyIds],
   );
 
   // Hide the Blocked column when it's empty, unless the user pinned it to always
@@ -172,7 +174,11 @@ export function Board() {
       const target = COLUMNS.find((c) => c.id === overCol);
       if (!target || !target.droppable || !target.status) return;
       const bead = index.get(activeId);
-      if (!bead || bead.status === target.status) return;
+      if (!bead || bead.status === target.status || !canChangeStatus(meta, bead, target.status)) return;
+      if (target.status === "closed" && meta?.capabilities?.closeReason === "required") {
+        openDetail(activeId, "close");
+        return;
+      }
       setStatus.mutate({ id: activeId, status: target.status });
       return;
     }
@@ -192,7 +198,7 @@ export function Board() {
   const sourceColumnId = draggingId ? colOfBead.get(draggingId) : undefined;
   const dropColumn = COLUMNS.find(
     (c) => c.id === overColumnId && c.id !== sourceColumnId && c.droppable && c.status &&
-      draggingBead?.status !== c.status,
+      draggingBead?.status !== c.status && !!draggingBead && canChangeStatus(meta, draggingBead, c.status),
   );
 
   return (
@@ -201,7 +207,7 @@ export function Board() {
         <div className="mr-1 flex flex-col gap-px">
           <h1 className="m-0 text-base font-[650] tracking-[-.01em]">Board</h1>
           <span className="text-[11.5px] text-[var(--text-3)]">
-            {visible.length} beads · live from <span className="font-mono">bd list</span>
+            {visible.length} beads · live from <span className="font-mono">{meta?.kind === "bead-rs" ? "bead list" : "bd list"}</span>
           </span>
         </div>
 
@@ -241,7 +247,7 @@ export function Board() {
           </select>
         </label>
 
-        {!readOnly && (
+        {!readOnly && canOperate(meta, "create") && (
           <button
             onClick={() => openCreate()}
             className="flex h-9 flex-shrink-0 items-center gap-[6px] rounded-[9px] px-[14px] text-[13px] font-[550] text-white"

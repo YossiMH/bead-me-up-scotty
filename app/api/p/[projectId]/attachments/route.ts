@@ -4,6 +4,7 @@ import path from "node:path";
 import crypto from "node:crypto";
 import { getProject, DEMO_PROJECT, ConfigError } from "@/lib/config";
 import { ok, fail } from "@/lib/api";
+import { nativeCapabilities, requireOperation } from "@/lib/backend-capabilities";
 
 export const dynamic = "force-dynamic";
 
@@ -22,6 +23,9 @@ function attachmentsDir(projectId: string): string {
   const project = getProject(projectId);
   if (!project || project.path === null) {
     throw new ConfigError(`Unknown project: ${projectId}`, "unknown_project");
+  }
+  if (project.backend === "bead-rs") {
+    requireOperation({ capabilities: nativeCapabilities }, "attachments");
   }
   return path.join(project.path, ".beads", "attachments");
 }

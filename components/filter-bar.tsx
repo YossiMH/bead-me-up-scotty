@@ -1,5 +1,6 @@
 "use client";
 import * as React from "react";
+import { useApp } from "@/components/app-context";
 import { Icon } from "@/components/icons";
 import { MultiSelectFilter, type FilterOption } from "@/components/multi-select-filter";
 import { typeLabel, statusLabel, prioLabel } from "@/lib/beads-view";
@@ -9,9 +10,8 @@ import { type Filters, emptyFilters, toggleStr, toggleNum } from "@/lib/filters"
 /**
  * Search + multi-select facet filters, shared by the Board and List views so
  * both expose the same controls (status, type, priority, labels, assignee,
- * origin) + archived. Purely presentational: `labelOptions` and
- * `assigneeOptions` are the data-derived facets (the rest come from static
- * enums) and are passed in rather than read from context here.
+ * origin) + archived. Label and assignee facets come from the caller; custom
+ * types and attribution support come from the current project context.
  */
 export function FilterBar({
   filters,
@@ -30,6 +30,8 @@ export function FilterBar({
   onShowArchived: (v: boolean) => void;
   onClearAllAction?: () => void;
 }) {
+  const { beads, meta } = useApp();
+  const types = React.useMemo(() => meta?.kind === "bead-rs" ? [...new Set([...BEAD_TYPES, ...beads.map((bead) => bead.issue_type)])] : BEAD_TYPES, [beads, meta?.kind]);
   const set = (patch: Partial<Filters>) => onChange({ ...filters, ...patch });
 
   // Count active filters (each non-empty facet + a non-empty search + archived)
@@ -38,7 +40,7 @@ export function FilterBar({
     (filters.status.length ? 1 : 0) +
     (filters.type.length ? 1 : 0) +
     (filters.priority.length ? 1 : 0) +
-    (filters.origin.length ? 1 : 0) +
+    (meta?.capabilities?.attribution !== "unavailable" && filters.origin.length ? 1 : 0) +
     (filters.labels.length ? 1 : 0) +
     (filters.assignee.length ? 1 : 0) +
     (filters.search.trim() ? 1 : 0) +
@@ -81,7 +83,7 @@ export function FilterBar({
         />
         <MultiSelectFilter
           label="Type"
-          options={BEAD_TYPES.filter((t) => t !== "epic").map((t) => ({ value: t, label: typeLabel(t) }))}
+          options={types.filter((t) => t !== "epic").map((t) => ({ value: t, label: typeLabel(t) }))}
           selected={filters.type}
           onToggle={(v) => set({ type: toggleStr(filters.type, v) })}
           onClear={() => set({ type: [] })}
@@ -111,7 +113,7 @@ export function FilterBar({
             onClear={() => set({ assignee: [] })}
           />
         )}
-        <MultiSelectFilter
+        {meta?.capabilities?.attribution !== "unavailable" && <MultiSelectFilter
           label="Origin"
           options={[
             { value: "human", label: "Human" },
@@ -120,7 +122,7 @@ export function FilterBar({
           selected={filters.origin}
           onToggle={(v) => set({ origin: toggleStr(filters.origin, v) })}
           onClear={() => set({ origin: [] })}
-        />
+        />}
         <button
           onClick={() => onShowArchived(!showArchived)}
           title="Toggle archived"
