@@ -61,13 +61,20 @@ function start() {
 
 for (const sig of ["SIGINT", "SIGTERM"]) {
   process.on(sig, () => {
+    if (stopping) return;
     stopping = true;
     if (!child) process.exit(0);
     // Wait for the child to actually exit before we do, so it isn't orphaned
     // holding the port (which would make the next `npm run serve` hit EADDRINUSE).
-    // Force-exit if it doesn't shut down promptly.
-    child.once("exit", () => process.exit(0));
-    const t = setTimeout(() => process.exit(0), 5000);
+    // A long-lived request can prevent draining; kill the child after the
+    // deadline and report forced shutdown only after observing its exit.
+    const t = setTimeout(() => {
+      child.kill("SIGKILL");
+    }, 5000);
+    child.once("exit", (_code, signal) => {
+      clearTimeout(t);
+      process.exit(signal === "SIGKILL" ? 1 : 0);
+    });
     if (typeof t.unref === "function") t.unref();
     child.kill(sig);
   });
