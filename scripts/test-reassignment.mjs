@@ -26,7 +26,7 @@ let releasePending;
 let markPending;
 const pendingRequest = new Promise((resolve) => { markPending = resolve; });
 
-const browser = await chromium.launch();
+const browser = await chromium.launch({ executablePath: process.env.SCOTTY_TEST_CHROME || undefined });
 let page;
 try {
   const context = await browser.newContext({ viewport: { width: 1500, height: 1000 } });

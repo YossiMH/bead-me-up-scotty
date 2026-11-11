@@ -6,7 +6,7 @@ assert.ok(base, 'Set SCOTTY_TEST_URL to an isolated app server');
 const bead = (id, extra = {}) => ({ id, title: `Draft ${id}`, description: 'Original text', status: 'open', issue_type: 'task', priority: 2, labels: [], dependencies: [], created_at: '2026-09-01T00:00:00Z', updated_at: '2026-09-01T00:00:00Z', ...extra });
 const beads = [bead('alpha'), bead('beta', { status: 'in_progress' })];
 const writes = [];
-const browser = await chromium.launch();
+const browser = await chromium.launch({ executablePath: process.env.SCOTTY_TEST_CHROME || undefined });
 const errors = [];
 try {
   const context = await browser.newContext({ viewport: { width: 1500, height: 1000 } });
