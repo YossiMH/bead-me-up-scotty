@@ -231,7 +231,7 @@ function DrawerBody({
   const update = useUpdateBead();
   const editOutcome = nativeMutationOutcome(update.error);
   const [reconciledEdit, setReconciledEdit] = React.useState<typeof editOutcome>();
-  const editSubmitting = React.useRef(false);
+  const pendingEdit = React.useRef<UpdateInput | null>(null);
   const editBlocked = update.isPending || !!editOutcome;
   const setStatus = useSetStatus();
   const addComment = useAddComment();
@@ -304,6 +304,8 @@ function DrawerBody({
   const [editBase, setEditBase] = React.useState(bead);
   const resetUpdate = update.reset;
   const submittedPatch = update.variables?.patch;
+  const submittedContentEdit = submittedPatch && (["title", "description", "issue_type", "notes"] as const)
+    .some((field) => submittedPatch[field] !== undefined);
   React.useEffect(() => {
     if (!editOutcome || reconciledEdit !== editOutcome || !submittedPatch || !editReadbackMatches(submittedPatch, bead)) return;
     // Retain the replay guard until the reconciled snapshot reaches this drawer.
@@ -349,13 +351,13 @@ function DrawerBody({
     setEditing(false);
     update.reset();
   };
-  /** One in-flight edit owns its replay guard until success or read-only reconciliation. */
+  /** Own the submitted patch immediately, before React publishes the mutation state. */
   const submitEdit = (patch: UpdateInput, onSuccess?: () => void) => {
-    if (readOnly || editBlocked || editSubmitting.current) return;
-    editSubmitting.current = true;
+    if (readOnly || editBlocked || pendingEdit.current) return;
+    pendingEdit.current = patch;
     update.mutate({ id: bead.id, patch }, {
       onSuccess,
-      onSettled: () => { editSubmitting.current = false; },
+      onSettled: () => { if (pendingEdit.current === patch) pendingEdit.current = null; },
     });
   };
   const saveEdit = () => {
@@ -811,8 +813,11 @@ function DrawerBody({
             </div>
           )}
           {editOutcome && update.variables && <MutationOutcomeNotice outcome={editOutcome} projectId={projectId} mode="edit"
-            expectedPatch={update.variables.patch} onReconciled={() => { setReconciledEdit(editOutcome); setEditing(false); }}
-            onDiscard={() => { update.reset(); setEditing(false); }} />}
+            expectedPatch={update.variables.patch} onReconciled={() => {
+              setReconciledEdit(editOutcome);
+              if (submittedContentEdit) setEditing(false);
+            }}
+            onDiscard={() => { update.reset(); if (submittedContentEdit) setEditing(false); }} />}
           {!editing && editableContent && canOperate(meta, "refine") && <AiAssistPanel bead={bead} />}
         </Section>
 
