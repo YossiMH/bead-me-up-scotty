@@ -9,7 +9,7 @@ $ErrorActionPreference = 'Stop'
 
 # Dot-sourcing exposes the normal resource constructor, without starting a
 # second event loop. The real NotifyIcon, menu handler and disposal path run.
-. $TrayScript
+. $TrayScript -ParentProcessId $ParentProcessId -Url $Url
 $tray = New-ScottyTrayContext -ParentProcessId $ParentProcessId -Url $Url
 $receipt = @{ iconVisible = $tray.Icon.Visible; menuText = $tray.ExitItem.Text; clicked = $false; disposed = $false }
 $timer = New-Object System.Windows.Forms.Timer
