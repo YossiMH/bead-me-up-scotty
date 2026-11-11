@@ -10,7 +10,7 @@ const output = process.env.SCOTTY_TEST_OUTPUT;
 assert.ok(base && projectId && output, 'Set isolated SCOTTY_TEST_URL, SCOTTY_TEST_PROJECT and SCOTTY_TEST_OUTPUT');
 fs.mkdirSync(output, { recursive: true });
 const prefix = `${base}/api/p/${encodeURIComponent(projectId)}`;
-const browser = await chromium.launch();
+const browser = await chromium.launch({ executablePath: process.env.SCOTTY_TEST_CHROME || undefined });
 const context = await browser.newContext({ viewport: { width: 1500, height: 1000 } });
 await context.tracing.start({ screenshots: true, snapshots: true });
 const page = await context.newPage();
@@ -19,7 +19,7 @@ const title = `UI committed-response ${Date.now()}`;
 const text = `UI committed comment ${Date.now()}`;
 const label = `recovered-${Date.now()}`;
 let labelListFails = false;
-const evidence = { boundary: 'HTTP response replaced after a real successful native write', creates: 0, comments: 0, updates: 0, labels: 0, labelReads: 0 };
+const evidence = { boundary: 'HTTP response replaced after a real successful native write', creates: 0, comments: 0, updates: 0, priorityUpdates: 0, labels: 0, labelReads: 0 };
 try {
   const initial = await (await context.request.get(`${prefix}/beads`)).json();
   assert.equal(initial.meta.kind, 'bead-rs');
@@ -73,6 +73,41 @@ try {
   await drawer.getByRole('button', { name: 'Refresh without resubmitting', exact: true }).click();
   await drawer.getByRole('alert').waitFor({ state: 'hidden' });
   assert.equal(await drawer.getByPlaceholder(/^Comment as /).inputValue(), '');
+  const unsavedTitle = `${title} unsaved`;
+  const unsavedDescription = 'Keep this separate content draft through priority recovery.';
+  await drawer.getByTitle('Edit title & description', { exact: true }).click();
+  await drawer.getByLabel('Title', { exact: true }).fill(unsavedTitle);
+  await drawer.getByLabel('Description', { exact: true }).fill(unsavedDescription);
+  await drawer.getByLabel('Notes', { exact: true }).fill('Separate unsaved notes');
+  await page.route(`${prefix}/beads/${evidence.issueId}`, async route => {
+    if (route.request().method() !== 'PATCH') return route.continue();
+    evidence.priorityUpdates++;
+    assert.equal(evidence.priorityUpdates, 1, 'Priority must not be replayed');
+    assert.deepEqual(route.request().postDataJSON(), { priority: 0 });
+    const response = await route.fetch({ maxRetries: 0 });
+    assert.equal(response.status(), 200);
+    const current = await response.json();
+    assert.equal(current.title, title, 'The content draft was never submitted');
+    assert.equal(current.priority, 0);
+    await route.fulfill({ status: 409, json: { error: 'Injected priority readback-unavailable UI boundary', code: 'mutation_committed',
+      outcome: { state: 'committed', operation: 'update', issueId: evidence.issueId, phase: 'readback' } } });
+  });
+  await Promise.all([
+    page.waitForResponse(response => response.url() === `${prefix}/beads/${evidence.issueId}` && response.request().method() === 'PATCH' && response.status() === 409),
+    drawer.getByLabel('Priority', { exact: true }).selectOption('0'),
+  ]);
+  await drawer.getByRole('alert').waitFor();
+  await drawer.getByRole('button', { name: 'Refresh without resubmitting', exact: true }).click();
+  await drawer.getByRole('alert').waitFor({ state: 'hidden' });
+  assert.equal(await drawer.getByLabel('Title', { exact: true }).inputValue(), unsavedTitle);
+  assert.equal(await drawer.getByLabel('Description', { exact: true }).inputValue(), unsavedDescription);
+  assert.equal(await drawer.getByLabel('Notes', { exact: true }).inputValue(), 'Separate unsaved notes');
+  assert.equal(await drawer.getByRole('button', { name: 'Save', exact: true }).isEnabled(), true);
+  assert.equal(evidence.priorityUpdates, 1);
+  await page.screenshot({ path: path.join(output, 'native-priority-draft-recovery.png'), fullPage: true });
+  await drawer.getByRole('button', { name: 'Cancel', exact: true }).click();
+  await drawer.getByRole('heading', { name: title, exact: true }).waitFor();
+  await page.unroute(`${prefix}/beads/${evidence.issueId}`);
   const editedTitle = `${title} edited`;
   await page.route(`${prefix}/beads/${evidence.issueId}`, async route => {
     if (route.request().method() !== 'PATCH') return route.continue();
@@ -105,6 +140,7 @@ try {
   assert.equal(await drawer.getByLabel('Title', { exact: true }).inputValue(), editedTitle);
   await drawer.getByPlaceholder('Describe this bead…', { exact: true }).press('Control+Enter');
   assert.equal(evidence.updates, 1);
+  assert.equal(evidence.priorityUpdates, 1);
   await drawer.getByRole('button', { name: 'Refresh without resubmitting', exact: true }).click();
   await drawer.getByRole('alert').waitFor({ state: 'hidden' });
   await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
@@ -156,7 +192,7 @@ try {
   assert.equal(evidence.comments, 1);
   assert.equal(evidence.updates, 1);
   evidence.persisted = matches[0];
-  console.log('PASS UI-boundary create/comment/edit/label recovery; failed list keeps labels locked, refreshed labels unlock, one real write each');
+  console.log('PASS UI-boundary create/comment/edit/priority/label recovery; priority refresh preserves the separate content draft, one real write each');
 } finally {
   fs.writeFileSync(path.join(output, 'native-ui-recovery-evidence.json'), JSON.stringify(evidence, null, 2));
   await context.tracing.stop({ path: path.join(output, 'native-ui-recovery-trace.zip') });
