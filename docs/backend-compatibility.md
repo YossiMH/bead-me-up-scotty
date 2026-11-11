@@ -2,7 +2,12 @@
 
 Scotty supports separate original Beads (`bd`) and native bead-rs (`bead`)
 projects. The backend belongs to each registered project; a missing selection
-means original bd. Selecting a backend does not migrate or initialize its data.
+means original bd. Selecting a backend does not convert between implementations
+or initialize missing data. Registering or opening a native project runs the
+selected CLI, which can upgrade an older native schema and change SQLite journal
+or sidecar files. Add only stores already known to be current and compatible with
+that exact executable. Review and explicitly approve any migration of an original
+store before opening it.
 
 ## Versions and installation
 
@@ -16,6 +21,91 @@ JSON-document interfaces. A 0.3.0 version string alone does not identify the
 tested source. Use the pinned commit and retain its build metadata. Scotty checks
 the public capability document and workspace identity, not the executable's hash.
 Later bead-rs revisions need separate qualification.
+
+### Use a local bead-rs fork on Windows
+
+Select the executable explicitly when another `bead` is installed on `PATH`.
+From the Scotty checkout, for a sibling `bead-rs` checkout with an existing debug
+build:
+
+```powershell
+npm ci
+npm run build
+node .\bin\bead-me-up-scotty.mjs --bead-bin ..\bead-rs\target\debug\bead.exe --host 127.0.0.1
+```
+
+`--bead-bin` takes a file path, resolves relative paths from the folder where the
+command was invoked, and overrides `BEAD_BIN` for the launched server. It does
+not install or replace an executable. In Add a project, select **bead-rs**.
+
+For an independent local installation, `.env.local` can hold absolute paths:
+
+```dotenv
+BEAD_BIN=F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-376537b7917f.exe
+XDG_CONFIG_HOME=F:/Dev/bead-me-up-scotty/.scotty-local
+```
+
+For this already configured clone, launch from `F:\Dev\bead-me-up-scotty`:
+
+```powershell
+node .\bin\bead-me-up-scotty.mjs --host 127.0.0.1 --port 3000 --no-open
+```
+
+Open the printed URL, then use **Add project**, choose **bead-rs**, and enter the
+repository root containing `.beads`, rather than the `.beads` directory itself.
+Existing process environment settings take precedence over `.env.local`.
+
+This keeps this clone's project registrations and native claim credentials in
+its ignored `.scotty-local/` directory. Existing Scotty registrations remain in
+their previous configuration directory. Launching this clone starts at its own
+project picker; use **Add project**, choose **bead-rs**, and select an initialized
+workspace already known to be compatible with the selected executable. Adding a
+project opens that workspace through the selected CLI; it does not copy its data.
+Qualification runs capability and snapshot commands. Normal native commands can
+upgrade older schemas, including through a command's pre-dispatch connection;
+backend selection is not a no-migration mode. The compatibility tests use newly
+initialized disposable workspaces. Older original stores require a separate
+safe-access and migration decision before registration.
+
+This installation pins a copy of the tested fork binary at the path above,
+with a neighboring provenance receipt and SHA-256. It does not follow future
+fork rebuilds. A development `target/debug/bead.exe` can be replaced by another
+build while Scotty is running; qualify a new binary on disposable data before
+replacing the local pin or selecting it with `--bead-bin`.
+
+On this Windows host, the configured F: pin now passes the full real-store tests
+and headless browser registration, issue display, API create and CLI readback on
+fresh F: Git workspaces. The current checkpoint's referenced files were staged
+with matching bytes, while an unrelated file stayed unchanged and untracked.
+The clone's `.env.local` defaults were also tested without `--bead-bin`; cleanup
+leaves an empty clone-local project registry. After the user-approved Windows
+Medium integrity-label repair, the unchanged executable passed the ordinary C:
+Git-native suite and the C: headless browser's application checks. The browser
+controller initially failed its five-second exit observation for two owned
+headless-browser children despite an empty Job; a later identity check confirmed
+both had exited. The original result and that reconciliation are retained. The
+browser checks used an existing isolated Playwright headless browser. Earlier
+failed fixtures are preserved. These results do not qualify original stores;
+no existing live store was opened.
+
+The local Windows binary tested with this checkout has SHA-256
+`376537b7917f18d33383a3e4bd3eb9e0955bb42d1a60b73aef5c81865662af28`.
+Its public contract reports 0.3.0 / native-v1 with array list output and object
+show/create output. The tests exercise complete listing, creation, comments,
+labels, dependencies, closing, reopening, assignment and release using a fresh
+disposable store. The binary hash identifies the tested file; the checkout's
+Git revision does not establish that file's build provenance.
+
+To check another local binary, set `BEAD_BIN` and `SCOTTY_TEST_ROOT` to absolute
+paths, with the test root outside both source repositories. Set `HOME`,
+`USERPROFILE`, `APPDATA`, `LOCALAPPDATA`, `XDG_CONFIG_HOME`, `TEMP` and `TMP` to a
+disposable home before running `npm run test:bead-rs:local`. The browser check
+uses `npm run test:bead-rs:browser` after a production build; optionally set
+`SCOTTY_TEST_CHROME` to an installed isolated Playwright Chromium or headless-shell
+executable. It launches a separate
+browser session and verifies that the CLI flag overrides an invalid inherited
+`BEAD_BIN`. Keep tests under an owned process controller on Windows so its
+entire server process tree is reclaimed on exit.
 
 Build Scotty from this checkout with `npm ci` and `npm run build`, then start it
 with `npm run serve`. The upstream v0.3.2 release predates this adapter. The

@@ -22,7 +22,11 @@
     "build": "next build",
     "start": "next start",
     "serve": "node scripts/serve.mjs",
-    "lint": "eslint"
+    "lint": "eslint",
+    "test:bead-bin": "node --test scripts/test-bead-binary-option.mjs",
+    "test:owned-process": "node --test scripts/test-owned-process.mjs",
+    "test:bead-rs:local": "node --conditions=react-server --import ./scripts/support/register-source.mjs --test scripts/test-local-bead-rs.mjs",
+    "test:bead-rs:browser": "node scripts/test-local-bead-rs-browser.mjs"
   },
   "dependencies": {
     "@11ty/eleventy": "^3.1.6",

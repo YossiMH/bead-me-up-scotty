@@ -17,6 +17,7 @@ import path from "node:path";
 import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
+import { beadBinaryOptions } from "./backend-binary.mjs";
 
 // The directory the user ran the command from (used for cwd auto-open).
 const invocationCwd = process.cwd();
@@ -43,6 +44,9 @@ Options:
                    port if the default is busy; with an explicit --port it
                    fails instead of moving.
       --host <h>   Host to bind (default from Next; or $HOST).
+      --bead-bin <path>
+                   Use this bead-rs executable (overrides $BEAD_BIN).
+                   Relative paths start from your current directory.
       --no-open    Don't open a browser, just print the URL.
   -h, --help       Show this help.
 `);
@@ -211,7 +215,8 @@ async function targetPath(host, port) {
 }
 
 async function main() {
-  const opts = parseArgs(process.argv.slice(2));
+  const backend = beadBinaryOptions(process.argv.slice(2), invocationCwd);
+  const opts = parseArgs(backend.args);
   if (opts.help) {
     printHelp();
     process.exit(0);
@@ -235,7 +240,7 @@ async function main() {
   const child = spawn(process.execPath, [nextBin, "start", ROOT, "-p", String(port), "-H", host], {
     cwd: ROOT,
     stdio: "inherit",
-    env: { ...process.env, PORT: String(port), HOST: host },
+    env: { ...process.env, ...(backend.beadBin ? { BEAD_BIN: backend.beadBin } : {}), PORT: String(port), HOST: host },
   });
 
   // Forward signals and clean up the child on exit.
