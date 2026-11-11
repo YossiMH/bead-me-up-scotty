@@ -52,11 +52,6 @@
       "sha256": "f612a2387d0093bf2cc71adda28e5c148b6c0d69d19e7cd542e075636e04f6ae"
     },
     {
-      "path": "windows-tray-smoke.ps1",
-      "bytes": 30787,
-      "sha256": "6feb398fd506257331b8702703e839abfe2796f0387aacc0c20c8c0e98b30bbb"
-    },
-    {
       "path": "backend-windows.zip.part0",
       "bytes": 524288,
       "sha256": "691c27487e4f8f5aadaa9fa0284cca8aed939cf97e010d411bb8a32d3be62436"
@@ -135,6 +130,16 @@
       "path": "scotty-runtime.json",
       "bytes": 43600,
       "sha256": "948194c2eda868f879152111570f52ce6f643dc6f4c4fe79f8f4eef8043a510a"
+    },
+    {
+      "path": "windows-tray-smoke.ps1",
+      "bytes": 35301,
+      "sha256": "9a751dd7950586a56e94d636a13d5019f8ed4768d70caa76ebb74ed920b720e3"
+    },
+    {
+      "path": "windows-configured-launch-smoke.ps1",
+      "bytes": 29622,
+      "sha256": "2987f21bc4a2e051ca7cf864fbd2644feef504c6e9ca9e70552433b38ee0ebd0"
     }
   ],
   "archives": [
@@ -165,6 +170,5 @@
         "backend-windows.zip.part10"
       ]
     }
-  ],
-  "qualification_notes": "The included old outer tray smoke is retained for staging syntax validation only. Its replacement will be separately hashed and reviewed before Windows execution; no tray check has passed yet."
+  ]
 }

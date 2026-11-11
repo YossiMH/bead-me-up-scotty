@@ -45,6 +45,9 @@ $OriginalPriority = $Self.PriorityClass
 $SessionId = $Self.SessionId
 $ArtifactRoot = $null
 $ResultPath = $null
+$DriverCopyDirectory = $null
+$DriverCopyPath = $null
+$JobHash = '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'
 $Result = [ordered]@{
     schema_version = 1; status = 'failed'; started_utc = $Started.ToString('o')
     repository = $RepositoryPath; source_revision_reported = $SourceRevision
@@ -78,6 +81,27 @@ function Get-SafeLocalPath([string]$Value) {
         $cursor = if ($parent) { $parent.FullName } else { $null }
     }
     return $full
+}
+
+function Get-TrayCacheEvidence([string]$Directory) {
+    $records = @(Read-Records $Directory | Where-Object { $_.kind -eq 'tray' })
+    Assert-That ($records.Count -eq 1) 'Expected exactly one production tray helper record.'
+    $record = $records[0]
+    $fileIndex = [Array]::IndexOf([object[]]$record.args, '-File')
+    Assert-That ($fileIndex -ge 0 -and $fileIndex + 1 -lt $record.args.Count) 'The tray helper did not use ordinary -File execution.'
+    $helper = Get-SafeLocalPath ([string]$record.helperScript)
+    $executed = Get-SafeLocalPath ([string]$record.args[$fileIndex + 1])
+    $localRoot = (Get-SafeLocalPath $env:LOCALAPPDATA) + '\'
+    foreach ($scriptPath in @($helper, $executed)) {
+        Assert-That ($scriptPath.StartsWith($localRoot, [StringComparison]::OrdinalIgnoreCase)) 'A helper or click fixture did not execute from local app data.'
+        Assert-That ([IO.File]::Exists($scriptPath)) 'An owned cached script disappeared before its lifecycle check.'
+    }
+    $helperHash = (Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant()
+    $fixtureHash = (Get-FileHash -LiteralPath $executed -Algorithm SHA256).Hash.ToLowerInvariant()
+    Assert-That ($helperHash -eq $Result.source_sha256['bin\windows-tray.ps1'] -and $record.helperScriptSha256 -eq $helperHash) 'The actual production helper copy differs from the bundled helper.'
+    Assert-That ($fixtureHash -eq $Result.source_sha256['scripts\fixtures\windows-tray-click.ps1']) 'The executed click wrapper differs from the repository fixture.'
+    Assert-That (@($record.args | Where-Object { $_ -match 'Bypass|ExecutionPolicy|EncodedCommand' }).Count -eq 0) 'The helper must retain the host execution policy.'
+    return @{ helper_script = $helper; helper_sha256 = $helperHash; executed_script = $executed; fixture_sha256 = $fixtureHash }
 }
 
 function ConvertTo-NativeArgument([string]$Value) {
@@ -330,6 +354,26 @@ try {
     $ArtifactRoot = $EvidenceDirectory
     $ResultPath = Join-Path $ArtifactRoot 'result.json'
     $Result['evidence_directory'] = $ArtifactRoot
+    # This invocation is a dedicated process. Its Job reclaims descendants if
+    # the outer process is interrupted before its normal ownership cleanup.
+    $jobHelper = Join-Path $PSScriptRoot 'windows-task-job.ps1'
+    Assert-That ((Get-FileHash -LiteralPath $jobHelper -Algorithm SHA256).Hash.ToLowerInvariant() -eq $JobHash) 'The sibling process-containment helper differs from the reviewed bytes.'
+    . $jobHelper
+    Enter-ScottyTaskJob
+    $Result['job_helper_sha256'] = $JobHash
+    # Keep the reviewed driver unchanged while using the host's local-zone
+    # execution location. Its repository argument still selects the real app.
+    $driverRoot = Get-SafeLocalPath (Join-Path (Get-SafeLocalPath $env:LOCALAPPDATA) 'bead-edit-20261111')
+    [void][IO.Directory]::CreateDirectory($driverRoot)
+    $driverDirectory = Join-Path $driverRoot ('tray-driver-' + [Guid]::NewGuid().ToString('N'))
+    Assert-That (-not (Test-Path -LiteralPath $driverDirectory)) 'The proposed driver copy directory already exists.'
+    [void][IO.Directory]::CreateDirectory($driverDirectory)
+    $DriverCopyDirectory = $driverDirectory
+    $DriverCopyPath = Join-Path $DriverCopyDirectory 'test-windows-tray-smoke.ps1'
+    [IO.File]::Copy($ExistingSmoke, $DriverCopyPath, $false)
+    $driverHash = (Get-FileHash -LiteralPath $DriverCopyPath -Algorithm SHA256).Hash.ToLowerInvariant()
+    Assert-That ($driverHash -eq $Result.source_sha256['scripts\test-windows-tray-smoke.ps1']) 'The local execution copy differs from the repository smoke driver.'
+    $Result['driver_copy'] = @{ source = $ExistingSmoke; executed = $DriverCopyPath; sha256 = $driverHash; removed = $false }
     $TempDirectory = Join-Path $ArtifactRoot 'temp'
     [void][IO.Directory]::CreateDirectory($TempDirectory)
     $HeartbeatFile = Join-Path $ArtifactRoot 'owner-heartbeat'
@@ -370,7 +414,7 @@ if (root && entry && process.argv[1] && path.resolve(process.argv[1]).toLowerCas
 
     # Reuse the already-reviewed real Forms smoke without copying its assertions.
     $arguments = @('-NoLogo', '-NoProfile', '-NonInteractive', '-WindowStyle', 'Hidden',
-        '-File', $ExistingSmoke, '-RepositoryPath', $RepositoryPath, '-NodePath', $NodePath, '-Port', [string]$Port)
+        '-File', $DriverCopyPath, '-RepositoryPath', $RepositoryPath, '-NodePath', $NodePath, '-Port', [string]$Port)
     if ($BeadBin) { $arguments += @('-BeadBin', $BeadBin) }
     $runner = Start-Headless $PowerShellPath $arguments 'smoke-runner' (Join-Path $ArtifactRoot 'existing-smoke') @{}
     Wait-Until { $runner.process.HasExited } 'The existing real Forms smoke did not finish.' $TimeoutSeconds
@@ -431,6 +475,7 @@ await import(pathToFileURL(process.env.SCOTTY_SMOKE_EXISTING_OBSERVER).href);
     } 'The restart case did not start one helper and server.'
     $tray = Get-ChildEntry $restartDirectory 'tray'
     $first = Get-ChildEntry $restartDirectory 'server'
+    $restartCache = Get-TrayCacheEvidence $restartDirectory
     Wait-Until {
         try { (Invoke-WebRequest -UseBasicParsing -Uri ("http://127.0.0.1:" + $Port) -TimeoutSec 2).StatusCode -eq 200 }
         catch { $false }
@@ -458,9 +503,14 @@ await import(pathToFileURL(process.env.SCOTTY_SMOKE_EXISTING_OBSERVER).href);
     $icon = [IO.File]::ReadAllText((Join-Path $restartDirectory 'icon-receipt.json')) | ConvertFrom-Json
     Assert-That ($icon.iconVisible -and $icon.clicked -and $icon.disposed -and $icon.menuText -eq 'Exit') 'The real icon/menu lifecycle failed after restart.'
     Assert-That (Test-PortFree) 'Exit after restart left the owned port occupied.'
+    Wait-Until {
+        -not [IO.Directory]::Exists([IO.Path]::GetDirectoryName($restartCache.helper_script)) -and
+            -not [IO.Directory]::Exists([IO.Path]::GetDirectoryName($restartCache.executed_script))
+    } 'Exit after restart left an owned helper or click-fixture cache.' 10
+    $restartCache['removed'] = $true
     $Cases.Add(@{ action = 'restart75-exit'; result = 'pass'; controllerPid = $restart.process.Id
         trayPid = $tray.process_id; serverPids = @($first.process_id, $second.process_id)
-        firstExitCode = 75; helperCount = 1; icon = $icon; port = $Port })
+        firstExitCode = 75; helperCount = 1; icon = $icon; port = $Port; cache = $restartCache })
     Save-RunLogs $restart
     $Result.status = 'passed'
 } catch {
@@ -508,6 +558,13 @@ await import(pathToFileURL(process.env.SCOTTY_SMOKE_EXISTING_OBSERVER).href);
     }
     foreach ($run in $Runs) {
         try { Save-RunLogs $run } catch { $CleanupErrors.Add($_.Exception.Message) }
+    }
+    if ($DriverCopyDirectory) {
+        try {
+            if ($DriverCopyPath -and [IO.File]::Exists($DriverCopyPath)) { [IO.File]::Delete($DriverCopyPath) }
+            if ([IO.Directory]::Exists($DriverCopyDirectory)) { [IO.Directory]::Delete($DriverCopyDirectory, $false) }
+            if ($Result.Contains('driver_copy')) { $Result.driver_copy.removed = $true }
+        } catch { $CleanupErrors.Add('Owned local driver cleanup: ' + $_.Exception.Message) }
     }
     try { if ($ArtifactRoot) {
         foreach ($file in [IO.Directory]::GetFiles($ArtifactRoot, 'processes.jsonl', [IO.SearchOption]::AllDirectories)) {
