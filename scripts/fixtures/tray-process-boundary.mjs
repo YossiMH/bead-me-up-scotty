@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { syncBuiltinESMExports } from 'node:module';
 import { fileURLToPath } from 'node:url';
+import { createHash } from 'node:crypto';
 
 // Substitute only the unavailable Windows process boundary. The controllers,
 // pipes, server children, signals and process termination remain real.
@@ -17,13 +18,22 @@ childProcess.spawn = (command, args = [], options = {}) => {
   if (!/(^|[\\/])(?:powershell|pwsh)(?:\.exe)?$/i.test(command)) {
     return originalSpawn(command, args, options);
   }
+  const script = args[args.indexOf('-File') + 1];
   fs.appendFileSync(path.join(root, 'events.jsonl'), `${JSON.stringify({
     event: 'tray_spawn', command, args,
+    scriptSha256: createHash('sha256').update(fs.readFileSync(script)).digest('hex'),
     windowsHide: options.windowsHide, shell: options.shell,
   })}\n`);
+  if (process.env.SCOTTY_TRAY_TEST_HELPER_MODE === 'spawn-error') {
+    return originalSpawn(path.join(root, 'missing-powershell'), [], options);
+  }
   return originalSpawn(process.execPath, [path.join(directory, 'tray-helper.mjs')], {
     ...options,
     env: { ...process.env, ...options.env },
   });
 };
 syncBuiltinESMExports();
+const explicitExit = setInterval(() => {
+  if (fs.existsSync(path.join(root, 'exit-controller'))) process.exit(73);
+}, 20);
+explicitExit.unref();

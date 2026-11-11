@@ -4,6 +4,7 @@ import net from 'node:net';
 import os from 'node:os';
 import path from 'node:path';
 import test from 'node:test';
+import { createHash } from 'node:crypto';
 import { spawn } from 'node:child_process';
 import { setTimeout as delay } from 'node:timers/promises';
 import { fileURLToPath, pathToFileURL } from 'node:url';
@@ -65,6 +66,17 @@ async function startController(t, entry, config = {}) {
   fs.writeFileSync(path.join(nextRoot, 'package.json'), JSON.stringify({ name: 'next', type: 'module' }));
   fs.writeFileSync(path.join(nextRoot, 'dist', 'bin', 'next'),
     `import ${JSON.stringify(pathToFileURL(path.join(fixtures, 'tray-server.mjs')).href)};\n`);
+  const localAppData = config.localAppData === undefined ? path.join(root, 'local-app-data') : config.localAppData;
+  const temporaryDirectory = path.join(root, 'redirected-temp');
+  fs.mkdirSync(temporaryDirectory);
+  if (localAppData && path.isAbsolute(localAppData)) {
+    fs.mkdirSync(localAppData, { recursive: true });
+    fs.writeFileSync(path.join(localAppData, 'unrelated.txt'), 'keep unrelated local data');
+    if (config.blockedCacheRoot) {
+      fs.mkdirSync(path.join(localAppData, 'bead-me-up-scotty'), { recursive: true });
+      fs.writeFileSync(path.join(localAppData, 'bead-me-up-scotty', 'tray'), 'keep existing file');
+    }
+  }
   const port = await unusedPort();
   let command;
   if (entry === 'global') {
@@ -78,16 +90,20 @@ async function startController(t, entry, config = {}) {
   } else {
     command = ['scripts/serve.mjs'];
   }
+  const environment = {
+    ...process.env, PORT: String(port), HOST: '127.0.0.1',
+    BMUS_SERVE_CMD: '', BMUS_TRAY: config.disabled ? '0' : '1',
+    TMP: temporaryDirectory, TEMP: temporaryDirectory, TMPDIR: temporaryDirectory,
+    SCOTTY_TRAY_TEST_DIR: root,
+    SCOTTY_TRAY_TEST_PLATFORM: config.platform || 'win32',
+    SCOTTY_TRAY_TEST_SERVER_MODE: config.serverMode || 'serve',
+    SCOTTY_TRAY_TEST_HELPER_MODE: config.helperMode || 'ready',
+  };
+  if (localAppData === null) delete environment.LOCALAPPDATA;
+  else environment.LOCALAPPDATA = localAppData;
   const child = spawn(process.execPath, ['--import', path.join(fixtures, 'tray-process-boundary.mjs'), ...command], {
     cwd: root, detached: true, stdio: ['ignore', 'pipe', 'pipe'],
-    env: {
-      ...process.env, PORT: String(port), HOST: '127.0.0.1',
-      BMUS_SERVE_CMD: '', BMUS_TRAY: config.disabled ? '0' : '1',
-      SCOTTY_TRAY_TEST_DIR: root,
-      SCOTTY_TRAY_TEST_PLATFORM: config.platform || 'win32',
-      SCOTTY_TRAY_TEST_SERVER_MODE: config.serverMode || 'serve',
-      SCOTTY_TRAY_TEST_HELPER_MODE: config.helperMode || 'ready',
-    },
+    env: environment,
   });
   let output = '';
   child.stdout.on('data', chunk => { output += chunk; });
@@ -108,7 +124,7 @@ async function startController(t, entry, config = {}) {
     await exited;
   };
   return {
-    child, exited, events, port,
+    child, exited, events, port, root, localAppData, temporaryDirectory,
     output: () => output,
     mark: name => fs.writeFileSync(path.join(root, name), ''),
     ready: () => waitFor(() => events().find(event => event.event === 'server_ready'), `server readiness missing: ${output}`),
@@ -116,6 +132,98 @@ async function startController(t, entry, config = {}) {
       'running Windows controller never created its tray helper'),
   };
 }
+
+function helperCopy(run) {
+  const event = run.events().find(event => event.event === 'tray_spawn');
+  assert.ok(event, 'the real tray owner must reach the Windows process boundary');
+  const script = event.args[event.args.indexOf('-File') + 1];
+  const cacheRoot = path.join(run.localAppData, 'bead-me-up-scotty', 'tray');
+  const relative = path.relative(cacheRoot, script);
+  assert.ok(relative && !relative.startsWith('..') && !path.isAbsolute(relative),
+    `the tray helper must be copied under absolute LOCALAPPDATA, not launched from its bundle or TEMP: ${script}`);
+  assert.notEqual(path.dirname(script), cacheRoot, 'each tray owns a separate session directory');
+  assert.equal(path.basename(script), 'windows-tray.ps1');
+  assert.equal(event.scriptSha256, createHash('sha256').update(fs.readFileSync(path.join(run.root, 'bin', 'windows-tray.ps1'))).digest('hex'),
+    'the launched copy must contain the exact bundled script bytes');
+  assert.equal(event.args.some(arg => /bypass|executionpolicy|encodedcommand/i.test(arg)), false,
+    'ordinary -File execution must retain the host execution policy');
+  return script;
+}
+
+function assertCopyRemoved(run, script) {
+  assert.equal(fs.existsSync(script), false, 'the owned script copy must be removed');
+  assert.equal(fs.existsSync(path.dirname(script)), false, 'the owned session directory must be removed');
+  assert.equal(fs.readFileSync(path.join(run.localAppData, 'unrelated.txt'), 'utf8'), 'keep unrelated local data');
+  assert.ok(fs.existsSync(path.join(run.root, 'bin', 'windows-tray.ps1')), 'the bundled source must remain');
+}
+
+test('tray cache: exact LocalAppData copy survives until Exit and is then reclaimed', options, async t => {
+  const run = await startController(t, 'serve');
+  await run.ready();
+  const script = helperCopy(run);
+  assert.deepEqual(fs.readFileSync(script), fs.readFileSync(path.join(run.root, 'bin', 'windows-tray.ps1')));
+  assert.deepEqual(fs.readdirSync(run.temporaryDirectory), [], 'redirected TEMP is not used for executable helper code');
+  run.mark('click-exit');
+  assert.deepEqual(await run.exited, { code: 0, signal: null });
+  assertCopyRemoved(run, script);
+});
+
+for (const helperMode of ['failure', 'spawn-error']) {
+  test(`tray cache: ${helperMode} reclaims its owned copy before reporting completion`, options, async t => {
+    const run = await startController(t, 'serve', { helperMode });
+    assert.notEqual((await run.exited).code, 0);
+    const script = helperCopy(run);
+    assertCopyRemoved(run, script);
+    assert.equal(run.events().filter(event => event.event === 'server_started').length, 0);
+  });
+}
+
+for (const localAppData of [null, 'relative-local-data']) {
+  test(`tray cache: ${localAppData === null ? 'missing' : 'relative'} LOCALAPPDATA refuses before child launch`, options, async t => {
+    // The failing boundary keeps the pre-fix run bounded while still exposing
+    // its incorrect attempt to execute a helper without a valid local root.
+    const run = await startController(t, 'serve', { localAppData, helperMode: 'failure' });
+    assert.notEqual((await run.exited).code, 0);
+    assert.equal(run.events().filter(event => event.event === 'tray_spawn').length, 0);
+    assert.equal(run.events().filter(event => event.event === 'server_started').length, 0);
+    assert.match(run.output(), /LOCALAPPDATA/i);
+  });
+}
+
+test('tray cache: an unusable local cache preserves existing data and refuses child launch', options, async t => {
+  const run = await startController(t, 'serve', { blockedCacheRoot: true, helperMode: 'failure' });
+  assert.notEqual((await run.exited).code, 0);
+  assert.equal(run.events().filter(event => event.event === 'tray_spawn').length, 0);
+  assert.equal(fs.readFileSync(path.join(run.localAppData, 'bead-me-up-scotty', 'tray'), 'utf8'), 'keep existing file');
+  assert.equal(fs.readFileSync(path.join(run.localAppData, 'unrelated.txt'), 'utf8'), 'keep unrelated local data');
+});
+
+test('tray cache: an explicit controller exit reclaims only its own script', options, async t => {
+  const run = await startController(t, 'serve');
+  await run.ready();
+  const script = helperCopy(run);
+  run.mark('exit-controller');
+  assert.deepEqual(await run.exited, { code: 73, signal: null });
+  assertCopyRemoved(run, script);
+});
+
+test('tray cache: concurrent controllers never remove another live session copy', options, async t => {
+  const first = await startController(t, 'serve');
+  await first.ready();
+  const firstScript = helperCopy(first);
+  const second = await startController(t, 'serve', { localAppData: first.localAppData });
+  await second.ready();
+  const secondScript = helperCopy(second);
+  assert.notEqual(path.dirname(firstScript), path.dirname(secondScript));
+  first.mark('click-exit');
+  assert.deepEqual(await first.exited, { code: 0, signal: null });
+  assertCopyRemoved(first, firstScript);
+  assert.ok(fs.existsSync(secondScript), 'the other live controller retains its own helper');
+  assert.equal(second.child.exitCode, null);
+  second.mark('click-exit');
+  assert.deepEqual(await second.exited, { code: 0, signal: null });
+  assertCopyRemoved(second, secondScript);
+});
 
 for (const entry of ['global', 'serve', 'start']) {
   test(`${entry}: creates one hidden tray and Exit waits for owned server termination`, options, async t => {
@@ -204,7 +312,7 @@ test('tray process pipe closes when its owning controller disappears', options, 
 
 for (const config of [{ platform: 'linux' }, { disabled: true }]) {
   test(`serve: ${config.disabled ? 'explicit headless mode' : 'non-Windows'} needs no tray process`, options, async t => {
-    const run = await startController(t, 'serve', config);
+    const run = await startController(t, 'serve', { ...config, localAppData: null });
     const server = await run.ready();
     run.child.kill('SIGTERM');
     assert.deepEqual(await run.exited, { code: 0, signal: null });
