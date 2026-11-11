@@ -1,5 +1,25 @@
-param([int]$ParentProcessId = 0, [string]$Url = '')
+param([int]$ParentProcessId = 0, [string]$Url = '', [string]$CacheDirectory = '')
 $ErrorActionPreference = 'Stop'
+
+# The helper can finish after an abruptly lost Node parent. Remove only its
+# own copied script and empty session; an unexpected file is preserved.
+function Remove-ScottyTrayCopy {
+    param([string]$Directory, [string]$ScriptPath)
+    if (-not $Directory) { return }
+    if (-not $env:LOCALAPPDATA -or -not [System.IO.Path]::IsPathRooted($env:LOCALAPPDATA)) {
+        throw 'Cannot verify the local tray cache root'
+    }
+    $session = [System.IO.Path]::GetFullPath($Directory).TrimEnd('\')
+    $root = [System.IO.Path]::GetFullPath((Join-Path $env:LOCALAPPDATA 'bead-me-up-scotty\tray')).TrimEnd('\')
+    $script = [System.IO.Path]::GetFullPath($ScriptPath)
+    if ([System.IO.Path]::GetDirectoryName($session) -ine $root -or
+        [System.IO.Path]::GetFileName($session) -notmatch '^session-[A-Za-z0-9]+$' -or
+        $script -ine (Join-Path $session 'windows-tray.ps1')) {
+        throw 'Refusing to remove an unowned tray cache path'
+    }
+    [System.IO.File]::Delete($script)
+    if ([System.IO.Directory]::Exists($session)) { [System.IO.Directory]::Delete($session, $false) }
+}
 
 function New-ScottyTrayContext {
     param(
@@ -88,7 +108,14 @@ if ($MyInvocation.InvocationName -ne '.') {
         [Console]::Error.WriteLine('Windows tray: ' + $_.Exception.Message)
         $result = 1
     } finally {
-        if ($null -ne $tray) { & $tray.Dispose }
+        try { if ($null -ne $tray) { & $tray.Dispose } }
+        finally {
+            try { Remove-ScottyTrayCopy -Directory $CacheDirectory -ScriptPath $PSCommandPath }
+            catch {
+                [Console]::Error.WriteLine('Windows tray cache: ' + $_.Exception.Message)
+                $result = 1
+            }
+        }
     }
     exit $result
 }
