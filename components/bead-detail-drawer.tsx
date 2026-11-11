@@ -754,7 +754,7 @@ function DrawerBody({
               {canEdit(meta, "notes") && (
                 <label className="mt-3 flex flex-col gap-[6px]">
                   <span className={fieldLabel}>Notes</span>
-                  <textarea value={notesDraft} disabled={editBlocked} onChange={(event) => setNotesDraft(event.target.value)} rows={4}
+                  <textarea aria-label="Notes" value={notesDraft} disabled={editBlocked} onChange={(event) => setNotesDraft(event.target.value)} rows={4}
                     onKeyDown={(event) => { if ((event.metaKey || event.ctrlKey) && event.key === "Enter") { event.preventDefault(); saveEdit(); } }}
                     className="w-full resize-y rounded-[10px] border border-border bg-[var(--surface-2)] p-[12px_13px] text-[13.5px] leading-[1.55] text-[var(--text)] outline-none focus:border-[var(--brand)]" />
                 </label>

@@ -112,6 +112,8 @@ for (const resolution of ['reconcile', 'discard']) {
     const app = fixture();
     input(app.drawer(), 'Title').props.onChange({ target: { value: 'Unsaved title' } });
     input(app.drawer(), 'Description').props.onChange({ target: { value: 'Unsaved description' } });
+    assert.equal(input(app.drawer(), 'Notes')?.props.value, 'Saved notes');
+    input(app.drawer(), 'Notes').props.onChange({ target: { value: 'Unsaved notes' } });
     priority(app.drawer()).props.onChange({ target: { value: '0' } });
     app.settle('committed');
     const recovery = notice(app.drawer());
@@ -122,6 +124,7 @@ for (const resolution of ['reconcile', 'discard']) {
     const refreshed = app.drawer();
     assert.equal(input(refreshed, 'Title')?.props.value, 'Unsaved title');
     assert.equal(input(refreshed, 'Description')?.props.value, 'Unsaved description');
+    assert.equal(input(refreshed, 'Notes')?.props.value, 'Unsaved notes');
     assert.equal(input(refreshed, 'Title').props.disabled, false);
     assert.equal(notice(refreshed), undefined);
     assert.deepEqual(app.writes, [{ id: 'work-1', patch: { priority: 0 } }]);
