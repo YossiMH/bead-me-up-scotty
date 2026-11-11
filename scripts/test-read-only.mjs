@@ -4,7 +4,7 @@ import assert from "node:assert/strict";
 import { chromium } from "playwright";
 const base = process.env.SCOTTY_TEST_URL;
 assert.ok(base, "Set SCOTTY_TEST_URL to an isolated demo server");
-const browser = await chromium.launch();
+const browser = await chromium.launch({ executablePath: process.env.SCOTTY_TEST_CHROME || undefined });
 try {
   const context = await browser.newContext();
   const other = await browser.newContext();
