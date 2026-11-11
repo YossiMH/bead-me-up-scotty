@@ -1,19 +1,21 @@
 "use client";
 import * as React from "react";
 import { useQueryClient } from "@tanstack/react-query";
-import { api, mutationOutcomeText, mutationReadbackMatches } from "@/lib/api-client";
+import { api, editReadbackMatches, mutationOutcomeText, mutationReadbackMatches } from "@/lib/api-client";
 import type { NativeMutationOutcome } from "@/lib/backend-contract";
-import type { Bead } from "@/lib/schema";
+import type { Bead, UpdateInput } from "@/lib/schema";
 import { beadsKey } from "@/hooks/use-beads";
 
-/** Keeps a submitted write separate from read-only reconciliation; never replays it. */
-export function MutationOutcomeNotice({ outcome, projectId, mode, onReconciled, onDiscard }: {
+/** An edit carries the exact submitted patch through its read-only reconciliation. */
+type MutationOutcomeNoticeProps = {
   outcome: NativeMutationOutcome;
   projectId: string;
-  mode: "create" | "comment" | "labels";
   onReconciled: (bead: Bead) => void;
   onDiscard?: () => void;
-}) {
+} & ({ mode: "edit"; expectedPatch: UpdateInput } | { mode: "create" | "comment" | "labels"; expectedPatch?: never });
+
+/** Keeps a submitted write separate from read-only reconciliation; never replays it. */
+export function MutationOutcomeNotice({ outcome, projectId, mode, expectedPatch, onReconciled, onDiscard }: MutationOutcomeNoticeProps) {
   const qc = useQueryClient();
   const [reading, setReading] = React.useState(false);
   const [message, setMessage] = React.useState("");
@@ -25,7 +27,7 @@ export function MutationOutcomeNotice({ outcome, projectId, mode, onReconciled, 
       if (outcome.issueId) {
         const bead = await api.get(projectId, outcome.issueId);
         if (bead?.id !== outcome.issueId) throw new Error("The readback did not identify the requested bead");
-        if (mode === "labels") {
+        if (mode === "labels" || mode === "edit") {
           // Publish the whole snapshot so labels and readiness come from the same read.
           await qc.cancelQueries({ queryKey: beadsKey(projectId) });
           const snapshot = await api.list(projectId);
@@ -35,6 +37,10 @@ export function MutationOutcomeNotice({ outcome, projectId, mode, onReconciled, 
           const refreshed = snapshot.beads.find((item) => item.id === outcome.issueId);
           if (!refreshed) throw new Error("The refreshed project did not contain the requested bead");
           qc.setQueryData(beadsKey(projectId), snapshot);
+          if (mode === "edit" && !editReadbackMatches(expectedPatch, refreshed)) {
+            setMessage("Current records refreshed. They differ from the submitted edit. Your draft is retained; review the current bead before starting another edit.");
+            return;
+          }
           onReconciled(refreshed);
           return;
         }
@@ -52,7 +58,7 @@ export function MutationOutcomeNotice({ outcome, projectId, mode, onReconciled, 
     } catch (error) {
       setMessage(`Read-only refresh failed: ${error instanceof Error ? error.message : "Details unavailable"}. The write was not retried.`);
     } finally {
-      if (mode !== "labels") await qc.invalidateQueries({ queryKey: beadsKey(projectId) });
+      if (mode !== "labels" && mode !== "edit") await qc.invalidateQueries({ queryKey: beadsKey(projectId) });
       setReading(false);
     }
   };

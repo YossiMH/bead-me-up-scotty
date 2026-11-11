@@ -197,7 +197,19 @@ export const updateInputSchema = z.object({
    */
   parent: z.string().optional(),
 });
-export type UpdateInput = z.infer<typeof updateInputSchema>;
+const utf8Encoder = new TextEncoder();
+const nativeText = z.string().refine((value) => utf8Encoder.encode(value).byteLength <= 4 * 1024 * 1024,
+  "Text must not exceed 4 MiB in UTF-8.");
+
+/** Native edits use byte limits and custom types; original bd validation stays unchanged. */
+export const nativeUpdateInputSchema = updateInputSchema.extend({
+  title: z.string().min(1).refine((value) => utf8Encoder.encode(value).byteLength <= 4096,
+    "Title must not exceed 4096 bytes in UTF-8.").optional(),
+  description: nativeText.optional(),
+  notes: nativeText.optional(),
+  issue_type: nativeText.refine((value) => value.length > 0, "Type is required.").optional(),
+}).strict();
+export type UpdateInput = z.infer<typeof nativeUpdateInputSchema>;
 
 export const addCommentSchema = z.object({ text: z.string().min(1) });
 

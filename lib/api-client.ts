@@ -154,6 +154,14 @@ export function mutationReadbackMatches(outcome: NativeMutationOutcome, bead: Be
     (bead.comments ?? []).some((comment) => comment.id === outcome.receiptId);
 }
 
+/** Reconcile a scalar edit by its requested values, without claiming an audit receipt. */
+export function editReadbackMatches(patch: UpdateInput, bead: Bead): boolean {
+  if (patch.labels !== undefined || patch.parent !== undefined) return false;
+  const fields = ["title", "description", "notes", "priority", "issue_type", "status", "assignee"] as const;
+  return fields.some((field) => patch[field] !== undefined) && fields.every((field) =>
+    patch[field] === undefined || patch[field] === bead[field]);
+}
+
 /** A failed follow-up must not invite replay of a committed or uncertain write. */
 export function mutationOutcomeText(outcome: NativeMutationOutcome): string {
   const identity = outcome.issueId ? ` for ${outcome.issueId}` : "";
@@ -215,11 +223,11 @@ export const api = {
   get: (projectId: string, id: string) => request<Bead>(`${base(projectId)}/beads/${enc(id)}`),
   create: (projectId: string, input: CreateInput, native = false) =>
     request<Bead>(`${base(projectId)}/beads`, { method: "POST", body: JSON.stringify(input) }, native ? { operation: "create" } : undefined),
-  update: (projectId: string, id: string, patch: UpdateInput) =>
+  update: (projectId: string, id: string, patch: UpdateInput, native = false) =>
     request<Bead>(`${base(projectId)}/beads/${enc(id)}`, {
       method: "PATCH",
       body: JSON.stringify(patch),
-    }),
+    }, native ? { operation: "update", issueId: id } : undefined),
   setStatus: (projectId: string, id: string, status: string, reason?: string) =>
     request<Bead>(`${base(projectId)}/beads/${enc(id)}/status`, {
       method: "POST",

@@ -20,10 +20,11 @@ export type BackendOperation =
   | "attachments"
   | "publish";
 
-/** Fields accepted by PATCH. Creation has a separate immutable-field contract. */
+/** Fields accepted by PATCH when the selected backend advertises support. */
 export type EditableBeadField =
   | "title"
   | "description"
+  | "notes"
   | "priority"
   | "issue_type"
   | "status"
@@ -39,7 +40,7 @@ export type EditableBeadField =
 export interface BackendCapabilities {
   /** Complete supported operation names, not hints to attempt unsupported writes. */
   readonly operations: readonly BackendOperation[];
-  /** Fields editable after creation; native title/description/type/priority are immutable. */
+  /** Fields editable after creation, negotiated from the selected executable. */
   readonly editableFields: readonly EditableBeadField[];
   /** Exact backend spellings; native relates_to is not bd relates-to. */
   readonly dependencyTypes: readonly string[];

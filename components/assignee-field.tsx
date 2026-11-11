@@ -5,15 +5,26 @@ import { Icon } from "@/components/icons";
 import { useUpdateBead } from "@/hooks/use-beads";
 import { avatarColor, initials, canEdit } from "@/lib/beads-view";
 import type { Bead } from "@/lib/schema";
+import { editReadbackMatches, nativeMutationOutcome } from "@/lib/api-client";
+import { MutationOutcomeNotice } from "@/components/mutation-outcome-notice";
 
 /** Assignment is independent of the drawer's description and comment drafts. */
 export function AssigneeField({ bead }: { bead: Bead }) {
-  const { beads, meta, readOnly: viewerReadOnly } = useApp();
-  const readOnly = viewerReadOnly || !canEdit(meta, "assignee");
+  const { beads, meta, projectId, readOnly: viewerReadOnly } = useApp();
   const update = useUpdateBead();
+  const outcome = nativeMutationOutcome(update.error);
+  const readOnly = viewerReadOnly || !canEdit(meta, "assignee") || !!outcome;
   const [editing, setEditing] = React.useState(false);
   const [draft, setDraft] = React.useState("");
+  const [reconciled, setReconciled] = React.useState<typeof outcome>();
   const submitting = React.useRef(false);
+  const resetUpdate = update.reset;
+  const submittedPatch = update.variables?.patch;
+  React.useEffect(() => {
+    if (!outcome || reconciled !== outcome || !submittedPatch || !editReadbackMatches(submittedPatch, bead)) return;
+    resetUpdate();
+    setEditing(false);
+  }, [bead, outcome, reconciled, submittedPatch, resetUpdate]);
   const listId = React.useId();
   const suggestions = Array.from(new Set(
     [meta?.humanActor, ...beads.map(b => b.assignee)]
@@ -79,6 +90,9 @@ export function AssigneeField({ bead }: { bead: Bead }) {
           <Icon name="pencil" size={12} className="shrink-0 text-[var(--text-3)]" />
         </button>
       )}
+      {outcome && update.variables && <MutationOutcomeNotice outcome={outcome} projectId={projectId} mode="edit"
+        expectedPatch={update.variables.patch} onReconciled={() => setReconciled(outcome)}
+        onDiscard={() => { update.reset(); setEditing(false); }} />}
     </div>
   );
 }

@@ -1,6 +1,6 @@
 import { getStore } from "@/lib/store";
 import { getConfig } from "@/lib/config";
-import { updateInputSchema } from "@/lib/schema";
+import { nativeUpdateInputSchema, updateInputSchema } from "@/lib/schema";
 import { ok, fail } from "@/lib/api";
 import { requireEditableFields } from "@/lib/backend-capabilities";
 
@@ -27,7 +27,7 @@ export async function PATCH(req: Request, { params }: Ctx) {
     const cfg = getConfig();
     const body: unknown = await req.json();
     if (store.kind === "bead-rs" && store.capabilities) requireEditableFields(store.capabilities, body);
-    const patch = (store.kind === "bead-rs" ? updateInputSchema.strict() : updateInputSchema).parse(body);
+    const patch = (store.kind === "bead-rs" ? nativeUpdateInputSchema : updateInputSchema).parse(body);
     const bead = await store.update(id, patch, cfg.humanActor);
     return ok(bead);
   } catch (e) {

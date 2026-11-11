@@ -138,7 +138,7 @@ export function useUpdateBead() {
   const qc = useQueryClient();
   return useMutation(
     mutationToast<{ id: string; patch: UpdateInput }, Bead>(
-      async ({ id, patch }) => { requireWrite(meta, readOnly, undefined, Object.keys(patch) as EditableBeadField[]); return api.update(projectId, id, patch); },
+      async ({ id, patch }) => { requireWrite(meta, readOnly, undefined, Object.keys(patch) as EditableBeadField[]); return api.update(projectId, id, patch, meta?.kind === "bead-rs"); },
       () => meta?.kind === "bead-rs" ? "Updated" : "Updated · bd update",
       qc,
       beadsKey(projectId),

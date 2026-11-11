@@ -1,6 +1,6 @@
 "use client";
 import * as React from "react";
-import { nativeMutationOutcome } from "@/lib/api-client";
+import { editReadbackMatches, nativeMutationOutcome } from "@/lib/api-client";
 import { MutationOutcomeNotice } from "@/components/mutation-outcome-notice";
 import { GateApproval } from "@/components/gate-approval";
 import { AssigneeField } from "@/components/assignee-field";
@@ -56,10 +56,12 @@ import {
 } from "@/lib/beads-view";
 import {
   BEAD_STATUSES,
+  BEAD_TYPES,
   BLOCKING_DEP_TYPES,
   type Bead,
   type BlockingDepType,
   type Dependency,
+  type UpdateInput,
 } from "@/lib/schema";
 
 const selectClass =
@@ -222,11 +224,15 @@ function DrawerBody({
     useApp();
   const actor = meta?.humanActor ?? "you";
   const isDemo = meta?.kind === "demo";
-  const editableContent = !readOnly && canEdit(meta, "title") && canEdit(meta, "description");
+  const editableContent = !readOnly && (["title", "description", "issue_type", "notes"] as const).some((field) => canEdit(meta, field));
   const attachmentsAllowed = !isDemo && canOperate(meta, "attachments");
   const reasonRequired = meta?.capabilities?.closeReason === "required";
 
   const update = useUpdateBead();
+  const editOutcome = nativeMutationOutcome(update.error);
+  const [reconciledEdit, setReconciledEdit] = React.useState<typeof editOutcome>();
+  const editSubmitting = React.useRef(false);
+  const editBlocked = update.isPending || !!editOutcome;
   const setStatus = useSetStatus();
   const addComment = useAddComment();
   const commentOutcome = nativeMutationOutcome(addComment.error);
@@ -280,7 +286,7 @@ function DrawerBody({
     if (closing) closeRef.current?.focus();
   }, [closing]);
 
-  // Inline edit of title + description (with image drop/paste on the textarea).
+  // Drafts stay separate from refreshed records until save, cancel or reconciliation.
   const [editing, setEditing] = React.useState(editableContent && initialAction === "edit");
   const [previousReadOnly, setPreviousReadOnly] = React.useState(readOnly);
   if (previousReadOnly !== readOnly) {
@@ -293,13 +299,24 @@ function DrawerBody({
   const [previewEdit, setPreviewEdit] = React.useState(false);
   const [titleDraft, setTitleDraft] = React.useState(bead.title);
   const [descDraft, setDescDraft] = React.useState(bead.description ?? "");
+  const [typeDraft, setTypeDraft] = React.useState(bead.issue_type);
+  const [notesDraft, setNotesDraft] = React.useState(bead.notes ?? "");
+  const [editBase, setEditBase] = React.useState(bead);
+  const resetUpdate = update.reset;
+  const submittedPatch = update.variables?.patch;
+  React.useEffect(() => {
+    if (!editOutcome || reconciledEdit !== editOutcome || !submittedPatch || !editReadbackMatches(submittedPatch, bead)) return;
+    // Retain the replay guard until the reconciled snapshot reaches this drawer.
+    resetUpdate();
+    setEditing(false);
+  }, [bead, editOutcome, reconciledEdit, submittedPatch, resetUpdate]);
   const progress = checklistProgress(bead.description);
   const descRef = React.useRef<HTMLTextAreaElement>(null);
   const fileRef = React.useRef<HTMLInputElement>(null);
   const drop = useImageDrop({
     projectId,
     beadId: bead.id,
-    disabled: !attachmentsAllowed || !editableContent,
+    disabled: !attachmentsAllowed || !editableContent || !canEdit(meta, "description") || editBlocked,
     disabledMessage: "Attachments are not available for this backend.",
     textareaRef: descRef,
     value: descDraft,
@@ -307,7 +324,8 @@ function DrawerBody({
   });
 
   const unsaved =
-    (editing && (titleDraft !== bead.title || descDraft !== (bead.description ?? ""))) ||
+    !!editOutcome || (editing && (titleDraft !== editBase.title || descDraft !== (editBase.description ?? "") ||
+      typeDraft !== editBase.issue_type || notesDraft !== (editBase.notes ?? ""))) ||
     (!commentOutcome && draft.trim() !== "") ||
     [closeDraft, gateReason].some((text) => text.trim() !== "");
   React.useEffect(() => {
@@ -318,20 +336,40 @@ function DrawerBody({
   }, [dirtyRef, unsaved]);
 
   const startEdit = () => {
-    if (!editableContent) return;
+    if (!editableContent || editBlocked) return;
     setTitleDraft(bead.title);
     setDescDraft(bead.description ?? "");
+    setTypeDraft(bead.issue_type);
+    setNotesDraft(bead.notes ?? "");
+    setEditBase(bead);
+    update.reset();
     setEditing(true);
   };
-  const cancelEdit = () => setEditing(false);
+  const cancelEdit = () => {
+    if (editBlocked) return;
+    setEditing(false);
+    update.reset();
+  };
+  /** One in-flight edit owns its replay guard until success or read-only reconciliation. */
+  const submitEdit = (patch: UpdateInput, onSuccess?: () => void) => {
+    if (readOnly || editBlocked || editSubmitting.current) return;
+    editSubmitting.current = true;
+    update.mutate({ id: bead.id, patch }, {
+      onSuccess,
+      onSettled: () => { editSubmitting.current = false; },
+    });
+  };
   const saveEdit = () => {
-    if (!editableContent) return;
+    if (!editableContent || editBlocked) return;
     const t = titleDraft.trim();
-    if (!t) return;
-    update.mutate(
-      { id: bead.id, patch: { title: t, description: descDraft } },
-      { onSuccess: () => setEditing(false) },
-    );
+    if ((canEdit(meta, "title") && !t) || (canEdit(meta, "issue_type") && !typeDraft.trim())) return;
+    const patch: UpdateInput = {};
+    if (canEdit(meta, "title") && t !== editBase.title) patch.title = t;
+    if (canEdit(meta, "description") && descDraft !== editBase.description) patch.description = descDraft;
+    if (canEdit(meta, "issue_type") && typeDraft !== editBase.issue_type) patch.issue_type = typeDraft;
+    if (canEdit(meta, "notes") && notesDraft !== editBase.notes) patch.notes = notesDraft;
+    if (Object.keys(patch).length === 0) { setEditing(false); return; }
+    submitEdit(patch, () => setEditing(false));
   };
 
   const o = beadOrigin(bead, humanAllowlist);
@@ -433,6 +471,7 @@ function DrawerBody({
         {editableContent && (
           <IconBtn
             title={editing ? "Stop editing" : "Edit title & description"}
+            disabled={editBlocked}
             onClick={editing ? cancelEdit : startEdit}
           >
             <Icon name="pencil" size={15} />
@@ -486,6 +525,8 @@ function DrawerBody({
             <SheetTitle className="sr-only">Edit {bead.id}</SheetTitle>
             <input
               autoFocus
+              aria-label="Title"
+              disabled={editBlocked || !canEdit(meta, "title")}
               value={titleDraft}
               onChange={(e) => setTitleDraft(e.target.value)}
               placeholder="Title"
@@ -524,11 +565,11 @@ function DrawerBody({
           <label className="flex flex-col gap-[5px]">
             <span className={fieldLabel}>Priority</span>
             <select
-              disabled={readOnly || !canEdit(meta, "priority")}
+              disabled={readOnly || !canEdit(meta, "priority") || editBlocked}
               className={selectClass}
               value={String(bead.priority)}
               onChange={(e) =>
-                update.mutate({ id: bead.id, patch: { priority: Number(e.target.value) } })
+                submitEdit({ priority: Number(e.target.value) })
               }
             >
               {[0, 1, 2, 3, 4].map((p) => (
@@ -539,6 +580,20 @@ function DrawerBody({
             </select>
           </label>
           <AssigneeField bead={bead} />
+          {editing && !readOnly && canEdit(meta, "issue_type") && (
+            <label className="flex flex-col gap-[5px]">
+              <span className={fieldLabel}>Type</span>
+              {meta?.kind === "bead-rs" ? (
+                <input value={typeDraft} disabled={editBlocked} onChange={(event) => setTypeDraft(event.target.value)}
+                  className={selectClass} />
+              ) : (
+                <select value={typeDraft} disabled={editBlocked} onChange={(event) => setTypeDraft(event.target.value)} className={selectClass}>
+                  {!BEAD_TYPES.some((type) => type === typeDraft) && <option value={typeDraft}>{typeLabel(typeDraft)}</option>}
+                  {BEAD_TYPES.map((type) => <option key={type} value={type}>{typeLabel(type)}</option>)}
+                </select>
+              )}
+            </label>
+          )}
           <div className="flex flex-col gap-[5px]">
             {/* Labelled by what the parent actually IS. Only epics get routed to
                 the Epics screen — it renders issue_type === "epic" only, so
@@ -657,9 +712,11 @@ function DrawerBody({
                 onDragOver={drop.onDragOver}
                 onDragLeave={drop.onDragLeave}
               >
-                <MarkdownToolbar textareaRef={descRef} value={descDraft} onChange={setDescDraft} />
+                {canEdit(meta, "description") && !editBlocked && <MarkdownToolbar textareaRef={descRef} value={descDraft} onChange={setDescDraft} />}
                 <textarea
                   ref={descRef}
+                  aria-label="Description"
+                  disabled={editBlocked || !canEdit(meta, "description")}
                   value={descDraft}
                   onChange={(e) => setDescDraft(e.target.value)}
                   onPaste={drop.onPaste}
@@ -693,8 +750,16 @@ function DrawerBody({
                 )}
               </div>
               )}
+              {canEdit(meta, "notes") && (
+                <label className="mt-3 flex flex-col gap-[6px]">
+                  <span className={fieldLabel}>Notes</span>
+                  <textarea value={notesDraft} disabled={editBlocked} onChange={(event) => setNotesDraft(event.target.value)} rows={4}
+                    onKeyDown={(event) => { if ((event.metaKey || event.ctrlKey) && event.key === "Enter") { event.preventDefault(); saveEdit(); } }}
+                    className="w-full resize-y rounded-[10px] border border-border bg-[var(--surface-2)] p-[12px_13px] text-[13.5px] leading-[1.55] text-[var(--text)] outline-none focus:border-[var(--brand)]" />
+                </label>
+              )}
               <div className="mt-2 flex items-center gap-2">
-                {!isDemo && !previewEdit && (
+                {attachmentsAllowed && canEdit(meta, "description") && !previewEdit && (
                   <>
                     <input
                       ref={fileRef}
@@ -703,9 +768,11 @@ function DrawerBody({
                       multiple
                       className="hidden"
                       onChange={drop.pickFiles}
+                      disabled={editBlocked}
                     />
                     <button
                       onClick={() => fileRef.current?.click()}
+                      disabled={editBlocked}
                       className="inline-flex h-8 items-center gap-[6px] rounded-lg border border-border bg-[var(--surface-2)] px-3 text-[12.5px] font-[550] text-[var(--text-2)] hover:bg-[var(--surface-3)]"
                     >
                       <Icon name="image" size={14} /> Attach image
@@ -715,13 +782,14 @@ function DrawerBody({
                 <span className="flex-1" />
                 <button
                   onClick={cancelEdit}
+                  disabled={editBlocked}
                   className="h-8 rounded-lg border border-border bg-[var(--surface-2)] px-3 text-[12.5px] font-[550] hover:bg-[var(--surface-3)]"
                 >
                   Cancel
                 </button>
                 <button
                   onClick={saveEdit}
-                  disabled={!titleDraft.trim() || update.isPending}
+                  disabled={(canEdit(meta, "title") && !titleDraft.trim()) || (canEdit(meta, "issue_type") && !typeDraft.trim()) || editBlocked}
                   className="flex h-8 items-center gap-[6px] rounded-lg px-3 text-[12.5px] font-[550] text-white disabled:opacity-50"
                   style={{ background: "var(--brand)" }}
                 >
@@ -733,11 +801,8 @@ function DrawerBody({
             <DescriptionContent
               text={bead.description}
               projectId={projectId}
-              onToggleTask={readOnly || !canEdit(meta, "description") ? undefined : (idx) =>
-                update.mutate({
-                  id: bead.id,
-                  patch: { description: toggleTask(bead.description ?? "", idx) },
-                })
+              onToggleTask={readOnly || !canEdit(meta, "description") || editBlocked ? undefined : (idx) =>
+                submitEdit({ description: toggleTask(bead.description ?? "", idx) })
               }
               className={detailContentClass}
             />
@@ -746,7 +811,10 @@ function DrawerBody({
               No description.
             </div>
           )}
-          {!editing && editableContent && <AiAssistPanel bead={bead} />}
+          {editOutcome && update.variables && <MutationOutcomeNotice outcome={editOutcome} projectId={projectId} mode="edit"
+            expectedPatch={update.variables.patch} onReconciled={() => setReconciledEdit(editOutcome)}
+            onDiscard={() => { update.reset(); setEditing(false); }} />}
+          {!editing && editableContent && canOperate(meta, "refine") && <AiAssistPanel bead={bead} />}
         </Section>
 
         {/* Dependencies */}
@@ -988,7 +1056,7 @@ function DrawerBody({
           </Section>
         )}
 
-        {notes && (
+        {notes && !(editing && canEdit(meta, "notes")) && (
           <Section>
             <Header icon="list" label="Notes" />
             <DescriptionContent
@@ -1270,16 +1338,19 @@ function IconBtn({
   title,
   onClick,
   danger,
+  disabled,
 }: {
   children: React.ReactNode;
   title: string;
   onClick: () => void;
   danger?: boolean;
+  disabled?: boolean;
 }) {
   return (
     <button
       title={title}
       onClick={onClick}
+      disabled={disabled}
       className={
         danger
           ? "flex h-8 w-8 items-center justify-center rounded-lg border border-border text-[var(--text-2)] hover:border-[#ef444433] hover:bg-[#ef444415] hover:text-[#ef4444]"

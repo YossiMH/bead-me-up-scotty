@@ -2,7 +2,7 @@ import "server-only";
 import { z } from "zod";
 import { BdError } from "./bd";
 import { nativeCapabilities } from "./backend-capabilities";
-import { nativeLabelInputSchema, type Bead, type CreateInput, type UpdateInput } from "./schema";
+import { nativeLabelInputSchema, nativeUpdateInputSchema, type Bead, type CreateInput, type UpdateInput } from "./schema";
 import type { BeadsSnapshot } from "./backend-contract";
 import type { BeadsStore } from "./store";
 import { nativeProcess } from "./native-process";
@@ -10,6 +10,7 @@ import { nativeDocument, nativeIssueSchema, nativeSnapshot, readNativeIssue, typ
 import { commitNativeManifest } from "./native-manifest";
 import { nativeCredentials } from "./native-credentials";
 import { NativeMutation } from "./native-mutation";
+import { runNativeEdit } from "./native-edit";
 
 const identitySchema = z.object({ id: z.string().min(1) });
 const commentReceiptSchema = z.object({ id: z.string().min(1), author: z.string() });
@@ -34,7 +35,7 @@ function validateTransition(issue: NativeIssue, status: string): void {
 /** One native store owns its command queue and credentials obtained by its own assignments. */
 export async function createNativeStore(repositoryPath: string): Promise<BeadsStore> {
   const process = nativeProcess(repositoryPath);
-  const workspace = await process.qualify();
+  const { workspace, capabilities } = await process.qualify();
   const credentials = nativeCredentials(repositoryPath, workspace);
   let preceding: Promise<unknown> = Promise.resolve();
 
@@ -119,30 +120,30 @@ export async function createNativeStore(repositoryPath: string): Promise<BeadsSt
   /** Apply a supported patch atomically, or reject it before the first write. */
   async function update(id: string, patch: UpdateInput, actor: string): Promise<Bead> {
     for (const field of Object.keys(patch)) {
-      if (!nativeCapabilities.editableFields.some((allowed) => allowed === field)) {
+      if (!capabilities.editableFields.some((allowed) => allowed === field)) {
         unsupported(field === "labels" ? "Native labels must be added or removed individually." : `bead-rs cannot edit ${field} after creation.`);
       }
     }
+    nativeUpdateInputSchema.parse(patch);
     const issue = await readNativeIssue(process, id);
     if (patch.status !== undefined) validateTransition(issue, patch.status);
     if (patch.status === "closed") throw new BdError("Use the status action with a close reason.", "invalid_input");
     const specialLifecycle = patch.status === "open" && (issue.status === "closed" || issue.status === "in_progress");
     if (specialLifecycle) {
-      if (patch.assignee !== undefined) unsupported("Release or reopen separately from other edits.");
+      if (Object.keys(patch).some((field) => field !== "status")) unsupported("Release or reopen separately from other edits.");
       return changeStatus(id, "open", actor);
     }
     const guard = await guards(issue, actor);
-    if (issue.status === "closed") unsupported("Reopen the issue before editing it.");
     if (patch.assignee === "" && issue.status !== "open") unsupported("Only an open assignment can be cleared; use release for in-progress work.");
     const mutation = new NativeMutation("update", id);
     let wrote = false;
     const assignee = patch.assignee ?? (patch.status === "in_progress" && !issue.assignee ? actor : undefined);
-    if (patch.status !== undefined || assignee !== undefined) {
+    if (Object.keys(patch).length > 0 || assignee !== undefined) {
       const args = ["update", id, ...guard];
       if (patch.status !== undefined) args.push("--status", patch.status);
       if (assignee) args.push(`--assignee=${assignee}`);
       else if (assignee === "") args.push("--clear-assignee");
-      await mutation.run(process, args, actor);
+      await runNativeEdit(process, args, patch, actor, mutation);
       wrote = true;
     }
     if (assignee !== undefined) {
@@ -174,7 +175,7 @@ export async function createNativeStore(repositoryPath: string): Promise<BeadsSt
 
   return {
     kind: "bead-rs",
-    capabilities: nativeCapabilities,
+    capabilities,
     listSnapshot,
     async list(): Promise<Bead[]> { return (await listSnapshot()).beads; },
     get(id): Promise<Bead | null> {

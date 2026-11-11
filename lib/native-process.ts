@@ -5,6 +5,8 @@ import path from "node:path";
 import { promisify } from "node:util";
 import { z } from "zod";
 import { BdError } from "./bd";
+import { nativeCapabilities } from "./backend-capabilities";
+import type { BackendCapabilities, EditableBeadField } from "./backend-contract";
 
 /** Native commands are bounded; exhaustion is an error, never an empty result. */
 const MAX_OUTPUT_BYTES = 32 * 1024 * 1024;
@@ -23,6 +25,16 @@ const workspaceSchema = z.object({
 });
 const requiredCommands = ["list", "show", "query", "changes", "create", "comment", "manifest", "update", "close", "reopen", "release", "dep", "label"];
 const requiredDependencyKinds = ["blocks", "relates_to", "verifies"];
+const editingFields = ["title", "description", "priority", "issue_type", "notes"] as const satisfies readonly EditableBeadField[];
+
+/** Optional editing grants require the guard and clear semantics Scotty uses. */
+const editingCapabilitySchema = z.object({
+  version: z.literal(1),
+  fields: z.array(z.string()),
+  clear_description: z.literal(true),
+  revision_guard: z.literal(true),
+  priority_reason_required: z.literal(true),
+});
 
 /** Validated fields needed to qualify the native command/document contract. */
 const capabilitySchema = z.object({
@@ -31,6 +43,8 @@ const capabilitySchema = z.object({
   version: z.string(),
   commands: z.array(z.string()),
   dependency_kinds: z.array(z.string()),
+  priority_change: z.unknown().optional(),
+  issue_editing: z.unknown().optional(),
   agent_ergonomics: z.object({
     version: z.literal(1),
     issue_documents: z.object({
@@ -46,7 +60,7 @@ export interface NativeProcess {
   readonly repositoryPath: string;
   run(args: readonly string[], actor?: string): Promise<string>;
   json(args: readonly string[], actor?: string): Promise<unknown>;
-  qualify(): Promise<string>;
+  qualify(): Promise<{ workspace: string; capabilities: BackendCapabilities }>;
   workspace(): Promise<string>;
 }
 
@@ -95,7 +109,7 @@ export function nativeProcess(repositoryPath: string): NativeProcess {
   }
 
   /** Qualify identity before store use; actual reads also validate workspace identity. */
-  async function qualify(): Promise<string> {
+  async function qualify(): Promise<{ workspace: string; capabilities: BackendCapabilities }> {
     const result = capabilitySchema.safeParse(await json(capabilitiesArgs));
     if (!result.success || requiredCommands.some((command) => !result.data.commands.includes(command))
       || requiredDependencyKinds.some((kind) => !result.data.dependency_kinds.includes(kind))) {
@@ -103,7 +117,13 @@ export function nativeProcess(repositoryPath: string): NativeProcess {
     }
     // No --skip-foreign-workspace flag is used: native discovery must refuse a
     // foreign store rather than silently operating on an ancestor's database.
-    return workspace();
+    const editing = editingCapabilitySchema.safeParse(result.data.issue_editing);
+    const capabilities: BackendCapabilities = editing.success ? {
+      ...nativeCapabilities,
+      editableFields: [...nativeCapabilities.editableFields, ...editingFields.filter((field) =>
+        editing.data.fields.includes(field) && (field !== "priority" || result.data.priority_change === true))],
+    } : nativeCapabilities;
+    return { workspace: await workspace(), capabilities };
   }
 
   /** Read the public identity before using an issued credential in this workspace. */
