@@ -101,7 +101,7 @@ async function startController(t, entry, config = {}) {
   };
   if (localAppData === null) delete environment.LOCALAPPDATA;
   else environment.LOCALAPPDATA = localAppData;
-  const child = spawn(process.execPath, ['--import', path.join(fixtures, 'tray-process-boundary.mjs'), ...command], {
+  const child = spawn(process.execPath, ['--import', pathToFileURL(path.join(fixtures, 'tray-process-boundary.mjs')).href, ...command], {
     cwd: root, detached: true, stdio: ['ignore', 'pipe', 'pipe'],
     env: environment,
   });

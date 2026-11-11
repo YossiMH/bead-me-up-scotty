@@ -82,7 +82,7 @@ function Start-Controller([string]$Action) {
     if ($observer.Contains('"') -or $entry.Contains('"')) { throw 'Unsupported quote in smoke path' }
     $start = New-Object System.Diagnostics.ProcessStartInfo
     $start.FileName = $NodePath
-    $start.Arguments = '--import "' + $observer + '" "' + $entry + '"'
+    $start.Arguments = '--import "' + ([System.Uri]$observer).AbsoluteUri + '" "' + $entry + '"'
     $start.WorkingDirectory = $RepositoryPath
     $start.UseShellExecute = $false
     $start.CreateNoWindow = $true
