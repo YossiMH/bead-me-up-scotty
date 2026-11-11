@@ -285,9 +285,9 @@ export function canOperate(meta: CapabilitySource, operation: BackendOperation):
   return meta?.capabilities?.operations.includes(operation) ?? meta?.kind !== "bead-rs";
 }
 
-/** Post-create edits follow the server's editable-field membership. */
+/** Post-create edits follow membership; notes require a grant absent from legacy bd. */
 export function canEdit(meta: CapabilitySource, field: EditableBeadField): boolean {
-  return meta?.capabilities?.editableFields.includes(field) ?? meta?.kind !== "bead-rs";
+  return meta?.capabilities?.editableFields.includes(field) ?? (meta?.kind !== "bead-rs" && field !== "notes");
 }
 
 /** Native readiness is membership, including an explicitly empty frontier. */

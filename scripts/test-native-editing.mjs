@@ -208,6 +208,16 @@ test('the original update schema retains its type enum and title limit', () => {
     { title: 'Original', priority: 0, issue_type: 'bug' });
 });
 
+test('notes editing requires an explicit grant even on a legacy original server', () => {
+  const { canEdit } = sourceLoader().load('lib/beads-view.ts');
+  for (const metadata of [undefined, { kind: 'bd' }, { kind: 'demo' }]) {
+    assert.equal(canEdit(metadata, 'notes'), false);
+    assert.equal(canEdit(metadata, 'title'), true);
+    assert.equal(canEdit(metadata, 'issue_type'), true);
+  }
+  assert.equal(canEdit({ kind: 'bead-rs', capabilities: { editableFields: ['notes'] } }, 'notes'), true);
+});
+
 for (const phase of ['command', 'readback']) {
   test(`a scalar ${phase} failure retains its outcome and never replays the update`, async () => {
     const harness = editingHarness({ reply: ({ args }, calls) => {
