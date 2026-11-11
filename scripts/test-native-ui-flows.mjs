@@ -84,7 +84,10 @@ try {
   assert.equal(await drawer.getByRole('button', { name: 'Refine with AI' }).count(), 0);
   await drawer.getByRole('button', { name: 'Save', exact: true }).click();
   await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
-  await drawer.getByLabel('Priority', { exact: true }).selectOption('0');
+  await Promise.all([
+    page.waitForResponse(response => response.request().method() === 'PATCH' && response.url().endsWith(`/beads/${issueId}`) && response.status() === 200),
+    drawer.getByLabel('Priority', { exact: true }).selectOption('0'),
+  ]);
   await drawer.getByLabel('Priority', { exact: true }).locator('option:checked').filter({ hasText: 'Critical' }).waitFor({ state: 'attached' });
   current = (await snapshot()).beads.find(bead => bead.id === issueId);
   assert.equal(current.title, editedTitle);

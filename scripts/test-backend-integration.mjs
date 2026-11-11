@@ -153,6 +153,13 @@ try {
     assert.equal(cleared.description, '');
     assert.equal(cleared.notes, '');
     assert.equal((await nativeShow(created.id)).notes, '');
+    const longText = { description: 'Long native description 日本語\n'.repeat(3000), notes: 'Long native notes\n'.repeat(3000) };
+    const longEdit = (await request(item, 'PATCH', longText)).data;
+    assert.equal(longEdit.description, longText.description);
+    assert.equal(longEdit.notes, longText.notes);
+    const persistedLongEdit = await nativeShow(created.id);
+    assert.equal(persistedLongEdit.description, longText.description);
+    assert.equal(persistedLongEdit.notes, longText.notes);
     const before = await nativeShow(created.id);
     for (const [suffix, method, body] of [
       ['', 'PATCH', { title: 'Forbidden', labels: ['must-not-write'] }],
@@ -204,6 +211,12 @@ try {
   const closedList = (await request(prefix)).data.beads.find(({ id }) => id === created.id);
   assert.equal(closedList.close_reason, 'API lifecycle verified');
   if (backend === 'bead-rs') {
+    const corrected = (await request(item, 'PATCH', { title: 'Corrected closed native issue', notes: 'Completion retained' })).data;
+    assert.equal(corrected.status, 'closed');
+    assert.equal(corrected.title, 'Corrected closed native issue');
+    assert.equal(corrected.notes, 'Completion retained');
+    assert.equal(corrected.closed_at, closedList.closed_at);
+    assert.equal(corrected.close_reason, closedList.close_reason);
     const beforeRejectedReopen = await nativeShow(created.id);
     const refused = await request(item, 'PATCH', { status: 'open', title: 'Must not disappear' }, 400);
     assert.equal(refused.data.code, 'unsupported_operation');

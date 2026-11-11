@@ -1,6 +1,8 @@
 // Subprocess and HTTP doubles exercise the production adapter, routes and hooks.
 // Persisted native edits are checked separately by test-backend-integration.mjs.
 import assert from 'node:assert/strict';
+import fs from 'node:fs';
+import path from 'node:path';
 import test from 'node:test';
 import { editingNativeCapabilities, nativeCapabilities, nativeIssue, nativeMetadata } from './fixtures/native-contract.mjs';
 import { storeHarness, writes } from './support/store-harness.mjs';
@@ -17,7 +19,8 @@ function editingHarness({ before = nativeIssue('work-a'), after = before, reply 
     if (args[0] === 'update') { current = after; return {}; }
     if (args[0] === 'show') return current;
     if (args[0] === 'list') return [current];
-    if (args[0] === 'query') return [nativeMetadata(current.id, { IssueType: current.issue_type || 'task' })];
+    if (args[0] === 'query') return [nativeMetadata(current.id, { IssueType: current.issue_type || 'task',
+      ClosedAt: current.closed_at ?? null, CloseReason: current.close_reason ?? null })];
   } });
 }
 
@@ -100,6 +103,53 @@ test('literal leading-dash scalar values remain single option values', async () 
   await (await harness.getStore()).update('work-a', patch, harness.actor);
   const [{ args }] = writes(harness.calls);
   for (const flag of ['title', 'description', 'notes', 'issue-type']) assert.ok(args.includes(`--${flag}=--help`), flag);
+});
+
+for (const outcome of ['success', 'command failure', 'readback failure']) {
+  test(`long native descriptions and notes use owned UTF-8 files and clean up after ${outcome}`, async () => {
+    const patch = { description: 'Long description 日本語\n'.repeat(3000), notes: 'Long notes\n'.repeat(4000) };
+    const inputFiles = [];
+    const harness = editingHarness({ after: nativeIssue('work-a', patch), reply: ({ args }, calls) => {
+      if (args[0] === 'update') {
+        for (const [field, flag] of [['description', '--description-file'], ['notes', '--notes-file']]) {
+          const filename = optionValue(args, flag);
+          assert.ok(filename && path.isAbsolute(filename), `${field} must use an owned input file`);
+          inputFiles.push(filename);
+          assert.equal(fs.readFileSync(filename, 'utf8'), patch[field]);
+          assert.equal(args.some(argument => argument.includes(patch[field])), false);
+        }
+        if (outcome === 'command failure') throw Object.assign(new Error('Timed out after dispatch'), { code: 'ETIMEDOUT' });
+      }
+      if (outcome === 'readback failure' && args[0] === 'show' && calls.some(call => call.args[0] === 'update')) {
+        throw Object.assign(new Error('Read timed out'), { code: 'ETIMEDOUT' });
+      }
+    } });
+    const store = await harness.getStore();
+    if (outcome === 'success') {
+      const bead = await store.update('work-a', patch, harness.actor);
+      assert.equal(bead.description, patch.description);
+      assert.equal(bead.notes, patch.notes);
+    } else {
+      await assert.rejects(() => store.update('work-a', patch, harness.actor), error =>
+        error.code === (outcome === 'command failure' ? 'mutation_uncertain' : 'mutation_committed'));
+    }
+    assert.equal(writes(harness.calls).length, 1);
+    assert.equal(inputFiles.length, 2);
+    for (const filename of inputFiles) assert.equal(fs.existsSync(filename), false, 'Input files must be reclaimed');
+  });
+}
+
+test('closed native scalar corrections preserve completion metadata and lifecycle', async () => {
+  const before = nativeIssue('work-a', { status: 'closed', effective_status: 'closed', revision: 5,
+    closed_at: '2026-01-02T00:00:00Z', close_reason: 'Verified earlier' });
+  const patch = { title: 'Corrected title', description: 'Corrected description', issue_type: 'review_check', notes: 'Correction' };
+  const harness = editingHarness({ before, after: { ...before, ...patch, revision: 6 } });
+  const bead = await (await harness.getStore()).update(before.id, patch, harness.actor);
+  assert.equal(bead.status, 'closed');
+  assert.equal(bead.closed_at, before.closed_at);
+  assert.equal(bead.close_reason, before.close_reason);
+  for (const [field, value] of Object.entries(patch)) assert.equal(bead[field], value);
+  assert.deepEqual(writes(harness.calls).map(({ args }) => args[0]), ['update']);
 });
 
 for (const status of ['closed', 'in_progress']) {
