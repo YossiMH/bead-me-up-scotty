@@ -20,10 +20,14 @@ childProcess.spawn = (command, args = [], options = {}) => {
       '-Url', value('-Url'), '-ExitFile', path.join(root, 'click-exit'),
       '-ReceiptFile', path.join(root, 'icon-receipt.json')];
   }
+  const startedAfter = Date.now();
   const child = originalSpawn(command, actualArgs, options);
-  child.once('spawn', () => fs.appendFileSync(path.join(root, 'processes.jsonl'), `${JSON.stringify({
+  // Record the PID synchronously, before control returns to a controller that
+  // might fail during startup. Failed OS spawns have no PID to own or clean.
+  if (child.pid) fs.appendFileSync(path.join(root, 'processes.jsonl'), `${JSON.stringify({
     kind, pid: child.pid, command, args: actualArgs, windowsHide: options.windowsHide,
-  })}\n`));
+    startedAfter, recordedAt: Date.now(),
+  })}\n`);
   return child;
 };
 syncBuiltinESMExports();
