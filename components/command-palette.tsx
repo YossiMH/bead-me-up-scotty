@@ -9,7 +9,9 @@ import { Icon } from "@/components/icons";
 import { useApp, type View } from "@/components/app-context";
 import { useProjects } from "@/hooks/use-projects";
 import { useSetStatus, useUpdateBead } from "@/hooks/use-beads";
-import { BEAD_STATUSES, type Bead } from "@/lib/schema";
+import { BEAD_STATUSES, type Bead, type UpdateInput } from "@/lib/schema";
+import { nativeMutationOutcome } from "@/lib/api-client";
+import { MutationOutcomeNotice } from "@/components/mutation-outcome-notice";
 import { canEdit, canOperate, canChangeStatus, canView, statusLabel, catColor, typeLabel } from "@/lib/beads-view";
 import { findShortcut, type KeyboardShortcut } from "@/lib/keyboard-shortcuts";
 import { ShortcutKeys } from "@/components/keyboard-help-dialog";
@@ -62,19 +64,62 @@ export function CommandPalette({
   initialPage?: PalettePage;
   initialBeadId?: string | null;
 }) {
+  const { meta, projectId, readOnly } = useApp();
+  const update = useUpdateBead();
+  const pendingPriority = React.useRef<{ id: string; patch: UpdateInput } | null>(null);
+  const outcome = nativeMutationOutcome(update.error);
+  const priorityBlocked = meta?.kind === "bead-rs" && (update.isPending || !!outcome);
+  const close = (): void => {
+    if (pendingPriority.current || priorityBlocked) return;
+    onOpenChangeAction(false);
+  };
+  const finishRecovery = (): void => {
+    update.reset();
+    onOpenChangeAction(false);
+  };
+  const setPriority = (id: string, priority: number): void => {
+    if (readOnly || !canEdit(meta, "priority")) return;
+    const submission = { id, patch: { priority } };
+    if (meta?.kind !== "bead-rs") {
+      update.mutate(submission);
+      close();
+      return;
+    }
+    if (pendingPriority.current || priorityBlocked) return;
+    pendingPriority.current = submission;
+    update.mutate(submission, {
+      onSuccess: () => onOpenChangeAction(false),
+      onSettled: () => { if (pendingPriority.current === submission) pendingPriority.current = null; },
+    });
+  };
   return (
-    <Dialog open={open} onOpenChange={onOpenChangeAction}>
+    <Dialog open={open} onOpenChange={(next, details) => {
+      if (!next && (pendingPriority.current || priorityBlocked)) { details.cancel(); return; }
+      onOpenChangeAction(next);
+    }}>
       <DialogContent
         showCloseButton={false}
         className="flex max-h-(--palette-max-height) flex-col gap-0 overflow-hidden rounded-2xl border border-border bg-[var(--surface)] p-0 shadow-[var(--shadow-lg)] sm:max-w-[640px]"
         style={{ width: 640, maxWidth: "94vw" }}
+        onKeyDownCapture={(event) => {
+          if ((pendingPriority.current || priorityBlocked) && (event.metaKey || event.ctrlKey) && event.key.toLowerCase() === "k") {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+        }}
       >
         <DialogTitle className="sr-only">Command palette</DialogTitle>
         <PaletteBody
           onView={onViewAction}
-          close={() => onOpenChangeAction(false)}
+          close={close}
           initialPage={initialPage}
           initialBeadId={initialBeadId}
+          setPriority={setPriority}
+          priorityBlocked={priorityBlocked}
+          priorityFeedback={outcome && update.variables ? (
+            <MutationOutcomeNotice outcome={outcome} projectId={projectId} mode="edit" expectedPatch={update.variables.patch}
+              onReconciled={finishRecovery} onDiscard={finishRecovery} />
+          ) : priorityBlocked ? <p role="status" className="m-0 text-[13px] text-[var(--text-2)]">Saving priority…</p> : null}
         />
       </DialogContent>
     </Dialog>
@@ -86,17 +131,22 @@ function PaletteBody({
   close,
   initialPage,
   initialBeadId,
+  setPriority,
+  priorityBlocked,
+  priorityFeedback,
 }: {
   onView: (v: View) => void;
   close: () => void;
   initialPage: PalettePage;
   initialBeadId: string | null;
+  setPriority: (id: string, priority: number) => void;
+  priorityBlocked: boolean;
+  priorityFeedback: React.ReactNode;
 }) {
   const { beads, index, meta, openDetail, openCreate, projectId, readOnly } = useApp();
   const router = useRouter();
   const { mode, setTheme, toggle } = useTheme();
   const setStatus = useSetStatus();
-  const update = useUpdateBead();
   const { data: projectsData } = useProjects();
   const projects = projectsData?.projects ?? [];
 
@@ -110,6 +160,7 @@ function PaletteBody({
   const activeBead = activeId ? index.get(activeId) : undefined;
 
   const run = (fn: () => void) => {
+    if (priorityBlocked) return;
     fn();
     close();
   };
@@ -118,11 +169,13 @@ function PaletteBody({
     run(fn);
   };
   const toBead = (id: string) => {
+    if (priorityBlocked) return;
     setActiveId(id);
     setSearch("");
     setPage("bead");
   };
   const goBack = () => {
+    if (priorityBlocked) return;
     setSearch("");
     setPage(page === "status" || page === "priority" ? "bead" : "root");
   };
@@ -148,6 +201,7 @@ function PaletteBody({
         {page !== "root" ? (
           <button
             onClick={goBack}
+            disabled={priorityBlocked}
             title="Back"
             className="flex h-7 w-7 items-center justify-center rounded-md text-[var(--text-3)] hover:bg-[var(--surface-2)] hover:text-[var(--text)]"
           >
@@ -158,6 +212,7 @@ function PaletteBody({
         )}
         <Command.Input
           autoFocus
+          disabled={priorityBlocked}
           value={search}
           onValueChange={setSearch}
           placeholder={
@@ -177,7 +232,7 @@ function PaletteBody({
         />
       </div>
 
-      <Command.List className="min-h-0 flex-1 overflow-y-auto p-2 pb-4">
+      <Command.List hidden={priorityBlocked} className="min-h-0 flex-1 overflow-y-auto p-2 pb-4">
         <Command.Empty className="px-3 py-6 text-center text-[13px] text-[var(--text-3)]">
           No results.
         </Command.Empty>
@@ -293,7 +348,7 @@ function PaletteBody({
               <Item
                 key={p}
                 value={`priority ${p} ${PRIORITIES[p]}`}
-                onSelect={() => runMutation(() => update.mutate({ id: activeBead.id, patch: { priority: p } }))}
+                onSelect={() => setPriority(activeBead.id, p)}
               >
                 P{p} · {PRIORITIES[p]}
               </Item>
@@ -337,6 +392,7 @@ function PaletteBody({
           </Command.Group>
         )}
       </Command.List>
+      {priorityFeedback && <div className="p-3">{priorityFeedback}</div>}
     </Command>
   );
 }
