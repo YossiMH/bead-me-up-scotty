@@ -79,8 +79,11 @@ try{
         $path=Join-Path $InputDirectory $entry.path
         Assert-That ((Hash $path)-eq $entry.sha256) ('Input hash differs: '+$entry.path)
     }
-    Assert-That (@($manifest.files | Where-Object { $_.path -eq 'windows-task-job.ps1' }).Count -eq 1) 'The task Job helper must have exactly one verified manifest entry.'
-    . (Join-Path $InputDirectory 'windows-task-job.ps1')
+    $jobEntries=@($manifest.files | Where-Object { $_.path -eq 'windows-task-job.ps1' })
+    Assert-That ($jobEntries.Count -eq 1) 'The task Job helper must have exactly one verified manifest entry.'
+    $jobPath=Join-Path $PSScriptRoot 'windows-task-job.ps1'
+    Assert-That ((Hash $jobPath)-eq $jobEntries[0].sha256) 'The execution-directory Job helper differs from the verified input.'
+    . $jobPath
     Enter-ScottyTaskJob
     foreach($archive in $manifest.archives){
         Assert-That ($archive.path -match '^[A-Za-z0-9_.-]+$') 'Archive path must be a simple filename.'
@@ -105,7 +108,7 @@ try{
         $bundle=Join-Path $InputDirectory $repo.file
         $null=Run-Native $git @('-C',$repo.path,'bundle','verify',$bundle) $repo.path
         $ref='refs/heads/'+$repo.branch
-        $null=Run-Native $git @('-C',$repo.path,'fetch','--quiet',$bundle,($ref+':'+$ref)) $repo.path
+        $null=Run-Native $git @('-C',$repo.path,'fetch','--quiet','--no-write-fetch-head','--no-auto-maintenance','--no-tags','--no-recurse-submodules','--no-write-commit-graph',$bundle,($ref+':'+$ref)) $repo.path
         $actual=(Run-Native $git @('-C',$repo.path,'rev-parse',$ref) $repo.path).Trim()
         Assert-That ($actual -eq $repo.sha) 'Fetched source commit differs.'
     }
@@ -117,7 +120,7 @@ try{
     Expand-Archive -LiteralPath (Join-Path $StageDirectory 'scotty-runtime.zip') -DestinationPath $app
     $runtime=[IO.File]::ReadAllText((Join-Path $InputDirectory 'scotty-runtime.json'),$Utf8)|ConvertFrom-Json
     foreach($file in $runtime.files){
-        Assert-That ($file.path.StartsWith('.next/') -and -not $file.path.Contains('..')) 'Unexpected runtime path.'
+        Assert-That ($file.path.StartsWith('.next/') -and $file.path -notmatch '(^|/)\.\.?(/|$)|[\\:]|//') 'Unexpected runtime path.'
         Assert-That ((Hash (Join-Path $app $file.path))-eq $file.sha256) ('Runtime hash differs: '+$file.path)
     }
     Assert-That (([IO.File]::ReadAllText((Join-Path $AppRepository 'node_modules\next\package.json'))|ConvertFrom-Json).version -eq '16.3.8') 'Existing Next version differs.'

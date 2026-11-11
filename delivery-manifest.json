@@ -1,136 +1,146 @@
 {
   "version": 1,
   "source": {
-    "backend": "0eaace27104a2318722e37a96b3e9e1840a68a4c",
-    "scotty": "f2d22bf070dae419a9732c9277102198d7bcf11c",
-    "app_runtime_build": "64b4a6f12cae3386e3cc520b36dc201a9b0fade3"
+    "backend": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+    "scotty": "fbb09312e43ec8094da6db04f126a16e8c5746f7",
+    "app_runtime_build": "fbb09312e43ec8094da6db04f126a16e8c5746f7"
   },
   "binary": {
-    "filename": "bead-editing-0eaace2.exe",
-    "sha256": "7f2bd17f0ad70f90c93a0daa5f2b8fc4017be50e5ae0d0f4b2bfa02dc01cfa79",
-    "source_commit": "0eaace27104a2318722e37a96b3e9e1840a68a4c"
+    "filename": "bead-editing-539cdd0.exe",
+    "sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+    "source_commit": "539cdd0b4c54665c2db01da08fdf9f3871f7148a"
   },
   "files": [
     {
       "path": "backend-source.bundle",
-      "sha256": "9ae4efae3402ddb8dbf02eda45c88e1dc73fc8ba754bfe0709b4b35ca746fb55",
-      "bytes": 38195
+      "bytes": 39562,
+      "sha256": "28569ed4dc8fccf52e4078859293d25572587e26a572c2d183e8ffd0bb92c8d1"
     },
     {
       "path": "scotty-source.bundle",
-      "sha256": "2ca66edf5e8bdd9db286daf9fd64994aa734df812698383f68d26b193516b087",
-      "bytes": 76903
+      "bytes": 81294,
+      "sha256": "68a31bf93eb03eda07c0c2b1bc1f21057e301e9fd04062240979660f897079d6"
     },
     {
       "path": "windows-stage.ps1",
-      "sha256": "3299261980de844a59a3dea188aa1612b6aaebc02d633894c6cbf56826a2b310",
-      "bytes": 8859
+      "bytes": 9163,
+      "sha256": "0b235ae0f096856829dcc14fbaf7b0dd23755b0c827bd4bc5642b01618437a1d"
+    },
+    {
+      "path": "windows-install.ps1",
+      "bytes": 32875,
+      "sha256": "ce7093f9055d5b91efe1ae720a5741a994c3a374b363799f8654d2b39d3b7f5b"
+    },
+    {
+      "path": "pc-preservation-raw.json",
+      "bytes": 5232,
+      "sha256": "70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362"
+    },
+    {
+      "path": "windows-fetch-artifacts.ps1",
+      "bytes": 5933,
+      "sha256": "2b5df79be016cd32b43024ebc6f70a3825ad2bb71e62c91fddd91281e2c5a9ad"
     },
     {
       "path": "windows-task-job.ps1",
-      "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
-      "bytes": 2101
+      "bytes": 2101,
+      "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
     },
     {
       "path": "windows-native-smoke.ps1",
-      "sha256": "f612a2387d0093bf2cc71adda28e5c148b6c0d69d19e7cd542e075636e04f6ae",
-      "bytes": 21725
+      "bytes": 21725,
+      "sha256": "f612a2387d0093bf2cc71adda28e5c148b6c0d69d19e7cd542e075636e04f6ae"
     },
     {
       "path": "windows-tray-smoke.ps1",
-      "sha256": "6feb398fd506257331b8702703e839abfe2796f0387aacc0c20c8c0e98b30bbb",
-      "bytes": 30787
-    },
-    {
-      "path": "scotty-runtime.json",
-      "sha256": "af7d875b2eda1300f688892d88d7c7612d7feca3db4e6cbd9aba394b9d70d61b",
-      "bytes": 43600
-    },
-    {
-      "path": "pc-preservation-baseline.json",
-      "sha256": "ccd6ee950e2858c796d1610b6603280a74532d38bddd280542c4e28571bfe8f0",
-      "bytes": 3456
+      "bytes": 30787,
+      "sha256": "6feb398fd506257331b8702703e839abfe2796f0387aacc0c20c8c0e98b30bbb"
     },
     {
       "path": "backend-windows.zip.part0",
-      "sha256": "049e1f47b43e12d6a8e647596a9098deaff67ad8793bd8a1445625e5d6b5a830",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "691c27487e4f8f5aadaa9fa0284cca8aed939cf97e010d411bb8a32d3be62436"
     },
     {
       "path": "backend-windows.zip.part1",
-      "sha256": "46a86f9baedd558779dc1bd4a9accd93dc8aa664faaf64c6c8a5a789e84db0e4",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "60946c0d43dae19dbe8d9236eeba9fca92a644d60a722fa1d34a9a0d9d0940a6"
     },
     {
       "path": "backend-windows.zip.part2",
-      "sha256": "fa5a3f1b6e6b2eec008d20ed51c60dbfa95ae94b545fa597fea01175c7215ef6",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "a836ed40a815cf85b6d8967c88ed1d200ef7eff8ede5d2ad736b71934dfc5c91"
     },
     {
       "path": "backend-windows.zip.part3",
-      "sha256": "d4219b74788f5adfdea79e6b720432be62f97f219be412fa463285ebfa5a7392",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "4bf980d61c0654949bdb3d250e7784f8327a9dc61a0ff88a5012fcafbbd21337"
     },
     {
       "path": "backend-windows.zip.part4",
-      "sha256": "4d8c379d85b5028bb9c2368c0910db5216dba0ffeb9d7ac5e4e312bc1f524227",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "fab972fa9b0cb2f50bea44ce9aa4dd1b920004c2b3b9d13fdb4a2c2cd326c97b"
     },
     {
       "path": "backend-windows.zip.part5",
-      "sha256": "27d7ab715b7f66b8d21afe3e9f79dcfd9d666f9d5a90335821022344483d1320",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "44fc357b47022325b68f5d002ed4442603019ef1cbc3db5250102fb89ce8b68e"
     },
     {
       "path": "backend-windows.zip.part6",
-      "sha256": "938acc18ca1f5b26981770ebd4f47dc3f6353cb7b55e2d4afe46fe03d255a33f",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "2628054b6177c7cdfb3bfb754c19be685853e91a51dbf4ea134fbd2554df9ee5"
     },
     {
       "path": "backend-windows.zip.part7",
-      "sha256": "285a76cff91c9702a16e740a94294a65d04cb50542eb9cb02a33aff4dd7073f7",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "a5b606f426fdb4e107cae35dbb4c4d401003dd082a32311d822225b5bdbbd50d"
     },
     {
       "path": "backend-windows.zip.part8",
-      "sha256": "87c89335d59dddbd8d035ede65b2604d84877e14cdd37dce4ff8b22f707f7f91",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "7d57feb98700892421b0463dfd89912b63facb75e5353c2e52aa511b24693b7e"
     },
     {
       "path": "backend-windows.zip.part9",
-      "sha256": "278dec1bdae7a3aa6f3cda4a7025f6758dbdd1a1518cf99005787dce76edb8c5",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "f1182da8c77c24be28173e496efea05f3eb9c3b0eab7a2414ec341783fbb593f"
     },
     {
       "path": "backend-windows.zip.part10",
-      "sha256": "a892ba4594dfaca88f1186c958f853409fdb7d25015a8e7df80f3507e8377124",
-      "bytes": 179955
+      "bytes": 179735,
+      "sha256": "706d6f1e07d3b65e3a307e639ea30f72493c4e9c1bcf7b1aaec0d880ba639eab"
     },
     {
       "path": "scotty-runtime.zip.part0",
-      "sha256": "9d3a9886ef003b9c38300f8b0f71194ff693fb306f7675e0138e3e12ab9c0bbc",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "9f6b7d635189d1ad256b36b348bd59dd20e21b56582f4d83b29abf8f7668508e"
     },
     {
       "path": "scotty-runtime.zip.part1",
-      "sha256": "52b981ecbf818db91113db74717628ec55bae0172f3d7a32b06b983478c0266d",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "b8c3eff6c2320cb0df0bb925d18d7b45b3b8b20270566309cdee2ab31ff35054"
     },
     {
       "path": "scotty-runtime.zip.part2",
-      "sha256": "5288ba10ccfd56e91309c41e9d51b150078ab5ba31a34ad8d838e53de6e738c5",
-      "bytes": 524288
+      "bytes": 524288,
+      "sha256": "57e493becd2a8ef8e7323cc359e30fb06e8f7f4b6eb80cfaf4d80ec8c5d53b51"
     },
     {
       "path": "scotty-runtime.zip.part3",
-      "sha256": "22066fd1e2d62b60e9559154e71a9f716311fb3da7c997f7f6623ad637cbd76a",
-      "bytes": 386314
+      "bytes": 386322,
+      "sha256": "432e3a59303df9812aab31c7ebd8f3aee79a651bb8ea53c84bb6f00bf7310f0f"
+    },
+    {
+      "path": "scotty-runtime.json",
+      "bytes": 43600,
+      "sha256": "948194c2eda868f879152111570f52ce6f643dc6f4c4fe79f8f4eef8043a510a"
     }
   ],
   "archives": [
     {
       "path": "scotty-runtime.zip",
-      "sha256": "ec793c6b449fa075f385562f926e407c4b40eb3e688de55ce8b02fd65db3a1bb",
+      "sha256": "6a399adb2567757db1f69cb4a1cd6ce1148e6a315a798999932f2b2339ab7dc7",
       "parts": [
         "scotty-runtime.zip.part0",
         "scotty-runtime.zip.part1",
@@ -140,7 +150,7 @@
     },
     {
       "path": "backend-windows.zip",
-      "sha256": "7fa9f1deb6adbe0528a091f6fdd3db2e7a0c1bfb3cacd97c76aa9da6d80b6718",
+      "sha256": "6941c55fe1dc7471972df0cc1eda40bd92386d8c23bd30fe2860568ced75bb60",
       "parts": [
         "backend-windows.zip.part0",
         "backend-windows.zip.part1",
@@ -155,5 +165,6 @@
         "backend-windows.zip.part10"
       ]
     }
-  ]
+  ],
+  "qualification_notes": "The included old outer tray smoke is retained for staging syntax validation only. Its replacement will be separately hashed and reviewed before Windows execution; no tray check has passed yet."
 }
