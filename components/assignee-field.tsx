@@ -23,7 +23,6 @@ export function AssigneeField({ bead }: { bead: Bead }) {
   React.useEffect(() => {
     if (!outcome || reconciled !== outcome || !submittedPatch || !editReadbackMatches(submittedPatch, bead)) return;
     resetUpdate();
-    setEditing(false);
   }, [bead, outcome, reconciled, submittedPatch, resetUpdate]);
   const listId = React.useId();
   const suggestions = Array.from(new Set(
@@ -91,7 +90,7 @@ export function AssigneeField({ bead }: { bead: Bead }) {
         </button>
       )}
       {outcome && update.variables && <MutationOutcomeNotice outcome={outcome} projectId={projectId} mode="edit"
-        expectedPatch={update.variables.patch} onReconciled={() => setReconciled(outcome)}
+        expectedPatch={update.variables.patch} onReconciled={() => { setReconciled(outcome); setEditing(false); }}
         onDiscard={() => { update.reset(); setEditing(false); }} />}
     </div>
   );

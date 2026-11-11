@@ -308,7 +308,6 @@ function DrawerBody({
     if (!editOutcome || reconciledEdit !== editOutcome || !submittedPatch || !editReadbackMatches(submittedPatch, bead)) return;
     // Retain the replay guard until the reconciled snapshot reaches this drawer.
     resetUpdate();
-    setEditing(false);
   }, [bead, editOutcome, reconciledEdit, submittedPatch, resetUpdate]);
   const progress = checklistProgress(bead.description);
   const descRef = React.useRef<HTMLTextAreaElement>(null);
@@ -812,7 +811,7 @@ function DrawerBody({
             </div>
           )}
           {editOutcome && update.variables && <MutationOutcomeNotice outcome={editOutcome} projectId={projectId} mode="edit"
-            expectedPatch={update.variables.patch} onReconciled={() => setReconciledEdit(editOutcome)}
+            expectedPatch={update.variables.patch} onReconciled={() => { setReconciledEdit(editOutcome); setEditing(false); }}
             onDiscard={() => { update.reset(); setEditing(false); }} />}
           {!editing && editableContent && canOperate(meta, "refine") && <AiAssistPanel bead={bead} />}
         </Section>
