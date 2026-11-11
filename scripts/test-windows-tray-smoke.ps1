@@ -123,6 +123,25 @@ try {
         Register-OwnedChildren $run
         $trayRecord = $records | Where-Object { $_.kind -eq 'tray' }
         if (-not $trayRecord.windowsHide) { throw 'Tray helper could show a console window' }
+        $localRoot = [System.IO.Path]::GetFullPath($env:LOCALAPPDATA).TrimEnd('\') + '\'
+        $helperScript = [System.IO.Path]::GetFullPath([string]$trayRecord.helperScript)
+        $fileIndex = [Array]::IndexOf([object[]]$trayRecord.args, '-File')
+        if ($fileIndex -lt 0) { throw 'Tray helper did not use ordinary -File execution' }
+        $executedScript = [System.IO.Path]::GetFullPath([string]$trayRecord.args[$fileIndex + 1])
+        foreach ($scriptPath in @($helperScript, $executedScript)) {
+            if (-not $scriptPath.StartsWith($localRoot, [StringComparison]::OrdinalIgnoreCase)) {
+                throw 'A PowerShell helper or click fixture did not use the local app-data cache'
+            }
+            if (-not [System.IO.File]::Exists($scriptPath)) { throw 'An owned cached script disappeared before use' }
+        }
+        $bundledHash = (Get-FileHash -LiteralPath (Join-Path $RepositoryPath 'bin\windows-tray.ps1') -Algorithm SHA256).Hash
+        if ((Get-FileHash -LiteralPath $helperScript -Algorithm SHA256).Hash -ne $bundledHash -or
+            $trayRecord.helperScriptSha256 -ne $bundledHash) {
+            throw 'The actual production helper copy differs from its bundled source'
+        }
+        if (@($trayRecord.args | Where-Object { $_ -match 'Bypass|ExecutionPolicy|EncodedCommand' }).Count -gt 0) {
+            throw 'Tray qualification must retain the host execution policy'
+        }
         $trayProcess = $run.children[[string]$trayRecord.pid]
         $serverRecord = $records | Where-Object { $_.kind -eq 'server' }
         $serverProcess = $run.children[[string]$serverRecord.pid]
@@ -154,7 +173,13 @@ try {
             }
         }
         Wait-Condition { Test-PortFree } 'Owned server port stayed occupied after cleanup' 10
-        $results.Add(@{ action = $action; controllerPid = $run.process.Id; trayPid = $trayProcess.Id; serverPid = $serverProcess.Id; port = $Port; result = 'pass' })
+        Wait-Condition {
+            -not [System.IO.Directory]::Exists([System.IO.Path]::GetDirectoryName($helperScript)) -and
+                -not [System.IO.Directory]::Exists([System.IO.Path]::GetDirectoryName($executedScript))
+        } 'An owned helper or click-fixture session cache survived cleanup' 10
+        $results.Add(@{ action = $action; controllerPid = $run.process.Id; trayPid = $trayProcess.Id; serverPid = $serverProcess.Id
+            port = $Port; helperScript = $helperScript; helperScriptSha256 = $bundledHash.ToLowerInvariant(); executedScript = $executedScript
+            cachedScriptsRemoved = $true; result = 'pass' })
     }
     @{ result = 'pass'; evidenceDirectory = $scratch; cases = $results } | ConvertTo-Json -Depth 6
 } finally {
