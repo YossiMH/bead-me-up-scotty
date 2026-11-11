@@ -22,7 +22,7 @@ async function snapshot() {
 const initial = await snapshot();
 const blocker = initial.beads.find(bead => bead.status === 'open' && !bead.assignee);
 assert.ok(blocker, 'The fixture needs an existing open unassigned dependency target');
-const browser = await chromium.launch();
+const browser = await chromium.launch({ executablePath: process.env.SCOTTY_TEST_CHROME || undefined });
 const context = await browser.newContext({ viewport: { width: 1500, height: 1000 } });
 await context.tracing.start({ screenshots: true, snapshots: true });
 const page = await context.newPage();

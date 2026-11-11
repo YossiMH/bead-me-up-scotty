@@ -10,7 +10,7 @@ const output = process.env.SCOTTY_TEST_OUTPUT;
 assert.ok(base && projectId && output, 'Set isolated SCOTTY_TEST_URL, SCOTTY_TEST_PROJECT and SCOTTY_TEST_OUTPUT');
 fs.mkdirSync(output, { recursive: true });
 const prefix = `${base}/api/p/${encodeURIComponent(projectId)}`;
-const browser = await chromium.launch();
+const browser = await chromium.launch({ executablePath: process.env.SCOTTY_TEST_CHROME || undefined });
 const context = await browser.newContext({ viewport: { width: 1500, height: 1000 } });
 await context.tracing.start({ screenshots: true, snapshots: true });
 const page = await context.newPage();

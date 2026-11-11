@@ -8,7 +8,7 @@ import { chromium } from 'playwright';
  * project responses. The integration runner owns fixture creation and cleanup.
  */
 export async function checkBackendBrowser({ base, projectId, backend, issueId, runDirectory, seeded }) {
-  const browser = await chromium.launch();
+  const browser = await chromium.launch({ executablePath: process.env.SCOTTY_TEST_CHROME || undefined });
   try {
     const context = await browser.newContext({ viewport: { width: 1440, height: 1000 } });
     const page = await context.newPage();
