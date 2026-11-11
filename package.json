@@ -20,7 +20,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start",
+    "start": "node scripts/serve.mjs",
     "serve": "node scripts/serve.mjs",
     "lint": "eslint",
     "test:bead-bin": "node --test scripts/test-bead-binary-option.mjs",

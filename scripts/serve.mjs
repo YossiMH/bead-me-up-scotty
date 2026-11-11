@@ -12,6 +12,7 @@
 import { spawn } from "node:child_process";
 import { createRequire } from "node:module";
 import path from "node:path";
+import { createServerController } from "../bin/server-controller.mjs";
 
 const RESTART_CODE = 75;
 const require = createRequire(import.meta.url);
@@ -30,54 +31,32 @@ function nextBin() {
 
 const port = process.env.PORT || "3000";
 const host = process.env.HOST || "localhost";
+// Preserve the complete Next start CLI surface, including a directory,
+// --hostname, --port, --keepAliveTimeout and future Next options.
+const forwardedArgs = process.argv.slice(2);
 // Test hook: override the spawned command with a JSON array (BMUS_SERVE_CMD).
 const override = process.env.BMUS_SERVE_CMD ? JSON.parse(process.env.BMUS_SERVE_CMD) : null;
 
-let child = null;
-let stopping = false;
-
-function start() {
+function launchServer() {
   const bin = nextBin();
   const cmd = override ? override[0] : bin ? process.execPath : "npx";
   const args = override
     ? override.slice(1)
     : bin
-      ? [bin, "start", "-p", port, "-H", host]
-      : ["next", "start", "-p", port, "-H", host]; // bin unresolved → use PATH via npx
-  child = spawn(cmd, args, {
+      ? [bin, "start", "-p", port, "-H", host, ...forwardedArgs]
+      : ["next", "start", "-p", port, "-H", host, ...forwardedArgs]; // bin unresolved → use PATH via npx
+  return spawn(cmd, args, {
     stdio: "inherit",
     env: { ...process.env, BMUS_SUPERVISED: "1", PORT: port, HOST: host },
   });
-  child.on("exit", (code, signal) => {
-    if (stopping) return;
-    if (code === RESTART_CODE) {
-      console.log("\n[serve] self-update requested — relaunching the server…\n");
-      start();
-    } else {
-      process.exit(signal ? 128 : (code ?? 0));
-    }
-  });
 }
 
-for (const sig of ["SIGINT", "SIGTERM"]) {
-  process.on(sig, () => {
-    if (stopping) return;
-    stopping = true;
-    if (!child) process.exit(0);
-    // Wait for the child to actually exit before we do, so it isn't orphaned
-    // holding the port (which would make the next `npm run serve` hit EADDRINUSE).
-    // A long-lived request can prevent draining; kill the child after the
-    // deadline and report forced shutdown only after observing its exit.
-    const t = setTimeout(() => {
-      child.kill("SIGKILL");
-    }, 5000);
-    child.once("exit", (_code, signal) => {
-      clearTimeout(t);
-      process.exit(signal === "SIGKILL" ? 1 : 0);
-    });
-    if (typeof t.unref === "function") t.unref();
-    child.kill(sig);
-  });
-}
-
-start();
+const controller = createServerController({
+  launchServer,
+  // The tray only needs a stable identity; Next receives the original options.
+  url: `http://${host}:${port}`,
+  restartExitCode: RESTART_CODE,
+  onRestart: () => console.log("\n[serve] self-update requested — relaunching the server…\n"),
+});
+controller.completion.then(code => process.exit(code));
+await controller.start();

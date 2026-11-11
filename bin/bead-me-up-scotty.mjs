@@ -18,6 +18,7 @@ import { spawn } from "node:child_process";
 import { fileURLToPath } from "node:url";
 import { createRequire } from "node:module";
 import { beadBinaryOptions } from "./backend-binary.mjs";
+import { createServerController } from "./server-controller.mjs";
 
 // The directory the user ran the command from (used for cwd auto-open).
 const invocationCwd = process.cwd();
@@ -49,6 +50,9 @@ Options:
                    Relative paths start from your current directory.
       --no-open    Don't open a browser, just print the URL.
   -h, --help       Show this help.
+
+On Windows, the tray icon's Exit command stops the server. Set BMUS_TRAY=0
+for an explicitly headless run.
 `);
 }
 
@@ -237,64 +241,27 @@ async function main() {
   const host = opts.host;
   const nextBin = resolveNextBin();
 
-  const child = spawn(process.execPath, [nextBin, "start", ROOT, "-p", String(port), "-H", host], {
-    cwd: ROOT,
-    stdio: "inherit",
-    env: { ...process.env, ...(backend.beadBin ? { BEAD_BIN: backend.beadBin } : {}), PORT: String(port), HOST: host },
+  const controller = createServerController({
+    url: new URL(`http://${host}:${port}`).href,
+    shutdownTimeoutMs: 4000,
+    launchServer: () => spawn(process.execPath, [nextBin, "start", ROOT, "-p", String(port), "-H", host], {
+      cwd: ROOT,
+      stdio: "inherit",
+      env: { ...process.env, ...(backend.beadBin ? { BEAD_BIN: backend.beadBin } : {}), PORT: String(port), HOST: host },
+    }),
+    onStopping: () => console.log("\n  Stopping…  (Ctrl+C again to force)"),
   });
-
-  // Forward signals and clean up the child on exit.
-  //
-  // `next start` shuts down *gracefully*: on SIGINT/SIGTERM it stops accepting
-  // connections and then waits for in-flight requests to drain. Our SSE change
-  // stream (app/api/p/[projectId]/beads/stream) is an in-flight request that
-  // never completes on its own, so with any browser tab open the server waits
-  // forever and Ctrl+C looks like it did nothing. Give the graceful path a
-  // short deadline, then escalate to SIGKILL so Ctrl+C always works.
-  const FORCE_KILL_AFTER_MS = 4000;
-  let shuttingDown = false;
-  let forceTimer = null;
-
-  const hardKill = () => {
-    if (forceTimer) clearTimeout(forceTimer);
-    try {
-      child.kill("SIGKILL");
-    } catch {
-      /* already gone */
-    }
-    process.exit(130);
-  };
-
-  const forward = (sig) => {
-    if (shuttingDown) {
-      hardKill(); // second Ctrl+C — don't wait out the deadline
-      return;
-    }
-    shuttingDown = true;
-    child.kill(sig);
-    console.log("\n  Stopping…  (Ctrl+C again to force)");
-    forceTimer = setTimeout(hardKill, FORCE_KILL_AFTER_MS);
-  };
-
-  process.on("SIGINT", () => forward("SIGINT"));
-  process.on("SIGTERM", () => forward("SIGTERM"));
-  process.on("exit", () => {
-    try {
-      child.kill();
-    } catch {
-      /* already gone */
-    }
-  });
-  child.on("exit", (code, signal) => {
-    if (forceTimer) clearTimeout(forceTimer);
-    process.exit(signal ? 128 : (code ?? 0));
-  });
+  // A long-lived event stream can prevent Next's graceful drain. The controller
+  // enforces its deadline and observes child exit before releasing the tray.
+  controller.completion.then(code => process.exit(code));
+  if (await controller.start() !== 'running') return;
 
   try {
     await waitForReady(host, port);
   } catch {
     console.error("Server failed to start. See the output above.");
-    return; // child's exit handler will set the exit code
+    await controller.stop({ exitCode: 1 });
+    return;
   }
 
   const target = opts.open ? await targetPath(host, port) : "/";
