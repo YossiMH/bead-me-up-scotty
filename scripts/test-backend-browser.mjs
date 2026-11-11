@@ -20,6 +20,7 @@ export async function checkBackendBrowser({ base, projectId, backend, issueId, r
     await page.getByRole('heading', { name: 'Board', exact: true }).waitFor();
     if (backend === 'bead-rs') {
       const readyColumn = page.locator('section').filter({ has: page.getByText('Ready', { exact: true }) });
+      await readyColumn.waitFor();
       assert.equal(await readyColumn.count(), 1, 'the readiness assertions require the visible Ready column');
       await readyColumn.locator(`[data-keyboard-bead-id="${seeded.ready}"]`).waitFor();
       assert.equal(await readyColumn.locator(`[data-keyboard-bead-id="${seeded.assigned}"]`).count(), 0);
