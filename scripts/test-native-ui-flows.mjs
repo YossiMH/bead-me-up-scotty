@@ -194,8 +194,12 @@ try {
   await page.locator(`[data-keyboard-bead-id="${issueId}"]`).click();
   drawer = page.getByRole('dialog');
   for (const kind of ['relates_to', 'verifies']) {
-    const relationship = drawer.locator('div').filter({ has: drawer.getByText(kind, { exact: true }) }).filter({ has: drawer.getByTitle('remove', { exact: true }) });
-    await relationship.last().getByTitle('remove', { exact: true }).click();
+    const relationship = drawer.getByTitle(`Open ${blocker.id}`, { exact: true })
+      .filter({ has: page.getByText(kind, { exact: true }) }).locator('..');
+    const remove = relationship.getByTitle('remove', { exact: true });
+    await remove.waitFor();
+    assert.equal(await remove.count(), 1);
+    await remove.click();
     await drawer.getByText(kind, { exact: true }).waitFor({ state: 'hidden' });
   }
   current = (await snapshot()).beads.find(bead => bead.id === issueId);
