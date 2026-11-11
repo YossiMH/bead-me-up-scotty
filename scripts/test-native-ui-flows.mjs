@@ -60,7 +60,11 @@ try {
   assert.equal(await drawer.getByTitle('Delete', { exact: true }).count(), 0);
   assert.equal(await drawer.getByTitle('Archive (close + label)', { exact: true }).count(), 0);
   assert.equal(await drawer.getByRole('button', { name: 'Refine with AI' }).count(), 0);
-  assert.equal(await drawer.getByLabel('Priority', { exact: true }).isEnabled(), true);
+  // Playwright's implicit label text includes descendant option text.
+  const priority = drawer.getByLabel(/^Priority/).and(drawer.locator('select'));
+  await priority.waitFor();
+  assert.equal(await priority.count(), 1);
+  assert.equal(await priority.isEnabled(), true);
 
   await drawer.getByTitle('Edit title & description', { exact: true }).click();
   await drawer.getByLabel('Title', { exact: true }).fill('Discarded title');
@@ -86,9 +90,9 @@ try {
   await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
   await Promise.all([
     page.waitForResponse(response => response.request().method() === 'PATCH' && response.url().endsWith(`/beads/${issueId}`) && response.status() === 200),
-    drawer.getByLabel('Priority', { exact: true }).selectOption('0'),
+    priority.selectOption('0'),
   ]);
-  await drawer.getByLabel('Priority', { exact: true }).locator('option:checked').filter({ hasText: 'Critical' }).waitFor({ state: 'attached' });
+  await priority.locator('option:checked').filter({ hasText: 'Critical' }).waitFor({ state: 'attached' });
   current = (await snapshot()).beads.find(bead => bead.id === issueId);
   assert.equal(current.title, editedTitle);
   assert.equal(current.description, editedDescription);
@@ -120,7 +124,7 @@ try {
   drawer = page.getByRole('dialog');
   await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
   assert.equal(await drawer.getByTitle('Edit title & description', { exact: true }).count(), 0);
-  assert.equal(await drawer.getByLabel('Priority', { exact: true }).isEnabled(), false);
+  assert.equal(await priority.isEnabled(), false);
   await context.request.put(`${base}/api/viewer-mode`, { data: { readOnly: false } });
   await page.reload();
   drawer = page.getByRole('dialog');
@@ -198,7 +202,9 @@ try {
   await drawer.getByTitle('remove', { exact: true }).click();
   await drawer.getByTitle('remove', { exact: true }).waitFor({ state: 'hidden' });
 
-  const status = drawer.getByLabel('Status', { exact: true });
+  const status = drawer.getByLabel(/^Status/).and(drawer.locator('select'));
+  await status.waitFor();
+  assert.equal(await status.count(), 1);
   await status.selectOption('in_progress');
   await status.locator('option:checked').filter({ hasText: 'In progress' }).waitFor({ state: 'attached' });
   current = (await snapshot()).beads.find(bead => bead.id === issueId);

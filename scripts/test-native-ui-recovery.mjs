@@ -79,6 +79,9 @@ try {
   await drawer.getByLabel('Title', { exact: true }).fill(unsavedTitle);
   await drawer.getByLabel('Description', { exact: true }).fill(unsavedDescription);
   await drawer.getByLabel('Notes', { exact: true }).fill('Separate unsaved notes');
+  const priority = drawer.getByLabel(/^Priority/).and(drawer.locator('select'));
+  await priority.waitFor();
+  assert.equal(await priority.count(), 1);
   await page.route(`${prefix}/beads/${evidence.issueId}`, async route => {
     if (route.request().method() !== 'PATCH') return route.continue();
     evidence.priorityUpdates++;
@@ -94,7 +97,7 @@ try {
   });
   await Promise.all([
     page.waitForResponse(response => response.url() === `${prefix}/beads/${evidence.issueId}` && response.request().method() === 'PATCH' && response.status() === 409),
-    drawer.getByLabel('Priority', { exact: true }).selectOption('0'),
+    priority.selectOption('0'),
   ]);
   await drawer.getByRole('alert').waitFor();
   await drawer.getByRole('button', { name: 'Refresh without resubmitting', exact: true }).click();

@@ -234,7 +234,7 @@ try {
     await checkBackendBrowser({ base, projectId, backend, issueId: created.id, runDirectory, seeded });
   }
   if (backend === 'bead-rs' && process.argv.includes('--native-ui')) {
-    for (const script of ['test-native-ui-flows.mjs', 'test-native-ui-recovery.mjs']) {
+    for (const script of ['test-native-ui-flows.mjs', 'test-native-ui-recovery.mjs', 'test-native-priority-recovery.mjs']) {
       try {
         const result = await runFile(process.execPath, [`scripts/${script}`], {
           cwd: sourceRoot, env: { ...environment, SCOTTY_TEST_URL: base, SCOTTY_TEST_PROJECT: projectId,
