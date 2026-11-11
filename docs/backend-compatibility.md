@@ -14,13 +14,37 @@ store before opening it.
 | Backend | Compatibility target | Executable setting |
 | --- | --- | --- |
 | Original Beads | `bd` 1.1.0 | `BD_BIN`, or `bd` on `PATH` |
-| Native bead-rs | [commit `bf2aa10b5bb36898a8f7f73e60b3b61de9a4a2ec`](https://github.com/jedarden/bead-rs/tree/bf2aa10b5bb36898a8f7f73e60b3b61de9a4a2ec), reporting 0.3.0 / `native-v1` | `BEAD_BIN`, or `bead` on `PATH` |
+| Native bead-rs | 0.3.0 / `native-v1` with the required command and document capabilities; recorded baseline pins and the editing extension are described below | `BEAD_BIN`, or `bead` on `PATH` |
 
 Native v0.2.6 is unsupported: it lacks the required comments, complete-list and
 JSON-document interfaces. A 0.3.0 version string alone does not identify the
 tested source. Use the pinned commit and retain its build metadata. Scotty checks
 the public capability document and workspace identity, not the executable's hash.
-Later bead-rs revisions need separate qualification.
+Later bead-rs revisions need separate qualification. The earlier Linux baseline
+was [commit `bf2aa10b5bb36898a8f7f73e60b3b61de9a4a2ec`](https://github.com/jedarden/bead-rs/tree/bf2aa10b5bb36898a8f7f73e60b3b61de9a4a2ec).
+Its qualification, and the earlier Windows binary results below, predate the
+editing extension.
+
+### Editing-capable builds
+
+The editing extension is implemented in the
+[YossiMH/bead-rs fork](https://github.com/YossiMH/bead-rs), with implementation
+commit `a168e27ef3f2eb476dddbd34d41f35e6539001e6`. Scotty reads the selected
+executable's `capabilities` document before exposing the new fields. Within
+`issue_editing`, it requires `version: 1`, `clear_description: true`,
+`revision_guard: true` and `priority_reason_required: true`. Each new field must appear in
+`issue_editing.fields`; priority additionally requires `priority_change: true`.
+
+An executable without that optional contract keeps the existing native status
+and assignment controls. Missing fields remain unavailable, and the API refuses
+them before a write. Updating Scotty alone does not add editing to an older
+binary. The older Windows pin documented below remains a rollback option for
+its compatible stores.
+
+Windows execution qualification of the new editing binary and tray is pending.
+The earlier Windows receipt below is historical evidence for its exact binary;
+it is not a receipt for the editing build. Retain a new binary's source commit,
+target and SHA-256 alongside its Windows execution results before selecting it.
 
 ### Use a local bead-rs fork on Windows
 
@@ -38,7 +62,9 @@ node .\bin\bead-me-up-scotty.mjs --bead-bin ..\bead-rs\target\debug\bead.exe --h
 command was invoked, and overrides `BEAD_BIN` for the launched server. It does
 not install or replace an executable. In Add a project, select **bead-rs**.
 
-For an independent local installation, `.env.local` can hold absolute paths:
+For an independent local installation, `.env.local` can hold absolute paths.
+This example preserves the earlier Windows pin; select the newly qualified pin
+to enable the editing extension:
 
 ```dotenv
 BEAD_BIN=F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-376537b7917f.exe
@@ -73,7 +99,9 @@ fork rebuilds. A development `target/debug/bead.exe` can be replaced by another
 build while Scotty is running; qualify a new binary on disposable data before
 replacing the local pin or selecting it with `--bead-bin`.
 
-On this Windows host, the configured F: pin now passes the full real-store tests
+### Earlier Windows qualification
+
+On this Windows host, the earlier F: pin passed the full real-store tests
 and headless browser registration, issue display, API create and CLI readback on
 fresh F: Git workspaces. The current checkpoint's referenced files were staged
 with matching bytes, while an unrelated file stayed unchanged and untracked.
@@ -88,7 +116,7 @@ browser checks used an existing isolated Playwright headless browser. Earlier
 failed fixtures are preserved. These results do not qualify original stores;
 no existing live store was opened.
 
-The local Windows binary tested with this checkout has SHA-256
+That local Windows binary has SHA-256
 `376537b7917f18d33383a3e4bd3eb9e0955bb42d1a60b73aef5c81865662af28`.
 Its public contract reports 0.3.0 / native-v1 with array list output and object
 show/create output. The tests exercise complete listing, creation, comments,
@@ -110,13 +138,57 @@ entire server process tree is reclaimed on exit.
 Build Scotty from this checkout with `npm ci` and `npm run build`, then start it
 with `npm run serve`. The upstream v0.3.2 release predates this adapter. The
 Dockerfile bundles only bd; native mode in Docker is not qualified. The native
-build procedure below uses Linux shell tools; it has not been qualified on
-macOS or Windows.
+build procedure below uses Linux shell tools. A cross-built Windows executable
+still needs execution checks on Windows before it becomes a qualified pin.
+
+### Windows launch and shutdown
+
+The production launchers `scotty`, `bead-me-up-scotty`, `npm run serve`,
+`npm start` and `launch-scotty.bat` create one Windows Forms tray helper per
+launcher. Its tooltip is **Bead Me Up, Scotty**, and its context menu contains
+**Exit**. Exit stops that launcher's server and disposes the icon. Console
+interrupts and server termination use the same shutdown owner. The supervised
+`npm run serve` and `npm start` paths retain their icon while replacing a server
+that requested a self-update restart.
+
+`launch-scotty.bat` runs from its own checkout, binds to `127.0.0.1`, forwards
+arguments to the CLI and returns its exit status. It pauses on failure so that
+an error remains visible when launched from Explorer. Use
+`launch-scotty.bat --no-open` to leave the browser closed. The global CLI's
+`--no-open` option also keeps the tray active.
+
+Set `BMUS_TRAY=0` in the launcher environment for headless use. The helper is
+Windows-only and needs Windows PowerShell with Windows Forms in an interactive
+desktop session. If it cannot start, or fails while the server runs, the
+launcher reports the error and shuts down. The development server and direct
+`next start` calls do not use this controller. No tray setting changes the
+selected bead executable, project registrations or issue data.
+
+### Return to the previous binary pin
+
+Keep the previous executable and its receipt when qualifying a replacement.
+Stop the current Scotty server, verify the previous file against its recorded
+SHA-256, and select it with `--bead-bin` or the previous `BEAD_BIN` value. For the
+earlier local pin shown above:
+
+```powershell
+Get-FileHash .\.scotty-local\bin\bead-376537b7917f.exe -Algorithm SHA256
+node .\bin\bead-me-up-scotty.mjs --host 127.0.0.1 --no-open `
+  --bead-bin .\.scotty-local\bin\bead-376537b7917f.exe
+```
+
+Compare the hash with the full earlier receipt in this document. The explicit
+flag overrides `.env.local` and inherited `BEAD_BIN`; changing `.env.local`
+affects subsequent launches that use those defaults. Native controls follow
+the capabilities of the selected file, so an older pin hides unsupported edit
+fields. Re-selecting an executable does not undo saved edits or downgrade a
+database. Open only stores known to be compatible with that pin, and preserve
+the matching Scotty configuration and source/build backup.
 
 ### Build the native CLI
 
-The qualified Linux build uses Rust 1.99.1, Cargo, Git, Bash, Python 3 and GNU
-utilities. Install those prerequisites separately if needed. The upstream build
+The earlier qualified Linux build used Rust 1.99.1, Cargo, Git, Bash, Python 3
+and GNU utilities. Install those prerequisites separately if needed. The upstream build
 script requires at least 5 GiB free under `$HOME/scratch` and downloads locked
 Cargo dependencies. It builds an archive of the requested commit without changing
 the source checkout's HEAD, index or stash.
@@ -136,8 +208,19 @@ report commit `unknown`, while that file records the source commit and binary
 hash. The qualified binary reported
 `bead 0.3.0 (unknown 2026-10-20T06:48:57Z)` with SHA-256
 `9a934a834b01c50d6211f19fff9eee9a436152e3ba51ead6947c535f13158e16`.
-Build timestamps change the hash, so a fresh build is not expected to reproduce
-those bytes. See the pinned [upstream build procedure](https://github.com/jedarden/bead-rs/blob/bf2aa10b5bb36898a8f7f73e60b3b61de9a4a2ec/BUILD_PROCEDURE.md).
+This baseline executable predates scalar editing. Build timestamps change the
+hash, so a fresh build is not expected to reproduce those bytes. See the pinned
+[upstream build procedure](https://github.com/jedarden/bead-rs/blob/bf2aa10b5bb36898a8f7f73e60b3b61de9a4a2ec/BUILD_PROCEDURE.md).
+
+The fork's extended archive builder accepts `--target <Rust target>` and
+`BEAD_BUILD_SCRATCH_ROOT`; its default target is the current Rust host. A Windows
+target produces an `.exe` and a receipt identifying both the build host and the
+requested target. A foreign target is recorded as
+`execution_verification: "pending"` with a null embedded version because the
+builder has not executed it on that target. Keep the receipt with the file and
+complete Windows version, capability and behavior checks before selecting it.
+Archive builds isolate Git discovery so an enclosing checkout cannot supply a
+false source commit. The archive builder refuses to overwrite an existing pin.
 
 ### Add a native project
 
@@ -177,29 +260,60 @@ shown in **Open**, rather than being presented as ready.
 | Action | Native behavior |
 | --- | --- |
 | Create | Title, description, priority, type, assignee and initial labels; start-in-backlog uses one manifest transaction |
-| Edit after creation | Status and assignee only; title, description, priority and type are immutable |
+| Edit after creation | With the editing extension: title, description, priority, custom type, notes, status and assignee; older executables retain status and assignee |
 | Close | Requires a nonblank reason, retained with the completion time |
-| Reopen or release | Reopen closed work before other edits; moving in-progress work to open releases it |
+| Reopen or release | Dedicated lifecycle actions; moving in-progress work to open releases its assignment |
 | Start | Move deferred work to open first; starting unassigned work assigns it to the configured actor |
 | Comments | Create and display native comment text and recorded author |
 | Labels | Add or remove one label per action; no replace-all or clear-all action |
 | Dependencies | Exact native kinds `blocks`, `relates_to` and `verifies`; removal identifies the edge kind |
 
-Status and assignment changes respect native revisions and ownership. Scotty
-retains credentials only for claims it acquired itself, under
+Scalar edits, status and assignment changes respect native revisions and
+ownership. Scotty retains credentials only for claims it acquired itself, under
 `$XDG_CONFIG_HOME/bead-me-up-scotty/native-claims` (default
 `~/.config/bead-me-up-scotty/native-claims`). It does not adopt a visible token
 from another process. If the original holder owns a protected claim, that holder
 must release it with its original credential. Keep Scotty's configuration
 directory private and preserve it across restarts.
 
-Native projects cannot delete or archive issues, edit checklists or descriptions,
-create parent-child hierarchy or human approval gates, run Refine with AI, upload
-or serve attachments, or publish a site. These actions are unavailable in the UI
+Native projects cannot delete or archive issues, create parent-child hierarchy
+or human approval gates, run Refine with AI, upload or serve attachments, or
+publish a site. These actions are unavailable in the UI
 and rejected by the API. Native issue creation authorship is unavailable, so
 Scotty does not infer an origin badge or offer creation-attribution analytics,
 including Activity, Insights and Achievements. Comment authorship remains visible.
 Original bd and Demo keep their existing operations.
+
+### Editing existing native beads
+
+Use the pencil in the detail drawer to edit the title, description, custom type
+and notes. **Save** sends only fields changed from the draft's opening snapshot;
+**Cancel** discards that content draft. Priority and assignment have their own
+controls. Markdown checklist toggles save the changed description. Read-only
+mode disables these writes in both the UI and API.
+
+Scotty sends a scalar patch as one guarded native `update`, with the current
+revision and a legitimate claim credential when required. A change to priority
+uses the reason `Priority edited in Scotty`; bead-rs records a `priority_changed`
+event with the old and new values, actor and reason. Sending the existing
+priority leaves that audit history unchanged. A closed bead can receive scalar
+metadata corrections without changing its completion time or close reason.
+Reopening or releasing together with other scalar changes is rejected before
+any write; use the lifecycle action separately.
+
+Native titles may contain up to 4,096 UTF-8 bytes. Descriptions and notes may
+contain up to 4 MiB each. When their combined text exceeds 8 KiB, Scotty uses
+temporary UTF-8 files and cleans them up after the command. Empty descriptions
+and notes clear those fields. Types can be custom nonempty native strings. IDs, creation and
+completion timestamps, claim metadata, comments and other managed fields are
+not arbitrary PATCH fields.
+
+Dependency changes use the separate native dependency actions. The source
+issue depends on the selected target, and an edge is identified by source,
+target and kind: `blocks`, `relates_to` or `verifies`. Removing one kind preserves
+other kinds between the same pair. An incoming blocker row removes its actual
+underlying edge with the original direction. Labels likewise use individual
+add/remove actions rather than replacement through the scalar patch.
 
 ### Label API and concurrency
 
@@ -231,10 +345,19 @@ Original `bd` keeps its existing top-level `.beads` watcher.
 A native command can commit before receipt parsing, readback, local credential
 storage or checkpoint handling fails. An error is not evidence of rollback.
 Scotty distinguishes `mutation_committed` from `mutation_uncertain` and retains
-available issue/comment IDs. Do not resubmit a create or comment just because
-the response failed. Use **Refresh without resubmitting** and inspect the
+available issue/comment IDs. Do not resubmit a create, comment or edit just
+because the response failed. Use **Refresh without resubmitting** and inspect the
 identified record. An unknown outcome remains unresolved until read-only checks
 establish what happened.
+
+For a scalar edit, refresh reads the identified issue and a coherent project
+snapshot, then compares the submitted fields with the current record. A failed
+refresh or different current values retains the draft and recovery notice.
+There is no automatic retry. A priority-only refresh preserves any separate
+unsaved content editor. The native command palette retains an unverified
+priority request and its recovery controls until reconciliation or explicit
+discard; Escape and the palette shortcut cannot dismiss it in that state.
+Readback equality confirms the current field values, not a unique audit receipt.
 
 Native reads reject malformed or inconsistent output rather than returning an
 empty board. A snapshot read makes up to three attempts if the workspace changes
@@ -263,15 +386,16 @@ the source changes, then run `npm ci` and `npm run build` and restart. Pointing
 
 ## Verification
 
-Run checks from the Scotty checkout. Node 24.19.0 and npm 11.9.0 were used for
-qualification. The unit tests use explicit subprocess doubles and do not prove
-real CLI or browser behavior.
+Run checks from the Scotty checkout. The earlier baseline qualification used
+Node 24.19.0 and npm 11.9.0. The unit tests use explicit subprocess doubles and
+do not prove real CLI or browser behavior.
 
 ```sh
 export POSTHOG_KEY='' NEXT_TELEMETRY_DISABLED=1
 export BD_DISABLE_METRICS=1 BD_DISABLE_EVENT_FLUSH=1
 export SCOTTY_TEST_ROOT="$(mktemp -d /tmp/scotty-backends.XXXXXX)"
 node --test scripts/test-backend-contract.mjs \
+  scripts/test-native-editing.mjs scripts/test-native-edit-ui.mjs \
   scripts/test-native-mutations.mjs scripts/test-native-ownership.mjs \
   scripts/test-native-route-guards.mjs scripts/test-native-label-revision.mjs \
   scripts/test-native-label-deltas.mjs scripts/test-native-mutation-outcomes.mjs \
@@ -289,12 +413,14 @@ The integration runner requires absolute executable paths and a production build
 It creates a fresh Git workspace and isolated HOME/config inside
 `SCOTTY_TEST_ROOT`, starts its own server and stops it after the checks. Run the
 backends sequentially with port 3196 free. Browser checks require Playwright
-Chromium installed separately; the runner does not install it.
+Chromium installed separately; the runner does not install it. Set
+`SCOTTY_TEST_CHROME` to select an installed isolated Chromium or headless shell.
+Use an editing-capable native binary for the extended editing checks.
 
 ```sh
 BD_BIN=/absolute/path/to/bd SCOTTY_TEST_PORT=3196 \
   node scripts/test-backend-integration.mjs bd --browser
-BEAD_BIN=/absolute/path/to/bead-scotty-bf2aa10 SCOTTY_TEST_PORT=3196 \
+BEAD_BIN=/absolute/path/to/editing-capable-bead SCOTTY_TEST_PORT=3196 \
   node scripts/test-backend-integration.mjs bead-rs --browser --native-ui
 ```
 
@@ -303,6 +429,13 @@ artifacts in their new fixture directories. Native UI recovery tests forward the
 write to the real server, then inject a failed response; they check client
 reconciliation, not native checkpoint failure. Keep those results distinct from
 unintercepted CLI/API/browser checks.
+
+The `--native-ui` run includes ordinary editing/lifecycle/dependency flows,
+drawer recovery with a separate unsaved draft, and native palette priority
+recovery. Launcher contract tests are `node --test scripts/test-windows-tray.mjs`
+and `node --test scripts/test-serve.mjs`. These use synthetic child processes;
+real Windows tray execution uses
+`scripts/test-windows-tray-smoke.ps1` in an isolated test environment.
 
 ## 2026-11-11 editing and Windows tray work
 
