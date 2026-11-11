@@ -465,7 +465,7 @@ childProcess.spawn = (command, args = [], options = {}) => {
 syncBuiltinESMExports();
 await import(pathToFileURL(process.env.SCOTTY_SMOKE_EXISTING_OBSERVER).href);
 '@, $Utf8)
-    $restart = Start-Headless $NodePath @('--import', $RestartObserver, $ServeEntry) 'controller' $restartDirectory @{
+    $restart = Start-Headless $NodePath @('--import', ([Uri]$RestartObserver).AbsoluteUri, $ServeEntry) 'controller' $restartDirectory @{
         SCOTTY_TRAY_SMOKE_DIR = $restartDirectory; SCOTTY_TRAY_SMOKE_ACTION = 'exit'
         SCOTTY_SMOKE_RESTART_WATCHER = $RestartWatcher; SCOTTY_SMOKE_EXISTING_OBSERVER = $ExistingObserver
     }

@@ -284,8 +284,10 @@ try {
     Assert-That ($published.title -ceq 'Published Windows edit' -and $published.description -ceq $fileDescription -and $published.notes -ceq $fileNotes) 'Published fields differ.'
     Assert-That (-not (Test-Path -LiteralPath (Join-Path $restored '.beads'))) 'Restore target already contains a store.'
     [void](Invoke-Bead $restored 'restore-init' @('init', '--prefix', 'wsmoke'))
-    $emptyTarget = @(Read-BeadJson $restored 'restore-empty' @('query', '--json', '{"version":"v1","predicates":[],"sort":[],"projection":{"fields":["id"]}}', '--output-json'))
-    Assert-That ($emptyTarget.Count -eq 0) 'The newly initialized restore target is not empty.'
+    $emptyTarget = Invoke-Bead $restored 'restore-empty' @('query', '--json', '{"version":"v1","predicates":[],"sort":[],"projection":{"fields":["id"]}}', '--output-json')
+    # PowerShell 5.1 emits an empty JSON array as one pipeline object.
+    # Require the public query's empty-array document, accepting whitespace.
+    Assert-That ($emptyTarget.Stdout.Trim() -match '^\[\s*\]$') 'The newly initialized restore target is not empty.'
     [void](Invoke-Bead $restored 'checkpoint-restore' @('sync', 'import-only', '--input', (Join-Path $workspace '.beads\checkpoint'), '--restore-into-empty', '--actor=scotty-windows-restore'))
     $restoredIssue = Read-Issue $restored 'restored-read' $issueId
     $restoredMetadata = Read-Metadata $restored 'restored-metadata' $issueId
