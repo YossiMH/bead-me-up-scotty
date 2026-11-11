@@ -56,7 +56,7 @@ visualizer: a fast, graph-aware task board for humans, on top of a tracker built
 for AI agents.
 
 Original Beads (`bd`) remains the default backend. You can also add a project
-owned by [bead-rs](https://github.com/jedarden/bead-rs) using its separate `bead`
+owned by [bead-rs](https://github.com/YossiMH/bead-rs) using its separate `bead`
 CLI. Native setup, the supported source pin, and feature differences are in
 [Backend compatibility](docs/backend-compatibility.md).
 
@@ -77,6 +77,10 @@ the upstream v0.3.2 release does not include this adapter.
 
 These features describe original bd projects. Native projects expose the
 [operations their backend supports](docs/backend-compatibility.md#native-workflow).
+With an editing-capable bead-rs executable, the detail drawer also edits native
+titles, descriptions, custom types and notes, alongside priority, status,
+assignment, labels and typed dependencies. Older native executables keep their
+existing controls; Scotty enables new fields from the executable's capabilities.
 
 - **Board** — a five-column view (Backlog · Ready · In Progress · Blocked · Done)
   with dense cards showing id, type, priority, assignee, dep/comment counts, and an
@@ -163,8 +167,9 @@ These GitHub requests are independent of the optional usage-statistics setting.
 When a new version is available, click the sidebar notice to read its release notes.
 A clean main/detached Git checkout can install the exact advertised target with
 **Update now**. Dependencies are restored with `npm ci` and the app is rebuilt.
-The supervised `npm run serve` launcher restarts automatically; other launchers
-need a manual restart. Local changes or diverged history must be resolved first.
+The supervised `npm run serve` and `npm start` launchers restart automatically;
+other launchers need a manual restart. Local changes or diverged history must
+be resolved first.
 Global copies, source downloads, and Docker installations receive the notice with
 manual update instructions. No update is installed automatically.
 
@@ -198,7 +203,38 @@ Set the human actor / allowlist, repo path, and theme in **Settings** (stored
 under your OS config dir, not in beads).
 
 For a production source installation, run `npm ci`, `npm run build`, then
-`npm run serve`. Set the backend executable variables when starting the server.
+`npm run serve` or `npm start`. Set the backend executable variables when
+starting the server.
+
+### Windows system tray
+
+On Windows, `scotty`, `bead-me-up-scotty`, `npm run serve`, `npm start` and
+`launch-scotty.bat` create a **Bead Me Up, Scotty** tray icon. Right-click it and
+choose **Exit** to stop that launcher's server and remove the icon. Closing a
+browser tab leaves the server running. `npm run serve` and `npm start` retain
+one icon across supervised self-update restarts.
+
+From the source checkout, start without opening a browser:
+
+```powershell
+.\launch-scotty.bat --no-open
+```
+
+The batch launcher binds to `127.0.0.1` and forwards its other arguments to the
+CLI, including `--bead-bin` and `--port`. `--no-open` leaves the tray enabled.
+For an intentional headless run, set `BMUS_TRAY=0` before starting Scotty:
+
+```powershell
+$env:BMUS_TRAY = '0'
+npm run serve
+```
+
+Remove that environment override to restore the tray on the next launch.
+The tray uses Windows PowerShell and Windows Forms on the interactive desktop;
+a helper startup failure is reported and stops the launcher. Development
+`npm run dev` and direct `next start` commands bypass this tray launcher.
+See [Windows launch and shutdown](docs/backend-compatibility.md#windows-launch-and-shutdown)
+for details.
 
 ### Focus view
 
@@ -314,7 +350,7 @@ directory. It starts the production server on a free port (default 3000) and ope
 your browser. Run it from a folder that has a `.beads` repo to jump straight to
 that project; otherwise you get the project picker. Requires Node 20+.
 
-Flags: `-p, --port <n>` · `--no-open` · `--help`.
+Flags: `-p, --port <n>` · `--host <host>` · `--bead-bin <path>` · `--no-open` · `--help`.
 
 **Recommended — `npm link` (keep the clone):**
 
