@@ -40,7 +40,7 @@ try {
   const create = page.getByRole('dialog');
   await create.getByLabel('Type', { exact: true }).fill('review_check');
   await create.getByPlaceholder('What needs doing?').fill(title);
-  await create.getByPlaceholder('Optional details, acceptance criteria…', { exact: true }).fill('- [ ] Immutable native checklist\n\nDescription 日本語');
+  await create.getByPlaceholder('Optional details, acceptance criteria…', { exact: true }).fill('- [ ] Native checklist\n\nDescription 日本語');
   assert.equal(await create.getByRole('button', { name: 'Attach image' }).count(), 0);
   assert.equal(await create.getByText('Parent', { exact: true }).count(), 0);
   assert.match(await create.innerText(), /Creation author is not recorded/);
@@ -56,13 +56,72 @@ try {
   let drawer = page.getByRole('dialog');
   await drawer.getByText(title, { exact: true }).waitFor();
   assert.match(await drawer.innerText(), /Unknown author/);
-  assert.equal(await drawer.getByTitle('Edit title & description', { exact: true }).count(), 0);
+  assert.equal(await drawer.getByTitle('Edit title & description', { exact: true }).isEnabled(), true);
   assert.equal(await drawer.getByTitle('Delete', { exact: true }).count(), 0);
   assert.equal(await drawer.getByTitle('Archive (close + label)', { exact: true }).count(), 0);
   assert.equal(await drawer.getByRole('button', { name: 'Refine with AI' }).count(), 0);
-  assert.equal(await drawer.getByLabel('Priority', { exact: true }).isEnabled(), false);
+  assert.equal(await drawer.getByLabel('Priority', { exact: true }).isEnabled(), true);
+
+  await drawer.getByTitle('Edit title & description', { exact: true }).click();
+  await drawer.getByLabel('Title', { exact: true }).fill('Discarded title');
+  await drawer.getByLabel('Type', { exact: true }).fill('discarded_type');
+  await drawer.getByLabel('Notes', { exact: true }).fill('Discarded notes');
+  await drawer.getByRole('button', { name: 'Cancel', exact: true }).click();
+  let current = (await snapshot()).beads.find(bead => bead.id === issueId);
+  assert.equal(current.title, title);
+  assert.equal(current.issue_type, 'review_check');
+  assert.equal(current.notes, '');
+
+  const editedTitle = `Edited UI native 日本語 ${suffix}`;
+  const editedDescription = '- [ ] Saved native checklist\n\nChanged description 日本語';
+  const editedNotes = `Saved notes ${suffix}\nSecond line`;
+  await drawer.getByTitle('Edit title & description', { exact: true }).click();
+  await drawer.getByLabel('Title', { exact: true }).fill(editedTitle);
+  await drawer.getByPlaceholder('Describe this bead…', { exact: true }).fill(editedDescription);
+  await drawer.getByLabel('Type', { exact: true }).fill('custom_review');
+  await drawer.getByLabel('Notes', { exact: true }).fill(editedNotes);
+  assert.equal(await drawer.getByRole('button', { name: 'Attach image' }).count(), 0);
+  assert.equal(await drawer.getByRole('button', { name: 'Refine with AI' }).count(), 0);
+  await drawer.getByRole('button', { name: 'Save', exact: true }).click();
+  await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
+  await drawer.getByLabel('Priority', { exact: true }).selectOption('0');
+  await drawer.getByLabel('Priority', { exact: true }).locator('option:checked').filter({ hasText: 'Critical' }).waitFor({ state: 'attached' });
+  current = (await snapshot()).beads.find(bead => bead.id === issueId);
+  assert.equal(current.title, editedTitle);
+  assert.equal(current.description, editedDescription);
+  assert.equal(current.issue_type, 'custom_review');
+  assert.equal(current.notes, editedNotes);
+  assert.equal(current.priority, 0);
+  evidence.push({ step: 'edit scalars', bead: current });
+
   const checkbox = drawer.getByRole('checkbox');
-  assert.equal(await checkbox.isEnabled(), false);
+  assert.equal(await checkbox.isEnabled(), true);
+  await Promise.all([
+    page.waitForResponse(response => response.request().method() === 'PATCH' && response.url().endsWith(`/beads/${issueId}`) && response.status() === 200),
+    checkbox.check(),
+  ]);
+  assert.equal((await snapshot()).beads.find(bead => bead.id === issueId).description,
+    editedDescription.replace('- [ ]', '- [x]'));
+
+  await drawer.getByTitle('Edit title & description', { exact: true }).click();
+  await drawer.getByLabel('Notes', { exact: true }).fill('');
+  await drawer.getByRole('button', { name: 'Save', exact: true }).click();
+  await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
+  assert.equal((await snapshot()).beads.find(bead => bead.id === issueId).notes, '');
+
+  await context.request.put(`${base}/api/viewer-mode`, { data: { readOnly: true } });
+  const refused = await context.request.patch(`${prefix}/beads/${issueId}`, { data: { title: 'Read-only overwrite' } });
+  assert.equal(refused.status(), 403);
+  assert.equal((await refused.json()).code, 'read_only');
+  await page.reload();
+  drawer = page.getByRole('dialog');
+  await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
+  assert.equal(await drawer.getByTitle('Edit title & description', { exact: true }).count(), 0);
+  assert.equal(await drawer.getByLabel('Priority', { exact: true }).isEnabled(), false);
+  await context.request.put(`${base}/api/viewer-mode`, { data: { readOnly: false } });
+  await page.reload();
+  drawer = page.getByRole('dialog');
+  await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
   const comment = `Persisted UI comment ${suffix}`;
   await drawer.getByPlaceholder(/^Comment as /).fill(comment);
   await drawer.getByRole('button', { name: 'Comment', exact: true }).click();
@@ -105,7 +164,7 @@ try {
     await drawer.getByRole('button', { name: 'Add', exact: true }).click();
     await drawer.getByLabel('Dependency type').waitFor({ state: 'hidden' });
   }
-  let current = (await snapshot()).beads.find(bead => bead.id === issueId);
+  current = (await snapshot()).beads.find(bead => bead.id === issueId);
   assert.deepEqual(current.dependencies.filter(dep => dep.depends_on_id === blocker.id).map(dep => dep.type).sort(), ['blocks', 'relates_to', 'verifies']);
   await drawer.getByTitle('Close', { exact: true }).click();
   await drawer.waitFor({ state: 'hidden' });
@@ -170,7 +229,7 @@ try {
   await page.screenshot({ path: path.join(output, 'native-ui-mobile.png'), fullPage: true });
   evidence.push({ step: 'reload and mobile comment', bead: (await snapshot()).beads.find(bead => bead.id === issueId) });
   assert.deepEqual(errors, []);
-  console.log(`PASS native UI create, custom type, unknown author, immutable fields, comments, assignment, labels, exact-kind dependencies and graph labels, start/release, close/reopen, reload and mobile comment: ${issueId}`);
+  console.log(`PASS native UI scalar edits, cancellation, checklist, read-only mode, comments, assignment, labels, exact-kind dependencies, lifecycle, reload and mobile comment: ${issueId}`);
 } finally {
   fs.writeFileSync(path.join(output, 'native-ui-evidence.json'), JSON.stringify({ issueId, evidence, errors }, null, 2));
   await context.tracing.stop({ path: path.join(output, 'native-ui-trace.zip') });

@@ -28,7 +28,8 @@ export async function checkBackendBrowser({ base, projectId, backend, issueId, r
     }
     await page.locator(`[data-keyboard-bead-id="${issueId}"]`).click();
     await page.getByText('Persisted comment 日本語', { exact: true }).waitFor();
-    for (const title of ['Edit title & description', 'Delete', 'Archive (close + label)', 'Block this bead on a human approval gate']) {
+    assert.equal(await page.getByTitle('Edit title & description', { exact: true }).isEnabled(), true);
+    for (const title of ['Delete', 'Archive (close + label)', 'Block this bead on a human approval gate']) {
       const control = page.getByTitle(title, { exact: true });
       if (backend === 'bead-rs') {
         assert.ok(await control.count() === 0 || !await control.isVisible() || !await control.isEnabled(),

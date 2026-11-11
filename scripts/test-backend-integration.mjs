@@ -136,6 +136,23 @@ try {
   assert.ok(refreshed.beads.find(({ id }) => id === created.id).comments.some(({ text }) => text === 'Persisted comment 日本語'));
   if (backend === 'bead-rs') {
     assert.ok((await nativeShow(created.id)).comments.some(({ body }) => body === 'Persisted comment 日本語'));
+    for (const field of ['title', 'description', 'priority', 'issue_type', 'notes']) {
+      assert.ok(listed.meta.capabilities.editableFields.includes(field), `The qualified binary must expose ${field} editing`);
+    }
+    const scalarPatch = { title: 'Edited native 日本語', description: '- [ ] Editable checklist\nSecond line',
+      priority: 0, issue_type: 'review_check', notes: 'Native notes\nKeep this line' };
+    const beforeEdit = await nativeShow(created.id);
+    const edited = (await request(item, 'PATCH', scalarPatch)).data;
+    for (const [field, value] of Object.entries(scalarPatch)) assert.equal(edited[field], value, field);
+    const persistedEdit = await nativeShow(created.id);
+    assert.equal(persistedEdit.revision, beforeEdit.revision + 1, 'One scalar patch is one revision');
+    for (const field of ['title', 'description', 'priority', 'notes']) assert.equal(persistedEdit[field], scalarPatch[field], field);
+    assert.deepEqual(persistedEdit.labels, beforeEdit.labels);
+    assert.deepEqual(persistedEdit.dependencies, beforeEdit.dependencies);
+    const cleared = (await request(item, 'PATCH', { description: '', notes: '' })).data;
+    assert.equal(cleared.description, '');
+    assert.equal(cleared.notes, '');
+    assert.equal((await nativeShow(created.id)).notes, '');
     const before = await nativeShow(created.id);
     for (const [suffix, method, body] of [
       ['', 'PATCH', { title: 'Forbidden', labels: ['must-not-write'] }],
@@ -186,6 +203,12 @@ try {
   assert.equal(closed.status, 'closed');
   const closedList = (await request(prefix)).data.beads.find(({ id }) => id === created.id);
   assert.equal(closedList.close_reason, 'API lifecycle verified');
+  if (backend === 'bead-rs') {
+    const beforeRejectedReopen = await nativeShow(created.id);
+    const refused = await request(item, 'PATCH', { status: 'open', title: 'Must not disappear' }, 400);
+    assert.equal(refused.data.code, 'unsupported_operation');
+    assert.deepEqual(await nativeShow(created.id), beforeRejectedReopen);
+  }
   await request(`${item}/status`, 'POST', { status: 'open' });
   if (backend === 'bead-rs') {
     await request(`${item}/status`, 'POST', { status: 'in_progress' });

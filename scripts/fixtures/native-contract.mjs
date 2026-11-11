@@ -28,3 +28,16 @@ export const nativeCapabilities = {
     issue_documents: { list_json: 'array', show_json: 'object', create_json: 'object' },
   },
 };
+
+/** Editing-capable native contract; the fixture above remains the older executable. */
+export const editingNativeCapabilities = {
+  ...nativeCapabilities,
+  priority_change: true,
+  issue_editing: {
+    version: 1,
+    fields: ['title', 'description', 'priority', 'issue_type', 'notes', 'status', 'assignee'],
+    clear_description: true,
+    revision_guard: true,
+    priority_reason_required: true,
+  },
+};

@@ -19,7 +19,7 @@ const title = `UI committed-response ${Date.now()}`;
 const text = `UI committed comment ${Date.now()}`;
 const label = `recovered-${Date.now()}`;
 let labelListFails = false;
-const evidence = { boundary: 'HTTP response replaced after a real successful native write', creates: 0, comments: 0, labels: 0, labelReads: 0 };
+const evidence = { boundary: 'HTTP response replaced after a real successful native write', creates: 0, comments: 0, updates: 0, labels: 0, labelReads: 0 };
 try {
   const initial = await (await context.request.get(`${prefix}/beads`)).json();
   assert.equal(initial.meta.kind, 'bead-rs');
@@ -73,6 +73,44 @@ try {
   await drawer.getByRole('button', { name: 'Refresh without resubmitting', exact: true }).click();
   await drawer.getByRole('alert').waitFor({ state: 'hidden' });
   assert.equal(await drawer.getByPlaceholder(/^Comment as /).inputValue(), '');
+  const editedTitle = `${title} edited`;
+  await page.route(`${prefix}/beads/${evidence.issueId}`, async route => {
+    if (route.request().method() !== 'PATCH') return route.continue();
+    await route.fulfill({ status: 400, json: { error: 'Injected validation refusal', code: 'invalid_input' } });
+  });
+  await drawer.getByTitle('Edit title & description', { exact: true }).click();
+  await drawer.getByLabel('Title', { exact: true }).fill(editedTitle);
+  await drawer.getByLabel('Notes', { exact: true }).fill('Keep the submitted draft');
+  await Promise.all([
+    page.waitForResponse(response => response.request().method() === 'PATCH' && response.status() === 400),
+    drawer.getByRole('button', { name: 'Save', exact: true }).click(),
+  ]);
+  assert.equal(await drawer.getByLabel('Title', { exact: true }).inputValue(), editedTitle);
+  assert.equal(await drawer.getByLabel('Notes', { exact: true }).inputValue(), 'Keep the submitted draft');
+  assert.equal((await (await context.request.get(`${prefix}/beads/${evidence.issueId}`)).json()).title, title);
+  await page.unroute(`${prefix}/beads/${evidence.issueId}`);
+  await page.route(`${prefix}/beads/${evidence.issueId}`, async route => {
+    if (route.request().method() !== 'PATCH') return route.continue();
+    evidence.updates++;
+    assert.equal(evidence.updates, 1, 'Scalar edit must not be replayed');
+    const response = await route.fetch({ maxRetries: 0 });
+    assert.equal(response.status(), 200);
+    evidence.updateReadback = await response.json();
+    await route.fulfill({ status: 409, json: { error: 'Injected edit readback-unavailable UI boundary', code: 'mutation_committed',
+      outcome: { state: 'committed', operation: 'update', issueId: evidence.issueId, phase: 'readback' } } });
+  });
+  await drawer.getByRole('button', { name: 'Save', exact: true }).click();
+  await drawer.getByRole('alert').waitFor();
+  assert.equal(await drawer.getByRole('button', { name: 'Save', exact: true }).isEnabled(), false);
+  assert.equal(await drawer.getByLabel('Title', { exact: true }).inputValue(), editedTitle);
+  await drawer.getByPlaceholder('Describe this bead…', { exact: true }).press('Control+Enter');
+  assert.equal(evidence.updates, 1);
+  await drawer.getByRole('button', { name: 'Refresh without resubmitting', exact: true }).click();
+  await drawer.getByRole('alert').waitFor({ state: 'hidden' });
+  await drawer.getByRole('heading', { name: editedTitle, exact: true }).waitFor();
+  assert.equal(evidence.updates, 1);
+  await page.screenshot({ path: path.join(output, 'native-edit-recovery.png'), fullPage: true });
+  await page.unroute(`${prefix}/beads/${evidence.issueId}`);
   await page.route(`${prefix}/beads/${evidence.issueId}`, async route => {
     assert.equal(route.request().method(), 'GET');
     const response = await route.fetch({ maxRetries: 0 });
@@ -108,14 +146,17 @@ try {
   assert.equal(evidence.labels, 1);
   await page.screenshot({ path: path.join(output, 'native-label-recovery-refreshed.png'), fullPage: true });
   const snapshot = await (await context.request.get(`${prefix}/beads`)).json();
-  const matches = snapshot.beads.filter(bead => bead.title === title);
+  const matches = snapshot.beads.filter(bead => bead.id === evidence.issueId);
   assert.equal(matches.length, 1);
+  assert.equal(matches[0].title, editedTitle);
+  assert.equal(matches[0].notes, 'Keep the submitted draft');
   assert.equal(matches[0].comments.filter(comment => comment.text === text).length, 1);
   assert.ok(matches[0].labels.includes(label));
   assert.equal(evidence.creates, 1);
   assert.equal(evidence.comments, 1);
+  assert.equal(evidence.updates, 1);
   evidence.persisted = matches[0];
-  console.log('PASS UI-boundary create/comment/label recovery; failed list keeps labels locked, refreshed labels unlock, one real write each');
+  console.log('PASS UI-boundary create/comment/edit/label recovery; failed list keeps labels locked, refreshed labels unlock, one real write each');
 } finally {
   fs.writeFileSync(path.join(output, 'native-ui-recovery-evidence.json'), JSON.stringify(evidence, null, 2));
   await context.tracing.stop({ path: path.join(output, 'native-ui-recovery-trace.zip') });
