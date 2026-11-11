@@ -105,8 +105,9 @@ try {
   assert.equal(await checkbox.isEnabled(), true);
   await Promise.all([
     page.waitForResponse(response => response.request().method() === 'PATCH' && response.url().endsWith(`/beads/${issueId}`) && response.status() === 200),
-    checkbox.check(),
+    checkbox.click(),
   ]);
+  await drawer.getByRole('checkbox', { checked: true }).waitFor();
   assert.equal((await snapshot()).beads.find(bead => bead.id === issueId).description,
     editedDescription.replace('- [ ]', '- [x]'));
 
