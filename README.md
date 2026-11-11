@@ -230,9 +230,14 @@ npm run serve
 ```
 
 Remove that environment override to restore the tray on the next launch.
-The tray uses Windows PowerShell and Windows Forms on the interactive desktop;
-a helper startup failure is reported and stops the launcher. Development
-`npm run dev` and direct `next start` commands bypass this tray launcher.
+The tray uses Windows PowerShell and Windows Forms on the interactive desktop.
+It requires an absolute, usable `LOCALAPPDATA` directory. Each launcher runs an
+exact copy of the bundled helper from its own session directory under
+`%LOCALAPPDATA%\bead-me-up-scotty\tray\`, retaining the existing PowerShell
+execution policy. Normal shutdown and cleanup after a lost launcher remove the
+copied helper and its empty session directory. A helper startup failure is
+reported and stops the launcher. Development `npm run dev` and direct
+`next start` commands bypass this tray launcher.
 See [Windows launch and shutdown](docs/backend-compatibility.md#windows-launch-and-shutdown)
 for details.
 

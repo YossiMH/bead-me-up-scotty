@@ -41,7 +41,9 @@ them before a write. Updating Scotty alone does not add editing to an older
 binary. The older Windows pin documented below remains a rollback option for
 its compatible stores.
 
-Windows execution qualification of the new editing binary and tray is pending.
+The current editing candidate and intended Windows pin are recorded in the
+[2026-11-11 handoff](#2026-11-11-editing-and-windows-tray-work). Its Windows CLI
+qualification has passed; tray lifecycle and installed launch checks are pending.
 The earlier Windows receipt below is historical evidence for its exact binary;
 it is not a receipt for the editing build. Retain a new binary's source commit,
 target and SHA-256 alongside its Windows execution results before selecting it.
@@ -159,8 +161,15 @@ an error remains visible when launched from Explorer. Use
 
 Set `BMUS_TRAY=0` in the launcher environment for headless use. The helper is
 Windows-only and needs Windows PowerShell with Windows Forms in an interactive
-desktop session. If it cannot start, or fails while the server runs, the
-launcher reports the error and shuts down. The development server and direct
+desktop session and an absolute, usable `LOCALAPPDATA` directory. Each launcher
+copies the bundled helper into a unique
+`%LOCALAPPDATA%\bead-me-up-scotty\tray\session-*\` directory and executes that
+copy with ordinary `-File`, retaining the host's PowerShell execution policy.
+The controller removes its own copied helper and empty session on shutdown;
+the helper also performs that cleanup if its launcher disappears. Shared cache
+parents and unexpected files are preserved. If the helper cannot start, or
+fails while the server runs, the launcher reports the error and shuts down.
+The development server and direct
 `next start` calls do not use this controller. No tray setting changes the
 selected bead executable, project registrations or issue data.
 
@@ -286,11 +295,23 @@ Original bd and Demo keep their existing operations.
 
 ### Editing existing native beads
 
-Use the pencil in the detail drawer to edit the title, description, custom type
-and notes. **Save** sends only fields changed from the draft's opening snapshot;
-**Cancel** discards that content draft. Priority and assignment have their own
-controls. Markdown checklist toggles save the changed description. Read-only
-mode disables these writes in both the UI and API.
+Open the bead's detail drawer. The pencil opens its content editor; the other
+controls apply their own changes:
+
+| Field or relationship | Control |
+| --- | --- |
+| Title | Pencil, then **Title** |
+| Description | Pencil, then the Markdown description editor; checklist boxes also save description changes |
+| Type | Pencil, then **Type**; native types can be custom nonempty strings |
+| Notes | Pencil, then **Notes**; these are separate from comments |
+| Priority | **Priority**, from 0 (Critical) to 4 (Backlog); also available in the command palette |
+| Status and assignee | Their own **Status** and **Assignee** controls, subject to native claim and lifecycle rules |
+| Labels | Add or remove individual labels in the drawer |
+| Dependencies | **Add dependency**, search by bead ID or title, choose a type, then **Add**; use a relationship row's remove button to remove that exact edge |
+
+**Save** submits the content draft; **Cancel** discards it. Read-only mode
+disables these writes in both the UI and API. The selected executable's
+capabilities determine which controls are available.
 
 Scotty sends a scalar patch as one guarded native `update`, with the current
 revision and a legitimate claim credential when required. A change to priority
@@ -438,6 +459,37 @@ real Windows tray execution uses
 `scripts/test-windows-tray-smoke.ps1` in an isolated test environment.
 
 ## 2026-11-11 editing and Windows tray work
+
+### Current candidate and qualification
+
+The editing and tray implementation is integrated in the following candidate.
+The intended pin identifies the exact cross-built Windows file; installing or
+selecting it remains dependent on the complete Windows results.
+
+| Item | Candidate |
+| --- | --- |
+| Backend source | [`539cdd0b4c54665c2db01da08fdf9f3871f7148a`](https://github.com/YossiMH/bead-rs/commit/539cdd0b4c54665c2db01da08fdf9f3871f7148a) |
+| Windows target | `x86_64-pc-windows-gnu`, release build from an isolated Git archive |
+| Windows executable SHA-256 | `25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798` |
+| Intended local pin | `F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-25a05bdfd8fe.exe` |
+| Scotty source and production build | `fbb09312e43ec8094da6db04f126a16e8c5746f7` |
+
+The Windows CLI smoke passed all 55 commands on 2026-11-11 with the exact binary
+above, running BelowNormal against new disposable workspaces. It verified
+compound scalar edits and priority audit, long UTF-8 description/notes files,
+empty clears, labels, all three dependency kinds with their original direction,
+stale-revision refusal without partial writes, and automatic checkpoint
+publication followed by restore of fields, graph, labels and priority history.
+The owned fixtures were removed. The receipt is
+`F:/Dev/.bead-edit-20261111/native-results-v3/windows-native-smoke-5f2c9c6a00f24f4b8e803c81df22f3c9.json`.
+
+Tray lifecycle and installed-default launch results remain pending. This
+candidate is not yet recorded as the installed default. Preserve the adjacent
+build metadata and final execution receipts with the binary; retain the earlier
+`bead-376537b7917f.exe` and its receipt for the
+[documented rollback](#return-to-the-previous-binary-pin).
+
+### Worktree recovery and cleanup
 
 Development is running in cloud linked Git worktrees created through Riftri.
 The PC source and native checkpoints remain preserved. If the session stops,
