@@ -112,7 +112,7 @@ try{
     $app=Join-Path $StageDirectory 'scotty'
     [void][IO.Directory]::CreateDirectory($app)
     $tar=Join-Path $StageDirectory 'scotty-source.tar'
-    $null=Run-Native $git @('-C',$AppRepository,'archive','--format=tar',('--output='+$tar),$manifest.source.scotty) $AppRepository
+    $null=Run-Native $git @('-C',$AppRepository,'-c','core.autocrlf=false','archive','--format=tar',('--output='+$tar),$manifest.source.scotty) $AppRepository
     $null=Run-Native (Get-Command tar.exe).Source @('-xf',$tar,'-C',$app) $StageDirectory
     Expand-Archive -LiteralPath (Join-Path $StageDirectory 'scotty-runtime.zip') -DestinationPath $app
     $runtime=[IO.File]::ReadAllText((Join-Path $InputDirectory 'scotty-runtime.json'),$Utf8)|ConvertFrom-Json
