@@ -82,11 +82,11 @@ async function startController(t, entry, config = {}) {
     cwd: root, detached: true, stdio: ['ignore', 'pipe', 'pipe'],
     env: {
       ...process.env, PORT: String(port), HOST: '127.0.0.1',
+      BMUS_SERVE_CMD: '', BMUS_TRAY: config.disabled ? '0' : '1',
       SCOTTY_TRAY_TEST_DIR: root,
       SCOTTY_TRAY_TEST_PLATFORM: config.platform || 'win32',
       SCOTTY_TRAY_TEST_SERVER_MODE: config.serverMode || 'serve',
       SCOTTY_TRAY_TEST_HELPER_MODE: config.helperMode || 'ready',
-      ...(config.disabled ? { BMUS_TRAY: '0' } : {}),
     },
   });
   let output = '';

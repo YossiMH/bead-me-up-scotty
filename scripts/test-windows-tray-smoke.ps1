@@ -11,6 +11,7 @@ $scratch = Join-Path ([System.IO.Path]::GetTempPath()) ('scotty-tray-smoke-' + [
 [System.IO.Directory]::CreateDirectory($scratch) | Out-Null
 $owned = New-Object System.Collections.Generic.List[System.Diagnostics.Process]
 $runs = New-Object System.Collections.Generic.List[object]
+$ownershipErrors = New-Object System.Collections.Generic.HashSet[string]
 $results = New-Object System.Collections.Generic.List[object]
 
 function Wait-Condition([scriptblock]$Condition, [string]$Failure, [int]$Seconds = 45) {
@@ -22,16 +23,33 @@ function Wait-Condition([scriptblock]$Condition, [string]$Failure, [int]$Seconds
     throw $Failure
 }
 
-function Read-Processes([string]$Directory) {
+function Read-Processes([string]$Directory, [switch]$Complete) {
     $file = Join-Path $Directory 'processes.jsonl'
     if (-not (Test-Path -LiteralPath $file)) { return @() }
-    return @(Get-Content -LiteralPath $file | ForEach-Object {
-        try { $_ | ConvertFrom-Json } catch { } # A live writer may not have finished its last line.
-    })
+    $text = [System.IO.File]::ReadAllText($file)
+    $lines = $text -split "`n"
+    $records = New-Object System.Collections.Generic.List[object]
+    for ($line = 0; $line -lt $lines.Length - 1; $line++) {
+        try {
+            $record = $lines[$line] | ConvertFrom-Json -ErrorAction Stop
+            if ($null -eq $record -or $record.pid -lt 1 -or $record.kind -notin @('tray', 'server')) {
+                throw 'Missing process identity'
+            }
+            $records.Add($record)
+        } catch {
+            [void]$ownershipErrors.Add('Invalid ownership record in ' + $file + ' at line ' + ($line + 1))
+        }
+    }
+    # Only a live writer's unterminated final line may be incomplete. Collect
+    # valid records even on corruption so cleanup can reclaim every known PID.
+    if ($Complete -and $text.Length -gt 0 -and -not $text.EndsWith("`n")) {
+        [void]$ownershipErrors.Add('Unfinished ownership record after controller exit: ' + $file)
+    }
+    return $records.ToArray()
 }
 
 function Register-OwnedChildren($Run) {
-    foreach ($record in (Read-Processes $Run.directory)) {
+    foreach ($record in (Read-Processes $Run.directory -Complete:($Run.process.HasExited))) {
         $key = [string]$record.pid
         if ($Run.children.ContainsKey($key)) { continue }
         $child = Get-Process -Id $record.pid -ErrorAction SilentlyContinue
@@ -73,6 +91,7 @@ function Start-Controller([string]$Action) {
     $start.EnvironmentVariables['PORT'] = [string]$Port
     $start.EnvironmentVariables['HOST'] = '127.0.0.1'
     $start.EnvironmentVariables['BMUS_TRAY'] = '1'
+    $start.EnvironmentVariables['BMUS_SERVE_CMD'] = ''
     $start.EnvironmentVariables['SCOTTY_TRAY_SMOKE_DIR'] = $directory
     $start.EnvironmentVariables['SCOTTY_TRAY_SMOKE_ACTION'] = $Action
     $start.EnvironmentVariables['XDG_CONFIG_HOME'] = $directory
@@ -80,12 +99,12 @@ function Start-Controller([string]$Action) {
     $process = New-Object System.Diagnostics.Process
     $process.StartInfo = $start
     if (-not $process.Start()) { throw 'Controller did not start' }
-    $process.PriorityClass = [System.Diagnostics.ProcessPriorityClass]::BelowNormal
     $owned.Add($process)
-    $stdout = $process.StandardOutput.ReadToEndAsync()
-    $stderr = $process.StandardError.ReadToEndAsync()
-    $run = @{ process = $process; directory = $directory; stdout = $stdout; stderr = $stderr; children = @{}; registrationErrors = (New-Object System.Collections.Generic.List[string]) }
+    $run = @{ process = $process; directory = $directory; stdout = $null; stderr = $null; children = @{}; registrationErrors = (New-Object System.Collections.Generic.List[string]) }
     $runs.Add($run)
+    $run.stdout = $process.StandardOutput.ReadToEndAsync()
+    $run.stderr = $process.StandardError.ReadToEndAsync()
+    $process.PriorityClass = [System.Diagnostics.ProcessPriorityClass]::BelowNormal
     return $run
 }
 
@@ -116,7 +135,7 @@ try {
         if ($action -eq 'exit') {
             [System.IO.File]::WriteAllText((Join-Path $run.directory 'click-exit'), '')
             Wait-Condition { $run.process.HasExited } 'Tray Exit did not stop its controller' 15
-            if ($run.process.ExitCode -ne 0) { throw ('Tray Exit failed: ' + $run.stderr.Result) }
+            if ($run.process.ExitCode -ne 0) { throw 'Tray Exit failed; inspect the retained logs' }
             if (-not $serverProcess.HasExited -or -not $trayProcess.HasExited) {
                 throw 'Controller exited before its owned server and tray helper'
             }
@@ -129,12 +148,13 @@ try {
             # must observe parent loss without a foreground window or UI click.
             $run.process.Kill()
             Wait-Condition { $trayProcess.HasExited } 'Tray helper survived parent loss' 15
-            if (-not $serverProcess.HasExited) { $serverProcess.Kill(); $serverProcess.WaitForExit() }
+            if (-not $serverProcess.HasExited) {
+                $serverProcess.Kill()
+                if (-not $serverProcess.WaitForExit(5000)) { throw 'Owned server did not exit after cleanup' }
+            }
         }
         Wait-Condition { Test-PortFree } 'Owned server port stayed occupied after cleanup' 10
         $results.Add(@{ action = $action; controllerPid = $run.process.Id; trayPid = $trayProcess.Id; serverPid = $serverProcess.Id; port = $Port; result = 'pass' })
-        $run.stdout.Result | Set-Content -LiteralPath (Join-Path $run.directory 'stdout.log')
-        $run.stderr.Result | Set-Content -LiteralPath (Join-Path $run.directory 'stderr.log')
     }
     @{ result = 'pass'; evidenceDirectory = $scratch; cases = $results } | ConvertTo-Json -Depth 6
 } finally {
@@ -162,7 +182,8 @@ try {
         foreach ($stream in @('stdout', 'stderr')) {
             $task = $run[$stream]
             try {
-                $text = if ($task.Wait(1000)) { $task.Result } else { 'Output stream did not close during cleanup' }
+                $text = if ($null -eq $task) { 'Output stream was not opened before startup failure' }
+                    elseif ($task.Wait(1000)) { $task.Result } else { 'Output stream did not close during cleanup' }
                 $text | Set-Content -LiteralPath (Join-Path $run.directory ($stream + '.log'))
             } catch { $cleanupErrors.Add($_.Exception.Message) }
         }
@@ -170,5 +191,6 @@ try {
     # Keep the small receipts and logs for the execution owner to collect and
     # remove. The path is always printed, including on a failed run.
     [Console]::Error.WriteLine('Tray smoke evidence: ' + $scratch)
+    foreach ($message in $ownershipErrors) { $cleanupErrors.Add($message) }
     if ($cleanupErrors.Count -gt 0) { throw ('Tray smoke cleanup: ' + ($cleanupErrors -join '; ')) }
 }
