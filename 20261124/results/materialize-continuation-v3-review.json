@@ -1,0 +1,55 @@
+{
+  "reviewer": "/root/backend_inspect",
+  "date": "2026-11-24",
+  "status": "PASS",
+  "accepted": true,
+  "candidate": "/workspace/scratch/3160e3ba3d24/coordination/materialize-continuation-v3.mjs",
+  "candidate_sha256": "06491eec6dd89924cb6b1289f7a3dfcc2c33cb8bb70c406f95e501ec9b29837e",
+  "scope": "Independent complete static review of the exact v3 materializer, full diff from accepted v2, accepted revision-3 plan/manifest identities and both author self-audits.",
+  "accepted_inputs": {
+    "plan_sha256": "41dfc6f10c7c1e80784d9fe69bee8ba56f9310b5dfadc99ee7667f870c297cad",
+    "manifest_sha256": "ea1f4c44703ee5b9fc4f3ccd62ef78bac557299046ea81cc2a520358b8dd6aed",
+    "plan_review_sha256": "2c82e27376d59092445f4099ed7724c829b3fba6dc68d43d9fe996dd134e3b58",
+    "windows_binary_sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+    "source_generation": "gen-a569f746bbb268015d996c8ed4c76f57",
+    "source_root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+    "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+  },
+  "base_preservation": {
+    "original_helper_sha256_unchanged": "5076378026bec344a4113b701ac5d68c16333087138b7edb686e216fc5e75904",
+    "v2_helper_sha256_unchanged": "f9748b227b898190c58cfe415900f67cc337b5d2a9547fd75e2bd3f99936dc4b",
+    "v2_review_sha256": "c2a372ae8edce89ceb565b0d4f47e9ba2d487a7648eee8e38ce9f28bc21d337a"
+  },
+  "findings": [],
+  "required_corrections": [],
+  "checked_guards": [
+    "Windows-only execution, fixed isolated store cwd, fixed qualified executable and exact manifest/binary hash checks before preflight and immediately before the single commit.",
+    "Read-only reuse of restore-v3.json with successful local recovery, no secret quarantine, exact generation/root/UUID, 954 issues, 11264 events and no nonempty override. No restore command exists in the helper.",
+    "Refusal of an original commit receipt and any v2 started/commit/result record; the original inventory exit must match the reviewed status-1 aborted attempt.",
+    "Accepted manifest version, all 17 unique local IDs and stable references, 26 blocks edges with valid local endpoints, and exactly 43 operations.",
+    "All v3 command streams, exit records and start/result records must be absent. The task-owned TEMP directory must be newly created. Case variants of TEMP/TMP and workspace overrides are removed only from the native children's copied environment.",
+    "Exclusive start marker before native commands, fresh exclusive output writes, hidden shell-free argv execution, per-command timeout and bounded output. Stdout, stderr and exit outcome are retained before status assertions; no command retry is implemented.",
+    "Complete initial inventory contains exactly 954 distinct issues and all 17 namespace lookups must return empty arrays before dry-run or commit.",
+    "Dry-run requires 43 semantic changes, 17 creates and 26 dependency results. One commit requires the same counts, successful created outcomes and a complete unique actual-ID map.",
+    "Post-commit inventory must contain exactly 971 distinct issues. Every original full inventory record must remain identical; every new title, complete description, priority, base status, label set, resource set and created issue type is checked against the accepted manifest.",
+    "All 26 actual dependency edges, including direction and kind, must exactly match the accepted graph. The result records actual IDs, exact hashes, restore receipt, retained temporary directory and restore_replayed=false."
+  ],
+  "revision_changes": [
+    "Pins accepted revision-3 manifest and reports continuation_revision=3.",
+    "Uses fresh manifest-v3.json, temp-materialize-v3 and v3 output/marker/result paths.",
+    "Adds explicit refusal of prior v2 started, commit and result records.",
+    "Updates the comment to the actual successful child-TEMP inventory observation without claiming a more specific cause of the old directory failure."
+  ],
+  "author_verification": {
+    "record": "/workspace/scratch/3160e3ba3d24/coordination/results/materialize-continuation-v3-author-review.json",
+    "complete_clean_self_audits_on_exact_candidate": 2,
+    "reported_syntax_command": "node --check coordination/materialize-continuation-v3.mjs",
+    "reported_syntax_exit": 0
+  },
+  "execution_boundary": {
+    "verdict": "The exact reviewed candidate may be published and executed once by root against the verified isolated store and accepted manifest.",
+    "uncertain_outcome": "An existing marker/output, nonzero exit, timeout or interrupted response requires reconciliation of saved outputs, actual records and process state before another mutation. Acceptance does not authorize clearing these guards or replaying restore/commit.",
+    "completion": "Actual materialization acceptance still requires the saved successful v3 result and full readback. Browser, production tray and installation gates remain separate."
+  },
+  "git_result": "Independent review record only; root handles publication."
+}
