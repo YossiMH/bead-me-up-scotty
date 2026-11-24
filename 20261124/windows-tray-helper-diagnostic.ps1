@@ -61,6 +61,14 @@ function Quote-Argument([string]$Value){
     return '"'+[regex]::Replace([regex]::Replace($Value,'(\\*)"','$1$1\"'),'(\\+)$','$1$1')+'"'
 }
 
+# The asynchronous capture keeps a writer open, so polling must share writes.
+function Read-Captured([string]$Path){
+    $stream=[IO.FileStream]::new($Path,[IO.FileMode]::Open,[IO.FileAccess]::Read,[IO.FileShare]::ReadWrite)
+    $reader=$null
+    try{$reader=[IO.StreamReader]::new($stream,[Text.Encoding]::UTF8);return $reader.ReadToEnd()}
+    finally{if($null -ne $reader){$reader.Dispose()}else{$stream.Dispose()}}
+}
+
 # Include this driver and every still-live owned child in the sampled RSS bound.
 function Check-Budget{
     $Self.Refresh();$resident=[long]$Self.WorkingSet64
@@ -90,7 +98,7 @@ function Start-Owned([string]$Command,[string[]]$Arguments,[string]$Kind,[string
     $start.RedirectStandardInput=$true;$start.RedirectStandardOutput=$true;$start.RedirectStandardError=$true
     $start.EnvironmentVariables.Remove('NODE_OPTIONS')
     $process=[Diagnostics.Process]::new();$process.StartInfo=$start
-    $entry=@{process=$process;kind=$Kind;pid=$null;exit_code=$null;stdout_task=$null;stderr_task=$null
+    $entry=@{process=$process;kind=$Kind;directory=$Directory;pid=$null;exit_code=$null;stdout_task=$null;stderr_task=$null
         stdout_stream=$null;stderr_stream=$null;stdout_path=(Join-Path $Directory ($Kind+'.stdout.log'))
         stderr_path=(Join-Path $Directory ($Kind+'.stderr.log'));command=$Command;arguments=$Arguments}
     Assert-That ($process.Start()) ('Could not start '+$Kind)
@@ -145,7 +153,7 @@ Write-ScottyCleanupTrace 'startup' $CacheDirectory $PSCommandPath
                 Write-ScottyCleanupTrace 'cleanup-return' $CacheDirectory $PSCommandPath
             }
 '@},
-        @{old='                [Console]::Error.WriteLine(''Windows tray cache: '' + $_.Exception.Message)';new=("                Write-ScottyCleanupTrace 'cleanup-error' `$CacheDirectory `$PSCommandPath `$_.Exception.ToString()`n"+'                [Console]::Error.WriteLine(''Windows tray cache: '' + $_.Exception.Message)')}
+        @{old='                [Console]::Error.WriteLine(''Windows tray cache: '' + $_.Exception.Message)';new=("                Write-ScottyCleanupTrace 'cleanup-error' `$CacheDirectory `$PSCommandPath (`$_.Exception.ToString())`n"+'                [Console]::Error.WriteLine(''Windows tray cache: '' + $_.Exception.Message)')}
     )
     foreach($anchor in $anchors){
         Assert-That (($sourceText.Split([string[]]@($anchor.old),[StringSplitOptions]::None).Length-1)-eq 1) 'Diagnostic trace anchor is not unique in this helper.'
@@ -202,7 +210,7 @@ try{
             $case.helper_pid=$helper.pid
             Wait-Until {
                 if($helper.process.HasExited){throw 'Helper exited before READY.'}
-                [IO.File]::ReadAllText($helper.stdout_path) -match '(?m)^READY\r?$'
+                (Read-Captured $helper.stdout_path) -match '(?m)^READY\r?$'
             } 'Helper did not report READY.' 15
             $case['ready_utc']=[DateTime]::UtcNow.ToString('o')
             if($action -eq 'stop'){$helper.process.StandardInput.WriteLine('STOP');$helper.process.StandardInput.Flush()}
@@ -216,14 +224,17 @@ try{
             $case.status='passed'
         }catch{$case['error']=$_.Exception.Message}
         finally{
-            foreach($entry in @($helper,$parent)){
-                if($null -eq $entry){continue}
+            # Include a child registered by Start-Owned even if later setup threw.
+            foreach($entry in @($Owned|Where-Object{$_.directory -eq $directory}|Sort-Object kind)){
                 try{
                     if(-not $entry.process.HasExited){$entry.process.Kill();Assert-That ($entry.process.WaitForExit(2000)) 'Owned child did not terminate.'}
                     Finish-Streams $entry
                 }catch{$CleanupErrors.Add($_.Exception.Message)}
             }
-            if($null -ne $helper){$case.helper_exit_code=$helper.exit_code}
+            foreach($entry in @($Owned|Where-Object{$_.directory -eq $directory})){
+                $case[$entry.kind+'_pid']=$entry.pid
+                $case[$entry.kind+'_exit_code']=$entry.exit_code
+            }
             if([IO.Directory]::Exists($session)){
                 $case['remaining_entries']=@(Get-ChildItem -LiteralPath $session -Force|Select-Object Name,Length,Attributes)
             }
