@@ -54,10 +54,14 @@ const byId = new Map(after.map(x => [x.id, x]));
 for (const op of creates) {
   const actual = byId.get(ids[op.local_id]); assert.ok(actual);
   assert.equal(actual.title, op.title); assert.equal(actual.description, op.description);
-  assert.equal(actual.priority, op.priority); assert.equal(actual.issue_type, op.issue_type);
+  assert.equal(actual.priority, op.priority);
+  assert.equal(actual.status, 'open');
+  assert.deepEqual(actual.resource_keys || [], op.resource_keys);
+  const created = commit.results.find(x => x.op === 'create' && x.local_id === op.local_id);
+  assert.equal(created.issue.issue_type, op.issue_type);
 }
 const expectedEdges = edges.map(x => [ids[x.blocked.slice(1)], ids[x.blocker.slice(1)], x.kind || 'blocks'].join('|')).sort();
-const actualEdges = Object.values(ids).flatMap(id => (byId.get(id).dependencies || []).map(x => [id, x.depends_on_id, x.type].join('|'))).sort();
+const actualEdges = Object.values(ids).flatMap(id => (byId.get(id).dependencies || []).map(x => [id, x.blocker, x.kind].join('|'))).sort();
 assert.deepEqual(actualEdges, expectedEdges);
 const report = { status: 'passed', original_issues: 954, total_issues: after.length, tasks: ids, blocking_edges: actualEdges.length,
   restore_receipt_id: restore.restore_receipt_id, source_store_uuid: restore.target_store_uuid,
