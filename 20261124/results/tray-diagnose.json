@@ -1,0 +1,101 @@
+{
+  "schema_version": 1,
+  "task_key": "tray-diagnose",
+  "status": "diagnosed_source_defect",
+  "author": "/root/tray_finish",
+  "source_commits": {
+    "app_current": "f8b139de8cd48c7c0f42de45d28556ab1db0a310",
+    "app_retained_windows_run": "f47fd7adef41e989072d5fa8c39160681aa6fd2a",
+    "node_release": "v25.2.1",
+    "node_commit": "4cac2b94bed4bf02810be054e8f63c0048c66564",
+    "libuv_version": "1.51.0"
+  },
+  "source_sha256": {
+    "bin/windows-tray.mjs": "fa66d90908397d29722b5a8fcae54f89ec815d5dea54f221af33ce8f9ca4eb5b",
+    "bin/windows-tray.ps1": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb"
+  },
+  "finding": {
+    "file": "bin/windows-tray.mjs",
+    "symbol": "createWindowsTray",
+    "defect": "The PowerShell helper is spawned without detached:true. In the installed Node release, libuv adds such children to a Node-held Windows Job with JOB_OBJECT_LIMIT_KILL_ON_JOB_CLOSE. Abrupt Node termination therefore kills the helper before it can perform its planned parent-loss cleanup.",
+    "observed_effect": "The retained real Windows parent-loss run found the helper stopped but its exact copied script and session still present.",
+    "reason_for_repair": "The helper deliberately monitors its parent and stdin so it can remove its own icon and cache after parent loss. Its spawn options prevent that path from running when Windows closes the parent's libuv Job.",
+    "precision": "The installed Node/libuv version and matching source establish the missing launch option as a concrete defect. This investigation did not instrument AssignProcessToJobObject in the original run, and no new standalone STOP/parent-loss case completed. Actual post-repair Windows behavior remains required."
+  },
+  "primary_sources": [
+    {
+      "url": "https://github.com/nodejs/node/blob/4cac2b94bed4bf02810be054e8f63c0048c66564/deps/uv/src/win/process.c",
+      "read": ["uv__init_global_job_handle", "Windows hidden-launch flags", "UV_PROCESS_DETACHED creation flags", "non-detached child Job assignment"],
+      "established": "The parent holds the non-inheritable kill-on-close Job; non-detached children join it; detached children skip that assignment. Detached launch does not use CREATE_BREAKAWAY_FROM_JOB, so an external enclosing Job can retain containment."
+    },
+    {
+      "url": "https://github.com/nodejs/node/blob/v25.2.1/deps/uv/include/uv/version.h",
+      "established": "This Node release embeds libuv 1.51.0."
+    },
+    {
+      "url": "https://api.github.com/repos/nodejs/node/git/tags/0945b8d354607543c67f22b2cbf3c1b2c99eac10",
+      "established": "Release tag v25.2.1 resolves to commit4cac2b94bed4bf02810be054e8f63c0048c66564."
+    }
+  ],
+  "checks": [
+    {
+      "name": "retained_actual_windows_parent_loss",
+      "status": "failed",
+      "path": "F:/Dev/.bead-edit-20261111/tray-results-v2/result.json",
+      "basis": "Earlier run retained and reconciled by root: actual Exit passed, parent-loss helper ended but copied helper/session remained. This child read the matching source and smoke assertions; it did not rerun this check."
+    },
+    {
+      "name": "standalone_diagnostic_v1",
+      "status": "interrupted_before_required_observations",
+      "path": "coordination/results/windows-tray-helper-diagnostic-v1.json",
+      "peak_resident_bytes": 243187712,
+      "limit_mib": 200,
+      "established": "The driver stopped its owned children when the original memory bound was exceeded. It did not establish STOP or parent-loss cleanup."
+    },
+    {
+      "name": "standalone_diagnostic_v2",
+      "status": "preparation_failed",
+      "path": "coordination/results/pc-tray-helper-v2-read.json",
+      "established": "The F: Job-helper file was rejected by the host's ordinary PowerShell policy before cases or child processes. The next run used the exact Job helper beside the LocalAppData execution script; no policy change was needed."
+    },
+    {
+      "name": "standalone_diagnostic_v3",
+      "status": "preflight_stopped_for_foreground_memory_pressure",
+      "path": "coordination/results/pc-tray-helper-v3-read.json",
+      "available_physical_bytes": 899919872,
+      "required_physical_bytes": 3221225472,
+      "cases_attempted": 0,
+      "children_started": 0
+    },
+    {
+      "name": "installed_node_release_and_memory",
+      "status": "read_passed",
+      "exit": 0,
+      "path": "coordination/results/pc-node-memory-and-stage.json",
+      "node": "v25.2.1",
+      "libuv": "1.51.0",
+      "available_physical_bytes": 1139990528,
+      "established": "The PC's reported versions match the inspected release. Available RAM still prevents an app/helper test under the accepted3GiB prerequisite."
+    }
+  ],
+  "required_repair": {
+    "production": "Add detached:true only to the tray PowerShell spawn; keep its three pipes, windowsHide:true, shell:false, retained child reference, STOP wait and parent watch. Do not unref it.",
+    "cloud_fixture": "Record requested detached in tray_spawn before substituting PowerShell with a POSIX Node helper. Keep that synthetic helper detached:false so it stays in the already-owned test process group. Assert the requested option in the existing global/serve/start checks.",
+    "installer": "Preserve the original installer. Add one precisely guarded bin/windows-tray.mjs exception based on the final reviewed canonical Git blob and SHA256, while preserving the unchanged Next manifest/build ID and backend pin. Record the external module's source identity separately.",
+    "full_instructions": "coordination/tray-repair-instructions.md"
+  },
+  "required_later_results": [
+    "Accepted complete task-plan revision before code assignment",
+    "Cloud launcher regression, lint and diff checks on the final repair",
+    "Separate exact-file app/installer review",
+    "Complete real Windows Exit, parent-loss cache removal and code-75 restart checks when free RAM permits",
+    "Installed-default launcher check after guarded installation"
+  ],
+  "native_windows_status": "pending; no post-repair pass claimed",
+  "retained_results": ["Unchanged backend55-command Windows run", "Unchanged161-case adapter/editor run", "Earlier real menu/icon Exit result for its exercised path"],
+  "changed_files": ["coordination/tray-repair-instructions.md", "coordination/results/tray-parent-job-hypothesis.json", "coordination/results/tray-diagnose.json"],
+  "production_changes": [],
+  "pc_calls_by_author": 0,
+  "tests_or_builds_run_by_author": false,
+  "git_result": "Investigation records only. No product source change or unpublished product commit; root controls publication of these coordination records."
+}

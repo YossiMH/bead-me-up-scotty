@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "task_key": "reconcile",
+  "issue_id": "beadrs-42379588",
+  "status": "passed",
+  "reviewer": "/root/delivery_review",
+  "execution_owner": "/root",
+  "scope": "Recovered source, retained qualification, preserved PC baseline and restored task history are reconciled. The accepted revision3 graph was materialized once and fully read back.",
+  "source_commits": {
+    "backend": "986f2a332aca9dd567eee41ce835917d56e29468",
+    "app": "f8b139de8cd48c7c0f42de45d28556ab1db0a310",
+    "backend_runtime": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+    "app_runtime": "fbb09312e43ec8094da6db04f126a16e8c5746f7"
+  },
+  "binary_sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+  "pc_paths": {
+    "backend_repository": "F:/Dev/bead-rs",
+    "app_repository": "F:/Dev/bead-me-up-scotty",
+    "stage_receipt": "F:/Dev/.bead-edit-20261111/stage-v6/stage-result.json",
+    "staged_app": "F:/Dev/.bead-edit-20261111/stage-v6/scotty",
+    "staged_binary": "F:/Dev/.bead-edit-20261111/stage-v6/backend/bead-editing-539cdd0.exe",
+    "binary_metadata": "F:/Dev/.bead-edit-20261111/stage-v6/backend/bead-editing-539cdd0.exe.metadata.json",
+    "coordination_store": "F:/Dev/.bead-edit-20261111/coordination-20261124"
+  },
+  "binary_identity": {
+    "size_bytes": 15944652,
+    "metadata_size_bytes": 1937,
+    "metadata_path_observation": "pc-node-memory-and-stage.json",
+    "source_and_hash_qualification": "Retained exact-binary Windows55 acceptance and the successful v3 materializer hash guards. The installer separately validates metadata contents before copying the pin."
+  },
+  "runtime_identity": {
+    "build_id": "Eox2_s2VuIuWWAISvMqKK",
+    "files_verified": 230,
+    "archive_sha256": "6a399adb2567757db1f69cb4a1cd6ce1148e6a315a798999932f2b2339ab7dc7",
+    "record": "cloud-runtime-inspection.json"
+  },
+  "preserved_pc_baseline": {
+    "evidence_kind": "Retained root execution facts and accepted recovery review; live pre-installation recheck remains owned by the existing installer.",
+    "backend_main": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+    "backend_worktree": "clean at the retained baseline read",
+    "app_main": "459a74537cbbe1dff521c6fc7ad1ce3ec2890683",
+    "app_existing_source_files": 15,
+    "preservation_commit": "55f17568be93442abc6e4725d3e159448e0c9ab5",
+    "raw_file_manifest": "/workspace/scratch/3160e3ba3d24/transfer/pc-preservation-raw.json",
+    "raw_file_manifest_sha256": "70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362",
+    "existing_app_state": "stopped at the retained exact-process read",
+    "old_pin": "F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-376537b7917f.exe",
+    "old_pin_sha256": "376537b7917f18d33383a3e4bd3eb9e0955bb42d1a60b73aef5c81865662af28",
+    "source_checkpoint": "Preserved in the original backend checkout; recovery uses raw verified Git blobs in the isolated checkpoint-source-20261124-v2 directory.",
+    "scotty_task_store": "Machine-local data remains on the PC and is excluded from source publication."
+  },
+  "restored_history": {
+    "generation_id": "gen-a569f746bbb268015d996c8ed4c76f57",
+    "mode": "monolithic",
+    "source_pointer": "F:\\Dev\\.bead-edit-20261111\\checkpoint-source-20261124-v2\\.beads\\checkpoint\\current.json",
+    "source_root_path": "objects/4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d.jsonl",
+    "source_root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+    "source_store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "target_store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "snapshot_sequence": 29609,
+    "actor": "chatgpt-bead-edit-20261124",
+    "issues_restored": 954,
+    "events_restored": 11264,
+    "provenance_receipts_restored": 5,
+    "restore_receipt_id": "restore-18eb1c33db203af8",
+    "restore_receipt_sha256": "d2d1db3fb794c35538414461cdbcb688dd37b655f9d2f750d80ee514dfb1a504",
+    "summary_event_sequence": 11265,
+    "non_empty_override": false,
+    "displaced": {
+      "issues": 0,
+      "events": 0,
+      "provenance_receipts": 0,
+      "attempt_outcomes": 0,
+      "redaction_records": 0,
+      "saved_views": 0,
+      "recurrence_templates": 0
+    },
+    "local_recovery_succeeded": true,
+    "secret_quarantined": false,
+    "checkpoint_publication_withheld": false
+  },
+  "temporary_file_diagnosis": {
+    "initial_full_inventory": "Row error: unable to open database file",
+    "successful_child_temp_read": {
+      "phase": "inventory-temp-v2",
+      "exit_code": 0,
+      "output_bytes": 2657178,
+      "stderr": "",
+      "child_temp": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\temp-list-diagnostic-v2",
+      "original_temp": "C:\\Users\\YossiMH\\AppData\\Local\\Temp",
+      "original_tmp": "C:\\Users\\YossiMH\\AppData\\Local\\Temp"
+    },
+    "conclusion": "The same Windows inventory succeeds when only the native child TEMP/TMP directory changes. The successful v3 materializer reuses a fresh owned directory. No restore is replayed and no global environment or source configuration is changed.",
+    "limit": "The exact fault in the original temporary directory is not established by this comparison."
+  },
+  "materialization": {
+    "status": "passed",
+    "continuation_revision": 3,
+    "original_issues": 954,
+    "total_issues": 971,
+    "tasks": {
+      "plan-review": "beadrs-3f06f163",
+      "reconcile": "beadrs-42379588",
+      "cloud-checks": "beadrs-fa756e78",
+      "browser-prepare": "beadrs-0b3a11f9",
+      "browser-runner-review": "beadrs-37f8c2bb",
+      "browser-check": "beadrs-08532231",
+      "tray-diagnose": "beadrs-9422c821",
+      "windows-tray": "beadrs-ea7bc5dd",
+      "candidate-review": "beadrs-ba8cbd23",
+      "install": "beadrs-0bab2976",
+      "configured-launch": "beadrs-c9526055",
+      "installed-review": "beadrs-47da80ac",
+      "backend-handoff": "beadrs-1371879c",
+      "app-handoff": "beadrs-f0039a6a",
+      "backend-text-review": "beadrs-30f13b5b",
+      "app-text-review": "beadrs-c62c1990",
+      "preserve-and-clean": "beadrs-3ec972f8"
+    },
+    "blocking_edges": 26,
+    "restore_receipt_id": "restore-18eb1c33db203af8",
+    "source_store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "manifest_sha256": "ea1f4c44703ee5b9fc4f3ccd62ef78bac557299046ea81cc2a520358b8dd6aed",
+    "binary_sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+    "complete_descriptions_match": true,
+    "complete_edges_match": true,
+    "original_inventory_unchanged": true,
+    "temporary_directory": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\temp-materialize-v3",
+    "temporary_directory_retained": true,
+    "restore_replayed": false
+  },
+  "checks": [
+    {
+      "name": "current_cloud_source_identity",
+      "status": "passed",
+      "exit": 0,
+      "observed": "Both current worktrees are clean at the named source commits. Runtime-to-final backend diff is .marathon/progress.md only; app diff is README.md,docs/backend-compatibility.md,and the two documented Windows tray test files."
+    },
+    {
+      "name": "restore_receipt_and_complete_history",
+      "status": "passed",
+      "observed": "Raw restore-v3 receipt has the expected source generation/root/UUID,954 issues,11264 events,no displacement,no secret quarantine and local recovery success. Later full inventory succeeds. The earlier PowerShell wrapper exit complaint is preserved as a wrapper error; it did not justify another restore."
+    },
+    {
+      "name": "revision3_atomic_materialization",
+      "status": "passed",
+      "exit": 0,
+      "duration_seconds": 6.369,
+      "observed": "Read the complete raw successful outer receipt and verified its JSON equals materialization-result-v3.json. The exact independently reviewed helper verifies original954 inventory,17 absent references,43-operation dry-run/single commit,971 distinct final records,all original records unchanged,all new descriptions/resources and26 edges."
+    },
+    {
+      "name": "real_task_identity",
+      "status": "passed",
+      "observed": "The complete17-key ID map exactly matches the accepted manifest create keys and contains17 unique actual issue IDs. No historical missing IDs are invented."
+    },
+    {
+      "name": "native55_retained",
+      "status": "passed",
+      "passed": 55,
+      "basis": "Retains the earlier exact-binary Windows receipt rechecked by root and the existing independent candidate review. No new native suite run by this reviewer.",
+      "raw_pc_receipt": "F:/Dev/.bead-edit-20261111/native-results-v3/windows-native-smoke-5f2c9c6a00f24f4b8e803c81df22f3c9.json"
+    },
+    {
+      "name": "recovery_document_and_cleanup_instructions",
+      "status": "passed",
+      "basis": "Retains recovery-docs-review.json. Both published handoffs preserve prior entries and name current worktrees,the actual physical backend path and exact Riftri cleanup commands for a resumed session."
+    }
+  ],
+  "retained_failed_or_unavailable_results": [
+    {
+      "name": "full_windows_tray",
+      "status": "failed_pending_repair",
+      "path": "F:/Dev/.bead-edit-20261111/tray-results-v2/result.json",
+      "meaning": "Real Exit passed; parent-loss cache cleanup did not. This is not a full tray acceptance."
+    },
+    {
+      "name": "earlier_cloud_results",
+      "status": "unavailable",
+      "meaning": "Earlier /var/tmp output and the earlier37-task unflushed graph were lost on cloud restart. They are not represented as retained logs or recovered task IDs."
+    }
+  ],
+  "output_paths": [
+    "/workspace/scratch/3160e3ba3d24/coordination/results/reconcile.json",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/pc-inventory-diagnostic.json",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/pc-preparation-and-tray-diagnostic.json",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/pc-materialize-v3.json",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/materialization-result-v3.json",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/pc-node-memory-and-stage.json",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/recovery-docs-review.json",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/cloud-runtime-inspection.json",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/candidate-review.json"
+  ],
+  "changed_files": [
+    "/workspace/scratch/3160e3ba3d24/coordination/results/reconcile.json"
+  ],
+  "open_items": [
+    "Actual browser acceptance",
+    "Parent-loss diagnosis and any reviewed repair",
+    "Full Windows tray acceptance",
+    "Guarded installation and installed-default launch",
+    "Final installed review,handoffs and cleanup"
+  ],
+  "installation_allowed_by_this_result": false,
+  "installation_note": "This closes reconciliation only. Candidate review still requires the separate browser and tray results; installer preflight must recheck the live original file/index and runtime/provenance state.",
+  "tests_or_builds_run_by_reviewer": false,
+  "pc_calls_by_reviewer": false,
+  "task_database_changed_by_reviewer": false,
+  "git_result": "Both recovered source commits and recovery appends are already published on their permitted task branches. This reviewer adds only the reconciliation record; root owns its transfer publication and canonical task closure."
+}
