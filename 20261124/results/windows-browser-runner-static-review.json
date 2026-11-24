@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "verdict": "PASS",
+  "reviewer": "/root/cloud_checks/runner_review",
+  "review_method": "ZCF independent static review",
+  "review_method_source": "https://github.com/YossiMH/chatgpt-skills/blob/main/zcf-evaluation/SKILL.md",
+  "review_method_blob_sha": "fa122e907fff167f53d81dd84da2a9e3bb25d0de",
+  "reviewed_files": {
+    "coordination/windows-browser-run.ps1": "1cb1073d95c9588f5a2797a8e79262eb3e19a6c94960c02d689b90d68eadd2ea",
+    "coordination/windows-browser-driver.mjs": "2ba1ed209039f02b19e218eaa723ee642ba7a3652d25079eb7bedf3b5b4282e5",
+    "coordination/windows-browser-input.json": "f6d2c2a29e8d8b35f4c1895be4d77b8a1ebe9eb3690ba3e6e8804d95eaacc064",
+    "transfer/windows-task-job.ps1": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "scope": {
+    "kind": "static source and manifest review",
+    "product_tests_executed": false,
+    "browser_executed": false,
+    "pc_tools_used": false,
+    "powershell_runtime_validation": false,
+    "production_source_edits": false,
+    "one_fresh_powershell_invocation_per_flow": true,
+    "flows": ["flows", "recovery", "priority"]
+  },
+  "checks": {
+    "powershell_5_1_syntax_and_framework_calls": "No remaining static blocker identified",
+    "job_containment": "Qualified helper handle; initial supervisor-only Job; descendant enumeration including nested Jobs; retained process handles plus PID/start ticks and membership checks",
+    "resource_limits": "BelowNormal; baseline free physical RAM >= 3 GiB; sampled aggregate supervisor/descendant resident memory <= 512 MiB; cleanup peak also fails receipt",
+    "deadlines": "Default 180 seconds total; inner work cutoff at 158 seconds, outer work cutoff at 168 seconds; owned-Job termination timer at the remaining total deadline, exit 124 on timeout",
+    "cleanup": "Only retained owned handles are individually stopped; owned Job supplies final reclamation; remaining members, occupied port, assisted cleanup, or cleanup errors prevent success",
+    "isolation": "Fresh evidence and native workspace; isolated HOME/USERPROFILE/XDG/APPDATA/TEMP; isolated Git configuration; native writes target disposable workspace",
+    "browser": "Headless existing Chrome; GPU/software rasterizer disabled; one launch and one context; 96 MiB Node old-space limits for driver and Next",
+    "unchanged_tests": "All six manifest source hashes match local files, including all three imported UI scripts; Playwright require and ESM imports share the wrapped Chromium object",
+    "runtime_manifest": "230 unique runtime entries; per-file hashes enforced by driver before server startup",
+    "evidence": "Raw driver/server logs, command/request JSONL, UI evidence/traces/screenshots, initial failed/running receipt and final receipt"
+  },
+  "resolved_findings": [
+    "Retain already-tracked Process handles when descendant exit races priority assignment",
+    "Unwrap PowerShell method exceptions for the GetProcessById lookup-exit race",
+    "Reject recorded memory-limit breaches observed during cleanup",
+    "Arm an owned-Job deadline timer before browser work",
+    "Reconcile staged repository path and distinguish staged f47 source from the documentation-only f8 commit"
+  ],
+  "blocking_findings": [],
+  "execution_acceptance": [
+    "Use these exact reviewed hashes with a fresh PowerShell process per flow",
+    "Require final phase=finished, status=passed, driver exit 0, outer exit 0, no remaining Job descendants and port_free=true",
+    "Treat exit 124, a missing/truncated final receipt, or a running-only receipt as failure"
+  ],
+  "limits": [
+    "Static PASS covers the reviewed preparation; Windows runtime behavior remains to be observed under the accepted execution plan",
+    "Memory is sampled, not a hard allocation limit",
+    "Recovery and priority scripts preserve their existing HTTP response substitutions after real native writes; they do not induce a real native/server readback failure",
+    "The direct Next browser route does not exercise the Windows tray"
+  ],
+  "api_references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_process_id_list",
+    "https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-queryinformationjobobject",
+    "https://learn.microsoft.com/en-us/windows/win32/procthread/scheduling-priorities",
+    "https://learn.microsoft.com/en-us/powershell/scripting/lang-spec/chapter-08"
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "schema_version": 1,
+  "prepared_utc": "2026-11-24T22:58:56.986344+00:00",
+  "status": "ready-for-approved-root-pc-execution",
+  "execution_owner": "root",
+  "pc_calls_by_preparer": 0,
+  "artifacts": [
+    {
+      "local_path": "/workspace/scratch/3160e3ba3d24/coordination/windows-browser-run.ps1",
+      "pc_path": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-run.ps1",
+      "bytes": 17550,
+      "sha256": "1cb1073d95c9588f5a2797a8e79262eb3e19a6c94960c02d689b90d68eadd2ea"
+    },
+    {
+      "local_path": "/workspace/scratch/3160e3ba3d24/coordination/windows-browser-driver.mjs",
+      "pc_path": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-driver.mjs",
+      "bytes": 14250,
+      "sha256": "2ba1ed209039f02b19e218eaa723ee642ba7a3652d25079eb7bedf3b5b4282e5"
+    },
+    {
+      "local_path": "/workspace/scratch/3160e3ba3d24/coordination/windows-browser-input.json",
+      "pc_path": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-input.json",
+      "bytes": 45438,
+      "sha256": "f6d2c2a29e8d8b35f4c1895be4d77b8a1ebe9eb3690ba3e6e8804d95eaacc064"
+    }
+  ],
+  "prerequisites": [
+    "Independent static PASS on exact reviewed hashes and accepted revised plan.",
+    "Byte-preserving transfer and SHA256 verification of all three files.",
+    "Windows PowerShell5.1 parser accepts the reviewed .ps1 file.",
+    "Exclusive PC application/browser test resource during each invocation.",
+    "Input manifest app path reconciled by root against retained stage-result; already confirmed.",
+    "At least3GiB physical RAM free before browser work; runner checks this.",
+    "Selected port unused and evidence directory fresh; runner checks both."
+  ],
+  "run_order": [
+    {
+      "flow": "flows",
+      "executable": "powershell.exe",
+      "arguments": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-WindowStyle",
+        "Hidden",
+        "-File",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-run.ps1",
+        "-InputManifest",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-input.json",
+        "-Flow",
+        "flows",
+        "-EvidenceDirectory",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\flows-1",
+        "-Port",
+        "43976",
+        "-TimeoutSeconds",
+        "180",
+        "-MaxOwnedResidentMiB",
+        "512",
+        "-NodePath",
+        "node.exe"
+      ],
+      "evidence_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\flows-1",
+      "port": 43976
+    },
+    {
+      "flow": "recovery",
+      "executable": "powershell.exe",
+      "arguments": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-WindowStyle",
+        "Hidden",
+        "-File",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-run.ps1",
+        "-InputManifest",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-input.json",
+        "-Flow",
+        "recovery",
+        "-EvidenceDirectory",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\recovery-1",
+        "-Port",
+        "43977",
+        "-TimeoutSeconds",
+        "180",
+        "-MaxOwnedResidentMiB",
+        "512",
+        "-NodePath",
+        "node.exe"
+      ],
+      "evidence_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\recovery-1",
+      "port": 43977
+    },
+    {
+      "flow": "priority",
+      "executable": "powershell.exe",
+      "arguments": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-WindowStyle",
+        "Hidden",
+        "-File",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-run.ps1",
+        "-InputManifest",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\windows-browser-input.json",
+        "-Flow",
+        "priority",
+        "-EvidenceDirectory",
+        "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\priority-1",
+        "-Port",
+        "43978",
+        "-TimeoutSeconds",
+        "180",
+        "-MaxOwnedResidentMiB",
+        "512",
+        "-NodePath",
+        "node.exe"
+      ],
+      "evidence_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\priority-1",
+      "port": 43978
+    }
+  ],
+  "instructions": [
+    "Run one flow at a time. Each has a fresh native workspace, HOME, app registry, and temp directory.",
+    "Retain the actual outer process exit code plus complete stdout/stderr; require exit0 and finished result.status=passed.",
+    "Job deadline124, missing/incomplete final result, resource breach, residual process, or occupied port is a failed/interrupted result.",
+    "Retain all result.json, driver-result.json, execution.jsonl, driver/server logs, and ui artifacts without editing.",
+    "Review a failed run before deciding further action; do not replay its mutations or reuse its evidence directory.",
+    "Normal cleanup unregisters only the new native workspace, closes browser/server, and verifies all owned descendants and port are gone. Fixture evidence stays on disk."
+  ],
+  "coverage": {
+    "flows": "Existing scalar editing/cancel/checklist/read-only/comment/assignment/label-preservation/exact-kind dependencies/graph/lifecycle/reload/mobile assertions unchanged.",
+    "recovery": "Existing real native writes with substituted HTTP responses; no replay of create/comment/edit/priority/label writes, retained drafts, coherent-list recovery.",
+    "priority": "Existing real native priority write with uncertain HTTP response; palette remains controlled through read-only refresh and no second write."
+  },
+  "limits": [
+    "No Windows build, no tray, no visible browser window, no GPU use requested; direct prebuilt Next entry is used.",
+    "These are existing browser UI tests in a minimal one-record native fixture; no109-record bulk/list test is claimed.",
+    "The UI recovery response substitutions do not prove actual server/native readback-failure propagation.",
+    "The512MiB aggregate RSS limit is sampled every100ms; recorded cleanup peaks also fail the run.",
+    "The owned Job deadline timer is armed before Node/browser work; synchronous prerequisite parsing happens before the timer and is subject to the root caller deadline."
+  ],
+  "review_receipt": "/workspace/scratch/3160e3ba3d24/coordination/results/windows-browser-runner-static-review.json",
+  "static_review": "passed"
+}
