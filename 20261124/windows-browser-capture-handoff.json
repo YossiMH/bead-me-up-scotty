@@ -1,0 +1,126 @@
+{
+  "schema_version": 1,
+  "status": "ready-for-independent-review",
+  "execution_owner": "/root",
+  "execution_directory": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124",
+  "artifacts": [
+    {
+      "local_path": "/workspace/scratch/3160e3ba3d24/coordination/windows-browser-capture.ps1",
+      "pc_path": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-browser-capture.ps1",
+      "bytes": 4282,
+      "sha256": "c15e79a2f6048cc3dafc3a1f27038997c4a990f17b443a9dab31e616bfa1fa73"
+    },
+    {
+      "local_path": "/workspace/scratch/3160e3ba3d24/coordination/windows-browser-input-local.json",
+      "pc_path": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-browser-input-local.json",
+      "bytes": 45479,
+      "sha256": "2c689e960998deaf41c13b507f3596cb3c5c56000e826416cac9357fc55f8b86"
+    },
+    {
+      "local_path": "/workspace/scratch/3160e3ba3d24/coordination/windows-browser-run.ps1",
+      "pc_path": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-browser-run.ps1",
+      "bytes": 17550,
+      "sha256": "1cb1073d95c9588f5a2797a8e79262eb3e19a6c94960c02d689b90d68eadd2ea"
+    },
+    {
+      "local_path": "/workspace/scratch/3160e3ba3d24/coordination/windows-browser-driver.mjs",
+      "pc_path": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-browser-driver.mjs",
+      "bytes": 14250,
+      "sha256": "2ba1ed209039f02b19e218eaa723ee642ba7a3652d25079eb7bedf3b5b4282e5"
+    },
+    {
+      "local_path": "/workspace/scratch/3160e3ba3d24/transfer/windows-task-job.ps1",
+      "pc_path": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-task-job.ps1",
+      "bytes": 2101,
+      "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+    }
+  ],
+  "input_change": {
+    "only_field": "job_helper_path",
+    "before": "F:\\Dev\\.bead-edit-20261111\\transfer-v6\\windows-task-job.ps1",
+    "after": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-task-job.ps1"
+  },
+  "run_order": [
+    {
+      "flow": "flows",
+      "attempt": 2,
+      "port": 43976,
+      "executable": "powershell.exe",
+      "arguments": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-WindowStyle",
+        "Hidden",
+        "-File",
+        "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-browser-capture.ps1",
+        "-Flow",
+        "flows",
+        "-Attempt",
+        "2"
+      ],
+      "capture_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\captures\\flows-2",
+      "evidence_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\flows-2"
+    },
+    {
+      "flow": "recovery",
+      "attempt": 1,
+      "port": 43977,
+      "executable": "powershell.exe",
+      "arguments": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-WindowStyle",
+        "Hidden",
+        "-File",
+        "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-browser-capture.ps1",
+        "-Flow",
+        "recovery",
+        "-Attempt",
+        "1"
+      ],
+      "capture_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\captures\\recovery-1",
+      "evidence_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\recovery-1"
+    },
+    {
+      "flow": "priority",
+      "attempt": 1,
+      "port": 43978,
+      "executable": "powershell.exe",
+      "arguments": [
+        "-NoLogo",
+        "-NoProfile",
+        "-NonInteractive",
+        "-WindowStyle",
+        "Hidden",
+        "-File",
+        "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\browser-execution-20261124\\windows-browser-capture.ps1",
+        "-Flow",
+        "priority",
+        "-Attempt",
+        "1"
+      ],
+      "capture_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\captures\\priority-1",
+      "evidence_directory": "F:\\Dev\\.bead-edit-20261111\\browser-fallback-20261124\\results\\priority-1"
+    }
+  ],
+  "required_setup": [
+    "Byte-preserving transfer of all five exact artifacts into the named LocalAppData directory and hash verification.",
+    "Ordinary WindowsPowerShell5.1 parser check of wrapper and unchanged supervisor.",
+    "One fresh hidden limited Session1 COM task per invocation, Priority7, no triggers, at most 195 seconds external ceiling.",
+    "Reserve PC application-test resource; execute one flow at a time.",
+    "Read capture-result.json plus outer.stdout.log/outer.stderr.log, runner result.json, driver-result.json and raw logs."
+  ],
+  "acceptance": [
+    "Task exit0, capture status passed / phase finished / runner_exit_code0 / outer_exit_code0, plus original supervisor and driver acceptance.",
+    "Task124, interrupted/missing receipts, any memory/deadline/cleanup failure or remaining owned process is failure.",
+    "Never repeat failed/uncertain writes or reuse an evidence/capture directory. Diagnose saved error first."
+  ],
+  "limits": [
+    "No source/runtime changes and no alteration of execution policy or ADS/security settings.",
+    "The first browser task failure has no saved exception; the identical F: Job-helper boundary is known to fail under ordinary host policy in the tray diagnostic.",
+    "This correction stages exact already-reviewed scripts through the existing LocalAppData execution route; further rejection remains a failure."
+  ],
+  "author_review": "/workspace/scratch/3160e3ba3d24/coordination/results/windows-browser-capture-author-review.json"
+}

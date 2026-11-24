@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/delivery_review",
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Complete independent static review of the early-output wrapper, the only changed manifest field, unchanged runner/driver/helper interactions, both author audits and the exact invocation handoff.",
+  "reviewed_files": {
+    "coordination/windows-browser-capture.ps1": "c15e79a2f6048cc3dafc3a1f27038997c4a990f17b443a9dab31e616bfa1fa73",
+    "coordination/windows-browser-input-local.json": "2c689e960998deaf41c13b507f3596cb3c5c56000e826416cac9357fc55f8b86",
+    "coordination/windows-browser-run.ps1": "1cb1073d95c9588f5a2797a8e79262eb3e19a6c94960c02d689b90d68eadd2ea",
+    "coordination/windows-browser-driver.mjs": "2ba1ed209039f02b19e218eaa723ee642ba7a3652d25079eb7bedf3b5b4282e5",
+    "transfer/windows-task-job.ps1": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "findings": [],
+  "required_corrections": [],
+  "checks": [
+    "Independently rehashed all five files and read the complete manifest diff: only job_helper_path changes. Source/runtime/executable hashes,230 runtime entries,six source inputs and all original assertions remain unchanged.",
+    "Read every wrapper branch. Capture and test evidence paths are separate and fresh; prior directories refuse another invocation; capture parent reparse points are rejected.",
+    "The wrapper invokes the supervisor once with the PowerShell call operator in the same process. The existing Job and RSS accounting therefore include the wrapper; no extra process or server is added.",
+    "The fixed arguments retain flow-to-port mapping,180second supervisor limit,512MiB aggregate cap and existing node.exe. The unchanged runner retains3GiB free-RAM prerequisite,96MiB Node heaps and GPU-disabled headless operation.",
+    "The same-process child script preserves its own PSScriptRoot/PSCommandPath. The relocated driver resolves packages and imported UI scripts from the manifest repository, so its execution directory does not alter module selection.",
+    "PowerShell success/error streams are retained separately; invocation exceptions include the full exception,position and script stack trace. Noninteger/missing/nonzero exits and missing/nonfinished/nonpassed supervisor receipts prevent wrapper success.",
+    "The handoff uses one fresh limited hidden Session1 task per sequential flow, exact verified LocalAppData copies, no persistent triggers and no execution-policy,ADS or security-setting changes. Further ordinary-policy rejection remains failure.",
+    "This is an execution-input/capture correction within the accepted browser preparation and runner-review tasks. It adds no product behavior, required test, resource allowance or dependency."
+  ],
+  "execution_acceptance": [
+    "Root must verify the transferred exact hashes and WindowsPowerShell5.1 parsing before execution.",
+    "Root must reserve the exclusive PC application-test resource and reconcile existing tasks before each flow.",
+    "Require task exit0,capture finished/passed with runner_exit_code0 and outer_exit_code0,plus the unchanged supervisor/driver criteria including clean Job/port shutdown.",
+    "The wrapper captures runner invocation and preflight errors. A rejection before the wrapper itself executes can still leave no capture; an absent result is not success.",
+    "Actual browser acceptance remains pending until all three unchanged flows pass."
+  ],
+  "tests_or_builds_run_by_reviewer": false,
+  "pc_calls_by_reviewer": false,
+  "product_source_changed_by_reviewer": false,
+  "git_result": "Review record only; publication remains with root's owned transfer branch. No source commit or empty commit created."
+}
