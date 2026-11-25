@@ -172,5 +172,24 @@
   "pc_calls_by_author": 0,
   "installer_invocations": 0,
   "product_tests_or_builds_by_author": false,
-  "completion_limit": "The separately named installer is written and both author inspections are clean. Parser execution, transfer publication, independent acceptance and installation are still pending."
+  "completion_limit": "The separately named installer is written and both author inspections are clean. Parser execution, transfer publication, independent acceptance and installation are still pending.",
+  "root_parser": {
+    "status": "passed",
+    "proposal_id": "_DOOHoc-SaXXqoU5KSOUTBLFAhEVVwt0sUTv2wuwwzU",
+    "exit_code": 0,
+    "parser_errors": 0,
+    "installer": "C:/Users/YossiMH/AppData/Local/bead-edit-20261111/install-execution-20261125/windows-install-tray-20261124.ps1",
+    "sha256": "881386faf0ef828ebc68fa0a99e28183ad265b7da8587964934a704089153631",
+    "helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "installer_executed": false,
+    "retained_result": "Emergency Maintenance proposal exited0 with exact verified hashes and0 parse errors."
+  },
+  "root_publication": {
+    "status": "passed",
+    "transfer_commit": "54f87eedc6b3ba4e76dc45419dde1b3f6bb99551",
+    "branch": "task/build-transfer-20261111",
+    "path": "20261125/windows-install-tray-20261124.ps1",
+    "must_not_merge": true
+  },
+  "root_completion": "Candidate published and exact Windows parser passed; installer execution remains separately gated."
 }
