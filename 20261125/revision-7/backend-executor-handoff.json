@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-11-25T08:45:43.365Z",
+  "owner": "/root/backend_reconcile",
+  "status": "final_native_execution_active",
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "branch": "task/type-file-20261125",
+    "commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+    "accepted_tests_commit": "14051553b607bc160fb46f053c52ddeeadf846db",
+    "tests_review_receipt": "2f002ced46f233a05a287085d1373039c383e547:20261125/revision-7/results/type-backend-tests-review.json"
+  },
+  "actual_completed": {
+    "linux_producer": {
+      "run_id": 45575999107,
+      "evidence": "6f099e729374c33b2823d3f5929b33361543be5a:20261125/revision-7/results/native-linux-build-45575999107",
+      "build_artifact_id": 15004218651,
+      "release_artifact_id": 15005116461,
+      "release_sha256": "266245fab0e7b8378877083b258131b63036ec4bac5d64447429a839ee9becbf",
+      "download_verification": "Pending execution-consumer checks"
+    },
+    "windows_producer": {
+      "run_id": 45576002037,
+      "evidence": "3c1de572b0d8ac4502131d8383ed3348d2ff695a:20261125/revision-7/results/native-windows-build-45576002037",
+      "artifact_id": 15004896560,
+      "download_verification": "Passed in separate job139076008395",
+      "small_release_artifact_id": 15003670786,
+      "small_release_run_id": 45572877188,
+      "release_path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+      "release_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+      "metadata_path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    }
+  },
+  "active_runs": [
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "run_id": 45578817248,
+      "source_commit": "1bb64f56ee464587ece7caf55ed3f2da0adb6fd5",
+      "tasks": [
+        "type-backend-checks",
+        "checkpoint-full-suite",
+        "checkpoint-linux-checks"
+      ],
+      "note": "First reconcile live jobs and retained outputs; do not launch another build or duplicate these executions."
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "run_id": 45577891890,
+      "source_commit": "ad41d93182c9dc1a5c30f1e41c837af7c337773e",
+      "tasks": [
+        "checkpoint-windows-checks"
+      ],
+      "note": "Uses the exact retained release and10 test/support executables; no Rust compilation."
+    }
+  ],
+  "next_actions": [
+    "Read completed execution logs and artifacts; retain failures and results separately.",
+    "Publish the distinct affected-target result as soon as available so the app Windows task can proceed.",
+    "After Green checks, reread the complete maintainer post-process and perform two complete clean final source inspections on unchanged9ff bytes, then obtain independent native implementation acceptance.",
+    "Root owns canonical task-state mutations, task-branch integration, PC staging/install and eventual main publication."
+  ],
+  "cleanup_required": {
+    "manager": "Riftri",
+    "worktree": "/tmp/beads-55c9/backend-type-edit",
+    "last_observed_head": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "last_observed_status": "clean",
+    "local_auxiliary_branch": "task/type-file-local-tests-20261125",
+    "instruction": "Remove the clean published task worktree through Riftri after the assignment is complete. If this process dies or the session ends early, future agents must finish this cleanup. Preserve any later unrelated edits and recover the exact published source before removal.",
+    "cloud_hosted_checkouts": "Actions runner teardown owns all hosted temporary checkouts and processes."
+  },
+  "limits": [
+    "No PC calls by this executor.",
+    "No PC compilation or GPU use.",
+    "One Cargo job per hosted producer and serialized native tests.",
+    "Main remains unchanged until the root's checked installation."
+  ],
+  "evidence_retention": "All failed Red and first producer attempts remain retained on the transfer branch; later passing attempts do not overwrite them."
+}
