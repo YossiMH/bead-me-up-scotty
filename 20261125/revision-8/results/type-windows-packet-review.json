@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Final c90 native binding for the existing hosted app Windows roundtrip packet",
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "candidate_commit": "7da96fd2ec73fa0f3f7a378e70600c09b2821033",
+  "directory": "20261125/revision-8/type-windows",
+  "activation_authorized_now": false,
+  "activation_after_accepted_prerequisite": true,
+  "activation_condition": "The exact packet may be activated once the actual final c90 type-backend-checks result is supplied and accepted under the existing revision 8 task prerequisites. The actual app build/runtime and Windows native build/download predecessors already exist. This review requires no further packet change or repeated static review when that condition is satisfied.",
+  "activation_branch": "task/type-windows-roundtrip-20261125",
+  "prior_complete_packet_review": {
+    "packet_commit": "aeee174d9f7159dd8fd5da27164ff07fb4bbe26a",
+    "review_commit": "7ee24435d4bdb13ccf6a4104529dca9bcfd75914",
+    "path": "20261125/revision-7/results/type-windows-packet-review.json",
+    "sha256": "a56ae97bac9ed23354697e2d03748f97a75b4840a6cb199e6bdadf708d85d021"
+  },
+  "reviewed_files": {
+    "20261125/revision-8/type-windows/run.py": "7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112",
+    "20261125/revision-8/type-windows/inputs.json": "3a14f636eacb51c413b6c3782d2d6f6c66b51ebb96c0d96399b2af25cd812f1c",
+    ".github/workflows/scotty-type-windows-20261125.yml": "0a77e036df704bfb357caf13579c01cade454b726611963d64fde089a9cfbac8"
+  },
+  "final_author_record": {
+    "commit": "d9a0ddb823e0b01eccbeb3687e17ace55f0dbc44",
+    "path": "20261125/revision-8/results/type-windows-packet-author.json",
+    "sha256": "23fb8dbf959a516db75fd1e574205a026d31123707c60e917f795f5ac4348f22",
+    "complete_clean_inspections": 2,
+    "all_three_hashes_and_byte_counts_verified": true
+  },
+  "final_delta": {
+    "entire_helper_byte_identical_to_previously_reviewed_candidate": true,
+    "inputs_changed_only": [
+      "native_source_commit",
+      "native_run_id",
+      "native_artifact_id",
+      "native_manifest_sha256",
+      "native_executable",
+      "native_metadata",
+      "native_qualification"
+    ],
+    "app_source_tree_runtime_and_job_bindings_unchanged": true,
+    "workflow_changed_only": [
+      "revision-8 packet directory",
+      "native artifact ID",
+      "native producer run ID"
+    ],
+    "complete_final_workflow_read": true,
+    "actual_current_packet_job_helper_independently_fetched": true,
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "inputs": {
+    "schema_version": 1,
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "runtime_run_id": 45573503400,
+    "runtime_artifact_id": 15003467178,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "native_source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "native_run_id": 45586900986,
+    "native_artifact_id": 15010535371,
+    "native_manifest_sha256": "843117f8f9f22da5053d9731610fc729c1e4dc744358d6f91506e843713f5181",
+    "native_executable": {
+      "path": "release/bead-checkpoint-c90f0cdbade9.exe",
+      "sha256": "cdd3b50d65504c52a27a8fd29c6494fe3847d512cbca1510aa74a6cc5da87a06",
+      "bytes": 12214272
+    },
+    "native_metadata": {
+      "path": "release/bead-checkpoint-c90f0cdbade9.exe.metadata.json",
+      "sha256": "ed74ccf87b21972261434f8c628dea12cfb958a577ba686658d24ae8123dc97a",
+      "bytes": 2056
+    },
+    "task_job_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "native_qualification": "Final c90 Windows producer 45586900986 and separate full/small download verification passed. Activation also requires accepted actual c90 affected-target results; complete checkpoint qualification remains a separate task."
+  },
+  "independently_reconciled_native_predecessor": {
+    "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+    "run_id": 45586900986,
+    "build_job": 139110692736,
+    "download_job": 139117235701,
+    "evidence_commit": "780716d93a61776e8653cfd0b67656b9239094ee",
+    "evidence_directory": "20261125/revision-8/results/native-windows-build-45586900986",
+    "actual_build_and_download_results_pass": true,
+    "full_logs_independently_fetched_and_exact_retained_bytes_compared": true,
+    "small_manifest_sha256": "843117f8f9f22da5053d9731610fc729c1e4dc744358d6f91506e843713f5181",
+    "small_artifact_id": 15010535371,
+    "small_artifact_sha256": "71bfe76540a8276659d0b5e97c3688446c2d1b6967ea3a02f173139482401e7c",
+    "small_artifact_bytes": 4519162,
+    "exact_release_and_metadata_hashes_sizes_and_paths_match_input": true,
+    "prior_result_review": "b35847d5c2884434b4aa2300510a5a630c0e663c:20261125/revision-8/results/native-windows-runner-review.json"
+  },
+  "required_execution_preserved": {
+    "commands": [
+      "node --conditions=react-server --import ./scripts/support/register-source.mjs --test scripts/test-local-bead-rs.mjs",
+      "node scripts/test-native-type-roundtrip.mjs"
+    ],
+    "job_minutes": 15,
+    "each_command_seconds": 180,
+    "node_heap_mib": 512,
+    "owned_windows_job": true,
+    "exact_long_unicode_type_readback": true,
+    "one_guarded_native_edit": true,
+    "same_claim_and_one_revision_increment": true,
+    "priority_event_actor_reason_and_revision": true,
+    "full_runtime_source_and_native_metadata_retention": true,
+    "numbered_complete_text_chunks": true,
+    "request_file_removal_and_unrelated_fixture_preservation": true,
+    "observed_server_exit_and_released_port": true
+  },
+  "accepted_plan": {
+    "commit": "38332d9a3a9e4856291edd11237fc27d5759f4d4",
+    "sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d",
+    "task_key": "type-windows-roundtrip",
+    "prerequisites": [
+      "type-app-checks",
+      "type-backend-checks",
+      "checkpoint-windows-build"
+    ]
+  },
+  "findings": [],
+  "actual_roundtrip_passed": false,
+  "final_app_acceptance": false,
+  "pending": [
+    "Actual final c90 affected-target result required for activation.",
+    "Both real Windows app checks and complete retained runtime/source records.",
+    "Root independent app final review; actual PC tray, revision 8 mapping, installation/configured launch/history and cleanup."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
