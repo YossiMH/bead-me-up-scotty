@@ -1,0 +1,119 @@
+{
+  "schema_version": 1,
+  "task_key": "type-windows-roundtrip",
+  "status": "author_inspections_passed_pending_independent_review_and_affected_checks",
+  "author": "/root/app_reconcile",
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "path": "20261125/revision-9/plan.json",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "packet": {
+    "commit": "f6679cad66ab1d280edcead8a7dc1f609e304c95",
+    "tree": "c94fd6e9409d5174aecd899c56ec3306c4435ffd",
+    "branch": "task/type-windows-packet-v9-20261125",
+    "activation_branch": "task/type-windows-roundtrip-20261125",
+    "directory": "20261125/revision-9/type-windows",
+    "files": [
+      {
+        "path": "20261125/revision-9/type-windows/run.py",
+        "sha256": "7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112",
+        "bytes": 11347,
+        "git_blob": "d9e7289f1fa75a1ad7d3c6562598bb6cb5f6629e"
+      },
+      {
+        "path": "20261125/revision-9/type-windows/inputs.json",
+        "sha256": "b4b22df1d6799146fd21ccb534797acb31764055e5adad0f329f7f0b45162370",
+        "bytes": 1462,
+        "git_blob": "c99b55883fa0eb3bd7adce307ea6c7a212f5b489"
+      },
+      {
+        "path": ".github/workflows/scotty-type-windows-20261125.yml",
+        "sha256": "62345d39bfd71e6fa16bd2da3f8a8339d76dd9573cb626276fc38e11cd82ab15",
+        "bytes": 4568,
+        "git_blob": "b1853f0df31065ff8b88f904d15b2e26fa99ed11"
+      }
+    ]
+  },
+  "prior_accepted_preparation": {
+    "packet": "7da96fd2ec73fa0f3f7a378e70600c09b2821033",
+    "review": "0b3ab55e444548e000190e72620e668403421043",
+    "path": "20261125/revision-8/results/type-windows-packet-review.json",
+    "sha256": "26532878f9a04f758210810a0103c413e52789ddd31fa41ecba806408cd773b3"
+  },
+  "inputs": {
+    "schema_version": 1,
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "runtime_run_id": 45573503400,
+    "runtime_artifact_id": 15003467178,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "native_source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_run_id": 45600413942,
+    "native_artifact_id": 15014634952,
+    "native_manifest_sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+    "native_executable": {
+      "bytes": 12243456,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "native_metadata": {
+      "bytes": 2058,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    },
+    "task_job_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "native_qualification": "Final 2d801 Windows producer 45600413942 and separate full/small download verification passed. Activation also requires accepted actual final 2d801 affected-target results; complete checkpoint qualification remains a separate task."
+  },
+  "actual_native_build": {
+    "evidence_commit": "66d679b5fd3d190025068ad47167352fa5a90669",
+    "directory": "20261125/revision-9/results/native-windows-build-45600413942",
+    "run_id": 45600413942,
+    "producer_job": 139157539016,
+    "independent_download_job": 139163782606,
+    "status": "passed",
+    "small_zip_sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+    "small_zip_bytes": 4524263,
+    "small_manifest_bytes": 665,
+    "actual_producer_review": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "findings": [],
+      "focus": "Complete native-only replacement with the measured final producer",
+      "checks": [
+        "Read back all three immutable final files and verified exact SHA-256, byte count and Git blob identities. The helper is the accepted unchanged 7af8d974 source; the workflow inverse recovers the complete prior workflow after replacing only revision paths and native run/artifact.",
+        "Compared all input keys. Exactly the six native identity/record fields and native qualification prose changed. App 03095397/tree84bb66cd, Node version, runtime output 15003467178, complete 560-file manifest, ZIP and BUILD_ID are unchanged.",
+        "Matched final 2d801 source, small output 15014634952, manifest dbe3aa25, executable 0431a828 at 12,243,456 bytes and original metadata 21ca90e2 at 2,058 bytes to the actual producer and independent download receipts. Direct artifact API metadata and both completed producer job statuses agree.",
+        "The full native build result, small manifest and download records share source, target, workflow975d21cc and run45600413942. Original metadata is preserved without editing."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "findings": [],
+      "focus": "Complete unchanged execution, retention and gate contract",
+      "checks": [
+        "Retained the complete prior helper/test read and rechecked its unchanged bytes and final workflow call chain. The two prescribed native-store and production HTTP checks remain exact, with long Unicode type, claim/revision guard, one mutation, priority audit actor/reason, checkpoint preservation and temporary-file removal.",
+        "Every runtime ZIP member, full source inventory, lockfile Git blob/hash, BUILD_ID and native executable/metadata are checked before product execution. Complete original Linux source/runtime/result and actual native metadata remain emitted through the numbered UTF-8 retention format.",
+        "The fresh isolated fixtures, 180-second commands, 15-minute hosted job, 512 MiB Node heap, existing owned Job, observed server/port cleanup and retained complete command/case outputs remain unchanged.",
+        "The app activation branch remains held. This producer success alone does not meet the actual final 2d801 type-backend-checks prerequisite. Independent final packet review and accepted actual affected-check results are required before its sole executor activates it.",
+        "No PC action, app build, real application/native execution or canonical task-state change occurred while preparing this binding. Root's final app source/result review and PC tray/install/configured-launch work remain separate."
+      ]
+    }
+  ],
+  "final_clean_complete_inspections": 2,
+  "execution_status": "NOT_EXECUTED",
+  "remaining": [
+    "Independent final native-only packet review",
+    "Accepted actual final 2d801 affected-target receipt",
+    "One reconciled activation and complete actual native-store/HTTP Windows outputs",
+    "Root final app review and all remaining PC/canonical task/cleanup work"
+  ],
+  "pc_actions": 0
+}
