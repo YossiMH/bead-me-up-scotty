@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "complete independent static review",
+  "operation": "retain-accepted-browser-results",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "5221e897bbb61b45c8e6a8bc952ddb321b290bcd",
+    "tree": "49d7b29bd97c6ec85084ca5fda53c4339c1ed1e4",
+    "workflow_path": "20261125/browser-retention/workflow.yml",
+    "workflow_sha256": "2a3d274ad0ec499e7a5a6d111de45565642dc2771df1d85c292e3acd97ceeead",
+    "author_audits_sha256": "973b76aa6358f7be80ed5a8b7048cf4e055fd576985f2dfac567617eb5b24319"
+  },
+  "original": {
+    "run_id": 45517446104,
+    "output_id": 14978387944,
+    "workflow_commit": "09c66f0563f86c90b1a588b829115b3aec356010",
+    "zip_sha256": "0f906203b43420eeddf2fcfe52db7f5886a26f8d35da4b3916b587eb91f8a217",
+    "zip_bytes": 17262599,
+    "expires_at": "2026-11-26T00:28:03Z",
+    "expired_when_reviewed": false,
+    "metadata_verified_through": "GitHub workflow-run output listing"
+  },
+  "read_complete_workflow": true,
+  "read_complete_embedded_python": true,
+  "read_complete_author_inspections": true,
+  "findings": [],
+  "checks": [
+    "Verified both exact frozen file hashes and the candidate's sole parent5f8968fb.",
+    "Independently read the original run's output listing; ID, source run/head, exact ZIP size/digest and pending expiration match the retained successful browser result.",
+    "Checked the fresh owned output directory, exclusive partial file, fixed byte upper bound, full SHA256 equality before rename, original ZIP retention without extraction, and exact result fields.",
+    "Checked the GitHub token is supplied only to the fixed api.github.com request through a no-redirect opener. The subsequent HTTPS Azure-blob request is newly constructed without that credential and permits no further redirect.",
+    "Checked the120-second streaming deadline,15-second network timeouts, five-minute hosted job, exact branch/path push trigger, read-only actions/contents token and official immutable upload-action commit.",
+    "Checked that upload follows successful verification and retains both the unchanged original ZIP and its result for14 days.",
+    "No source, compiler, test, product or PC command occurs in this workflow."
+  ],
+  "activation": {
+    "accepted": true,
+    "branch": "task/browser-retain-20261125",
+    "workflow_path": ".github/workflows/browser-retain-20261125.yml",
+    "condition": "Create the fresh owned branch with byte-identical reviewed workflow; verify actual head/event/run and successful retention result before treating the new copy as available."
+  },
+  "pending": [
+    "Actual successful retention run and new output ID/digest/expiration.",
+    "Root-owned conditional cleanup after durable results and handoff instructions are retained."
+  ],
+  "browser_behavior_acceptance": "Existing accepted browser results are preserved unchanged; this retention operation adds no new product-test claim.",
+  "product_tests_executed_by_reviewer": false,
+  "builds_executed_by_reviewer": false,
+  "pc_actions_by_reviewer": false
+}

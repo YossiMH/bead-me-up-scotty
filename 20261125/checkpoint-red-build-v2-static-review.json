@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "complete corrected compile-packet static review",
+  "operation": "checkpoint-red-compile-only",
+  "packet_revision": 2,
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "98fa10a2a37843bdba151999ea06b053403cebc0",
+    "tree": "e92da66959b76752b1a096adf8d7096f22eaf824",
+    "sole_parent": "7214002b1e091d658008cb1fea3224ce9b5379ca",
+    "directory": "20261125/checkpoint-linux-red",
+    "files_sha256": {
+      "README.md": "4f9184a0d9785c1729f13128725e2499cab4ab720b3a32e65c32c5e23251cb34",
+      "author-audits.json": "be0b63cd634c6b26794a47d6914d9b02f822053b2b5d365d4f8cb85f0cc49480",
+      "build-inputs.json": "57d129f2abd63797418f9950a2e20abe72466aafd2584ba203d317c9ee530ba3",
+      "checkpoint-red-build-20261125.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+      "checkpoint-red-build.workflow.yml": "d75c44f7341caf9d8fede01ecf0158d8ebde911102e689b98748ca9caa3b5aa6",
+      "checkpoint-tests.json": "203f5ca933324dacda333a7481e4da22f64c33e76d57fdabcdb4265b0b439d17",
+      "compiler-path-diagnostic.json": "4baa0e3fe4abc5fbc013b2cedb09fdf1796dc282446dbcc1a6169cf969a7b4a7",
+      "failed-build-result.json": "24085cfbd33d3bb942dbb58decc24b0988934a4dfe7ea00cbb13ce53298a5dcb",
+      "failed-outer-result.json": "a603191a83d0acac5cedeeb5df6a3d3a75e96456650fe52a15d0d2a1d2d39df1",
+      "helper-v2.patch": "568942608520df20b6a21a8f0f86ba8937dc55c21f4e8d7095d7b563ea24a9a2",
+      "manifest.json": "9d428bcb907dfafc75832cc2484f6aa03b66e31885c059ef6c89e7c46c4dc2ab"
+    }
+  },
+  "earlier_review": {
+    "commit": "08216b957b7767aa9c0b0757dd78b263ab020c96",
+    "path": "20261125/checkpoint-red-build-static-review.json",
+    "sha256": "c53fdd4a75e0ae8ff02f482bf39cc45e4cc35eb97ef28252569761005274bb82",
+    "unchanged_portions_remain_accepted": true
+  },
+  "diagnosis": {
+    "source_failed_run": 45535362756,
+    "source_failed_job": 138940518590,
+    "failed_build_report_sha256": "24085cfbd33d3bb942dbb58decc24b0988934a4dfe7ea00cbb13ce53298a5dcb",
+    "failed_outer_report_sha256": "a603191a83d0acac5cedeeb5df6a3d3a75e96456650fe52a15d0d2a1d2d39df1",
+    "diagnostic_run": 45536239392,
+    "diagnostic_job": 138943405404,
+    "diagnostic_head": "e86bd323a010fd3b7825472306d6f80c954b5764",
+    "diagnostic_conclusion": "success",
+    "report_sha256": "4baa0e3fe4abc5fbc013b2cedb09fdf1796dc282446dbcc1a6169cf969a7b4a7",
+    "cargo_log_sha256": "54e9f6524604eca1180beaeb95fe4f7bf1779cbb75373645558db6743088ba3c",
+    "cargo_log_bytes": 129108,
+    "independently_read_from_actual_run": true
+  },
+  "findings": [],
+  "checks": [
+    "Read all eleven final files, including the complete updated workflow, notes, audits and all three exact retained result files.",
+    "Independently recovered the diagnostic from its successful actual run/job and verified the printed report hash. The packet's diagnostic and both earlier failed reports are byte-identical to the independently read results.",
+    "Applied the supplied unified patch in memory to the fully inspected original helper and obtained the exact final helper bytes. The sole changed source assertion now accepts the demonstrated Cargo1.100 path structure with exact package, build-unit and target-name equality.",
+    "Compared all four actual library/integration executable paths with the new predicate; every recorded path matches. The ordinary bead binary remains constrained to target/debug/bead.",
+    "Verified all existing package-manifest, owned-target containment, regular-file, executable-mode, unique-output and SHA256 checks remain unchanged.",
+    "Verified the tests-only source commit a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8, input bytes, production-prefix equality, archive verification, Cargo command, one-job restriction, timeouts, owned cleanup and complete bundle schema remain unchanged.",
+    "Verified the workflow changes only the exact helper hash and fresh v2 trigger branch. The already inspected official action refs and read-only permissions remain identical.",
+    "Verified failed output remains failed, all prior runs/branches are retained for reconciliation/cleanup, and final test acceptance remains dependent on separate actual expected failures."
+  ],
+  "activation": {
+    "accepted": true,
+    "branch": "task/checkpoint-red-build-20261125-v2",
+    "workflow_path": ".github/workflows/checkpoint-red-build-20261125-v2.yml",
+    "condition": "Activate the exact reviewed packet and byte-identical workflow on the fresh owned branch; verify actual run identity."
+  },
+  "pending": [
+    "Ordinary hosted Python parsing of the corrected helper and repeated source/whitespace checks.",
+    "Complete successful compile-result, outer result and bundle/executable hashes from the corrected actual run.",
+    "Separate accepted execution/classification of all six intended failures.",
+    "Independent final test acceptance before production repair.",
+    "Root's eventual native materialization/result reconciliation and conditional cleanup."
+  ],
+  "build_completion_accepted": false,
+  "final_test_acceptance": false,
+  "production_repair_acceptance": false,
+  "product_tests_executed_by_reviewer": false,
+  "builds_executed_by_reviewer": false
+}
