@@ -435,6 +435,10 @@ async function main() {
       const attrs=git(['check-attr','--all','-z','--stdin'],label+'-attributes',attributeInput).split('\0');assert.equal(attrs.pop(),'');assert.equal(attrs.length%3,0);
       for(let i=0;i<attrs.length;i+=3)if(['filter','working-tree-encoding','text','eol','ident'].includes(attrs[i+1]))assert.ok(['unset','unspecified'].includes(attrs[i+2]),'Git transformation prevents raw-object preservation: '+attrs[i+1]);
     }
+    const ignored=git(['ls-files','--others','--ignored','--exclude-standard','-z','--','.beads/checkpoint'],label+'-ignored').split('\0').filter(Boolean);
+    assert.ok(ignored.every(name=>name==='.beads/checkpoint/publish.lock'),'Unexpected ignored untracked checkpoint content');
+    if(ignored.length){assert.equal(ignored.length,1);assert.equal(ordinary(path.join(PIN.original,ignored[0])).size,0,'Publication lock must be empty');}
+    write(label+'-publication-lock.json',{optional_zero_byte_lock_present:ignored.length===1,non_reparse_validation:'required in successful supervisor receipt'});
     const status=git(['status','--porcelain=v1','-z','--untracked-files=all','--','.beads/checkpoint'],label+'-status');
     if(original)assert.equal(status,'','Original checkpoint has tracked or untracked changes');
     const indexAfter=hashFile(indexPath);assert.equal(indexAfter,indexBefore,'Read-only Git changed the index');
@@ -644,7 +648,8 @@ async function main() {
       const retained=retainCheckpoint(originalCheckpoint,path.join(directory,'checkpoint'));
       write('published-corpus.json',cp.corpus);write('published-manifest.json',retained.manifest);write('inventory.json',inventory);write('previous-generation-diagnostic.json',retained.previous_verification);
       assert.equal(hashFile(originalConfig),preserved.original_hashes.config);freezeCheck();
-      gitState('original-git-after');
+      const gitAfter=gitState('original-git-after');
+      for(const key of ['head','checkpoint_tree','entries','index_path','index_sha256'])equal(gitAfter[key],gitBefore[key],'Publication changed immutable Git state: '+key);
       finish({authority:PIN.original,generation:cp.pointer.generation_id,root_sha256:cp.pointer.active_root.sha256,checkpoint_path:path.join(directory,'checkpoint'),checkpoint_manifest_sha256:digest(retained.manifest),local_sequence:after.local_sequence,git_publication:'root pending'});return;
     }
     if(phase==='restore' || phase==='final-restore') {
