@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "operation": "checkpoint-red-compile-only",
+  "status": "frozen_for_independent_review",
+  "source_commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+  "source_tree": "c9707f7b58dd76826244719af018bf4c02a3e5fc",
+  "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
+  "files": {
+    "checkpoint-red-build-20261125.py": "55fc908bfe98c94e85fbd7ed9f205d4fa0a76701fd1b7e737fbe9c5b5f012607",
+    "build-inputs.json": "57d129f2abd63797418f9950a2e20abe72466aafd2584ba203d317c9ee530ba3",
+    "checkpoint-red-build.workflow.yml": "5078742cb20ccc56b18617ba6e0a509ae1809c0fe114bfa5c10362f49c0462dc",
+    "README.md": "59b6efd798c57a772ae22875fe8fbeb1ec88990dba8bf9969c11fd0faedd3607",
+    "checkpoint-tests.json": "203f5ca933324dacda333a7481e4da22f64c33e76d57fdabcdb4265b0b439d17"
+  },
+  "activation": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "temporary_branch": "task/checkpoint-red-build-20261125",
+    "workflow_path": ".github/workflows/checkpoint-red-build-20261125.yml",
+    "event": "push",
+    "permissions": {
+      "contents": "read"
+    },
+    "runner": "ubuntu-24.04",
+    "artifact_retention_days": 7
+  },
+  "checks": {
+    "source_identity": "verified via complete Git tree and file readback",
+    "helper_digest": "verified from exact author's Git blob and both predecessor transformations",
+    "workflow_source": "complete static inspection",
+    "python_parse": "pending ordinary hosted py_compile preflight",
+    "git_whitespace": "pending actual hosted git diff --check preflight",
+    "compilation": "pending separate authorized run",
+    "tests_executed": false
+  }
+}

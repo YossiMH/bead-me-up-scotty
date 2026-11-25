@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "two clean complete static author inspections",
+  "operation": "checkpoint-red-compile-only",
+  "binding": {
+    "manifest_sha256": "553dab9d622d6a84d1f6a83a0580ad810f6b0691710b25049a3ce03f887c97d5",
+    "helper_sha256": "55fc908bfe98c94e85fbd7ed9f205d4fa0a76701fd1b7e737fbe9c5b5f012607",
+    "inputs_sha256": "57d129f2abd63797418f9950a2e20abe72466aafd2584ba203d317c9ee530ba3",
+    "workflow_sha256": "5078742cb20ccc56b18617ba6e0a509ae1809c0fe114bfa5c10362f49c0462dc",
+    "notes_sha256": "59b6efd798c57a772ae22875fe8fbeb1ec88990dba8bf9969c11fd0faedd3607",
+    "tests_result_sha256": "203f5ca933324dacda333a7481e4da22f64c33e76d57fdabcdb4265b0b439d17"
+  },
+  "helper_author": {
+    "agent": "checkpoint_finish",
+    "inspections": 2,
+    "statement": "The helper author renewed both complete static inspections after the observed-source-size correction to 1 GiB and addition of actual git diff --check. The exact frozen source was delivered as Git blob 94c29f1bda47449c3b4b570f9d93097a78b6b8e9; no code execution was claimed."
+  },
+  "passes": [
+    {
+      "number": 1,
+      "author": "browser_finish",
+      "scope": "Complete helper, exact bound inputs, full workflow, notes and preceding source report",
+      "statement": "I traced source and parent identity checks, every Git delta/archive validation, production-prefix equality, actual whitespace exit gate, single Cargo invocation and five-artifact mapping. I checked that source extraction is complete, path-bounded and streamed, inherited workspace selectors are cleared, and no product or test command runs during compilation. I checked the deadline and owned-group cleanup paths, both receipt outputs and success/failure artifact retention. No remaining author finding.",
+      "result": "clean"
+    },
+    {
+      "number": 2,
+      "author": "browser_finish",
+      "scope": "Complete final activation and result chain plus every frozen file binding",
+      "statement": "I rechecked all final hashes and the actual published tests-only commit/tree, both pinned official Actions, branch-scoped push event, standard public runner and read-only token. I checked fresh roots, compile-time path retention, separate build/check prerequisites, metadata recovery through logs, delayed artifact binding, and cleanup ownership. I checked that the tests-only report does not claim actual native states or an unrun Git/compiler check. No remaining author finding.",
+      "result": "clean"
+    }
+  ],
+  "pending_runtime_checks": [
+    "Hosted python3 -m py_compile.",
+    "Actual git diff --check before archive and compilation.",
+    "The exact compile-only Cargo command and artifact validation.",
+    "Separate expected-failure execution after root accepts the successful compile output."
+  ],
+  "cleanup": "Future agents must preserve evidence, reconcile uncertain mutations/runs and remove only session-owned temporary branches/worktrees after delivery."
+}

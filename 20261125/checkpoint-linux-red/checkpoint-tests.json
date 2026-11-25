@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "status": "candidate_published",
+  "unique_ref": "bead-edit-20261124:checkpoint-tests",
+  "native_id": null,
+  "native_state": "creation and guarded completion pending",
+  "accepted_plan": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "f496be34e8a99c9e97a2c714bdeaac66e18d8403",
+    "path": "20261125/revision-5/plan.json",
+    "sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82"
+  },
+  "proposal": {
+    "commit": "bb0638535172dead8f648b4a4944dddc6175f832",
+    "tests_first_patch_sha256": "cb0a4f7d6ce71b8b2f6442f55ac7ca74fe2289f085352002c28be60b873d4e49",
+    "independent_static_review": "accepted; actual expected failures remain pending"
+  },
+  "git": {
+    "repository": "YossiMH/bead-rs",
+    "branch": "task/bead-finish-20261124",
+    "commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "tree": "c9707f7b58dd76826244719af018bf4c02a3e5fc",
+    "parent": "986f2a332aca9dd567eee41ce835917d56e29468",
+    "normal_descendant_update": true,
+    "force": false,
+    "remote_readback": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "compare_status": "ahead",
+    "ahead_by": 1,
+    "behind_by": 0,
+    "tracked_files": 651,
+    "unchanged_baseline_blobs": 647
+  },
+  "changed_files": [
+    {
+      "path": "src/service/checkpoint/set_v2.rs",
+      "status": "M",
+      "before": "7424cd83f181420305163cf570ad05873c623a6c",
+      "after": "400b16da2f88aa9f35fcf6e31b94444ea665aa2f"
+    },
+    {
+      "path": "tests/attempt_receipt_checkpoint_integrity.rs",
+      "status": "M",
+      "before": "ae1cbfa4b20f20e9f9d68b6d2336ee214ada3301",
+      "after": "5c09fc050e13874ad443b8937a9e4b50c3de9c56"
+    },
+    {
+      "path": "tests/checkpoint_set_v2_conformance.rs",
+      "status": "M",
+      "before": "6315340890793b7883928dcd9ee7071c29d76321",
+      "after": "80ee525a11fda62ad43acffbfa815a07829313cd"
+    },
+    {
+      "path": "tests/checkpoint_tail_generation_integrity.rs",
+      "status": "A",
+      "before": null,
+      "after": "df0aefe1a70e8253652bb4a112c4e988c9f5701a"
+    }
+  ],
+  "file_readback": [
+    {
+      "path": "src/service/checkpoint/set_v2.rs",
+      "blob": "400b16da2f88aa9f35fcf6e31b94444ea665aa2f",
+      "sha256": "220eac6cf03c67833071c8b921d54f1e5e5a93cde1e661c491c487dd3f59e84f"
+    },
+    {
+      "path": "tests/attempt_receipt_checkpoint_integrity.rs",
+      "blob": "5c09fc050e13874ad443b8937a9e4b50c3de9c56",
+      "sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2"
+    },
+    {
+      "path": "tests/checkpoint_set_v2_conformance.rs",
+      "blob": "80ee525a11fda62ad43acffbfa815a07829313cd",
+      "sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58"
+    },
+    {
+      "path": "tests/checkpoint_tail_generation_integrity.rs",
+      "blob": "df0aefe1a70e8253652bb4a112c4e988c9f5701a",
+      "sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705"
+    }
+  ],
+  "production_prefix": {
+    "path": "src/service/checkpoint/set_v2.rs",
+    "bytes": 47227,
+    "sha256": "310974bfae112134b290f4c8040b7f68994e009d207ff2a1a470af22145be538",
+    "baseline_file_sha256": "eae52fc4a02eecb1452bc07f967861e50f86afa9872b88d43080dc86069092a8"
+  },
+  "author_inspections": [
+    {
+      "number": 1,
+      "scope": "Complete corrected tests-first/repair diffs and six regressions, including the complete legacy setup, both restore paths and related published source contracts.",
+      "statement": "I retraced every staging count/duplicate check and the real outcome-restore assertions. I checked that the legacy selected generation restores successfully before publication, its source bytes remain unchanged by verification, and only the later selected-tail equality supplies the expected Red marker. I checked the unchanged production algorithms, new writer call and every related comment/spec correction. No remaining author finding.",
+      "result": "clean"
+    },
+    {
+      "number": 2,
+      "scope": "Complete final source/test-stage boundary, full patch reconstruction, all artifact bindings, README, regression design, manifest, static checks, source-path scan and review disposition.",
+      "statement": "I confirmed that tests-first keeps the original production prefix and specification, repair keeps every accepted test/helper byte, the five-file scope holds, and both patch paths reconstruct the same full files. I checked required full-suite separation, MSVC-first/fallback wording, immutable build/native pin requirements and cleanup. I distinguished static checks from pending compiler, test and Windows evidence. No remaining author finding.",
+      "result": "clean"
+    }
+  ],
+  "checks": {
+    "exact_four_file_scope": "passed",
+    "full_file_readback": "passed",
+    "baseline_production_prefix": "passed",
+    "static_added_line_whitespace": "passed",
+    "git_diff_check": "pending explicit hosted preflight; no local Git command was available",
+    "compilation": "pending separate task",
+    "expected_failures": "pending separate task"
+  },
+  "test_counts": {
+    "new_regressions": 6,
+    "executed": 0
+  },
+  "tool_operations": [
+    "read current branch ref",
+    "create four exact test blobs",
+    "create baseline-derived tree",
+    "read entire recursive tree and compare all blobs",
+    "create direct-descendant commit",
+    "normal expected-head update",
+    "read all four files and commit/ref/compare metadata"
+  ],
+  "open_items": [
+    "Run actual git diff --check in the reviewed hosted compile preflight.",
+    "Compile the exact test candidate in the separate checkpoint-red-build task.",
+    "Execute and classify all six expected failures in checkpoint-red-checks.",
+    "Complete independent test acceptance before applying production repair.",
+    "Reconcile provisional outputs to actual native task IDs and guarded states before installation or delivery."
+  ],
+  "cleanup": "Root retains ownership of final task-branch integration and cleanup. Future agents must reconcile uncertain operations and remove only owned temporary branches/worktrees after accepted evidence is durable."
+}
