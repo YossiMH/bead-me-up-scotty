@@ -1,0 +1,83 @@
+{
+    "schema_version":  1,
+    "status":  "failed",
+    "started_utc":  "2026-11-25T03:34:50.2979334Z",
+    "repository":  "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty",
+    "source_revision_reported":  "38c21a77b4e875d75e17ee68683846601df33591",
+    "port":  43971,
+    "priority":  "BelowNormal",
+    "timeout_seconds":  180,
+    "node_heap_mib":  256,
+    "owned_resident_limit_mib":  512,
+    "interactive_session_id":  1,
+    "cases":  [
+
+              ],
+    "cleanup":  "failed",
+    "identity_observations":  [
+                                  {
+                                      "observed_utc":  "2026-11-25T03:34:51.1992153Z",
+                                      "kind":  "controller",
+                                      "recorded_pid":  57732,
+                                      "process_id":  57732,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-25T03:34:51.0629459Z",
+                                      "birth_ms":  1795577691062,
+                                      "recorded_started_after":  1795577690840.8276,
+                                      "recorded_at":  1795577691113,
+                                      "has_exited":  false
+                                  }
+                              ],
+    "user_interactive":  true,
+    "boundaries":  {
+                       "consoles":  "An external preload sets windowsHide on owned Node child launches.",
+                       "forms":  "Real NotifyIcon, real ExitItem.PerformClick and normal helper disposal.",
+                       "registry":  "Each case uses its own XDG_CONFIG_HOME.",
+                       "restart":  "An external preload exits the actual Next child with code 75 after HTTP readiness; no update/build command."
+                   },
+    "explorer_process_ids":  [
+                                 8452
+                             ],
+    "next_version":  "16.3.8",
+    "build_id":  "Eox2_s2VuIuWWAISvMqKK",
+    "source_sha256":  {
+                          "scripts\\fixtures\\windows-tray-observer.mjs":  "02ec2ee65cd737ba4d46f4f9d1b291f85bf7fa937e3aca3a6dd0d80063e6e243",
+                          "scripts\\test-windows-tray-smoke.ps1":  "f0f065541fec53fc720350cca7cc533e52207657c230da2457e74ec469aaedac",
+                          "scripts\\fixtures\\windows-tray-click.ps1":  "b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9",
+                          "bin\\windows-tray.ps1":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+                          "bin\\windows-tray.mjs":  "a947ec77a5d742f3d735288483dcf0f54e5b057ec7d3b64370e656b878fea611",
+                          "bin\\server-controller.mjs":  "89bc2e928407d195c512597e3e315f5005d4723763968d1dbb93ff950e89ceb5",
+                          "scripts\\serve.mjs":  "a66b3e7d24499e5c4ce8f24d64b0acd54a90717dab613bc74cb63527e7ef0865"
+                      },
+    "evidence_directory":  "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2",
+    "job_helper_sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "driver_copy":  {
+                        "sha256":  "f0f065541fec53fc720350cca7cc533e52207657c230da2457e74ec469aaedac",
+                        "removed":  true,
+                        "source":  "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty\\scripts\\test-windows-tray-smoke.ps1",
+                        "executed":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-driver-9fae9f5a26364ab2a9e6f630e5b3c8c7\\test-windows-tray-smoke.ps1"
+                    },
+    "error":  "Owned process identity or record verification failed.",
+    "processes":  [
+                      {
+                          "exit_code":  1,
+                          "priority":  "BelowNormal",
+                          "process_id":  47660,
+                          "started_utc":  "2026-11-25T03:34:50.7055932Z",
+                          "session_id":  1,
+                          "kind":  "smoke-runner"
+                      }
+                  ],
+    "measurements":  {
+                         "max_live_servers":  0,
+                         "heartbeat_utc":  "\/Date(1795577690760)\/",
+                         "peak_resident_bytes":  218394624
+                     },
+    "cleanup_errors":  [
+                           "Controller parent identity no longer matches. (F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\temp\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\exit\\controller.json)"
+                       ],
+    "completed_utc":  "2026-11-25T03:34:51.8031192Z",
+    "elapsed_seconds":  1.505
+}

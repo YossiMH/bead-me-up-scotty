@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plan_sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
-  "canonical_state": "revision5_materialized; accepted provisional results awaiting guarded closure",
+  "canonical_state": "revision5_materialized; four accepted checkpoint foundation tasks closed with guarded readback; tray repair invalidated by actual startup failure, guarded reopen pending",
   "native_ids_for_new_tasks": {
     "checkpoint-tests": "beadrs-940d77c6",
     "checkpoint-red-build": "beadrs-0eaf8a73",
@@ -84,6 +84,31 @@
       "tray_status": "deferred_memory",
       "free_physical_bytes": 654069760,
       "task_created": false
+    },
+    {
+      "action": "record four accepted checkpoint foundation results",
+      "proposal_id": "dQA1rpBV9b4d8P3z-EWsmWwuYhEMocv_U2eZNZktbH8",
+      "status": "completed and independently read back",
+      "result_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "database_written": true
+    },
+    {
+      "action": "memory-gated tray diagnostic",
+      "proposal_id": "hbgos2z_CuEA5G-1q6pOGgtWSF1XZLsxEasU6P6FQ2o",
+      "status": "finished failed app test",
+      "native_task": "ChatGPT-BeadEditing-TrayIdentityWait-20261125-v1",
+      "task_state": 3,
+      "task_result": 1,
+      "result_sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+      "retry_allowed": false
+    },
+    {
+      "action": "read actual tray failure logs and owned process cleanup",
+      "proposal_id": "bikWt9r690lpCfsF1gkggCCbK7JT430xqNK0OZt8VNg",
+      "status": "exited0",
+      "database_written": false,
+      "all_recorded_pids_absent": true,
+      "port43971_free": true
     }
   ],
   "assignments": [
@@ -94,66 +119,73 @@
       "native_id": "beadrs-940d77c6",
       "source_candidate": "bb0638535172dead8f648b4a4944dddc6175f832",
       "review": "7cf293ae3747eb405ae81d05f7e499dbe3ca9491032529dd3db43bf65ed9ffd3",
-      "next_action": "Accept actual Red execution and independent test review before applying the separately reviewed production repair.",
+      "next_action": "Preserve exact result and history; task complete.",
       "source_result": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
-      "status": "tests-only source published and independently reconciled; no production repair applied",
-      "native_status": "open",
-      "native_revision": 1
+      "status": "accepted output closed in canonical native store",
+      "native_status": "closed",
+      "native_revision": 2,
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9"
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-tests-review",
       "worker": "/root/delivery_review",
       "mode": "provisional independent review",
       "native_id": "beadrs-b1038d26",
-      "status": "static candidate accepted; actual Red results required before final test acceptance",
-      "native_status": "open",
-      "native_revision": 1
+      "status": "accepted output closed in canonical native store",
+      "native_status": "closed",
+      "native_revision": 2,
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "next_action": "Preserve exact result and history; task complete."
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-red-build",
       "worker": "/root/browser_finish",
       "native_id": "beadrs-0eaf8a73",
       "mode": "provisional accepted hosted compilation",
-      "status": "accepted corrected compile output; native closure pending",
+      "status": "accepted output closed in canonical native store",
       "source": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
       "run_id": 45535362756,
       "job_id": 138940518590,
       "build_report_sha256": "24085cfbd33d3bb942dbb58decc24b0988934a4dfe7ea00cbb13ce53298a5dcb",
       "outer_report_sha256": "a603191a83d0acac5cedeeb5df6a3d3a75e96456650fe52a15d0d2a1d2d39df1",
       "tests_executed": false,
-      "next_action": "Retain the failed first run and successful corrected bundle; record accepted result with current native revision.",
-      "native_status": "open",
-      "native_revision": 1,
+      "next_action": "Preserve exact result and history; task complete.",
+      "native_status": "closed",
+      "native_revision": 2,
       "accepted_run": 45537110469,
       "accepted_job": 138946295563,
       "accepted_build_report_sha256": "1e3291003588d67271c0f9813514b26fed8ec34f1be714a8a96b725b45669e71",
       "accepted_outer_report_sha256": "cb1c7dc7d7fd32e920094b4f43fabf42ef982a7d5a735a17cf4c25a210bfeb90",
-      "artifact_id": 14986424212
+      "artifact_id": 14986424212,
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9"
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-red-checks",
       "worker": "/root/browser_finish",
       "native_id": "beadrs-ce0423c1",
-      "native_status": "open",
-      "native_revision": 1,
+      "native_status": "closed",
+      "native_revision": 2,
       "mode": "accepted cloud execution reconciled to actual ID",
-      "status": "passed_expected_failures; complete retained raw streams being reviewed",
+      "status": "accepted output closed in canonical native store",
       "run_id": 45538872739,
       "job_id": 138952174706,
       "result_sha256": "53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168",
       "expected_failures": 6,
-      "artifact_id": 14988212379
+      "artifact_id": 14988212379,
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "next_action": "Preserve exact result and history; task complete."
     }
   ],
   "resource_reservations": {
     "backend_source_writer": "/root/browser_finish",
     "canonical_pc_writer": "/root",
-    "linux_build": "/root/browser_finish owns current Red build/check; future Green build/full suite remain behind accepted repair",
-    "windows_build": "/root/checkpoint_finish prepares packet only; execution remains behind accepted repair",
-    "pc_app_check": "root only; latest attempt after successful native readback deferred_memory654069760bytes, task_created:false; immediate3GiB launch guard and512MiB aggregate remain required"
+    "linux_build": "/root/browser_finish owns final515b503b source build45542149965/job138962980149, followed by independent full suite and corpus qualification",
+    "windows_build": "/root/checkpoint_finish owns reviewed Windows packet and forthcoming build/check; independent review pending",
+    "pc_app_check": "No app/process remains running. Actual source38 tray failed startup at03:34:50Z despite7.77GB free; peak218394624bytes. New concrete repair must pass hosted checks and independent review before a fresh3GiB/512MiB actualPC run.",
+    "tray_source_writer": "/root"
   },
-  "cleanup_if_interrupted": "Reconcile exact proposal IDs and materialization markers before any replay. Canonical native task state remains solely F:/Dev/.bead-edit-20261111/coordination-20261124 until the accepted same-UUID merge. Preserve source/results and original954 records,15dirty app files, config/index and old pin. Cloud filesystem is unavailable; do not claim worktrees removed. When available, verify status/publication and use Riftri from the parent clones to remove only /workspace/library-files/beads-build-temporary-3160/worktrees/bead-completion and /workspace/scratch/3160e3ba3d24/worktrees/scotty-completion, without force; remove the exact compatibility symlink afterward. Retain full browser ZIP before expiry. Once evidence is durable, reconcile and delete this task's exact stopped Windows task definitions, owned session caches and temporary CI/transfer/helper/candidate branches after verifying their expected heads. Never remove unrelated processes, tasks or dirty/unpublished work. Also retain the browser-retain, checkpoint-red-build-v2, checkpoint-red-diagnose, checkpoint-red-check and its raw-stream extraction branches until exact receipts are durably copied; remove task definitions for both materialization attempts only after result reconciliation. Final native result now exists: never rerun materialization.",
-  "updated_utc": "2026-11-25T03:20:00Z",
+  "cleanup_if_interrupted": "Reconcile exact proposal IDs and materialization markers before any replay. Canonical native task state remains solely F:/Dev/.bead-edit-20261111/coordination-20261124 until the accepted same-UUID merge. Preserve source/results and original954 records,15dirty app files, config/index and old pin. Cloud filesystem is unavailable; do not claim worktrees removed. When available, verify status/publication and use Riftri from the parent clones to remove only /workspace/library-files/beads-build-temporary-3160/worktrees/bead-completion and /workspace/scratch/3160e3ba3d24/worktrees/scotty-completion, without force; remove the exact compatibility symlink afterward. Retain full browser ZIP before expiry. Once evidence is durable, reconcile and delete this task's exact stopped Windows task definitions, owned session caches and temporary CI/transfer/helper/candidate branches after verifying their expected heads. Never remove unrelated processes, tasks or dirty/unpublished work. Also retain the browser-retain, checkpoint-red-build-v2, checkpoint-red-diagnose, checkpoint-red-check and its raw-stream extraction branches until exact receipts are durably copied; remove task definitions for both materialization attempts only after result reconciliation. Final native result now exists: never rerun materialization. Preserve the failed source38 real tray startup result and completed foundation closure; never replay those jobs. A replacement tray architecture and its installer allowance require fresh exact checks. Include checkpoint-linux-build-v2 and checkpoint-windows-packet task branches in eventual cleanup.",
+  "updated_utc": "2026-11-25T03:50:07.827Z",
   "preserved_browser_output": {
     "run_id": 45517446104,
     "artifact_id": 14978387944,
@@ -216,5 +248,197 @@
     "tasks": 32,
     "blocking_edges": 51,
     "commit_manifest_sha256": "93a044747e7e24589498cd8c5025fb93ae8d14b6508effe77f5b8dba7ad6f9fd"
+  },
+  "native_snapshot": [
+    {
+      "id": "beadrs-3f06f163",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-42379588",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-fa756e78",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-0b3a11f9",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-37f8c2bb",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-08532231",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-9422c821",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-ea7bc5dd",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-ba8cbd23",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-1371879c",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-f0039a6a",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "id": "beadrs-30f13b5b",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-c62c1990",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "id": "beadrs-3ec972f8",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "id": "beadrs-417f998c",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-22b44782",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-f588ab27",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-a7df9f15",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "id": "beadrs-940d77c6",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-0eaf8a73",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-ce0423c1",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-b1038d26",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "id": "beadrs-b72dc0dc",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "id": "beadrs-9c6d0088",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "id": "beadrs-70721b6a",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "id": "beadrs-50ff08d3",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "id": "beadrs-cd3f5a63",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "id": "beadrs-aee6eabb",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "id": "beadrs-0890de3c",
+      "status": "open",
+      "revision": 1
+    }
+  ],
+  "backend_current_candidate": {
+    "commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+    "repair_parent": "cee3220b5e4b9a414c50379273c84759db645dbf",
+    "tests_parent": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "formatting_review_sha256": "58b141abde4fec0bf519d3d8628ced94d6e2fd3d35bfd3f6058c7fd2c95b665a",
+    "state": "Exact rustfmt-only descendant of accepted narrow repair; actual final diff/fmt receipts and qualification pending."
+  },
+  "tray_actual_failure": {
+    "source": "38c21a77b4e875d75e17ee68683846601df33591",
+    "result_sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+    "case_count": 0,
+    "controller_stderr": "Windows tray stopped unexpectedly: exit 0",
+    "actual_helpers": "PowerShell recorded; no server, READY or fixture receipt",
+    "secondary_error": "Controller already absent by later process-identity query",
+    "reconciled_pids_absent": [
+      47660,
+      57732,
+      81696
+    ],
+    "port43971_free": true,
+    "affected_closed_tasks": [
+      "tray-diagnose",
+      "tray-repair",
+      "tray-repair-checks",
+      "installer-repair"
+    ],
+    "native_reopen_status": "pending reviewed exact guarded operation; closed states above are historical current DB state, not accepted completion",
+    "next_action": "Review exact failure and minimal hostedWindows launch probe; freeze concrete repair/ownership updates, update accepted full plan and guarded native states, then repeat affected checks."
   }
 }

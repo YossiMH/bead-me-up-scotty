@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "readback": {
+    "files": [
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\existing-smoke\\stdout.log",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "text": ""
+      },
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\existing-smoke\\stderr.log",
+        "sha256": "ede514ea27c14f952b9cccee77408391b644afcd2d3edf6d38e03275e519ba93",
+        "text": "Tray smoke evidence: F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\temp\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\r\nController exited before starting its children; inspect the retained logs\r\nAt C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-driver-9fae9f5a26364ab2a9e6f630e5b3c8c7\\test-windows-tray-smo\r\nke.ps1:117 char:43\r\n+ ... asExited) { throw 'Controller exited before starting its children; in ...\r\n+                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : OperationStopped: (Controller exit...e retained logs:String) [], RuntimeException\r\n    + FullyQualifiedErrorId : Controller exited before starting its children; inspect the retained logs\r\n \r\n"
+      },
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\temp\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\exit\\stdout.log",
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "text": "\r\n"
+      },
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\temp\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\exit\\stderr.log",
+        "sha256": "39a758c9403048be7b008f727d6c9f28ffba09bd9986bbc542621c4af86a1e7d",
+        "text": "Windows tray stopped unexpectedly: exit 0\n\r\n"
+      },
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\temp\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\exit\\controller.json",
+        "sha256": "2d0635e45bd332ab16fb541b0bb2c035124d545dcc4a193f016962df3f319c36",
+        "text": "{\"kind\":\"controller\",\"pid\":57732,\"parentPid\":47660,\"command\":\"C:\\\\Program Files\\\\nodejs\\\\node.exe\",\"startedAfter\":1795577690840.8276,\"recordedAt\":1795577691113}"
+      },
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\temp\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\exit\\processes.jsonl",
+        "sha256": "d7e2fe701c9656cb49d517b8b33be1a0902a40ec503cb51f900751fb2f7e5e8b",
+        "text": "{\"kind\":\"tray\",\"pid\":81696,\"command\":\"C:\\\\WINDOWS\\\\System32\\\\WindowsPowerShell\\\\v1.0\\\\powershell.exe\",\"args\":[\"-NoLogo\",\"-NoProfile\",\"-NonInteractive\",\"-STA\",\"-WindowStyle\",\"Hidden\",\"-File\",\"C:\\\\Users\\\\YossiMH\\\\AppData\\\\Local\\\\bead-me-up-scotty\\\\tray-smoke\\\\session-U3KC70\\\\windows-tray-click.ps1\",\"-FixtureDirectory\",\"C:\\\\Users\\\\YossiMH\\\\AppData\\\\Local\\\\bead-me-up-scotty\\\\tray-smoke\\\\session-U3KC70\",\"-TrayScript\",\"C:\\\\Users\\\\YossiMH\\\\AppData\\\\Local\\\\bead-me-up-scotty\\\\tray\\\\session-YqpVh1\\\\windows-tray.ps1\",\"-ParentProcessId\",\"57732\",\"-Url\",\"http://127.0.0.1:43971\",\"-ExitFile\",\"F:\\\\Dev\\\\.bead-edit-20261111\\\\tray-results-20261124\\\\repaired-identity-v2\\\\temp\\\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\\\exit\\\\click-exit\",\"-ReceiptFile\",\"F:\\\\Dev\\\\.bead-edit-20261111\\\\tray-results-20261124\\\\repaired-identity-v2\\\\temp\\\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\\\exit\\\\icon-receipt.json\"],\"windowsHide\":true,\"helperScript\":\"C:\\\\Users\\\\YossiMH\\\\AppData\\\\Local\\\\bead-me-up-scotty\\\\tray\\\\session-YqpVh1\\\\windows-tray.ps1\",\"helperScriptSha256\":\"46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb\",\"startedAfter\":1795577691125,\"recordedAt\":1795577691140}\n"
+      },
+      {
+        "exists": false,
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\temp\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\exit\\icon-receipt.json"
+      }
+    ],
+    "recorded_processes": [
+      {
+        "exists": false,
+        "pid": 47660
+      },
+      {
+        "exists": false,
+        "pid": 57732
+      },
+      {
+        "exists": false,
+        "pid": 81696
+      }
+    ],
+    "port43971_free": true,
+    "read_only": true
+  },
+  "encoding_note": "sha256 values describe raw Windows files. text values are ReadAllText-decoded Unicode; their UTF-8 encodings may differ from the raw-file bytes and hashes.",
+  "gate_readback": {
+    "files": [
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\identity-wait-v1\\gate-result.json",
+        "sha256": "e3620fe6f397d3d0be1e353ed473edb5db5ce14464935ea49137744da2962324",
+        "text": "{\"status\":\"failed\",\"detail\":\"Tray smoke did not pass; inspect its retained result.\",\"app_launched\":true,\"started_utc\":\"2026-11-25T03:34:48.7965844Z\",\"finished_utc\":\"2026-11-25T03:34:51.8106295Z\",\"evidence_directory\":\"F:\\\\Dev\\\\.bead-edit-20261111\\\\tray-results-20261124\\\\repaired-identity-v2\",\"minimum_launch_free_bytes\":3221225472,\"wait_limit_seconds\":600,\"sample_interval_seconds\":15,\"smoke_limit_seconds\":180,\"owned_resident_limit_mib\":512}"
+      },
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\identity-wait-v1\\launch.json",
+        "sha256": "5afe58dfce8e7e45841a906647d06ad3d4fb180cccc8f28e7b923802b6fc9227",
+        "text": "{\"utc\":\"2026-11-25T03:34:50.2091531Z\",\"free_physical_bytes\":7771205632,\"script_sha256\":\"64ed248e8de69ea53f18ee0a4643edc9bb9e7e1f1b18667104b14b6b698491c6\"}"
+      },
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\identity-wait-v1\\memory-samples.jsonl",
+        "sha256": "061ec9dfdaedb2aaef09437f6fa34f4b686860d21497b17a3aa4d7f7dab5684c",
+        "text": "{\"utc\":\"2026-11-25T03:34:49.2105750Z\",\"free_physical_bytes\":7809298432,\"gate_resident_bytes\":91926528}\r\n"
+      },
+      {
+        "path": "F:\\Dev\\.bead-edit-20261111\\tray-results-20261124\\repaired-identity-v2\\result.json",
+        "sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+        "text": "{\r\n    \"schema_version\":  1,\r\n    \"status\":  \"failed\",\r\n    \"started_utc\":  \"2026-11-25T03:34:50.2979334Z\",\r\n    \"repository\":  \"F:\\\\Dev\\\\.bead-edit-20261111\\\\stage-v6\\\\scotty\",\r\n    \"source_revision_reported\":  \"38c21a77b4e875d75e17ee68683846601df33591\",\r\n    \"port\":  43971,\r\n    \"priority\":  \"BelowNormal\",\r\n    \"timeout_seconds\":  180,\r\n    \"node_heap_mib\":  256,\r\n    \"owned_resident_limit_mib\":  512,\r\n    \"interactive_session_id\":  1,\r\n    \"cases\":  [\r\n\r\n              ],\r\n    \"cleanup\":  \"failed\",\r\n    \"identity_observations\":  [\r\n                                  {\r\n                                      \"observed_utc\":  \"2026-11-25T03:34:51.1992153Z\",\r\n                                      \"kind\":  \"controller\",\r\n                                      \"recorded_pid\":  57732,\r\n                                      \"process_id\":  57732,\r\n                                      \"command\":  \"C:\\\\Program Files\\\\nodejs\\\\node.exe\",\r\n                                      \"expected_name\":  \"node\",\r\n                                      \"actual_name\":  \"node\",\r\n                                      \"creation_time_utc\":  \"2026-11-25T03:34:51.0629459Z\",\r\n                                      \"birth_ms\":  1795577691062,\r\n                                      \"recorded_started_after\":  1795577690840.8276,\r\n                                      \"recorded_at\":  1795577691113,\r\n                                      \"has_exited\":  false\r\n                                  }\r\n                              ],\r\n    \"user_interactive\":  true,\r\n    \"boundaries\":  {\r\n                       \"consoles\":  \"An external preload sets windowsHide on owned Node child launches.\",\r\n                       \"forms\":  \"Real NotifyIcon, real ExitItem.PerformClick and normal helper disposal.\",\r\n                       \"registry\":  \"Each case uses its own XDG_CONFIG_HOME.\",\r\n                       \"restart\":  \"An external preload exits the actual Next child with code 75 after HTTP readiness; no update/build command.\"\r\n                   },\r\n    \"explorer_process_ids\":  [\r\n                                 8452\r\n                             ],\r\n    \"next_version\":  \"16.3.8\",\r\n    \"build_id\":  \"Eox2_s2VuIuWWAISvMqKK\",\r\n    \"source_sha256\":  {\r\n                          \"scripts\\\\fixtures\\\\windows-tray-observer.mjs\":  \"02ec2ee65cd737ba4d46f4f9d1b291f85bf7fa937e3aca3a6dd0d80063e6e243\",\r\n                          \"scripts\\\\test-windows-tray-smoke.ps1\":  \"f0f065541fec53fc720350cca7cc533e52207657c230da2457e74ec469aaedac\",\r\n                          \"scripts\\\\fixtures\\\\windows-tray-click.ps1\":  \"b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9\",\r\n                          \"bin\\\\windows-tray.ps1\":  \"46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb\",\r\n                          \"bin\\\\windows-tray.mjs\":  \"a947ec77a5d742f3d735288483dcf0f54e5b057ec7d3b64370e656b878fea611\",\r\n                          \"bin\\\\server-controller.mjs\":  \"89bc2e928407d195c512597e3e315f5005d4723763968d1dbb93ff950e89ceb5\",\r\n                          \"scripts\\\\serve.mjs\":  \"a66b3e7d24499e5c4ce8f24d64b0acd54a90717dab613bc74cb63527e7ef0865\"\r\n                      },\r\n    \"evidence_directory\":  \"F:\\\\Dev\\\\.bead-edit-20261111\\\\tray-results-20261124\\\\repaired-identity-v2\",\r\n    \"job_helper_sha256\":  \"2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f\",\r\n    \"driver_copy\":  {\r\n                        \"sha256\":  \"f0f065541fec53fc720350cca7cc533e52207657c230da2457e74ec469aaedac\",\r\n                        \"removed\":  true,\r\n                        \"source\":  \"F:\\\\Dev\\\\.bead-edit-20261111\\\\stage-v6\\\\scotty\\\\scripts\\\\test-windows-tray-smoke.ps1\",\r\n                        \"executed\":  \"C:\\\\Users\\\\YossiMH\\\\AppData\\\\Local\\\\bead-edit-20261111\\\\tray-driver-9fae9f5a26364ab2a9e6f630e5b3c8c7\\\\test-windows-tray-smoke.ps1\"\r\n                    },\r\n    \"error\":  \"Owned process identity or record verification failed.\",\r\n    \"processes\":  [\r\n                      {\r\n                          \"exit_code\":  1,\r\n                          \"priority\":  \"BelowNormal\",\r\n                          \"process_id\":  47660,\r\n                          \"started_utc\":  \"2026-11-25T03:34:50.7055932Z\",\r\n                          \"session_id\":  1,\r\n                          \"kind\":  \"smoke-runner\"\r\n                      }\r\n                  ],\r\n    \"measurements\":  {\r\n                         \"max_live_servers\":  0,\r\n                         \"heartbeat_utc\":  \"\\/Date(1795577690760)\\/\",\r\n                         \"peak_resident_bytes\":  218394624\r\n                     },\r\n    \"cleanup_errors\":  [\r\n                           \"Controller parent identity no longer matches. (F:\\\\Dev\\\\.bead-edit-20261111\\\\tray-results-20261124\\\\repaired-identity-v2\\\\temp\\\\scotty-tray-smoke-9397835acb3847b89ff4539bf86dee8a\\\\exit\\\\controller.json)\"\r\n                       ],\r\n    \"completed_utc\":  \"2026-11-25T03:34:51.8031192Z\",\r\n    \"elapsed_seconds\":  1.505\r\n}"
+      }
+    ],
+    "task_state": 3,
+    "task_result": 1,
+    "timestamp_utc": "2026-11-25T03:37:03.6323163Z"
+  },
+  "interpretation": {
+    "primary_observation": "PowerShell exits0 before READY or fixture receipt; no Next server started.",
+    "secondary_observation": "A later CIM identity read raced controller exit; all exact recorded PIDs were subsequently absent and the port was free.",
+    "app_launched_semantics": "Gate app_launched means the smoke was invoked, not that tray or server initialized.",
+    "completion": "ActualWindows tray failed; no product acceptance."
+  }
+}
