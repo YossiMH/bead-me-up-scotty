@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "format_only_candidate",
+  "source_parent": "cee3220b5e4b9a414c50379273c84759db645dbf",
+  "reason": "Actual Rust1.100.0 cargo fmt --all -- --check reported six layout differences in three integration files.",
+  "failure": {
+    "run": 45540821169,
+    "job": 138958610935,
+    "build_result_sha256": "af743ab89e1aea7ba9f9feac8ccd5db03a5680ea5c1f7bd6bb676f42c464e9ec",
+    "outer_result_sha256": "e3aceaa220229bb44db6226dec71a0d2d00688d9272313f777f9907d6ececc75",
+    "formatter_stdout_sha256": "05e85d03ff7d3e86c7339725be98cdf4f9fce8375f110c6b8092e5e749706c59",
+    "formatter_exit": 1,
+    "repair_diff_check": {
+      "sha256": "c8f7af7a0a01306524d4f30c62cce558e51b9dede1b85cbfd222270a95e99d1e",
+      "exit_code": 0
+    }
+  },
+  "patch_sha256": "8f54b7f48fd45f8fa080019435bbcd0705c91afb4fd2155b503a2bc029cde0ca",
+  "files": [
+    {
+      "path": "tests/attempt_receipt_checkpoint_integrity.rs",
+      "before_sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+      "after_sha256": "4d8ea6a7de30da774223fb06e4817c7fb07dce6fbf69c2a78c5ee411ae8e3425"
+    },
+    {
+      "path": "tests/checkpoint_set_v2_conformance.rs",
+      "before_sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+      "after_sha256": "20fd293a3484c689e70a02f2c162508a3d7a1bda9eecf142fdb8ea2fefc736f2"
+    },
+    {
+      "path": "tests/checkpoint_tail_generation_integrity.rs",
+      "before_sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705",
+      "after_sha256": "4cc62663252b25b9538d703718ca8b439bc57c32455484dbed95f83d0460b2af"
+    }
+  ],
+  "semantic_check": {
+    "hunks": 6,
+    "whitespace_only_hunks": 5,
+    "optional_trailing_comma_hunks": 1,
+    "optional_comma_location": "checkpoint_set_v2_conformance.rs:1179, sole argument of PathBuf::join",
+    "unchanged": [
+      "assertion arguments and values",
+      "fixture data",
+      "test names and control flow",
+      "production Rust source",
+      "specification",
+      "all other tracked files"
+    ]
+  },
+  "author_inspections": [
+    {
+      "number": 1,
+      "scope": "Complete three final integration files and all six exact observed rustfmt hunks.",
+      "checks": [
+        "Each retained old block matched uniquely; each replacement equals the actual formatter output.",
+        "Five hunks change only whitespace; one also inserts the formatter's optional trailing function-argument comma.",
+        "All assertions, fixture data, identifiers and execution order are identical."
+      ],
+      "findings": []
+    },
+    {
+      "number": 2,
+      "scope": "Complete final files, baseline comparison, patch and actual failure/whitespace receipts.",
+      "checks": [
+        "Cumulative authorized path set remains five; this follow-up touches only three existing integration files.",
+        "Production source/spec and unit test module hashes remain exactly the accepted repair.",
+        "Red evidence remains tied to its actual unformatted source; Green builds rerun at the formatted descendant."
+      ],
+      "findings": []
+    }
+  ],
+  "pending": [
+    "Independent formatting-patch review",
+    "Ordinary descendant source publication",
+    "Rebound reviewed Linux/Windows qualification"
+  ],
+  "cleanup": "Root/future agents retain failed and accepted outputs, then clean owned task branches/worktrees after delivery."
+}

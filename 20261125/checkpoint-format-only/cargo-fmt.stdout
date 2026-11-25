@@ -1,0 +1,69 @@
+Diff in /home/runner/work/_temp/bead-checkpoint-linux-build-45540821169-1/source/tests/attempt_receipt_checkpoint_integrity.rs:280:
+     );
+     let report: Value = serde_json::from_slice(&output.stdout).expect("restore report");
+     assert_eq!(report["generation_id"], pointer["generation_id"]);
+-    assert_eq!(report["source_root_sha256"], pointer["active_root"]["sha256"]);
++    assert_eq!(
++        report["source_root_sha256"],
++        pointer["active_root"]["sha256"]
++    );
+     assert_eq!(report["source_store_uuid"], pointer["store_uuid"]);
+     assert_eq!(report["target_store_uuid"], pointer["store_uuid"]);
+     assert_eq!(report["non_empty_override"], false);
+Diff in /home/runner/work/_temp/bead-checkpoint-linux-build-45540821169-1/source/tests/checkpoint_set_v2_conformance.rs:1179:
+     // seal exactly those bytes under their content address (spec 6.2
+     // retains the selected tail until 7.4 step 4 can reap it).
+     let mut old_tail_sha = sha256_file(
+-        &checkpoint_dir.join(current_manifest(workspace)["tail"]["path"].as_str().unwrap()),
++        &checkpoint_dir.join(
++            current_manifest(workspace)["tail"]["path"]
++                .as_str()
++                .unwrap(),
++        ),
+     );
+     let mut sealed = false;
+     for round in 0..240 {
+Diff in /home/runner/work/_temp/bead-checkpoint-linux-build-45540821169-1/source/tests/checkpoint_set_v2_conformance.rs:1225:
+         // The next round's outgoing tail: what its first flush will seal
+         // if this round's appends left it under SEG_SEAL and the next one
+         // crosses.
+-        old_tail_sha = sha256_file(&checkpoint_dir.join(manifest["tail"]["path"].as_str().unwrap()));
++        old_tail_sha =
++            sha256_file(&checkpoint_dir.join(manifest["tail"]["path"].as_str().unwrap()));
+     }
+     assert!(sealed, "tail never sealed during the idempotency probe");
+ }
+Diff in /home/runner/work/_temp/bead-checkpoint-linux-build-45540821169-1/source/tests/checkpoint_tail_generation_integrity.rs:90:
+         )
+         .unwrap();
+         assert_eq!(report["generation_id"], selected["generation_id"]);
+-        assert_eq!(report["source_root_sha256"], selected["active_root"]["sha256"]);
++        assert_eq!(
++            report["source_root_sha256"],
++            selected["active_root"]["sha256"]
++        );
+         assert_eq!(report["issues_restored"], selected["issue_count"]);
+         assert_eq!(report["non_empty_override"], false);
+         let verified_inventory = run(verified.path(), &["list", "--all", "--json"]).stdout;
+Diff in /home/runner/work/_temp/bead-checkpoint-linux-build-45540821169-1/source/tests/checkpoint_tail_generation_integrity.rs:132:
+         fs::read(source.path().join(".beads/config.json")).unwrap(),
+         original_config
+     );
+-    let new_manifest = read_json(&checkpoint.join(advanced["active_root"]["path"].as_str().unwrap()));
++    let new_manifest =
++        read_json(&checkpoint.join(advanced["active_root"]["path"].as_str().unwrap()));
+     assert_ne!(new_manifest["tail"]["path"], manifest["tail"]["path"]);
+     assert_eq!(
+         new_manifest["segments"].as_array().unwrap().len(),
+Diff in /home/runner/work/_temp/bead-checkpoint-linux-build-45540821169-1/source/tests/checkpoint_tail_generation_integrity.rs:160:
+     )
+     .unwrap();
+     assert_eq!(report["generation_id"], selected["generation_id"]);
+-    assert_eq!(report["source_root_sha256"], selected["active_root"]["sha256"]);
++    assert_eq!(
++        report["source_root_sha256"],
++        selected["active_root"]["sha256"]
++    );
+     assert_eq!(report["issues_restored"], selected["issue_count"]);
+     assert_eq!(report["events_restored"], selected["event_count"]);
+     assert_eq!(report["non_empty_override"], false);
