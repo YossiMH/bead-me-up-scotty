@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "status": "candidate_ready_for_independent_review",
+  "author": "/root/tray_finish",
+  "created_utc": "2026-11-25T00:54:47.886658+00:00",
+  "task_id": "beadrs-ea7bc5dd",
+  "purpose": "Capture the actual process name and creation identity at the existing failed outer assertion. The exact mismatch cause remains unknown.",
+  "candidate": {
+    "path": "/workspace/scratch/3160e3ba3d24/transfer/windows-tray-smoke-identity-20261125.ps1",
+    "sha256": "64ed248e8de69ea53f18ee0a4643edc9bb9e7e1f1b18667104b14b6b698491c6",
+    "bytes": 36300,
+    "lines": 616
+  },
+  "original": {
+    "path": "/workspace/scratch/3160e3ba3d24/transfer/windows-tray-smoke.ps1",
+    "sha256": "43c0b6887164a4f5d14f19552db8af576c80a024a3d58f7de879dbec832e2f80",
+    "bytes": 35320,
+    "lines": 601,
+    "preserved": true
+  },
+  "change": {
+    "added_lines": 17,
+    "removed_lines": 2,
+    "diff_path": "/workspace/scratch/3160e3ba3d24/coordination/results/windows-tray-identity.diff",
+    "diff_sha256": "2e6933c340e474dc93f171c9a2b995b2bd3a0276af101a5d35ba317d9c07ea41",
+    "fields": [
+      "observed_utc",
+      "kind",
+      "recorded_pid",
+      "process_id",
+      "command",
+      "expected_name",
+      "actual_name",
+      "creation_time_utc",
+      "birth_ms",
+      "recorded_started_after",
+      "recorded_at",
+      "has_exited"
+    ],
+    "assertion": "The same case-insensitive equality compares the single captured ProcessName value against the existing filename-without-extension expectation. Failure includes the same captured JSON object; it is also retained in result.identity_observations."
+  },
+  "actual_failure": {
+    "result": "/workspace/scratch/3160e3ba3d24/coordination/results/windows-tray-repaired-v1.json",
+    "diagnostic": "/workspace/scratch/3160e3ba3d24/coordination/results/tray-repaired-v1-diagnostic.json",
+    "accepted_cases": 0,
+    "elapsed_seconds": 1.671,
+    "peak_resident_bytes": 218992640,
+    "smoke_runner_pid": 72332,
+    "controller_pid": 35088,
+    "controller_parent_pid": 72332,
+    "controller_command": "C:\\Program Files\\nodejs\\node.exe",
+    "tray_pid": 56280,
+    "source_repair_sha256": "a947ec77a5d742f3d735288483dcf0f54e5b057ec7d3b64370e656b878fea611",
+    "all_recorded_pids_absent_afterward": true,
+    "port_free_afterward": true,
+    "unknown": "Neither actual ProcessName nor expected-name value at the failed assertion was retained in the original result. The producer supplies process.execPath. No concrete product or outer-comparison defect has yet been established."
+  },
+  "author_audits": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "sha256": "64ed248e8de69ea53f18ee0a4643edc9bb9e7e1f1b18667104b14b6b698491c6",
+      "method": "Read the entire 616-line candidate in two contiguous parts and the complete diff. Checked single-value capture, creation-time conversion, retained birth/name/parent/entry/session checks and final JSON serialization. Checked all existing cases, resource limits, ordinary script policy, Job containment, exact-handle cleanup and original source preservation.",
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "sha256": "64ed248e8de69ea53f18ee0a4643edc9bb9e7e1f1b18667104b14b6b698491c6",
+      "method": "Read the entire same final candidate again. Confirmed metadata adds no child launch, CIM query, new acceptance path or relaxed assertion; expected name, timestamp tolerances and process registration order are retained. Checked output retention and failed-result handling. Static byte comparison restores exactly the frozen original after removing the three intended edit blocks.",
+      "findings": []
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact_original_unchanged",
+      "status": "passed",
+      "sha256": "43c0b6887164a4f5d14f19552db8af576c80a024a3d58f7de879dbec832e2f80"
+    },
+    {
+      "name": "only_three_intended_edit_blocks",
+      "status": "passed",
+      "basis": "Removing the collection declaration, result field and snapshot block restores byte-for-byte equality with the frozen original."
+    },
+    {
+      "name": "name_and_birth_predicates_retained",
+      "status": "passed",
+      "basis": "Same ProcessName value and expected basename, same case-insensitive comparison and50ms birth tolerance."
+    },
+    {
+      "name": "trailing_whitespace",
+      "status": "passed",
+      "count": 0
+    },
+    {
+      "name": "ordinary_windows_parser",
+      "status": "pending_root"
+    },
+    {
+      "name": "actual_windows_execution",
+      "status": "pending_root_after_independent_review_and_resource_preflight"
+    }
+  ],
+  "execution_parameters": "Root retains exact app repair38, staged539 executable, LocalAppData execution with the verified sibling Job helper, fresh output/task identity, hidden BelowNormal,180 seconds,256MiB Node heap,512MiB owned RSS and at least3GiB free RAM before starting. No existing result directory is reused.",
+  "product_files_changed": false,
+  "script_body_executed": false,
+  "product_tests_or_builds_run": false,
+  "pc_calls": 0,
+  "task_store_writes": 0,
+  "git_mutations": 0,
+  "output_paths": [
+    "/workspace/scratch/3160e3ba3d24/transfer/windows-tray-smoke-identity-20261125.ps1",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/windows-tray-identity.diff",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/windows-tray-identity-author.json"
+  ],
+  "open_items": [
+    "Independent static review",
+    "Root ordinary Windows parser",
+    "If still needed and resource preflight permits, root executes the accepted candidate once and reconciles actual results before any further change."
+  ]
+}
