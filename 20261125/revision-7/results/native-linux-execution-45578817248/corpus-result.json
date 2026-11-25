@@ -1,0 +1,796 @@
+{
+  "all_original_attempt_outcomes_preserved": 413,
+  "checkpoint_configuration_unchanged": true,
+  "cleanup": {
+    "fixtures": "Retained under the owned hosted output directory.",
+    "outer_windows_job_verification_required": false
+  },
+  "command_seconds": 120,
+  "commands": [
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "--version"
+      ],
+      "cleanup": {
+        "label": "version",
+        "pid": 2232,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/probes",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:43:49.552676+00:00",
+      "label": "version",
+      "pid": 2232,
+      "started": "2026-11-25T08:43:49.537437+00:00",
+      "stderr": "logs/version.stderr",
+      "stderr_file": {
+        "bytes": 0,
+        "path": "logs/version.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": "logs/version.stdout",
+      "stdout_file": {
+        "bytes": 42,
+        "path": "logs/version.stdout",
+        "sha256": "3aeef8274ccfb389934572a1237ceac0481a52baa243f0a1d263ae3243d77072"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "capabilities"
+      ],
+      "cleanup": {
+        "label": "capabilities",
+        "pid": 2233,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/probes",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:43:49.574825+00:00",
+      "label": "capabilities",
+      "pid": 2233,
+      "started": "2026-11-25T08:43:49.563857+00:00",
+      "stderr": "logs/capabilities.stderr",
+      "stderr_file": {
+        "bytes": 0,
+        "path": "logs/capabilities.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": "logs/capabilities.stdout",
+      "stdout_file": {
+        "bytes": 8559,
+        "path": "logs/capabilities.stdout",
+        "sha256": "5b05efd94904383266bf27d2d4617fbf715ffe08d7bd80d485fdf092fc0ee84f"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "update",
+        "--help"
+      ],
+      "cleanup": {
+        "label": "update-help",
+        "pid": 2234,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/probes",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:43:49.605493+00:00",
+      "label": "update-help",
+      "pid": 2234,
+      "started": "2026-11-25T08:43:49.585582+00:00",
+      "stderr": "logs/update-help.stderr",
+      "stderr_file": {
+        "bytes": 0,
+        "path": "logs/update-help.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": "logs/update-help.stdout",
+      "stdout_file": {
+        "bytes": 5554,
+        "path": "logs/update-help.stdout",
+        "sha256": "3a309276287dbe05c4f840413457f48e801cdc56b1c524caa5b0912f7de64ac9"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "--skip-foreign-workspace",
+        "restore",
+        "--source",
+        "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/evidence/original-public-source",
+        "--generation",
+        "gen-a569f746bbb268015d996c8ed4c76f57",
+        "--actor",
+        "checkpoint-release-restored-original",
+        "--format",
+        "json"
+      ],
+      "cleanup": {
+        "label": "restored-original-restore",
+        "pid": 2235,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/restored-original",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:43:53.305926+00:00",
+      "label": "restored-original-restore",
+      "pid": 2235,
+      "started": "2026-11-25T08:43:49.623129+00:00",
+      "stderr": "logs/restored-original-restore.stderr",
+      "stderr_file": {
+        "bytes": 48362,
+        "path": "logs/restored-original-restore.stderr",
+        "sha256": "4d6852733489708577d144fe5e2da03cbbe16a9f9029be503bf91db27185691d"
+      },
+      "stdout": "logs/restored-original-restore.stdout",
+      "stdout_file": {
+        "bytes": 1233,
+        "path": "logs/restored-original-restore.stdout",
+        "sha256": "fa46608af7063b99e1b14fd6f59560696830b7f2bea66a1d8b29858b21b72f52"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "sync",
+        "flush-only"
+      ],
+      "cleanup": {
+        "label": "publish-restored-original",
+        "pid": 2236,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/restored-original",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:43:56.741181+00:00",
+      "label": "publish-restored-original",
+      "pid": 2236,
+      "started": "2026-11-25T08:43:54.266654+00:00",
+      "stderr": "logs/publish-restored-original.stderr",
+      "stderr_file": {
+        "bytes": 120,
+        "path": "logs/publish-restored-original.stderr",
+        "sha256": "0a53e6d538459a66f024102f91f79cde6c6c155e4bf3c7efebc8b88419733301"
+      },
+      "stdout": "logs/publish-restored-original.stdout",
+      "stdout_file": {
+        "bytes": 0,
+        "path": "logs/publish-restored-original.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "--skip-foreign-workspace",
+        "restore",
+        "--source",
+        "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/restored-original/.beads/checkpoint",
+        "--generation",
+        "gen-27b2f11fc989c8b396ccb755b2379b69",
+        "--actor",
+        "checkpoint-release-verify-current-before",
+        "--format",
+        "json"
+      ],
+      "cleanup": {
+        "label": "verify-current-before-restore",
+        "pid": 2238,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/verify-current-before",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:44:01.403463+00:00",
+      "label": "verify-current-before-restore",
+      "pid": 2238,
+      "started": "2026-11-25T08:43:57.824986+00:00",
+      "stderr": "logs/verify-current-before-restore.stderr",
+      "stderr_file": {
+        "bytes": 63268,
+        "path": "logs/verify-current-before-restore.stderr",
+        "sha256": "e591b27dfac344c061bb99b48485e75d0ea581705bd2ed136f04abf7559b74cf"
+      },
+      "stdout": "logs/verify-current-before-restore.stdout",
+      "stdout_file": {
+        "bytes": 1224,
+        "path": "logs/verify-current-before-restore.stdout",
+        "sha256": "ddd83a294b571d90c327913e564380c004faf12ff6a1859962f105cda3d5ef0c"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "create",
+        "--title",
+        "checkpoint release recovery fixture",
+        "--no-auto-flush"
+      ],
+      "cleanup": {
+        "label": "create-fixture",
+        "pid": 2239,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/restored-original",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:44:02.503575+00:00",
+      "label": "create-fixture",
+      "pid": 2239,
+      "started": "2026-11-25T08:44:02.486220+00:00",
+      "stderr": "logs/create-fixture.stderr",
+      "stderr_file": {
+        "bytes": 0,
+        "path": "logs/create-fixture.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": "logs/create-fixture.stdout",
+      "stdout_file": {
+        "bytes": 14,
+        "path": "logs/create-fixture.stdout",
+        "sha256": "84b8a3dddcced07d45f90c91e76cd823d415a6f41bf9dc77e5c05282b96079f6"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "sync",
+        "flush-only"
+      ],
+      "cleanup": {
+        "label": "publish-after-create",
+        "pid": 2240,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/restored-original",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:44:05.087240+00:00",
+      "label": "publish-after-create",
+      "pid": 2240,
+      "started": "2026-11-25T08:44:02.512141+00:00",
+      "stderr": "logs/publish-after-create.stderr",
+      "stderr_file": {
+        "bytes": 548,
+        "path": "logs/publish-after-create.stderr",
+        "sha256": "9e8b491be21044effdcf483b2845565a9da08aec3846b53fafbb182e6dc486ad"
+      },
+      "stdout": "logs/publish-after-create.stdout",
+      "stdout_file": {
+        "bytes": 0,
+        "path": "logs/publish-after-create.stdout",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "--skip-foreign-workspace",
+        "restore",
+        "--source",
+        "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/restored-original/.beads/checkpoint",
+        "--generation",
+        "gen-e11c53e6bf47ab0317b44ac14c9542c1",
+        "--actor",
+        "checkpoint-release-verify-current-after",
+        "--format",
+        "json"
+      ],
+      "cleanup": {
+        "label": "verify-current-after-restore",
+        "pid": 2241,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/verify-current-after",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:44:11.819002+00:00",
+      "label": "verify-current-after-restore",
+      "pid": 2241,
+      "started": "2026-11-25T08:44:06.973408+00:00",
+      "stderr": "logs/verify-current-after-restore.stderr",
+      "stderr_file": {
+        "bytes": 126726,
+        "path": "logs/verify-current-after-restore.stderr",
+        "sha256": "5a6c596331e3a7c9a5bde2d69fe8d7cd9590d34dae5f70ddd2357e78821f6e3e"
+      },
+      "stdout": "logs/verify-current-after-restore.stdout",
+      "stdout_file": {
+        "bytes": 1223,
+        "path": "logs/verify-current-after-restore.stdout",
+        "sha256": "1eace2c2a414deee83e395760c3b2e3648ad4c3fce6c606981681e3768fe6dbe"
+      },
+      "timeout_seconds": 120
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/checkpoint-linux-accepted-release-45575999107/release/bead-editing-9ffefad-linux-20261125",
+        "--skip-foreign-workspace",
+        "restore",
+        "--source",
+        "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/restored-original/.beads/checkpoint",
+        "--generation",
+        "gen-27b2f11fc989c8b396ccb755b2379b69",
+        "--actor",
+        "checkpoint-release-verify-previous-after",
+        "--format",
+        "json"
+      ],
+      "cleanup": {
+        "label": "verify-previous-after-restore",
+        "pid": 2243,
+        "remaining": false,
+        "signals": []
+      },
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1/workspaces/verify-previous-after",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:44:17.814423+00:00",
+      "label": "verify-previous-after-restore",
+      "pid": 2243,
+      "started": "2026-11-25T08:44:13.180743+00:00",
+      "stderr": "logs/verify-previous-after-restore.stderr",
+      "stderr_file": {
+        "bytes": 126726,
+        "path": "logs/verify-previous-after-restore.stderr",
+        "sha256": "5a6c596331e3a7c9a5bde2d69fe8d7cd9590d34dae5f70ddd2357e78821f6e3e"
+      },
+      "stdout": "logs/verify-previous-after-restore.stdout",
+      "stdout_file": {
+        "bytes": 1225,
+        "path": "logs/verify-previous-after-restore.stdout",
+        "sha256": "6604c50796e7229fc1935589ee6de0b5f191ae38577f229d1f5fe1d970b34202"
+      },
+      "timeout_seconds": 120
+    }
+  ],
+  "comparisons": {
+    "current_restore_after_append": {
+      "comparisons": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11267"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11266
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 955
+        },
+        "provenance_receipt": {
+          "added_ids": [
+            "restore-18eb3d468b51ea88"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "complete_original_record_index_sha256": "8c6d33f96439e02aced709662028238e4dfe1c6320ad6dec9aef2490b431b803",
+      "recovered_record_index_sha256": "bb6c096ddfc3a3d61d1db1bedd8d02157df2bc1e95efd34dce352f3320484c89",
+      "restore_additions": {
+        "local_and_origin_sequences_compared_as_distinct_fields": true,
+        "reported_local_summary_sequence": 11267,
+        "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11267",
+        "restore_receipt_id": "restore-18eb3d468b51ea88"
+      },
+      "source_fingerprint_sha256": "39805c7273fb1f1f85fcb33cc3542ef8571d4fd951cbd420a62c6631265b67e4",
+      "source_unchanged": true,
+      "status": "passed"
+    },
+    "isolated_create": {
+      "comparisons": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11265
+        },
+        "issue": {
+          "added_ids": [
+            "bead-b32baacc"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "complete_original_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "recovered_record_index_sha256": "8c6d33f96439e02aced709662028238e4dfe1c6320ad6dec9aef2490b431b803",
+      "status": "passed"
+    },
+    "original_restore": {
+      "comparisons": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11265"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11264
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [
+            "restore-18eb3d423bb20749"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 5
+        }
+      },
+      "complete_original_record_index_sha256": "c3a9498f88fde65eb89842b6e881a59fe404ca4739e0b713dac9afbbc397c9ac",
+      "recovered_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "restore_additions": {
+        "local_and_origin_sequences_compared_as_distinct_fields": true,
+        "reported_local_summary_sequence": 11265,
+        "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11265",
+        "restore_receipt_id": "restore-18eb3d423bb20749"
+      },
+      "source_fingerprint_sha256": "d3f5a831c45cac1e2b6a17a86f6d4303f71d06ed09c61810ff4e75dc691ac526",
+      "source_unchanged": true,
+      "status": "passed"
+    },
+    "previous_preserved": {
+      "comparisons": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11265
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "complete_original_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "recovered_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "status": "passed"
+    },
+    "previous_restore_after_append": {
+      "comparisons": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11265
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [
+            "restore-18eb3d47f9f5a00b"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "complete_original_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "recovered_record_index_sha256": "19e9dae57925073f963a8dc5d4773eb0932b982d18245f00a90133be066761b1",
+      "restore_additions": {
+        "local_and_origin_sequences_compared_as_distinct_fields": true,
+        "reported_local_summary_sequence": 11266,
+        "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266",
+        "restore_receipt_id": "restore-18eb3d47f9f5a00b"
+      },
+      "source_fingerprint_sha256": "39805c7273fb1f1f85fcb33cc3542ef8571d4fd951cbd420a62c6631265b67e4",
+      "source_unchanged": true,
+      "status": "passed"
+    },
+    "published_current_restore": {
+      "comparisons": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11265
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [
+            "restore-18eb3d442664c14a"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "complete_original_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "recovered_record_index_sha256": "d90205fd9d8c562bc7fd04c2498243365b6719aba9d1bd2a674fb159a2e8cea0",
+      "restore_additions": {
+        "local_and_origin_sequences_compared_as_distinct_fields": true,
+        "reported_local_summary_sequence": 11266,
+        "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266",
+        "restore_receipt_id": "restore-18eb3d442664c14a"
+      },
+      "source_fingerprint_sha256": "55ff2d702f2e9c34f29141b9093da58b5aedab39dfa04e5a28d4253cc57edd72",
+      "source_unchanged": true,
+      "status": "passed"
+    }
+  },
+  "duration_seconds": 29.713,
+  "evidence_directories": [
+    "evidence",
+    "reports",
+    "logs"
+  ],
+  "finished": "2026-11-25T08:44:18.965105+00:00",
+  "generations": {
+    "before_append": {
+      "complete_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11265,
+        "issue": 954,
+        "provenance_receipt": 6
+      },
+      "generation_id": "gen-27b2f11fc989c8b396ccb755b2379b69",
+      "imported_record_corpus_sha256": "e09ef21ac836c016a53de620dbfe5d32256d3f4cd1c9a5c1e60e5ef2017b5549",
+      "mode": "set-v2",
+      "pointer_name": "current.json",
+      "pointer_sha256": "474d77f5799ab5010ef9243bc8049dadc1e77ae972644a55dab31b8f64310aea",
+      "root_path": "set/manifest-gen-27b2f11fc989c8b396ccb755b2379b69.json",
+      "root_sha256": "9d36a93d9267427be5f099069fa1dd8e3a4e10196131f45795ff23df03b37661",
+      "snapshot_sequence": 11265,
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    },
+    "current": {
+      "complete_record_index_sha256": "8c6d33f96439e02aced709662028238e4dfe1c6320ad6dec9aef2490b431b803",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11266,
+        "issue": 955,
+        "provenance_receipt": 6
+      },
+      "generation_id": "gen-e11c53e6bf47ab0317b44ac14c9542c1",
+      "imported_record_corpus_sha256": "0ac82794ee1b78a8050c59ec101de3a35a7b6bd101588aaaa44783cd142833a8",
+      "mode": "set-v2",
+      "pointer_name": "current.json",
+      "pointer_sha256": "ad9d976d32e7a5885a5733a8174d840fdb2a3365d1cfbc758ed6cd9344f37b71",
+      "root_path": "set/manifest-gen-e11c53e6bf47ab0317b44ac14c9542c1.json",
+      "root_sha256": "564be9ae0196150482ece6deaf0e10551209de6946c3df466293a90c07600b7b",
+      "snapshot_sequence": 11266,
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    },
+    "original": {
+      "complete_record_index_sha256": "c3a9498f88fde65eb89842b6e881a59fe404ca4739e0b713dac9afbbc397c9ac",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11264,
+        "issue": 954,
+        "provenance_receipt": 5
+      },
+      "generation_id": "gen-a569f746bbb268015d996c8ed4c76f57",
+      "imported_record_corpus_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+      "mode": "monolithic",
+      "pointer_name": "current.json",
+      "pointer_sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+      "root_path": "objects/4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d.jsonl",
+      "root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+      "snapshot_sequence": 29609,
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    },
+    "previous": {
+      "complete_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11265,
+        "issue": 954,
+        "provenance_receipt": 6
+      },
+      "generation_id": "gen-27b2f11fc989c8b396ccb755b2379b69",
+      "imported_record_corpus_sha256": "e09ef21ac836c016a53de620dbfe5d32256d3f4cd1c9a5c1e60e5ef2017b5549",
+      "mode": "set-v2",
+      "pointer_name": "previous.json",
+      "pointer_sha256": "474d77f5799ab5010ef9243bc8049dadc1e77ae972644a55dab31b8f64310aea",
+      "root_path": "set/manifest-gen-27b2f11fc989c8b396ccb755b2379b69.json",
+      "root_sha256": "9d36a93d9267427be5f099069fa1dd8e3a4e10196131f45795ff23df03b37661",
+      "snapshot_sequence": 11265,
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    }
+  },
+  "helper_sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+  "input_sha256": "b4233e8d2c391cb45463537f5effc420248177e98016b9ff7e83aefdf4912244",
+  "isolated_issue_id": "bead-b32baacc",
+  "metadata_sha256": "eaf5c8d4a87e21082102df5720a276a2bcd122b2ceb7bd58b2163cf94dc16c30",
+  "operation": "public-original-checkpoint-recovery",
+  "original_complete_record_index_sha256": "c3a9498f88fde65eb89842b6e881a59fe404ca4739e0b713dac9afbbc397c9ac",
+  "original_public_input_unchanged": true,
+  "original_public_source": {
+    "commit": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+    "counts": {
+      "attempt_outcome": 413,
+      "event": 11264,
+      "issue": 954,
+      "provenance_receipt": 5
+    },
+    "generation": "gen-a569f746bbb268015d996c8ed4c76f57",
+    "pointer_sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+    "root_bytes": 8569277,
+    "root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+    "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+  },
+  "output": "/home/runner/work/_temp/bead-checkpoint-linux-corpus-45578817248-1",
+  "phase_seconds": 900,
+  "process_cleanup": [
+    {
+      "label": "version",
+      "pid": 2232,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "capabilities",
+      "pid": 2233,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "update-help",
+      "pid": 2234,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "restored-original-restore",
+      "pid": 2235,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "publish-restored-original",
+      "pid": 2236,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "verify-current-before-restore",
+      "pid": 2238,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "create-fixture",
+      "pid": 2239,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "publish-after-create",
+      "pid": 2240,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "verify-current-after-restore",
+      "pid": 2241,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "verify-previous-after-restore",
+      "pid": 2243,
+      "remaining": false,
+      "signals": []
+    }
+  ],
+  "release_sha256": "266245fab0e7b8378877083b258131b63036ec4bac5d64447429a839ee9becbf",
+  "run": {
+    "attempt": "1",
+    "id": "45578817248",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "1bb64f56ee464587ece7caf55ed3f2da0adb6fd5"
+  },
+  "schema_version": 1,
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "sqlite_access": "Native CLI only against four newly created public-data fixture workspaces.",
+  "started": "2026-11-25T08:43:49.251800+00:00",
+  "status": "passed",
+  "supervision": "owned-process-groups",
+  "target": "x86_64-unknown-linux-gnu",
+  "verification_restores": 4,
+  "version": "bead 0.3.0 (unknown 2026-11-25T08:29:14Z)"
+}

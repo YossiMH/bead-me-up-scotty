@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "recorded_utc": "2026-11-25T08:54:01.166Z",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "run_id": 45578817248,
+  "workflow_commit": "1bb64f56ee464587ece7caf55ed3f2da0adb6fd5",
+  "native_source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "native_source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "affected": {
+    "status": "failed",
+    "job_id": 139083374261,
+    "exit_code": 101,
+    "completed_targets": 6,
+    "passing_tests": 72,
+    "failing_tests": 1,
+    "failure": "Empty issue-type file test expected exit 4; existing native validation returned exit 2 and issue_type cannot be empty. Complete no-write assertions remain in the test; the empty-file snapshot assertion follows the mismatched exit assertion and was not reached.",
+    "not_executed_targets": [
+      "r041_text_inputs",
+      "r041_issue_json_documents"
+    ],
+    "full_suite": "Not started because the affected target command failed."
+  },
+  "corpus": {
+    "status": "passed",
+    "job_id": 139083373709,
+    "verification_restores": 4,
+    "comparisons": {
+      "current_restore_after_append": "passed",
+      "isolated_create": "passed",
+      "original_restore": "passed",
+      "previous_preserved": "passed",
+      "previous_restore_after_append": "passed",
+      "published_current_restore": "passed"
+    },
+    "original_counts": {
+      "issues": 954,
+      "events": 11264,
+      "provenance_receipts": 5,
+      "attempt_outcomes": 413
+    },
+    "original_input_unchanged": true,
+    "all_original_attempt_outcomes_preserved": 413,
+    "release_sha256": "266245fab0e7b8378877083b258131b63036ec4bac5d64447429a839ee9becbf",
+    "result_sha256": "e3b9bc2ffb42aff238dc60a1e79c2681c3fa5d5bc54dc00ab8ca9c5f4aa5cf0f"
+  },
+  "provenance": "Both execution consumers independently accepted their pinned producer output hashes before running. The failed affected check does not invalidate producer compilation or the separate completed corpus comparison.",
+  "follow_up": "Reconcile existing inline-type validation and error taxonomy before a test/spec correction. Reuse unchanged production release and the completed corpus evidence if production files stay identical. Do not claim affected or full-suite acceptance."
+}
