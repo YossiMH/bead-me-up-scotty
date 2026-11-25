@@ -168,7 +168,7 @@
   "worktree_cleanup": {
     "status": "pending",
     "latest_probe": {
-      "time": "2026-11-25 11:50:46 UTC",
+      "time": "2026-11-25 12:11:29 UTC",
       "result": {
         "status": "rejected",
         "reason": "No usable execution environment is available. Wait for an environment to become available before using this tool."
@@ -177,7 +177,7 @@
     },
     "successor_instructions": "20261125/revision-9/final-installation/README.md#worktree-cleanup-if-this-process-ends"
   },
-  "updated_utc": "2026-11-25 12:05:04 UTC",
+  "updated_utc": "2026-11-25 12:16:24 UTC",
   "previous_status": {
     "commit": "a54c9b5208f8c206c7c67e1f6f12fa65f10ddf60",
     "sha256": "2b4e7af6d53e6653726d32c1320639c6f3807f806b4e096dc63397841c210322"
@@ -246,5 +246,21 @@
     }
   },
   "cloud_preparation_accepted": true,
-  "actual_pc_installation_complete": false
+  "actual_pc_installation_complete": false,
+  "continuation_draft_reviews": {
+    "native": {
+      "commit": "c20e9f38573549070a9385e21275744c1c2556af",
+      "path": "20261125/revision-9/results/native-continuation-review.json",
+      "sha256": "5b2fba0d2bcb6f5f4c93c9fd318464ace114aa5bae1ca65bdbd7413f7cfcd014",
+      "status": "PASS as retained draft; canonical publication pending actual PC gates"
+    },
+    "app": {
+      "commit": "946c928a238d7d00b28af265c7c65e26df31ae09",
+      "path": "20261125/revision-9/results/app-continuation-review.json",
+      "sha256": "9468157af47363554c3fbbe73e802cc31c0487dfb86c1427f0222192f2ae60fe",
+      "status": "PASS as retained draft; canonical publication pending actual PC gates"
+    }
+  },
+  "remaining_active_cloud_execution": false,
+  "assignment_complete": false
 }
