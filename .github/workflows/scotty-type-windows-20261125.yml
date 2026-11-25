@@ -1,0 +1,118 @@
+name: Scotty native type Windows round trip 20261125
+
+on:
+  push:
+    branches:
+      - task/type-windows-roundtrip-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: scotty-type-windows-20261125
+  cancel-in-progress: false
+
+jobs:
+  roundtrip:
+    if: github.repository == 'YossiMH/bead-me-up-scotty'
+    runs-on: windows-2025
+    timeout-minutes: 15
+    env:
+      NODE_OPTIONS: '--max-old-space-size=512'
+      NEXT_TELEMETRY_DISABLED: '1'
+      PYTHONIOENCODING: utf-8
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+    defaults:
+      run:
+        shell: pwsh
+    steps:
+      - name: Read the checked Windows packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            windows-task-job.ps1
+            20261125/revision-7/type-windows
+          sparse-checkout-cone-mode: false
+
+      - name: Read the exact app source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: 0309539797fd7d016e2b8fd8bdc0ae9cefc20219
+          path: source
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Select the previously used Node version
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24.22.3'
+          package-manager-cache: false
+
+      - name: Create isolated output directories
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $root = Join-Path $env:RUNNER_TEMP "scotty-type-windows-$env:GITHUB_RUN_ID-$env:GITHUB_RUN_ATTEMPT"
+          if (Test-Path -LiteralPath $root) { throw 'Windows check directory already exists.' }
+          $null = New-Item -ItemType Directory -Path (Join-Path $root 'results')
+          "SCOTTY_WINDOWS_ROOT=$root" >> $env:GITHUB_ENV
+
+      - name: Download the checked app runtime
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: '15003467178'
+          run-id: '45573503400'
+          github-token: ${{ github.token }}
+          path: ${{ env.SCOTTY_WINDOWS_ROOT }}/app-runtime
+          merge-multiple: true
+
+      - name: Download the exact retained native release
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: '15003670786'
+          run-id: '45572877188'
+          github-token: ${{ github.token }}
+          path: ${{ env.SCOTTY_WINDOWS_ROOT }}/native
+          merge-multiple: true
+
+      - name: Verify inputs and run both real Windows checks
+        timeout-minutes: 11
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-7/type-windows'
+          $jobHelper = Join-Path $env:GITHUB_WORKSPACE 'ci/windows-task-job.ps1'
+          $expected = '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'
+          if ((Get-FileHash -LiteralPath $jobHelper -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expected) { throw 'Task Job helper differs.' }
+          . $jobHelper
+          Enter-ScottyTaskJob
+          Write-Output ("TASK_JOB_ENTERED " + $PID)
+          $python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source
+          & $python -m py_compile (Join-Path $packet 'run.py')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          $checkArguments = @(
+            (Join-Path $packet 'run.py'),
+            '--source', (Join-Path $env:GITHUB_WORKSPACE 'source'),
+            '--runtime', (Join-Path $env:SCOTTY_WINDOWS_ROOT 'app-runtime'),
+            '--native', (Join-Path $env:SCOTTY_WINDOWS_ROOT 'native'),
+            '--inputs', (Join-Path $packet 'inputs.json'),
+            '--output', (Join-Path $env:SCOTTY_WINDOWS_ROOT 'results'),
+            '--fixtures', (Join-Path $env:SCOTTY_WINDOWS_ROOT 'fixtures')
+          )
+          & $python @checkArguments
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Retain complete actual outputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: scotty-type-windows-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ env.SCOTTY_WINDOWS_ROOT }}/results/
+          if-no-files-found: error
+          retention-days: 14
