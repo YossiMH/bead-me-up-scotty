@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "accepted_plan_sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+  "materialization_sha256": "6a46c9ddef4c847a0c8a5cf63c58bdec2e237a8bd04f4f4940467af8171f7d85",
+  "root_is_sole_state_writer": true,
+  "tasks": [
+    {
+      "key": "checkpoint-tests",
+      "revision": 1,
+      "reason": "Accepted tests-only source a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8, verified published at YossiMH/bead-rs task/bead-finish-20261124 as the direct descendant of 986f2a332aca9dd567eee41ce835917d56e29468. Exactly four approved test-bearing files changed; the 47,227-byte production prefix and 647 other baseline blobs are unchanged. Permanent tests cover distinct receipt count/payloads, duplicate IDs within/across objects, first-class restore, retained immutable tails and legacy fixed-tail input. Two author inspections and independent candidate review 7cf293ae3747eb405ae81d05f7e499dbe3ca9491032529dd3db43bf65ed9ffd3 passed; actual git diff --check exited0. Compiler and expected-failure execution are separately retained in their dependent tasks."
+    },
+    {
+      "key": "checkpoint-red-build",
+      "revision": 1,
+      "reason": "Accepted exact tests-only source a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8 compiled successfully on hosted Ubuntu 24.04 with Rust/Cargo 1.100.0, one Cargo job and no test execution. Run 45537110469/job 138946295563 at workflow 3847da49b76a8526f3d9621d77be8f7e70d5334b passed all 14 commands, all four harness mappings plus bead, and empty owned-process cleanup. Exact build report 1e3291003588d67271c0f9813514b26fed8ec34f1be714a8a96b725b45669e71 and outer report cb1c7dc7d7fd32e920094b4f43fabf42ef982a7d5a735a17cf4c25a210bfeb90 verified independently. Artifact 14986424212 retains bundle c8aa00fb46ba8722d8b9e054a782e2303910d547dbad98c7977abe11d2c47f70 and source/archive/command logs through December 2. Failed first wrapper run 45535362756 and measured-path diagnostic 45536239392 are retained. Git result: source and reviewed CI packets published and exact remote refs verified; no backend changes by this build task."
+    },
+    {
+      "key": "checkpoint-red-checks",
+      "revision": 1,
+      "reason": "The separately executed accepted test binaries produced all six intended regression failures on source a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8. Hosted run 45538872739/job 138952174706, workflow 5b930b7d0ff152eb2a0f80e24e278033399f46cd, status passed_expected_failures, result 53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168: three normal exit 101 harnesses, zero passes/ignored and no remaining owned process groups. Exact assertion sites/messages establish count, duplicate receipt IDs, first-class restore and both retained-tail failures. Artifact 14988212379 and read-only stream extraction 45539450373 preserve all 14 files/six complete raw streams; no tests repeated by that extraction. Independent final review c23f492a896bbaed2de23874bb33c82b9cf0917d23e2df52adc7e23cc3b64ba5 accepted complete output. Git result: reviewed checker and receipts published in the user fork; product source unchanged by execution."
+    },
+    {
+      "key": "checkpoint-tests-review",
+      "revision": 1,
+      "reason": "Independent final test review PASS for exact source a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8, report c23f492a896bbaed2de23874bb33c82b9cf0917d23e2df52adc7e23cc3b64ba5 published at YossiMH/bead-me-up-scotty commit 6de41e9fa59f2af102ba98b6e313a82ec8849c0a path 20261125/checkpoint-tests-review.json and read back exactly. Reviewer read complete final test files, both author inspections, successful compile evidence and all 14 retained Red files/six raw streams. All six intended failures match the specified assertions; the legacy fixture restores successfully before the tail mutation. Production remains unchanged in the tests-first source. The narrow repair may proceed; its new builds, full permanent suite, platform recovery checks and independent repair review remain required. Git result: review and source remotely published; no product code change by reviewer."
+    }
+  ]
+}

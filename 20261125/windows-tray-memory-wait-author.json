@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "author": "/root",
+  "script_sha256": "d910488dc368813108cec7b5836d8edf3ba08fd706dff3b6c9c790349c712eba",
+  "launch_request_sha256": "1b1326857f3f0fafbba92d06db1b0642e3a00ecd14c520cde8bf1368f53a7e1a",
+  "status": "draft pending independent review and ordinary Windows PowerShell parser",
+  "scope": "Reduce repeated connector attempts by waiting for a safe memory window before exactly one already reviewed tray check.",
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "complete_script_and_launcher_read": true,
+      "checks": [
+        "Fresh gate/evidence/task checks; existing interactive session1; no unrelated process action",
+        "One600-second wait,15-second samples,128MiB waiting RSS cap,512MiB minimum free while waiting",
+        "At least1GiB free before starting wait process; at least3GiB immediately before actual smoke",
+        "Exact smoke64ed, Job2758, modulea947 and native25a0 hashes",
+        "Same PowerShell process invokes unchanged smoke so its own512MiB aggregate accounting remains inclusive"
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "complete_script_and_launcher_read": true,
+      "checks": [
+        "Outer810-second task bound covers600-second wait plus180-second smoke",
+        "No build/browser/foreground control or policy bypass",
+        "Fresh output with bounded memory samples; no loop retry after an actual launch",
+        "No queued/running other task at registration and actual launch",
+        "PowerShell call uses fixed hashtable parameters and existing Job cleanup; success requires actual smoke status passed and all-owned-processes-exited"
+      ]
+    }
+  ],
+  "ordinary_parser_required": true,
+  "execution_not_started": true
+}
