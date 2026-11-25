@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "author": "/root",
+  "continuation_revision": 9,
+  "baseline_candidate": "98a2daa3ef411c0f986daee1794c130f025c49cd",
+  "files": {
+    "checkpoint-handoff-20261125.mjs": {
+      "sha256": "179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341",
+      "bytes": 65197
+    },
+    "checkpoint-handoff-supervisor-20261125.ps1": {
+      "sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+      "bytes": 18882
+    },
+    "materialize-v9.mjs": {
+      "sha256": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686",
+      "bytes": 23307
+    },
+    "materialize-v9-supervisor.ps1": {
+      "sha256": "5849278e028987ed1cd690edf811f6b30e64e74bb776703fde9cb3f9b8b7c1df",
+      "bytes": 16030
+    },
+    "windows-install-tray-host-20261125.ps1": {
+      "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+      "bytes": 34632
+    },
+    "windows-configured-launch-host-20261125.ps1": {
+      "sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+      "bytes": 48571
+    },
+    "plan.json": {
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+      "bytes": 419134
+    },
+    "plan-review.json": {
+      "sha256": "5e3a51c06322e5ab49f8ee1d832a44a392e1e704b80ddced34c045f159bb8299",
+      "bytes": 9242
+    },
+    "parse-inputs.json": {
+      "sha256": "6ef5953b33906431b34ca9c3c99c531efb79b42cbf4aa3ae4bc280cce2721eb7",
+      "bytes": 1221
+    },
+    "parse-bindings.ps1": {
+      "sha256": "c6ce24dd405de76c60936796424901dc5a2c6ec720c4d2a2342eb036e4c30691",
+      "bytes": 4865
+    },
+    "check-binding-refusals.ps1": {
+      "sha256": "8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c",
+      "bytes": 8256
+    },
+    "check-history-refusals.mjs": {
+      "sha256": "95152755e97a8ee62d0a9d127c0833f298400dec852361acc2e8caee13038d55",
+      "bytes": 4629
+    },
+    "verify-bindings.workflow.yml": {
+      "sha256": "fe6db5935d4d6f82070c021760da1c38358733317598db0521bda1f022bfd06a",
+      "bytes": 3641
+    },
+    "binding.json": {
+      "sha256": "9af6d0898da5061aa1e38c43c1addd0d06b23739f4937333a95aced286a71b9a",
+      "bytes": 7380
+    },
+    "README.md": {
+      "sha256": "fc6b6e9d57048f2cea41cda89873b6fd72d9da7151d3169b820ae59480a1789c",
+      "bytes": 9261
+    }
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "scope": "Compared every changed materializer/supervisor/history/parser/fixture/workflow line with the accepted revision 8 originals. Reversed all exact line substitutions to recover the complete original helper bytes. Preserved the unchanged installer, configured launcher, history supervisor, Windows declarations and refusal fixture hashes. Matched exact accepted plan/review and complete v6-to-v9 graph delta."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "scope": "Traced inputs through the final version/hash/count assertions, obsolete-attempt refusal before native commands/output, three guarded reopens, the 78-operation manifest and 55-key/91-edge/1009-issue readback. Verified original history/current/previous preservation and unchanged budgets/cleanup. Checked parser input counts and all workflow file-hash bindings; final native, staging helper, actual mapping and PC acceptance remain explicit pending."
+    }
+  ],
+  "exact_materializer_changes": [
+    {
+      "line": 10,
+      "before": "const planHash = '508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d';",
+      "after": "const planHash = '18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582';"
+    },
+    {
+      "line": 13,
+      "before": "const input = path.join(root, 'revision-8');",
+      "after": "const input = path.join(root, 'revision-9');"
+    },
+    {
+      "line": 14,
+      "before": "const output = path.join(root, 'materialization-v8');",
+      "after": "const output = path.join(root, 'materialization-v9');"
+    },
+    {
+      "line": 15,
+      "before": "const temp = path.join(root, 'temp-materialize-v8');",
+      "after": "const temp = path.join(root, 'temp-materialize-v9');"
+    },
+    {
+      "line": 16,
+      "before": "const finalFile = path.join(root, 'materialization-result-v8.json');",
+      "after": "const finalFile = path.join(root, 'materialization-result-v9.json');"
+    },
+    {
+      "line": 120,
+      "before": "  assert.equal(report.operations, 70); assert.equal(report.semantic_changes, 70); assert.equal(report.results.length, 70);",
+      "after": "  assert.equal(report.operations, 78); assert.equal(report.semantic_changes, 78); assert.equal(report.results.length, 78);"
+    },
+    {
+      "line": 145,
+      "before": "  assert.equal(new Set(Object.values(added)).size, 20);",
+      "after": "  assert.equal(new Set(Object.values(added)).size, 23);"
+    },
+    {
+      "line": 151,
+      "before": "  assert.equal(process.argv.length, 3, 'Supply the independently accepted revision-8 review file SHA256');",
+      "after": "  assert.equal(process.argv.length, 3, 'Supply the independently accepted revision-9 review file SHA256');"
+    },
+    {
+      "line": 158,
+      "before": "  assert.equal(review.continuation_revision, 8); assert.equal(review.read_complete_plan, true);",
+      "after": "  assert.equal(review.continuation_revision, 9); assert.equal(review.read_complete_plan, true);"
+    },
+    {
+      "line": 159,
+      "before": "  assert.equal(review.expanded_tasks_read, 52); assert.equal(review.blocking_edges_read, 86);",
+      "after": "  assert.equal(review.expanded_tasks_read, 55); assert.equal(review.blocking_edges_read, 91);"
+    },
+    {
+      "line": 166,
+      "before": "  assert.equal(plan.version, 8); assert.equal(plan.continuation_revision, 8);",
+      "after": "  assert.equal(plan.version, 9); assert.equal(plan.continuation_revision, 9);"
+    },
+    {
+      "line": 167,
+      "before": "  const revision = plan.revision_8, ids = plan.revision_6.task_ids;",
+      "after": "  const revision = plan.revision_9, ids = plan.revision_6.task_ids;"
+    },
+    {
+      "line": 171,
+      "before": "  assert.equal(plan.tasks.length, 52); assert.equal(base.tasks.length, 32); assert.equal(plan.blocking_edges.length, 86);",
+      "after": "  assert.equal(plan.tasks.length, 55); assert.equal(base.tasks.length, 32); assert.equal(plan.blocking_edges.length, 91);"
+    },
+    {
+      "line": 173,
+      "before": "  assert.equal(planned.size, 52); assert.equal(oldPlanned.size, 32);",
+      "after": "  assert.equal(planned.size, 55); assert.equal(oldPlanned.size, 32);"
+    },
+    {
+      "line": 176,
+      "before": "  assert.equal(newKeys.length, 20); assert.equal(new Set(newKeys).size, 20);",
+      "after": "  assert.equal(newKeys.length, 23); assert.equal(new Set(newKeys).size, 23);"
+    },
+    {
+      "line": 184,
+      "before": "  assert.equal(oldEdgeKeys.size, 51); assert.equal(newEdgeKeys.size, 86);",
+      "after": "  assert.equal(oldEdgeKeys.size, 51); assert.equal(newEdgeKeys.size, 91);"
+    },
+    {
+      "line": 187,
+      "before": "  assert.equal(addedEdges.length, 35);",
+      "after": "  assert.equal(addedEdges.length, 40);"
+    },
+    {
+      "line": 207,
+      "before": "  assert.equal(template.operations.length, 70);",
+      "after": "  assert.equal(template.operations.length, 78);"
+    },
+    {
+      "line": 214,
+      "before": "  for (const name of ['materialization-v7', 'temp-materialize-v7', 'materialization-result-v7.json', 'materialization-v7-supervisor']) {",
+      "after": "  for (const name of ['materialization-v7', 'temp-materialize-v7', 'materialization-result-v7.json', 'materialization-v7-supervisor', 'materialization-v8', 'temp-materialize-v8', 'materialization-result-v8.json', 'materialization-v8-supervisor']) {"
+    },
+    {
+      "line": 215,
+      "before": "    assert.equal(fs.existsSync(path.join(root, name)), false, 'Unexpected revision-7 attempt; reconcile before any mutation: ' + name);",
+      "after": "    assert.equal(fs.existsSync(path.join(root, name)), false, 'Unexpected revision-7 or revision-8 attempt; reconcile before any mutation: ' + name);"
+    },
+    {
+      "line": 295,
+      "before": "  write('commit-started.json', { utc: new Date().toISOString(), operations: 70, manifest_sha256: manifestHash, replay_allowed: false });",
+      "after": "  write('commit-started.json', { utc: new Date().toISOString(), operations: 78, manifest_sha256: manifestHash, replay_allowed: false });"
+    },
+    {
+      "line": 300,
+      "before": "  const after = rows(run(['list', '--all', '--json'], 'inventory-after'), 1006);",
+      "after": "  const after = rows(run(['list', '--all', '--json'], 'inventory-after'), 1009);"
+    },
+    {
+      "line": 336,
+      "before": "  const result = { status: 'passed', continuation_revision: 8, source_store_uuid: storeUuid, original_issues: 954,",
+      "after": "  const result = { status: 'passed', continuation_revision: 9, source_store_uuid: storeUuid, original_issues: 954,"
+    },
+    {
+      "line": 337,
+      "before": "    total_issues: 1006, tasks: allIds, blocking_edges: 86, description_updates: 15, reopens: 3,",
+      "after": "    total_issues: 1009, tasks: allIds, blocking_edges: 91, description_updates: 15, reopens: 3,"
+    },
+    {
+      "line": 338,
+      "before": "    new_creates: 20, dependency_additions: 35, plan_sha256: planHash, base_plan_sha256: basePlanHash,",
+      "after": "    new_creates: 23, dependency_additions: 40, plan_sha256: planHash, base_plan_sha256: basePlanHash,"
+    }
+  ],
+  "exact_supervisor_changes": [
+    {
+      "line": 2,
+      "before": "# Run only the accepted revision-8 coordination transition in one owned Job.",
+      "after": "# Run only the accepted revision-9 coordination transition in one owned Job."
+    },
+    {
+      "line": 15,
+      "before": "$Result=[ordered]@{schema_version=1;status='failed';phase='revision-8';started_utc=$Started.ToString('o')",
+      "after": "$Result=[ordered]@{schema_version=1;status='failed';phase='revision-9';started_utc=$Started.ToString('o')"
+    },
+    {
+      "line": 102,
+      "before": "    $driver=Safe-Path (Join-Path $repository 'materialize-v8.mjs')",
+      "after": "    $driver=Safe-Path (Join-Path $repository 'materialize-v9.mjs')"
+    },
+    {
+      "line": 105,
+      "before": "    Assert-That ((Hash $driver)-eq '005294db3051d6b8412d3982c2ccac164921e14be3021ac294f6cca96eefa1be') 'Accepted revision-8 helper changed.'",
+      "after": "    Assert-That ((Hash $driver)-eq '239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686') 'Accepted revision-9 helper changed.'"
+    },
+    {
+      "line": 107,
+      "before": "    $reviewHash='cf054dce9cc97509798af30977a3719793b38e8858e73521329283d99c00ac11'",
+      "after": "    $reviewHash='5e3a51c06322e5ab49f8ee1d832a44a392e1e704b80ddced34c045f159bb8299'"
+    },
+    {
+      "line": 108,
+      "before": "    Assert-That ((Hash (Join-Path $repository 'revision-8/plan-review.json'))-eq $reviewHash) 'Accepted plan review changed.'",
+      "after": "    Assert-That ((Hash (Join-Path $repository 'revision-9/plan-review.json'))-eq $reviewHash) 'Accepted plan review changed.'"
+    },
+    {
+      "line": 109,
+      "before": "    foreach($name in @('materialization-v8','temp-materialize-v8','materialization-result-v8.json','materialization-v7','temp-materialize-v7','materialization-result-v7.json','materialization-v7-supervisor')){",
+      "after": "    foreach($name in @('materialization-v9','temp-materialize-v9','materialization-result-v9.json','materialization-v8','temp-materialize-v8','materialization-result-v8.json','materialization-v8-supervisor','materialization-v7','temp-materialize-v7','materialization-result-v7.json','materialization-v7-supervisor')){"
+    },
+    {
+      "line": 112,
+      "before": "    $EvidenceDirectory=Safe-Path (Join-Path $repository 'materialization-v8-supervisor')",
+      "after": "    $EvidenceDirectory=Safe-Path (Join-Path $repository 'materialization-v9-supervisor')"
+    },
+    {
+      "line": 198,
+      "before": "    $phaseResult=Join-Path $repository 'materialization-result-v8.json'",
+      "after": "    $phaseResult=Join-Path $repository 'materialization-result-v9.json'"
+    },
+    {
+      "line": 200,
+      "before": "    Assert-That ($driverResult.status -eq 'passed' -and $driverResult.continuation_revision -eq 8) 'No successful revision-8 result.'",
+      "after": "    Assert-That ($driverResult.status -eq 'passed' -and $driverResult.continuation_revision -eq 9) 'No successful revision-9 result.'"
+    }
+  ],
+  "history_changes": [
+    "revision-8/plan.json → revision-9/plan.json",
+    "materialization-result-v8.json → materialization-result-v9.json",
+    "planReview.continuation_revision,8 → planReview.continuation_revision,9"
+  ],
+  "actual_state": {
+    "revision": 6,
+    "tasks": 32,
+    "edges": 51,
+    "issues": 986
+  },
+  "planned_state": {
+    "revision": 9,
+    "tasks": 55,
+    "edges": 91,
+    "issues": 1009
+  },
+  "native_execution": false,
+  "pc_actions": 0,
+  "hosted_checks": "Pending separate independent preparation review and one exact activation."
+}
