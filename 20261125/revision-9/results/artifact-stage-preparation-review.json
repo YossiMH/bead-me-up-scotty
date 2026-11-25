@@ -1,0 +1,86 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root",
+  "scope": "Fresh archive staging source and focused hosted check preparation only",
+  "task_key": "type-install-binding-review",
+  "continuation_revision": 9,
+  "candidate_commit": "e8a46ad6832b521752b2fececdcb4a061e4a6d8c",
+  "activation_branch": "task/artifact-stage-checks-20261125",
+  "files": {
+    "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1": {
+      "sha256": "0631999c18840ab2599b6a47a4369d9496d9862a2bf54c4eaccc9f8774f013bd",
+      "git_blob": "2df8fe279b36dec66c54595e7637f366155b90d3"
+    },
+    "20261125/revision-9/artifact-stage/stage-artifacts-supervisor-20261125.ps1": {
+      "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+      "git_blob": "87c74cfcf25c9a5b80ff30c5c15a31462b5730bf"
+    },
+    "20261125/revision-9/artifact-stage/check-inputs.json": {
+      "sha256": "7bca53de0a46e386c01f3fc615332c4165d52a90943e14912678b84c165fc44f",
+      "git_blob": "f9a060087fda97d8ad9d5e39dba3a4c03952773d"
+    },
+    "20261125/revision-9/artifact-stage/check-stage-archives.ps1": {
+      "sha256": "7874d07260df337cfee59ce04da184633c926d5f2e7edee59f4714956cd6d21f",
+      "git_blob": "f2e1d95a5ade6671ae6622c5162179bbfce6e7b9"
+    },
+    "20261125/revision-9/artifact-stage/download-existing-app.py": {
+      "sha256": "40deb91bc7a48712169a7df63a26ed54b9431f5754ec7cdb473f701b21f7220e",
+      "git_blob": "c772d4a71254db4548ac2db2e6cc03389176776f"
+    },
+    "20261125/revision-9/artifact-stage/workflow.yml": {
+      "sha256": "5acb0abe1d48c5f1f4cb5fff06fe804f456f8de8638bc55ae255563e58373a11",
+      "git_blob": "b780e6cef54c588156c8b88a5c8f503d230021d1"
+    },
+    "20261125/revision-9/artifact-stage/README.md": {
+      "sha256": "3764fb44cb194348414b528d4114eada6914df8623b05b58a4c0adbebfceaa80",
+      "git_blob": "877419ef2bd6f0ed6745cddfa3ba2c7da0058217"
+    },
+    "20261125/revision-9/artifact-stage/request-template.json": {
+      "sha256": "7ef0c76f50edd28a80c38bf42893b4623eba5e8c31bfb6bdb7021791d6f07ab3",
+      "git_blob": "7a8de1a98603349e1789a5c7565a9d9f95842b10"
+    },
+    ".github/workflows/scotty-artifact-stage-checks-20261125.yml": {
+      "sha256": "5acb0abe1d48c5f1f4cb5fff06fe804f456f8de8638bc55ae255563e58373a11",
+      "git_blob": "b780e6cef54c588156c8b88a5c8f503d230021d1"
+    }
+  },
+  "accepted_runtime_review": {
+    "commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f",
+    "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525"
+  },
+  "app": {
+    "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "artifact_id": 15003467178,
+    "run_id": 45573503400,
+    "archive_sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+    "runtime_files": 560,
+    "expanded_bytes": 27426391,
+    "build_id": "YIOHeRJTEdlOszyc4LyHr"
+  },
+  "checks": [
+    "Read both complete copy/supervisor helpers, complete focused check and downloader, all inputs, README and actual workflow. Independently verified the five input-bound file hashes and byte-identical workflow copy.",
+    "Compared the complete supervisor with the accepted materializer controller. Path validation, Windows argument quoting, retained Job/PID/birth identity and owned stopping functions are byte-identical after the inspector class rename; the embedded controller declaration is likewise identical. The changed command/request/result contract retains 180 seconds total, a cleanup reserve, BelowNormal priority and 512 MiB aggregate owned RSS, and adds the 1 GiB live free-memory sampling.",
+    "The copy helper reads local archives with write/delete sharing excluded, verifies exact outer hashes/sizes, uses ordinary .NET ZIP streams, rejects unsafe/case-colliding/unexpected/nonregular entries, and verifies every nested runtime/native payload before creating a fresh stage. Its bounded 64 KiB stream checks verify exact sizes/hashes; the accepted inner ZIP is a measured 7,137,798-byte memory buffer.",
+    "Matched every fixed app archive/manifest/source/result identity to the independently recovered original records. Recomputed the 560-file manifest count and 27,426,391-byte total. Runtime count, source/build identity, lockfile, unique BUILD_ID and the unchanged installer input contract are checked again after copying.",
+    "The final native request remains deliberately unbound. Its eventual exact release/package/manifest/metadata/build receipt must all agree on source, target, tree, workflow, run, size and digest. The helper executes neither executable and modifies no original repository.",
+    "Fresh immediate-child stage and exclusive claim semantics preserve successful or interrupted evidence and reject replay. Failure results retain partial files. The supervisor treats assisted cleanup, time/RSS exhaustion or remaining owned children as failure.",
+    "The hosted downloader obtains only the pinned existing 7,056,005-byte app Actions ZIP. It verifies metadata/run/digest/expiry and downloaded bytes, uses no authorization header for the redirected download, bounds network time and size, and retains no temporary download URL or credential.",
+    "The hosted check extracts exact reviewed function ASTs without invoking PC entry points. It parses three PowerShell files, compiles one unchanged declaration without invoking methods, copies the actual complete 560-file runtime using a synthetic native package, and retains all actual file hashes. The remaining fixtures test stream-sized and empty content, exact installer outputs, identity/hash/size/count/BUILD_ID/provenance refusal, eight unsafe path forms, seven malformed ZIP cases, reparse ancestors, expiry and intact interrupted-copy evidence/replay refusal.",
+    "Independently counted all 40 declared checks and read every assertion. The exact actual-runtime inventory uses complete chunked retention; the entire result is emitted as original base64 JSON. All check filesystem work is within a fresh hosted temporary fixture, with an external canary verified unchanged.",
+    "The workflow has only hosted Windows checkout, download, focused checks and retained output; no package installation, product build or product start. Its exact candidate, pinned actions, read-only permissions, isolated activation branch and 8-minute hosted job bound are preserved."
+  ],
+  "resolved_findings": [
+    {
+      "finding": "The first supervisor unnecessarily restricted the already qualified C: Job-helper path to the F: task root.",
+      "resolution": "Restore the accepted absolute-path/reparse validation for that unchanged helper and retain its exact SHA-256. Every copy input/output remains within the F: task root."
+    }
+  ],
+  "findings": [],
+  "verdict": "PASS for one hosted preparation-check activation at this exact candidate after reconciling the branch and prior-run state. Final staging acceptance still requires actual results and two complete final author inspections; final native artifact binding and any PC invocation remain pending.",
+  "final_staging_acceptance": false,
+  "native_identity_bound": false,
+  "reviewer_product_execution": false,
+  "pc_actions": 0
+}
