@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-windows-build",
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "review_kind": "independent final hosted Windows build packet review",
+  "date": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "branch": "task/checkpoint-windows-simple-packet-20261125",
+    "commit": "db8bf8eb38f3910e1ed113aa0fd61a830bed3e68",
+    "tree": "07265a06974bbc5055451c04fa6243a7d41fb7db"
+  },
+  "read_complete_packet": true,
+  "reviewed_files": {
+    "20261125/checkpoint-windows-simple/build-inputs.json": "a0ae97f8f598d73dacd98de68a576ad0dc832da56e3d97898f5884d3894ef1b4",
+    "20261125/checkpoint-windows-simple/author-inspections.json": "c6a70c8181b4dbfad017bb6fa5894e2c5e6ea4e9b0cb5c84a931abe02e2b2d6c",
+    ".github/workflows/checkpoint-windows-final-20261125.yml": "db7eca57c46d79e90f30ca75926db01ef0c8460bd81f72be63684c83cf7bed98",
+    "20261125/checkpoint-windows-simple/build.py": "f3e08e7905ba9924de1c00b0f840a06097024abc5ec0589b35d00d099686b9b6",
+    "20261125/checkpoint-windows-simple/verify.py": "6d80e1cdefa652c38d1d6474c781f0ce3876a13d32fa3ab5c509deed404f3417",
+    "20261125/checkpoint-windows-simple/README.md": "037c64aed7b4666f9fc3c7747b2cd96a0f3bd27bc10937355a842934b35ae96d"
+  },
+  "native_source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+    "target": "x86_64-pc-windows-msvc"
+  },
+  "findings": [],
+  "inspection": [
+    "Read build.py,verify.py,README and workflow completely at071ce14257cee1ceb97c6436c45c6f2ba6b7776e; verified complete byte identity of both Python helpers and README in the final packet. Read the complete final workflow, frozen inputs and both final author inspections.",
+    "Verified exact source commit/tree, clean checkout, unchanged archive-script SHA-256 and original git-archive release invocation. Release metadata and AMD64 PE32+ output must match selected source, target, features, binary length and SHA-256.",
+    "Verified explicit x64 Visual C++ discovery/environment and Microsoft linker path prevent selection of Git Bash's unrelated link.exe. Toolchain1.100.0 and one Cargo compiler job are fixed.",
+    "Verified a separate exact source archive is checked against every tracked Git blob. Cargo JSON selects the actual requested Windows executables and requires the selected package/target, exact set, successful build-finished and AMD64 PE headers.",
+    "Verified all8 integration targets are included: the five required checkpoint targets,cli_editing,cli_capabilities andissue_type_file, alongside the library and debug bead. Build and execution remain separate.",
+    "Verified release output is retained before later test compilation. Original source_root,target_root and every compiled_path are recorded so subsequent Windows execution can reconstruct compile-time paths.",
+    "Verified a40-minute inner build budget under the45-minute hosted job, ordinary Actions cleanup of its disposable VM, no PC process wrapper and no user PC work.",
+    "Verified the manifest covers every retained file,source archive,source-file hashes,raw logs,metadata and executables. The separate download job selects the producing artifact ID and compares the manifest to the producing SHA-256 output before checking every file and the successful build result.",
+    "Verified workflow context placement and output paths: runner.temp appears only in supported step expressions and output paths contain no relative parent segments. Failed compilation/upload cannot cause the dependent verification job to pass.",
+    "Read two complete final static author inspections and the unchanged-helper Python syntax result reported by the author. Source-level static review of9ffefad6 has no blocker; actual Green checks and final source acceptance remain separately required."
+  ],
+  "build_requirements": {
+    "one_compiler_job": true,
+    "work_deadline_minutes": 40,
+    "job_deadline_minutes": 45,
+    "download_verification_deadline_minutes": 10,
+    "retention_days": 14,
+    "product_tests_executed_by_build": false,
+    "archive_release_version_check": true
+  },
+  "permitted_next_action": "Activate these exact reviewed workflow and packet bytes on task/checkpoint-windows-final-20261125, reconcile the actual build/download results, then use the retained exact outputs for the separately required Windows checks. A later source change requires an appropriately bound build; this preparation review does not qualify unbuilt bytes.",
+  "execution_status": "pending",
+  "reviewer_product_builds_or_tests": false,
+  "cleanup": "Reconcile any running workflow before retry or cleanup. Remove only task-owned temporary branches and clean published Riftri worktrees after final results are retained; future agents must finish if this session ends early."
+}
