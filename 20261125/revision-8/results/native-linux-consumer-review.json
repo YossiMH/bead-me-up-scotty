@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "activation_authorized": true,
+  "scope": "Final c90 Linux consumer binding and hosted activation",
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "candidate_commit": "ea2deb25060a3f163550c44ce572e831312b321b",
+  "directory": "20261125/native-repair-linux-check",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "prior_complete_draft_review": {
+    "commit": "46c1704d44f54e363af9053cf8a8b93d37e41cec",
+    "path": "20261125/revision-8/results/native-linux-consumer-draft-review.json",
+    "sha256": "924d28c626a775eef54abeb7b06a14a8d20c60f77e95bdfb9d7352ff21a2979b"
+  },
+  "reviewed_files": {
+    "20261125/native-repair-linux-check/checkpoint-full-suite-20261125.py": "989e1cb6631af8e9181ec4e28e15175c1bc65f7480b5b3615cea33a5d1cd22a7",
+    "20261125/native-repair-linux-check/checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "20261125/native-repair-linux-check/serial-output-fixtures.json": "82a8a476f6705b4849e63dc5a89818eca800dc2c6261e79fe8ed9b874af44f15",
+    "20261125/native-repair-linux-check/check-serial-output-fixtures.py": "ad6ff9a0f6f8f8e8c2c25c77460e493ca8be5f7375f0c257979ff332e40532e9",
+    "20261125/native-repair-linux-check/full-suite-inputs.template.json": "aa82d5cca573763533d1aef758fcbcba6f5d68dea738f9c956b83bffe991d7a7",
+    "20261125/native-repair-linux-check/corpus-inputs.template.json": "cd595e9ea2503110342b27218ecaf7605d75d590e7055f8d409f6dd1d920328a",
+    "20261125/native-repair-linux-check/workflow.template.yml": "64900fcd336fe3c26d4e933ab01de93d5abf837a0ea674d0b151a8f206970546",
+    "20261125/native-repair-linux-check/README.md": "fb594761cb8dcece77c6db6361c9d3ca7e2d06aa666fd89891764242e3871d84",
+    "20261125/native-repair-linux-check/full-suite-inputs.json": "f1e22983f49f22e5fc8485cae942ada5aa11e75fd6ec93696a0757ef23823ef8",
+    "20261125/native-repair-linux-check/corpus-inputs.json": "fab43d52f0a9e5942884318157e50016cf407c0bfee565ffca8c1d33a21dccf0",
+    "20261125/native-repair-linux-check/workflow.yml": "cd6c68744dbbdeb4b8cb0a04c3bbf2e74c94b1987c0590458169e12121b18cb0",
+    ".github/workflows/native-repair-linux-check-20261125.yml": "cd6c68744dbbdeb4b8cb0a04c3bbf2e74c94b1987c0590458169e12121b18cb0",
+    "20261125/native-repair-linux-check/author-inspections.json": "22081e7cfae0921cf559faa6505398581aaf11989f9c21651a61d4783f2ef69d",
+    "20261125/native-repair-linux/checkpoint-linux-build-20261125.py": "6f2f23afa2f85a877020c296e80370e90c851d41cfb846328d3e2d3caac2f1c7",
+    "20261125/native-repair-linux/checkpoint-build-support.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+    "20261125/native-repair-linux/build-inputs.json": "b83cb96d5eaee1d3e838e188579009ff3dbba7439223f9b498f56219ca46c9a5"
+  },
+  "final_delta": {
+    "suite_helper_byte_identical": true,
+    "corpus_helper_byte_identical": true,
+    "parser_fixture_checker_byte_identical": true,
+    "actual_fixture_bytes_identical": true,
+    "all_three_templates_unchanged": true,
+    "active_workflow_only_replaces_measured_placeholders": true,
+    "actual_workflow_matches_packet": true,
+    "readme_and_two_final_inspections_read": true,
+    "all_author_file_bindings_verified": true
+  },
+  "producer": {
+    "candidate_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+    "run_id": 45587412193,
+    "attempt": 1,
+    "job_id": 139112445996,
+    "conclusion": "success",
+    "evidence_commit": "780716d93a61776e8653cfd0b67656b9239094ee",
+    "evidence_directory": "20261125/revision-8/results/native-linux-build-45587412193",
+    "full_log_sha256": "94924d52c6e87def3d64eb589cf609ca5b2095df182791f1b8805ce27f2ab930",
+    "retained_full_log_equals_independent_api_fetch": true,
+    "build_result_sha256": "2c2d704504d238880e0a4bdef29ffc963f25b7588ec45ce62193eb33886937d2",
+    "outer_result_sha256": "d36490ff35322f897b1d50e5220f3a1786dfd1c029ab0ce8a33453b016c4aa9c",
+    "actual_encoded_receipts_independently_decoded": true,
+    "retained_receipts_byte_equal": true,
+    "all_emitted_text_hashes_and_byte_counts_verified": true,
+    "all_57_retained_stream_record_bindings_match_actual": true,
+    "all_commands_exit_zero": true,
+    "owned_groups_exited": true,
+    "default_harnesses": 145,
+    "compiled_executables": 147,
+    "format": "passed",
+    "clippy": "passed with warnings denied",
+    "man_normalization": "Independently removed only the single known ASCII space on synopsis line 7; every other byte hashes to the tracked page.",
+    "archive_release": "passed",
+    "tests_executed": false
+  },
+  "bound_inputs": {
+    "suite": {
+      "schema_version": 1,
+      "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+      "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+      "build_run": "45587412193",
+      "build_attempt": "1",
+      "build_workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+      "build_result_sha256": "2c2d704504d238880e0a4bdef29ffc963f25b7588ec45ce62193eb33886937d2",
+      "outer_result_sha256": "d36490ff35322f897b1d50e5220f3a1786dfd1c029ab0ce8a33453b016c4aa9c",
+      "bundle_sha256": "694e9f357f104f98e150b59926d40df3129f2adb6f29b557e3d7cae1b435bd3a",
+      "bundle_bytes": 555917642
+    },
+    "corpus": {
+      "schema_version": 1,
+      "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+      "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+      "release_sha256": "ddc29ba25be1684b887bf10954c5ef7643ec57982e934ed633178a44d04a90cc",
+      "release_bytes": 13643392,
+      "metadata_sha256": "f1774c33a33fce6cad1bb58152898cf676323753f9b36201fd02e4079c48d98c",
+      "target": "x86_64-unknown-linux-gnu",
+      "original_public_commit": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+      "windows_job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+    },
+    "full_artifact": {
+      "id": 15009891712,
+      "bytes": 556444988,
+      "sha256": "a4846c26d3f9d5bc561b870f8932ed75f37825c957ccf5a8855e9c16ec6e6079"
+    },
+    "release_artifact": {
+      "id": 15009666984,
+      "bytes": 22303410,
+      "sha256": "aacf9dcdea6eabedfd9c13b6f63c04dbfbd3757aeed4893e13a21aa988d13d95"
+    },
+    "artifact_api_source_and_run_verified": true,
+    "all_measured_fields_match_actual_receipts": true
+  },
+  "activation": {
+    "branch": "task/native-repair-linux-check-20261125",
+    "jobs": [
+      "full-suite",
+      "recovery"
+    ],
+    "same_exact_candidate_required": true,
+    "fixture_gate_before_product_execution": true,
+    "full_suite_command_limit_seconds": 5400
+  },
+  "final_author_clean_inspections": 2,
+  "findings": [],
+  "final_native_acceptance": false,
+  "pending": [
+    "Actual downloaded bundle/release/source/target verification by the accepted consumers.",
+    "Actual parser fixture results, eight affected targets, all default harnesses and doctests, original-corpus qualification and complete retained outputs.",
+    "Final source/runtime acceptance with the Windows qualification and both final author source inspections."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
