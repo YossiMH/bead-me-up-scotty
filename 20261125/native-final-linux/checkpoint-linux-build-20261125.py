@@ -320,6 +320,10 @@ def main():
         generator = root / executables["binary:generate-man-pages"]["path"]
         runner.run([str(generator), str(generated)], source, "generate-man-pages")
         generated_update = generated / "bead-update.1"
+        print("CHECKPOINT_GENERATED_UPDATE_MAN " + json.dumps({
+            **B.file_record(generated_update, root),
+            "base64": base64.b64encode(generated_update.read_bytes()).decode("ascii")
+        }, sort_keys=True), flush=True)
         require(generated_update.read_bytes() == (source / "man/man1/bead-update.1").read_bytes(),
                 "Tracked update man page differs from the actual generator")
         status["generated_update_man_sha256"] = sha(generated_update)

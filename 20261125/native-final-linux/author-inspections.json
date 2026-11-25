@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-linux-build",
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "prior_accepted_producer_commit": "5753653247952185fef0b8c2c83ecacb6bbb190a",
+  "files": {
+    "20261125/native-final-linux/checkpoint-linux-build-20261125.py": {
+      "sha256": "d2ae451403f2a11140f45337f45c74c407f365f7482bd9d61a7814d645459c26"
+    },
+    "20261125/native-final-linux/checkpoint-build-support.py": {
+      "sha256": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0"
+    },
+    "20261125/native-final-linux/build-inputs.json": {
+      "sha256": "05bdd98fbbd95f7ce39485d8659f13fbeee8f6bc882bf11cf757f65e0723adf4"
+    },
+    "20261125/native-final-linux/workflow.yml": {
+      "sha256": "8a679acca15fda405e4af81425a03f9d4c3c7e2f45625bca087c7d8fa5081b43"
+    },
+    ".github/workflows/native-final-linux-build-20261125.yml": {
+      "sha256": "8a679acca15fda405e4af81425a03f9d4c3c7e2f45625bca087c7d8fa5081b43"
+    }
+  },
+  "unchanged_helper_functions": [
+    "require",
+    "sha",
+    "load_support",
+    "parse_delta",
+    "compiled_outputs",
+    "target_inventory",
+    "emit_text_records"
+  ],
+  "changes": [
+    "Pin accepted checkpoint baseline515, accepted tests140 and implementation9ff with exact seven-file hashes and two parent edges",
+    "Run the existing compiled man generator, retain the exact generated update page in the log, require byte equality with the tracked page",
+    "Bind workflow and read-only source/helper checkouts to final inputs; retain the prior one-job/deadline/archive build and complete target inventory"
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean static inspection",
+      "checks": [
+        "Read complete final producer, unchanged support contract, inputs and workflow after the final generator-output retention edit",
+        "Trace clean checkout, exact ancestry/deltas/blob hashes, immutable archive, fmt/Clippy/all-target compilation and release metadata",
+        "Confirm actual generated update man page is visible even if equality fails and no product source is changed"
+      ]
+    },
+    {
+      "pass": 2,
+      "result": "clean static inspection",
+      "checks": [
+        "Repeated complete inspection of the same final producer and workflow bytes",
+        "All seven non-main producer functions and the support helper remain byte-identical to the previously accepted producer",
+        "Check source and target inventories, every default executable, original public corpus selection, whole build deadline and complete failure/success output retention",
+        "Verify hosted parser gate precedes product commands; all action pins, token permissions and artifact paths remain ordinary bounded task operations"
+      ]
+    }
+  ],
+  "syntax_status": "Cloud exec rejected process creation after disconnect; existing hosted python -m py_compile step runs before any product build.",
+  "pending": [
+    "Independent packet review",
+    "Actual hosted formatter/Clippy/compilation/generator/release results",
+    "Separate affected/full-suite and corpus execution"
+  ],
+  "cleanup": "After retained final results and reviews, remove task/native-final-linux-packet-20261125 and task/native-final-linux-build-20261125 plus the recorded clean Riftri worktrees. A future agent must reconcile any running workflow and finish cleanup if this session ends."
+}

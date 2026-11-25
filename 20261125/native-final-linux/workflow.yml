@@ -54,7 +54,7 @@ jobs:
             --support-helper "$GITHUB_WORKSPACE/ci/20261125/native-final-linux/checkpoint-build-support.py" \
             --inputs "$GITHUB_WORKSPACE/ci/20261125/native-final-linux/build-inputs.json" \
             --inputs-sha256 05bdd98fbbd95f7ce39485d8659f13fbeee8f6bc882bf11cf757f65e0723adf4 \
-            --helper-sha256 b2a1630b1f9147d11f19960326bc407191a3bdecee9e879744bb92c120f875d2
+            --helper-sha256 d2ae451403f2a11140f45337f45c74c407f365f7482bd9d61a7814d645459c26
 
       - name: Retain all compiled targets and complete build streams
         if: always()
