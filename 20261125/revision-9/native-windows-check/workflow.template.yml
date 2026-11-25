@@ -46,8 +46,8 @@ jobs:
           assert digest(packet / "packet.json") == os.environ["CHECK_PACKET_SHA256"]
           manifest = json.loads((packet / "packet.json").read_text())
           assert manifest["schema_version"] == 1 and manifest["status"] == "bound"
-          assert manifest["source_commit"] == "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b"
-          assert manifest["source_tree"] == "13e8f57a4de57819dfe3f13cc71f6078ac27bba7"
+          assert manifest["source_commit"] == "PENDING_FINAL_SOURCE_COMMIT"
+          assert manifest["source_tree"] == "PENDING_FINAL_SOURCE_TREE"
           sys.pycache_prefix = str(pathlib.Path(os.environ["RUNNER_TEMP"]) / "windows-qualification-parse")
           for name, expected in manifest["files"].items():
               assert re.fullmatch(r"[A-Za-z0-9_.-]+", name)
