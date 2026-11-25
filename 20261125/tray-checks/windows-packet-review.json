@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "scope": "Complete independent static review of the prepared two-case Windows tray-host execution packet and exact retained Linux prerequisites.",
+  "proposal_commit": "82b57e83795754cd076252ff62311402fdd7cb0b",
+  "proposal_tree": "9eba17b15153e6e9d664490dea57aef3a4fa9206",
+  "directory": "20261125/tray-checks",
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "source_tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+  "reviewed_files": {
+    "run-windows-host-checks.ps1": "b5792316a07fafade0aa2e42a7d90216f87b88df681907f3cc0a9e31101627e1",
+    "tray-windows-host.workflow.yml": "9f73fbf5b5e0b0e4a0738d0e6c6d3b443024cea21f95a7c5560e8f9f63cae2f6",
+    "windows-inputs.json": "683529f4fe58f17be8846c3b9d640eb1c056a360c4b012b160ecd0941ed20123",
+    "windows-task-job.ps1": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "windows-author-audits.json": "0773bc66418d976a0c12284f7941229fd3c8e35ba62937a93d1e3e65fa2bf2e8",
+    "windows-execution-notes.md": "5c1e90de6f519b5f309296b72e4dd8c2b69ff7ea0d4ef4cf642eec45d8ab3798",
+    "manifest.json": "3a9e7db1bfdd1a229d037b3795cdf9f6e6387bbba54fecd475ad9552f8a395d9",
+    "tray-candidate-files.json": "ff4a15e0e87a2799d1b2b55c3f67dce0092a711b142ccaaeeb7eada7689c05ba"
+  },
+  "complete_files_read": [
+    "run-windows-host-checks.ps1",
+    "tray-windows-host.workflow.yml",
+    "windows-inputs.json",
+    "windows-task-job.ps1",
+    "windows-author-audits.json",
+    "windows-execution-notes.md",
+    "manifest.json"
+  ],
+  "verification": {
+    "packet_files_matching_local_sha_size_and_immutable_remote_git_blob": 31,
+    "source_files_matching_previously_reviewed_candidate": 9,
+    "linux_result_sha256": "166f35f0625f88e4f0756cffc8fc5245c892400f344ea31b1a1f24898ea97d80",
+    "linux_runner_review_sha256": "0551019b84a99a44bccd5c557aca47842a3421e5f0acd903b9e840e5ffaa3fab",
+    "linux_actual_review_sha256": "4c8df2a23699d32902c2a7f3fa5e3f1ca3b642fa8db93fc188c16a9218e4df33",
+    "complete_author_inspections": 2
+  },
+  "findings": [],
+  "assessment": [
+    "The pinned ordinary PowerShell caller copies three exact execution files to a fresh LocalAppData directory. It observes the supervisor process exit and exact successful receipt before accepting completion. It preserves the execution policy and inherited Windows Job ownership.",
+    "The corrected read-only Job query accepts only successful complete snapshots with equal positive assigned/returned counts, sufficient returned bytes and unique positive PIDs. Incomplete success or ERROR_MORE_DATA resamples the same query within eight attempts/500 ms and at most 1024 entries; it does not repeat product commands. Quiescent checks require the sole supervisor PID before and after execution.",
+    "The unchanged kill-on-close helper owns all descendants, including console children. A 150-second supervisor bound, 170-second caller wait, three-minute step and five-minute job bound cover execution and exceptional cleanup. Caller fallback terminates only its held supervisor process, whose non-inheritable Job handle then closes.",
+    "The supervisor verifies clean exact source commit/tree and all nine file hashes and sizes before and after execution, selects the first actual Node executable and requires version25.2.1, checks the permanent Node test syntax and natively parses its embedded PowerShell.",
+    "The sole product test command executes both permanent real Windows Forms host cases serially. Acceptance requires two passes with no failed/cancelled/skipped/todo cases; exact STOP and original-controller-loss receipts; READY, both expected children, removed cache and no forced cleanup. The already independently reviewed permanent test supplies held process identities, actual exit checks and sentinel preservation.",
+    "The fresh branch-filtered workflow uses standard public windows-2022, read-only contents permission, immutable official Action pins, LF checkout settings and exact source5232c8b. It installs only the specified Node runtime and requires no package build. It retains full caller/supervisor/case evidence for14days and exposes small complete streams with hashes and Base64.",
+    "The included exact Linux39/39 and full lint results and both independent reviews remain accepted. Their actual warnings and stderr remain retained."
+  ],
+  "activation": {
+    "branch": "task/tray-windows-host-20261125",
+    "accepted_after_root_authorization": true,
+    "workflow_sha256": "9f73fbf5b5e0b0e4a0738d0e6c6d3b443024cea21f95a7c5560e8f9f63cae2f6"
+  },
+  "pending": [
+    "Actual native Windows parsing and both hosted case results.",
+    "Separate bounded interactive-PC tray/menu, installed configured-launch and integration acceptance."
+  ],
+  "reviewer_execution": "Static file, identity and source-contract inspection only."
+}
