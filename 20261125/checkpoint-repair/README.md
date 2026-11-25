@@ -29,7 +29,7 @@ Exact in-memory unified-patch parsing reproduced every full candidate file from 
 2. Apply and format the tests-first changes in the assigned product worktree, inspect the final diff, and record the exact tests commit.
 3. Build and run the named regressions from an immutable archive of that tests commit with one Cargo job and one test thread. Retain each actual baseline failure.
 4. Apply the repair only after the accepted red results. Record the repaired source commit and run the same regressions plus the affected existing suites from an immutable archive.
-5. Complete the required formatting, lint, full-test and release-build gates recorded by the accepted plan. Build the Windows executable from the exact qualified commit; record its own hash and metadata, then perform the bounded Windows qualification.
+5. Complete the required formatting, lint, full default native suite, and release-build gates as separate tasks in the corrected accepted plan. Build the Windows executable on the hosted MSVC route first; retain any failure before using the verified GNU fallback. Record each artifact's own hash and metadata, then perform its bounded Windows qualification.
 6. Update installation and preservation helpers from the qualified replacement pin and actual task mapping. The original store remains untouched until its independently reviewed backup, merge, preservation, and recovery checks can run.
 
 Existing editing/browser evidence remains evidence for the unchanged editing behavior. These new checks establish checkpoint recovery behavior for the replacement native pin.

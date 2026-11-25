@@ -451,7 +451,8 @@ nor rejects them; their disposition is left to the human reviewer.
   sharded by ID prefix.
 - **Sealed segment**: an immutable, content-addressed, never-rewritten event
   file.
-- **Tail**: the single open event segment; the only mutable checkpoint file.
+- **Tail**: the logical open event segment; each generation selects immutable
+  tail bytes that remain available while a retained pointer refers to them.
 - **Split/merge**: the deterministic pair of rules keeping shards inside the
   sizing bounds as data grows and shrinks.
 - **New blob bytes**: the section 11 measurement of a publication's git cost.

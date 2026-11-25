@@ -1,0 +1,128 @@
+{
+  "schema_version": 1,
+  "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
+  "status": "completed_scoped_source_inspection",
+  "retained_rg": {
+    "author": "checkpoint_finish",
+    "scope": [
+      "src/",
+      "tests/",
+      "research/specs/checkpoint-set-v2.md"
+    ],
+    "literal": "set/tail.jsonl",
+    "hits": [
+      {
+        "path": "src/service/checkpoint/set_v2.rs",
+        "lines": [
+          702,
+          709,
+          711
+        ],
+        "kind": "production fixed-tail writer",
+        "disposition": "replaced by existing content-addressed writer in candidate"
+      },
+      {
+        "path": "tests/checkpoint_set_v2_conformance.rs",
+        "lines": [
+          1160,
+          1181,
+          1226
+        ],
+        "kind": "executable fixed-tail reads",
+        "disposition": "read manifest-selected tail path in candidate"
+      },
+      {
+        "path": "research/specs/checkpoint-set-v2.md",
+        "lines": [
+          97
+        ],
+        "kind": "layout documentation",
+        "disposition": "updated with directly related sealing/retention/definition text"
+      },
+      {
+        "path": "tests/checkpoint_mutation_guard.rs",
+        "lines": [
+          49
+        ],
+        "kind": "comment",
+        "disposition": "reader recursively scans set/; caller only checks event containment, so retained extra tails introduce no count assumption"
+      },
+      {
+        "path": "tests/r015_recovery_rehearsal.rs",
+        "lines": [
+          52
+        ],
+        "kind": "comment",
+        "disposition": "reader recursively scans set/; caller checks for any receipt line, so retained extra tails introduce no uniqueness assumption"
+      }
+    ],
+    "evidence": "Complete pre-outage rg output retained and reported by checkpoint_finish; source filesystem was unavailable during this follow-up."
+  },
+  "independent_readback": {
+    "author": "browser_finish",
+    "test_readers": [
+      {
+        "path": "tests/checkpoint_mutation_guard.rs",
+        "git_blob": "99c22bc6c2631cb06706ade101ce48e751ce105c"
+      },
+      {
+        "path": "tests/r015_recovery_rehearsal.rs",
+        "git_blob": "df83cbe4bd3b50d8bc088e4d01b43812b4103d52"
+      }
+    ],
+    "scripts": [
+      {
+        "path": "scripts/benchmark-secret-scan.py",
+        "git_blob": "6e8a96f71d6bbf7cc50ade19cba6fabeb68b9035",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/build-from-archive.sh",
+        "git_blob": "27a87aa74ff4c2d6c3ef93f4dff77fa649dfdfaf",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/ci-secret-release.sh",
+        "git_blob": "f453e49220a31b64aa831e6b98a831f37c635aea",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/definition-of-done.sh",
+        "git_blob": "a15f0be473b9adb906d54a0984da14e0116a4ab6",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/smoke-secret-release.py",
+        "git_blob": "06046ac4d8ef5a7a3c2795f7ed09c4a823c3304b",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/test_build_from_archive.py",
+        "git_blob": "baaec46fe6bae4f5c6e6007d8ed81f2a3f3ba055",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/test_verify_release_candidate.py",
+        "git_blob": "04e0d53192526e804ffa2c8d89dc5d5044e35de5",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/test_verify_secret_release.py",
+        "git_blob": "b363e23a313c6feeed9d4a8915afdfa8028a41e7",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/verify-release-candidate.py",
+        "git_blob": "15c9e34596e4f152b4dd6e6111af8908fe0eba4a",
+        "tail_jsonl_hits": 0
+      },
+      {
+        "path": "scripts/verify-secret-release.py",
+        "git_blob": "eb4cee1c0845adbdc54d1d28f81ecf04542d81f2",
+        "tail_jsonl_hits": 0
+      }
+    ],
+    "source": "Exact public Git tree and file contents at the baseline commit; every one of the ten scripts was fetched and scanned."
+  },
+  "conclusion": "No additional executable fixed-tail path assumption was identified within the completed source/test/spec/script scope."
+}

@@ -1,6 +1,18 @@
 --- a/src/service/checkpoint/set_v2.rs
 +++ b/src/service/checkpoint/set_v2.rs
-@@ -367,7 +367,7 @@
+@@ -254,8 +254,9 @@
+ /// immutable for the life of the workspace (spec 6.2), so their rows carry
+ /// forward verbatim; the open tail is the next seal unit, which makes every
+ /// seal boundary a publication boundary and the sealed bytes exactly the
+-/// outgoing tail's bytes — the rename of spec 6.2, whose old file step 4 of
+-/// the 7.4 procedure removes.
++/// outgoing tail's bytes, published at their sealed content address. Each
++/// retained generation keeps its selected tail bytes until structural
++/// retention releases them (spec 7.4).
+ ///
+ /// `None` when there is no set-v2 pointer yet, or when the recorded
+ /// boundaries no longer describe the live stream — a deletion inside the
+@@ -367,7 +368,7 @@
      Ok((rel, hash))
  }
  
@@ -9,7 +21,21 @@
  /// one, with the publication temp/rename/fsync discipline.
  fn write_set_file(
      checkpoint_dir: &Path,
-@@ -695,20 +695,21 @@
+@@ -598,9 +599,10 @@
+             // Sealed segments carry forward immutably (spec 6.2); the open
+             // tail is the next seal unit. It seals whole when this
+             // publication's appends would push it past SEG_SEAL — so the
+-            // sealed bytes are exactly the outgoing tail's bytes, the
+-            // rename of spec 6.2 — or when it already exceeded SEG_SEAL by
+-            // itself, so a repeated publication finishes the seal.
++            // sealed bytes are exactly the outgoing tail's bytes, published
++            // at their sealed content address. Retained pointers keep their
++            // selected tail bytes. A tail already above SEG_SEAL also seals,
++            // so a repeated publication finishes the seal.
+             let new_bytes: usize = (prev.covered_end..event_line_bytes.len())
+                 .map(|i| event_line_bytes[i] + 1)
+                 .sum();
+@@ -695,20 +697,21 @@
                  "origin_range": origin_range,
              }));
          } else {
@@ -38,7 +64,7 @@
                  "sha256": hash,
                  "byte_length": body.len(),
                  "event_count": members.len(),
-@@ -1106,7 +1107,7 @@
+@@ -1106,7 +1109,7 @@
                              seen_issue_ids: &mut std::collections::HashSet<String>,
                              seen_event_identities: &mut std::collections::HashSet<String>,
                              seen_receipt_ids: &mut std::collections::HashSet<String>,
@@ -47,7 +73,7 @@
       -> Result<()> {
          // Digest before use (spec 13); the parse then reads the same bytes.
          read_verified_set_artifact(base, rel, sha, len)?;
-@@ -1124,6 +1125,11 @@
+@@ -1124,6 +1127,11 @@
          labels.extend(data.labels);
          events.extend(data.events);
          receipts.extend(data.receipts);
@@ -59,7 +85,7 @@
          attempt_outcomes.extend(data.attempt_outcomes);
          redaction.findings.extend(data.redaction.findings);
          redaction
-@@ -1283,5 +1289,118 @@
+@@ -1283,5 +1291,118 @@
          );
          assert_eq!(keyed_record_id(&epoch).unwrap(), "5ed7");
          assert_eq!(keyed_record_id(&tombstone).unwrap(), "73f2");
@@ -307,7 +333,7 @@
  }
 --- /dev/null
 +++ b/tests/checkpoint_tail_generation_integrity.rs
-@@ -0,0 +1,160 @@
+@@ -0,0 +1,199 @@
 +//! A selected set-v2 generation remains recoverable across the next publish.
 +
 +use rusqlite::Connection;
@@ -379,6 +405,41 @@
 +    let before_inventory = run(source.path(), &["list", "--all", "--json"]).stdout;
 +    let generation = selected["generation_id"].as_str().unwrap();
 +
++    if legacy_fixed_tail {
++        let verified = TempDir::new().expect("legacy fixture verification target");
++        let report: Value = serde_json::from_slice(
++            &run(
++                verified.path(),
++                &[
++                    "restore",
++                    "--source",
++                    checkpoint.to_str().unwrap(),
++                    "--generation",
++                    generation,
++                    "--actor",
++                    "legacy-fixture-verification",
++                    "--format",
++                    "json",
++                ],
++            )
++            .stdout,
++        )
++        .unwrap();
++        assert_eq!(report["generation_id"], selected["generation_id"]);
++        assert_eq!(report["source_root_sha256"], selected["active_root"]["sha256"]);
++        assert_eq!(report["issues_restored"], selected["issue_count"]);
++        assert_eq!(report["non_empty_override"], false);
++        let verified_inventory = run(verified.path(), &["list", "--all", "--json"]).stdout;
++        assert_eq!(
++            serde_json::from_slice::<Value>(&verified_inventory).unwrap(),
++            serde_json::from_slice::<Value>(&before_inventory).unwrap(),
++            "the legacy fixture must restore correctly before the append"
++        );
++        assert_eq!(fs::read(&current).unwrap(), selected_pointer_bytes);
++        assert_eq!(fs::read(&manifest_path).unwrap(), selected_manifest_bytes);
++        assert_eq!(fs::read(&selected_tail_path).unwrap(), tail_bytes);
++    }
++
 +    // A small append changes the open tail without crossing the seal bound.
 +    // Old code overwrote set/tail.jsonl here and made this generation unusable.
 +    run(
@@ -398,7 +459,11 @@
 +        "promotion must retain the exact selected pointer"
 +    );
 +    assert_eq!(fs::read(&manifest_path).unwrap(), selected_manifest_bytes);
-+    assert_eq!(fs::read(&selected_tail_path).unwrap(), tail_bytes);
++    assert_eq!(
++        fs::read(&selected_tail_path).unwrap(),
++        tail_bytes,
++        "selected tail bytes changed after append"
++    );
 +    assert_eq!(
 +        fs::read(source.path().join(".beads/config.json")).unwrap(),
 +        original_config
@@ -512,3 +577,13 @@
  
  A crash before step 3 leaves the old generation authoritative; a crash after
  step 3 leaves the new one authoritative. Publication state is derived from
+@@ -443,7 +451,8 @@
+   sharded by ID prefix.
+ - **Sealed segment**: an immutable, content-addressed, never-rewritten event
+   file.
+-- **Tail**: the single open event segment; the only mutable checkpoint file.
++- **Tail**: the logical open event segment; each generation selects immutable
++  tail bytes that remain available while a retained pointer refers to them.
+ - **Split/merge**: the deterministic pair of rules keeping shards inside the
+   sizing bounds as data grows and shrinks.
+ - **New blob bytes**: the section 11 measurement of a publication's git cost.

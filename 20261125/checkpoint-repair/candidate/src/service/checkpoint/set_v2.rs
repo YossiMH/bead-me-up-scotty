@@ -254,8 +254,9 @@ fn pack_event_segments(line_bytes: &[usize], events: &[EventRecord]) -> Vec<(Vec
 /// immutable for the life of the workspace (spec 6.2), so their rows carry
 /// forward verbatim; the open tail is the next seal unit, which makes every
 /// seal boundary a publication boundary and the sealed bytes exactly the
-/// outgoing tail's bytes — the rename of spec 6.2, whose old file step 4 of
-/// the 7.4 procedure removes.
+/// outgoing tail's bytes, published at their sealed content address. Each
+/// retained generation keeps its selected tail bytes until structural
+/// retention releases them (spec 7.4).
 ///
 /// `None` when there is no set-v2 pointer yet, or when the recorded
 /// boundaries no longer describe the live stream — a deletion inside the
@@ -598,9 +599,10 @@ pub(super) fn publish_set_v2_checkpoint(
             // Sealed segments carry forward immutably (spec 6.2); the open
             // tail is the next seal unit. It seals whole when this
             // publication's appends would push it past SEG_SEAL — so the
-            // sealed bytes are exactly the outgoing tail's bytes, the
-            // rename of spec 6.2 — or when it already exceeded SEG_SEAL by
-            // itself, so a repeated publication finishes the seal.
+            // sealed bytes are exactly the outgoing tail's bytes, published
+            // at their sealed content address. Retained pointers keep their
+            // selected tail bytes. A tail already above SEG_SEAL also seals,
+            // so a repeated publication finishes the seal.
             let new_bytes: usize = (prev.covered_end..event_line_bytes.len())
                 .map(|i| event_line_bytes[i] + 1)
                 .sum();

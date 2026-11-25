@@ -1,35 +1,35 @@
 {
   "schema_version": 1,
+  "proposal_revision": 2,
   "author": "browser_finish",
-  "status": "two completed clean author inspections; independent review pending",
+  "status": "two renewed clean author inspections; final independent review pending",
   "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
+  "superseded_commit": "b8f4b577ee98231f5d6642a9f44992a37546310e",
   "final_binding": {
-    "manifest_sha256": "b781b5f169326cb0e47b6cb47473ccf73ea4ee4ddab3974f282247d6b9f4e3a9",
-    "tests_first_patch_sha256": "c96bc48c2d30bf48578d7fd295cfdd5e25559403698ef0a3322912d60edf5806",
-    "repair_only_patch_sha256": "2116039d26b3392039ecaccb002f55441b6a23f1589d8c1d69bee12767d74dd2",
-    "candidate_patch_sha256": "56f46cefb36485ae4ce635eee2fbd6ed80f0561de31912fc3fa026edc9b7ade8",
-    "readme_sha256": "50a6d7795f021b58caafa5d6355d0c92ef14eee64fb80357015f7e5e3b480fa7",
-    "regression_design_sha256": "19cf614576972c7576c33d6fc8dc96fae1f9b10f556e571197e45afde98a9d6c",
-    "static_checks_sha256": "2de0f33b26d36e192ee552c60452b4127d9158807ff465ce7d7bc80f4b30e7a2"
+    "manifest_sha256": "4088472e86ce728d0b0044b16d0d30bd65fae0ef038257bcb2936461d5ba94dc",
+    "tests_first_patch_sha256": "cb0a4f7d6ce71b8b2f6442f55ac7ca74fe2289f085352002c28be60b873d4e49",
+    "repair_only_patch_sha256": "f38adfc5d3e8f29349e9f3df82dc8d226ddc7d6486d5fd5632d9ea71f1c52b60",
+    "candidate_patch_sha256": "496db2b9ef681a4e0d86503c3c0a605b601f7b0b9d2cd736e02589aa6aa51c20",
+    "readme_sha256": "9c5206ede9be6219893314c0fb11f8e88ec1484541726327bfe9cb3e96a4899e",
+    "regression_design_sha256": "c6d9d5e2998bded13889cc27acc764f00e21693368a444b8977893bde01e2c14",
+    "static_checks_sha256": "b7b5c81b934dc587c83062a89f3e222bebeda0c4645bb1352ad47eb9a3cb9234",
+    "tail_path_scan_sha256": "29ec9c960ff15bf1edf7d8bf79e9f16a559e5c92e526112412ecb16b808e379c",
+    "review_disposition_sha256": "3a8c96758ebba709bb189ceeedc4dfce1acb2550cdea94ddcafd8928eace4e8f"
   },
   "passes": [
     {
       "number": 1,
-      "scope": "Complete tests-first and repair-only diffs, every new regression/helper, related published staging/parser/restore types, production writer signature and full specification changes.",
-      "statement": "I inspected the shared-set accounting and duplicate refusal against the existing parser responsibility and restore count contract. I traced the content-addressed tail call, retained-path behavior, both legacy and current selected-generation tests, complete fixture outcome rows, public report fields and source-preservation assertions. The final test refinement makes the retained-byte invariant precede layout checks. No remaining author finding.",
+      "scope": "Complete corrected tests-first/repair diffs and six regressions, including the complete legacy setup, both restore paths and related published source contracts.",
+      "statement": "I retraced every staging count/duplicate check and the real outcome-restore assertions. I checked that the legacy selected generation restores successfully before publication, its source bytes remain unchanged by verification, and only the later selected-tail equality supplies the expected Red marker. I checked the unchanged production algorithms, new writer call and every related comment/spec correction. No remaining author finding.",
       "result": "clean"
     },
     {
       "number": 2,
-      "scope": "Complete final patch composition, exact stage and baseline hashes, full README, regression design, candidate manifest and static-check record.",
-      "statement": "I rechecked the five-file scope, the production/test boundary, unchanged assertions between tests-first and repaired states, exact patch reconstruction, provenance hash, serial command filters, immutable source/build requirements, pending compiler/runtime gates and temporary-branch cleanup. I confirmed this scratch publication carries no workflows and cannot qualify itself as product execution. No remaining author finding.",
+      "scope": "Complete final source/test-stage boundary, full patch reconstruction, all artifact bindings, README, regression design, manifest, static checks, source-path scan and review disposition.",
+      "statement": "I confirmed that tests-first keeps the original production prefix and specification, repair keeps every accepted test/helper byte, the five-file scope holds, and both patch paths reconstruct the same full files. I checked required full-suite separation, MSVC-first/fallback wording, immutable build/native pin requirements and cleanup. I distinguished static checks from pending compiler, test and Windows evidence. No remaining author finding.",
       "result": "clean"
     }
   ],
-  "resolved_before_final_passes": [
-    "During memory reconstruction the new restore test was corrected to compare report.provenance_receipts_restored with the pointer's actual receipt_count field.",
-    "With the tail author's agreement, layout assertions were moved after preservation and public-restore assertions to make baseline failure evidence target the observed defect."
-  ],
-  "verification_boundary": "These are author static inspections. No combined Git apply, Rust parser, formatter, build, red/green run, release artifact or Windows qualification is claimed.",
-  "cleanup": "Root must retain final evidence, verify the actual current head and ownership, and remove task/checkpoint-candidate-20261125 during final cleanup. Future agents must reconcile uncertain operations and clean task-owned branches/worktrees if the process stops early."
+  "verification_boundary": "Actual Git apply of the combined package, Rust formatting/parsing, compilation, Red/Green tests, release artifacts and Windows execution remain pending their accepted materialized tasks.",
+  "cleanup": "Retain accepted evidence and verify the actual current head/ownership before deleting task/checkpoint-candidate-20261125. Future agents must reconcile uncertain commits and clean task-owned branches/worktrees after an interrupted session."
 }

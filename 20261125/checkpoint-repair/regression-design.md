@@ -29,7 +29,7 @@ The unit staging fixture writes real JSONL files and their exact manifest digest
 
 The outcome integration fixture reuses the existing helper's portable columns and zero prior attempt tier. The checkpoint wire contract does not store the prior tier, so this test does not assert a new nonzero-tier preservation contract. Full SQL row comparison covers every column in these fixture outcomes, and the source rows are checked again after recovery.
 
-The tail integration test uses real init, create, flush, list and selected-generation restore commands. Only its legacy-compatibility setup writes fixture metadata: it changes the selected tail path to the observed legacy layout and updates the manifest digest in the pointer and live checkpoint bookkeeping. It retains the source configuration bytes and checks that a small append did not introduce a sealing boundary. The recovered inventory must exclude the later issue.
+The tail integration test uses real init, create, flush, list and selected-generation restore commands. Only its legacy-compatibility setup writes fixture metadata: it changes the selected tail path to the observed legacy layout and updates the manifest digest in the pointer and live checkpoint bookkeeping. Before the append, a real restore into a separate fresh directory proves that the edited legacy generation is valid and recovers the exact source inventory. The fixture's pointer, manifest and tail bytes are rechecked after that probe. The test retains the source configuration bytes and checks that a small append did not introduce a sealing boundary. The final recovered inventory must exclude the later issue. Its post-append byte assertion has a specific failure message so the Red checker can distinguish the demonstrated defect from an earlier setup failure.
 
 The existing conformance assertions still verify actual tail digests. Their three path reads now use the selected manifest's path, so they cover both supported tail layouts.
 
@@ -68,11 +68,11 @@ cargo test --locked --test checkpoint_set_v2_conformance set_v2_tail_seal_and_im
 cargo test --locked --test checkpoint_set_v2_conformance set_v2_crash_ordering -- --exact --test-threads=1
 ```
 
-Complete the repository's required formatting, lint, and full-test gates according to the accepted qualification task. No additional product behavior or configuration workaround belongs in this repair.
+Complete the repository's required formatting and warnings-denied lint gates during the Linux build task. The corrected revision-5 plan also requires compilation of all default test targets and a separate complete default native cargo test task. Preserve that full-suite result alongside the focused checks; none of these gates is waived. No additional product behavior or configuration workaround belongs in this repair.
 
 ## Immutable release builds and Windows qualification
 
-Use the repository's existing immutable-archive build procedure from the qualified repaired commit. Build the Linux host executable and the `x86_64-pc-windows-gnu` executable with one Cargo job, task-owned output paths, and metadata recording the exact source commit, tree, target, toolchain, command, and resulting binary SHA-256.
+Use the repository's existing immutable-archive build procedure from the qualified repaired commit. Build the Linux host executable and first use the hosted Windows `x86_64-pc-windows-msvc` route with the unchanged archive script. If that route actually fails, retain the failure and use the previously verified Linux cross-build route for `x86_64-pc-windows-gnu`. Each build uses one Cargo job, task-owned output paths, and metadata recording the exact source commit, tree, target, toolchain, command, and resulting binary SHA-256.
 
 A cross-compiled Windows artifact needs its own bounded native Windows execution evidence. It must not inherit the historical `539cdd0` runtime hash or claim that the old Windows test qualified new bytes. Root will bind the replacement executable hash to the revised Windows check, installer preflight and preservation/restore helper. Existing editing/browser results remain applicable to their unchanged behavior; the new qualification is explicit about the native checkpoint changes.
 

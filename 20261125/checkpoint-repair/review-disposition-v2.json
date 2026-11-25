@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "proposal_revision": 2,
+  "superseded_commit": "b8f4b577ee98231f5d6642a9f44992a37546310e",
+  "reviewer": "delivery_review",
+  "findings": [
+    {
+      "finding": "The edited legacy checkpoint was not independently proven valid before append.",
+      "correction": "Added real first-class selected-generation restore into a fresh target, verified report/root/inventory, and rechecked source pointer/manifest/tail bytes before the later append."
+    },
+    {
+      "finding": "An expected Red failure should be distinct from fixture setup failure.",
+      "correction": "Kept the post-append selected-tail equality assertion and added the precise message selected tail bytes changed after append."
+    },
+    {
+      "finding": "Two source comments and the specification Tail definition described old mutable/rename behavior.",
+      "correction": "Updated only the directly related comments and definition to immutable generation-selected bytes and structural retention."
+    },
+    {
+      "finding": "Windows preparation prose assumed GNU cross compilation.",
+      "correction": "Documented the accepted hosted MSVC route first, preserving its actual failure before the verified GNU fallback."
+    },
+    {
+      "finding": "The accepted plan omitted the repository's complete default native cargo test gate.",
+      "correction": "Root added a separate full-suite task and all-default-target compilation before materialization; this proposal retains the full-suite requirement."
+    }
+  ],
+  "verification": "All correction bytes and the complete combined proposal received renewed author inspections; final independent acceptance is pending."
+}

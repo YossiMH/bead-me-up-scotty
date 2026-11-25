@@ -69,6 +69,41 @@ fn selected_generation_survives_append(legacy_fixed_tail: bool) {
     let before_inventory = run(source.path(), &["list", "--all", "--json"]).stdout;
     let generation = selected["generation_id"].as_str().unwrap();
 
+    if legacy_fixed_tail {
+        let verified = TempDir::new().expect("legacy fixture verification target");
+        let report: Value = serde_json::from_slice(
+            &run(
+                verified.path(),
+                &[
+                    "restore",
+                    "--source",
+                    checkpoint.to_str().unwrap(),
+                    "--generation",
+                    generation,
+                    "--actor",
+                    "legacy-fixture-verification",
+                    "--format",
+                    "json",
+                ],
+            )
+            .stdout,
+        )
+        .unwrap();
+        assert_eq!(report["generation_id"], selected["generation_id"]);
+        assert_eq!(report["source_root_sha256"], selected["active_root"]["sha256"]);
+        assert_eq!(report["issues_restored"], selected["issue_count"]);
+        assert_eq!(report["non_empty_override"], false);
+        let verified_inventory = run(verified.path(), &["list", "--all", "--json"]).stdout;
+        assert_eq!(
+            serde_json::from_slice::<Value>(&verified_inventory).unwrap(),
+            serde_json::from_slice::<Value>(&before_inventory).unwrap(),
+            "the legacy fixture must restore correctly before the append"
+        );
+        assert_eq!(fs::read(&current).unwrap(), selected_pointer_bytes);
+        assert_eq!(fs::read(&manifest_path).unwrap(), selected_manifest_bytes);
+        assert_eq!(fs::read(&selected_tail_path).unwrap(), tail_bytes);
+    }
+
     // A small append changes the open tail without crossing the seal bound.
     // Old code overwrote set/tail.jsonl here and made this generation unusable.
     run(
@@ -88,7 +123,11 @@ fn selected_generation_survives_append(legacy_fixed_tail: bool) {
         "promotion must retain the exact selected pointer"
     );
     assert_eq!(fs::read(&manifest_path).unwrap(), selected_manifest_bytes);
-    assert_eq!(fs::read(&selected_tail_path).unwrap(), tail_bytes);
+    assert_eq!(
+        fs::read(&selected_tail_path).unwrap(),
+        tail_bytes,
+        "selected tail bytes changed after append"
+    );
     assert_eq!(
         fs::read(source.path().join(".beads/config.json")).unwrap(),
         original_config

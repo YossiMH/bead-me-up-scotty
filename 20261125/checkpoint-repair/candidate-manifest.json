@@ -34,7 +34,13 @@
   "provenance": {
     "tail_patch_sha256": "9a19e6c724790fdb429ecd702ef02d5795bc5db4b44ea813adce1cdc27c9713a",
     "tail_test_refinement": "Move non-legacy layout assertions after preserved-byte and successful public-restore assertions so both baseline cases first expose retained-tail corruption.",
-    "attempt_reconstruction": "Recovered from active design context against exact published baseline after the filesystem became unavailable. These hashes supersede the earlier scratch count patch identities."
+    "attempt_reconstruction": "Recovered from active design context against exact published baseline after the filesystem became unavailable. These hashes supersede the earlier scratch count patch identities.",
+    "review_corrections": [
+      "Verify the edited legacy generation with a real fresh restore before the append, compare its inventory, and check unchanged source bytes.",
+      "Give the existing post-append selected-tail byte assertion a precise failure message.",
+      "Align both directly related source comments and the spec Tail definition with immutable retained tail bytes.",
+      "Keep the required separate complete default native suite and describe hosted MSVC first with the reviewed GNU fallback."
+    ]
   },
   "file_hashes": [
     {
@@ -42,8 +48,8 @@
       "base_git_blob": "7424cd83f181420305163cf570ad05873c623a6c",
       "base_sha256": "eae52fc4a02eecb1452bc07f967861e50f86afa9872b88d43080dc86069092a8",
       "tests_first_sha256": "220eac6cf03c67833071c8b921d54f1e5e5a93cde1e661c491c487dd3f59e84f",
-      "candidate_sha256": "4e834a69c73fbb87d80f28704eba4a492411d304ae6a02fce071c2b8424efd4c",
-      "candidate_utf8_bytes": 53371,
+      "candidate_sha256": "9227543341a0e7352a2aab1fdf7e9244df21e4c723cd705d537ad34341557642",
+      "candidate_utf8_bytes": 53522,
       "changes_in_tests_first": true,
       "changes_in_repair": true
     },
@@ -72,8 +78,8 @@
       "base_git_blob": "6cad042f3a6e55dae285b4bf7efd6c5aacc78052",
       "base_sha256": "8472ac3de0be99f111b41d5310a6fc543f7a5a02f6cf3508290f642055a1f24a",
       "tests_first_sha256": "8472ac3de0be99f111b41d5310a6fc543f7a5a02f6cf3508290f642055a1f24a",
-      "candidate_sha256": "441c4ad11142ebdaf06e0ba40dbf758d63805228c02a9dd4d148e36fa57799a6",
-      "candidate_utf8_bytes": 24891,
+      "candidate_sha256": "d06e0e890d84b52e0d22e63d954313e703dc187db635ccc44b93a96610a1b629",
+      "candidate_utf8_bytes": 24968,
       "changes_in_tests_first": false,
       "changes_in_repair": true
     },
@@ -81,28 +87,28 @@
       "path": "tests/checkpoint_tail_generation_integrity.rs",
       "base_git_blob": null,
       "base_sha256": null,
-      "tests_first_sha256": "7d168cba45183e29cd25b553349cf9749c7f4caf65a08accb4baedbd543a4fcc",
-      "candidate_sha256": "7d168cba45183e29cd25b553349cf9749c7f4caf65a08accb4baedbd543a4fcc",
-      "candidate_utf8_bytes": 6299,
+      "tests_first_sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705",
+      "candidate_sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705",
+      "candidate_utf8_bytes": 7875,
       "changes_in_tests_first": true,
       "changes_in_repair": false
     }
   ],
   "patches": {
     "tests-first.patch": {
-      "sha256": "c96bc48c2d30bf48578d7fd295cfdd5e25559403698ef0a3322912d60edf5806",
-      "utf8_bytes": 17083,
-      "lines": 410
+      "sha256": "cb0a4f7d6ce71b8b2f6442f55ac7ca74fe2289f085352002c28be60b873d4e49",
+      "utf8_bytes": 18698,
+      "lines": 449
     },
     "repair-only.patch": {
-      "sha256": "2116039d26b3392039ecaccb002f55441b6a23f1589d8c1d69bee12767d74dd2",
-      "utf8_bytes": 5186,
-      "lines": 105
+      "sha256": "f38adfc5d3e8f29349e9f3df82dc8d226ddc7d6486d5fd5632d9ea71f1c52b60",
+      "utf8_bytes": 7371,
+      "lines": 141
     },
     "candidate.patch": {
-      "sha256": "56f46cefb36485ae4ce635eee2fbd6ed80f0561de31912fc3fa026edc9b7ade8",
-      "utf8_bytes": 22203,
-      "lines": 514
+      "sha256": "496db2b9ef681a4e0d86503c3c0a605b601f7b0b9d2cd736e02589aa6aa51c20",
+      "utf8_bytes": 26003,
+      "lines": 589
     }
   },
   "new_regressions": [
@@ -121,7 +127,8 @@
     "format_and_compiler": "pending cloud execution",
     "green_execution": "pending",
     "immutable_release_builds": "pending",
-    "replacement_windows_runtime_pin": "pending qualified build and native execution"
+    "replacement_windows_runtime_pin": "pending qualified build and native execution",
+    "complete_default_native_suite": "pending separate full-suite task in the corrected accepted plan"
   },
   "execution_limits": {
     "cargo_build_jobs": 1,
@@ -131,5 +138,7 @@
     "windows_application_minimum_free_gib": 3,
     "windows_owned_aggregate_limit_mib": 512,
     "windows_existing_limits_remain_unchanged": true
-  }
+  },
+  "proposal_revision": 2,
+  "supersedes_scratch_commit": "b8f4b577ee98231f5d6642a9f44992a37546310e"
 }
