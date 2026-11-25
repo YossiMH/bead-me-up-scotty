@@ -67,7 +67,7 @@ function New-StageFixture([string]$Name,[string]$Defect=''){
         [pscustomobject]@{path='result.json';data=$buildResultBytes},
         [pscustomobject]@{path='scotty-runtime.zip';data=$innerBytes}
     )
-    foreach($name in $commands){foreach($streamName in @('stdout','stderr')){$appMembers+=@([pscustomobject]@{path=$name+'.'+$streamName;data=$Utf8.GetBytes('synthetic '+$name+[char]10)})}}
+    foreach($commandName in $commands){foreach($streamName in @('stdout','stderr')){$appMembers+=@([pscustomobject]@{path=$commandName+'.'+$streamName;data=$Utf8.GetBytes('synthetic '+$commandName+[char]10)})}}
     $appArchive=New-FixtureZip (Join-Path $inputRoot 'app-output.zip') $appMembers
     $expanded=0L;foreach($row in $runtimeRows){$expanded+=[long]$row.bytes}
     $app=[pscustomobject]@{source_commit=$appSource;source_tree=$appTree;archive_sha256=$appArchive.sha256;archive_bytes=$appArchive.bytes;manifest=(Row 'scotty-runtime.json' $runtimeBytes);runtime=$runtimeRecord;sources=(Row 'source-sha256.json' $sourceBytes);result=(Row 'result.json' $buildResultBytes);build_id=$buildId;file_count=$runtimeRows.Count;expanded_bytes=$expanded;lock_sha256=$lockHash;lock_git_blob=$lockBlob;command_names=$commands}
