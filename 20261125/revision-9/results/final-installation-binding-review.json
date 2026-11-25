@@ -1,0 +1,284 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 9,
+  "task_key": "type-install-binding-review",
+  "scope": "Cloud-prepared measured final artifact request, immutable helper delivery binding and continuation/cleanup handoff. Actual native ID mapping, closer/history request and PC execution remain pending.",
+  "candidate_commit": "70819afe79e783d0db2b10a299155cbeda470d1e",
+  "candidate_tree": "89bf6f621784b93f59b59567d8165b69cfbeb5bc",
+  "candidate_directory": "20261125/revision-9/final-installation",
+  "reviewed_files": {
+    "binding.json": {
+      "sha256": "4edf53508c5ffe296a78cb3e8d9b6e3c5aa5c9922fcfa46f5501dc211c19ba41",
+      "bytes": 21533,
+      "git_blob": "7bb8eaf7bb64f108a4aed9e008a63911398d9e9e"
+    },
+    "artifact-stage-request.json": {
+      "sha256": "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9",
+      "bytes": 1635,
+      "git_blob": "bba76724339e30e76f3fe757e192be08e50bf4a7"
+    },
+    "README.md": {
+      "sha256": "4233d8a228b6fbf954119c859fb4988c7312fd54d20254aad71584c109ba8844",
+      "bytes": 14178,
+      "git_blob": "02d062928cc6b8e4ef2eb0011bb892860124b07b"
+    },
+    "author-inspections.json": {
+      "sha256": "1db9b864c17828f780889d607bec090a2896d4b07ae130c90d24644976928861",
+      "bytes": 5909,
+      "git_blob": "1aa7023c5065360f9a09bf7ceec33e0beabb7003"
+    }
+  },
+  "source": {
+    "native_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "app_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "shared_native_ref_independently_read": "task/bead-finish-20261124",
+    "shared_app_ref_independently_read": "task/scotty-finish-20261124",
+    "both_shared_refs_match_exact_qualified_commits": true
+  },
+  "consumed_reviews": {
+    "plan": {
+      "commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
+      "path": "20261125/revision-9/plan-review.json",
+      "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+    },
+    "helper_actual_checks": {
+      "commit": "3f62a2acf1e826a0202cf95bf1c0ae5a5a7384bf",
+      "path": "20261125/revision-9/results/type-binding-checks-review.json",
+      "sha256": "5912d14297972d8bcdd21afcb974b862ca987f933ec5bec547a1a5930f89cfa5"
+    },
+    "native_builds": {
+      "commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40",
+      "path": "20261125/revision-9/results/native-final-build-results-review.json",
+      "sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5"
+    },
+    "native_linux": {
+      "commit": "6e70133a8e70e374e6b0b7e1931f8c829b113021",
+      "path": "20261125/revision-9/results/native-linux-qualification-review.json",
+      "sha256": "5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf"
+    },
+    "native_windows": {
+      "commit": "60df4701ad68eafcf34f3f614087c41e57fa44f8",
+      "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+      "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae"
+    },
+    "native_final": {
+      "commit": "7d30c840514d318a4588d979a90c20bcf07d8734",
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+    },
+    "app_inventory": {
+      "commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f",
+      "path": "20261125/revision-9/results/app-runtime-inventory-review.json",
+      "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525"
+    },
+    "app_windows": {
+      "commit": "76a04b979a372b51bcb0d0bbffa52f4105b1a541",
+      "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+      "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b"
+    },
+    "app_final": {
+      "commit": "46785d535d046f044d6dc3c65487da6f3076953c",
+      "path": "20261125/revision-9/results/type-app-review.json",
+      "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e"
+    },
+    "archive_staging": {
+      "commit": "5715e8053dc33a299f89cbe4d048994d57c1e8f2",
+      "path": "20261125/revision-9/results/artifact-stage-review.json",
+      "sha256": "ada3fe4533abafac60fc503bb8ef32cd4479a606781c1ce40e5e1ff853407633"
+    }
+  },
+  "qualified_native_request": {
+    "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+    "run_id": 45600413942,
+    "artifact_id": 15014634952,
+    "archive": {
+      "path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\bead-15014634952.zip",
+      "sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+      "bytes": 4524263
+    },
+    "manifest": {
+      "path": "artifact-manifest.json",
+      "sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+      "bytes": 665
+    },
+    "executable": {
+      "bytes": 12243456,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "metadata": {
+      "bytes": 2058,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    },
+    "build_result": {
+      "path": "build-result.json",
+      "sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+      "bytes": 16950
+    }
+  },
+  "qualified_app_archive": {
+    "path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\scotty-15003467178.zip",
+    "sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+    "bytes": 7056005
+  },
+  "request": {
+    "sha256": "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9",
+    "bytes": 1635,
+    "stage_directory": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151",
+    "actual_pc_path_absence_observed": false,
+    "readiness": "Reserved fresh immediate task-owned path; current absence and attempt state must be verified before execution."
+  },
+  "immutable_helpers": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "installation_packet_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+    "installation_packet_directory": "20261125/revision-9/install-binding",
+    "historical_null_binding_unchanged": true,
+    "archive_packet_commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+    "archive_packet_directory": "20261125/revision-9/artifact-stage",
+    "files": [
+      {
+        "path": "materialize-v9.mjs",
+        "sha256": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686",
+        "bytes": 23307
+      },
+      {
+        "path": "materialize-v9-supervisor.ps1",
+        "sha256": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3",
+        "bytes": 16030
+      },
+      {
+        "path": "checkpoint-handoff-20261125.mjs",
+        "sha256": "179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341",
+        "bytes": 65197
+      },
+      {
+        "path": "checkpoint-handoff-supervisor-20261125.ps1",
+        "sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+        "bytes": 18882
+      },
+      {
+        "path": "windows-install-tray-host-20261125.ps1",
+        "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+        "bytes": 34632
+      },
+      {
+        "path": "windows-configured-launch-host-20261125.ps1",
+        "sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+        "bytes": 48571
+      },
+      {
+        "path": "stage-artifacts-20261125.ps1",
+        "sha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+        "bytes": 22746
+      },
+      {
+        "path": "stage-artifacts-supervisor-20261125.ps1",
+        "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+        "bytes": 17486
+      }
+    ]
+  },
+  "author_inspections": {
+    "complete_clean_passes": 2,
+    "findings": [],
+    "files_and_hashes_independently_matched": true
+  },
+  "independent_checks": [
+    "Read all four complete candidate files, including every field and both final clean author inspections. Independently fetched the Git commit: its entire delta is the four added metadata/document files, with no executable change.",
+    "Matched all four original UTF-8 byte counts, SHA-256 values and Git blobs. Recomputed the request hash and verified all its repeated bindings in the delivery and staging metadata.",
+    "Independently read both shared product branch refs. They point to the exact qualified native 2d801 and app 030 commits. The native source has no documentation descendant.",
+    "Read the complete final app source/runtime review and final app Windows and staging reviews. Their immutable hashes match the binding, and their source/runtime/native identities agree with the independently accepted final native builds and runtime receipts.",
+    "Fetched all eight immutable helper files at their exact accepted commits and recomputed every hash and size. The six accepted installation/materialization/history helper bytes and both accepted staging helper bytes match unchanged; historical null-bound preparation remains separate.",
+    "Read the entire accepted archive-stage helper, request template and README. Compared the concrete request against every consumed source/tree/workflow/run/artifact/archive/manifest/executable/metadata/build-result field, its exact path and integer constraints, and its 64-KiB request bound. Its 1,635-byte JSON has no null native identity.",
+    "Compared every native executable/provenance row with the original final Windows build and independent small-download receipts, and compared the exact small artifact ID, ZIP digest, size and manifest digest to the actual accepted build review. The final source/tree/run/workflow and original metadata agree; no stale c90/539 release is selected.",
+    "Matched the fixed app source/tree, outer archive, inner runtime ZIP, 560-file inventory, 27,426,391-byte expanded total, build ID, source manifest and original build result with the accepted staging contract and runtime reviews. Only the two measured small archives, totaling 11,580,268 compressed bytes, are selected for eventual PC transfer.",
+    "Derived all five expected installer inputs directly from the staging algorithm and request and compared them exactly with binding.json. The unchanged installer and configured-launch parameter contracts accept those inputs; their source pins, provenance, content-addressed bead-0431a828bf95.exe basename, final SHA and expected installed path agree.",
+    "Fetched and hash-verified the complete original 5,232-byte preservation manifest. It retains the original 55f17568 baseline and all fifteen original app file records. Existing helper preservation of original indexes, private configuration/task data, previous binary/runtime and rollback remains unchanged.",
+    "Compared the accepted revision-9 plan and both binding tasks with the packet. Actual revision 6 remains 32 continuation tasks/51 edges/986 total issues. The proposed 23 creates/15 descriptions/40 edges total 78 operations plus three guarded reopens, leading to 55 tasks/91 edges/1009 issues. Mapping and closer remain null; no actual ID, claim, closure or history merge is asserted.",
+    "Traced the complete resume order through access, fresh observations, exact delivery, direct guarded materialization, actual-mapping closer review, already-staged tray checks, bounded transfer/staging, current port inventory, installation, configured checks, canonical handoff/history and cleanup. The already-applied 523 stage is not replayed.",
+    "Verified the documented resource gates against the unchanged helper contracts: hidden sequential BelowNormal PC work; 1-GiB baseline/live copy headroom; 3-GiB immediate app/tray headroom; 512-MiB aggregate owned RSS; existing Node limits; 180-second staging/coordination/tray and 120-second configured bounds; exact owned cleanup.",
+    "Verified the access handoff preserves the broker's not-started ADMIN_BROKER_DENIED/no-replay result, marks the old 702-MiB reading stale, requires fresh permitted access and avoids connector/recovery bypass. Reserved local paths, port inventory, actual staging, installation and assignment completion remain explicitly unobserved or false.",
+    "Compared all qualified result counts and the two exact caught RED assertion strings with the original accepted platform reviews. Linux affected checks are not added to the full-suite count as unique tests; existing ignores and unchanged characterization semantics stay visible.",
+    "Read all current and earlier Riftri worktree cleanup instructions. They require reconciling actual registrations and unpublished changes, preserving source/evidence/rollback ancestry and other workers, using exact task-owned paths without force, and carrying cleanup to a successor if this session ends. No removal or branch deletion is claimed."
+  ],
+  "data_assertions": {
+    "candidate_files": 4,
+    "author_inspections": 2,
+    "request_bytes": 1635,
+    "immutable_helpers": 8,
+    "stage_outputs": 5,
+    "archive_bytes": 11580268,
+    "source_branches_verified": true,
+    "actual_mapping_absent": true,
+    "pc_execution": false,
+    "assignment_complete": false
+  },
+  "existing_helper_actual_qualification": {
+    "review_commit": "3f62a2acf1e826a0202cf95bf1c0ae5a5a7384bf",
+    "review_sha256": "5912d14297972d8bcdd21afcb974b862ca987f933ec5bec547a1a5930f89cfa5",
+    "run_id": 45596905174,
+    "power_shell_parses": 4,
+    "node_checks": 2,
+    "json_inputs": 2,
+    "compiled_declarations": 4,
+    "installer_cases": 9,
+    "graph_cases": 8,
+    "status": "PASS"
+  },
+  "existing_staging_actual_qualification": {
+    "review_commit": "5715e8053dc33a299f89cbe4d048994d57c1e8f2",
+    "review_sha256": "ada3fe4533abafac60fc503bb8ef32cd4479a606781c1ce40e5e1ff853407633",
+    "run_id": 45604565295,
+    "cases_passed": 40,
+    "cases_failed": 0,
+    "real_app_files_copied": 560,
+    "synthetic_native_package": true,
+    "status": "PASS"
+  },
+  "source_and_runtime_qualification": {
+    "native_final": {
+      "commit": "7d30c840514d318a4588d979a90c20bcf07d8734",
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+    },
+    "app_final": {
+      "commit": "46785d535d046f044d6dc3c65487da6f3076953c",
+      "path": "20261125/revision-9/results/type-app-review.json",
+      "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e"
+    },
+    "app_windows": {
+      "commit": "76a04b979a372b51bcb0d0bbffa52f4105b1a541",
+      "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+      "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b"
+    }
+  },
+  "findings": [],
+  "verdict": "PASS for the exact four-file cloud preparation. The source/artifact request and immutable helper bindings are concrete and consistent with their accepted actual qualification. This receipt does not complete the actual-mapping/closer portion of type-install-binding-review and grants no PC invocation or assignment-completion claim.",
+  "cloud_preparation_accepted": true,
+  "full_task_acceptance": "PENDING_ACTUAL_NATIVE_MAPPING_AND_CLOSER_HISTORY_REQUEST_REVIEW",
+  "actual_native_task_closed": false,
+  "actual_pc_mapping_accepted": false,
+  "actual_pc_staging_accepted": false,
+  "actual_pc_installation_accepted": false,
+  "actual_tray_acceptance": false,
+  "assignment_complete": false,
+  "remaining": [
+    "Fresh permitted Emergency Maintenance access and current foreground/resource/attempt/source/configuration/port observations.",
+    "Actual direct revision-6-to-9 materialization and independently reconciled returned IDs/edges.",
+    "Bind and independently review the exact new task closer and final history request using the actual mapping and live revisions.",
+    "Complete actual logged-in tray/Exit/parent-loss/restart, archive staging, installation/configured launch and installed review.",
+    "Publish accurate canonical handoffs, complete supported native history/guarded closure and reconcile/remove task-owned Riftri worktrees."
+  ],
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "created_at": "2026-11-25 12:05:13 UTC"
+}
