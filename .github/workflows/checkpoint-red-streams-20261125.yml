@@ -1,0 +1,126 @@
+name: Read retained checkpoint Red output
+
+on:
+  push:
+    branches:
+      - task/checkpoint-red-streams-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: checkpoint-red-streams-20261125
+  cancel-in-progress: false
+
+jobs:
+  read:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Read the exact existing Red artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: '14988212379'
+          merge-multiple: true
+          repository: YossiMH/bead-me-up-scotty
+          run-id: '45538872739'
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/checkpoint-red-retained-45538872739
+
+      - name: Verify and expose complete small text files
+        timeout-minutes: 2
+        env:
+          RED_ARTIFACT_DIRECTORY: ${{ runner.temp }}/checkpoint-red-retained-45538872739
+          RED_DIAGNOSTIC_DIRECTORY: ${{ runner.temp }}/checkpoint-red-output-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python3 - <<'PY'
+          import base64, hashlib, json, os
+          from pathlib import Path
+          def require(v, message):
+              if not v:
+                  raise RuntimeError(message)
+          root = Path(os.environ["RED_ARTIFACT_DIRECTORY"])
+          output = Path(os.environ["RED_DIAGNOSTIC_DIRECTORY"])
+          require(root.is_absolute() and root.is_dir() and not root.is_symlink(), "Artifact directory unavailable")
+          require(output.is_absolute() and not output.exists(), "Diagnostic output must be fresh")
+          output.mkdir()
+          expected_streams = {
+              "logs/harness-lib.stdout": {
+                  "sha256": "33dc706efa8e1ce9bb5c484ef904809735fd4e7091c7f2a95d29fa8a765796a6",
+                  "bytes": 749
+              },
+              "logs/harness-lib.stderr": {
+                  "sha256": "8ce61987fa0cd7b9778c06f62f9b288eb69eb28cef55716c0a0c5a9e17ef130b",
+                  "bytes": 4555
+              },
+              "logs/harness-attempt_receipt_checkpoint_integrity.stdout": {
+                  "sha256": "05b75c08e1d7729568ca56b2b1e8e4612583948c9d0cb79023e864a58c8049c5",
+                  "bytes": 278
+              },
+              "logs/harness-attempt_receipt_checkpoint_integrity.stderr": {
+                  "sha256": "cde39cefa6145edf4209a82ed704170dac3ce1b60081a814e99be60c0a747925",
+                  "bytes": 405
+              },
+              "logs/harness-checkpoint_tail_generation_integrity.stdout": {
+                  "sha256": "e78f2c858d45f98e35be7eb3de50aab477b4ea066bf67daab705f6029fc969c1",
+                  "bytes": 431
+              },
+              "logs/harness-checkpoint_tail_generation_integrity.stderr": {
+                  "sha256": "8aebb357d23bcfe33c4f6f24cb4995c74f379cf1ac2e2915666e3125e0c162c3",
+                  "bytes": 10761
+              }
+          }
+          result_bytes = (root / "result.json").read_bytes()
+          require(hashlib.sha256(result_bytes).hexdigest() == "53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168", "Accepted Red result differs")
+          result = json.loads(result_bytes)
+          require(result["status"] == "passed_expected_failures" and result["failed_test_count"] == 6
+                  and result["passed_test_count"] == 0 and result["source_commit"] == "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+                  "Unexpected Red result")
+          require(result["run"]["id"] == "45538872739" and result["run"]["workflow_commit"] == "5b930b7d0ff152eb2a0f80e24e278033399f46cd",
+                  "Wrong producing run")
+          names = {"result.json", "attempt-started.json"} | set(expected_streams)
+          for row in result["commands"]:
+              names.add("logs/" + row["label"] + ".started.json")
+              names.add("logs/" + row["label"] + ".exit.json")
+          actual = set()
+          for entry in root.rglob("*"):
+              require(not entry.is_symlink(), "Artifact symlink refused")
+              require(entry.is_file() or entry.is_dir(), "Special artifact member refused")
+              if entry.is_file():
+                  actual.add(entry.relative_to(root).as_posix())
+          require(actual == names, "Unexpected artifact inventory")
+          files = {}
+          total = 0
+          for name in sorted(names):
+              path = root / name
+              data = path.read_bytes()
+              require(len(data) <= 256 * 1024, "Text stream exceeds reviewed output bound")
+              total += len(data)
+              require(total <= 512 * 1024, "Artifact text exceeds reviewed total bound")
+              data.decode("utf-8")
+              sha = hashlib.sha256(data).hexdigest()
+              if name in expected_streams:
+                  require({"sha256": sha, "bytes": len(data)} == expected_streams[name], "Raw stream differs: " + name)
+              files[name] = {"sha256": sha, "bytes": len(data), "base64": base64.b64encode(data).decode("ascii")}
+          report = {"schema_version": 1, "status": "passed", "operation": "read-existing-red-output",
+                    "source_run": 45538872739, "artifact_id": 14988212379, "files": files,
+                    "tests_executed": False, "product_executed": False, "source_modified": False}
+          encoded = (json.dumps(report, sort_keys=True, indent=2) + "\n").encode("utf-8")
+          require(len(encoded) <= 768 * 1024, "Diagnostic metadata exceeds output bound")
+          with (output / "red-complete-output.json").open("xb") as stream:
+              stream.write(encoded)
+          print("CHECKPOINT_RED_OUTPUT_SHA256 " + hashlib.sha256(encoded).hexdigest(), flush=True)
+          print("CHECKPOINT_RED_OUTPUT_BASE64 " + base64.b64encode(encoded).decode("ascii"), flush=True)
+          PY
+
+      - name: Retain the complete output and extraction receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-red-complete-output-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/checkpoint-red-retained-45538872739
+            ${{ runner.temp }}/checkpoint-red-output-${{ github.run_id }}-${{ github.run_attempt }}
