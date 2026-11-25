@@ -1,0 +1,601 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "independent": true,
+  "continuation_revision": 9,
+  "task_key": "checkpoint-windows-checks",
+  "scope": "All prescribed final-source Windows core, editing/recovery, twelve-cell characterization, original-corpus and native smoke checks, including aggregate coverage and complete owned cleanup.",
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "remote_branch_verified": "task/type-file-20261125"
+  },
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "packet": {
+    "commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+    "sha256": "94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f",
+    "review_commit": "082a9855fe5bd417ba66ee02c1538d7f5d53e40e",
+    "review_sha256": "f1b8876fbc3195a6ee072c5543a259a749726e49a6536827b478dda42807e947",
+    "checker_sha256": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc"
+  },
+  "actual": {
+    "run_id": 45603696205,
+    "attempt": 1,
+    "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+    "jobs": {
+      "window": 139168912988,
+      "core": 139168988028,
+      "editing": 139168988254,
+      "grid-1": 139168987930,
+      "grid-2": 139168987984,
+      "grid-3": 139168988096,
+      "aggregate": 139176114172
+    },
+    "status": "passed",
+    "evidence_commit": "52bfafd7d9ad108bc54e523b6c3f3dc6b4bdb638",
+    "directory": "20261125/revision-9/results/native-windows-qualification-45603696205",
+    "earlier_grid_evidence_commits": [
+      "2dd0ec64a68363147dfced4fb13cc12aa9abb2ac",
+      "dc76fcc778029955d70e99f19810af9d7a888bbb"
+    ],
+    "aggregate_sha256": "ac65894f80215aed7ddc03f72935c91095ab9717e0a07a7e66196900129abc1d",
+    "aggregate_bytes": 13755,
+    "aggregate_log_sha256": "f8a64b01a8ac6e630960aef63a0c8538a11840418deabaacfe7877acb7106531",
+    "aggregate_log_bytes": 48654,
+    "window_start_epoch": 1795605701,
+    "window_deadline_epoch": 1795614101,
+    "artifacts": [
+      {
+        "id": 15017805558,
+        "name": "checkpoint-windows-v9-45603696205-1-part-grid-1",
+        "zip_bytes": 12366399,
+        "zip_sha256": "84eab0fd45cc5de305977de442b05ac20d5ec3ff03c1bd6097b17677b1d31131",
+        "run_id": 45603696205,
+        "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b"
+      },
+      {
+        "id": 15017740844,
+        "name": "checkpoint-windows-v9-45603696205-1-part-core",
+        "zip_bytes": 12643896,
+        "zip_sha256": "3877ab7ff3fe39c3134f93a5928fce7c678d598fedb1b78b86e21e937ec492e3",
+        "run_id": 45603696205,
+        "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b"
+      },
+      {
+        "id": 15016888490,
+        "name": "checkpoint-windows-v9-45603696205-1-aggregate",
+        "zip_bytes": 4705,
+        "zip_sha256": "e86805ea33333eab9d739e2aa23a89ca28c950d6a401cf96c76c0be9fef7b256",
+        "run_id": 45603696205,
+        "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b"
+      },
+      {
+        "id": 15016629803,
+        "name": "checkpoint-windows-v9-45603696205-1-part-editing",
+        "zip_bytes": 97587866,
+        "zip_sha256": "6fec7a209e1b57501b71047a2bd06214ce4dcc46df0bf3acf06557f704478b16",
+        "run_id": 45603696205,
+        "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b"
+      },
+      {
+        "id": 15015908092,
+        "name": "checkpoint-windows-v9-45603696205-1-part-grid-2",
+        "zip_bytes": 12363801,
+        "zip_sha256": "a9a1692f8bf69388c60ecf9e0359645e4d53daa4452fefccdff394c642f1b4d8",
+        "run_id": 45603696205,
+        "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b"
+      },
+      {
+        "id": 15015799031,
+        "name": "checkpoint-windows-v9-45603696205-1-part-grid-3",
+        "zip_bytes": 12363171,
+        "zip_sha256": "7b324cac929a4f4b6a950636cd03ee723730401ea062c36fca38e411385ee30f",
+        "run_id": 45603696205,
+        "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b"
+      }
+    ]
+  },
+  "producer": {
+    "run_id": 45600413942,
+    "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+    "artifact_id": 15016870072,
+    "manifest_sha256": "51735e621189c914cdbe88a0a9d36f49c43cd5eb215cec3530e987f2ecdfe0f6",
+    "build_result_sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+    "review_commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40",
+    "review_sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5"
+  },
+  "qualified_release": {
+    "executable": {
+      "bytes": 12243456,
+      "mode": 511,
+      "path": "release-under-test/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "metadata": {
+      "bytes": 2058,
+      "mode": 438,
+      "path": "release-under-test/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    }
+  },
+  "partition_results": [
+    {
+      "part": "core",
+      "actualLogSha256": "2c53cff8ffa0be8861596d2f3857e7bdd41e00fa0acfca6827f6c91377c1b60a",
+      "resultSha256": "e5a207306dd6e8eb1a043f95db28cb477811691356e6ea7cecb4619c9cd9bd71",
+      "supervisorSha256": "0498593bae833f563d6c893e130aac451a8aed615ae9576164e4bfdb2c48de0e",
+      "completionSha256": "f1fe486780eca05ff32420f773879345b29c749565762febd603cd9cea82b112",
+      "sourceAndInputVerified": true,
+      "buildReleaseVerified": true,
+      "commands": 28,
+      "streams": 56,
+      "retainedFileCount": 119,
+      "testInvocations": 19,
+      "passedTests": 25,
+      "failedTests": 0,
+      "ignoredTests": 0,
+      "ownedChildrenRemaining": 0,
+      "helper_sha256": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc",
+      "input_sha256": "7c1fd2daaeaa714669f53c41189a0ffe5799fa04794e7f18b7dac6c396aedab1",
+      "test_invocations": 19,
+      "passed_cases": 25,
+      "case_limits_seconds": 900,
+      "maximum_case_duration_seconds": 421.907,
+      "source_and_inputs_unchanged": true
+    },
+    {
+      "part": "editing",
+      "actualLogSha256": "f8d69a5f221492dc15ff70d5cd694d806504dc1487fb639b590c61540c5b52cf",
+      "resultSha256": "c424786f062ca95d77ff1db4ecfa21ec57f2c1dc4b1f772a9f5d0bdad1dcb860",
+      "supervisorSha256": "6eff6888c3875518f5a3813fc95db5622d216ed83303647b50b5b5da0477c27b",
+      "completionSha256": "4cb1f40a2247d73f7d71bdd04e6679f8ddbcb44c2130ee7f852b068220337ae3",
+      "sourceAndInputVerified": true,
+      "buildReleaseVerified": true,
+      "commands": 18,
+      "streams": 111,
+      "retainedFileCount": 2631,
+      "testInvocations": 6,
+      "passedTests": 73,
+      "failedTests": 0,
+      "ignoredTests": 0,
+      "ownedChildrenRemaining": 0,
+      "helper_sha256": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc",
+      "input_sha256": "f274f22705fce4173c4526a6e58139c7bb3db042e197675f2b5178b96537e389",
+      "test_invocations": 6,
+      "passed_cases": 73,
+      "case_limits_seconds": 900,
+      "maximum_case_duration_seconds": 5.578,
+      "source_and_inputs_unchanged": true
+    },
+    {
+      "part": "grid-1",
+      "actualLogSha256": "042e7528d6460f1d7cacfaa3fcbd5f69c85586d4ccca3b85f32e06ba602edd2a",
+      "resultSha256": "60bb91d40e302e1c0a2890867ba56dce74412aa24b92c69439bbcff3a52d45df",
+      "supervisorSha256": "ba9e9479d3d1b8694d34d18f91484da0da62d095bc428488e3627eef62d4a395",
+      "completionSha256": "0819383376cacbe72f450280537eeba31f3abffc339faa0edee2b66938f2e304",
+      "sourceAndInputVerified": true,
+      "buildReleaseVerified": true,
+      "commands": 9,
+      "streams": 18,
+      "retainedFileCount": 43,
+      "coverage": [
+        {
+          "classification": "RED",
+          "failure_text": "publication 0 added 1789455 new blob bytes, budget is 262144",
+          "fixture": "store-deletion",
+          "scenario": "set-v2-budget-single-issue-update"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-budget-single-issue-update"
+        },
+        {
+          "classification": "RED",
+          "failure_text": "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400",
+          "fixture": "store-deletion",
+          "scenario": "set-v2-shard-split-on-update-storm"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-shard-split-on-update-storm"
+        }
+      ],
+      "ownedChildrenRemaining": 0,
+      "helper_sha256": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc",
+      "input_sha256": "ca91b8bbb7e8b9d31c96abd4f0b4c35d6edaf50578721a0627f7e3a62660f558",
+      "test_invocations": 4,
+      "passed_cases": 4,
+      "case_limits_seconds": 900,
+      "maximum_case_duration_seconds": 286.562,
+      "source_and_inputs_unchanged": true
+    },
+    {
+      "part": "grid-2",
+      "actualLogSha256": "7f6a2fd8170fa5643167e39c123ee39befc5bf5545b6d8f46ab6df6793c3ec75",
+      "resultSha256": "678b9a9b754eb7864588d8c70fa3a373249cb2b347dbc77cd2255c97dec2c252",
+      "supervisorSha256": "fa49237554069f88de2bf9101954b019c565b1586b5b4486d75a680f8a68d76b",
+      "completionSha256": "631734370f5cc6cfe9bcf178c660f1f4321a759c9d073590d3076d01131d8570",
+      "sourceAndInputVerified": true,
+      "buildReleaseVerified": true,
+      "commands": 9,
+      "streams": 18,
+      "retainedFileCount": 43,
+      "coverage": [
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "store-deletion",
+          "scenario": "set-v2-tail-seal-and-immutability"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-tail-seal-and-immutability"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "store-deletion",
+          "scenario": "set-v2-oversize-record-once-cost"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-oversize-record-once-cost"
+        }
+      ],
+      "ownedChildrenRemaining": 0,
+      "helper_sha256": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc",
+      "input_sha256": "486c1d2b1ffe61db8892647c0b14c5918eb4ef7c17954f4a364616c0f758263a",
+      "test_invocations": 4,
+      "passed_cases": 4,
+      "case_limits_seconds": 900,
+      "maximum_case_duration_seconds": 32.312,
+      "source_and_inputs_unchanged": true
+    },
+    {
+      "part": "grid-3",
+      "actualLogSha256": "28e9346b58d1e28b18ed2bafd710d3b8e6e548facefb2dc48dd4cba834ee700a",
+      "resultSha256": "a5b6098560dbfb70e1008f4672dc468bbdd8d18f12cd8c4885daf092773bb8a7",
+      "supervisorSha256": "516bd8007743903edba00fde82ea3d16080d978e2db2f520b44ac40dc2d99289",
+      "completionSha256": "a73f8722f916ef0c72a8e33fef94f58e97e3cee88fba0036dec86bba4e71210a",
+      "sourceAndInputVerified": true,
+      "buildReleaseVerified": true,
+      "commands": 9,
+      "streams": 18,
+      "retainedFileCount": 43,
+      "coverage": [
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "store-deletion",
+          "scenario": "set-v2-pointer-boundedness"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-pointer-boundedness"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "store-deletion",
+          "scenario": "set-v2-forensic-frozen"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-forensic-frozen"
+        }
+      ],
+      "ownedChildrenRemaining": 0,
+      "helper_sha256": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc",
+      "input_sha256": "18261840b3d7b4f5cfdd6d4788a14b862e6216565bb366d72ed4c15829f49cfa",
+      "test_invocations": 4,
+      "passed_cases": 4,
+      "case_limits_seconds": 900,
+      "maximum_case_duration_seconds": 11.375,
+      "source_and_inputs_unchanged": true
+    }
+  ],
+  "counts": {
+    "ordinary_case_passes": 98,
+    "ordinary_case_failures": 0,
+    "ordinary_case_ignores": 0,
+    "core_passes": 25,
+    "editing_passes": 73,
+    "ordinary_conformance_cases": 12,
+    "grid_invocations": 12,
+    "grid_green": 10,
+    "grid_red_characterizations": 2,
+    "test_invocations": 37,
+    "driver_commands_exit_zero": 73,
+    "saved_streams_decoded_and_hashed": 221,
+    "owned_windows_jobs_closed_and_empty": 5
+  },
+  "exact_ordinary_target_cases": {
+    "lib": [
+      "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+      "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+      "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard",
+      "service::checkpoint::tests::publication_lock_is_exclusive_across_openers"
+    ],
+    "attempt_receipt_checkpoint_integrity": [
+      "exact_resulting_state_survives_both_checkpoint_layouts",
+      "public_schemas_describe_attempt_state_and_checkpoint_counts",
+      "replacement_restore_removes_displaced_attempt_outcomes",
+      "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+    ],
+    "checkpoint_tail_generation_integrity": [
+      "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+      "selected_set_v2_generation_remains_restorable_after_tail_append"
+    ],
+    "checkpoint_publication_lock": [
+      "concurrent_workers_leave_one_intact_covering_generation",
+      "higher_sequence_without_local_publication_proof_cannot_admit_a_mutation",
+      "mutation_waits_for_a_stable_checkpoint_before_committing"
+    ],
+    "checkpoint_set_v2_conformance": [
+      "set_v2_budget_single_issue_update",
+      "set_v2_concurrent_publication",
+      "set_v2_crash_ordering",
+      "set_v2_dual_layout_reader_equivalence",
+      "set_v2_forced_monolith_limits",
+      "set_v2_forensic_frozen",
+      "set_v2_migration_full_rewrite",
+      "set_v2_oversize_record_once_cost",
+      "set_v2_pointer_boundedness",
+      "set_v2_shard_merge_on_deletion",
+      "set_v2_shard_split_on_update_storm",
+      "set_v2_tail_seal_and_immutability"
+    ],
+    "attempt_outcome_round_trip": [
+      "test_attempt_outcome_conflict_rejection",
+      "test_attempt_outcome_duplicate_detection",
+      "test_attempt_outcome_round_trip_monolithic",
+      "test_attempt_outcome_round_trip_sharded"
+    ],
+    "r036_verified_restore": [
+      "direct_pointer_source_with_wrong_generation_is_refused",
+      "doctor_recommends_named_restore_but_never_performs_it",
+      "empty_target_is_initialized_verified_restored_and_receipted_by_one_command",
+      "explicit_non_empty_override_replaces_native_state_and_reports_displacement",
+      "input_and_force_aliases_are_live_forms_of_the_canonical_flags",
+      "missing_and_empty_sources_are_refused_before_target_initialization",
+      "missing_generation_is_refused_and_names_the_available_one",
+      "no_auto_flush_restores_without_publishing_the_target",
+      "non_empty_target_is_refused_without_mutation",
+      "r029_archaeology_view_is_explicitly_refused",
+      "restore_help_documents_the_explicit_recovery_contract",
+      "retained_generation_named_native_root_is_hash_verified_and_restored",
+      "set_v2_generation_verifies_its_complete_closure_and_restores",
+      "simultaneous_empty_target_restores_have_one_winner_and_one_refusal",
+      "successful_restore_publishes_a_generation_covering_the_summary_event",
+      "successful_restore_writes_the_audit_event_and_a_digest_pinned_receipt",
+      "unverified_generation_artifact_is_refused_before_target_initialization"
+    ],
+    "cli_editing": [
+      "capabilities_schema_and_help_describe_the_same_editable_fields",
+      "claimed_edits_require_the_issued_credential",
+      "compound_edit_preserves_identity_extensions_and_related_records",
+      "concurrent_editors_with_one_revision_have_one_complete_winner",
+      "conflicting_sources_and_invalid_utf8_do_not_modify_the_issue",
+      "description_file_stdin_and_clear_preserve_exact_text",
+      "dry_run_enforces_revision_claim_and_transition_checks",
+      "dry_run_projects_the_committed_edit_without_writing",
+      "dry_run_redacts_new_text_fields_and_assignment_summary",
+      "dry_run_redacts_stored_closed_metadata_and_preserves_exact_clean_text",
+      "edited_content_and_audit_survive_published_checkpoint_restore",
+      "editing_closed_metadata_preserves_the_close_record",
+      "invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged",
+      "manifest_edits_and_dependency_changes_commit_together",
+      "manifest_edits_cannot_take_over_an_existing_claim",
+      "manifest_later_failure_rolls_back_edits_and_priority_audit",
+      "manifest_output_redacts_scalar_changes_without_masking_stored_values",
+      "new_edit_fields_keep_native_content_checks_and_redacted_errors",
+      "priority_change_records_reason_actor_and_changes_ready_order",
+      "priority_requires_a_reason_and_same_value_has_no_priority_event",
+      "repeated_edits_are_noops_after_revision_and_claim_checks",
+      "stale_revision_rejects_the_whole_edit",
+      "title_limits_count_utf8_bytes"
+    ],
+    "cli_capabilities": [
+      "auto_flush_advertisement_ignores_workspace_state",
+      "auto_flush_advertisement_matches_binary_behavior",
+      "auto_flush_field_tracks_the_compiled_default",
+      "capability_library_boundary_cannot_forge_a_managed_downgrade",
+      "secret_scan_capability_reports_effective_workspace_mode",
+      "secret_scan_capability_uses_compiled_default_without_workspace",
+      "test_capabilities_default_profile",
+      "test_capabilities_invalid_profile",
+      "test_capabilities_native_profile",
+      "test_capabilities_needle_profile",
+      "test_capabilities_no_workspace",
+      "test_capabilities_schema_entries"
+    ],
+    "issue_type_file": [
+      "capability_schema_accepts_the_optional_type_transport",
+      "dry_run_and_repeated_file_values_preserve_saved_state",
+      "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+      "file_type_is_scanned_before_any_scalar_edit",
+      "help_and_generated_man_page_describe_type_file_input",
+      "inline_and_file_conflict_before_reading_the_file",
+      "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+      "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+      "only_one_text_field_may_consume_stdin",
+      "stdin_type_preserves_exact_text",
+      "stored_issue_and_manifest_keep_literal_type_text"
+    ],
+    "redaction_transaction": [
+      "assignee_metadata_is_redactable_without_deleting_the_issue",
+      "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+      "concurrent_identical_requests_commit_once_and_replay_once",
+      "every_supported_nonissue_record_preserves_identity_and_integrity",
+      "garage_access_key_id_assignment_is_discoverable_and_redactable",
+      "issue_redaction_is_exact_atomic_and_idempotent"
+    ]
+  },
+  "characterization": {
+    "cells": [
+      {
+        "classification": "RED",
+        "failure_text": "publication 0 added 1789455 new blob bytes, budget is 262144",
+        "fixture": "store-deletion",
+        "scenario": "set-v2-budget-single-issue-update"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-budget-single-issue-update"
+      },
+      {
+        "classification": "RED",
+        "failure_text": "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400",
+        "fixture": "store-deletion",
+        "scenario": "set-v2-shard-split-on-update-storm"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-shard-split-on-update-storm"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-tail-seal-and-immutability"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-tail-seal-and-immutability"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-oversize-record-once-cost"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-oversize-record-once-cost"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-pointer-boundedness"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-pointer-boundedness"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-forensic-frozen"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-forensic-frozen"
+      }
+    ],
+    "oracle": "The unchanged set_v2_green_scenarios_under_out_of_band_change harness deliberately catches scenario assertions and requires every combination plus exact failure text. Its StoreDeletion { count: 8 } fixture directly deletes eight live rows without events.",
+    "source_path": "tests/checkpoint_set_v2_conformance.rs",
+    "source_sha256": "3d579ebc628546ce2f2dc3e656f7ff0e072b6d8ad17e52e0f7e185c45f46db19",
+    "interpretation": "The budget and split/store-deletion results are retained as characterization findings. The observed 392-versus-400 split count follows the deliberate eight-row deletion. Both split scenarios reached the intended native workload; no OS 206 launch error remains. All twelve ordinary conformance assertions pass separately."
+  },
+  "original_corpus": {
+    "status": "passed",
+    "resultSha256": "791c4616775dfd2da3e83c645428e2a9f55f861078b236a2f177c85fdf6ae57e",
+    "bytes": 29479,
+    "restores": 4,
+    "comparisons": 6,
+    "counts": {
+      "attempt_outcome": 413,
+      "event": 11264,
+      "issue": 954,
+      "provenance_receipt": 5
+    },
+    "commands": 10,
+    "streams": 20,
+    "unchangedOriginalSource": true,
+    "unchangedConfiguration": true,
+    "outerJobCleanupConfirmed": true
+  },
+  "native_smoke": {
+    "savedCommandLogs": 55,
+    "expectedZeroExits": 54,
+    "expectedStaleExit": 4,
+    "timeouts": 0,
+    "compoundIdentityAndRelatedRecordsPreserved": true,
+    "compoundFieldsExact": true,
+    "clearFieldsExact": true,
+    "staleIssueAndHistoryUnchanged": true,
+    "priorityActorRevisionEventPreserved": true,
+    "metadataAndPriorityAuditRestored": true,
+    "originalSmokeResultSha256": "c19040230536a4834c2ac30225317024933515713375e1bfcd6a6a4e1f5d1d98",
+    "originalSmokeResultBytes": 44069,
+    "originalSmokeResultRetainedInArtifact": 15016629803,
+    "originalBoundedSavedLogs": [
+      "capabilities",
+      "file-read",
+      "published-read",
+      "restored-read"
+    ],
+    "checks": [
+      "Label add/remove and all three dependency kinds preserve direction.",
+      "One guarded compound edit preserves identity, related records and priority audit.",
+      "Long UTF-8 file edits, empty-string clears and explicit description clear round-trip.",
+      "Stale revision refuses the complete edit, audit and publication.",
+      "Automatic checkpoint publication restores fields, graph, labels and priority history."
+    ],
+    "log_capture_note": "These are the unchanged original smoke helper's saved logs. Four stdout bodies retain its explicit capture truncation markers. The full original smoke result is preserved in the editing artifact, matched by the driver/completion hash and 55-command count; the complete capability output and the full long-type regression checks are separately retained."
+  },
+  "independent_checks": [
+    "Fetched every completed partition and aggregate job log independently. Compared the retained full logs and all result/supervisor/completion JSON bytes with direct actual emissions; used the immutable Git blob for the editing log above the contents endpoint's inline size limit.",
+    "Decoded and hashed all 221 saved command-stream records across the five partitions, preserving root-relative corpus versus smoke paths, and matched each to its completion inventory.",
+    "Independently counted and matched every selected ordinary test name, result, ignored/filtered count, exact harness invocation and nine hundred second case bound. Filtered library/conformance invocations match their explicit selected cases; complete integration targets contain no ignored or filtered cases.",
+    "Verified the four selected library assertions, all ten prescribed integration targets, all twelve ordinary conformance cases and all twelve unique scenario/fixture pairs, with no missing or duplicate coverage.",
+    "Compared aggregate hashes against all five actual result/completion records, then independently rebuilt ordinary case and target coverage and the entire characterization grid.",
+    "Matched every source/tree, helper/input, original producer/artifact, final release/metadata and workflow/run binding. All five parts report unchanged source/inputs and finish within one shared 140-minute window.",
+    "Verified every driver command exits zero and returns to its recorded allowed Job baseline, each supervisor exits zero, and every outer Job is empty after its supervisor exits.",
+    "Decoded the complete original Windows corpus result from the actual command output, verified its retained bytes, read all six record comparisons and all twenty complete native streams, and confirmed four restores preserve every original issue/event/receipt/outcome and the public source/configuration.",
+    "Read and parsed all 55 saved native smoke command logs: 54 zero exits and the single expected stale-revision conflict exit four, with no timeout. Independently checked exact compound scalar changes, identity/related-record preservation, empty and explicit clears, unchanged stale issue/history, priority audit actor/revision and restored metadata/audit.",
+    "Read the unchanged destructive fixture/probe contract and both exact RED texts; retained characterization remains distinct from the ordinary regression assertions.",
+    "Independently matched all successful job statuses and six retained artifact API identities, ZIP lengths/digests and workflow/run bindings."
+  ],
+  "findings": [],
+  "final_native_acceptance": false,
+  "remaining": [
+    "Two complete final native author inspections and independent combined source acceptance",
+    "Root final app/runtime/installation binding review",
+    "Actual PC task mapping, installation, tray/configured launch, original task-history persistence and cleanup"
+  ],
+  "reviewer_product_execution": 0,
+  "pc_actions": 0
+}
