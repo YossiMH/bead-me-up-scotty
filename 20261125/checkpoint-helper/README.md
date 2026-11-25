@@ -39,10 +39,11 @@ from actual retained receipts. Request fields:
 | helper_sha256, supervisor_sha256 | Exact independently reviewed source bytes |
 | runtime | path, sha256, source_commit, qualification pin, review pin |
 | node | Observed Windows Node v25.2.1 path and SHA256 |
+| git | Observed Windows Git executable path and SHA256; helper uses read-only commands with --no-optional-locks |
 | job_helper_path | Existing qualified windows-task-job.ps1, SHA256 2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f |
 | plan | Pin of isolated/revision-5/plan.json |
 | materialization | Pin of isolated/materialization-result-v5.json |
-| accepted | Named prerequisite pins; every referenced JSON must have status passed |
+| accepted | Named prerequisite pins; plan-review uses its actual PASS/accepted schema below; other roles require status passed |
 | prior | Pins for successful earlier phases' fixed result.json files |
 | backup_result | Pin of preservation-20261125-v1/original-sqlite/result.json |
 | attestations | Actual root confirmation of exclusive writers and accepted installation/handoffs |
@@ -51,15 +52,21 @@ from actual retained receipts. Request fields:
 A pin is {"path":"absolute owned path","sha256":"64 lowercase hex characters"}.
 Accepted evidence roles always include plan-review, install, configured-launch,
 installed-review, backend-text-review, app-text-review and original-git-baseline.
-The plan review must include plan_sha256. The original-git-baseline is root's
+The plan review must use its retained status PASS, accepted true,
+continuation_revision 5 and read_complete_plan true. Its expanded_tasks_read and
+blocking_edges_read must match the accepted plan. Both plan_sha256 and
+reviewed_files["plan.json"] must match the exact request plan SHA. The
+original-git-baseline is root's
 read-only HEAD/status/index preservation receipt, taken after installation and
-before original native opens. Root preserves its index bytes and source checks;
-this helper performs no Git commands.
+before original native opens. Root preserves its index bytes and source checks.
+The helper verifies the retained Git identity through read-only commands and
+checks that those commands leave the index unchanged.
 
 For close/final phases, also require cleanup-results, cleanup-text-review and
 checkpoint-publication. The publication receipt must bind the initial published
-generation_id and root_sha256, its full Git commit and equal verified
-remote_commit. These are root's actual publication/cleanup evidence, not a
+generation_id and root_sha256, its checkpoint_tree, full Git commit and equal
+verified remote_commit. Later handoff commits are allowed only when that
+publication commit is an ancestor and its checkpoint tree remains identical. These are root's actual publication/cleanup evidence, not a
 substitute for performing those actions. Root's cleanup_completed and
 cleanup_handoffs_published attestations must be true for close.
 
@@ -72,11 +79,11 @@ root. Preserve them before deleting any disposable worktree.
 
 | Phase | Result |
 | --- | --- |
-| preserve | Requires absent retention root. Saves exact original config and full checkpoint tree; verifies the fixed original generation/root and 954 / 11264 / 5 / 413 corpus. Root has already preserved Git/index. No original native open. |
+| preserve | Requires absent retention root. Saves original config and both selected pointer closures (4 files / 17,063,501 bytes); binds the complete 53-file tree to verified immutable Git objects and retained HEAD/index. Verifies the fixed original generation/root and the 954 / 11,264 / 5 / 413 corpus before any original native open. |
 | external backup | Run the independently reviewed fixed-path read-only backup helper once. Its expected SHA256 is 85e6b942b2d4f7976c7bd3dec854918ad213583b11e085b0707ef653e611d48a. Keep the private SQLite backup on the PC. It is not part of this package. |
-| freeze | Checks every task ID/title/description/status and edge against the accepted plan and mapping. Leaves cleanup open, freezes isolated authority, flushes once, copies/hashes full checkpoint and compares all original public records. |
+| freeze | Checks every task ID/title/description/status and edge against the accepted plan and mapping. Leaves cleanup open, freezes isolated authority, flushes once, copies/hashes complete selected closures and compares all original public records. |
 | source-restore | Mandatory exact-runtime native restore of the frozen selected current generation into a fresh owned target. Compares complete public corpus and new-task SQLite auxiliary rows. Runs before any native original open. |
-| dry-run | Binds the original backup and unchanged original files. Reads all SQLite tables, original canonical event identities and receipts. Runs one native merge dry-run, then proves every raw SQLite row, inventory and pointer unchanged. |
+| dry-run | Binds the original backup and unchanged original files. Reads all SQLite tables, original canonical event identities and receipts. Runs one native merge dry-run, then proves every raw SQLite row, inventory, selected closure and original Git state unchanged. |
 | merge | Rechecks unchanged dry-run state and frozen source. Saves authority-transfer intention and mutation attempt, imports exactly once with --merge --profile native-v1 --no-auto-flush. Proves original raw rows survive, new-task rows/auxiliary data match source, full receipt set and all input event identities/content survive with one summary/receipt. All future writes belong to original. |
 | publish | Flushes original once, proves semantic SQLite state unchanged by publication and full public checkpoint equivalent to source plus merge provenance. Saves immutable checkpoint copy and complete live snapshot. |
 | restore | Restores that exact published current generation into a fresh owned directory. Verifies all original/new issues, dependencies, labels, comments, outcomes, events and receipts. Accounts for one restore event and one restore receipt. |
@@ -85,12 +92,16 @@ root. Preserve them before deleting any disposable worktree.
 | final-publish | Flushes the closure and verifies original-owned durable generation, unchanged other issues and exact close reason/revision. |
 | final-restore | Restores and verifies the final selected generation. Root then publishes the final checkpoint and verifies remote reachability. |
 
-The entire selected current generation is required to verify. Previous-generation
-verification is recorded separately as previous-generation-diagnostic.json.
-An older writer may already have overwritten its legacy tail. Exact previous
-bytes remain retained; the helper does not repair or reinterpret them. A passed
-current-source restore must never be described as proof that a failed older
-previous generation was recoverable.
+The entire selected current generation is required to verify. Historical
+previous-generation verification during preserve/freeze is recorded separately
+as previous-generation-diagnostic.json. An older writer may already have
+overwritten its legacy tail. Those exact previous bytes remain retained.
+Before each original publish/final-publish flush, the helper captures and
+verifies the selected current pointer and all its objects. Afterward it requires
+that exact pointer to be promoted byte for byte to previous.json and verifies
+all its objects and public records unchanged. This required new-publication
+check is saved as retained-selected-generation.json. A passed current-source
+restore does not establish recovery of an already damaged historical generation.
 
 Native sync import-only hashes the staged record stream, including its special
 oversize-reference byte recipe. Its receipt digest differs from a set-v2
@@ -105,6 +116,42 @@ event identities are UUID 1c4f5d56-dcff-cbc5-ddf9-c536653c45f4 with origin
 sequences 1..11264. Never copy the lower-sequence isolated pointer over original.
 No reidentification, nonempty restore, original reset, or Scotty private-store
 operation is present.
+
+## Original Git preservation contract
+
+The original tracked checkpoint tree is exactly
+ff0759095a01edb38ca4bb8aa90fbdb84476e0f7: 53 files, 429,072,095 bytes.
+Its current/previous selected closures are only 4 files totaling 17,063,501 bytes.
+The helper copies and hashes those selected files, including both pointers,
+and verifies their raw Git blob identities. It retains the whole tracked
+path/blob/size/mode map with a recovery instruction and uses the verified
+remote commit/tree to preserve the remaining immutable history. It does not
+scan or copy the 409 MiB history corpus on every phase.
+
+The original-git-baseline receipt must contain status passed, head,
+checkpoint_tree, remote_repository (YossiMH/bead-rs), remote_commit equal to
+head, remote_checkpoint_tree equal to the expected tree, remote_objects_verified
+true, index_sha256 and index_backup{path,sha256}. The private index backup must
+be under the isolated coordination directory and match that exact index hash.
+Root supplies this receipt from actual retained local/remote checks. Keep the
+original commit reachable as an ancestor or retained ref through final cleanup.
+To recover its tracked checkpoint bytes, read each recorded raw Git blob into
+a fresh reviewed recovery directory; checkout filters can transform bytes.
+
+Before any original native open, the helper requires the expected HEAD/tree,
+clean tracked and untracked checkpoint status, unchanged index, core.autocrlf
+false and no active filter/text/eol/encoding/ident transformations on tracked
+checkpoint files. A dirty/untracked tree or transforming attributes stops the
+phase. There is no automatic fallback to a large PC copy. Source restore checks
+compare the selected closures and the original Git state before and after.
+Later publication/restore checks bind selected closures and the exact Git
+state, including intended pending publication changes. All Git commands are
+read-only, use --no-optional-locks, and receive fresh child-only selectors.
+
+Selected closures are capped at 64 MiB across 4,096 files, including referenced
+oversize records. Each input file is capped at 64 MiB; streaming file hashes use
+a 1 MiB buffer. Historical previous-generation closure bytes remain preserved
+and separately diagnosed. Newly promoted previous generations must verify.
 
 ## Resource supervision and invocation
 
