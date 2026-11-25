@@ -1,43 +1,44 @@
 {
   "schema_version": 1,
-  "task_key": "checkpoint-windows-build",
+  "author": "/root/backend_reconcile",
   "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
   "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
-  "target": "x86_64-pc-windows-msvc",
-  "unchanged_draft_commit": "071ce14257cee1ceb97c6436c45c6f2ba6b7776e",
-  "helper_hashes": {
-    "build.py": "f3e08e7905ba9924de1c00b0f840a06097024abc5ec0589b35d00d099686b9b6",
-    "verify.py": "6d80e1cdefa652c38d1d6474c781f0ce3876a13d32fa3ab5c509deed404f3417"
-  },
-  "changes_from_reviewed_draft": [
-    "Freeze exact native implementation source and tree in inputs and workflow",
-    "Include issue_type_file alongside the five checkpoint targets, cli_editing and cli_capabilities"
-  ],
-  "author_inspections": [
+  "status": "ready_for_independent_review",
+  "product_source_changed": false,
+  "failed_runs_retained_at": "06bf55c42b9f4cfa7ba38e6df311a76a2500f290:20261125/revision-7/results/native-final-first-producers",
+  "inspections": [
     {
       "pass": 1,
-      "checks": [
-        "Read complete build and verifier helpers, workflow, input and README",
-        "Verified source/hash checks, ordinary archive invocation, one compiler job, explicit MSVC linker and retained release on later failures",
-        "Cargo JSON executable selection includes every input target and library; exact compile paths remain in receipts"
-      ],
-      "result": "clean static inspection"
+      "status": "clean",
+      "scope": "Read complete final producer and workflow, unchanged support boundaries, fixed input identities, outputs and failure behavior. Check the observed failure against the smallest correction."
     },
     {
       "pass": 2,
-      "checks": [
-        "Repeated complete final packet read after source/test target binding",
-        "Original script and metadata remain unchanged; separate archive fixtures and retained test binary identities support later execution",
-        "Download job uses producer artifact ID and manifest SHA256; all retained files are checked",
-        "Python syntax previously passed on the identical helper bytes"
-      ],
-      "result": "clean static inspection"
+      "status": "clean",
+      "scope": "Read the complete final artifact again; trace all success/failure branches, limits, source and binary identities, evidence retention and dependent download behavior. Remote source/workflow readback matches the inspected bytes."
     }
   ],
-  "pending": [
-    "Independent final packet review",
-    "Actual hosted Windows build and download verification",
-    "Separate Windows test, corpus and editing-smoke execution"
-  ],
-  "cleanup": "Reconcile any running workflow, then remove only clean published Riftri worktrees and task-owned temporary workflow branches after final delivery; future agents must finish interrupted cleanup."
+  "execution_status": "Pending actual hosted execution; these author inspections establish source readiness only.",
+  "task": "checkpoint-windows-build",
+  "candidate": "aac0f1e79426ef87d933ec43d15de8b5dd63d14f",
+  "files": {
+    "20261125/checkpoint-windows-simple/build.py": "0260416fb7c714cf418c214ecdc4f286b9c1081d2bf054d7758936281311162f",
+    "20261125/checkpoint-windows-simple/verify.py": "6d80e1cdefa652c38d1d6474c781f0ce3876a13d32fa3ab5c509deed404f3417",
+    "20261125/checkpoint-windows-simple/build-inputs.json": "897979ee5416fd851ec06da5c4311e20b13f0a83de8447fcf99d969dafd5721c",
+    "20261125/checkpoint-windows-simple/workflow.yml": "fa55683790e429775b23d13e455516d117bce9942b4df95bd9c6afe71d6b99ec",
+    ".github/workflows/checkpoint-windows-final-20261125.yml": "fa55683790e429775b23d13e455516d117bce9942b4df95bd9c6afe71d6b99ec"
+  },
+  "correction": {
+    "observed_run": "45572877188",
+    "cause": "Archive build completed; Python could not resolve bare dumpbin.exe from its caller environment.",
+    "change": "Resolve dumpbin next to the verified MSVC linker. Download the original artifact, verify its exact manifest/every file/source/tree/run/failed post-build command and successful archive command; reuse the unchanged release and metadata and retain all original evidence.",
+    "reused_release": {
+      "run_id": "45572877188",
+      "workflow_commit": "db8bf8eb38f3910e1ed113aa0fd61a830bed3e68",
+      "manifest_sha256": "022128bca8006e74da54635bf16cf049a937f0723f134b0830982bda97fbf30e",
+      "executable_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+      "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    },
+    "remaining_work": "Compile and retain the requested Windows harnesses, then verify downloaded bytes; actual Windows test execution remains separate."
+  }
 }
