@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Exact c90 Windows native producer packet and dedicated hosted activation",
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "candidate_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+  "activation_branch": "task/native-repair-windows-build-20261125",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "reviewed_files": {
+    "20261125/native-repair-windows/build.py": "1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07",
+    "20261125/native-repair-windows/verify.py": "1bac983f1e3c8b0a5c74d6a8b922e858ae2765c6292bd9d884aada6eafa3aef9",
+    "20261125/native-repair-windows/build-inputs.json": "8f578a7667ffaed1c5ad139fe0445ccf90292a924bd03d6cafbaa0d126b6eeeb",
+    "20261125/native-repair-windows/workflow.yml": "dbae4748753e3c1dadcfd8d294d9c3a99399c0ad659fa9b0a8b60719ae693d9b",
+    "20261125/revision-8/native-producers/README.md": "ceedb0b120c4f6844d851f5cb4aab411b1ebbd28c0ce35c2e1d382e35545fd20",
+    "20261125/revision-8/native-producers/author-inspections.json": "3746570ec8ce070076e09c07960a407a9384980bd1c21e45e2b6dce49acaf2e6",
+    ".github/workflows/native-repair-windows-build-20261125.yml": "dbae4748753e3c1dadcfd8d294d9c3a99399c0ad659fa9b0a8b60719ae693d9b"
+  },
+  "actual_workflow": {
+    "path": ".github/workflows/native-repair-windows-build-20261125.yml",
+    "sha256": "dbae4748753e3c1dadcfd8d294d9c3a99399c0ad659fa9b0a8b60719ae693d9b",
+    "byte_identical_to_packet": true
+  },
+  "source_review_commit": "ce51a2f5fa48849273383acc0ff6487262909aae",
+  "read_complete_build_verifier_inputs_and_workflow": true,
+  "author_final_packet_inspections": 2,
+  "reasoning": [
+    "The producer checks exact Git commit/tree and clean checkout, verifies the unchanged archive builder, selects the installed x64 MSVC toolset, explicitly binds the linker and uses its adjacent absolute dumpbin.exe.",
+    "The original archive script builds a fresh c90 release and adjacent provenance. The producer verifies PE architecture and complete source/target/profile/feature/hash/size metadata before retaining it.",
+    "Complete Git-blob source extraction and one-job Cargo compilation produce the library, all nine integration targets and the debug bead. Actual Cargo output paths, target membership, PE architecture and full executable set are checked; all tracked source bytes are checked afterward.",
+    "The new small package contains only the release executable, adjacent metadata and producing build receipt plus its own manifest. Copies are hash checked. A separate job downloads and verifies both full and small outputs; release-only verification reports only its actual small-package scope.",
+    "Both upload/download paths and workflow refs match the reviewed packet. Work is bounded to 2,400 seconds within the 45-minute hosted job; ordinary hosted teardown owns compiler descendants. No user-PC execution or compilation is involved."
+  ],
+  "expected_output": {
+    "integration_targets": [
+      "attempt_receipt_checkpoint_integrity",
+      "checkpoint_tail_generation_integrity",
+      "checkpoint_publication_lock",
+      "checkpoint_set_v2_conformance",
+      "attempt_outcome_round_trip",
+      "r036_verified_restore",
+      "cli_editing",
+      "cli_capabilities",
+      "issue_type_file"
+    ],
+    "test_and_support_executables": 11,
+    "separate_release_executables": 1,
+    "small_package_manifested_files": 3
+  },
+  "limits": {
+    "compiler_jobs": 1,
+    "work_seconds": 2400,
+    "build_job_minutes": 45,
+    "download_job_minutes": 10
+  },
+  "findings": [],
+  "pending": [
+    "Actual producer syntax/build/download results and their measured executable, provenance and manifest identities.",
+    "Final partitioned Windows execution packet bindings, author inspections and review before its separate activation.",
+    "All final-source native runtime, corpus and full-suite qualification, final author source inspections and independent acceptance.",
+    "Actual app roundtrip, PC mapping, tray/Exit, checked installation and cleanup remain separate delivery requirements."
+  ],
+  "linux_producer_review_owner": "/root",
+  "final_native_acceptance": false,
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
