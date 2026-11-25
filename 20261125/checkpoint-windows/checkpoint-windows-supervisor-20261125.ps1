@@ -86,7 +86,8 @@ if ($Phase -eq 'build') {
     $arguments += @('--artifact-directory', $ArtifactDirectory, '--build-helper', $BuildHelper,
                     '--corpus-helper', $CorpusHelper, '--corpus-inputs', $CorpusInputs, '--smoke-helper', $SmokeHelper)
 }
-$python = Get-SafePath (Get-Command python.exe -CommandType Application -ErrorAction Stop).Source
+$pythonCommand = Get-Command python.exe -CommandType Application -ErrorAction Stop | Select-Object -First 1
+$python = Get-SafePath $pythonCommand.Source
 $record = [ordered]@{ schema_version=1; status='failed'; phase=$Phase; supervisor_pid=$PID;
     supervisor_started_utc=[Diagnostics.Process]::GetCurrentProcess().StartTime.ToUniversalTime().ToString('o');
     started_utc=[DateTime]::UtcNow.ToString('o'); deadline_seconds=$LimitSeconds;

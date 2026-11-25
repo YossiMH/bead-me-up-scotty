@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "status": "passed_static_author_inspections",
+  "revision": 2,
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "prior_full_review_sha256": "5cf743fee3b5cadb0ee9abf4491a055398e1e5d9a9de3e2247099616e2e6bbd9",
+  "startup_diagnostic_review_sha256": "a916706bbc4e8730331deac8099c00ba41d7e111b3623c170b40e07229d13637",
+  "files": {
+    "checkpoint-windows-build-20261125.py": {
+      "sha256": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+      "bytes": 35619
+    },
+    "checkpoint-windows-check-20261125.py": {
+      "sha256": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
+      "bytes": 25669
+    },
+    "checkpoint-windows-supervisor-20261125.ps1": {
+      "sha256": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
+      "bytes": 10888
+    },
+    "checkpoint-windows-driver-20261125.ps1": {
+      "sha256": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+      "bytes": 10139
+    },
+    "checkpoint-release-corpus-20261125.py": {
+      "sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+      "bytes": 42736
+    },
+    "build-inputs.json": {
+      "sha256": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+      "bytes": 1612
+    },
+    "check-inputs.template.json": {
+      "sha256": "451167bf2f37a266fde9e5211517c555543263690fd8de12194223c4a256b0e9",
+      "bytes": 1157
+    },
+    "corpus-inputs.template.json": {
+      "sha256": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7",
+      "bytes": 437
+    },
+    "packet.json": {
+      "sha256": "10db15ed6732c9c8761e06ca164baf1599cefa426f89e5282fdb128c7efc34d7",
+      "bytes": 3059
+    },
+    "checkpoint-windows-build.workflow.yml": {
+      "sha256": "9e8412c60b007c968a510e9b691e9c87ff203c8204eeee446a5583f1530bf07b",
+      "bytes": 2793
+    },
+    "checkpoint-windows-check.workflow.template.yml": {
+      "sha256": "885dce18d0c636571ed0489da6707f75ad480fe00f4de9e8482494ed544cc2dc",
+      "bytes": 3532
+    },
+    "README.md": {
+      "sha256": "02e75d8e95dff7f59bdcbbeab0c37841c42eb75fad2b10de94ff727cb4e9c456",
+      "bytes": 12152
+    },
+    "static-checks.json": {
+      "sha256": "4bfd45905ba4f0c4b45730155bbd526b00e11cb58f8f3586316777c670f84a57",
+      "bytes": 1412
+    },
+    "author-audits.json": {
+      "sha256": "a842709e31c4b4fba96419033a888856f62c03afa7b5cd1f8f86dbc5a2875298",
+      "bytes": 10076
+    },
+    "startup-diagnostic-result.json": {
+      "sha256": "0c91dddd7064150af35cb79571bfb2b07c61c73c67c6128e537ab16ed4b093ce",
+      "bytes": 5264
+    },
+    "startup-diagnostic.stdout": {
+      "sha256": "145a3a0e7d8a5a57334c6b195dd858fa4006a7839e72dce202964e9c9b9dc65b",
+      "bytes": 3336
+    },
+    "startup-diagnostic.stderr": {
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0
+    },
+    "startup-diagnostic-job.log": {
+      "sha256": "8a6ea896401f49f69f2a15cf7c64ac4aa18d5a54636daf0654923169e80c1ac5",
+      "bytes": 50080
+    },
+    "startup-diagnostic-artifacts.json": {
+      "sha256": "2035f4306df6dea1b68f0454cf8c968758eafdcdbc1148444e5f60fc33d4e8e6",
+      "bytes": 898
+    }
+  },
+  "changed_original_files": [
+    "README.md",
+    "checkpoint-windows-build.workflow.yml",
+    "checkpoint-windows-supervisor-20261125.ps1",
+    "packet.json"
+  ],
+  "unchanged_original_files": [
+    "checkpoint-windows-build-20261125.py",
+    "checkpoint-windows-check-20261125.py",
+    "checkpoint-windows-driver-20261125.ps1",
+    "checkpoint-release-corpus-20261125.py",
+    "build-inputs.json",
+    "check-inputs.template.json",
+    "corpus-inputs.template.json",
+    "checkpoint-windows-check.workflow.template.yml",
+    "static-checks.json",
+    "author-audits.json"
+  ],
+  "inspections": [
+    {
+      "id": 1,
+      "complete_corrected_supervisor_read": true,
+      "complete_corrected_workflow_read": true,
+      "exact_packet_and_caller_binding_read": true,
+      "findings": [],
+      "conclusions": [
+        "The measured failing value is exactly the two ApplicationInfo.Source strings joined by the typed string parameter.",
+        "Selecting the first returned application preserves the measured command ordering and provides one source path to the existing guard.",
+        "No path/reparse, supported Python version, helper/input/binary hash, Job, deadline or cleanup check is weakened.",
+        "The sole authored supervisor replacement mechanically reverses to the accepted original bytes."
+      ]
+    },
+    {
+      "id": 2,
+      "complete_corrected_supervisor_read": true,
+      "complete_corrected_workflow_read": true,
+      "exact_packet_and_caller_binding_read": true,
+      "findings": [],
+      "conclusions": [
+        "All unmodified build/check/driver/shared-corpus/helper/input bytes retain their accepted identities.",
+        "The refreshed packet binds only the corrected supervisor; the fresh build branch and concurrency name prevent ambiguous replay.",
+        "Exact diagnostic stdout and result hashes were checked from observed Base64 bytes; failed startup remains distinct from compilation.",
+        "The build retains exact515 ancestry, one compiler job, MSVC-first unchanged archive script, seven compiled debug executables, 43 selected later checks and separate actual-artifact review.",
+        "The original static records remain historical, and the new two inspections bind these current bytes and documented cleanup."
+      ]
+    }
+  ],
+  "execution": "No corrected build has executed; actual PowerShell/Python parsing remains required in the newly reviewed run."
+}

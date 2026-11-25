@@ -6,7 +6,7 @@
   "files": {
     "checkpoint-windows-build-20261125.py": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
     "checkpoint-windows-check-20261125.py": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
-    "checkpoint-windows-supervisor-20261125.ps1": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+    "checkpoint-windows-supervisor-20261125.ps1": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
     "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
     "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
     "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
@@ -49,5 +49,13 @@
     "cee3220b5e4b9a414c50379273c84759db645dbf",
     "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
     "986f2a332aca9dd567eee41ce835917d56e29468"
-  ]
+  ],
+  "revision_2": {
+    "reason": "Hosted PowerShell 5.1 returned two ApplicationInfo matches for python.exe; select the first application before scalar path validation.",
+    "failed_build_run": 45543077351,
+    "startup_diagnostic_run": 45544207610,
+    "startup_result_sha256": "0c91dddd7064150af35cb79571bfb2b07c61c73c67c6128e537ab16ed4b093ce",
+    "prior_supervisor_sha256": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+    "source_and_build_inputs_unchanged": true
+  }
 }
