@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "repository": "YossiMH/bead-rs",
+  "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
+  "tests_commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+  "source_commit": "cee3220b5e4b9a414c50379273c84759db645dbf",
+  "source_tree": "77ed48ea165859b23c5c72c6b85155ef5610fb14",
+  "approved_files": {
+    "research/specs/checkpoint-set-v2.md": {
+      "status": "M",
+      "sha256": "d06e0e890d84b52e0d22e63d954313e703dc187db635ccc44b93a96610a1b629"
+    },
+    "src/service/checkpoint/set_v2.rs": {
+      "status": "M",
+      "sha256": "9227543341a0e7352a2aab1fdf7e9244df21e4c723cd705d537ad34341557642"
+    },
+    "tests/attempt_receipt_checkpoint_integrity.rs": {
+      "status": "M",
+      "sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2"
+    },
+    "tests/checkpoint_set_v2_conformance.rs": {
+      "status": "M",
+      "sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58"
+    },
+    "tests/checkpoint_tail_generation_integrity.rs": {
+      "status": "A",
+      "sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705"
+    }
+  },
+  "profiles": {
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0",
+    "CARGO_INCREMENTAL": "0"
+  }
+}

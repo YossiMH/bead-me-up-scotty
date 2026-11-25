@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "operation": "checkpoint-linux-build",
+  "source_commit": "cee3220b5e4b9a414c50379273c84759db645dbf",
+  "source_tree": "77ed48ea165859b23c5c72c6b85155ef5610fb14",
+  "files": {
+    "checkpoint-linux-build-20261125.py": {
+      "sha256": "24cccdea851db2bf98b522f5af1724dfcd1daeeb46b4f9a950f4b8479f790684",
+      "bytes": 22777
+    },
+    "checkpoint-build-support.py": {
+      "sha256": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+      "bytes": 26661
+    },
+    "build-inputs.json": {
+      "sha256": "5e3b3cf9dcd4d10605d79db47b8f50ba7ee79e115b71e1047313d8e8daf8ecb0",
+      "bytes": 1261
+    },
+    "checkpoint-linux-build.workflow.yml": {
+      "sha256": "30113549a82a8753f0a38cfd2e007c95bfd7097e43c40e25cf166511e2f4e84f",
+      "bytes": 4216
+    },
+    "README.md": {
+      "sha256": "9936a71886bd76ad497443af217ff2b2e99fc5681c5d9aa8e49b17be60414cee",
+      "bytes": 6063
+    }
+  },
+  "native_task": "beadrs-9c6d0088",
+  "execution": "pending static review, ordinary Python parse and actual hosted run",
+  "workflow_activation": {
+    "branch": "task/checkpoint-linux-build-20261125",
+    "path": ".github/workflows/checkpoint-linux-build-20261125.yml",
+    "permissions": "contents: read"
+  },
+  "completion": "Both successful build-result.json and outer result.json, retained full target mapping and exact release bytes are required."
+}

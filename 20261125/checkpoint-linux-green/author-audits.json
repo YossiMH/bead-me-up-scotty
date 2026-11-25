@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "static_author_inspections_passed",
+  "native_task": "beadrs-9c6d0088",
+  "source_commit": "cee3220b5e4b9a414c50379273c84759db645dbf",
+  "files": {
+    "checkpoint-linux-build-20261125.py": "24cccdea851db2bf98b522f5af1724dfcd1daeeb46b4f9a950f4b8479f790684",
+    "checkpoint-build-support.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+    "build-inputs.json": "5e3b3cf9dcd4d10605d79db47b8f50ba7ee79e115b71e1047313d8e8daf8ecb0",
+    "checkpoint-linux-build.workflow.yml": "30113549a82a8753f0a38cfd2e007c95bfd7097e43c40e25cf166511e2f4e84f",
+    "README.md": "9936a71886bd76ad497443af217ff2b2e99fc5681c5d9aa8e49b17be60414cee"
+  },
+  "manifest_sha256": "7a957ad33c2f62f75ca8c51de29ee8f37c631a3099fd4aea3aac00af57a44e0b",
+  "inspections": [
+    {
+      "number": 1,
+      "scope": "Complete 396-line Green helper, unchanged imported support, actual inputs, whole workflow and execution notes.",
+      "checks": [
+        "Exact candidate/source ancestry and cumulative/repair-only deltas bind to accepted Red and source repair.",
+        "The actual parent diff check is emitted before every Cargo command; source archive and all Git blobs are verified.",
+        "Formatting, all-target Clippy and all-default no-run compile are exact required commands; Cargo JSON/metadata cover every default harness without the stale deps assumption.",
+        "Unchanged archive script produces default Linux release; metadata/hash/version and full source preservation are verified.",
+        "One Cargo job, consistent debug-zero profiles, owned roots, 1800-second bound and process-group cleanup match the plan."
+      ],
+      "findings_resolved": [
+        "Added the separate immediate repair-only git diff --check receipt requested by root before any Cargo command."
+      ],
+      "remaining_findings": []
+    },
+    {
+      "number": 2,
+      "scope": "Complete final helper and all bound packet files after the whitespace preflight addition.",
+      "checks": [
+        "Rechecked full target/source bundle structure, modes/mtime records and separate release artifact inputs for later independent execution.",
+        "Rechecked successful build and outer bundle receipts, retained failures, raw small-text Base64 and seven-day retention.",
+        "Checked YAML branch scope, exact official Action pins, read-only token, clean source checkout depth3 and ordinary parser/toolchain setup.",
+        "No permanent tests run here; full-suite and release-corpus tasks remain explicitly separate."
+      ],
+      "remaining_findings": []
+    }
+  ],
+  "runtime_checks": {
+    "python_compile": "pending hosted parser; local cloud execution unavailable",
+    "git_diff_check": "pending actual first hosted preflight",
+    "rust_checks": "pending reviewed hosted execution"
+  },
+  "cleanup": "Root/future agents preserve evidence and clean owned temporary branches and clean Riftri worktrees after accepted delivery; never force-remove user changes."
+}
