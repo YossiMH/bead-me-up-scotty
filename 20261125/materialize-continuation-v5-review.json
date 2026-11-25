@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/delivery_review",
+  "date": "2026-11-25",
+  "status": "PASS",
+  "accepted": true,
+  "revision": 5,
+  "source_commit": "f19077a75725aad5d1f94bb2946af33a5cbab49a",
+  "plan_sha256": "98d2feefa4786cec2a23d55b597b60c175c3204b3f9ff3a78ae04021d6a27360",
+  "plan_review_sha256": "b88af1ba02ebd34d3ecaad5ba822fb28f19e180b4bd4dd53dc9a338ec0cd7b6d",
+  "author_review_sha256": "339b7ae9ad150ed2572265a99785bd7a8c0773147d033759c00bab17bc3f55a0",
+  "blocking_findings": [],
+  "product_tests_or_builds": false,
+  "pc_actions": false,
+  "database_writes": false,
+  "helper_path": "20261125/materialize-continuation-v5.mjs",
+  "helper_sha256": "aa0cb5c790a23058419b3d9c503a3b71dbef01b1fbdd37aa24a6f9ee57919937",
+  "inspection": "Read the entire helper and both complete author inspections against the accepted whole plan, exact template, previous materializer, current 21-ID mapping and retained materialization/closure contracts.",
+  "findings": [
+    "Exact plan, template, independently supplied review hash, reviewed counts and accepted base plan are checked before any native command. The review must report PASS, accepted true, revision 5 and all 31 tasks / 49 edges read.",
+    "The live preflight requires 975 distinct records, all original 954 records unchanged, all 21 actual task IDs, full old descriptions/resources, all 34 old blocking edges and exact unique references. Nine changed tasks must remain open and unassigned; ten new stable references must be absent.",
+    "Only nine live if_revision values are mechanically bound. The template is reconstructed from accepted task text/resources and new edges, compared exactly, dry-run and checked operation by operation. Full state and every input hash are rechecked before the one marked commit.",
+    "The commit uses the exact 34 operations once with --no-auto-flush. Exclusive output directories and the commit-started marker preserve uncertain results and prevent blind replay.",
+    "Readback requires 985 records, all original rows unchanged, all 31 exact descriptions/resources, all 49 edges, preserved old state/unknown fields and actual unique-reference mappings. Only derived effective/dependency status and intended updated_at changes are normalized.",
+    "Native child commands have 30-second limits within a 180-second helper deadline, hidden shell-free execution, bounded output and task-local TEMP/TMP. The known native executable hash is verified. Root retains external PC limits.",
+    "The complete JavaScript body parses in V8 after removing static import declarations; no helper body was executed. Ordinary node --check on exact transferred bytes remains required before invocation."
+  ],
+  "limits": "Accepts mechanical materialization of the exact accepted revision only. Root owns invocation, current PC conditions, native writes and reconciliation of actual results."
+}
