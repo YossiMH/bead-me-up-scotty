@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "checks": [
+    "readOnly SQLite",
+    "exact revision5",
+    "native30s",
+    "no shell",
+    "no nonempty restore",
+    "no reidentification",
+    "single native import",
+    "guarded cleanup close",
+    "source restore prerequisite",
+    "heap128",
+    "ownedJob",
+    "budget512",
+    "deadline180",
+    "no broad kill",
+    "original config never written",
+    "Whole checkpoint tree capped at64MiB"
+  ],
+  "helper_sha256": "04cce7b36a8982588d82d5485486939e06cc314b73461004a61c995b3f2f825c",
+  "supervisor_sha256": "396b849ec152da55e75078fa755eef6736b4d2327258aa0b48b60faf4cac2449",
+  "body_parse": {
+    "status": "passed",
+    "method": "V8 AsyncFunction parse of module body; imports/exports/main dispatch removed and import.meta.url replaced with a literal",
+    "module_check_pending": true,
+    "initial_probe": "Initial body-only parse omitted replacing import.meta.url and was rejected as non-module syntax; no helper executed."
+  },
+  "native_execution": false,
+  "windows_parser_pending": true,
+  "node_module_check_pending": true
+}
