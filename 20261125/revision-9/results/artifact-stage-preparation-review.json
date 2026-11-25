@@ -6,20 +6,20 @@
   "scope": "Fresh archive staging source and focused hosted check preparation only",
   "task_key": "type-install-binding-review",
   "continuation_revision": 9,
-  "candidate_commit": "e8a46ad6832b521752b2fececdcb4a061e4a6d8c",
+  "candidate_commit": "4d363ac40282b866d9391ab36e6f1374deb95ae8",
   "activation_branch": "task/artifact-stage-checks-20261125",
   "files": {
     "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1": {
-      "sha256": "0631999c18840ab2599b6a47a4369d9496d9862a2bf54c4eaccc9f8774f013bd",
-      "git_blob": "2df8fe279b36dec66c54595e7637f366155b90d3"
+      "sha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+      "git_blob": "482fc7b3c65ef2a519f88e47ae22f5e0cfbf2f94"
     },
     "20261125/revision-9/artifact-stage/stage-artifacts-supervisor-20261125.ps1": {
       "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
       "git_blob": "87c74cfcf25c9a5b80ff30c5c15a31462b5730bf"
     },
     "20261125/revision-9/artifact-stage/check-inputs.json": {
-      "sha256": "7bca53de0a46e386c01f3fc615332c4165d52a90943e14912678b84c165fc44f",
-      "git_blob": "f9a060087fda97d8ad9d5e39dba3a4c03952773d"
+      "sha256": "8764ee056a188a4477dca3e878f9056ad9e577feda20205516133badc85a34d9",
+      "git_blob": "2fda9432ddf2bdb9c4c3e0d9906ac0bdfa010f09"
     },
     "20261125/revision-9/artifact-stage/check-stage-archives.ps1": {
       "sha256": "7874d07260df337cfee59ce04da184633c926d5f2e7edee59f4714956cd6d21f",
@@ -30,8 +30,8 @@
       "git_blob": "c772d4a71254db4548ac2db2e6cc03389176776f"
     },
     "20261125/revision-9/artifact-stage/workflow.yml": {
-      "sha256": "5acb0abe1d48c5f1f4cb5fff06fe804f456f8de8638bc55ae255563e58373a11",
-      "git_blob": "b780e6cef54c588156c8b88a5c8f503d230021d1"
+      "sha256": "2e2bd932a1f9151ff79fe1dcf5e13b2e41625addced790cf367fddf5b986b9f5",
+      "git_blob": "f6c9390ded41d90698a8600a0a3345fda24c61c0"
     },
     "20261125/revision-9/artifact-stage/README.md": {
       "sha256": "3764fb44cb194348414b528d4114eada6914df8623b05b58a4c0adbebfceaa80",
@@ -42,8 +42,8 @@
       "git_blob": "7a8de1a98603349e1789a5c7565a9d9f95842b10"
     },
     ".github/workflows/scotty-artifact-stage-checks-20261125.yml": {
-      "sha256": "5acb0abe1d48c5f1f4cb5fff06fe804f456f8de8638bc55ae255563e58373a11",
-      "git_blob": "b780e6cef54c588156c8b88a5c8f503d230021d1"
+      "sha256": "2e2bd932a1f9151ff79fe1dcf5e13b2e41625addced790cf367fddf5b986b9f5",
+      "git_blob": "f6c9390ded41d90698a8600a0a3345fda24c61c0"
     }
   },
   "accepted_runtime_review": {
@@ -69,18 +69,41 @@
     "The hosted downloader obtains only the pinned existing 7,056,005-byte app Actions ZIP. It verifies metadata/run/digest/expiry and downloaded bytes, uses no authorization header for the redirected download, bounds network time and size, and retains no temporary download URL or credential.",
     "The hosted check extracts exact reviewed function ASTs without invoking PC entry points. It parses three PowerShell files, compiles one unchanged declaration without invoking methods, copies the actual complete 560-file runtime using a synthetic native package, and retains all actual file hashes. The remaining fixtures test stream-sized and empty content, exact installer outputs, identity/hash/size/count/BUILD_ID/provenance refusal, eight unsafe path forms, seven malformed ZIP cases, reparse ancestors, expiry and intact interrupted-copy evidence/replay refusal.",
     "Independently counted all 40 declared checks and read every assertion. The exact actual-runtime inventory uses complete chunked retention; the entire result is emitted as original base64 JSON. All check filesystem work is within a fresh hosted temporary fixture, with an external canary verified unchanged.",
-    "The workflow has only hosted Windows checkout, download, focused checks and retained output; no package installation, product build or product start. Its exact candidate, pinned actions, read-only permissions, isolated activation branch and 8-minute hosted job bound are preserved."
+    "The workflow has only hosted Windows checkout, download, focused checks and retained output; no package installation, product build or product start. Its exact candidate, pinned actions, read-only permissions, isolated activation branch and 8-minute hosted job bound are preserved.",
+    "Independently fetched the first actual failed job log and immutable full receipt. Their raw bytes match. Decoded the sole original base64 result and verified exact bytes/hash: three preliminary checks passed, then the actual archive case rejected adapter-tests.stderr. The downloader had verified the exact original ZIP. The failure is retained without any runtime-copy success claim.",
+    "Read the complete four-file correction at 4d363ac4. Reversing the single helper line reproduces all original helper bytes; each stdout/stderr concatenation is now separately parenthesized in the expected-path array. Only its input digest and both workflow manifest-hash bindings also change. Both workflows remain identical, every other check/helper/source remains unchanged, and the existing real-archive case directly exercises the defect."
   ],
   "resolved_findings": [
     {
       "finding": "The first supervisor unnecessarily restricted the already qualified C: Job-helper path to the F: task root.",
       "resolution": "Restore the accepted absolute-path/reparse validation for that unchanged helper and retain its exact SHA-256. Every copy input/output remains within the F: task root."
+    },
+    {
+      "finding": "The initial real-archive check exposed PowerShell array/concatenation precedence in expected command-log filenames.",
+      "resolution": "Parenthesize both concatenations explicitly. Preserve the actual failure and execute the same exact tests on the corrected candidate; no oracle or scope change."
     }
   ],
   "findings": [],
-  "verdict": "PASS for one hosted preparation-check activation at this exact candidate after reconciling the branch and prior-run state. Final staging acceptance still requires actual results and two complete final author inspections; final native artifact binding and any PC invocation remain pending.",
+  "verdict": "PASS for one hosted check execution at exact 4d363ac40282b866d9391ab36e6f1374deb95ae8 after reconciling the completed prior failure and activation ref. Final staging acceptance still requires the complete actual result and two final author inspections. Final native artifact selection and PC invocation remain pending.",
   "final_staging_acceptance": false,
   "native_identity_bound": false,
   "reviewer_product_execution": false,
-  "pc_actions": 0
+  "pc_actions": 0,
+  "previous_preparation_review": {
+    "commit": "29ce68d30d2289da35fd09bec6ee507021b3e8d9",
+    "sha256": "00fd41b17d1ba61c589dba442da97ebeb75749da1acd076a21a378779406b8d0",
+    "candidate_commit": "e8a46ad6832b521752b2fececdcb4a061e4a6d8c"
+  },
+  "actual_prior_failure": {
+    "run_id": 45601172516,
+    "job_id": 139160162490,
+    "retained_commit": "8c00373f1da0976ece20df71a3a8dd88302454b4",
+    "receipt_sha256": "b3f8d1227c3a1d65e6c799c704d8e7bb63540e8b5d9c89f98458af2648e68658",
+    "actual_job_log_sha256": "ab49687f579108af71b183d2722218147e0e86f9f682b58f4184d2f1cf93b01b",
+    "original_result_sha256": "a5211be16ddd862b68333735774aacb4f39e13e9919942032e6f9a6d23bca426",
+    "case_count": 3,
+    "error": "System.Management.Automation.RuntimeException: Unexpected ZIP entry: adapter-tests.stderr",
+    "download_verified": true,
+    "pc_actions": 0
+  }
 }
