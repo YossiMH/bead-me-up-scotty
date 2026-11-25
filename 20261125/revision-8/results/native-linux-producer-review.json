@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-linux-build",
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root",
+  "review_kind": "independent final-source Linux producer preparation review",
+  "reviewed_utc": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+    "activation_branch": "task/native-repair-linux-build-20261125"
+  },
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "prior_complete_review": {
+    "producer_commit": "e5cea420faa1804c8b13ffeab77d5248e818395f",
+    "review_commit": "23408761f6a50d38046b13086065782a9b1389e6",
+    "review_path": "20261125/revision-7/results/checkpoint-linux-producer-v2-review.json",
+    "actual_successful_run": 45575999107,
+    "unchanged_parts_reused_after_exact_hash_and_complete_delta_comparison": true
+  },
+  "reviewed_files": {
+    "20261125/native-repair-linux/checkpoint-linux-build-20261125.py": "6f2f23afa2f85a877020c296e80370e90c851d41cfb846328d3e2d3caac2f1c7",
+    "20261125/native-repair-linux/checkpoint-build-support.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+    "20261125/native-repair-linux/build-inputs.json": "b83cb96d5eaee1d3e838e188579009ff3dbba7439223f9b498f56219ca46c9a5",
+    "20261125/native-repair-linux/workflow.yml": "3d4ab0ea4891dc3e010352c4c8dde701ed1568c4e9be56a09d40dcc48446d266",
+    ".github/workflows/native-repair-linux-build-20261125.yml": "3d4ab0ea4891dc3e010352c4c8dde701ed1568c4e9be56a09d40dcc48446d266",
+    "20261125/revision-8/native-producers/author-inspections.json": "3746570ec8ce070076e09c07960a407a9384980bd1c21e45e2b6dce49acaf2e6",
+    "20261125/revision-8/native-producers/README.md": "ceedb0b120c4f6844d851f5cb4aab411b1ebbd28c0ce35c2e1d382e35545fd20"
+  },
+  "native_source_files_verified": [
+    {
+      "path": "man/man1/bead-update.1",
+      "sha256": "04c6e2f94937da51f72a675be615f8981e96a7d9b76699354cdc3753156c73af",
+      "git_blob": "e89ccc42697028c51ae98ac73ab73203509b4460",
+      "bytes": 5250
+    },
+    {
+      "path": "research/specs/issue-editing-v1.md",
+      "sha256": "b384a2537bd86c91e61d0978c8dd61c1200a9ad99adebe56313fe48d87ed7237",
+      "git_blob": "a7f2c26aebb8d94cf05bf44e3d7d4571d9298fcf",
+      "bytes": 6535
+    },
+    {
+      "path": "src/cli.rs",
+      "sha256": "956abc229044f53d1af66506b5df4810f3037db9558eb38183467aa711eaec83",
+      "git_blob": "0d55dc7deb53bc0f1cc29a82b8e1f8beac9194a7",
+      "bytes": 147942
+    },
+    {
+      "path": "src/main.rs",
+      "sha256": "d4b1ab9d02b186615cfd3f65dbb8d98366fad11d00065bbfe65ce7604612a3e0",
+      "git_blob": "397bc192a025dd0fa038ad1f49e4174ebe24f00a",
+      "bytes": 233810
+    },
+    {
+      "path": "src/service/capabilities.rs",
+      "sha256": "a99f851d759a3e2095ba28a9adeb4a7694e45dca83134ade2447f8436cb384b1",
+      "git_blob": "81eb75b9f5d064e33f3734aa3fbc646b285be2f4",
+      "bytes": 17423
+    },
+    {
+      "path": "src/service/schema.rs",
+      "sha256": "fe006a48e2636c4956c15afcc2993e5d8e2d8782874dc6064178871ccd371f1b",
+      "git_blob": "bb33b01d7db88ffcae5613325e71d63c9d4636c0",
+      "bytes": 223592
+    },
+    {
+      "path": "tests/issue_type_file.rs",
+      "sha256": "b0ef90f6cbaf0f957bc6843321f2db373f382221e5de076cd937298ae29bd8ab",
+      "git_blob": "c075cb244343d17735567cc1c559bcbe9739c92f",
+      "bytes": 15747
+    },
+    {
+      "path": "src/service/checkpoint.rs",
+      "sha256": "f860195328ef19049d87aa3904ef04de518889e9d289b57b00f0fcf4413e366c",
+      "git_blob": "56e221fbc608fa91738c7bc9a52004ea318aa1e8",
+      "bytes": 467664
+    },
+    {
+      "path": "src/service/checkpoint/set_v2.rs",
+      "sha256": "25f5beab0321444cf8fa29adfdeb14a6c62bf0f80ea515641f9f06ca9b3c8148",
+      "git_blob": "826f386991f941953bebe91d0920dee08661cb7d",
+      "bytes": 53789
+    }
+  ],
+  "native_commit_chain_verified": [
+    {
+      "source": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+      "parent": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+      "tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7"
+    },
+    {
+      "source": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+      "parent": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+      "tree": "eeab8ce79cf4a6950a4b09706fa1595572cd1b78"
+    },
+    {
+      "source": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+      "parent": "14051553b607bc160fb46f053c52ddeeadf846db",
+      "tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13"
+    },
+    {
+      "source": "14051553b607bc160fb46f053c52ddeeadf846db",
+      "parent": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+      "tree": "475f0e470b4c4a82be2f66f6195a0c044be7978e"
+    }
+  ],
+  "inspection": [
+    "Read the complete new producer, workflow, input contract, shared declarations/callers relevant to execution, README and both author inspections. Compared every changed line with the accepted e5 producer/workflow; shared support has the exact prior accepted hash.",
+    "Retrieved and SHA-256 hashed every one of the nine expected native files directly from the immutable c90 source. Independently fetched all four commit-parent links and the final tree. Five-commit checkout depth includes the required 515 baseline.",
+    "New logic only expands exact source ancestry, per-phase path sets and final-file hashes for the 7adb oracle and c90 two-function repair. Each parent and cumulative delta is checked before archive extraction/build.",
+    "Complete default Cargo metadata/harness enumeration, one compiler job, toolchain1.100.0, immutable archive/source checks, warnings-denied Clippy, formatting and release provenance remain intact.",
+    "Generated-man handling preserves the previously accepted exact single ASCII-space correction on the known synopsis line. Raw bytes/hash, normalized/tracked hash and every other byte are retained; no broad trimming or whitespace exemption is added.",
+    "Compilation/archive/man/bundle/owned-process cleanup logic and bounded failure retention are unchanged. Actual producer commands and complete source/target inventories remain required before downstream execution.",
+    "The identical workflow copy uses read-only permissions, pinned Actions, isolated paths and no persisted credentials. Work is bounded to1800seconds and one compiler process stream within the40-minute hosted job. No PC access or native test execution occurs in this producer."
+  ],
+  "source_acceptance_scope": "This accepts only the exact Linux producer preparation. The separate c90 source review and all actual final-source build/test/corpus results remain required.",
+  "author_clean_final_inspections": 2,
+  "author_report_sha256": "3746570ec8ce070076e09c07960a407a9384980bd1c21e45e2b6dce49acaf2e6",
+  "findings": [],
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "next_action": "The backend executor may activate this exact candidate once on task/native-repair-linux-build-20261125 after reconciling absence of an earlier activation, then retain and inspect actual producer/download outcomes.",
+  "pending": [
+    "Actual complete successful Linux producer and verified downloadable output.",
+    "Final-source affected tests, complete native suite and original-corpus recovery.",
+    "Complete Windows qualification and independent final native acceptance.",
+    "Actual native mapping, PC tray/install/configured launch, history publication and recorded worktree cleanup."
+  ]
+}
