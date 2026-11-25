@@ -1,0 +1,174 @@
+name: Scotty native type checks 20261125
+
+on:
+  push:
+    branches:
+      - task/type-app-checks-20261125
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scotty-type-checks-20261125
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    if: github.repository == 'YossiMH/bead-me-up-scotty'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    env:
+      CI: 'true'
+      NODE_OPTIONS: '--max-old-space-size=4096'
+      NEXT_TELEMETRY_DISABLED: '1'
+      POSTHOG_KEY: ''
+      BUILD_SHA: '0309539'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Create isolated output and test directories
+        timeout-minutes: 1
+        run: |
+          set -euo pipefail
+          check_root="$RUNNER_TEMP/scotty-type-checks-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          test ! -e "$check_root"
+          mkdir -p "$check_root/results" "$check_root/fixtures" "$check_root/temporary"
+          printf 'SCOTTY_CHECK_ROOT=%s\n' "$check_root" >> "$GITHUB_ENV"
+          printf 'SCOTTY_TEST_ROOT=%s/fixtures\n' "$check_root" >> "$GITHUB_ENV"
+          printf 'TMPDIR=%s/temporary\n' "$check_root" >> "$GITHUB_ENV"
+          printf '%s\n' "$GITHUB_SHA" > "$check_root/results/workflow-commit.txt"
+
+      - name: Read the exact app candidate
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        timeout-minutes: 3
+        with:
+          ref: 0309539797fd7d016e2b8fd8bdc0ae9cefc20219
+          fetch-depth: 2
+          persist-credentials: false
+
+      - name: Select the previously used Node version
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        timeout-minutes: 3
+        with:
+          node-version: '24.22.3'
+          package-manager-cache: false
+
+      - name: Run adapter checks and build production files
+        timeout-minutes: 22
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, subprocess, sys
+          output = pathlib.Path(os.environ["SCOTTY_CHECK_ROOT"]) / "results"
+          source = subprocess.check_output(["git", "rev-parse", "HEAD"], text=True, timeout=10).strip()
+          tree = subprocess.check_output(["git", "rev-parse", "HEAD^{tree}"], text=True, timeout=10).strip()
+          assert source == "0309539797fd7d016e2b8fd8bdc0ae9cefc20219", source
+          assert tree == "84bb66cde1832ad8d30b63773efb77c952787b94", tree
+          result = {"source_commit": source, "source_tree": tree, "commands": [],
+                    "node": subprocess.check_output(["node", "--version"], text=True, timeout=10).strip(),
+                    "npm": subprocess.check_output(["npm", "--version"], text=True, timeout=10).strip()}
+          sources = ["package.json", "package-lock.json", "next.config.ts", "lib/native-process.ts",
+                     "lib/native-store.ts", "lib/native-edit.ts", "docs/backend-compatibility.md",
+                     "scripts/fixtures/native-contract.mjs", "scripts/test-native-editing.mjs",
+                     "scripts/test-local-bead-rs.mjs", "scripts/test-native-type-roundtrip.mjs"]
+          records = []
+          for name in sources:
+              data = pathlib.Path(name).read_bytes()
+              records.append({"path": name, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data),
+                              "git_blob": subprocess.check_output(["git", "rev-parse", "HEAD:" + name],
+                                                                  text=True, timeout=10).strip()})
+          (output / "source-sha256.json").write_text(json.dumps(records, indent=2) + "\n", encoding="utf-8")
+          commands = [
+              ("npm-ci", ["npm", "ci", "--no-audit", "--no-fund"], 420),
+              ("adapter-tests", ["node", "--test", "--test-reporter=tap", "scripts/test-backend-contract.mjs",
+                                "scripts/test-native-editing.mjs", "scripts/test-native-mutations.mjs",
+                                "scripts/test-native-mutation-outcomes.mjs",
+                                "scripts/test-native-credential-tenures.mjs"], 180),
+              ("lint", ["npm", "run", "lint"], 180),
+              ("committed-diff-check", ["git", "diff", "--check", "HEAD^", "HEAD"], 30),
+              ("diff-check", ["git", "diff", "--check"], 30),
+              ("build", ["npm", "run", "build"], 600),
+              ("type-check", ["node", "node_modules/typescript/bin/tsc", "--noEmit"], 120),
+              ("tracked-source-check", ["git", "diff", "--exit-code", "HEAD"], 30),
+          ]
+          for name, command, seconds in commands:
+              with (output / (name + ".stdout")).open("wb") as stdout, (output / (name + ".stderr")).open("wb") as stderr:
+                  completed = subprocess.run(["timeout", "--signal=TERM", "--kill-after=10s", str(seconds) + "s",
+                                              *command], stdout=stdout, stderr=stderr, check=False)
+              result["commands"].append({"name": name, "command": command, "exit": completed.returncode,
+                                         "timeout_seconds": seconds})
+              (output / "result.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+              print(json.dumps(result["commands"][-1]), flush=True)
+              print((output / (name + ".stdout")).read_text(encoding="utf-8", errors="replace"), flush=True)
+              print((output / (name + ".stderr")).read_text(encoding="utf-8", errors="replace"), flush=True)
+              if completed.returncode != 0:
+                  sys.exit(completed.returncode)
+          result["remaining_edit_directories"] = sorted(p.name for p in pathlib.Path(os.environ["TMPDIR"]).iterdir()
+                                                        if p.name.startswith("scotty-edit-"))
+          (output / "result.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+          assert result["remaining_edit_directories"] == [], result["remaining_edit_directories"]
+          PY
+
+      - name: Record the complete runtime ZIP and manifest
+        timeout-minutes: 2
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, re, subprocess, zipfile
+          output = pathlib.Path(os.environ["SCOTTY_CHECK_ROOT"]) / "results"
+          result = json.loads((output / "result.json").read_text(encoding="utf-8"))
+          assert all(command["exit"] == 0 for command in result["commands"])
+          tap = (output / "adapter-tests.stdout").read_text(encoding="utf-8")
+          counts = {field: int(re.search(r"^# " + field + r" (\d+)$", tap, re.M)[1])
+                    for field in ["tests", "pass", "fail", "cancelled", "skipped", "todo"]}
+          assert counts["tests"] > 48 and counts["pass"] == counts["tests"], counts
+          assert all(counts[field] == 0 for field in ["fail", "cancelled", "skipped", "todo"]), counts
+          result["adapter_tests"] = counts
+          omitted = ["cache", "diagnostics", "trace", "trace-build", "types"]
+          selected = []
+          for filename in sorted(pathlib.Path(".next").rglob("*")):
+              relative = filename.relative_to(".next")
+              if relative.parts[0] in omitted:
+                  continue
+              assert not filename.is_symlink(), str(filename)
+              if filename.is_file():
+                  selected.append(filename)
+          assert selected and pathlib.Path(".next/BUILD_ID") in selected
+          assert len({str(name).casefold() for name in selected}) == len(selected)
+          records = []
+          archive = output / "scotty-runtime.zip"
+          with zipfile.ZipFile(archive, "x", compression=zipfile.ZIP_DEFLATED, compresslevel=6) as package:
+              for filename in selected:
+                  data = filename.read_bytes()
+                  records.append({"path": filename.as_posix(), "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data)})
+                  package.writestr(filename.as_posix(), data)
+          manifest = {
+              "source_commit": result["source_commit"], "build_sha": os.environ["BUILD_SHA"],
+              "build_id": pathlib.Path(".next/BUILD_ID").read_text(encoding="utf-8").strip(),
+              "file": archive.name, "sha256": hashlib.sha256(archive.read_bytes()).hexdigest(),
+              "bytes": archive.stat().st_size, "omitted": omitted, "node_modules_transferred": False,
+              "dependency_lock_sha256": hashlib.sha256(pathlib.Path("package-lock.json").read_bytes()).hexdigest(),
+              "dependency_lock_git_blob": subprocess.check_output(["git", "rev-parse", "HEAD:package-lock.json"],
+                                                                  text=True, timeout=10).strip(),
+              "node": result["node"], "npm": result["npm"], "files": records,
+          }
+          manifest_path = output / "scotty-runtime.json"
+          manifest_path.write_text(json.dumps(manifest, indent=2) + "\n", encoding="utf-8")
+          result["runtime"] = {"manifest": manifest_path.name, "manifest_sha256": hashlib.sha256(manifest_path.read_bytes()).hexdigest(),
+                               "file_count": len(records), "archive": archive.name, "archive_sha256": manifest["sha256"],
+                               "archive_bytes": manifest["bytes"], "build_id": manifest["build_id"]}
+          result["status"] = "passed"
+          (output / "result.json").write_text(json.dumps(result, indent=2) + "\n", encoding="utf-8")
+          print(json.dumps(result, indent=2))
+          PY
+
+      - name: Retain actual outputs and runtime
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        timeout-minutes: 2
+        with:
+          name: scotty-type-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/scotty-type-checks-${{ github.run_id }}-${{ github.run_attempt }}/results/
+          if-no-files-found: error
+          retention-days: 14
