@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Static source preparation for the final two Windows contention predicate corrections",
+  "repository": "YossiMH/bead-rs",
+  "candidate_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "candidate_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "parent_commit": "b492aa51b6f9a6049298d0534674572dc0c5a5e5",
+  "accepted_tests_review": {
+    "commit": "7f671379297257cdee6497d26f57b00868b3386a",
+    "path": "20261125/revision-9/results/windows-checkpoint-tests-review.json",
+    "sha256": "c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11"
+  },
+  "reviewed_files": {
+    "src/cli_checkpoint_guard.rs": "4b11cc1d5648d85817317dade0099717c55b6ec2824e93cb96bc92cfc0475a0e",
+    "src/service/redaction.rs": "20c177213fb6c96ef87d1cf30c09f297746fc1b0044f9f22fbead26902ac970d"
+  },
+  "checks": [
+    "Retrieved the immutable native commit, both complete changed files and their exact accepted tests-only parent versions. The commit is a direct child of b492 and changes precisely the two authorized source paths.",
+    "For each complete file, reversing the single new match guard reproduces the entire parent file byte for byte. No test, fixture, publication-lock, set-path, edit-service, schema, storage, CLI transport or other function changes are included.",
+    "Read both complete acquisition paths, lock ownership/drop behavior and operation validation sequence. The operation lock still covers validation and mutation, uses the same path/open options, keeps its 30-second monotonic deadline and 10-millisecond sleep, preserves busy/unrelated-I/O errors and releases through the existing guard.",
+    "The maintenance loop keeps its 30-second LOCK_TIMEOUT, 10-millisecond LOCK_POLL, same file/open errors, same timeout/integrity outcomes and RAII release. Its acquisition order and receipt/idempotency work are unchanged.",
+    "Both guards now accept either the existing WouldBlock classification or the raw platform code returned by fs2::lock_contended_error(). The previously inspected fs2 platform contract identifies Windows lock contention even when ErrorKind is not WouldBlock. Other raw errors continue through the existing error paths.",
+    "The exact tests-only parent retains the accepted portable fixture setup and every permanent product oracle. The independently observed operation and maintenance Red evidence remains bound to unchanged pre-repair c90 source; it is not relabeled as Green."
+  ],
+  "independent_inverse_proofs": [
+    {
+      "path": "src/cli_checkpoint_guard.rs",
+      "before": "0822b824be0eff825a47dd7c4463e32597d50288b1ef0561c603a49f36887254",
+      "after": "4b11cc1d5648d85817317dade0099717c55b6ec2824e93cb96bc92cfc0475a0e",
+      "exactSinglePredicateInverse": true
+    },
+    {
+      "path": "src/service/redaction.rs",
+      "before": "d5151ce88ada09a57ed7fcfcd38faacf84e168356c7a56ba640cf4bf34ec4480",
+      "after": "20c177213fb6c96ef87d1cf30c09f297746fc1b0044f9f22fbead26902ac970d",
+      "exactSinglePredicateInverse": true
+    }
+  ],
+  "findings": [],
+  "verdict": "PASS for exact static source preparation. This candidate may be bound into independently reviewed fresh producer packets. Final native acceptance remains pending actual new-source compilation and all required runtime results.",
+  "final_native_acceptance": false,
+  "pending": [
+    "Fresh complete Linux and Windows producers with exact source/tree and all affected harnesses, including the full maintenance target",
+    "Actual affected and full Linux checks, both original-corpus checks, bounded complete Windows ordinary/grid checks and smoke",
+    "Both complete final author inspections against the unchanged measured candidate",
+    "Independent final native result acceptance and actual app Windows roundtrip"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
