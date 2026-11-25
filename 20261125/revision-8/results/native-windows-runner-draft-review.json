@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Complete static Windows qualification runner draft",
+  "activation_authorized": false,
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "candidate_commit": "38b9c2b4120859d1e9d12effb582663fc4c84f93",
+  "directory": "20261125/revision-8/native-windows-check",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "reviewed_files": {
+    "README.md": "e3b9b0021c5ee629ca82e2266d65e7bed597117e0c1509a9f53ac2f183f5393f",
+    "aggregate.py": "28158bbb8a802fda782093ca10ab8c0844a129644294aa68ed6ac7c4bdda7ff6",
+    "check-inputs.template.json": "2170801eef054da53e8ea0fedc8b019fe596097814322dd515385c6213468d53",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "checkpoint-windows-build-20261125.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "checkpoint-windows-check-20261125.py": "31ccfe21ec0e703429df1846389cbbf159901a1eddd67316dd09ff1202b83943",
+    "checkpoint-windows-driver-20261125.ps1": "706acc980a6b70f1136fe8ea1b7367f1d8e7e1fbe5dcd4907a89c9b005cfac9f",
+    "checkpoint-windows-supervisor-20261125.ps1": "aba1bd6053bded3a350d96ff92f56eed2ce7e97722d3b70a06999e5b9c97ba9b",
+    "corpus-inputs.json": "838f4a9dbbc3242582531f213bff8a1ed4444ff04aa3a1750a8e48e99790d330",
+    "packet.json": "f547a699c65573468a07f0b54f6298cff20143d4f969e1527b2856802af06177",
+    "workflow.template.yml": "378b7c7ddd2601c52ce85bc4c6abba9020152d851447e7b015efcedd803018ba"
+  },
+  "read_complete_new_and_changed_files": true,
+  "unchanged_shared_helpers": {
+    "build_utility_sha256": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "corpus_sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "job_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "editing_smoke_sha256": "2a29faa7df3e9c04dd7543a5f8fd54552dd34c83248c1eda0d427e8f1a215a0b"
+  },
+  "coverage": {
+    "core": {
+      "invocations": 19,
+      "library_cases": 4,
+      "complete_integration_targets": [
+        "attempt_receipt_checkpoint_integrity",
+        "checkpoint_tail_generation_integrity",
+        "checkpoint_publication_lock"
+      ],
+      "ordinary_conformance_cases": 12
+    },
+    "editing": {
+      "complete_integration_targets": [
+        "attempt_outcome_round_trip",
+        "r036_verified_restore",
+        "cli_editing",
+        "cli_capabilities",
+        "issue_type_file"
+      ],
+      "original_corpus_restores": 4,
+      "original_attempt_outcomes": 413,
+      "editing_smoke_commands": 55
+    },
+    "grid": {
+      "partitions": 3,
+      "cells_per_partition": 4,
+      "scenarios": 6,
+      "fixtures": 2,
+      "total_unique_cells": 12,
+      "maximum_concurrent_grid_jobs": 3
+    }
+  },
+  "reasoning": [
+    "Every producer/source/archive/executable/release input remains pinned and validated before use; original compile-time paths are restored on separate hosted jobs.",
+    "Ordinary and exact-filtered invocations clear both OOB selectors. Each selected grid cell sets both selectors explicitly and uses a fresh owned temporary directory; the complete stderr classification and any caught failure text are retained.",
+    "The checker requires unique complete libtest listings, exact selected arguments and exact passed/failed/ignored/filtered counts. Child stdout between a harness prefix and completion does not invalidate this counting contract.",
+    "The unchanged owned Windows Job supervises each partition, while the Python and outer supervisor deadlines are clamped to the shared 140-minute window. Each test invocation allows at most 895 seconds plus cleanup within its complete 900-second bound.",
+    "The aggregate rechecks retained file inventories and hashes, matching source/build/release identities, raw command exits, exact case arguments, unique ordinary and grid coverage, corpus/smoke results, and observed owned process cleanup. Missing, duplicated, mixed-source or unfinished outputs cannot pass.",
+    "The full 12 ordinary conformance names, all three publication-lock integration cases and selected lock unit match the permanent source contracts. Caught OOB RED classifications remain measured outcomes rather than new expected failures."
+  ],
+  "findings": [],
+  "pending": [
+    "Populate all five partition inputs and corpus inputs with the accepted measured producer run/artifact/receipt/release hashes.",
+    "Bind the final packet and publish its exact workflow; record two final clean author inspections and obtain a final immutable-candidate review before activation.",
+    "Actual hosted parsing and all product executions remain pending; no final qualification, installation or PC acceptance is asserted."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
