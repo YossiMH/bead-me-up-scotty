@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "PASS_STATIC_BINDINGS_PENDING",
+  "accepted": true,
+  "operation": "prepared-linux-full-suite-and-recovery-static-review",
+  "reviewer": "delivery_review",
+  "packet_repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "19a8331c16c36dd73820702c3086ea218dbdb4c8",
+  "packet_directory": "20261125/checkpoint-linux-check",
+  "read_complete_packet": true,
+  "helper_lines_read": 370,
+  "workflow_lines_read": 207,
+  "files": {
+    "README.md": {
+      "sha256": "f478c2ee6a3ae08338c506b356fd30c5ddb1ff2b5464ff81ea2ebcabdef1d978",
+      "git_blob": "067147b6b85284e2d3d71f9788ca5abad68c3315",
+      "bytes": 6605
+    },
+    "author-audits.json": {
+      "sha256": "adc11bd3d8165f64edab31f3a416cb921b1e664ac7fcc5a7eefffa2987570de9",
+      "git_blob": "606604602508c8dc69a57e837ae0a0e3d94c113e",
+      "bytes": 2277
+    },
+    "checkpoint-full-suite-20261125.py": {
+      "sha256": "b18148b8365a2c66bc57af736bac4ba1d7f3079ff5c5691f7154986da328963c",
+      "git_blob": "228d9c594cc4a898184237d5b2acf0c3f6c23cdc",
+      "bytes": 22146
+    },
+    "checkpoint-linux-check.workflow.template.yml": {
+      "sha256": "fe45372ab742b115ad5f5e10718ba93826c27b0d7c7028a16fabc0dfec5f3ea7",
+      "git_blob": "3270fe681fdae276cafe259733252639b82ac743",
+      "bytes": 11451
+    },
+    "corpus-inputs.template.json": {
+      "sha256": "a9cc1c9019b8940436c539ca315231a16e45536928d346e4ebcfaccaf1d64f39",
+      "git_blob": "707adcb87fd1777d6f4abe2e62b3820b0667f664",
+      "bytes": 341
+    },
+    "full-suite-inputs.template.json": {
+      "sha256": "78fd5820062580f050e1d1a47add9a0e673ee3190c0070bf53f330fdefba589b",
+      "git_blob": "a6a13b563aca10e0340dfc5b59640c4f54673cfb",
+      "bytes": 363
+    },
+    "manifest.json": {
+      "sha256": "fb4dfd18cd044bbdda78cfc5a93e3703d466a8534fd9cf8b82f8a3cfdcc317fe",
+      "git_blob": "067b9357d6d07d5dd303f01823aac3aab488c343",
+      "bytes": 1419
+    }
+  },
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "native_tasks": {
+    "full_suite": "beadrs-0890de3c",
+    "release_corpus": "beadrs-50ff08d3"
+  },
+  "checks": [
+    "Read the complete 370-line execution helper, entire two-job YAML template, README, both input templates, manifest and two author inspections; recomputed all declared packet hashes.",
+    "Imported Green/support helpers are exactly the separately accepted 94c4a901/db9b710e definitions. The full-suite helper requires successful exact build/outer receipts, source/tree, profiles/toolchain, one compile job, complete commands and clean process groups.",
+    "Safe extraction enforces the complete source/target/log/release member inventory. Every source Git blob and retained target is rechecked, original absolute source/target paths and recorded modes/mtime_ns are restored, and retained Cargo JSON is reparsed before execution.",
+    "The actual command is the required unfiltered cargo test --locked --no-fail-fast -- --test-threads=1, with one Cargo job and verified ordinary CARGO_BIN_EXE_bead. The 5400-second phase and owned process-group cleanup remain intact.",
+    "Acceptance requires every default harness execution exactly once, unfiltered zero-failure summaries, complete passed/ignored name accounting, required library doctests and all six new regressions passing. Separate Rust2024 doctest groups are accounted for, without treating missing or failed groups as a pass.",
+    "Full source preservation and actual before/after executable maps are retained; additional owned Cargo work is identified through changed executable hashes rather than falsely attributed to original bytes.",
+    "Parallel release recovery uses the separately retained exact release artifact, successful source/helper/input-bound receipts and verified file hashes/sizes before restoring executable mode. It invokes the unchanged 653ff9f3 verifier against only the original public selected closure.",
+    "Read-only workflow permissions, pinned Actions/toolchain, independent hosted jobs, 90-minute suite and 900-second corpus limits, full raw logs/detail artifacts, bounded small-stream emission and seven-day retention match the accepted tasks.",
+    "Null input fields and YAML placeholders remain explicit and unusable. The prepared design does not claim accepted build bytes, test execution or native task completion."
+  ],
+  "findings": [],
+  "acceptance_boundary": {
+    "helper_and_execution_design": "accepted",
+    "activation_accepted": false,
+    "actual_build_prerequisite": "pending independently accepted successful build and outer receipts",
+    "final_bindings": "Exact run/attempt/head, full and release artifact IDs, receipt and bundle hashes/sizes, measured release/metadata, rendered input and YAML hashes require final independent reconciliation before activation",
+    "ordinary_python_parse": "pending hosted preflight",
+    "actual_full_suite": "pending",
+    "actual_linux_corpus": "pending",
+    "reviewer_executed_product_tests": false
+  },
+  "related_reviews": {
+    "linux_build_v2": "0866eae319469bbe6067318488ed30206e711e2ebc839245fdf9ba83a786c363",
+    "portable_corpus": "a0c0faaaa023df054ca0b5949c833d238683070f8913f11b201df324d2b97a87"
+  },
+  "cleanup": "Root/future agents preserve actual failures and successful evidence, reconcile unknown outcomes and remove only owned temporary qualification branches and clean Riftri worktrees after delivery."
+}

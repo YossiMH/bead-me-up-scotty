@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "FAILURE_RECONCILED",
+  "accepted": false,
+  "operation": "windows-tray-startup-result-review",
+  "reviewer": "delivery_review",
+  "source_commit": "38c21a77b4e875d75e17ee68683846601df33591",
+  "evidence_commit": "7d7a33987bc40b706eff26160600c230765123dc",
+  "actual_result_sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+  "readback_sha256": "1589baf0d80bd7aeec1e97cfc8a8c32e3f5ea92fb13d3e5377599a71ba25a6ef",
+  "read_complete_result_and_logs": true,
+  "source_hashes_verified": true,
+  "actual": {
+    "start": "2026-11-25T03:34:50.2979334Z",
+    "available_physical_bytes_at_launch": 7771205632,
+    "elapsed_seconds": 1.505,
+    "peak_resident_bytes": 218394624,
+    "accepted_cases": 0,
+    "server_processes_recorded": 0,
+    "smoke_runner_pid": 47660,
+    "controller_pid": 57732,
+    "tray_pid": 81696,
+    "controller_diagnostic": "Windows tray stopped unexpectedly: exit 0",
+    "icon_receipt_exists": false,
+    "observer_expected_name": "node",
+    "observer_actual_name": "node",
+    "outer_failure": "Controller parent identity no longer matches.",
+    "original_cleanup_field": "failed",
+    "later_reconciliation": {
+      "all_three_recorded_pids_absent": true,
+      "port43971_free": true,
+      "read_only": true
+    }
+  },
+  "analysis": [
+    "All seven observed source hashes match the exact published source files. The actual ordinary File invocation selects the copied click fixture and the unchanged local production helper, with the correct real controller PID and existing pipe-based protocol.",
+    "The exact controller error is emitted by the production child close handler only when its tray child closes during startup or readiness without useful stderr. No server record and no fixture receipt were retained. The later CIM parent lookup raced the already-failing controller; the expected and actual executable basenames matched.",
+    "The unchanged fixture writes its receipt in its finally block once the try body is reached. Its complete absence with normal child exit 0 is consistent with host startup failure before script-body execution; this inference is distinct from a directly instrumented entry-marker result.",
+    "The pinned Node25.2.1 libuv source sets DETACHED_PROCESS and CREATE_NEW_PROCESS_GROUP for detached:true, while retaining pipe handles and skipping its non-detached kill-on-close Job. The earlier repair therefore changed console creation as well as parent-death behavior.",
+    "Microsoft documents CREATE_NO_WINDOW as ignored when combined with DETACHED_PROCESS. PowerShell's own published no-console startup issue and a maintainer's Windows PowerShell5.1 reproduction corroborate quiet exit0 before supplied commands. The latter report also observes the parent still alive, distinguishing that signature from parent-loss Job termination.",
+    "The earlier non-detached parent-loss cache failure remains real. Reverting detached alone would restore that unresolved cleanup behavior. A changed launch topology must preserve hidden ordinary-policy execution, real parent identity, READY/EXIT/STOP protocol, ownership and eventual helper/cache cleanup."
+  ],
+  "primary_sources": [
+    {
+      "url": "https://github.com/nodejs/node/blob/4cac2b94bed4bf02810be054e8f63c0048c66564/deps/uv/src/win/process.c",
+      "sha256": "39516fc8c2316ec53b853a67301958796372676fb1b27d4ec76ec51217ae6f26",
+      "scope": "Pinned launch flags, supplied standard handles, Job assignment and resume path."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/process-creation-flags",
+      "scope": "Detached process and CREATE_NO_WINDOW interaction; no new-console combination."
+    },
+    {
+      "url": "https://github.com/PowerShell/PowerShell/issues/28383",
+      "scope": "PowerShell7.7 preview report of quiet exit0 before script under DETACHED_PROCESS; corroboration rather than proof of the installed5.1 implementation."
+    },
+    {
+      "url": "https://github.com/PowerShell/PowerShell/blob/2725d6aaa6e67219b6c9902adf7b74c52e0371a3/src/Microsoft.PowerShell.ConsoleHost/host/msh/ConsoleControl.cs",
+      "scope": "CONOUT$ handle requirement in the cited modern implementation."
+    },
+    {
+      "url": "https://github.com/PowerShell/PowerShell/blob/2725d6aaa6e67219b6c9902adf7b74c52e0371a3/src/Microsoft.PowerShell.ConsoleHost/host/msh/ManagedEntrance.cs",
+      "scope": "Cited modern host handles invalid-console HostException with the initialized exit code."
+    },
+    {
+      "url": "https://github.com/oven-sh/bun/issues/31603#issuecomment-5635852694",
+      "scope": "Maintainer's September11 Windows PowerShell5.1 reproduction: marker absent, empty output and exit0 with detached launch while the parent remains alive."
+    }
+  ],
+  "next_scope": "Root-owned hosted Windows Node25.2.1 bounded file-marker A/B probe can confirm launch behavior without another PC application run. Any broker or equivalent repair requires its own concrete plan/source review and unchanged final Windows lifecycle acceptance.",
+  "encoding_boundary": "Published actual result/readback JSON hashes were independently recomputed. Raw Windows log hashes are retained as supplied and are not equated to re-encoded decoded Unicode text.",
+  "reviewer_executed_product_tests": false
+}
