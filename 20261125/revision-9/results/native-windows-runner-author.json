@@ -1,0 +1,186 @@
+{
+  "schema_version": 1,
+  "status": "PREPARED",
+  "author": "/root/app_reconcile",
+  "scope": "Final revision 9 native Windows qualification runner preparation",
+  "task_key": "checkpoint-windows-checks",
+  "candidate_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "packet_directory": "20261125/revision-9/native-windows-check",
+  "packet_sha256": "94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f",
+  "workflow_sha256": "d94a921f52509720c037a637face51e8b9bd10c1f43e0778402a1b4436edee87",
+  "prior_algorithm_review": {
+    "commit": "8e1adec64c1d517b67c433b671b7c3663ad3df7e",
+    "path": "20261125/revision-9/results/native-windows-runner-algorithm-review.json",
+    "sha256": "39c89769053a4a156776c632d33fb4679398c9570847de838578416e6573b044"
+  },
+  "producer": {
+    "run_id": 45600413942,
+    "attempt": 1,
+    "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+    "build_job": 139157539016,
+    "download_job": 139163782606,
+    "full_artifact_id": 15016870072,
+    "full_archive_sha256": "2cbc3e874464fe2703cb2c74e8d714ae15769f1156492823240026cff01888b7",
+    "full_archive_bytes": 135629755,
+    "full_manifest_sha256": "51735e621189c914cdbe88a0a9d36f49c43cd5eb215cec3530e987f2ecdfe0f6",
+    "build_result_sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+    "build_result_bytes": 16950,
+    "source_input_sha256": "56cfbc290b00e0cbd3285a66fc46970ab029a05b3bd290ee1d39ada463213d7d",
+    "small_artifact_id": 15014634952,
+    "small_archive_sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+    "small_archive_bytes": 4524263,
+    "small_manifest_sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+    "release": {
+      "executable": {
+        "bytes": 12243456,
+        "path": "release/bead-checkpoint-2d801ba455b7.exe",
+        "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+      },
+      "metadata": {
+        "bytes": 2058,
+        "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+        "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+      }
+    },
+    "evidence_commit": "66d679b5fd3d190025068ad47167352fa5a90669",
+    "evidence_directory": "20261125/revision-9/results/native-windows-build-45600413942"
+  },
+  "files": [
+    {
+      "path": "20261125/revision-9/native-windows-check/checkpoint-windows-check-20261125.py",
+      "sha256": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc",
+      "git_blob": "562cf3a971174d79f7b66b6166607432f0451185",
+      "bytes": 31673
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/checkpoint-windows-driver-20261125.ps1",
+      "sha256": "706acc980a6b70f1136fe8ea1b7367f1d8e7e1fbe5dcd4907a89c9b005cfac9f",
+      "git_blob": "5af9a12935d14f6272636ad48904d2bad3481e60",
+      "bytes": 10471
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/checkpoint-windows-supervisor-20261125.ps1",
+      "sha256": "aba1bd6053bded3a350d96ff92f56eed2ce7e97722d3b70a06999e5b9c97ba9b",
+      "git_blob": "1c91e6df0ebb57498610d5486c69c9fc4dd3ba77",
+      "bytes": 11986
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/checkpoint-windows-build-20261125.py",
+      "sha256": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+      "git_blob": "9f1849f69771c64acd7bba954cc6ee7760c2bcb1",
+      "bytes": 45467
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/checkpoint-release-corpus-20261125.py",
+      "sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+      "git_blob": "6565ca91f2d371e3a6a2e60a1a0a77b18859939e",
+      "bytes": 42736
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/aggregate.py",
+      "sha256": "bf2643eb96696d7ce4e5ce69b7451f6cd5bd71e798d2b23dd98ebb4fc3723c6d",
+      "git_blob": "efd354b89145c2c394a8d72b5a20fc1d49c9a319",
+      "bytes": 16684
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/corpus-inputs.json",
+      "sha256": "28cdf51f510c32a78e99872666f0ffebb47479057002c39fae86115445b37b43",
+      "git_blob": "af4c4ee3e033aa755b728de7e475fa7f21bd1c7a",
+      "bytes": 565
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/check-inputs.template.json",
+      "sha256": "9c57de140f8d219562e9acd3dbfb8513adb078266950aa6f40cb28e316a269fb",
+      "git_blob": "a6693fab2997a80cd959a60ac2e8c5290a8b238f",
+      "bytes": 1180
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/workflow.template.yml",
+      "sha256": "d94a921f52509720c037a637face51e8b9bd10c1f43e0778402a1b4436edee87",
+      "git_blob": "44f0e3d659681d68b487a31bfb76ccd22ca8f0fa",
+      "bytes": 9402
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/packet.json",
+      "sha256": "94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f",
+      "git_blob": "63d284802430c498fa1073bb78ce033927b78a91",
+      "bytes": 2336
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/README.md",
+      "sha256": "16015f0c7fa54cf8348b5ff583ec4b7d9f778363ee17459af8f5a44834a7fdc5",
+      "git_blob": "033935b901fa094d2786c55aabbdb7daa7b1577b",
+      "bytes": 2980
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/check-inputs-core.json",
+      "sha256": "7c1fd2daaeaa714669f53c41189a0ffe5799fa04794e7f18b7dac6c396aedab1",
+      "git_blob": "23a8ffeab0b309d12c9ad1fde92676949ae90e76",
+      "bytes": 1182
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/check-inputs-editing.json",
+      "sha256": "f274f22705fce4173c4526a6e58139c7bb3db042e197675f2b5178b96537e389",
+      "git_blob": "0af6e6fb06ab37bc8b54c011c598c8e0b143b383",
+      "bytes": 1185
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/check-inputs-grid-1.json",
+      "sha256": "ca91b8bbb7e8b9d31c96abd4f0b4c35d6edaf50578721a0627f7e3a62660f558",
+      "git_blob": "24f86b91afb782c155b9319142157cc1b529ec19",
+      "bytes": 1184
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/check-inputs-grid-2.json",
+      "sha256": "486c1d2b1ffe61db8892647c0b14c5918eb4ef7c17954f4a364616c0f758263a",
+      "git_blob": "4bce88a92dbe3716ce87a8119ea9923bf14793f5",
+      "bytes": 1184
+    },
+    {
+      "path": "20261125/revision-9/native-windows-check/check-inputs-grid-3.json",
+      "sha256": "18261840b3d7b4f5cfdd6d4788a14b862e6216565bb366d72ed4c15829f49cfa",
+      "git_blob": "798bfe88b3f74e34c7d9b9767fb583160c0b0d2b",
+      "bytes": 1184
+    },
+    {
+      "path": ".github/workflows/native-final-windows-v9-20261125.yml",
+      "sha256": "d94a921f52509720c037a637face51e8b9bd10c1f43e0778402a1b4436edee87",
+      "git_blob": "44f0e3d659681d68b487a31bfb76ccd22ca8f0fa",
+      "bytes": 9402
+    }
+  ],
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "CLEAN",
+      "coverage": "Complete source and protocol inspection, retaining the previous complete algorithm read and rechecking all final bytes.",
+      "findings": [],
+      "checks": [
+        "All six helper algorithms are byte-identical to the independently accepted revision 9 draft. This preserves exact permanent test names, complete listings, raw command/count/exit parsing, bounded core/editing/grid selection and original-corpus/smoke logic.",
+        "Read the complete final workflow, seven algorithm/corpus hashes, all five requests, common template, packet and README. Five requests differ only by partition and select the exact same 2d801 source/tree, measured producer, output manifest, build result and release.",
+        "Compared complete build-result and both actual download receipts. Their release records are identical; all twelve test/support executable records match exactly and include lib, debug bead and ten integration targets. Every producer command exited zero.",
+        "Recomputed exact original build-result and small-manifest hashes and sizes. Verified every manifest record and the full/small source, target, workflow and run bindings against the retained actual producer evidence.",
+        "Retrieved actual producer job and artifact metadata independently. Both jobs completed successfully and the full/small IDs, archive sizes/digests, workflow commit and run identities match the final inputs."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "CLEAN",
+      "coverage": "Complete final integrity and execution-boundary inspection after immutable publication/readback.",
+      "findings": [],
+      "checks": [
+        "Read back all seventeen final files from immutable 07ea5205 and verified byte equality, SHA-256 and Git blob identities. The workflow copy equals the template, and each packet/request/corpus digest recomputes exactly.",
+        "Reconciled final source/tree and release 0431a828 with the verified original metadata and build receipt. No historical c90/13e8 source pin or pending source marker remains in the final workflow or its five execution requests.",
+        "Re-traced complete target coverage from checker constants through producer executable inventory, exact listings, execution records and aggregate. The full six-case maintenance target is mandatory; all twelve ordinary conformance cases and twelve distinct grid cells remain required.",
+        "Rechecked original archive/source validation, compile-time path restoration, private Windows Job ownership, observed child cleanup, 895/900-second invocation bounds and shared 140-minute final window. No resource or failure gate was weakened during binding.",
+        "Confirmed only the backend execution owner may activate task/checkpoint-windows-v9-check-20261125 after independent final review. Authoring ran no native check, used no PC connector and recorded no canonical task-state completion."
+      ]
+    }
+  ],
+  "final_clean_complete_inspections": 2,
+  "native_qualification_executed_by_author": false,
+  "pc_actions": 0,
+  "activation_pending_independent_review": true
+}
