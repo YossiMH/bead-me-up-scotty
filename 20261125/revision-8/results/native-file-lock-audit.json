@@ -1,0 +1,454 @@
+{
+  "schema_version": 1,
+  "operation": "read-only audit of native file-lock contention",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "author": "app_reconcile",
+  "prepared_at": "2026-11-25T10:08:35.124Z",
+  "source_files_audited": 73,
+  "scope": "Every Rust source file under src/, plus Cargo.toml, build.rs and benches/lifecycle.rs. Historical .beads backup sources are outside the compiled targets. No product changes or tests were executed.",
+  "search_terms": [
+    "fs2",
+    "try_lock",
+    "lock_exclusive",
+    "lock_shared",
+    "lock_contended",
+    "WouldBlock",
+    "ERROR_LOCK_VIOLATION"
+  ],
+  "findings": [
+    {
+      "path": "src/cli_checkpoint_guard.rs",
+      "function": "acquire",
+      "lines": "113-137",
+      "lock": ".beads/operation.lock",
+      "status": "same remaining Windows contention defect",
+      "detail": "The match retries only ErrorKind::WouldBlock and returns Error::Io for the fs2 Windows raw contention error. The pre-dispatch guard prevents the losing command from reaching its committed-state/revision check.",
+      "preserve": [
+        "30-second deadline",
+        "10-ms poll",
+        "DatabaseBusy timeout and unrelated I/O errors",
+        "policy and conflict/writable validation order",
+        "RAII unlocking and pre-publication release"
+      ],
+      "tests": [
+        "tests/r036_verified_restore.rs::simultaneous_empty_target_restores_have_one_winner_and_one_refusal",
+        "tests/cli_editing.rs::concurrent_editors_with_one_revision_have_one_complete_winner"
+      ]
+    },
+    {
+      "path": "src/service/redaction.rs",
+      "function": "acquire_maintenance_lock",
+      "lines": "1706-1728",
+      "lock": ".beads/maintenance.lock",
+      "status": "same remaining Windows contention defect",
+      "detail": "The private maintenance loop also retries only WouldBlock and maps the same native contention to a generic integrity error. acquire_redaction_locks takes maintenance before checkpoint publication, including direct service callers that bypass the CLI guard.",
+      "preserve": [
+        "LOCK_TIMEOUT=30 seconds",
+        "LOCK_POLL=10 ms",
+        "existing busy and unrelated acquisition integrity errors",
+        "maintenance-before-publication ordering",
+        "RAII guards and public redaction behavior"
+      ],
+      "tests": [
+        "tests/redaction_transaction.rs::concurrent_identical_requests_commit_once_and_replay_once"
+      ]
+    },
+    {
+      "path": "src/service/checkpoint.rs",
+      "function": "acquire_checkpoint_publication_lock_within",
+      "lines": "7727-7765",
+      "lock": ".beads/checkpoint/publish.lock",
+      "status": "already repaired in c90",
+      "detail": "Retries WouldBlock or equality to fs2::lock_contended_error().raw_os_error(); its bounded wait and all other errors remain unchanged. No further source change is proposed here."
+    }
+  ],
+  "recommended_product_change": "Change only the two remaining match predicates to the same platform-aware contention expression already present in the publication loop. Keep the existing independent functions and their errors, deadlines, policies, lock order and guards.",
+  "recommended_verification": "Preserve the two actual operation-lock race failures as Red. Include the existing complete six-case redaction_transaction target in Windows compilation and the editing partition, alongside unchanged restore/editing targets. The existing direct-service race is a meaningful maintenance-lock regression and requires no oracle edit. Backend owner and root select any required additional actual Red execution and final-source qualification through the plan amendment.",
+  "dependency_evidence": [
+    {
+      "repository": "danburkert/fs2-rs",
+      "ref": "0.4.3",
+      "path": "src/windows.rs",
+      "git_blob": "0e37c66579c0ca7eb4c8138f65d309285e438b4a",
+      "url": "https://github.com/danburkert/fs2-rs/blob/0.4.3/src/windows.rs",
+      "detail": "try_lock_exclusive calls LockFileEx with LOCKFILE_FAIL_IMMEDIATELY and LOCKFILE_EXCLUSIVE_LOCK; lock_error constructs Error::from_raw_os_error(ERROR_LOCK_VIOLATION). The dependency's Windows tests compare raw OS errors."
+    },
+    {
+      "repository": "danburkert/fs2-rs",
+      "ref": "0.4.3",
+      "path": "src/lib.rs",
+      "git_blob": "51b22db6acd0e964adf224e6a155b45660f7abf8",
+      "url": "https://github.com/danburkert/fs2-rs/blob/0.4.3/src/lib.rs",
+      "detail": "The public try_lock documentation names lock_contended_error, and that function returns the platform-specific lock error."
+    }
+  ],
+  "source_inventory": [
+    {
+      "path": "src/bin/generate-man-pages.rs",
+      "git_blob": "7587b1efb5118ede58069131b71170b0578b6877",
+      "sha256": "c7276419b13ce828b0f3894c1f5995135289ecfbb0fb504b2a9744bae20cb41e"
+    },
+    {
+      "path": "src/cli.rs",
+      "git_blob": "0d55dc7deb53bc0f1cc29a82b8e1f8beac9194a7",
+      "sha256": "956abc229044f53d1af66506b5df4810f3037db9558eb38183467aa711eaec83"
+    },
+    {
+      "path": "src/cli_checkpoint_guard.rs",
+      "git_blob": "e83c592e263a554a0e4ac75d90589382e894b552",
+      "sha256": "0822b824be0eff825a47dd7c4463e32597d50288b1ef0561c603a49f36887254"
+    },
+    {
+      "path": "src/cli_history.rs",
+      "git_blob": "0203d6ecde7d8e57a28625d4ca64c6f9eb545c35",
+      "sha256": "28dac827599fc81e9d9463879b79a92e1991c5b28bd0db3e264f8250f97645bf"
+    },
+    {
+      "path": "src/cli_secret_scan.rs",
+      "git_blob": "23b2e2cb2ee24a54e3488b64d53d573f05814cd6",
+      "sha256": "15f9adb26d2938a1b23831572687b1fb57019396f6ee0de8e4b3666900397347"
+    },
+    {
+      "path": "src/docs.rs",
+      "git_blob": "fcea1665913b8991d36edbae7c19d8c88d3d78ba",
+      "sha256": "56b9e50f29b883fcc31471f94e74a1af44d457257f4def544fcaebb27b4962ae"
+    },
+    {
+      "path": "src/error.rs",
+      "git_blob": "960ce099f76a64f5244a665c37bb90c3e7cb863e",
+      "sha256": "75817ca7e286374e0723676e71fd0fd78798fc04e9daa8261003adb679002eba"
+    },
+    {
+      "path": "src/lib.rs",
+      "git_blob": "96e58c07953a9da2d7975c728ffb0808b48683f3",
+      "sha256": "38e2a6ecd00273ea2505b734c5dd54d982a272de4bfd7f082ec1eadf6fb17b4a"
+    },
+    {
+      "path": "src/main.rs",
+      "git_blob": "397bc192a025dd0fa038ad1f49e4174ebe24f00a",
+      "sha256": "d4b1ab9d02b186615cfd3f65dbb8d98366fad11d00065bbfe65ce7604612a3e0"
+    },
+    {
+      "path": "src/model.rs",
+      "git_blob": "9d750dc6b9ad7ef4da0ba95e195a012edbc97370",
+      "sha256": "b98884d897987a1e06eafc4e5c1006a04a24194488ad6e812ba144316b843b19"
+    },
+    {
+      "path": "src/model/attempt.rs",
+      "git_blob": "4c6735a857960f32908e30080a99690f60c726b5",
+      "sha256": "87d02062ac3c41f7fc7f7caa22f73065316bccf1240e4bac631b03fe8070982f"
+    },
+    {
+      "path": "src/model/recurrence.rs",
+      "git_blob": "a8ffdc406774fd688c0211ad50904b2a1c4df61c",
+      "sha256": "925251094cd3b41e3e83197dbad766a1425be885f35383806e61b4c85f5a5ef2"
+    },
+    {
+      "path": "src/model/redaction.rs",
+      "git_blob": "1e55a632c67da229b9ac8e19af76d189a5a6c7c9",
+      "sha256": "1d7e7c7f5c83b09108f71c1662eccc49d8d5d58c25953fdbadcb7609bb79c867"
+    },
+    {
+      "path": "src/profile/mod.rs",
+      "git_blob": "3c07af41854880f9183b7e4ee597669aba1229f1",
+      "sha256": "13b5aa1642b2315c6b3c70fbb534c801004017666462f7711ca43c22548bfd99"
+    },
+    {
+      "path": "src/profile/native_v1.rs",
+      "git_blob": "477b8a5c53d6e5e5dd6c4dea2adc8a7e51e8b8e1",
+      "sha256": "2a7ceee894ec4928b3158cd0f082b41940b155aafe682899ed254f2e27a1d1f0"
+    },
+    {
+      "path": "src/profile/needle_v1.rs",
+      "git_blob": "017e3d7008c9aff8305d3d5b0711b68d952b4fbb",
+      "sha256": "f94f2b4d0f87dadef83560723d300ee32bf41ffefcac7da73c657df81a2afd9c"
+    },
+    {
+      "path": "src/reconciliation.rs",
+      "git_blob": "9fc8965ea0bb0e6ccbb746603e1d03191e78b4d3",
+      "sha256": "7bd3ae42b37abaa42a7640c24d2bf99f6fc1be3f8777708f59fe9a8a6a949dd2"
+    },
+    {
+      "path": "src/scan/credential_shape.rs",
+      "git_blob": "82b3def6122074092fcaabb152c06a5f277a603c",
+      "sha256": "479dc7df58a8a6bf702acd388b005d762d6afcbf3bd834355b4ac1e18924e332"
+    },
+    {
+      "path": "src/scan/external.rs",
+      "git_blob": "c0483e42c9504802de659b8bb99aa4afa9b236a5",
+      "sha256": "0a4704c0aa04327bea5d47888e3706d84ddbeb23cfa5626569949d02029610d0"
+    },
+    {
+      "path": "src/scan/fingerprint.rs",
+      "git_blob": "b7287973adb42c5b02548703f15efa5fdcafe041",
+      "sha256": "76c0dfe9d132e6fcaee76fd593d2544f76d41075b96163c58a6c66959f395745"
+    },
+    {
+      "path": "src/scan/jwt.rs",
+      "git_blob": "d5ffd2cb2da6cb74947ac697a9277ab183e0d673",
+      "sha256": "1e02042adf4c70a8f8b84489bcb84debe82531fb66f17199c9de2a26ee7458c7"
+    },
+    {
+      "path": "src/scan/mod.rs",
+      "git_blob": "90c4779d4c313181c147614c0620fa78f9a26a78",
+      "sha256": "65edeca7f2b46ae88b9c54d5f8f1d35b690836934fa55b9af2c647aac18e911b"
+    },
+    {
+      "path": "src/scan/rules.rs",
+      "git_blob": "54891a51d9377efd8fceef0680618844445facfd",
+      "sha256": "1a15183ea076cb9c26e3070f02c53c3a6a37aaa63e4baa5c91c5a02b3e397089"
+    },
+    {
+      "path": "src/scan/structured_credentials.rs",
+      "git_blob": "2dd58abd4ada277f9710f81bdff4fd3ba3942bef",
+      "sha256": "12254686c574c222ba731a12e675e622a649a78d3a5e8e4c5a4b176643fb4480"
+    },
+    {
+      "path": "src/scan/tests.rs",
+      "git_blob": "b809174dabced89f010589245e370bf5efecafa9",
+      "sha256": "bf7216ffde97f034c3c6c7025ecd608be3c732fcbce27340d3dcb9b34b8b4292"
+    },
+    {
+      "path": "src/scan/text_views.rs",
+      "git_blob": "1769781d9004d554e1d4a68d269cf5a985ca8665",
+      "sha256": "676bd271d997a97253991b16016b0a07b062e92ea472beeca892709746078f8f"
+    },
+    {
+      "path": "src/service/archaeology.rs",
+      "git_blob": "d693052227980cc03999720f1b6459f36c9ba8b3",
+      "sha256": "4b17acd62d3013951cf6c79b62dd7e67ec7afce29977711d7b0de340d177cd53"
+    },
+    {
+      "path": "src/service/attempt.rs",
+      "git_blob": "757c5828c64334bee34e2fbcd4174e2235fb09f1",
+      "sha256": "187f0e49d45460043443c5ded95b1f264cc2d86e96d37827940aae7715fe7607"
+    },
+    {
+      "path": "src/service/capabilities.rs",
+      "git_blob": "81eb75b9f5d064e33f3734aa3fbc646b285be2f4",
+      "sha256": "a99f851d759a3e2095ba28a9adeb4a7694e45dca83134ade2447f8436cb384b1"
+    },
+    {
+      "path": "src/service/changes.rs",
+      "git_blob": "36e31f8ea281c1fcc2728c8f6f3bba76bccb5b6c",
+      "sha256": "22b7e69be6594c1949cfb1e8cf7a66ce72471e6547171670f88f9d51dd144eaf"
+    },
+    {
+      "path": "src/service/checkpoint.rs",
+      "git_blob": "56e221fbc608fa91738c7bc9a52004ea318aa1e8",
+      "sha256": "f860195328ef19049d87aa3904ef04de518889e9d289b57b00f0fcf4413e366c"
+    },
+    {
+      "path": "src/service/checkpoint/restored_branch.rs",
+      "git_blob": "b88d34bfb32c1d2165cebe712a9d582560d943e1",
+      "sha256": "e1f70b0e9c6ecbe7e39abb071aea22a08146a334ead2b544d8e77000bd9383d5"
+    },
+    {
+      "path": "src/service/checkpoint/set_v2.rs",
+      "git_blob": "826f386991f941953bebe91d0920dee08661cb7d",
+      "sha256": "25f5beab0321444cf8fa29adfdeb14a6c62bf0f80ea515641f9f06ca9b3c8148"
+    },
+    {
+      "path": "src/service/checkpoint/sync_resolve.rs",
+      "git_blob": "4b356e0bed76119ac3e93f7560648540a984c749",
+      "sha256": "4be7a06af80262b9206ac6d209f461378bdb4358583443e412cb201079946761"
+    },
+    {
+      "path": "src/service/checkpoint_configure.rs",
+      "git_blob": "4917d101f86f21d67c3f3cec1b0cd830b4779af9",
+      "sha256": "092c7de45c2d6289d17a67a0085e0957db13218dd04ca6d14bd98f4b1c77a1c0"
+    },
+    {
+      "path": "src/service/checkpoint_io.rs",
+      "git_blob": "8fe4755a799cf0869d6a22e2c3c420bd2a0aa8a2",
+      "sha256": "a512403bed04a3d2d53c436aaab7d366d46443515ed97a09c3025a939435bcef"
+    },
+    {
+      "path": "src/service/claim.rs",
+      "git_blob": "716caff836bd543e51dc88501c31ddcb2b913120",
+      "sha256": "9ec3447a99276ffcd33ab5a21c483fb04c13ba0ad7ada8645eaea981951a26f1"
+    },
+    {
+      "path": "src/service/comments.rs",
+      "git_blob": "37caabc2398becfbd3700c252dbc027ed69ccdce",
+      "sha256": "3b2eaba9f62dbdba80da67e4975067b39a1cdd35e4b0e66000dd824dcee8b8fb"
+    },
+    {
+      "path": "src/service/comparison.rs",
+      "git_blob": "42801f60a2855e43e3f83eff1ac563102cbb8df4",
+      "sha256": "18cb8fb0239da6c500934a543f4e88be01cec57930b3223fc5a84e88cf9574b9"
+    },
+    {
+      "path": "src/service/conditions.rs",
+      "git_blob": "a48b9162a92ba2f965d5162e72a77897f6671264",
+      "sha256": "d5e0d11a3523e53bd3a3b7aa69bfa497155fa68758c1ba2f4d7a7cbc7dbddd3e"
+    },
+    {
+      "path": "src/service/data.rs",
+      "git_blob": "e37dcc28772212e0aaae4e2dbc2990369aa97f78",
+      "sha256": "a2b6382dbb4c291666573e73e83f7e33da49404c60e076fe82f176fa43653546"
+    },
+    {
+      "path": "src/service/dependencies.rs",
+      "git_blob": "a5e5e29686e3c12ec1910566311eade5f776a3cf",
+      "sha256": "e44c055f932329920b2e087c07e30af61d6ab1605a74d7ee734747c110cfdf02"
+    },
+    {
+      "path": "src/service/doctor.rs",
+      "git_blob": "2c7058bb755e89661380a2c336a2eae2d48de83b",
+      "sha256": "0bb0beda8046ea59c6e320d8d5fa25c294c8a5c1694c26f1cf157e90d293b39c"
+    },
+    {
+      "path": "src/service/dryrun.rs",
+      "git_blob": "bf56e227c0ad99ce33ff42b0e751cd872750cdc0",
+      "sha256": "894c95d87f4c08ac8baba724e2772117814a2568fc8b9a6bf51be2b63ed59b3a"
+    },
+    {
+      "path": "src/service/external_refs.rs",
+      "git_blob": "aad3cf2d06198f377cb24efd814b68373df370bb",
+      "sha256": "97502c907285b06272591b0e904835af6a63fa5a40e253de25c14ad428201306"
+    },
+    {
+      "path": "src/service/git.rs",
+      "git_blob": "e410ee0b54f64ee176c86174c6e2bf3d8300daf7",
+      "sha256": "12193c24d091df02b06a6502bb0ceb95b4452771d8904120d61d9426eb90648e"
+    },
+    {
+      "path": "src/service/git_commit.rs",
+      "git_blob": "5914b38974e2287c2cad3bbcef5605a0d26004c6",
+      "sha256": "8a4730062e4d5b31b4d2fe47ebd7dec0b53f90dc9e1092cb2982c288e8229239"
+    },
+    {
+      "path": "src/service/git_stage.rs",
+      "git_blob": "999b13dd1cd0bd660fee4c72da898cd3c0b52f93",
+      "sha256": "e2cbd2423eb73fba4a0d038bda9a0108e732dad01e119fa7d30613882361c420"
+    },
+    {
+      "path": "src/service/issues.rs",
+      "git_blob": "075b110db9b2ac583b0b0d4cd0f528e3073a70eb",
+      "sha256": "0898a95b7f5b6ba573a57a91f3292541be382cf31d6d48662dcd42f455ac7864"
+    },
+    {
+      "path": "src/service/leases.rs",
+      "git_blob": "ca56ded959da6150942e94963d208d31cddecec2",
+      "sha256": "51e42e1b645de3f073f08b417b4af1db56afb91f4ef564d3eaf0b50c0ebd8c8d"
+    },
+    {
+      "path": "src/service/lifecycle.rs",
+      "git_blob": "14c67d086c46f9f1df79c353c155e4aa111120fe",
+      "sha256": "e473a0d0b4b43ab52189a99683baf466f2e3babc359893e9935097f1aa55529b"
+    },
+    {
+      "path": "src/service/manifest.rs",
+      "git_blob": "6e20f25407ea4cbf23c6f043f9afe01239eb9204",
+      "sha256": "f32ba2adc448e386e5458d9338c30fa77ab635eba579622d87e1499a07d6f1b6"
+    },
+    {
+      "path": "src/service/mod.rs",
+      "git_blob": "9f6b7974d4c06c3ccd405a7cbabe6f70e4f10cad",
+      "sha256": "fe72bb4e5a777d736831beeba1d94e17b06bb964b4af4c2bef1ef21f4284a5a0"
+    },
+    {
+      "path": "src/service/policy.rs",
+      "git_blob": "bbcf077186c92de5183aa2cd06aa40c16c88dfe0",
+      "sha256": "57be7c9227574bcb69ab33a66cb9a68ed716ae1f12b066070674fa9151f43cd2"
+    },
+    {
+      "path": "src/service/projection.rs",
+      "git_blob": "55a1c8bb018224debf94b7b359923b7fec05f0e3",
+      "sha256": "d9c7c08c04f10142fc0c870e66909ca08baa21f061357de4281e110557eb21db"
+    },
+    {
+      "path": "src/service/query.rs",
+      "git_blob": "870f42e1a3e9d9db5e4f04093ea64e2400273257",
+      "sha256": "9b98a0b865068edd3e11396c10e09e8de525d2002dbd1203cea17362b86e5cbd"
+    },
+    {
+      "path": "src/service/reconcile.rs",
+      "git_blob": "d44c1aaa63a8b0b491d7b88f261545002643a7b6",
+      "sha256": "2aaf6b3caef47b040ffd3e6b72e023d9404c43c655613413339dd77dcfc99dfc"
+    },
+    {
+      "path": "src/service/recurrence.rs",
+      "git_blob": "5b8a457c5a46bd46adb73e1a57862045bfe7ee32",
+      "sha256": "91d4d0639488d069c7f21a3c8c27f5b6c6ddd09317def795dd6f19706c3924d5"
+    },
+    {
+      "path": "src/service/redaction.rs",
+      "git_blob": "9bd12d3b34c4de8529cb03c585b29b29fe142645",
+      "sha256": "d5151ce88ada09a57ed7fcfcd38faacf84e168356c7a56ba640cf4bf34ec4480"
+    },
+    {
+      "path": "src/service/rehearsal.rs",
+      "git_blob": "301a49ae972a43f4cd3d52d943d70caf9d594076",
+      "sha256": "e96373a24ef55be3abc4f2ca69c6a36dd65b9050cad001a189041fa86e5c77b4"
+    },
+    {
+      "path": "src/service/resource_locks.rs",
+      "git_blob": "2761f067e8eaf2cdfd6db78268127f6bd2774748",
+      "sha256": "1cd05057977d5dfc9638d1dbaa2ee1e6c6953de22c6cd29abae459c926ac8910"
+    },
+    {
+      "path": "src/service/scheduling.rs",
+      "git_blob": "98595f2c48788f8a1a168322ff297abbef6c2668",
+      "sha256": "e6b47497fb2f391ecb648a8269f756bfdb3b8f25a0c51e7a8b2ea6f0294d9848"
+    },
+    {
+      "path": "src/service/schema.rs",
+      "git_blob": "bb33b01d7db88ffcae5613325e71d63c9d4636c0",
+      "sha256": "fe006a48e2636c4956c15afcc2993e5d8e2d8782874dc6064178871ccd371f1b"
+    },
+    {
+      "path": "src/service/secret_boundary.rs",
+      "git_blob": "15cb883403dbaa9deec57c17130df98462713e66",
+      "sha256": "7764fdbc9bac19f89b91952b9915cf0ed02bf7591e6507cd8fc65025cc85cde0"
+    },
+    {
+      "path": "src/service/secret_diagnostics.rs",
+      "git_blob": "28febcf0f806cc0fd7e96cf4e22ee4b660b9671f",
+      "sha256": "e0363263f0b925ac84b011243ea411b30f4ec19083f4da7077cb077b82edb100"
+    },
+    {
+      "path": "src/service/secret_maintenance.rs",
+      "git_blob": "b59fd6c0ae1075834eb7c9d22c9435811da03e6d",
+      "sha256": "1bf9a3805a0d6e4cd48f51ac41e9ddfcdf216b2877836c722555ac03438357b7"
+    },
+    {
+      "path": "src/service/secret_rekey.rs",
+      "git_blob": "7b039bbc80b43a27ed67d08c3ec1c18b14756f3a",
+      "sha256": "5446de156a742e950aeae730903b6cb0290d92bcd9cdf37dd5179a995392aafe"
+    },
+    {
+      "path": "src/service/watchdog.rs",
+      "git_blob": "4098d313c5354ec10a07ee61fa90df74ad572457",
+      "sha256": "1126a81ddc088c8841eb696a115ca2c62e01e0314b6e2a5f1c75f88e43dd2760"
+    },
+    {
+      "path": "src/service/why.rs",
+      "git_blob": "d449bf5aff8f4f59861a723ff0dff19608a159c6",
+      "sha256": "cc80dca053db6f88d5cd2bbe97227d843365ace3a989fbbf32848fa35e9048d4"
+    },
+    {
+      "path": "src/store/identity.rs",
+      "git_blob": "9d52c00e5744fe3034fbfc905efd15d31ba0af68",
+      "sha256": "8bf5a2c12092996be7a0d17ebf74a303391cc1a1644f7c80ec76ff1ef3039b4c"
+    },
+    {
+      "path": "src/store/migrations.rs",
+      "git_blob": "4d3bc4a61d0d54f27a4450cdf40b8ecc7bc4c685",
+      "sha256": "648258eda275704720b3290f214114a584339824bf600674c1b290302b3b3832"
+    },
+    {
+      "path": "src/store/mod.rs",
+      "git_blob": "6ccacf7757e6095d2d1e3099370ae239921a4053",
+      "sha256": "e51f920c7c016296b667ea8a1c0000a28e58fbf2d3dbaf3fdd195dd297febcf8"
+    },
+    {
+      "path": "src/store/sqlite.rs",
+      "git_blob": "6519d773e78a27a254d0744dda0eb2186bc5dacc",
+      "sha256": "0729ec6cdea01a2bd7c326c8793742d88af1f4a2f27663790d33c427fd009285"
+    }
+  ],
+  "activation": "The app Windows packet remains dormant. Root is preparing a scoped portability-plan amendment; backend remains the sole native author/executor."
+}
