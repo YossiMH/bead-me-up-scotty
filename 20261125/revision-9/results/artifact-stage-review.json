@@ -1,0 +1,392 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root",
+  "independent": true,
+  "continuation_revision": 9,
+  "scope": "Complete final archive staging helpers and their actual focused hosted checks",
+  "task_key": "type-install-binding",
+  "candidate_commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+  "files": [
+    {
+      "path": "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1",
+      "sha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+      "bytes": 22746,
+      "git_blob": "482fc7b3c65ef2a519f88e47ae22f5e0cfbf2f94"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/stage-artifacts-supervisor-20261125.ps1",
+      "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+      "bytes": 17486,
+      "git_blob": "87c74cfcf25c9a5b80ff30c5c15a31462b5730bf"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/check-stage-archives.ps1",
+      "sha256": "e31a2ea4f3b89423c2a691d9085883d36fe76fee21b38ab890fc60f381ffdc94",
+      "bytes": 24207,
+      "git_blob": "457760138ba15715782a5f65a732cde7b57608a1"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/download-existing-app.py",
+      "sha256": "40deb91bc7a48712169a7df63a26ed54b9431f5754ec7cdb473f701b21f7220e",
+      "bytes": 4623,
+      "git_blob": "c772d4a71254db4548ac2db2e6cc03389176776f"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/request-template.json",
+      "sha256": "7ef0c76f50edd28a80c38bf42893b4623eba5e8c31bfb6bdb7021791d6f07ab3",
+      "bytes": 1003,
+      "git_blob": "7a8de1a98603349e1789a5c7565a9d9f95842b10"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/check-inputs.json",
+      "sha256": "665642e8fcd61ed6e967f2d117e3a380b025f7d4b6109aa086809d1bec7543a3",
+      "bytes": 746,
+      "git_blob": "9103d2818d8b7d92553f69c61b0c119e42695b9b"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/workflow.yml",
+      "sha256": "a0e0b5901fd9072ec1da8c2017fae173c3b028f3a3416758e1ae35ca71e349ed",
+      "bytes": 2522,
+      "git_blob": "3d67cf55b4e738d51cf035ae3ede91ee2c1216d8"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/README.md",
+      "sha256": "3764fb44cb194348414b528d4114eada6914df8623b05b58a4c0adbebfceaa80",
+      "bytes": 4619,
+      "git_blob": "877419ef2bd6f0ed6745cddfa3ba2c7da0058217"
+    },
+    {
+      "path": ".github/workflows/scotty-artifact-stage-checks-20261125.yml",
+      "sha256": "a0e0b5901fd9072ec1da8c2017fae173c3b028f3a3416758e1ae35ca71e349ed",
+      "bytes": 2522,
+      "git_blob": "3d67cf55b4e738d51cf035ae3ede91ee2c1216d8"
+    }
+  ],
+  "source_preparation_review": {
+    "commit": "35903818ab315879378fbb92578b6dab675acf04",
+    "path": "20261125/revision-9/results/artifact-stage-preparation-review.json",
+    "sha256": "fec61abfa3fd8c2ebb0e6dbb5f1dc11f0af0836ca5dca1aee339f2f36f44ed3e"
+  },
+  "author_inspections": {
+    "commit": "28749c89c3e6bf83cc224c26a3420693ede36e74",
+    "path": "20261125/revision-9/results/artifact-stage-author.json",
+    "sha256": "3372fa75eb4e3cb1bdf39385df067e52f0c55ce9dac08b352b2269f719628a97",
+    "clean_complete_passes": 2
+  },
+  "actual": {
+    "commit": "30ed1c2f7b44b307b023f62a76ad90aabe51e197",
+    "path": "20261125/revision-9/results/artifact-stage-checks-45604565295.json",
+    "sha256": "799ed5002e3a9a3a1c4d9958e227de3d19d9546f4e5be7c03bb3bef7df005a9e",
+    "run_id": 45604565295,
+    "attempt": 1,
+    "job_id": 139171953088,
+    "job_log_sha256": "c0d0e81dbffaec52ecbcc3812df25950b35cfe93bcec65eb3bbdedba31eb0fe5",
+    "job_log_bytes": 212318,
+    "original_result_sha256": "21a9a9295c16d47d67cfdb30c6b0e863da96b638943ed514d0657149934a5fa9",
+    "inventory_sha256": "6741bc56b4d8934edea7578d6d4ce54457c8bd2764d49bb515c3e89411949de2",
+    "inventory_bytes": 156816,
+    "inventory_parts": 39,
+    "artifact": {
+      "id": 15016489549,
+      "name": "scotty-artifact-stage-checks-45604565295-1",
+      "size_in_bytes": 14384674,
+      "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15016489549",
+      "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15016489549/zip",
+      "expired": false,
+      "created_at": "2026-11-25T11:27:40Z",
+      "expires_at": "2026-12-09T11:27:38Z",
+      "updated_at": "2026-11-25T11:27:40Z",
+      "digest": "sha256:259c8b36193c441af6e081b06a019eb42132e222c913322f2db484bdd63a4c0f",
+      "workflow_run": {
+        "id": 45604565295,
+        "repository_id": 1430517452,
+        "head_repository_id": 1430517452,
+        "head_branch": "task/artifact-stage-checks-20261125",
+        "head_sha": "83a648b7cda046c9bcc47e3b79f908933499b866"
+      }
+    },
+    "summary": {
+      "power_shell_files_parsed": 3,
+      "embedded_declarations_compiled": 1,
+      "embedded_methods_invoked": 0,
+      "cases_passed": 40,
+      "cases_failed": 0,
+      "real_runtime_files_copied": 560,
+      "expanded_runtime_bytes": 27426391,
+      "synthetic_native_package": true,
+      "partial_copy_evidence_preserved": true,
+      "replay_refused": true,
+      "outside_canary_unchanged": true
+    },
+    "cases": [
+      {
+        "result": "passed",
+        "name": "power-shell-parsing-and-inspector-compilation"
+      },
+      {
+        "result": "passed",
+        "name": "fixed-560-file-runtime-binding"
+      },
+      {
+        "result": "passed",
+        "name": "native-template-remains-unbound"
+      },
+      {
+        "result": "passed",
+        "name": "actual-560-file-runtime-copy"
+      },
+      {
+        "result": "passed",
+        "name": "complete-copy-and-installer-contract"
+      },
+      {
+        "result": "passed",
+        "name": "existing-stage-refuses-replay",
+        "refusal": "Existing staging attempt; reconcile before a new request."
+      },
+      {
+        "result": "passed",
+        "name": "existing-claim-refuses-replay",
+        "refusal": "Existing staging attempt; reconcile before a new request."
+      },
+      {
+        "result": "passed",
+        "name": "wrong-app-archive-identity",
+        "refusal": "App archive differs from the accepted runtime."
+      },
+      {
+        "result": "passed",
+        "name": "wrong-native-archive-size",
+        "refusal": "Archive size differs."
+      },
+      {
+        "result": "passed",
+        "name": "wrong-native-archive-hash",
+        "refusal": "Entry hash/size differs: native-output.zip"
+      },
+      {
+        "result": "passed",
+        "name": "wrong-runtime-manifest-hash",
+        "refusal": "Entry hash/size differs: scotty-runtime.json"
+      },
+      {
+        "result": "passed",
+        "name": "wrong-runtime-count",
+        "refusal": "Runtime file count differs."
+      },
+      {
+        "result": "passed",
+        "name": "wrong-runtime-expanded-bytes",
+        "refusal": "Runtime expanded byte count differs."
+      },
+      {
+        "result": "passed",
+        "name": "wrong-app-source",
+        "refusal": "App build result differs."
+      },
+      {
+        "result": "passed",
+        "name": "build-id",
+        "refusal": "Runtime BUILD_ID differs."
+      },
+      {
+        "result": "passed",
+        "name": "runtime-hash",
+        "refusal": "Entry hash/size differs: .next/server/app/page.js"
+      },
+      {
+        "result": "passed",
+        "name": "runtime-size",
+        "refusal": "Entry size differs: .next/server/app/page.js"
+      },
+      {
+        "result": "passed",
+        "name": "native-provenance",
+        "refusal": "Native executable provenance differs."
+      },
+      {
+        "result": "passed",
+        "name": "native-build-tree",
+        "refusal": "Native build result differs."
+      },
+      {
+        "result": "passed",
+        "name": "native-duplicate",
+        "refusal": "Duplicate native manifest path."
+      },
+      {
+        "result": "passed",
+        "name": "expired-copy-deadline",
+        "refusal": "Archive staging deadline expired."
+      },
+      {
+        "result": "passed",
+        "name": "unbound-native-template",
+        "refusal": "Final native identity is unbound."
+      },
+      {
+        "result": "passed",
+        "name": "unsafe-zip-path-1",
+        "refusal": "Unsafe ZIP path: ../escape"
+      },
+      {
+        "result": "passed",
+        "name": "unsafe-zip-path-2",
+        "refusal": "Unsafe ZIP path: /absolute"
+      },
+      {
+        "result": "passed",
+        "name": "unsafe-zip-path-3",
+        "refusal": "Unsafe ZIP path: C:/absolute"
+      },
+      {
+        "result": "passed",
+        "name": "unsafe-zip-path-4",
+        "refusal": "Unsafe ZIP path: back\\slash"
+      },
+      {
+        "result": "passed",
+        "name": "unsafe-zip-path-5",
+        "refusal": "Unsafe ZIP path: stream:ads"
+      },
+      {
+        "result": "passed",
+        "name": "unsafe-zip-path-6",
+        "refusal": "Unsafe ZIP path: trailing."
+      },
+      {
+        "result": "passed",
+        "name": "unsafe-zip-path-7",
+        "refusal": "Unsafe ZIP path: CON.txt"
+      },
+      {
+        "result": "passed",
+        "name": "unsafe-zip-path-8",
+        "refusal": "Unsafe ZIP path: empty//segment"
+      },
+      {
+        "result": "passed",
+        "name": "zip-duplicate",
+        "refusal": "Duplicate or case-colliding ZIP entry."
+      },
+      {
+        "result": "passed",
+        "name": "zip-case-collision",
+        "refusal": "Duplicate or case-colliding ZIP entry."
+      },
+      {
+        "result": "passed",
+        "name": "zip-missing",
+        "refusal": "Missing ZIP entry."
+      },
+      {
+        "result": "passed",
+        "name": "zip-extra",
+        "refusal": "Unexpected ZIP entry: extra.txt"
+      },
+      {
+        "result": "passed",
+        "name": "zip-symlink",
+        "refusal": "Nonregular ZIP entry: safe.txt"
+      },
+      {
+        "result": "passed",
+        "name": "zip-directory-payload",
+        "refusal": "Unexpected ZIP directory: folder/"
+      },
+      {
+        "result": "passed",
+        "name": "zip-directory-reparse",
+        "refusal": "Unexpected ZIP directory: folder/"
+      },
+      {
+        "result": "passed",
+        "name": "reparse-ancestor",
+        "refusal": "Reparse point: D:\\a\\_temp\\scotty-stage-checks-45604565295-1\\fixtures\\junction"
+      },
+      {
+        "result": "passed",
+        "name": "partial-copy-retains-evidence",
+        "refusal": "Injected owned copy interruption."
+      },
+      {
+        "result": "passed",
+        "name": "partial-copy-refuses-replay",
+        "refusal": "Existing staging attempt; reconcile before a new request."
+      }
+    ]
+  },
+  "checks": [
+    "Read both complete copy/supervisor helpers, complete focused check and downloader, all inputs, README and actual workflow. Independently verified the five input-bound file hashes and byte-identical workflow copy.",
+    "Compared the complete supervisor with the accepted materializer controller. Path validation, Windows argument quoting, retained Job/PID/birth identity and owned stopping functions are byte-identical after the inspector class rename; the embedded controller declaration is likewise identical. The changed command/request/result contract retains 180 seconds total, a cleanup reserve, BelowNormal priority and 512 MiB aggregate owned RSS, and adds the 1 GiB live free-memory sampling.",
+    "The copy helper reads local archives with write/delete sharing excluded, verifies exact outer hashes/sizes, uses ordinary .NET ZIP streams, rejects unsafe/case-colliding/unexpected/nonregular entries, and verifies every nested runtime/native payload before creating a fresh stage. Its bounded 64 KiB stream checks verify exact sizes/hashes; the accepted inner ZIP is a measured 7,137,798-byte memory buffer.",
+    "Matched every fixed app archive/manifest/source/result identity to the independently recovered original records. Recomputed the 560-file manifest count and 27,426,391-byte total. Runtime count, source/build identity, lockfile, unique BUILD_ID and the unchanged installer input contract are checked again after copying.",
+    "The final native request remains deliberately unbound. Its eventual exact release/package/manifest/metadata/build receipt must all agree on source, target, tree, workflow, run, size and digest. The helper executes neither executable and modifies no original repository.",
+    "Fresh immediate-child stage and exclusive claim semantics preserve successful or interrupted evidence and reject replay. Failure results retain partial files. The supervisor treats assisted cleanup, time/RSS exhaustion or remaining owned children as failure.",
+    "The hosted downloader obtains only the pinned existing 7,056,005-byte app Actions ZIP. It verifies metadata/run/digest/expiry and downloaded bytes, uses no authorization header for the redirected download, bounds network time and size, and retains no temporary download URL or credential.",
+    "The hosted check extracts exact reviewed function ASTs without invoking PC entry points. It parses three PowerShell files, compiles one unchanged declaration without invoking methods, copies the actual complete 560-file runtime using a synthetic native package, and retains all actual file hashes. The remaining fixtures test stream-sized and empty content, exact installer outputs, identity/hash/size/count/BUILD_ID/provenance refusal, eight unsafe path forms, seven malformed ZIP cases, reparse ancestors, expiry and intact interrupted-copy evidence/replay refusal.",
+    "Independently counted all 40 declared checks and read every assertion. The exact actual-runtime inventory uses complete chunked retention; the entire result is emitted as original base64 JSON. All check filesystem work is within a fresh hosted temporary fixture, with an external canary verified unchanged.",
+    "The workflow has only hosted Windows checkout, download, focused checks and retained output; no package installation, product build or product start. Its exact candidate, pinned actions, read-only permissions, isolated activation branch and 8-minute hosted job bound are preserved.",
+    "Independently fetched the first actual failed job log and immutable full receipt. Their raw bytes match. Decoded the sole original base64 result and verified exact bytes/hash: three preliminary checks passed, then the actual archive case rejected adapter-tests.stderr. The downloader had verified the exact original ZIP. The failure is retained without any runtime-copy success claim.",
+    "Read the complete four-file correction at 4d363ac4. Reversing the single helper line reproduces all original helper bytes; each stdout/stderr concatenation is now separately parenthesized in the expected-path array. Only its input digest and both workflow manifest-hash bindings also change. Both workflows remain identical, every other check/helper/source remains unchanged, and the existing real-archive case directly exercises the defect.",
+    "Independently fetched the second failed job log and compared the complete retained bytes/hash. Reconstructed the sole original base64 result and every ordered inventory chunk. All 560 copied files match the accepted manifest's exact path, hash and size, totaling 27,426,391 bytes with the correct source/build ID. The run remains failed after four cases because the first synthetic success fixture selected the already used stage; no remaining case is counted as passed.",
+    "Read the exact 02154b5d fixture correction. Replacing its three $commandName uses back with $name recovers the entire prior check script byte for byte. The change prevents a case-insensitive collision with New-StageFixture's $Name parameter. All 40 assertions and both production helper bytes stay unchanged. Only this fixture hash and both workflow input-hash literals also change; their exact inverses and complete four-file commit delta agree.",
+    "Independently retrieved the third actual job before diagnosis and decoded its original result. The retained complete log/result match exactly. All 39 copied-runtime inventory chunks reconstruct the identical already verified 560-file inventory. Thirty checks pass, including complete real and synthetic copy, installer contract, replay, corrupt identity/content and all eight unsafe paths. The duplicate-ZIP test then receives the wrong refusal; all later cases remain incomplete.",
+    "Read the exact final four-file correction at 83a648b7. Reversing only $ExpectedMessage to $Expected recovers the entire preceding test script. The renamed Refused regex parameter stops shadowing the caller's $expected ZIP-name array when invoking its action scriptblock. Every test action, expected message regex and assertion remains unchanged. Product helpers remain bdf5323e/616db975, and input/workflow digests match their exact inverse-only changes.",
+    "Retrieved the final actual GitHub run, job logs and artifact metadata independently. The exact candidate, first attempt, successful complete steps, original 212,318-byte log and archive metadata match the durable original receipt.",
+    "Decoded the sole original result directly from the actual log and reconstructed all 39 ordered inventory parts, verifying exact original bytes and hashes. Every one of the 40 named cases passed. The real 560-file runtime inventory matches every original path/hash/size, totaling 27,426,391 bytes; its build ID and source are unchanged.",
+    "Fetched the final durable receipt and compared the complete original log, result and inventory with the independent reconstruction byte-for-byte. All artifact/run/attempt/source identities match the actual Actions API records.",
+    "Read both complete final clean author inspections, reconciled their nine immutable file records and preserved all three earlier failed attempts and the narrow corrections. No failure is relabeled and no optional repeat execution is required."
+  ],
+  "resolved_findings": [
+    {
+      "finding": "The first supervisor unnecessarily restricted the already qualified C: Job-helper path to the F: task root.",
+      "resolution": "Restore the accepted absolute-path/reparse validation for that unchanged helper and retain its exact SHA-256. Every copy input/output remains within the F: task root."
+    },
+    {
+      "finding": "The initial real-archive check exposed PowerShell array/concatenation precedence in expected command-log filenames.",
+      "resolution": "Parenthesize both concatenations explicitly. Preserve the actual failure and execute the same exact tests on the corrected candidate; no oracle or scope change."
+    },
+    {
+      "finding": "The synthetic fixture constructor overwrote its $Name parameter through a case-insensitive $name loop variable, so later fixtures reused the real-copy stage path.",
+      "resolution": "Use $commandName in that one command-log loop. Preserve the valid complete runtime-copy evidence and the failed overall run, then execute the unchanged 40-case checks on the corrected fixture."
+    },
+    {
+      "finding": "The Refused fixture function's $Expected regex parameter shadowed a caller's $expected ZIP-path array inside the invoked scriptblock.",
+      "resolution": "Rename only the parameter and its comparison to $ExpectedMessage. Preserve every refusal oracle and actual prior result, then rerun the same complete focused check on the corrected fixture."
+    }
+  ],
+  "findings": [],
+  "verdict": "PASS for source and actual helper qualification. The final measured native/local archive request remains a separate root binding. Actual PC invocation, installer, native task mapping and logged-in tray/configured launch remain pending.",
+  "component_accepted": true,
+  "actual_pc_staging_accepted": false,
+  "native_local_request_bound": false,
+  "resource_contract": {
+    "baseline_and_live_free_mib": 1024,
+    "aggregate_owned_rss_mib": 512,
+    "priority": "BelowNormal",
+    "hidden": true,
+    "hard_deadline_seconds": 180,
+    "work_deadline_seconds": 168,
+    "copy_deadline_seconds": 158,
+    "stream_buffer_bytes": 65536
+  },
+  "previous_failed_runs": [
+    {
+      "run_id": 45601172516,
+      "evidence_commit": "8c00373f1da0976ece20df71a3a8dd88302454b4"
+    },
+    {
+      "run_id": 45602027818,
+      "evidence_commit": "b179a575f2726b5ec169cf79b76a2bb14c08e377"
+    },
+    {
+      "run_id": 45603033524,
+      "evidence_commit": "d9190ef5614d708d8da63af984be956a9ee9f46c"
+    }
+  ],
+  "reviewer_product_execution": false,
+  "pc_actions": 0
+}
