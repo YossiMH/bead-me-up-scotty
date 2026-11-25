@@ -1,0 +1,129 @@
+--- d2e92893/owned-job-accounting.fragment.ps1
++++ review-correction/owned-job-accounting.fragment.ps1
+@@ -3,7 +3,7 @@
+ $Job = [IntPtr]::Zero
+ $JobOwned = [Collections.Generic.List[object]]::new()
+ $JobKeys = [Collections.Generic.HashSet[string]]::new()
+-$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false }
++$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false; budget_exceeded = $false }
+ $HardDeadline = $Deadline
+ $Deadline = $HardDeadline.AddSeconds(-12)
+ 
+@@ -152,6 +152,7 @@
+ }
+ 
+ function Measure-OwnedJob {
++    param([switch]$Cleanup)
+     $members = @(Refresh-JobProcesses)
+     $resident = [long][Scotty20261125TrayJobInspector]::Resident($Self.Handle)
+     foreach ($entry in $JobOwned) {
+@@ -166,7 +167,13 @@
+     $JobMeasurements.samples++
+     $JobMeasurements.peak_resident_bytes = [Math]::Max($JobMeasurements.peak_resident_bytes, $resident)
+     $JobMeasurements.peak_member_count = [Math]::Max($JobMeasurements.peak_member_count, $members.Count)
+-    Assert-That ($resident -le $MaxOwnedResidentMiB * 1MB) 'All owned Job members exceeded the aggregate resident-memory budget.'
++    if ($resident -gt $MaxOwnedResidentMiB * 1MB) {
++        $JobMeasurements.budget_exceeded = $true
++        $Result.status = 'failed'
++        $message = 'All owned Job members exceeded the aggregate resident-memory budget.'
++        if (-not $CleanupErrors.Contains($message)) { $CleanupErrors.Add($message) }
++        if (-not $Cleanup) { throw $message }
++    }
+     return $resident
+ }
+ 
+@@ -183,7 +190,7 @@
+     # must reach zero children naturally; forced cleanup always fails it.
+     $grace = [DateTime]::UtcNow.AddMilliseconds(1000)
+     do {
+-        $null = Measure-OwnedJob
++        $null = Measure-OwnedJob -Cleanup
+         $live = @($JobOwned | Where-Object { -not $_.process.HasExited })
+         $members = @([Scotty20261125TrayJobInspector]::Members($Job) | Where-Object { $_ -ne $Self.Id })
+         if ($members.Count -eq 0 -and $live.Count -eq 0) { break }
+--- d2e92893/windows-tray-smoke-host-20261125.ps1
++++ review-correction/windows-tray-smoke-host-20261125.ps1
+@@ -74,7 +74,7 @@
+ $Job = [IntPtr]::Zero
+ $JobOwned = [Collections.Generic.List[object]]::new()
+ $JobKeys = [Collections.Generic.HashSet[string]]::new()
+-$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false }
++$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false; budget_exceeded = $false }
+ $HardDeadline = $Deadline
+ $Deadline = $HardDeadline.AddSeconds(-12)
+ 
+@@ -223,6 +223,7 @@
+ }
+ 
+ function Measure-OwnedJob {
++    param([switch]$Cleanup)
+     $members = @(Refresh-JobProcesses)
+     $resident = [long][Scotty20261125TrayJobInspector]::Resident($Self.Handle)
+     foreach ($entry in $JobOwned) {
+@@ -237,7 +238,13 @@
+     $JobMeasurements.samples++
+     $JobMeasurements.peak_resident_bytes = [Math]::Max($JobMeasurements.peak_resident_bytes, $resident)
+     $JobMeasurements.peak_member_count = [Math]::Max($JobMeasurements.peak_member_count, $members.Count)
+-    Assert-That ($resident -le $MaxOwnedResidentMiB * 1MB) 'All owned Job members exceeded the aggregate resident-memory budget.'
++    if ($resident -gt $MaxOwnedResidentMiB * 1MB) {
++        $JobMeasurements.budget_exceeded = $true
++        $Result.status = 'failed'
++        $message = 'All owned Job members exceeded the aggregate resident-memory budget.'
++        if (-not $CleanupErrors.Contains($message)) { $CleanupErrors.Add($message) }
++        if (-not $Cleanup) { throw $message }
++    }
+     return $resident
+ }
+ 
+@@ -254,7 +261,7 @@
+     # must reach zero children naturally; forced cleanup always fails it.
+     $grace = [DateTime]::UtcNow.AddMilliseconds(1000)
+     do {
+-        $null = Measure-OwnedJob
++        $null = Measure-OwnedJob -Cleanup
+         $live = @($JobOwned | Where-Object { -not $_.process.HasExited })
+         $members = @([Scotty20261125TrayJobInspector]::Members($Job) | Where-Object { $_ -ne $Self.Id })
+         if ($members.Count -eq 0 -and $live.Count -eq 0) { break }
+--- d2e92893/windows-configured-launch-host-20261125.ps1
++++ review-correction/windows-configured-launch-host-20261125.ps1
+@@ -48,7 +48,7 @@
+ $Job = [IntPtr]::Zero
+ $JobOwned = [Collections.Generic.List[object]]::new()
+ $JobKeys = [Collections.Generic.HashSet[string]]::new()
+-$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false }
++$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false; budget_exceeded = $false }
+ $HardDeadline = $Deadline
+ $Deadline = $HardDeadline.AddSeconds(-12)
+ 
+@@ -197,6 +197,7 @@
+ }
+ 
+ function Measure-OwnedJob {
++    param([switch]$Cleanup)
+     $members = @(Refresh-JobProcesses)
+     $resident = [long][Scotty20261125TrayJobInspector]::Resident($Self.Handle)
+     foreach ($entry in $JobOwned) {
+@@ -211,7 +212,13 @@
+     $JobMeasurements.samples++
+     $JobMeasurements.peak_resident_bytes = [Math]::Max($JobMeasurements.peak_resident_bytes, $resident)
+     $JobMeasurements.peak_member_count = [Math]::Max($JobMeasurements.peak_member_count, $members.Count)
+-    Assert-That ($resident -le $MaxOwnedResidentMiB * 1MB) 'All owned Job members exceeded the aggregate resident-memory budget.'
++    if ($resident -gt $MaxOwnedResidentMiB * 1MB) {
++        $JobMeasurements.budget_exceeded = $true
++        $Result.status = 'failed'
++        $message = 'All owned Job members exceeded the aggregate resident-memory budget.'
++        if (-not $CleanupErrors.Contains($message)) { $CleanupErrors.Add($message) }
++        if (-not $Cleanup) { throw $message }
++    }
+     return $resident
+ }
+ 
+@@ -228,7 +235,7 @@
+     # must reach zero children naturally; forced cleanup always fails it.
+     $grace = [DateTime]::UtcNow.AddMilliseconds(1000)
+     do {
+-        $null = Measure-OwnedJob
++        $null = Measure-OwnedJob -Cleanup
+         $live = @($JobOwned | Where-Object { -not $_.process.HasExited })
+         $members = @([Scotty20261125TrayJobInspector]::Members($Job) | Where-Object { $_ -ne $Self.Id })
+         if ($members.Count -eq 0 -and $live.Count -eq 0) { break }

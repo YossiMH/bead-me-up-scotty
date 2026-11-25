@@ -1,5 +1,5 @@
---- previous/windows-tray-smoke-identity-20261125.ps1
-+++ candidate/windows-tray-smoke-host-20261125.ps1
+--- windows-tray-smoke-identity-20261125.ps1
++++ windows-tray-smoke-host-20261125.ps1
 @@ -22,9 +22,9 @@
      [string]$BeadBin,
      [string]$SourceRevision,
@@ -24,7 +24,7 @@
  $ResultPath = $null
  $DriverCopyDirectory = $null
  $DriverCopyPath = $null
-@@ -65,6 +69,230 @@
+@@ -65,6 +69,237 @@
      }
  }
  
@@ -33,7 +33,7 @@
 +$Job = [IntPtr]::Zero
 +$JobOwned = [Collections.Generic.List[object]]::new()
 +$JobKeys = [Collections.Generic.HashSet[string]]::new()
-+$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false }
++$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false; budget_exceeded = $false }
 +$HardDeadline = $Deadline
 +$Deadline = $HardDeadline.AddSeconds(-12)
 +
@@ -182,6 +182,7 @@
 +}
 +
 +function Measure-OwnedJob {
++    param([switch]$Cleanup)
 +    $members = @(Refresh-JobProcesses)
 +    $resident = [long][Scotty20261125TrayJobInspector]::Resident($Self.Handle)
 +    foreach ($entry in $JobOwned) {
@@ -196,7 +197,13 @@
 +    $JobMeasurements.samples++
 +    $JobMeasurements.peak_resident_bytes = [Math]::Max($JobMeasurements.peak_resident_bytes, $resident)
 +    $JobMeasurements.peak_member_count = [Math]::Max($JobMeasurements.peak_member_count, $members.Count)
-+    Assert-That ($resident -le $MaxOwnedResidentMiB * 1MB) 'All owned Job members exceeded the aggregate resident-memory budget.'
++    if ($resident -gt $MaxOwnedResidentMiB * 1MB) {
++        $JobMeasurements.budget_exceeded = $true
++        $Result.status = 'failed'
++        $message = 'All owned Job members exceeded the aggregate resident-memory budget.'
++        if (-not $CleanupErrors.Contains($message)) { $CleanupErrors.Add($message) }
++        if (-not $Cleanup) { throw $message }
++    }
 +    return $resident
 +}
 +
@@ -213,7 +220,7 @@
 +    # must reach zero children naturally; forced cleanup always fails it.
 +    $grace = [DateTime]::UtcNow.AddMilliseconds(1000)
 +    do {
-+        $null = Measure-OwnedJob
++        $null = Measure-OwnedJob -Cleanup
 +        $live = @($JobOwned | Where-Object { -not $_.process.HasExited })
 +        $members = @([Scotty20261125TrayJobInspector]::Members($Job) | Where-Object { $_ -ne $Self.Id })
 +        if ($members.Count -eq 0 -and $live.Count -eq 0) { break }
@@ -255,7 +262,7 @@
  function Assert-That([bool]$Condition, [string]$Message) {
      if (-not $Condition) { throw $Message }
  }
-@@ -89,6 +317,18 @@
+@@ -89,6 +324,18 @@
      $records = @(Read-Records $Directory | Where-Object { $_.kind -eq 'tray' })
      Assert-That ($records.Count -eq 1) 'Expected exactly one production tray helper record.'
      $record = $records[0]
@@ -274,7 +281,7 @@
      $fileIndex = [Array]::IndexOf([object[]]$record.args, '-File')
      Assert-That ($fileIndex -ge 0 -and $fileIndex + 1 -lt $record.args.Count) 'The tray helper did not use ordinary -File execution.'
      $helper = Get-SafeLocalPath ([string]$record.helperScript)
-@@ -103,7 +343,7 @@
+@@ -103,7 +350,7 @@
      Assert-That ($helperHash -eq $Result.source_sha256['bin\windows-tray.ps1'] -and $record.helperScriptSha256 -eq $helperHash) 'The actual production helper copy differs from the bundled helper.'
      Assert-That ($fixtureHash -eq $Result.source_sha256['scripts\fixtures\windows-tray-click.ps1']) 'The executed click wrapper differs from the repository fixture.'
      Assert-That (@($record.args | Where-Object { $_ -match 'Bypass|ExecutionPolicy|EncodedCommand' }).Count -eq 0) 'The helper must retain the host execution policy.'
@@ -283,7 +290,7 @@
  }
  
  function ConvertTo-NativeArgument([string]$Value) {
-@@ -129,6 +369,7 @@
+@@ -129,6 +376,7 @@
      }
      $Owned.Add($entry)
      [void]$Process.Handle
@@ -291,7 +298,7 @@
      $entry.started_utc = $Process.StartTime.ToUniversalTime().ToString('o')
      $entry.birth_ms = ([DateTimeOffset]$Process.StartTime.ToUniversalTime()).ToUnixTimeMilliseconds()
      $entry.session_id = $Process.SessionId
-@@ -151,6 +392,8 @@
+@@ -151,6 +399,8 @@
      if ($null -eq $process) { return }
      try {
          [void]$process.Handle
@@ -300,7 +307,7 @@
          $creationTime = $process.StartTime.ToUniversalTime()
          $birth = ([DateTimeOffset]$creationTime).ToUnixTimeMilliseconds()
          Assert-That ($birth -ge ($Record.startedAfter - 50) -and $birth -le ($Record.recordedAt + 50)) 'Recorded PID no longer has the expected process birth time.'
-@@ -168,12 +411,26 @@
+@@ -168,12 +418,26 @@
          $IdentityObservations.Add($identityObservation)
          $identityDetail = ConvertTo-Json -InputObject $identityObservation -Compress -Depth 3
          Assert-That ($actualName -ieq $expected) ('Recorded PID has an unexpected executable name: ' + $identityDetail)
@@ -327,7 +334,7 @@
          }
          $entry = Add-OwnedProcess $process ([string]$Record.kind) $Directory
          $process = $null
-@@ -191,7 +448,7 @@
+@@ -191,7 +455,7 @@
          if (-not $lines[$i].Trim()) { continue }
          try {
              $record = $lines[$i] | ConvertFrom-Json
@@ -336,7 +343,7 @@
              $record
          } catch { [void]$ObservationErrors.Add('Invalid complete ownership record: ' + $file + ':' + ($i + 1)) }
      }
-@@ -205,34 +462,10 @@
+@@ -205,34 +469,10 @@
      }
      foreach ($file in [IO.Directory]::GetFiles($ArtifactRoot, 'processes.jsonl', [IO.SearchOption]::AllDirectories)) {
          $directory = [IO.Path]::GetDirectoryName($file)
@@ -372,7 +379,7 @@
      }
  }
  
-@@ -244,17 +477,13 @@
+@@ -244,17 +484,13 @@
      Observe-Processes
      Assert-That ($ObservationErrors.Count -eq 0) 'Owned process identity or record verification failed.'
      Assert-That ($Owned.Count -le 16) 'The smoke spawned more processes than its bounded cases require.'
@@ -391,7 +398,7 @@
      $Measurements.peak_resident_bytes = [Math]::Max($Measurements.peak_resident_bytes, $resident)
      $Measurements.max_live_servers = [Math]::Max($Measurements.max_live_servers, $servers)
      Assert-That ($servers -le 1) 'More than one owned server is live.'
-@@ -307,6 +536,8 @@
+@@ -307,6 +543,8 @@
      foreach ($name in $Environment.Keys) { $start.EnvironmentVariables[$name] = [string]$Environment[$name] }
      $process = [Diagnostics.Process]::new()
      $process.StartInfo = $start
@@ -400,7 +407,7 @@
      Assert-That ($process.Start()) 'An owned smoke process did not start.'
      $entry = Add-OwnedProcess $process $Kind $Directory
      $run = @{ entry = $entry; process = $process; directory = $Directory; stdout = $null; stderr = $null }
-@@ -344,14 +575,15 @@
+@@ -344,14 +582,15 @@
  try {
      $Self.PriorityClass = [Diagnostics.ProcessPriorityClass]::BelowNormal
      $RepositoryPath = (Resolve-Path -LiteralPath $RepositoryPath).Path
@@ -418,7 +425,7 @@
          '.next\BUILD_ID', 'node_modules\next\package.json')
      foreach ($file in $files) { Assert-That ([IO.File]::Exists((Join-Path $RepositoryPath $file))) ('Missing required runtime file: ' + $file) }
      $explorers = @(Get-Process -Name explorer -ErrorAction SilentlyContinue | Where-Object { $_.SessionId -eq $SessionId })
-@@ -361,7 +593,8 @@
+@@ -361,7 +600,8 @@
      $Result['next_version'] = ([IO.File]::ReadAllText((Join-Path $RepositoryPath 'node_modules\next\package.json')) | ConvertFrom-Json).version
      $Result['build_id'] = [IO.File]::ReadAllText((Join-Path $RepositoryPath '.next\BUILD_ID')).Trim()
      $Result['source_sha256'] = @{}
@@ -428,7 +435,7 @@
      Assert-That (Test-PortFree) 'The selected loopback port is already occupied; no existing listener will be touched.'
      $EvidenceDirectory = Get-SafeLocalPath $EvidenceDirectory
      Assert-That (-not (Test-Path -LiteralPath $EvidenceDirectory)) 'EvidenceDirectory must be a new task-owned path.'
-@@ -375,6 +608,7 @@
+@@ -375,6 +615,7 @@
      Assert-That ((Get-FileHash -LiteralPath $jobHelper -Algorithm SHA256).Hash.ToLowerInvariant() -eq $JobHash) 'The sibling process-containment helper differs from the reviewed bytes.'
      . $jobHelper
      Enter-ScottyTaskJob
@@ -436,7 +443,7 @@
      $Result['job_helper_sha256'] = $JobHash
      # Keep the reviewed driver unchanged while using the host's local-zone
      # execution location. Its repository argument still selects the real app.
-@@ -397,6 +631,7 @@
+@@ -397,6 +638,7 @@
      [IO.File]::WriteAllText($ControllerObserver, @'
  import fs from 'node:fs';
  import path from 'node:path';
@@ -444,7 +451,7 @@
  import childProcess from 'node:child_process';
  import { syncBuiltinESMExports } from 'node:module';
  // Contain console windows at the external smoke boundary, including Next.
-@@ -423,6 +658,9 @@
+@@ -423,6 +665,9 @@
    const temporary = path.join(root, 'controller.json.tmp');
    fs.writeFileSync(temporary, JSON.stringify(record));
    fs.renameSync(temporary, path.join(root, 'controller.json'));
@@ -454,7 +461,7 @@
  }
  '@, $Utf8)
      $ControllerObserverUri = ([Uri]$ControllerObserver).AbsoluteUri
-@@ -440,10 +678,13 @@
+@@ -440,10 +685,13 @@
      Assert-That ($existing.result -eq 'pass' -and @($existing.cases).Count -eq 2) 'The repository smoke did not report both cases.'
      foreach ($case in $existing.cases) {
          $caseDirectory = Join-Path ([string]$existing.evidenceDirectory) ([string]$case.action)
@@ -469,7 +476,7 @@
          $Cases.Add($case)
      }
      Assert-That (Test-PortFree) 'The first smoke left its port occupied.'
-@@ -486,9 +727,10 @@
+@@ -486,9 +734,10 @@
      }
      Wait-Until {
          if ($restart.process.HasExited) { throw 'The restart controller exited during startup.' }
@@ -481,7 +488,7 @@
      $first = Get-ChildEntry $restartDirectory 'server'
      $restartCache = Get-TrayCacheEvidence $restartDirectory
      Wait-Until {
-@@ -504,7 +746,8 @@
+@@ -504,7 +753,8 @@
      $second = Get-ChildEntry $restartDirectory 'server' 1
      $receipt = [IO.File]::ReadAllText((Join-Path $restartDirectory 'restart-receipt.json')) | ConvertFrom-Json
      Assert-That ($first.process.ExitCode -eq 75 -and $receipt.pid -eq $first.process_id) 'The first server did not exit with the requested code75.'
@@ -491,7 +498,7 @@
      Assert-That (@(Read-Records $restartDirectory | Where-Object { $_.kind -eq 'tray' }).Count -eq 1) 'Restart created another tray helper.'
      Assert-That (@(Read-Records $restartDirectory | Where-Object { $_.kind -eq 'server' }).Count -eq 2) 'Restart created an unexpected server count.'
      Wait-Until {
-@@ -514,7 +757,7 @@
+@@ -514,7 +764,7 @@
      Assert-OwnedListener $second.process_id
      [IO.File]::WriteAllText((Join-Path $restartDirectory 'click-exit'), '', $Utf8)
      Wait-Until { $restart.process.HasExited } 'Exit after restart did not stop the controller.' 15
@@ -500,7 +507,7 @@
      $icon = [IO.File]::ReadAllText((Join-Path $restartDirectory 'icon-receipt.json')) | ConvertFrom-Json
      Assert-That ($icon.iconVisible -and $icon.clicked -and $icon.disposed -and $icon.menuText -eq 'Exit') 'The real icon/menu lifecycle failed after restart.'
      Assert-That (Test-PortFree) 'Exit after restart left the owned port occupied.'
-@@ -523,53 +766,22 @@
+@@ -523,53 +773,22 @@
              -not [IO.Directory]::Exists([IO.Path]::GetDirectoryName($restartCache.executed_script))
      } 'Exit after restart left an owned helper or click-fixture cache.' 10
      $restartCache['removed'] = $true
@@ -562,7 +569,7 @@
      }
      foreach ($run in $Runs) {
          try { Save-RunLogs $run } catch { $CleanupErrors.Add($_.Exception.Message) }
-@@ -592,12 +804,14 @@
+@@ -592,12 +811,14 @@
          @{ kind = $_.kind; process_id = $_.process_id; started_utc = $_.started_utc
             session_id = $_.session_id; priority = $_.priority; exit_code = $_.exit_code }
      })
@@ -577,7 +584,7 @@
      try { $Self.PriorityClass = $OriginalPriority } catch { }
      $Self.Dispose()
      $Result['completed_utc'] = [DateTime]::UtcNow.ToString('o')
-@@ -612,5 +826,6 @@
+@@ -612,5 +833,6 @@
          }
      }
      Write-Output $json

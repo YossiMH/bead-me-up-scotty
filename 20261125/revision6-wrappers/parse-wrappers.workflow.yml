@@ -1,11 +1,11 @@
 name: Temporary ordinary tray wrapper parsing
 on:
   push:
-    branches: [task/tray-wrapper-parse-20261125]
+    branches: [task/tray-wrapper-parse-20261125-v2]
 permissions:
   contents: read
 concurrency:
-  group: tray-wrapper-parse-20261125
+  group: tray-wrapper-parse-20261125-v2
   cancel-in-progress: false
 jobs:
   parse:
@@ -31,7 +31,7 @@ jobs:
           $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision6-wrappers'
           $helper=Join-Path $root 'parse-wrappers.ps1'
           if((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '778d480bb553c454fcac9c29f3e3eb41db6ea970b4ace23b5c17a7d725451931'){throw 'Parser helper changed.'}
-          & $helper -Directory $root -ManifestSha256 'bcc58b1961ffd7c12ed73d12b129711dcdbe25b7ea6ca2a7538c4872be81a9a4'
+          & $helper -Directory $root -ManifestSha256 '8469c8c8626bcd710502b773befc515c9bb4485fe8b7825efbe9c6c5b4235534'
           if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
       - name: Retain exact parser result
         if: always()

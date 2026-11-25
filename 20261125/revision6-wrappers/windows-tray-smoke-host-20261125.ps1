@@ -74,7 +74,7 @@ $Result = [ordered]@{
 $Job = [IntPtr]::Zero
 $JobOwned = [Collections.Generic.List[object]]::new()
 $JobKeys = [Collections.Generic.HashSet[string]]::new()
-$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false }
+$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false; budget_exceeded = $false }
 $HardDeadline = $Deadline
 $Deadline = $HardDeadline.AddSeconds(-12)
 
@@ -223,6 +223,7 @@ function Refresh-JobProcesses {
 }
 
 function Measure-OwnedJob {
+    param([switch]$Cleanup)
     $members = @(Refresh-JobProcesses)
     $resident = [long][Scotty20261125TrayJobInspector]::Resident($Self.Handle)
     foreach ($entry in $JobOwned) {
@@ -237,7 +238,13 @@ function Measure-OwnedJob {
     $JobMeasurements.samples++
     $JobMeasurements.peak_resident_bytes = [Math]::Max($JobMeasurements.peak_resident_bytes, $resident)
     $JobMeasurements.peak_member_count = [Math]::Max($JobMeasurements.peak_member_count, $members.Count)
-    Assert-That ($resident -le $MaxOwnedResidentMiB * 1MB) 'All owned Job members exceeded the aggregate resident-memory budget.'
+    if ($resident -gt $MaxOwnedResidentMiB * 1MB) {
+        $JobMeasurements.budget_exceeded = $true
+        $Result.status = 'failed'
+        $message = 'All owned Job members exceeded the aggregate resident-memory budget.'
+        if (-not $CleanupErrors.Contains($message)) { $CleanupErrors.Add($message) }
+        if (-not $Cleanup) { throw $message }
+    }
     return $resident
 }
 
@@ -254,7 +261,7 @@ function Complete-OwnedJob {
     # must reach zero children naturally; forced cleanup always fails it.
     $grace = [DateTime]::UtcNow.AddMilliseconds(1000)
     do {
-        $null = Measure-OwnedJob
+        $null = Measure-OwnedJob -Cleanup
         $live = @($JobOwned | Where-Object { -not $_.process.HasExited })
         $members = @([Scotty20261125TrayJobInspector]::Members($Job) | Where-Object { $_ -ne $Self.Id })
         if ($members.Count -eq 0 -and $live.Count -eq 0) { break }

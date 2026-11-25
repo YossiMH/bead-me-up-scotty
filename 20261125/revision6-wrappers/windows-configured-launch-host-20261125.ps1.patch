@@ -1,5 +1,5 @@
---- previous/windows-configured-launch-smoke.ps1
-+++ candidate/windows-configured-launch-host-20261125.ps1
+--- windows-configured-launch-smoke.ps1
++++ windows-configured-launch-host-20261125.ps1
 @@ -12,8 +12,8 @@
      [Parameter(Mandatory=$true)][ValidatePattern('^[a-fA-F0-9]{64}$')][string]$ExpectedSha256,
      [Parameter(Mandatory=$true)][string]$EvidenceDirectory,
@@ -11,7 +11,7 @@
  )
  Set-StrictMode -Version Latest
  $ErrorActionPreference='Stop'
-@@ -34,10 +34,238 @@
+@@ -34,10 +34,245 @@
  $ArtifactRoot=$null
  $Launcher=$null
  $Client=$null
@@ -30,7 +30,7 @@
 +$Job = [IntPtr]::Zero
 +$JobOwned = [Collections.Generic.List[object]]::new()
 +$JobKeys = [Collections.Generic.HashSet[string]]::new()
-+$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false }
++$JobMeasurements = @{ samples = 0; peak_resident_bytes = 0L; peak_member_count = 0; cleanup_assisted = $false; budget_exceeded = $false }
 +$HardDeadline = $Deadline
 +$Deadline = $HardDeadline.AddSeconds(-12)
 +
@@ -179,6 +179,7 @@
 +}
 +
 +function Measure-OwnedJob {
++    param([switch]$Cleanup)
 +    $members = @(Refresh-JobProcesses)
 +    $resident = [long][Scotty20261125TrayJobInspector]::Resident($Self.Handle)
 +    foreach ($entry in $JobOwned) {
@@ -193,7 +194,13 @@
 +    $JobMeasurements.samples++
 +    $JobMeasurements.peak_resident_bytes = [Math]::Max($JobMeasurements.peak_resident_bytes, $resident)
 +    $JobMeasurements.peak_member_count = [Math]::Max($JobMeasurements.peak_member_count, $members.Count)
-+    Assert-That ($resident -le $MaxOwnedResidentMiB * 1MB) 'All owned Job members exceeded the aggregate resident-memory budget.'
++    if ($resident -gt $MaxOwnedResidentMiB * 1MB) {
++        $JobMeasurements.budget_exceeded = $true
++        $Result.status = 'failed'
++        $message = 'All owned Job members exceeded the aggregate resident-memory budget.'
++        if (-not $CleanupErrors.Contains($message)) { $CleanupErrors.Add($message) }
++        if (-not $Cleanup) { throw $message }
++    }
 +    return $resident
 +}
 +
@@ -210,7 +217,7 @@
 +    # must reach zero children naturally; forced cleanup always fails it.
 +    $grace = [DateTime]::UtcNow.AddMilliseconds(1000)
 +    do {
-+        $null = Measure-OwnedJob
++        $null = Measure-OwnedJob -Cleanup
 +        $live = @($JobOwned | Where-Object { -not $_.process.HasExited })
 +        $members = @([Scotty20261125TrayJobInspector]::Members($Job) | Where-Object { $_ -ne $Self.Id })
 +        if ($members.Count -eq 0 -and $live.Count -eq 0) { break }
@@ -251,7 +258,7 @@
  
  function Assert-That([bool]$Condition,[string]$Message){if(-not $Condition){throw $Message}}
  function Hash([string]$Path){return (Get-FileHash -LiteralPath $Path -Algorithm SHA256).Hash.ToLowerInvariant()}
-@@ -69,6 +297,7 @@
+@@ -69,6 +304,7 @@
      $entry=@{process=$Process;kind=$Kind;process_id=$Process.Id;started_utc=$null;session_id=$null;exit_code=$null}
      $Owned.Add($entry)
      [void]$Process.Handle
@@ -259,7 +266,7 @@
      $entry.started_utc=$Process.StartTime.ToUniversalTime().ToString('o');$entry.session_id=$Process.SessionId
      Assert-That ($Process.SessionId -eq $SessionId) ('Owned '+$Kind+' is outside the interactive Explorer session.')
      try{if(-not $Process.HasExited){$Process.PriorityClass='BelowNormal'}}catch{if(-not $Process.HasExited){throw}}
-@@ -91,7 +320,19 @@
+@@ -91,7 +327,19 @@
  function Get-TrayCacheEvidence{
      $records=@(Read-Lines 'processes.jsonl'|Where-Object{$_.kind -eq 'tray'})
      Assert-That ($records.Count -eq 1) 'Expected exactly one production tray helper record.'
@@ -280,7 +287,7 @@
      Assert-That ($fileIndex -ge 0 -and $fileIndex+1 -lt $record.args.Count) 'The tray helper did not use ordinary -File execution.'
      $helper=Safe-Path ([string]$record.helperScript);$executed=Safe-Path ([string]$record.args[$fileIndex+1])
      $localRoot=(Safe-Path $env:LOCALAPPDATA)+'\'
-@@ -103,24 +344,39 @@
+@@ -103,24 +351,39 @@
      Assert-That ($helperHash -eq (Hash (Join-Path $RepositoryPath 'bin\windows-tray.ps1')) -and $record.helperScriptSha256 -eq $helperHash) 'The actual production helper copy differs from the installed helper.'
      Assert-That ($fixtureHash -eq (Hash (Join-Path $RepositoryPath 'scripts\fixtures\windows-tray-click.ps1'))) 'The executed click wrapper differs from the installed fixture.'
      Assert-That (@($record.args|Where-Object{$_ -match 'Bypass|ExecutionPolicy|EncodedCommand'}).Count -eq 0) 'The helper must retain the host execution policy.'
@@ -323,7 +330,7 @@
          }
          $null=Add-Owned $process ([string]$Record.kind);$process=$null;[void]$Seen.Add($key)
      }catch{
-@@ -134,7 +390,7 @@
+@@ -134,7 +397,7 @@
      if($null -eq $ArtifactRoot){return}
      $controller=Join-Path $ArtifactRoot 'controller.json'
      if([IO.File]::Exists($controller)){Observe-Record ([IO.File]::ReadAllText($controller,$Utf8)|ConvertFrom-Json)}
@@ -332,7 +339,7 @@
      $native=@(Read-Lines 'native.jsonl')
      foreach($record in @($native|Where-Object{$_.phase -eq 'start'})){
          # Completed short commands need their close receipt, not a fresh lookup
-@@ -144,10 +400,9 @@
+@@ -144,10 +407,9 @@
  }
  function Check-Budget{
      Observe-Processes
@@ -346,7 +353,7 @@
      Assert-That ($resident -le $MaxOwnedResidentMiB*1MB) 'Owned processes exceeded the resident-memory budget.'
      Assert-That ([DateTime]::UtcNow -lt $Deadline) 'Configured-launch smoke exceeded its total time budget.'
  }
-@@ -212,10 +467,11 @@
+@@ -212,10 +474,11 @@
      $Batch=Join-Path $RepositoryPath 'launch-scotty.bat';$EntryPoint=Join-Path $RepositoryPath 'bin\bead-me-up-scotty.mjs'
      $Observer=Join-Path $RepositoryPath 'scripts\fixtures\windows-tray-observer.mjs'
      $EnvironmentFile=Join-Path $RepositoryPath '.env.local';$JobHelper=Join-Path $PSScriptRoot 'windows-task-job.ps1'
@@ -360,7 +367,7 @@
      Assert-That ((Hash $JobHelper)-eq $JobHash) 'The task Job helper differs from its reviewed bytes.'
      $pinLines=@([IO.File]::ReadAllLines($EnvironmentFile)|Where-Object{$_ -match '^\s*BEAD_BIN\s*='})
      Assert-That ($pinLines.Count -eq 1) 'Expected exactly one BEAD_BIN assignment in installed .env.local.'
-@@ -234,11 +490,13 @@
+@@ -234,11 +497,13 @@
      [IO.File]::WriteAllText((Join-Path $AppConfigDirectory 'config.json'),(ConvertTo-Json -InputObject $emptyConfig -Depth 5),$Utf8)
      . $JobHelper
      Enter-ScottyTaskJob
@@ -374,7 +381,7 @@
  import childProcess from 'node:child_process';
  import { syncBuiltinESMExports } from 'node:module';
  import { promisify } from 'node:util';
-@@ -288,6 +546,9 @@
+@@ -288,6 +553,9 @@
      startedAfter: recordedAt - process.uptime() * 1000 - 250, recordedAt, inheritedBeadBin: false };
    fs.writeFileSync(path.join(root, 'controller.json.tmp'), JSON.stringify(record));
    fs.renameSync(path.join(root, 'controller.json.tmp'), path.join(root, 'controller.json'));
@@ -384,7 +391,7 @@
  }
  '@,$Utf8)
      $start=[Diagnostics.ProcessStartInfo]::new();$start.FileName=$CmdPath
-@@ -296,12 +557,14 @@
+@@ -296,12 +564,14 @@
      $start.RedirectStandardInput=$true;$start.RedirectStandardOutput=$true;$start.RedirectStandardError=$true
      foreach($key in @('BEAD_BIN','BEAD_WORKSPACE_ROOT','BEADS_REPO','NEEDLE_BEAD_ID','NEEDLE_BEAD_FENCING_TOKEN','BMUS_SERVE_CMD')){$start.EnvironmentVariables.Remove($key)}
      foreach($pair in @{
@@ -400,7 +407,7 @@
      Assert-That ($process.Start()) 'The installed batch launcher did not start.'
      $entry=Add-Owned $process 'batch'
      $Launcher=@{process=$process;stdout=$null;stderr=$null};$process.StandardInput.Close()
-@@ -311,8 +574,8 @@
+@@ -311,8 +581,8 @@
      $Client=[Net.Http.HttpClient]::new($handler);$Client.Timeout=[TimeSpan]::FromSeconds(20);$Client.MaxResponseContentBufferSize=262144
      Wait-Until {
          Assert-That (-not $Launcher.process.HasExited) 'The batch launcher exited before readiness.'
@@ -411,7 +418,7 @@
      $trayCache=Get-TrayCacheEvidence
      $server=@($Owned|Where-Object{$_.kind -eq 'server'})[0]
      Wait-Until {
-@@ -343,7 +606,7 @@
+@@ -343,7 +613,7 @@
      $Result['issue_id']=$created.id;$Result['verified_fields']=@('title','description','priority','issue_type','notes')
      $Result['workspace']=$Workspace;$Result['app_registry']=$ConfigDirectory
      [IO.File]::WriteAllText((Join-Path $ArtifactRoot 'click-exit'),'exit',$Utf8)
@@ -420,7 +427,7 @@
      Assert-That ($Launcher.process.ExitCode -eq 0) 'The batch launcher returned a failure exit code.'
      $icon=[IO.File]::ReadAllText((Join-Path $ArtifactRoot 'icon-receipt.json'),$Utf8)|ConvertFrom-Json
      Assert-That ($icon.iconVisible -eq $true -and $icon.menuText -eq 'Exit' -and $icon.clicked -eq $true -and $icon.disposed -eq $true) 'The actual tray icon/Exit/disposal receipt is incomplete.'
-@@ -355,7 +618,7 @@
+@@ -355,7 +625,7 @@
      } 'Tray Exit left an owned helper or click-fixture cache.' 10
      $trayCache['removed']=$true;$Result['tray_cache']=$trayCache
      $children=@(Read-Lines 'processes.jsonl' -Final)
@@ -429,7 +436,7 @@
      $native=@(Read-Lines 'native.jsonl' -Final);$invocations=@($native|Where-Object{$_.phase -eq 'start'})
      Assert-That ($invocations.Count -gt 0) 'No actual default-pin invocations were observed.'
      foreach($call in $invocations){
-@@ -363,16 +626,18 @@
+@@ -363,16 +633,18 @@
          $closed=@($native|Where-Object{$_.phase -eq 'close' -and $_.pid -eq $call.pid -and $_.startedAfter -eq $call.startedAfter})
          Assert-That ($closed.Count -eq 1 -and $closed[0].code -eq 0 -and $null -eq $closed[0].signal) 'A native API invocation lacks successful process completion.'
      }
@@ -453,7 +460,7 @@
      }
      if($null -ne $Launcher -and $null -ne $ArtifactRoot){
          foreach($name in @('stdout','stderr')){
-@@ -385,13 +650,16 @@
+@@ -385,13 +657,16 @@
      }
      $Result['port_free']=Test-PortFree;$Result['peak_owned_resident_bytes']=$PeakResident
      $Result['processes']=@($Owned|ForEach-Object{[pscustomobject]@{kind=$_.kind;pid=$_.process_id;started_utc=$_.started_utc;session_id=$_.session_id;exit_code=$_.exit_code}})
