@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Actual c90 Linux affected/full-suite historical baseline; final revision 9 qualification remains pending",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "run_id": 45590105450,
+  "job_id": 139121719042,
+  "workflow_commit": "ea2deb25060a3f163550c44ce572e831312b321b",
+  "retained_evidence": {
+    "commit": "ddcf96024cdd44b91f52480c6a7a2f8f7288278c",
+    "directory": "20261125/revision-8/results/native-linux-qualification-45590105450",
+    "files": {
+      "job.log": "8ebf6acfd90fd9779bac7c677a5e767b3322bb2da9d0b156b9a2eb8b24abf940",
+      "result.json": "1c701c1f00550545279750b5ae4d5fa745501faca12cc88e0d1c4e9da2ed665d",
+      "type-backend-checks.json": "b446ea21a7b1d9caa7e6898adc3a61c4f82dff6cbbb0e5df471b55d56ee231f6",
+      "complete-target-results.json": "a20557586f5cda8b02e10d88ea68f8767cc3d8251594a985188c6ce11ec8f1fe",
+      "logs/cargo-full-suite.stdout": "9157cc7669215c926ef66724dda765577fe337660eb4ccac44b4b44896ac8e6d",
+      "logs/cargo-full-suite.stderr": "8d44ff0e3e9369a08e348ae2c3159ba55c275615b67075650346e500fd8700b2"
+    }
+  },
+  "artifact": {
+    "id": 15011839574,
+    "bytes": 118821,
+    "sha256": "8d9b806d6f2cf300a0dbc7fac71e0d80c6ee783191eb52defdce07255221bc40",
+    "identity_independently_read_from_actions": true
+  },
+  "producer_binding": {
+    "run_id": 45587412193,
+    "build_result_sha256": "2c2d704504d238880e0a4bdef29ffc963f25b7588ec45ce62193eb33886937d2",
+    "bundle_sha256": "694e9f357f104f98e150b59926d40df3129f2adb6f29b557e3d7cae1b435bd3a"
+  },
+  "results": {
+    "affected_targets": 8,
+    "affected_passed": 89,
+    "affected_failed": 0,
+    "affected_ignored": 0,
+    "affected_exit": 0,
+    "default_harnesses": 145,
+    "doctest_groups": 1,
+    "full_passed": 1913,
+    "full_failed": 0,
+    "full_ignored_existing": 8,
+    "full_filtered": 0,
+    "full_exit": 0,
+    "source_files_unchanged": 652,
+    "owned_process_groups_remaining": 0
+  },
+  "independent_validation": {
+    "raw_groups": 146,
+    "passed": 1913,
+    "ignored": 8,
+    "failed": 0,
+    "all_names_match": true,
+    "emissions": 49,
+    "unique_decoded_paths": 46,
+    "actual_log_matches": true,
+    "exact_main_receipts": true
+  },
+  "inspection": [
+    "Fetched the complete actual Actions job log directly and compared it byte-for-byte to the retained 752301-byte log.",
+    "Decoded all 49 hashed text/receipt/detail emissions into 46 unique paths, verified every decoded byte count/SHA-256 and required duplicate emissions to be identical. All three principal receipts match the retained files exactly.",
+    "Independently reconciled all 146 raw result groups to the complete target inventory, including every passing and ignored name, ignore reason, count and unique target. The 1913 passing tests, eight pre-existing ignored tests and zero failed/filtered cases agree.",
+    "The eight affected target summaries and actual command exit agree with 89 passes; all eleven issue_type_file tests pass. The full suite includes all six unchanged redaction_transaction cases and seven required checkpoint repair assertions.",
+    "Actual parser fixtures pass for both retained real-output blocks and the empty group, and reject all four prescribed mutations. Child stdout interruptions are retained in the complete raw output without losing test identities.",
+    "The exact accepted consumer/source/producer/hash bindings agree with prior reviews. All twenty recorded commands exit zero, all recorded process groups are clear, environment aliases/directories are cleaned, 652 source files remain unchanged, and all 147 executable identities are retained before/after, including six explicitly recorded recompilations.",
+    "Actions independently reports the retained full-suite artifact under the exact accepted workflow commit. The separate original-corpus job already has independent acceptance at cf1af10ba240f041693f6502f6a266a99aa90031."
+  ],
+  "findings": [],
+  "acceptance_limits": "This accepts completed Linux behavior on c90 as historical evidence. c90's Windows operation-lock failures remain real; the accepted revision 9 tests-only fixture descendant and two remaining contention fixes require fresh final-source Linux/Windows qualification. No final release, app Windows execution, native task closure, PC installation or tray acceptance is granted here.",
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
