@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_key": "type-install-binding",
-  "status": "PENDING",
+  "status": "PENDING_PC_MAPPING_AND_EXECUTION",
   "author": "/root",
   "continuation_revision": 9,
   "candidate_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
@@ -141,18 +141,110 @@
     "commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f",
     "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525"
   },
-  "native_selection": null,
+  "native_selection": {
+    "status": "accepted",
+    "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "executable_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "metadata_sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5",
+    "producer_run": 45600413942,
+    "small_artifact": 15014634952,
+    "final_review": {
+      "commit": "7d30c840514d318a4588d979a90c20bcf07d8734",
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+    }
+  },
   "actual_materialization": null,
   "task_closer_bound_to_actual_mapping": false,
   "pending": [
-    "Actual maintenance Red and independent tests/fixture acceptance, then the final two-predicate native source and exact fresh platform qualification.",
-    "Actual Windows native-store and production HTTP roundtrip against the final measured release; the complete unchanged app runtime inventory is already independently accepted.",
-    "Independent acceptance and hosted checks of the narrow fresh-archive staging helper, with final measured native identities.",
-    "Permitted Emergency Maintenance access and immediate resource/status checks; never replay the denied proposal or obsolete materializers.",
-    "One accepted direct revision 6-to-9 transition with all 55 actual IDs/91 edges, then actual mapping-hash binding of task closure/history requests and dependency-ordered result reconciliation.",
-    "Logged-in-PC tray/Exit/restart, checked installation/configured launch, source/history publication and Riftri cleanup."
+    "Current permitted Emergency Maintenance access and immediate resource/source/status checks; all concrete cloud artifact/helper preparation is independently accepted.",
+    "One accepted direct revision 6 to 9 transition, verified actual 55-ID/91-edge mapping, exact mapping-bound closer and dependency-ordered reconciliation of accepted cloud results.",
+    "Actual logged-in-session tray/Exit/restart, bounded small-archive transfer/staging, guarded installation, configured launch and installed review.",
+    "Accurate canonical handoffs, original native history publication and verification, final native task closure and Riftri worktree/temporary-branch cleanup."
   ],
   "native_mutations": 0,
   "pc_actions": 0,
-  "worktree_cleanup": "Pending local execution availability; complete exact Riftri recovery/removal instructions are retained in the packet README. Future agents must finish cleanup if this process ends."
+  "worktree_cleanup": {
+    "status": "pending",
+    "latest_probe": {
+      "time": "2026-11-25 11:50:46 UTC",
+      "result": {
+        "status": "rejected",
+        "reason": "No usable execution environment is available. Wait for an environment to become available before using this tool."
+      },
+      "executed": false
+    },
+    "successor_instructions": "20261125/revision-9/final-installation/README.md#worktree-cleanup-if-this-process-ends"
+  },
+  "updated_utc": "2026-11-25 12:05:04 UTC",
+  "previous_status": {
+    "commit": "a54c9b5208f8c206c7c67e1f6f12fa65f10ddf60",
+    "sha256": "2b4e7af6d53e6653726d32c1320639c6f3807f806b4e096dc63397841c210322"
+  },
+  "final_measured_packet": {
+    "commit": "70819afe79e783d0db2b10a299155cbeda470d1e",
+    "directory": "20261125/revision-9/final-installation",
+    "files": [
+      {
+        "name": "binding.json",
+        "sha256": "4edf53508c5ffe296a78cb3e8d9b6e3c5aa5c9922fcfa46f5501dc211c19ba41",
+        "git_blob": "7bb8eaf7bb64f108a4aed9e008a63911398d9e9e"
+      },
+      {
+        "name": "artifact-stage-request.json",
+        "sha256": "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9",
+        "git_blob": "bba76724339e30e76f3fe757e192be08e50bf4a7"
+      },
+      {
+        "name": "README.md",
+        "sha256": "4233d8a228b6fbf954119c859fb4988c7312fd54d20254aad71584c109ba8844",
+        "git_blob": "02d062928cc6b8e4ef2eb0011bb892860124b07b"
+      },
+      {
+        "name": "author-inspections.json",
+        "sha256": "1db9b864c17828f780889d607bec090a2896d4b07ae130c90d24644976928861",
+        "git_blob": "1aa7023c5065360f9a09bf7ceec33e0beabb7003"
+      }
+    ],
+    "author_inspections": {
+      "path": "20261125/revision-9/final-installation/author-inspections.json",
+      "complete_clean_passes": 2
+    },
+    "independent_review": {
+      "commit": "289636cbaabf4410cf787f5bef5d44fe6a88ca9c",
+      "path": "20261125/revision-9/results/final-installation-binding-review.json",
+      "sha256": "9d427fdae7f05e8ca873031630852e26a8e67f0fe859c03e101522c81dc116aa",
+      "status": "PASS for cloud preparation; actual mapping and PC execution pending"
+    }
+  },
+  "accepted_cloud_components": {
+    "native": {
+      "commit": "7d30c840514d318a4588d979a90c20bcf07d8734",
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+    },
+    "app": {
+      "commit": "46785d535d046f044d6dc3c65487da6f3076953c",
+      "path": "20261125/revision-9/results/type-app-review.json",
+      "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e"
+    },
+    "app_windows": {
+      "commit": "76a04b979a372b51bcb0d0bbffa52f4105b1a541",
+      "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+      "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b"
+    },
+    "staging": {
+      "commit": "5715e8053dc33a299f89cbe4d048994d57c1e8f2",
+      "path": "20261125/revision-9/results/artifact-stage-review.json",
+      "sha256": "ada3fe4533abafac60fc503bb8ef32cd4479a606781c1ce40e5e1ff853407633"
+    },
+    "helper_checks": {
+      "commit": "3f62a2acf1e826a0202cf95bf1c0ae5a5a7384bf",
+      "path": "20261125/revision-9/results/type-binding-checks-review.json",
+      "sha256": "5912d14297972d8bcdd21afcb974b862ca987f933ec5bec547a1a5930f89cfa5"
+    }
+  },
+  "cloud_preparation_accepted": true,
+  "actual_pc_installation_complete": false
 }
