@@ -6,7 +6,7 @@
   "scope": "Exact final-source Linux producer preparation; no product execution",
   "task_key": "checkpoint-linux-build",
   "continuation_revision": 9,
-  "candidate_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+  "candidate_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7",
   "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
   "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
   "baseline_packet_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
@@ -38,20 +38,20 @@
       "git_blob": "0d33e8458f4a4ea25e8cd21529625c2cde82a565"
     },
     "20261125/revision-9/native-linux-build/workflow.yml": {
-      "sha256": "6feae386b11948f983de605b695fc9791f815fac3ef576f05f3959490d8cd5ab",
-      "git_blob": "3bdf57ce2a6b0bbf388910093cdae6b0cd7132d3"
+      "sha256": "ab042c2fe2119a670f065de360e7bc151fe9d232a0e3ae7c06cc05b108cdc2cf",
+      "git_blob": "a12cd95b32085adfd9c57d0c8df734e574966eb0"
     },
     ".github/workflows/native-final-linux-build-20261125.yml": {
-      "sha256": "6feae386b11948f983de605b695fc9791f815fac3ef576f05f3959490d8cd5ab",
-      "git_blob": "3bdf57ce2a6b0bbf388910093cdae6b0cd7132d3"
+      "sha256": "ab042c2fe2119a670f065de360e7bc151fe9d232a0e3ae7c06cc05b108cdc2cf",
+      "git_blob": "a12cd95b32085adfd9c57d0c8df734e574966eb0"
     },
     "20261125/revision-9/native-producers/README.md": {
-      "sha256": "10da1082a107e4a841a140a2d276521be1878d181c6e12053d2743b2ec282b62",
-      "git_blob": "51c1ea8f113978d36dc5369e3b5b019ea6a12efa"
+      "sha256": "ea6388c14d54f40b763811982ae8da253ef69d90041e97b88fc8934ab356b83c",
+      "git_blob": "0c3b44e9d892f55f815ddb0f879cc0bf04540c9d"
     },
     "20261125/revision-9/native-producers/author-inspections.json": {
-      "sha256": "1383c094c903240a71312ccccacfe8e848c30d2f26c0a95fae7407b6b9acdf31",
-      "git_blob": "c9579cc46f80496f4547dc72c56c695ac32eda8f"
+      "sha256": "904ecdd63a28395baa7be94a09e2439d3a12b8c4e80232a39910d60037045165",
+      "git_blob": "7a0093da9e108bf83920e9f8acdf003c363edb2d"
     }
   },
   "checks": [
@@ -61,17 +61,22 @@
     "The implementation-delta check explicitly freezes the original same six paths rather than inheriting the expanded final approved-file set. Separate tests, oracle, checkpoint repair, two-fixture and two-predicate delta checks retain their precise scopes.",
     "The depth-seven checkout supplies final, fixture, checkpoint, oracle, implementation, tests and baseline commits. The workflow uses exact source, helper, input and support identities, the existing pinned actions/compiler and contents-read permission, with credentials persistence disabled.",
     "Both workflow copies are byte-identical. Only dedicated activation/concurrency names, helper directory, final source/depth and measured helper/input hashes change. The same hosted one-job compilation, formatting, Clippy, original archive release and all output/failure retention remain.",
-    "The two complete author inspections and final documentation rechecks are retained. Independently verified the only correction after 8eae6a09 is the current accepted plan-review citation and its author-record hash; no executable/input/workflow bytes changed."
+    "The two complete author inspections and final documentation rechecks are retained. Independently verified the only correction after 8eae6a09 is the current accepted plan-review citation and its author-record hash; no executable/input/workflow bytes changed.",
+    "Read the complete b9ae02da successor and exact four-file compare to accepted 975d21cc. Reversing only native-lock-linux-build-20261125 to native-final-linux-build-20261125 recovers both complete workflow copies and README byte for byte. Only the on.push/concurrency identifiers, matching README and author hashes/inspection record changed; all source, helper, input, command and artifact bytes remain accepted."
   ],
   "resolved_findings": [
     {
       "finding": "Initial README cited the superseded plan review receipt.",
       "resolution": "975d21cc changes that sentence to f5bd4497/e26b5812 and updates the author record; independently read back and compared the exact two-file correction."
+    },
+    {
+      "finding": "The original Linux activation branch already retains a divergent historical revision 7 run.",
+      "resolution": "Preserve that ref and failed run; activate the separate native-lock-linux-build-20261125 branch only after absence/prior-run reconciliation. The author records both narrow final inspections. Windows remains its already accepted and running 975d21cc execution."
     }
   ],
   "findings": [],
-  "verdict": "PASS for Linux producer preparation at exact 975d21cca470dbca61a9221391b98eeebcba9d1d. The designated backend executor may activate it once after reconciling the dedicated branch and prior-run state. Actual compilation and runtime qualification remain pending.",
-  "activation_branch": "task/native-final-linux-build-20261125",
+  "verdict": "PASS for Linux producer preparation at exact b9ae02da940d7891f8b976e0403d3c408eb6ebe7. The designated backend executor may activate it once after reconciling the new dedicated branch and prior-run state. Actual compilation and runtime qualification remain pending.",
+  "activation_branch": "task/native-lock-linux-build-20261125",
   "limits": {
     "job_minutes": 40,
     "work_seconds": 1800,
@@ -79,5 +84,10 @@
   },
   "reviewer_product_execution": false,
   "pc_actions": 0,
-  "final_native_acceptance": false
+  "final_native_acceptance": false,
+  "previous_preparation_review": {
+    "commit": "604ee33179307fc662dc288e760b66c9d56e0753",
+    "sha256": "f459e43667e1c47df83f6b03d02ca59d2fb0977718cf18a9a8e5a5636b5a6773",
+    "candidate_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d"
+  }
 }
