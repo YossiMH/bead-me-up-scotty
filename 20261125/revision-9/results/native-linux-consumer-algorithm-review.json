@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Final-source Linux consumer algorithm preparation only",
+  "packet_commit": "4cb3c18377d9ce73288eb4cd4ec959d087bce403",
+  "packet_directory": "20261125/revision-9/native-linux-check",
+  "prior_complete_consumer": {
+    "commit": "ea2deb25060a3f163550c44ce572e831312b321b",
+    "review_commit": "5db78980952af6de3bde88ba3f6dca74de406e20",
+    "review_path": "20261125/revision-8/results/native-linux-consumer-review.json"
+  },
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "reviewed_files": {
+    "README.md": "218e700dfac9bfb4bdee35b95d3713f55dc73ae5a1d817a53bcb07792ab5780c",
+    "check-serial-output-fixtures.py": "202281437b10b677caaafb804dff50f0a97683a3ed9197c4f81558e055179a0d",
+    "checkpoint-full-suite-20261125.py": "5fe0e762be507fc468ab71b17cd4647fc04e56a0eecbf846e122c597c86c391d",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "corpus-inputs.template.json": "2ac32ca62f4b21782db6533c61dc61b5c682b241b7e5d2888638da171e676ae8",
+    "full-suite-inputs.template.json": "88a0f962e6e277129362ea7d1c34df720bedec1d9ed81f32bddad672d0512cd4",
+    "serial-output-fixtures.json": "82a8a476f6705b4849e63dc5a89818eca800dc2c6261e79fe8ed9b874af44f15",
+    "workflow.template.yml": "ad9faf7faddfeebc500b3ed51951e463019ccab43acf780ea6b441480e650765"
+  },
+  "producer_bindings": {
+    "helper_sha256": "9842bb88312c15cc9daac8dc58a80d7c2eb7d9d3b52330acd51a020dbdaa4b32",
+    "inputs_sha256": "fe56cc4aab123d53a6e438586c38adaf5489e35f01a0c75a8abf85eca90ab1e3",
+    "measured_artifacts_pending": true
+  },
+  "checks": [
+    "Compared the complete suite helper against accepted ea2deb25. Eleven of its twelve function bodies, including the full serial parser, complete default-suite parser, bundle/source restoration, environment preservation, process handling and main flow, remain byte-identical. The sole changed function adds maintenance-case reporting and exact success checks to the existing affected-target procedure.",
+    "The source/tree and producer helper/input constants are updated to the independently reviewed final native candidate. A ninth affected target, redaction_transaction, is added. Its six required names equal the actual unchanged maintenance Red inventory; the check requires exactly those six passed names and zero ignored cases.",
+    "The affected-target command still executes every listed integration target serially under its existing 900-second bound. Cargo's actual executable paths, one result block per target, complete names/counts, successful exits and zero filtering remain mandatory.",
+    "The full default-suite required portability set adds both repaired large-notes fixtures, both operation races and all six maintenance cases. The unchanged complete parser requires all names to pass while preserving every harness, doctest and existing ignored-case record. No test invocation, product assertion or previous required case is removed.",
+    "The original corpus helper and retained real-output parser fixtures are byte-identical. The fixture driver changes only the suite-helper hash; its actual-case and rejected-mutation algorithms remain unchanged.",
+    "Read every workflow-template delta. Changes are final source/producer/consumer hashes, release names, revision folders and the dedicated activation/concurrency name. The two hosted jobs retain the complete 5,400-second suite limit, affected-target bound, separate original-corpus run, byte verification, raw output retention and process cleanup.",
+    "Both inputs deliberately retain null measured-output fields, and the workflow contains explicit artifact/run/receipt tokens. No activation workflow was added. Final binding must use the actual Linux producer identity, which is separate from the Windows producer's workflow commit."
+  ],
+  "findings": [],
+  "activation_authorized": false,
+  "verdict": "PASS for the prepared Linux consumer algorithms. Preserve these exact algorithms and submit the measured final packet, actual workflow copy and both complete final author inspections for binding review before activation.",
+  "required_final_bindings": [
+    "Successful final Linux producer run/attempt and workflow commit, independently reconciled build and outer receipts",
+    "Exact bundle/output sizes and hashes, release executable and metadata, and actual artifact IDs",
+    "Bound full-suite/corpus input hashes and every workflow placeholder, with source2d801/tree509 unchanged",
+    "Two complete final author inspections and exact immutable readback"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
