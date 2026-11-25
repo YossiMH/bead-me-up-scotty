@@ -14,12 +14,14 @@ Supply the new executable path, full source commit and actual binary SHA256,
 plus pinned successful qualification and independent review records. Each of
 those two records must contain status, source_commit and binary_sha256.
 
-The current approved shape is revision 5: 31 continuation tasks, 49 blocking
-edges and 985 total issues. There are 954 original issues. Root must supply
-the actual accepted plan and materialization-result-v5 hashes; no future hash
-is embedded in this candidate. Thirty continuation tasks must be closed before
-freeze; preserve-and-clean (beadrs-3ec972f8) stays open until the final close.
-The exact plan supplies titles, descriptions, task keys and all edges.
+Root must supply the exact accepted revision-5 plan and materialization-result-v5
+hashes. The helper derives continuation task and edge counts from those pinned
+records, then requires a total of 954 original issues plus that task count.
+Every continuation task except preserve-and-clean (beadrs-3ec972f8) must be
+closed before freeze. Cleanup stays open until the final close. The exact plan
+supplies titles, descriptions, task keys and all edges. The latest intended
+shape reported during preparation is 32 tasks, 51 edges and 986 total issues;
+only the actual accepted records authorize a run.
 
 Each request is an immutable JSON file in the owned coordination area. Pass its
 exact SHA256 to the supervisor. Use a new supervisor_output basename on every
@@ -72,7 +74,7 @@ root. Preserve them before deleting any disposable worktree.
 | --- | --- |
 | preserve | Requires absent retention root. Saves exact original config and full checkpoint tree; verifies the fixed original generation/root and 954 / 11264 / 5 / 413 corpus. Root has already preserved Git/index. No original native open. |
 | external backup | Run the independently reviewed fixed-path read-only backup helper once. Its expected SHA256 is 85e6b942b2d4f7976c7bd3dec854918ad213583b11e085b0707ef653e611d48a. Keep the private SQLite backup on the PC. It is not part of this package. |
-| freeze | Checks all 31 task IDs/titles/descriptions/statuses and 49 edges against the accepted mapping. Leaves cleanup open, freezes isolated authority, flushes once, copies/hashes full checkpoint and compares all original public records. |
+| freeze | Checks every task ID/title/description/status and edge against the accepted plan and mapping. Leaves cleanup open, freezes isolated authority, flushes once, copies/hashes full checkpoint and compares all original public records. |
 | source-restore | Mandatory exact-runtime native restore of the frozen selected current generation into a fresh owned target. Compares complete public corpus and new-task SQLite auxiliary rows. Runs before any native original open. |
 | dry-run | Binds the original backup and unchanged original files. Reads all SQLite tables, original canonical event identities and receipts. Runs one native merge dry-run, then proves every raw SQLite row, inventory and pointer unchanged. |
 | merge | Rechecks unchanged dry-run state and frozen source. Saves authority-transfer intention and mutation attempt, imports exactly once with --merge --profile native-v1 --no-auto-flush. Proves original raw rows survive, new-task rows/auxiliary data match source, full receipt set and all input event identities/content survive with one summary/receipt. All future writes belong to original. |
@@ -93,10 +95,10 @@ previous generation was recoverable.
 Native sync import-only hashes the staged record stream, including its special
 oversize-reference byte recipe. Its receipt digest differs from a set-v2
 manifest digest. The helper calculates both and binds the correct one.
-The dry-run inserted count is all 985 input issues, not the 31 inserted delta.
+The dry-run inserted count must equal the complete derived input issue count.
 Its receipt preview includes the prospective added receipt; the actual merge
-receipt's counts describe the input. The actual merge must report 31 inserted,
-0 updated, 954 retained and 0 conflicted.
+receipt's counts describe the input. The actual merge must report the exact
+derived continuation task count inserted, 0 updated, 954 retained and 0 conflicted.
 
 The original pointer snapshot 29609 is a local SQLite sequence. Original public
 event identities are UUID 1c4f5d56-dcff-cbc5-ddf9-c536653c45f4 with origin
