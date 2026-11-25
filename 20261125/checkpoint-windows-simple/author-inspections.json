@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-windows-build",
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "target": "x86_64-pc-windows-msvc",
+  "unchanged_draft_commit": "071ce14257cee1ceb97c6436c45c6f2ba6b7776e",
+  "helper_hashes": {
+    "build.py": "f3e08e7905ba9924de1c00b0f840a06097024abc5ec0589b35d00d099686b9b6",
+    "verify.py": "6d80e1cdefa652c38d1d6474c781f0ce3876a13d32fa3ab5c509deed404f3417"
+  },
+  "changes_from_reviewed_draft": [
+    "Freeze exact native implementation source and tree in inputs and workflow",
+    "Include issue_type_file alongside the five checkpoint targets, cli_editing and cli_capabilities"
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Read complete build and verifier helpers, workflow, input and README",
+        "Verified source/hash checks, ordinary archive invocation, one compiler job, explicit MSVC linker and retained release on later failures",
+        "Cargo JSON executable selection includes every input target and library; exact compile paths remain in receipts"
+      ],
+      "result": "clean static inspection"
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Repeated complete final packet read after source/test target binding",
+        "Original script and metadata remain unchanged; separate archive fixtures and retained test binary identities support later execution",
+        "Download job uses producer artifact ID and manifest SHA256; all retained files are checked",
+        "Python syntax previously passed on the identical helper bytes"
+      ],
+      "result": "clean static inspection"
+    }
+  ],
+  "pending": [
+    "Independent final packet review",
+    "Actual hosted Windows build and download verification",
+    "Separate Windows test, corpus and editing-smoke execution"
+  ],
+  "cleanup": "Reconcile any running workflow, then remove only clean published Riftri worktrees and task-owned temporary workflow branches after final delivery; future agents must finish interrupted cleanup."
+}

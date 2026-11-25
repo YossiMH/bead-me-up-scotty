@@ -41,7 +41,7 @@ jobs:
         uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
         with:
           repository: YossiMH/bead-rs
-          ref: SOURCE_COMMIT_PENDING
+          ref: 9ffefad6bb3b21ac1362f54df245af82ed85ec6e
           path: source
           fetch-depth: 1
           persist-credentials: false
@@ -97,7 +97,7 @@ jobs:
           $ErrorActionPreference = 'Stop'
           $python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source
           $verifier = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/checkpoint-windows-simple/verify.py'
-          & $python $verifier --directory (Join-Path $env:RUNNER_TEMP 'downloaded-windows-build') --manifest-sha256 '${{ needs.build.outputs.manifest_sha256 }}' --source-commit 'SOURCE_COMMIT_PENDING' --receipt (Join-Path $env:RUNNER_TEMP 'windows-download-receipt/verification.json')
+          & $python $verifier --directory (Join-Path $env:RUNNER_TEMP 'downloaded-windows-build') --manifest-sha256 '${{ needs.build.outputs.manifest_sha256 }}' --source-commit '9ffefad6bb3b21ac1362f54df245af82ed85ec6e' --receipt (Join-Path $env:RUNNER_TEMP 'windows-download-receipt/verification.json')
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Retain download verification
