@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "author_static_pass",
+  "tasks": 32,
+  "edges": 51,
+  "total_issues": 986,
+  "acyclic": true,
+  "same32_keys_ids_and51_edges": true,
+  "unaffected20_task_objects_identical": true,
+  "original954_preserved_by_required_full_readback": true,
+  "reopened_keys": [
+    "tray-diagnose",
+    "tray-repair",
+    "tray-repair-checks",
+    "installer-repair"
+  ],
+  "changed_description_keys": [
+    "tray-diagnose",
+    "tray-repair",
+    "tray-repair-checks",
+    "installer-repair",
+    "tray-repair-review",
+    "windows-tray",
+    "install",
+    "configured-launch",
+    "candidate-review",
+    "app-handoff",
+    "app-text-review",
+    "preserve-and-clean"
+  ],
+  "product_source_changed": false,
+  "product_tests_run": false,
+  "native_database_written": false,
+  "files": {
+    "20261125/revision-6/plan.json": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+    "20261125/revision-6/delta-manifest.template.json": "06b7a0b5ecd5ca8cbdee4c1fd405c7162a4ccb3a4405d58ad923f34b31afd33c",
+    "20261125/revision-6/native-update-protocol.json": "74668403c9737383aa99af6aa13056e5c77a2586193a7ccc15c7b2c6505e3c17",
+    "20261125/revision-6/writing-rules.json": "f3868d4b51635ac291b7af3b9fef48c969e1a344e4cbbb7c3604ddae0af49f68",
+    "20261125/tray-launch-probe/probe.mjs": "92c49c4c717a2e9deb22b8bc6baa75b1628ef1c2cb7ab51072703107e28ab629",
+    "20261125/tray-launch-probe/marker.ps1": "2130a8157c558f7a8a323a40cc078f0fe0478fc7ce61fc75fd884d036118d3a9",
+    "20261125/tray-launch-probe/workflow.yml": "942c7b8cba610bc877e9c6364180b9445deb8af28f6c2e11cbdb311266787d7a"
+  },
+  "probe_checks": [
+    "Ordinary Windows PowerShell with no policy/zone overrides; no Next/Forms/app/PC access",
+    "Exact Node25.2.1 and shell:false/three pipes in all layers; detached PowerShell is negative reproduction",
+    "Original parent handle acquired before READY; parent-loss final stdout exercises broken host output path",
+    "No unref; both pipes retain explicit error handlers; host waits actual child close",
+    "15second launched-process deadlines,12second host bound,8second PS parent watch,120second outer timeout,5minute workflow",
+    "Only direct owned child handles are killed; all recorded descendants must be absent on completion",
+    "Fresh output, exact launch/marker records and full result emitted Base64 with SHA; all output uploaded14days",
+    "JS executable body syntax checked without executing it; actual Node and ordinary PS parse remain in reviewed hosted job"
+  ],
+  "author_inspections": [
+    {
+      "pass": true,
+      "focus": "All12 changed descriptions, graph/ID/resource preservation, exact old failures and scoped new module/check/installer paths; native reopen and guarded delta; unchanged backend continuation."
+    },
+    {
+      "pass": true,
+      "focus": "Complete probe/control/PowerShell/workflow and same final bytes; parent-ready race repaired before review; bounded failure cleanup, ordinary policy and complete logs."
+    },
+    {
+      "pass": true,
+      "focus": "Complete revised165-plus-line Node probe,38-line PS marker and47-line workflow reread; the three requested corrections are the only probe changes and all limits/process/error handling remain."
+    },
+    {
+      "pass": true,
+      "focus": "Full three corrected task descriptions and metadata reread; all32 IDs/51edges and20 unaffected task objects preserved; staged source may change only through reviewed file-specific helper; probe final bytes unchanged."
+    }
+  ],
+  "probe_review_corrections": [
+    "Acquire actual System.Diagnostics.Process.Handle before READY so original-parent identity persists after exit.",
+    "Parse bounded complete READY lines across arbitrary stdout chunks.",
+    "Set hosted Git core.autocrlf=false/core.eol=lf before checkout; ordinary execution and policy retained."
+  ],
+  "plan_review_corrections": [
+    "Stage-v6/scotty remains an archive with exact source38 patch, so use separately reviewed bounded immutable-file staging with old/new receipts; no stageGit assumption.",
+    "Add exact prior stage helper/receipt and new helper full inspection to installer and combined review.",
+    "Distinguish suspected DETACHED_PROCESS mechanism from actual mode comparison still pending."
+  ]
+}

@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "accepted_plan_sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+  "materialization_sha256": "6a46c9ddef4c847a0c8a5cf63c58bdec2e237a8bd04f4f4940467af8171f7d85",
+  "root_is_sole_state_writer": true,
+  "tasks": [
+    {
+      "key": "checkpoint-repair",
+      "revision": 1,
+      "reason": "Published exact repaired source 515b503b24baf71737ff8fa6c879bd0752ef0fc6/tree b7c196bb6b337bdc7503e28d3a600e860fa3b799 at YossiMH/bead-rs task/bead-finish-20261124. Parent cee3220b5e4b9a414c50379273c84759db645dbf changes only set_v2 production receipt-count/duplicate validation and immutable-tail publication plus its specification; tests from accepted a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8 remain unchanged. Final515 adds only six rustfmt layouts in three integration tests; independent format-only review58b141abde4fec0bf519d3d8628ced94d6e2fd3d35bfd3f6058c7fd2c95b665a confirms unchanged assertions/fixtures and648 other blobs. Author repair report309bbed3503c57b45f39e702214d1590b4bac44d1d714816309b3355fb2703e4 retains two full source inspections. Actual final-source git diff --check a42..515 passed receipt58e41bcc75c57907ec3f3e40ae0d340836ae6871e0601326a3cafaa92d254caf, cargo fmt passed46dc0f8896e42d62d1add86e340990640e4927721ae02cd721c1b2cfd123f4af, all four streams empty, retained at app commitbd84bc93fea6add1a0d0f4a2eecde2e5c0ab6b77/20261125/checkpoint-linux-check/accepted-build. Source producer complete; platform executions, full suite and independent repair review remain separate. Git result: exact source and reports remotely published and verified."
+    },
+    {
+      "key": "checkpoint-linux-build",
+      "revision": 1,
+      "reason": "Hosted Linux source515b503b24baf71737ff8fa6c879bd0752ef0fc6 compiled and packaged successfully in run45542149965/job138962980149 at workflow5753653247952185fef0b8c2c83ecacb6bbb190a, source treeb7c196bb6b337bdc7503e28d3a600e860fa3b799. All22 commands exited0, including final-source diff, cargo fmt, all-target Clippy with -D warnings, all-default test compilation (144 harnesses plus two ordinary binaries), unchanged archive-based Linux release build and clean source checks. One compiler job; all22 owned process groups empty;406.03seconds. Build report384000475ed36cf748ed952c9cc2952d3d978928a5433e51c01a1eef6ce389fd, outer883855edfa517188d3864f7bdd91b186131d3c4887f0f6663bc3b97627aafd91; no tests executed here. Bundlefe0299594c0141f5214ef32cdf421efb1ba3cd893e093f2519836d4f865c880b retained in artifact14990360952 (553648863-byte ZIP e7aed337b161ec4f8416a321823cb4ee80e287a220b5800394aed86297c12849). Linux release SHAaf2570ccdd3c34a1278b660a66ac7e780a13a2de96d9f3e91c7265e2efbf85db, metadata5195149700e36ffa4692258e000a54f8353b6eb879df66df332beb07c8d140b8 retained separately in artifact14990206627. Two full author inspections and actual output are published at appbd84bc93fea6add1a0d0f4a2eecde2e5c0ab6b77 accepted-build/author-result.json SHAcd3f2ca4c0a6a4769a3678b1a373509a6f8bd87844f0aca64a97d2ecd7712247. Failed first cee formatting attempt remains historical. Full suite and original-corpus release checks remain separate tasks. Git result: exact source and execution packets/results remotely published; no product-source change by build."
+    }
+  ]
+}

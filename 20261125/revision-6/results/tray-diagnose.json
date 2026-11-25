@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "candidate_diagnosis_confirmed_by_hosted_process_probe",
+  "task_id": "beadrs-9422c821",
+  "root_is_native_state_writer": true,
+  "accepted_plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+  "plan_review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+  "previous_failures": [
+    {
+      "source": "f47fd7adef41e989072d5fa8c39160681aa6fd2a",
+      "behavior": "Real Exit succeeded; attached helper was killed at abrupt controller loss before cache removal.",
+      "record": "20261124/results/tray-diagnose.json"
+    },
+    {
+      "source": "38c21a77b4e875d75e17ee68683846601df33591",
+      "behavior": "Direct detached PowerShell exited0 before READY/fixture markers; no server started.",
+      "result_sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+      "all_recorded_pc_pids_later_absent": true,
+      "port43971_later_free": true
+    }
+  ],
+  "primary_sources": [
+    {
+      "url": "https://github.com/nodejs/node/blob/4cac2b94bed4bf02810be054e8f63c0048c66564/deps/uv/src/win/process.c",
+      "finding": "detached adds DETACHED_PROCESS and bypasses the parent-held kill-on-close Job; hidden noninherited pipes permit CREATE_NO_WINDOW."
+    },
+    {
+      "url": "https://github.com/nodejs/node/issues/51018",
+      "finding": "Windows detached PowerShell fails to execute while detached Node executes."
+    },
+    {
+      "url": "https://github.com/oven-sh/bun/issues/31603#issuecomment-5635852694",
+      "finding": "Windows PowerShell5.1 detached launch reproduction exits0 before markers."
+    },
+    {
+      "url": "https://github.com/PowerShell/PowerShell/issues/28383",
+      "finding": "Modern PowerShell report explains missing console handle behavior; distinguished from installed WindowsPowerShell5.1 source."
+    }
+  ],
+  "actual_hosted_probe": {
+    "run_id": 45544873983,
+    "job_id": 138971960404,
+    "workflow_commit": "107b49cb690ffc1a8bbd591bbec1bc2412b4962c",
+    "workflow_sha256": "942c7b8cba610bc877e9c6364180b9445deb8af28f6c2e11cbdb311266787d7a",
+    "static_review_sha256": "dbe6692dfbf75457ec26d2913129be18fb52cfc1dc3a3aa4caa0ba80a630f3a6",
+    "result_sha256": "6f5a3d614112671edb05deef8d817bf69d214b762b6f1d1fd1cc1f2bab1ea35f",
+    "job_log_sha256": "5a48c83513f43df487289e720cd60b297f5fa8352607a3c767b9a4e5606e4a60",
+    "node": "v25.2.1",
+    "libuv": "1.51.0",
+    "powershell": "5.1.26100.33822",
+    "elapsed_seconds": 2.554,
+    "cases": [
+      {
+        "name": "attached",
+        "status": "passed",
+        "observed_exit": 7,
+        "parent_lost": false
+      },
+      {
+        "name": "detached",
+        "status": "passed",
+        "observed_exit": 0
+      },
+      {
+        "name": "host",
+        "status": "passed",
+        "observed_exit": 7,
+        "parent_lost": false
+      },
+      {
+        "name": "parent-loss",
+        "status": "passed",
+        "observed_exit": 0,
+        "parent_lost": true
+      }
+    ],
+    "all_recorded_descendants_absent": true,
+    "direct_children_observed_closed": true,
+    "artifact": [
+      {
+        "id": 14991655500,
+        "bytes": 6897,
+        "digest": "sha256:a02231cc02021ab2a44a865ed1acf3c7d1701ae77d1c5628fdbed6ee9a8a5784",
+        "expires_at": "2026-12-09T04:10:21Z"
+      }
+    ]
+  },
+  "conclusion": "The controlled hosted Windows comparison confirms the detached PowerShell startup failure on the PC's exact Node/libuv versions. A detached Node host spawning hidden attached ordinary PowerShell executes the script, forwards its exit, and lets it finish after the original controller is forcibly terminated. This explains the PC startup signature while retaining the earlier parent-loss defect as a separate constraint.",
+  "permitted_next_task": "Implement only the reviewed revision6 two-module Node-host arrangement and affected tests/observers; bind exact new source into installer and archive-stage helper. Preserve the real PowerShell helper. Actual logged-in-PC full tray and installed-default checks remain required before installation/delivery.",
+  "limits": [
+    "This tiny probe launches no Forms or Next and does not establish actual tray/menu/restart behavior.",
+    "The hosted PowerShell build is recorded; the replacement must still pass the actual PC environment.",
+    "No product source, user-PC app or canonical task database was changed by the hosted probe."
+  ],
+  "author_inspections": [
+    {
+      "number": 1,
+      "findings": [],
+      "read": "Complete successful job log, exact runtime source hashes, all four complete cases, options/arguments/stdout/stderr/marker identities and descendant cleanup."
+    },
+    {
+      "number": 2,
+      "findings": [],
+      "read": "Full retained result decoded and rehashed, actual live job/artifact metadata reconciled, oldPCfailure distinguished from hosted process-only behavior; repair and remaining actualPC checks mapped."
+    }
+  ],
+  "git_result": "Reviewed probe, full plan and complete output remotely retained in user fork; production source still38 and current native task reopen/description update pending.",
+  "cleanup_if_interrupted": "Reconcile exact native mutation markers and the actual hosted result before retry; retain failed PC runs, current source and logs. Remove this task's exact clean Riftri worktrees and draft/probe/build/transfer branches after publication. Do not remove dirty/unpublished files or unrelated processes."
+}

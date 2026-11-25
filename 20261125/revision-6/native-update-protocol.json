@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "template_requires_independent_acceptance_and_current_readback",
+  "base_plan_sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+  "root_is_sole_writer": true,
+  "reopen": [
+    {
+      "key": "tray-diagnose",
+      "id": "beadrs-9422c821",
+      "expected_observed_status": "closed",
+      "last_observed_revision": 2,
+      "command": [
+        "bead",
+        "reopen",
+        "beadrs-9422c821",
+        "--if-revision",
+        "@actual_current_revision"
+      ],
+      "note": "Read installed reopen help before execution. Keep existing history; append the reviewed failure reason only with guarded merged notes if necessary. No claim credential has been issued."
+    },
+    {
+      "key": "tray-repair",
+      "id": "beadrs-417f998c",
+      "expected_observed_status": "closed",
+      "last_observed_revision": 2,
+      "command": [
+        "bead",
+        "reopen",
+        "beadrs-417f998c",
+        "--if-revision",
+        "@actual_current_revision"
+      ],
+      "note": "Read installed reopen help before execution. Keep existing history; append the reviewed failure reason only with guarded merged notes if necessary. No claim credential has been issued."
+    },
+    {
+      "key": "tray-repair-checks",
+      "id": "beadrs-22b44782",
+      "expected_observed_status": "closed",
+      "last_observed_revision": 2,
+      "command": [
+        "bead",
+        "reopen",
+        "beadrs-22b44782",
+        "--if-revision",
+        "@actual_current_revision"
+      ],
+      "note": "Read installed reopen help before execution. Keep existing history; append the reviewed failure reason only with guarded merged notes if necessary. No claim credential has been issued."
+    },
+    {
+      "key": "installer-repair",
+      "id": "beadrs-f588ab27",
+      "expected_observed_status": "closed",
+      "last_observed_revision": 2,
+      "command": [
+        "bead",
+        "reopen",
+        "beadrs-f588ab27",
+        "--if-revision",
+        "@actual_current_revision"
+      ],
+      "note": "Read installed reopen help before execution. Keep existing history; append the reviewed failure reason only with guarded merged notes if necessary. No claim credential has been issued."
+    }
+  ],
+  "description_delta": "delta-manifest.template.json",
+  "mutation_rules": "Verify previous plan descriptions/current literal records and exact31-other-task/original954 preservation around each guarded transition. Re-read revisions after every mutation. Save each operation receipt before starting the next. After all four reopens, bind current revisions in one description-only dry-run/commit. If report descriptions are intentionally redacted, accept only exact expected text or the known redaction marker in report fields; require literal stored descriptions on full postcommit readback. Do not replay uncertain writes. Update current accepted-plan pointer only after all32/51/986/full descriptions and states verify.",
+  "required_before_install": true
+}

@@ -1,0 +1,329 @@
+{
+  "status": "passed",
+  "startedAt": "2026-11-25T04:10:17.995Z",
+  "platform": "win32",
+  "node": "v25.2.1",
+  "libuv": "1.51.0",
+  "selfSha256": "92c49c4c717a2e9deb22b8bc6baa75b1628ef1c2cb7ab51072703107e28ab629",
+  "markerSha256": "2130a8157c558f7a8a323a40cc078f0fe0478fc7ce61fc75fd884d036118d3a9",
+  "noNextOrForms": true,
+  "noPcAccess": true,
+  "cases": [
+    {
+      "name": "attached",
+      "launch": {
+        "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "args": [
+          "-NoLogo",
+          "-NoProfile",
+          "-NonInteractive",
+          "-WindowStyle",
+          "Hidden",
+          "-File",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\marker.ps1",
+          "-OutputDirectory",
+          "D:\\a\\_temp\\tray-launch-probe-output\\attached",
+          "-Mode",
+          "Marker",
+          "-ParentProcessId",
+          "6004"
+        ],
+        "options": {
+          "detached": false,
+          "windowsHide": true,
+          "shell": false,
+          "stdio": [
+            "pipe",
+            "pipe",
+            "pipe"
+          ]
+        },
+        "stdout": "READY\r\n",
+        "stderr": "",
+        "startedAt": 1795579817997,
+        "pid": 9400,
+        "code": 7,
+        "signal": null,
+        "elapsedMs": 1294
+      },
+      "entry": {
+        "powershell": "5.1.26100.33822",
+        "pid": 9400,
+        "utc": "2026-11-25T04:10:18.3401000Z",
+        "mode": "Marker",
+        "parentProcessId": 6004
+      },
+      "final": {
+        "parentLost": false,
+        "pid": 9400,
+        "completed": true,
+        "exitCode": 7,
+        "utc": "2026-11-25T04:10:19.2757450Z"
+      },
+      "status": "passed"
+    },
+    {
+      "name": "detached",
+      "launch": {
+        "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "args": [
+          "-NoLogo",
+          "-NoProfile",
+          "-NonInteractive",
+          "-WindowStyle",
+          "Hidden",
+          "-File",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\marker.ps1",
+          "-OutputDirectory",
+          "D:\\a\\_temp\\tray-launch-probe-output\\detached",
+          "-Mode",
+          "Marker",
+          "-ParentProcessId",
+          "6004"
+        ],
+        "options": {
+          "detached": true,
+          "windowsHide": true,
+          "shell": false,
+          "stdio": [
+            "pipe",
+            "pipe",
+            "pipe"
+          ]
+        },
+        "stdout": "",
+        "stderr": "",
+        "startedAt": 1795579819292,
+        "pid": 6320,
+        "code": 0,
+        "signal": null,
+        "elapsedMs": 95
+      },
+      "entry": null,
+      "final": null,
+      "status": "passed"
+    },
+    {
+      "name": "host",
+      "launch": {
+        "command": "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+        "args": [
+          "--max-old-space-size=64",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\probe.mjs",
+          "--host",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\marker.ps1",
+          "D:\\a\\_temp\\tray-launch-probe-output\\host",
+          "Marker",
+          "6004"
+        ],
+        "options": {
+          "detached": true,
+          "windowsHide": true,
+          "shell": false,
+          "stdio": [
+            "pipe",
+            "pipe",
+            "pipe"
+          ]
+        },
+        "stdout": "READY\r\n",
+        "stderr": "",
+        "startedAt": 1795579819388,
+        "pid": 2800,
+        "code": 7,
+        "signal": null,
+        "elapsedMs": 514
+      },
+      "entry": {
+        "powershell": "5.1.26100.33822",
+        "pid": 852,
+        "utc": "2026-11-25T04:10:19.7642833Z",
+        "mode": "Marker",
+        "parentProcessId": 6004
+      },
+      "final": {
+        "parentLost": false,
+        "pid": 852,
+        "completed": true,
+        "exitCode": 7,
+        "utc": "2026-11-25T04:10:19.8798889Z"
+      },
+      "host": {
+        "pid": 2800,
+        "parentPid": 6004,
+        "startedAt": 1795579819449,
+        "node": "v25.2.1",
+        "childPid": 852,
+        "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "args": [
+          "-NoLogo",
+          "-NoProfile",
+          "-NonInteractive",
+          "-WindowStyle",
+          "Hidden",
+          "-File",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\marker.ps1",
+          "-OutputDirectory",
+          "D:\\a\\_temp\\tray-launch-probe-output\\host",
+          "-Mode",
+          "Marker",
+          "-ParentProcessId",
+          "6004"
+        ],
+        "options": {
+          "detached": false,
+          "windowsHide": true,
+          "shell": false,
+          "stdio": [
+            "pipe",
+            "pipe",
+            "pipe"
+          ]
+        }
+      },
+      "hostClose": {
+        "pid": 2800,
+        "childPid": 852,
+        "code": 7,
+        "signal": null,
+        "inputError": null,
+        "endedAt": 1795579819896
+      },
+      "status": "passed"
+    },
+    {
+      "name": "parent-loss",
+      "status": "passed",
+      "controller": {
+        "pid": 8216,
+        "parentPid": 6004,
+        "childPid": 9252,
+        "command": "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+        "args": [
+          "--max-old-space-size=64",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\probe.mjs",
+          "--host",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\marker.ps1",
+          "D:\\a\\_temp\\tray-launch-probe-output\\parent-loss",
+          "ParentLoss",
+          "8216"
+        ],
+        "options": {
+          "detached": true,
+          "windowsHide": true,
+          "shell": false,
+          "stdio": [
+            "pipe",
+            "pipe",
+            "pipe"
+          ]
+        }
+      },
+      "host": {
+        "pid": 9252,
+        "parentPid": 8216,
+        "startedAt": 1795579820026,
+        "node": "v25.2.1",
+        "childPid": 2144,
+        "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "args": [
+          "-NoLogo",
+          "-NoProfile",
+          "-NonInteractive",
+          "-WindowStyle",
+          "Hidden",
+          "-File",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\marker.ps1",
+          "-OutputDirectory",
+          "D:\\a\\_temp\\tray-launch-probe-output\\parent-loss",
+          "-Mode",
+          "ParentLoss",
+          "-ParentProcessId",
+          "8216"
+        ],
+        "options": {
+          "detached": false,
+          "windowsHide": true,
+          "shell": false,
+          "stdio": [
+            "pipe",
+            "pipe",
+            "pipe"
+          ]
+        }
+      },
+      "entry": {
+        "powershell": "5.1.26100.33822",
+        "pid": 2144,
+        "utc": "2026-11-25T04:10:20.3254070Z",
+        "mode": "ParentLoss",
+        "parentProcessId": 8216
+      },
+      "controllerExit": {
+        "command": "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+        "args": [
+          "--max-old-space-size=64",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\probe.mjs",
+          "--controller",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\20261125\\tray-launch-probe\\marker.ps1",
+          "D:\\a\\_temp\\tray-launch-probe-output\\parent-loss"
+        ],
+        "options": {
+          "detached": false,
+          "windowsHide": true,
+          "shell": false,
+          "stdio": [
+            "pipe",
+            "pipe",
+            "pipe"
+          ]
+        },
+        "stdout": "",
+        "stderr": "",
+        "startedAt": 1795579819904,
+        "pid": 8216,
+        "code": null,
+        "signal": "SIGKILL",
+        "elapsedMs": 591
+      },
+      "final": {
+        "parentLost": true,
+        "pid": 2144,
+        "completed": true,
+        "exitCode": 0,
+        "utc": "2026-11-25T04:10:20.5252257Z"
+      },
+      "hostClose": {
+        "pid": 9252,
+        "childPid": 2144,
+        "code": 0,
+        "signal": null,
+        "inputError": null,
+        "endedAt": 1795579820544
+      }
+    }
+  ],
+  "recordedProcesses": [
+    {
+      "pid": 2800,
+      "alive": false
+    },
+    {
+      "pid": 852,
+      "alive": false
+    },
+    {
+      "pid": 9252,
+      "alive": false
+    },
+    {
+      "pid": 2144,
+      "alive": false
+    },
+    {
+      "pid": 8216,
+      "alive": false
+    }
+  ],
+  "completedAt": "2026-11-25T04:10:20.549Z"
+}

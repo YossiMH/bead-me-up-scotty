@@ -1,0 +1,229 @@
+﻿2026-11-25T04:09:57.1626923Z Current runner version: '2.338.2'
+2026-11-25T04:09:57.1652400Z ##[group]Runner Image Provisioner
+2026-11-25T04:09:57.1653215Z Hosted Compute Agent
+2026-11-25T04:09:57.1653733Z Version: 20261111.635
+2026-11-25T04:09:57.1654314Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-25T04:09:57.1655012Z Build Date: 2026-11-11T01:49:01Z
+2026-11-25T04:09:57.1655667Z Worker ID: {b1ed4f68-b177-4460-8031-30adedf61867}
+2026-11-25T04:09:57.1656319Z Region: westus2
+2026-11-25T04:09:57.1656783Z Cloud: Azure
+2026-11-25T04:09:57.1657273Z ##[endgroup]
+2026-11-25T04:09:57.1658548Z ##[group]Operating System
+2026-11-25T04:09:57.1659136Z Microsoft Windows Server 2025
+2026-11-25T04:09:57.1660022Z 10.0.26100
+2026-11-25T04:09:57.1660484Z Datacenter
+2026-11-25T04:09:57.1660928Z ##[endgroup]
+2026-11-25T04:09:57.1661465Z ##[group]Runner Image
+2026-11-25T04:09:57.1662000Z Image: windows-2025-vs2026
+2026-11-25T04:09:57.1662547Z Version: 20261116.315.1
+2026-11-25T04:09:57.1664236Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261116.315/images/windows/Windows2025-VS2026-Readme.md
+2026-11-25T04:09:57.1665814Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261116.315
+2026-11-25T04:09:57.1666723Z ##[endgroup]
+2026-11-25T04:09:57.1667711Z ##[group]GITHUB_TOKEN Permissions
+2026-11-25T04:09:57.1669506Z Contents: read
+2026-11-25T04:09:57.1670078Z Metadata: read
+2026-11-25T04:09:57.1670562Z ##[endgroup]
+2026-11-25T04:09:57.1672675Z Secret source: Actions
+2026-11-25T04:09:57.1673574Z Cache mode: write
+2026-11-25T04:09:57.1674216Z Prepare workflow directory
+2026-11-25T04:09:57.2038819Z Prepare all required actions
+2026-11-25T04:09:57.2109269Z Getting action download info
+2026-11-25T04:09:57.5718686Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-25T04:09:57.7660232Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)
+2026-11-25T04:09:57.9591488Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-25T04:09:58.3237314Z Complete job name: probe
+2026-11-25T04:09:58.4615298Z ##[group]Run git config --global core.autocrlf false
+2026-11-25T04:09:58.4616609Z [36;1mgit config --global core.autocrlf false[0m
+2026-11-25T04:09:58.4617846Z [36;1mif ($LASTEXITCODE -ne 0) { throw 'Could not disable checkout conversion' }[0m
+2026-11-25T04:09:58.4619266Z [36;1mgit config --global core.eol lf[0m
+2026-11-25T04:09:58.4620351Z [36;1mif ($LASTEXITCODE -ne 0) { throw 'Could not select canonical line endings' }[0m
+2026-11-25T04:09:58.4761070Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-25T04:09:58.4762868Z ##[endgroup]
+2026-11-25T04:10:01.2318275Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-25T04:10:01.2318842Z with:
+2026-11-25T04:10:01.2319088Z   persist-credentials: false
+2026-11-25T04:10:01.2319401Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T04:10:01.2322314Z   token: ***
+2026-11-25T04:10:01.2322545Z   ssh-strict: true
+2026-11-25T04:10:01.2322770Z   ssh-user: git
+2026-11-25T04:10:01.2322990Z   clean: true
+2026-11-25T04:10:01.2323241Z   sparse-checkout-cone-mode: true
+2026-11-25T04:10:01.2323530Z   fetch-depth: 1
+2026-11-25T04:10:01.2323754Z   fetch-tags: false
+2026-11-25T04:10:01.2323988Z   show-progress: true
+2026-11-25T04:10:01.2324221Z   lfs: false
+2026-11-25T04:10:01.2324432Z   submodules: false
+2026-11-25T04:10:01.2324667Z   set-safe-directory: true
+2026-11-25T04:10:01.2324952Z   allow-unsafe-pr-checkout: false
+2026-11-25T04:10:01.2325232Z ##[endgroup]
+2026-11-25T04:10:01.3764503Z Syncing repository: YossiMH/bead-me-up-scotty
+2026-11-25T04:10:01.3766134Z ##[group]Getting Git version info
+2026-11-25T04:10:01.3767217Z Working directory is 'D:\a\bead-me-up-scotty\bead-me-up-scotty'
+2026-11-25T04:10:01.4722327Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T04:10:01.5142528Z git version 2.56.1.windows.1
+2026-11-25T04:10:01.5198976Z ##[endgroup]
+2026-11-25T04:10:01.5217664Z Copying 'C:\Users\runneradmin\.gitconfig' to 'D:\a\_temp\593e2f5d-c192-49ad-89b6-848e3b1eb57b\.gitconfig'
+2026-11-25T04:10:01.5242975Z Temporarily overriding HOME='D:\a\_temp\593e2f5d-c192-49ad-89b6-848e3b1eb57b' before making global git config changes
+2026-11-25T04:10:01.5244744Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T04:10:01.5258947Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty
+2026-11-25T04:10:01.5691272Z Deleting the contents of 'D:\a\bead-me-up-scotty\bead-me-up-scotty'
+2026-11-25T04:10:01.5698643Z ##[group]Determining repository object format
+2026-11-25T04:10:01.5701528Z ##[endgroup]
+2026-11-25T04:10:01.5702044Z ##[group]Initializing the repository
+2026-11-25T04:10:01.5714099Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\bead-me-up-scotty\bead-me-up-scotty
+2026-11-25T04:10:01.6589167Z Initialized empty Git repository in D:/a/bead-me-up-scotty/bead-me-up-scotty/.git/
+2026-11-25T04:10:01.6641402Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T04:10:01.7355985Z ##[endgroup]
+2026-11-25T04:10:01.7357159Z ##[group]Disabling automatic garbage collection
+2026-11-25T04:10:01.7365049Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-25T04:10:01.7775065Z ##[endgroup]
+2026-11-25T04:10:01.7775805Z ##[group]Setting up auth
+2026-11-25T04:10:01.7776510Z Removing SSH command configuration
+2026-11-25T04:10:01.7788274Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T04:10:01.8196693Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T04:10:03.2485748Z Removing HTTP extra header
+2026-11-25T04:10:03.2496928Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T04:10:03.2881608Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T04:10:03.8708111Z Removing includeIf entries pointing to credentials config files
+2026-11-25T04:10:03.8719949Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T04:10:03.9118967Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T04:10:04.5161042Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-25T04:10:04.5615465Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git.path D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:04.5970093Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git/worktrees/*.path D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:04.6418671Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:04.6798087Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:04.7182960Z ##[endgroup]
+2026-11-25T04:10:04.7183349Z ##[group]Fetching the repository
+2026-11-25T04:10:04.7196279Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +107b49cb690ffc1a8bbd591bbec1bc2412b4962c:refs/remotes/origin/task/tray-launch-probe-20261125
+2026-11-25T04:10:05.9775206Z From https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T04:10:05.9776193Z  * [new ref]         107b49cb690ffc1a8bbd591bbec1bc2412b4962c -> origin/task/tray-launch-probe-20261125
+2026-11-25T04:10:05.9836661Z [command]"C:\Program Files\Git\bin\git.exe" branch --list --remote origin/task/tray-launch-probe-20261125
+2026-11-25T04:10:06.0254790Z   origin/task/tray-launch-probe-20261125
+2026-11-25T04:10:06.0300167Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse refs/remotes/origin/task/tray-launch-probe-20261125
+2026-11-25T04:10:06.0691503Z 107b49cb690ffc1a8bbd591bbec1bc2412b4962c
+2026-11-25T04:10:06.0727737Z ##[endgroup]
+2026-11-25T04:10:06.0728292Z ##[group]Determining the checkout info
+2026-11-25T04:10:06.0730019Z ##[endgroup]
+2026-11-25T04:10:06.0739584Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout disable
+2026-11-25T04:10:06.1258861Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset-all extensions.worktreeConfig
+2026-11-25T04:10:06.1653559Z ##[group]Checking out the ref
+2026-11-25T04:10:06.1662876Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force -B task/tray-launch-probe-20261125 refs/remotes/origin/task/tray-launch-probe-20261125
+2026-11-25T04:10:06.2977607Z Switched to a new branch 'task/tray-launch-probe-20261125'
+2026-11-25T04:10:06.3003046Z branch 'task/tray-launch-probe-20261125' set up to track 'origin/task/tray-launch-probe-20261125'.
+2026-11-25T04:10:06.3055482Z ##[endgroup]
+2026-11-25T04:10:06.3544987Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-25T04:10:06.3915733Z 107b49cb690ffc1a8bbd591bbec1bc2412b4962c
+2026-11-25T04:10:06.3963876Z ##[group]Removing auth
+2026-11-25T04:10:06.3964859Z Removing SSH command configuration
+2026-11-25T04:10:06.3973982Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T04:10:06.4376698Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T04:10:07.0337621Z Removing HTTP extra header
+2026-11-25T04:10:07.0345758Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T04:10:07.0771683Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T04:10:07.6106378Z Removing includeIf entries pointing to credentials config files
+2026-11-25T04:10:07.6115451Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T04:10:07.6464638Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git.path
+2026-11-25T04:10:07.6465598Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git/worktrees/*.path
+2026-11-25T04:10:07.6466562Z includeif.gitdir:/github/workspace/.git.path
+2026-11-25T04:10:07.6467141Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-25T04:10:07.6507356Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git.path
+2026-11-25T04:10:07.6847867Z D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:07.6890957Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git.path D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:07.7281698Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git/worktrees/*.path
+2026-11-25T04:10:07.7622538Z D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:07.7675471Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git/worktrees/*.path D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:07.8067704Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-11-25T04:10:07.8411588Z /github/runner_temp/git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:07.8454377Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:07.8839764Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-11-25T04:10:07.9239464Z /github/runner_temp/git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:07.9285463Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:07.9675755Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T04:10:08.5321777Z Removing credentials config 'D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config'
+2026-11-25T04:10:08.5334060Z ##[endgroup]
+2026-11-25T04:10:08.5689378Z ##[group]Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+2026-11-25T04:10:08.5689835Z with:
+2026-11-25T04:10:08.5690008Z   node-version: 25.2.1
+2026-11-25T04:10:08.5690219Z   check-latest: false
+2026-11-25T04:10:08.5692889Z   token: ***
+2026-11-25T04:10:08.5693081Z   package-manager-cache: true
+2026-11-25T04:10:08.5693305Z ##[endgroup]
+2026-11-25T04:10:08.7361343Z Attempting to download 25.2.1...
+2026-11-25T04:10:09.2871409Z Not found in manifest. Falling back to download directly from Node
+2026-11-25T04:10:09.3548917Z Acquiring 25.2.1 - x64 from https://nodejs.org/dist/v25.2.1/node-v25.2.1-win-x64.7z
+2026-11-25T04:10:09.7710681Z Extracting ...
+2026-11-25T04:10:12.5275924Z Adding to the cache ...
+2026-11-25T04:10:15.9833595Z Done
+2026-11-25T04:10:15.9839718Z ##[group]Environment details
+2026-11-25T04:10:17.1881217Z node: v25.2.1
+2026-11-25T04:10:17.1881534Z npm: 11.6.2
+2026-11-25T04:10:17.1881697Z yarn: 1.22.22
+2026-11-25T04:10:17.1882186Z ##[endgroup]
+2026-11-25T04:10:17.2197974Z ##[group]Run $ErrorActionPreference = 'Stop'
+2026-11-25T04:10:17.2198423Z [36;1m$ErrorActionPreference = 'Stop'[0m
+2026-11-25T04:10:17.2198780Z [36;1mnode --check 20261125/tray-launch-probe/probe.mjs[0m
+2026-11-25T04:10:17.2199181Z [36;1mif ($LASTEXITCODE -ne 0) { throw 'Node parse failed' }[0m
+2026-11-25T04:10:17.2199578Z [36;1m$parseTokens = $null; $parseErrors = $null[0m
+2026-11-25T04:10:17.2200338Z [36;1m[void][Management.Automation.Language.Parser]::ParseFile((Join-Path $pwd '20261125/tray-launch-probe/marker.ps1'), [ref]$parseTokens, [ref]$parseErrors)[0m
+2026-11-25T04:10:17.2201162Z [36;1mif ($parseErrors.Count) { throw ($parseErrors | Out-String) }[0m
+2026-11-25T04:10:17.2276957Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-25T04:10:17.2277380Z ##[endgroup]
+2026-11-25T04:10:17.7404936Z ##[group]Run node --max-old-space-size=128 20261125/tray-launch-probe/probe.mjs "$env:RUNNER_TEMP\tray-launch-probe-output"
+2026-11-25T04:10:17.7406115Z [36;1mnode --max-old-space-size=128 20261125/tray-launch-probe/probe.mjs "$env:RUNNER_TEMP\tray-launch-probe-output"[0m
+2026-11-25T04:10:17.7406965Z [36;1mexit $LASTEXITCODE[0m
+2026-11-25T04:10:17.7492642Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -command ". '{0}'"
+2026-11-25T04:10:17.7493061Z ##[endgroup]
+2026-11-25T04:10:20.5533244Z TRAY_PROBE_RESULT_SHA256=6f5a3d614112671edb05deef8d817bf69d214b762b6f1d1fd1cc1f2bab1ea35f
+2026-11-25T04:10:20.6830818Z TRAY_PROBE_RESULT_BASE64=ewogICJzdGF0dXMiOiAicGFzc2VkIiwKICAic3RhcnRlZEF0IjogIjIwMjYtMTEtMjVUMDQ6MTA6MTcuOTk1WiIsCiAgInBsYXRmb3JtIjogIndpbjMyIiwKICAibm9kZSI6ICJ2MjUuMi4xIiwKICAibGlidXYiOiAiMS41MS4wIiwKICAic2VsZlNoYTI1NiI6ICI5MmM0OWM0YzcxN2EyZTlkZWIyMmI4YmM2YmFhNzViMTYyOGVmMWMyY2I3YWI1MTA3MjcwMzEwN2UyOGFiNjI5IiwKICAibWFya2VyU2hhMjU2IjogIjIxMzBhODE1N2M1NThmN2E4YTMyM2E0MGNjMDc4ZjBmZTA0NzhmYzdjZTYxZmM3NWZkODg0ZDAzNjExOGQzYTkiLAogICJub05leHRPckZvcm1zIjogdHJ1ZSwKICAibm9QY0FjY2VzcyI6IHRydWUsCiAgImNhc2VzIjogWwogICAgewogICAgICAibmFtZSI6ICJhdHRhY2hlZCIsCiAgICAgICJsYXVuY2giOiB7CiAgICAgICAgImNvbW1hbmQiOiAiQzpcXFdpbmRvd3NcXFN5c3RlbTMyXFxXaW5kb3dzUG93ZXJTaGVsbFxcdjEuMFxccG93ZXJzaGVsbC5leGUiLAogICAgICAgICJhcmdzIjogWwogICAgICAgICAgIi1Ob0xvZ28iLAogICAgICAgICAgIi1Ob1Byb2ZpbGUiLAogICAgICAgICAgIi1Ob25JbnRlcmFjdGl2ZSIsCiAgICAgICAgICAiLVdpbmRvd1N0eWxlIiwKICAgICAgICAgICJIaWRkZW4iLAogICAgICAgICAgIi1GaWxlIiwKICAgICAgICAgICJEOlxcYVxcYmVhZC1tZS11cC1zY290dHlcXGJlYWQtbWUtdXAtc2NvdHR5XFwyMDI2MTEyNVxcdHJheS1sYXVuY2gtcHJvYmVcXG1hcmtlci5wczEiLAogICAgICAgICAgIi1PdXRwdXREaXJlY3RvcnkiLAogICAgICAgICAgIkQ6XFxhXFxfdGVtcFxcdHJheS1sYXVuY2gtcHJvYmUtb3V0cHV0XFxhdHRhY2hlZCIsCiAgICAgICAgICAiLU1vZGUiLAogICAgICAgICAgIk1hcmtlciIsCiAgICAgICAgICAiLVBhcmVudFByb2Nlc3NJZCIsCiAgICAgICAgICAiNjAwNCIKICAgICAgICBdLAogICAgICAgICJvcHRpb25zIjogewogICAgICAgICAgImRldGFjaGVkIjogZmFsc2UsCiAgICAgICAgICAid2luZG93c0hpZGUiOiB0cnVlLAogICAgICAgICAgInNoZWxsIjogZmFsc2UsCiAgICAgICAgICAic3RkaW8iOiBbCiAgICAgICAgICAgICJwaXBlIiwKICAgICAgICAgICAgInBpcGUiLAogICAgICAgICAgICAicGlwZSIKICAgICAgICAgIF0KICAgICAgICB9LAogICAgICAgICJzdGRvdXQiOiAiUkVBRFlcclxuIiwKICAgICAgICAic3RkZXJyIjogIiIsCiAgICAgICAgInN0YXJ0ZWRBdCI6IDE3OTU1Nzk4MTc5OTcsCiAgICAgICAgInBpZCI6IDk0MDAsCiAgICAgICAgImNvZGUiOiA3LAogICAgICAgICJzaWduYWwiOiBudWxsLAogICAgICAgICJlbGFwc2VkTXMiOiAxMjk0CiAgICAgIH0sCiAgICAgICJlbnRyeSI6IHsKICAgICAgICAicG93ZXJzaGVsbCI6ICI1LjEuMjYxMDAuMzM4MjIiLAogICAgICAgICJwaWQiOiA5NDAwLAogICAgICAgICJ1dGMiOiAiMjAyNi0xMS0yNVQwNDoxMDoxOC4zNDAxMDAwWiIsCiAgICAgICAgIm1vZGUiOiAiTWFya2VyIiwKICAgICAgICAicGFyZW50UHJvY2Vzc0lkIjogNjAwNAogICAgICB9LAogICAgICAiZmluYWwiOiB7CiAgICAgICAgInBhcmVudExvc3QiOiBmYWxzZSwKICAgICAgICAicGlkIjogOTQwMCwKICAgICAgICAiY29tcGxldGVkIjogdHJ1ZSwKICAgICAgICAiZXhpdENvZGUiOiA3LAogICAgICAgICJ1dGMiOiAiMjAyNi0xMS0yNVQwNDoxMDoxOS4yNzU3NDUwWiIKICAgICAgfSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiCiAgICB9LAogICAgewogICAgICAibmFtZSI6ICJkZXRhY2hlZCIsCiAgICAgICJsYXVuY2giOiB7CiAgICAgICAgImNvbW1hbmQiOiAiQzpcXFdpbmRvd3NcXFN5c3RlbTMyXFxXaW5kb3dzUG93ZXJTaGVsbFxcdjEuMFxccG93ZXJzaGVsbC5leGUiLAogICAgICAgICJhcmdzIjogWwogICAgICAgICAgIi1Ob0xvZ28iLAogICAgICAgICAgIi1Ob1Byb2ZpbGUiLAogICAgICAgICAgIi1Ob25JbnRlcmFjdGl2ZSIsCiAgICAgICAgICAiLVdpbmRvd1N0eWxlIiwKICAgICAgICAgICJIaWRkZW4iLAogICAgICAgICAgIi1GaWxlIiwKICAgICAgICAgICJEOlxcYVxcYmVhZC1tZS11cC1zY290dHlcXGJlYWQtbWUtdXAtc2NvdHR5XFwyMDI2MTEyNVxcdHJheS1sYXVuY2gtcHJvYmVcXG1hcmtlci5wczEiLAogICAgICAgICAgIi1PdXRwdXREaXJlY3RvcnkiLAogICAgICAgICAgIkQ6XFxhXFxfdGVtcFxcdHJheS1sYXVuY2gtcHJvYmUtb3V0cHV0XFxkZXRhY2hlZCIsCiAgICAgICAgICAiLU1vZGUiLAogICAgICAgICAgIk1hcmtlciIsCiAgICAgICAgICAiLVBhcmVudFByb2Nlc3NJZCIsCiAgICAgICAgICAiNjAwNCIKICAgICAgICBdLAogICAgICAgICJvcHRpb25zIjogewogICAgICAgICAgImRldGFjaGVkIjogdHJ1ZSwKICAgICAgICAgICJ3aW5kb3dzSGlkZSI6IHRydWUsCiAgICAgICAgICAic2hlbGwiOiBmYWxzZSwKICAgICAgICAgICJzdGRpbyI6IFsKICAgICAgICAgICAgInBpcGUiLAogICAgICAgICAgICAicGlwZSIsCiAgICAgICAgICAgICJwaXBlIgogICAgICAgICAgXQogICAgICAgIH0sCiAgICAgICAgInN0ZG91dCI6ICIiLAogICAgICAgICJzdGRlcnIiOiAiIiwKICAgICAgICAic3RhcnRlZEF0IjogMTc5NTU3OTgxOTI5MiwKICAgICAgICAicGlkIjogNjMyMCwKICAgICAgICAiY29kZSI6IDAsCiAgICAgICAgInNpZ25hbCI6IG51bGwsCiAgICAgICAgImVsYXBzZWRNcyI6IDk1CiAgICAgIH0sCiAgICAgICJlbnRyeSI6IG51bGwsCiAgICAgICJmaW5hbCI6IG51bGwsCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIgogICAgfSwKICAgIHsKICAgICAgIm5hbWUiOiAiaG9zdCIsCiAgICAgICJsYXVuY2giOiB7CiAgICAgICAgImNvbW1hbmQiOiAiQzpcXGhvc3RlZHRvb2xjYWNoZVxcd2luZG93c1xcbm9kZVxcMjUuMi4xXFx4NjRcXG5vZGUuZXhlIiwKICAgICAgICAiYXJncyI6IFsKICAgICAgICAgICItLW1heC1vbGQtc3BhY2Utc2l6ZT02NCIsCiAgICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcMjAyNjExMjVcXHRyYXktbGF1bmNoLXByb2JlXFxwcm9iZS5tanMiLAogICAgICAgICAgIi0taG9zdCIsCiAgICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcMjAyNjExMjVcXHRyYXktbGF1bmNoLXByb2JlXFxtYXJrZXIucHMxIiwKICAgICAgICAgICJEOlxcYVxcX3RlbXBcXHRyYXktbGF1bmNoLXByb2JlLW91dHB1dFxcaG9zdCIsCiAgICAgICAgICAiTWFya2VyIiwKICAgICAgICAgICI2MDA0IgogICAgICAgIF0sCiAgICAgICAgIm9wdGlvbnMiOiB7CiAgICAgICAgICAiZGV0YWNoZWQiOiB0cnVlLAogICAgICAgICAgIndpbmRvd3NIaWRlIjogdHJ1ZSwKICAgICAgICAgICJzaGVsbCI6IGZhbHNlLAogICAgICAgICAgInN0ZGlvIjogWwogICAgICAgICAgICAicGlwZSIsCiAgICAgICAgICAgICJwaXBlIiwKICAgICAgICAgICAgInBpcGUiCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICAic3Rkb3V0IjogIlJFQURZXHJcbiIsCiAgICAgICAgInN0ZGVyciI6ICIiLAogICAgICAgICJzdGFydGVkQXQiOiAxNzk1NTc5ODE5Mzg4LAogICAgICAgICJwaWQiOiAyODAwLAogICAgICAgICJjb2RlIjogNywKICAgICAgICAic2lnbmFsIjogbnVsbCwKICAgICAgICAiZWxhcHNlZE1zIjogNTE0CiAgICAgIH0sCiAgICAgICJlbnRyeSI6IHsKICAgICAgICAicG93ZXJzaGVsbCI6ICI1LjEuMjYxMDAuMzM4MjIiLAogICAgICAgICJwaWQiOiA4NTIsCiAgICAgICAgInV0YyI6ICIyMDI2LTExLTI1VDA0OjEwOjE5Ljc2NDI4MzNaIiwKICAgICAgICAibW9kZSI6ICJNYXJrZXIiLAogICAgICAgICJwYXJlbnRQcm9jZXNzSWQiOiA2MDA0CiAgICAgIH0sCiAgICAgICJmaW5hbCI6IHsKICAgICAgICAicGFyZW50TG9zdCI6IGZhbHNlLAogICAgICAgICJwaWQiOiA4NTIsCiAgICAgICAgImNvbXBsZXRlZCI6IHRydWUsCiAgICAgICAgImV4aXRDb2RlIjogNywKICAgICAgICAidXRjIjogIjIwMjYtMTEtMjVUMDQ6MTA6MTkuODc5ODg4OVoiCiAgICAgIH0sCiAgICAgICJob3N0IjogewogICAgICAgICJwaWQiOiAyODAwLAogICAgICAgICJwYXJlbnRQaWQiOiA2MDA0LAogICAgICAgICJzdGFydGVkQXQiOiAxNzk1NTc5ODE5NDQ5LAogICAgICAgICJub2RlIjogInYyNS4yLjEiLAogICAgICAgICJjaGlsZFBpZCI6IDg1MiwKICAgICAgICAiY29tbWFuZCI6ICJDOlxcV2luZG93c1xcU3lzdGVtMzJcXFdpbmRvd3NQb3dlclNoZWxsXFx2MS4wXFxwb3dlcnNoZWxsLmV4ZSIsCiAgICAgICAgImFyZ3MiOiBbCiAgICAgICAgICAiLU5vTG9nbyIsCiAgICAgICAgICAiLU5vUHJvZmlsZSIsCiAgICAgICAgICAiLU5vbkludGVyYWN0aXZlIiwKICAgICAgICAgICItV2luZG93U3R5bGUiLAogICAgICAgICAgIkhpZGRlbiIsCiAgICAgICAgICAiLUZpbGUiLAogICAgICAgICAgIkQ6XFxhXFxiZWFkLW1lLXVwLXNjb3R0eVxcYmVhZC1tZS11cC1zY290dHlcXDIwMjYxMTI1XFx0cmF5LWxhdW5jaC1wcm9iZVxcbWFya2VyLnBzMSIsCiAgICAgICAgICAiLU91dHB1dERpcmVjdG9yeSIsCiAgICAgICAgICAiRDpcXGFcXF90ZW1wXFx0cmF5LWxhdW5jaC1wcm9iZS1vdXRwdXRcXGhvc3QiLAogICAgICAgICAgIi1Nb2RlIiwKICAgICAgICAgICJNYXJrZXIiLAogICAgICAgICAgIi1QYXJlbnRQcm9jZXNzSWQiLAogICAgICAgICAgIjYwMDQiCiAgICAgICAgXSwKICAgICAgICAib3B0aW9ucyI6IHsKICAgICAgICAgICJkZXRhY2hlZCI6IGZhbHNlLAogICAgICAgICAgIndpbmRvd3NIaWRlIjogdHJ1ZSwKICAgICAgICAgICJzaGVsbCI6IGZhbHNlLAogICAgICAgICAgInN0ZGlvIjogWwogICAgICAgICAgICAicGlwZSIsCiAgICAgICAgICAgICJwaXBlIiwKICAgICAgICAgICAgInBpcGUiCiAgICAgICAgICBdCiAgICAgICAgfQogICAgICB9LAogICAgICAiaG9zdENsb3NlIjogewogICAgICAgICJwaWQiOiAyODAwLAogICAgICAgICJjaGlsZFBpZCI6IDg1MiwKICAgICAgICAiY29kZSI6IDcsCiAgICAgICAgInNpZ25hbCI6IG51bGwsCiAgICAgICAgImlucHV0RXJyb3IiOiBudWxsLAogICAgICAgICJlbmRlZEF0IjogMTc5NTU3OTgxOTg5NgogICAgICB9LAogICAgICAic3RhdHVzIjogInBhc3NlZCIKICAgIH0sCiAgICB7CiAgICAgICJuYW1lIjogInBhcmVudC1sb3NzIiwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAiY29udHJvbGxlciI6IHsKICAgICAgICAicGlkIjogODIxNiwKICAgICAgICAicGFyZW50UGlkIjogNjAwNCwKICAgICAgICAiY2hpbGRQaWQiOiA5MjUyLAogICAgICAgICJjb21tYW5kIjogIkM6XFxob3N0ZWR0b29sY2FjaGVcXHdpbmRvd3NcXG5vZGVcXDI1LjIuMVxceDY0XFxub2RlLmV4ZSIsCiAgICAgICAgImFyZ3MiOiBbCiAgICAgICAgICAiLS1tYXgtb2xkLXNwYWNlLXNpemU9NjQiLAogICAgICAgICAgIkQ6XFxhXFxiZWFkLW1lLXVwLXNjb3R0eVxcYmVhZC1tZS11cC1zY290dHlcXDIwMjYxMTI1XFx0cmF5LWxhdW5jaC1wcm9iZVxccHJvYmUubWpzIiwKICAgICAgICAgICItLWhvc3QiLAogICAgICAgICAgIkQ6XFxhXFxiZWFkLW1lLXVwLXNjb3R0eVxcYmVhZC1tZS11cC1zY290dHlcXDIwMjYxMTI1XFx0cmF5LWxhdW5jaC1wcm9iZVxcbWFya2VyLnBzMSIsCiAgICAgICAgICAiRDpcXGFcXF90ZW1wXFx0cmF5LWxhdW5jaC1wcm9iZS1vdXRwdXRcXHBhcmVudC1sb3NzIiwKICAgICAgICAgICJQYXJlbnRMb3NzIiwKICAgICAgICAgICI4MjE2IgogICAgICAgIF0sCiAgICAgICAgIm9wdGlvbnMiOiB7CiAgICAgICAgICAiZGV0YWNoZWQiOiB0cnVlLAogICAgICAgICAgIndpbmRvd3NIaWRlIjogdHJ1ZSwKICAgICAgICAgICJzaGVsbCI6IGZhbHNlLAogICAgICAgICAgInN0ZGlvIjogWwogICAgICAgICAgICAicGlwZSIsCiAgICAgICAgICAgICJwaXBlIiwKICAgICAgICAgICAgInBpcGUiCiAgICAgICAgICBdCiAgICAgICAgfQogICAgICB9LAogICAgICAiaG9zdCI6IHsKICAgICAgICAicGlkIjogOTI1MiwKICAgICAgICAicGFyZW50UGlkIjogODIxNiwKICAgICAgICAic3RhcnRlZEF0IjogMTc5NTU3OTgyMDAyNiwKICAgICAgICAibm9kZSI6ICJ2MjUuMi4xIiwKICAgICAgICAiY2hpbGRQaWQiOiAyMTQ0LAogICAgICAgICJjb21tYW5kIjogIkM6XFxXaW5kb3dzXFxTeXN0ZW0zMlxcV2luZG93c1Bvd2VyU2hlbGxcXHYxLjBcXHBvd2Vyc2hlbGwuZXhlIiwKICAgICAgICAiYXJncyI6IFsKICAgICAgICAgICItTm9Mb2dvIiwKICAgICAgICAgICItTm9Qcm9maWxlIiwKICAgICAgICAgICItTm9uSW50ZXJhY3RpdmUiLAogICAgICAgICAgIi1XaW5kb3dTdHlsZSIsCiAgICAgICAgICAiSGlkZGVuIiwKICAgICAgICAgICItRmlsZSIsCiAgICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcMjAyNjExMjVcXHRyYXktbGF1bmNoLXByb2JlXFxtYXJrZXIucHMxIiwKICAgICAgICAgICItT3V0cHV0RGlyZWN0b3J5IiwKICAgICAgICAgICJEOlxcYVxcX3RlbXBcXHRyYXktbGF1bmNoLXByb2JlLW91dHB1dFxccGFyZW50LWxvc3MiLAogICAgICAgICAgIi1Nb2RlIiwKICAgICAgICAgICJQYXJlbnRMb3NzIiwKICAgICAgICAgICItUGFyZW50UHJvY2Vzc0lkIiwKICAgICAgICAgICI4MjE2IgogICAgICAgIF0sCiAgICAgICAgIm9wdGlvbnMiOiB7CiAgICAgICAgICAiZGV0YWNoZWQiOiBmYWxzZSwKICAgICAgICAgICJ3aW5kb3dzSGlkZSI6IHRydWUsCiAgICAgICAgICAic2hlbGwiOiBmYWxzZSwKICAgICAgICAgICJzdGRpbyI6IFsKICAgICAgICAgICAgInBpcGUiLAogICAgICAgICAgICAicGlwZSIsCiAgICAgICAgICAgICJwaXBlIgogICAgICAgICAgXQogICAgICAgIH0KICAgICAgfSwKICAgICAgImVudHJ5IjogewogICAgICAgICJwb3dlcnNoZWxsIjogIjUuMS4yNjEwMC4zMzgyMiIsCiAgICAgICAgInBpZCI6IDIxNDQsCiAgICAgICAgInV0YyI6ICIyMDI2LTExLTI1VDA0OjEwOjIwLjMyNTQwNzBaIiwKICAgICAgICAibW9kZSI6ICJQYXJlbnRMb3NzIiwKICAgICAgICAicGFyZW50UHJvY2Vzc0lkIjogODIxNgogICAgICB9LAogICAgICAiY29udHJvbGxlckV4aXQiOiB7CiAgICAgICAgImNvbW1hbmQiOiAiQzpcXGhvc3RlZHRvb2xjYWNoZVxcd2luZG93c1xcbm9kZVxcMjUuMi4xXFx4NjRcXG5vZGUuZXhlIiwKICAgICAgICAiYXJncyI6IFsKICAgICAgICAgICItLW1heC1vbGQtc3BhY2Utc2l6ZT02NCIsCiAgICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcMjAyNjExMjVcXHRyYXktbGF1bmNoLXByb2JlXFxwcm9iZS5tanMiLAogICAgICAgICAgIi0tY29udHJvbGxlciIsCiAgICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcMjAyNjExMjVcXHRyYXktbGF1bmNoLXByb2JlXFxtYXJrZXIucHMxIiwKICAgICAgICAgICJEOlxcYVxcX3RlbXBcXHRyYXktbGF1bmNoLXByb2JlLW91dHB1dFxccGFyZW50LWxvc3MiCiAgICAgICAgXSwKICAgICAgICAib3B0aW9ucyI6IHsKICAgICAgICAgICJkZXRhY2hlZCI6IGZhbHNlLAogICAgICAgICAgIndpbmRvd3NIaWRlIjogdHJ1ZSwKICAgICAgICAgICJzaGVsbCI6IGZhbHNlLAogICAgICAgICAgInN0ZGlvIjogWwogICAgICAgICAgICAicGlwZSIsCiAgICAgICAgICAgICJwaXBlIiwKICAgICAgICAgICAgInBpcGUiCiAgICAgICAgICBdCiAgICAgICAgfSwKICAgICAgICAic3Rkb3V0IjogIiIsCiAgICAgICAgInN0ZGVyciI6ICIiLAogICAgICAgICJzdGFydGVkQXQiOiAxNzk1NTc5ODE5OTA0LAogICAgICAgICJwaWQiOiA4MjE2LAogICAgICAgICJjb2RlIjogbnVsbCwKICAgICAgICAic2lnbmFsIjogIlNJR0tJTEwiLAogICAgICAgICJlbGFwc2VkTXMiOiA1OTEKICAgICAgfSwKICAgICAgImZpbmFsIjogewogICAgICAgICJwYXJlbnRMb3N0IjogdHJ1ZSwKICAgICAgICAicGlkIjogMjE0NCwKICAgICAgICAiY29tcGxldGVkIjogdHJ1ZSwKICAgICAgICAiZXhpdENvZGUiOiAwLAogICAgICAgICJ1dGMiOiAiMjAyNi0xMS0yNVQwNDoxMDoyMC41MjUyMjU3WiIKICAgICAgfSwKICAgICAgImhvc3RDbG9zZSI6IHsKICAgICAgICAicGlkIjogOTI1MiwKICAgICAgICAiY2hpbGRQaWQiOiAyMTQ0LAogICAgICAgICJjb2RlIjogMCwKICAgICAgICAic2lnbmFsIjogbnVsbCwKICAgICAgICAiaW5wdXRFcnJvciI6IG51bGwsCiAgICAgICAgImVuZGVkQXQiOiAxNzk1NTc5ODIwNTQ0CiAgICAgIH0KICAgIH0KICBdLAogICJyZWNvcmRlZFByb2Nlc3NlcyI6IFsKICAgIHsKICAgICAgInBpZCI6IDI4MDAsCiAgICAgICJhbGl2ZSI6IGZhbHNlCiAgICB9LAogICAgewogICAgICAicGlkIjogODUyLAogICAgICAiYWxpdmUiOiBmYWxzZQogICAgfSwKICAgIHsKICAgICAgInBpZCI6IDkyNTIsCiAgICAgICJhbGl2ZSI6IGZhbHNlCiAgICB9LAogICAgewogICAgICAicGlkIjogMjE0NCwKICAgICAgImFsaXZlIjogZmFsc2UKICAgIH0sCiAgICB7CiAgICAgICJwaWQiOiA4MjE2LAogICAgICAiYWxpdmUiOiBmYWxzZQogICAgfQogIF0sCiAgImNvbXBsZXRlZEF0IjogIjIwMjYtMTEtMjVUMDQ6MTA6MjAuNTQ5WiIKfQo=
+2026-11-25T04:10:20.8240901Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-25T04:10:20.8241351Z with:
+2026-11-25T04:10:20.8241546Z   name: tray-launch-probe-20261125
+2026-11-25T04:10:20.8241822Z   path: D:\a\_temp/tray-launch-probe-output
+2026-11-25T04:10:20.8242316Z   if-no-files-found: error
+2026-11-25T04:10:20.8242524Z   retention-days: 14
+2026-11-25T04:10:20.8242712Z   compression-level: 6
+2026-11-25T04:10:20.8242897Z   overwrite: false
+2026-11-25T04:10:20.8243087Z   include-hidden-files: false
+2026-11-25T04:10:20.8243301Z ##[endgroup]
+2026-11-25T04:10:21.0217156Z (node:7844) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T04:10:21.0217973Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T04:10:21.0356290Z With the provided path, there will be 17 files uploaded
+2026-11-25T04:10:21.0361944Z Artifact name is valid!
+2026-11-25T04:10:21.0363552Z Root directory input is valid!
+2026-11-25T04:10:21.4127640Z Beginning upload of artifact content to blob storage
+2026-11-25T04:10:21.4588458Z (node:7844) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-25T04:10:21.7382248Z Uploaded bytes 6897
+2026-11-25T04:10:21.8146138Z Finished uploading artifact content to blob storage!
+2026-11-25T04:10:21.8147580Z SHA256 digest of uploaded artifact zip is a02231cc02021ab2a44a865ed1acf3c7d1701ae77d1c5628fdbed6ee9a8a5784
+2026-11-25T04:10:21.8150350Z Finalizing artifact upload
+2026-11-25T04:10:22.1998808Z Artifact tray-launch-probe-20261125.zip successfully finalized. Artifact ID 14991655500
+2026-11-25T04:10:22.2000466Z Artifact tray-launch-probe-20261125 has been successfully uploaded! Final size is 6897 bytes. Artifact ID is 14991655500
+2026-11-25T04:10:22.2013137Z Artifact download URL: https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45544873983/artifacts/14991655500
+2026-11-25T04:10:22.2379092Z Post job cleanup.
+2026-11-25T04:10:22.4187730Z Post job cleanup.
+2026-11-25T04:10:22.6177184Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T04:10:22.6542676Z git version 2.56.1.windows.1
+2026-11-25T04:10:22.6605540Z Copying 'C:\Users\runneradmin\.gitconfig' to 'D:\a\_temp\3cdd1c61-af7d-453f-b5e6-e6f18ad5b6e2\.gitconfig'
+2026-11-25T04:10:22.6627935Z Temporarily overriding HOME='D:\a\_temp\3cdd1c61-af7d-453f-b5e6-e6f18ad5b6e2' before making global git config changes
+2026-11-25T04:10:22.6629187Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T04:10:22.6639827Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty
+2026-11-25T04:10:22.7034292Z Removing SSH command configuration
+2026-11-25T04:10:22.7052929Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T04:10:22.7516031Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T04:10:23.3182114Z Removing HTTP extra header
+2026-11-25T04:10:23.3193001Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T04:10:23.3593117Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T04:10:23.9182496Z Removing includeIf entries pointing to credentials config files
+2026-11-25T04:10:23.9194935Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T04:10:23.9538279Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git.path
+2026-11-25T04:10:23.9540096Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git/worktrees/*.path
+2026-11-25T04:10:23.9582383Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git.path
+2026-11-25T04:10:23.9923847Z D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:23.9972202Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git.path D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:24.0362513Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git/worktrees/*.path
+2026-11-25T04:10:24.0712009Z D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:24.0757464Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/.git/worktrees/*.path D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config
+2026-11-25T04:10:24.1141728Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T04:10:24.6849432Z Removing credentials config 'D:\a\_temp\git-credentials-bb468ed3-5edc-460d-96b9-0033097c5113.config'
+2026-11-25T04:10:24.7049970Z Cleaning up orphan processes
+2026-11-25T04:10:24.7157934Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
