@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Static repaired-source preparation",
+  "final_native_acceptance": false,
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+    "parent": "7adb497b6fc27553f5a8d8f272214e3f49200676"
+  },
+  "prerequisite_reviews": {
+    "plan": "d8118ff886be31bb770e9d6f2192748548c15228",
+    "permanent_tests_and_actual_red": "f58e88c7536b381ba535d88d0e34fab66bdc7401"
+  },
+  "reviewed_files": {
+    "src/service/checkpoint.rs": "f860195328ef19049d87aa3904ef04de518889e9d289b57b00f0fcf4413e366c",
+    "src/service/checkpoint/set_v2.rs": "25f5beab0321444cf8fa29adfdeb14a6c62bf0f80ea515641f9f06ca9b3c8148"
+  },
+  "complete_commit_and_file_comparison": true,
+  "changed_paths": [
+    "src/service/checkpoint.rs",
+    "src/service/checkpoint/set_v2.rs"
+  ],
+  "findings": [],
+  "reasoning": [
+    "The sole lock change recognizes the raw code returned by pinned fs2::lock_contended_error alongside ErrorKind::WouldBlock. fs2 0.4.3 returns an OS-backed contention error on its supported Unix and Windows implementations. The actual Windows error 33 now reaches the existing bounded retry branch; unrelated errors still return immediately.",
+    "The timeout remains 30 seconds, polling remains 10 milliseconds, and deadline checking, named timeout error, exclusive File ownership and Drop unlock are byte-identical to the accepted start.",
+    "The enumerator joins relative Path components with '/', so Windows separators become the canonical manifest spelling. Literal backslashes within Unix filename components are copied unchanged, allowing the existing validator to reject them.",
+    "Directory traversal, regular-file and symlink filtering, temporary-file exclusion, non-UTF-8 filename refusal, prefix checking, retained-set subtraction and downstream artifact/tombstone validation remain unchanged. The only adjacent documentation change states the now-enforced slash-separated output contract.",
+    "No tests, fixture sizes, selectors, expected assertions, dependency, schema, public format or editing semantics changed. The existing three actual failures distinguish the intended repair."
+  ],
+  "pending": [
+    "Actual formatter, Clippy, fresh Linux and Windows builds and independent artifact verification.",
+    "Complete same-source affected tests, publication lock and ordinary conformance tests, twelve Windows OOB cells, Linux full suite, native smoke and original corpus checks.",
+    "Two final clean author inspections and post-process evidence, followed by independent final native acceptance.",
+    "Revision 8 actual mapping, app roundtrip with the qualified native release, logged-in PC tray/Exit and installed configured launch remain required for delivery."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
