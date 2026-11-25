@@ -64,7 +64,9 @@
     "artifact_id": 15001754642
   },
   "warnings": "npm ci succeeded with the existing warn-only Node devEngines declaration, Recharts deprecation and an uncovered unrs-resolver install-script notice. No dependency or policy was changed.",
-  "changed_files": [],
+  "changed_files": [
+    ".github/workflows/scotty-type-red-20261125.yml"
+  ],
   "git_result": {
     "product_branch": "task/scotty-finish-20261124",
     "product_commit": "3d3b0f3850e359bfb8d320d530f132a7e0d67469",
@@ -75,5 +77,19 @@
   "open_items": [
     "Independent type-app-tests-review acceptance is required before production correction.",
     "Real native-store and production HTTP scripts will execute against the corrected Windows executable and fresh production runtime."
+  ],
+  "workflow_author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean",
+      "commit": "a0b0a6ae2bc179b4dc40f95ba44890e37e9069b8",
+      "checks": "Read the complete published workflow. Verified exact checkout/tree/file assertions, locked dependency setup, permitted runtime paths, pinned Actions, command/job limits, and retention of actual stdout/stderr/exit without a product build or server."
+    },
+    {
+      "pass": 2,
+      "result": "clean",
+      "commit": "a0b0a6ae2bc179b4dc40f95ba44890e37e9069b8",
+      "checks": "Read the complete workflow again against the actual successful job and retained files. Verified all 48 outcomes, exact ten intended failures, rejection of timeouts/skips/cancellations, matching source hashes, no edit directories, and output upload restricted to this run's result directory."
+    }
   ]
 }
