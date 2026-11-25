@@ -5,24 +5,25 @@
   "status": "PASS",
   "accepted": true,
   "revision": 5,
-  "source_commit": "f19077a75725aad5d1f94bb2946af33a5cbab49a",
-  "plan_sha256": "98d2feefa4786cec2a23d55b597b60c175c3204b3f9ff3a78ae04021d6a27360",
-  "plan_review_sha256": "b88af1ba02ebd34d3ecaad5ba822fb28f19e180b4bd4dd53dc9a338ec0cd7b6d",
-  "author_review_sha256": "339b7ae9ad150ed2572265a99785bd7a8c0773147d033759c00bab17bc3f55a0",
+  "source_commit": "bcb5da02d4c9f8a508a2532bc38cfc855da5668a",
+  "plan_sha256": "94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db",
+  "plan_review_sha256": "081e844954ebfed49155c78d65c47cef6133b5b068819880fd860e6deb2bcdea",
+  "author_review_sha256": "5a4a7503e342570d7b83837f072de75fc4739ba8af888e0aef0e3e92915e0a4d",
   "blocking_findings": [],
   "product_tests_or_builds": false,
   "pc_actions": false,
   "database_writes": false,
   "helper_path": "20261125/record-accepted-tasks-v5.mjs",
-  "helper_sha256": "54e345f9910e9932740b6d9fa6bbe76dd1e683e2ca2f465fbb24173c79a24ad3",
+  "helper_sha256": "f96c675c943d6976abd737eaf31e02555d92ab6f4c722394008e05f5881c2819",
   "previous_helper_sha256": "654e523115ca3fa27d8fd05896e0a9d3ab9991d0db0841b69bbfdd7e85d68845",
-  "inspection": "Read the complete helper and both author inspections. Independently compared every changed line with the accepted prior utility; all 11 changed lines are revision/count/plan/hash/temporary-directory bindings.",
+  "inspection": "Read the complete corrected helper and both author inspections. Compared every line with the previously fully reviewed revision 5 version: eight changed lines are the corrected plan hash and 32/986/51 count bindings.",
   "findings": [
-    "The utility binds the known native executable, accepted revision-5 plan, successful materialization counts and exact hash of a request inside the owned coordination directory.",
-    "Requests require unique known task keys, exact current revisions, open/unassigned tasks, meaningful reasons and ordered closed prerequisites. Only close operations are generated.",
-    "Fresh exclusive output and retained request/manifest/dry-run/commit-started/results prevent an existing attempt from being silently reused. Native commands remain hidden, shell-free and bounded to 15 seconds each.",
-    "The commit suppresses auto-flush. Readback requires 985 distinct records, exact original 954 rows and every other stored field preserved apart from intended status/revision/updated_at changes and derived dependency status.",
-    "The body parses in V8 without execution. Ordinary node --check on exact transferred bytes remains required before invocation."
+    "The utility verifies the known executable, exact corrected plan, successful materialization counts and request hash inside the owned coordination directory.",
+    "Requests use unique known task keys, exact current revisions, open/unassigned records, meaningful reasons and ordered closed prerequisites. Only close operations are constructed.",
+    "Exclusive output and retained request, manifest, dry-run, commit marker and results preserve each attempted mutation. Commands remain hidden, shell-free and bounded to 15 seconds each.",
+    "Commit suppresses auto-flush. Readback requires 986 distinct records, exact original 954 rows and all other stored fields unchanged apart from intended status/revision/updated_at and derived dependency status.",
+    "The complete body parses in V8 without execution. Ordinary node --check on exact transferred bytes remains required before use."
   ],
-  "limits": "Root must select only independently accepted completed tasks; this utility does not evaluate review results. It remains bound to the isolated authority and must not be used there after preservation transfers authority to the original backend."
+  "supersedes_review_sha256": "aad82043c41e5e5cdabe69cb4a06922c1d5799591be2a036715f53a3cd8bed45",
+  "limits": "Root selects only independently accepted completed tasks; the utility does not decide review acceptance. It remains bound to the isolated authority and must not be used there after authority transfers to the original backend."
 }

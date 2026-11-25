@@ -6,31 +6,33 @@
   "accepted": true,
   "revision": 5,
   "read_complete_plan": true,
-  "task_count": 31,
-  "total_issues": 985,
-  "blocking_edges": 49,
-  "plan_sha256": "98d2feefa4786cec2a23d55b597b60c175c3204b3f9ff3a78ae04021d6a27360",
-  "delta_sha256": "9d360df7049d1d083290ca3c57cf8e096713b4a85b6a78d421db3e5ce9901778",
-  "template_sha256": "9d360df7049d1d083290ca3c57cf8e096713b4a85b6a78d421db3e5ce9901778",
-  "source_commit": "347acf8dbc39ab049af7ddc0d146257193227d6e",
+  "task_count": 32,
+  "total_issues": 986,
+  "blocking_edges": 51,
+  "plan_sha256": "94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db",
+  "delta_sha256": "6e8fce15f4867c7599b1aaa169b61cd7f3b2d7ce9723e89be2c60a81443adf93",
+  "template_sha256": "6e8fce15f4867c7599b1aaa169b61cd7f3b2d7ce9723e89be2c60a81443adf93",
+  "source_commit": "bcb5da02d4c9f8a508a2532bc38cfc855da5668a",
   "reviewed_files": {
-    "plan.json": "98d2feefa4786cec2a23d55b597b60c175c3204b3f9ff3a78ae04021d6a27360",
-    "delta-manifest.template.json": "9d360df7049d1d083290ca3c57cf8e096713b4a85b6a78d421db3e5ce9901778",
-    "checks.json": "e2de751dac14045189c93d30934d187afd64bc3ff80a900b8e4fea1db4105b7a",
-    "author-audits.json": "dc4cabbe033900f61bfb51bf2467072d3ea6d5f31d8f73aded5b3a03b1281fa9",
+    "plan.json": "94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db",
+    "delta-manifest.template.json": "6e8fce15f4867c7599b1aaa169b61cd7f3b2d7ce9723e89be2c60a81443adf93",
+    "checks.json": "c0f6c3a45c3336c5385f0e5be76f0c6b066c1f7081ea1779e652078c167ddf95",
+    "author-audits.json": "7e2e6567724ffae22fdc6d711ea714f4a5e5416e6c456ca2232f8c21daa66661",
     "writing-rules.json": "f3868d4b51635ac291b7af3b9fef48c969e1a344e4cbbb7c3604ddae0af49f68",
-    "DB_UPDATE_PROCEDURE.md": "c49e1fc0a2e9d82b276b56d73d175c0ba61e8f529824d6cbce7c95c174d570b7"
+    "DB_UPDATE_PROCEDURE.md": "3d00e5e199a0434c4eb08701a8ac0cdcb666cbb5dd5096eb7f9f95b8a1d3e239"
   },
-  "inspection": "Read the complete plan metadata, all 31 expanded descriptions, all 49 directed blocking edges, all 34 delta operations, both author inspections and the complete update procedure. Exact duplicate paragraphs were read once and their placement checked in every task; every distinct task paragraph was read in full. Compared against the exact accepted revision 4 plan, original request, current workflow/planner/execution/ZCF instructions, current writing exclusions and retained decisions.",
+  "inspection": "Read the complete plan metadata and all 32 expanded descriptions. Twenty-seven complete task objects are byte-identical to the earlier fully read version; all five corrected or new complete task objects were reread. Checked the entire 51-edge graph and all 37 manifest operations against the accepted revision 4, repository AGENTS.md, original request, workflow/planner/execution/ZCF instructions and current wording exclusions. Both final author inspections and the full update procedure were read. This is a complete-plan decision, with no sampled task or omitted description.",
   "findings": [
     "The full requested path remains: native editing and typed dependencies, Scotty integration, real Windows tray Exit, installation, actual installed launch, handoffs, durable task history and non-force Riftri cleanup.",
     "The two demonstrated checkpoint defects receive permanent tests, actual intended failures, independent test review, narrow source/specification repair, separate Linux and Windows builds/execution, and one independent repair review.",
     "Review and compilation can start together. Repair requires accepted tests and actual Red. Platform builds have different resources. Installation explicitly requires both platform executions and accepted repair review.",
+    "The explicit repository minimum is now required: fmt, all-target warnings-denied Clippy, and a fresh complete cargo test --locked --no-fail-fast -- --test-threads=1 run. Linux build compiles all default targets. The independent full-suite task accounts for every target and ignored test, requires the new regressions to run, and has an explicit installation dependency. Repair review cannot close before it passes.",
+    "The full suite and Linux release-corpus recovery use distinct resources and temporary fixtures. Windows has its own build/check pair. Prior failed runs and accepted unchanged app/browser results remain accurately retained.",
     "The replacement Windows source, executable and metadata are measured from actual qualified outputs. Historical native results remain historical. Existing parameterized installer and configured launcher bind the accepted replacement values.",
     "Original 954 issue records, 11264 event identities, five receipts and 413 outcomes are compared through real selected-generation restore. Current/previous tail recovery and legacy input are explicit; configuration, format version and historical pointers remain preserved.",
     "Preservation requires a private consistent original backup, selected-current restore before one same-UUID merge, separate manifest/corpus hashes, one writable authority after transfer, guarded short checkpoint pathspec publication, and a fresh restore containing final closure.",
     "Cloud/hosted builds preserve foreground PC resources. Root alone uses Emergency Maintenance; PC app runs retain fresh 3 GiB headroom, hidden BelowNormal operation, 512 MiB aggregate limit, exact owned-process cleanup and serialized use.",
-    "All 21 prior IDs and 34 old edges are retained. Twelve prior task objects are identical. Only nine declared pending descriptions change. The delta has 10 creates, 9 current-revision updates and 15 new blocking edges, with absent stable-reference checks and no restore/create/closure replay.",
+    "All 21 prior IDs and 34 old edges are retained. Twelve prior task objects are identical. Only nine declared pending descriptions change. The delta has 11 creates, 9 current-revision updates and 17 new blocking edges, with absent stable-reference checks and no restore/create/closure replay.",
     "All task prerequisites equal their graph edges; the graph is acyclic. Complete title/description scans against the current writing exclusions returned no matches."
   ],
   "retained_decisions": [
@@ -44,6 +46,25 @@
   "product_tests_or_builds": false,
   "pc_actions": false,
   "continuation_revision": 5,
-  "expanded_tasks_read": 31,
-  "blocking_edges_read": 49
+  "expanded_tasks_read": 32,
+  "blocking_edges_read": 51,
+  "supersedes": {
+    "commit": "507be027beafd589e8ecaf0cef4cf476560f6643",
+    "review_sha256": "b88af1ba02ebd34d3ecaad5ba822fb28f19e180b4bd4dd53dc9a338ec0cd7b6d",
+    "reason": "The earlier unmaterialized plan omitted the repository's mandatory fresh complete native test suite. This complete review accepts the corrected plan only."
+  },
+  "static_checks": {
+    "task_count": 32,
+    "total_issues": 986,
+    "existing_ids": 21,
+    "unchanged_existing_task_objects": 12,
+    "changed_existing_descriptions": 9,
+    "new_tasks": 11,
+    "blocking_edges": 51,
+    "retained_edges": 34,
+    "new_edges": 17,
+    "delta_operations": 37,
+    "template_reconstructed_exactly": true,
+    "acyclic": true
+  }
 }
