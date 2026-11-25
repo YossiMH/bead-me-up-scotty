@@ -1,0 +1,391 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "task_key": "type-windows-roundtrip",
+  "author": "/root/app_reconcile",
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "revision": 9
+  },
+  "candidate_commit": "f6679cad66ab1d280edcead8a7dc1f609e304c95",
+  "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "native_source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "native_executable_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+  "activation": {
+    "branch": "task/type-windows-roundtrip-20261125",
+    "attempts_before": 0,
+    "branch_before": "absent",
+    "single_activation": true,
+    "packet_review_commit": "de88c383b5a6dcf66fb6e33651835a186a4937ce",
+    "packet_review_sha256": "6a3b2faefa5d166436124d508630ac4f718a152884f2c3b1581c335e7b2bdd43",
+    "affected_review_commit": "3859355a8f0969af0d69bae894629a6226d134fb",
+    "affected_review_sha256": "66f8c9b060745de0947cdd92eafbe74aef723fee7e9e56896b616da3589c1f05"
+  },
+  "actual": {
+    "run_id": 45606372926,
+    "attempt": 1,
+    "job_id": 139178170464,
+    "conclusion": "success",
+    "all_steps_success": true,
+    "job_log_path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/job.log",
+    "job_log_sha256": "b4abfe6c9bf9a375afacb49b9e2f7eec82212e75d45f1a10749f58bf57f23a24",
+    "job_log_bytes": 577164,
+    "artifact": {
+      "id": 15018780172,
+      "name": "scotty-type-windows-45606372926-1",
+      "size_in_bytes": 44986,
+      "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15018780172",
+      "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15018780172/zip",
+      "expired": false,
+      "created_at": "2026-11-25T11:40:04Z",
+      "expires_at": "2026-12-09T11:40:03Z",
+      "updated_at": "2026-11-25T11:40:04Z",
+      "digest": "sha256:cc12bad26b552bf86a33790ac3e06595a643f8cdb6e9390575c64ea88c862ce4",
+      "workflow_run": {
+        "id": 45606372926,
+        "repository_id": 1430517452,
+        "head_repository_id": 1430517452,
+        "head_branch": "task/type-windows-roundtrip-20261125",
+        "head_sha": "f6679cad66ab1d280edcead8a7dc1f609e304c95"
+      }
+    }
+  },
+  "result": {
+    "status": "passed",
+    "inputs": {
+      "schema_version": 1,
+      "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+      "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+      "runtime_run_id": 45573503400,
+      "runtime_artifact_id": 15003467178,
+      "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+      "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+      "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+      "runtime_files": 560,
+      "native_source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "native_run_id": 45600413942,
+      "native_artifact_id": 15014634952,
+      "native_manifest_sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+      "native_executable": {
+        "bytes": 12243456,
+        "path": "release/bead-checkpoint-2d801ba455b7.exe",
+        "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+      },
+      "native_metadata": {
+        "bytes": 2058,
+        "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+        "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+      },
+      "task_job_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+      "native_qualification": "Final 2d801 Windows producer 45600413942 and separate full/small download verification passed. Activation also requires accepted actual final 2d801 affected-target results; complete checkpoint qualification remains a separate task."
+    },
+    "commands": [
+      {
+        "name": "npm-ci",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+          "ci",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      },
+      {
+        "name": "native-store",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "--conditions=react-server",
+          "--import",
+          "./scripts/support/register-source.mjs",
+          "--test",
+          "--test-reporter=tap",
+          "scripts/test-local-bead-rs.mjs"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      },
+      {
+        "name": "production-http",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "scripts/test-native-type-roundtrip.mjs"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      }
+    ],
+    "node": "v24.22.3",
+    "remaining_edit_directories": [],
+    "native_store_tests": {
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "http_result": "type-http-9v6iMa/result.json"
+  },
+  "reconciliation": {
+    "status": "passed",
+    "native_store": {
+      "test_count": 1,
+      "command_records": 9,
+      "type_characters": 40000,
+      "type_utf8_bytes": 50000,
+      "before_revision": 4,
+      "after_revision": 5,
+      "claim_epoch": 1,
+      "priority_audit": {
+        "sequence": 117,
+        "issue_id": "local-a90d2e0d",
+        "kind": "priority_changed",
+        "actor": "scotty-test",
+        "time": "2026-11-25T11:40:00.0362027Z",
+        "detail": {
+          "actor": "scotty-test",
+          "changed_fields": [
+            "priority"
+          ],
+          "new_priority": 0,
+          "old_priority": 2,
+          "reason": "Priority edited in Scotty",
+          "revision": 5
+        }
+      },
+      "checkpoint_reference_count": 3,
+      "staged_count": 8,
+      "unrelated_marker_unchanged": true
+    },
+    "production_http": {
+      "request_count": 3,
+      "edit_requests": 1,
+      "cli_records": 8,
+      "exact_input_api_query_type_sha256": "46c68e4748c92fcb5a90cd3cc4c1043a2a5c1402278c3adef72d49ab0493364a",
+      "before_revision": 2,
+      "after_revision": 3,
+      "claim_epoch": 1,
+      "priority_audit": {
+        "sequence": 4,
+        "issue_id": "typehttp-75799eb2",
+        "kind": "priority_changed",
+        "actor": "scotty-type-http",
+        "time": "2026-11-25T11:40:02.3308939Z",
+        "detail": {
+          "actor": "scotty-type-http",
+          "changed_fields": [
+            "priority"
+          ],
+          "new_priority": 0,
+          "old_priority": 2,
+          "reason": "Priority edited in Scotty",
+          "revision": 3
+        }
+      },
+      "checkpoint_reference_count": 3,
+      "staged_count": 8,
+      "unrelated_marker_unchanged": true,
+      "cleanup": {
+        "serverExit": {
+          "code": null,
+          "signal": "SIGTERM"
+        },
+        "portReleased": true
+      }
+    },
+    "remaining_edit_directories": [],
+    "commands": [
+      {
+        "name": "npm-ci",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+          "ci",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      },
+      {
+        "name": "native-store",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "--conditions=react-server",
+          "--import",
+          "./scripts/support/register-source.mjs",
+          "--test",
+          "--test-reporter=tap",
+          "scripts/test-local-bead-rs.mjs"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      },
+      {
+        "name": "production-http",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "scripts/test-native-type-roundtrip.mjs"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      }
+    ],
+    "retained_records": 17,
+    "all_record_hashes_match": true
+  },
+  "retained_files": [
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/linux-source-sha256.json",
+      "sha256": "1e114819d4366e5d33443480ef26d909881559ba3908249ff4811ca22b3de241",
+      "bytes": 2308,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/linux-scotty-runtime.json",
+      "sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+      "bytes": 110021,
+      "parts": 27
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/linux-result.json",
+      "sha256": "89d15c6ba9ec3948ca1d5e0f5f04443c5dc6f865a727c337b722aabe946c0049",
+      "bytes": 2414,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/native-metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5",
+      "bytes": 2058,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/npm-ci.stdout",
+      "sha256": "148e5939eb0def0fa9da8297f4dad37b36d958c7a7870f47712a2c493ae82162",
+      "bytes": 27,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/npm-ci.stderr",
+      "sha256": "646cab624230c314c0fa2332b2a0de8a4c2457d18a662638b2fd6d24b0d80fb5",
+      "bytes": 979,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/native-store.stdout",
+      "sha256": "f1d7e5f9d8d0cd3e756180a2f6f6dfc7510fb6a5f649818a335195cd579ee5bd",
+      "bytes": 344,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/native-store.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "parts": 0
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/production-http.stdout",
+      "sha256": "7528feee62e0c9358cdca38fff3d357015ac7c1ec07ca85c7889d3b81dac3b45",
+      "bytes": 198,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/production-http.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "bytes": 0,
+      "parts": 0
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/local-contract-GMkYuN/capabilities.json",
+      "sha256": "a3189a80e04b708e223fd99158574e6f5cc377803b02070a32145df2f3c141ba",
+      "bytes": 8558,
+      "parts": 3
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/local-contract-GMkYuN/commands.json",
+      "sha256": "9e82423c23e277599af516541ca829f37987d9f58b531ce8999c8bd901030834",
+      "bytes": 122288,
+      "parts": 28
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/local-contract-GMkYuN/git-result.json",
+      "sha256": "cf99f2cd1f17e9f4a3ac25fdc1608d4a05f769d8a0c9531917c9e797b9e28842",
+      "bytes": 1077,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/local-contract-GMkYuN/type-edit.json",
+      "sha256": "534968cd774940c5ad22f77a9c5158468ea0cbdf67f330441c4beb8fa8dec22d",
+      "bytes": 517,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/type-http-9v6iMa/result.json",
+      "sha256": "3ee4e38aa7b4ed2a4f4353afb1633ad3674c7ae19aeb5f01c1b489d024234e12",
+      "bytes": 168571,
+      "parts": 34
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/type-http-9v6iMa/server.log",
+      "sha256": "1c180ea09da96807348f99062c5afc1951f33f4bf032be609c89de57feeef220",
+      "bytes": 156,
+      "parts": 1
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/windows-result.json",
+      "sha256": "18a980f18f50130713b42ee21a7f093f5656bcc045928231f59c833f2da2b545",
+      "bytes": 2841,
+      "parts": 1
+    }
+  ],
+  "complete_outputs_retained": true,
+  "final_author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Complete final packet and actual execution result",
+      "checks": [
+        "Reread the full unchanged verification/runner and exact final inputs/workflow. Source, runtime, all eleven source file hashes/Git blobs, original dependency lock, all 560 runtime records and BUILD_ID are checked before commands.",
+        "Reconciled the final Windows release and original metadata against the accepted producer, final affected-check review and exact runtime packet. Activation occurred once only after absent-ref and zero-prior-run checks.",
+        "Reconstructed all seventeen emitted original text records with exact part sequencing, UTF-8 lengths and SHA-256 checks; reviewed the complete native TAP and all three command exits.",
+        "Compared the 40,000-character / 50,000-byte type from the HTTP request to exact API response and public native query. There is one PATCH, revision 2 to 3, unchanged claim epoch and assignee, and one priority event with the expected actor, reason and revision.",
+        "Checked the native-store type record and public query, revision 4 to 5, unchanged claim epoch and priority audit; each store retains the unrelated marker and its complete referenced checkpoint closure."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Independent traversal of retained identities, cleanup and boundaries by the same author",
+      "checks": [
+        "Rechecked all record hashes, the original three runtime/source/build receipts and native metadata against their accepted immutable hashes. Counted the complete unique 560-file inventory and 27,426,391 expanded bytes; all eleven source records remain unchanged.",
+        "Read every native-store command record and every HTTP/CLI boundary record, plus all warnings and server output. The actual runner reports one passing native-store test, zero skipped/cancelled/todo cases, both prescribed commands at exit zero and no timeout.",
+        "Checked observed server SIGTERM exit and released loopback port, no request-owned edit directories, and both unrelated Git markers. The existing Windows Job owns descendants through the hosted step and final runner cleanup completed.",
+        "Retained the exact full job log, every emitted original file, run/job/artifact metadata and explicit source hashes. The app runtime was reused; no product source or runtime was changed by this execution.",
+        "PC installation, logged-in tray operation, actual native task mapping and worktree cleanup remain separate pending coordinator work. This is an execution result ready for independent acceptance, not final app or assignment acceptance."
+      ]
+    }
+  ],
+  "warnings": {
+    "npm_stderr": "npm warn EBADDEVENGINES The developer of this package has specified the following through devEngines\nnpm warn EBADDEVENGINES Invalid devEngines.runtime\nnpm warn EBADDEVENGINES Invalid semver version \">=26.4\" does not match \"v24.22.3\" for \"runtime\"\nnpm warn EBADDEVENGINES {\nnpm warn EBADDEVENGINES   current: { name: 'node', version: 'v24.22.3' },\nnpm warn EBADDEVENGINES   required: { name: 'node', version: '>=26.4', onFail: 'warn' }\nnpm warn EBADDEVENGINES }\nnpm warn deprecated recharts@2.15.4: 1.x and 2.x branches are no longer active. Bump to Recharts v3 to receive latest features and bugfixes. See https://github.com/recharts/recharts/wiki/3.0-migration-guide\nnpm warn install-scripts 1 package has install scripts not yet covered by allowScripts:\nnpm warn install-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\n",
+    "actions": [
+      "2026-11-25T11:40:08.5245815Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+    ]
+  },
+  "changed_product_files": [],
+  "pc_actions": 0,
+  "final_independent_review_pending": true,
+  "remaining": [
+    "Root independent final app review with accepted complete native qualification",
+    "Actual revision 9 native mapping, installation, logged-in tray/configured launch and history",
+    "Reconcile and remove the inaccessible Riftri worktrees and task branches after preserving all source/evidence"
+  ]
+}

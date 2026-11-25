@@ -1,0 +1,31 @@
+{
+  "binary_name": "bead-checkpoint-2d801ba455b7.exe",
+  "description": "bead-rs release binary built from a git-archive extraction of 2d801ba",
+  "pinned_timestamp": "2026-11-25T11:08:58Z",
+  "git_commit_sha": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "git_commit_short": "2d801ba",
+  "git_commit_message": "fix: recognize Windows operation and maintenance lock contention",
+  "git_commit_date": "2026-11-25T02:52:10-08:00",
+  "embedded_version_string": "bead 0.3.0 (unknown 2026-11-25T11:04:02Z)",
+  "build_timestamp": "2026-11-25T11:08:58Z",
+  "build_host": "runnervmbpeip",
+  "build_host_target": "x86_64-pc-windows-msvc",
+  "build_target": "x86_64-pc-windows-msvc",
+  "execution_verification": "executed",
+  "build_scratch_path": "D:/a/_temp/bead-windows-native-45600413942-1-work/archive-build-scratch/bead-archive-2d801ba-BaNBcU",
+  "binary_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+  "binary_size_bytes": 12243456,
+  "binary_size_human": "12M",
+  "cargo_package_version": "0.3.0",
+  "build_features": "default",
+  "build_profile": "release",
+  "rustc_version": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+  "build_command": "cargo build --release --locked --target x86_64-pc-windows-msvc",
+  "pinned_binary_path": "D:/a/_temp/bead-windows-native-45600413942-1/release/bead-checkpoint-2d801ba455b7.exe",
+  "source": "git-archive",
+  "source_extraction": "git archive from D:/a/bead-me-up-scotty/bead-me-up-scotty/source into build_scratch_path; the shared checkout's index, HEAD, reflog and stashes were not touched (scripts/build-from-archive.sh)",
+  "notes": [
+    "An archive carries no .git, so bead-rs build.rs uses commit 'unknown'. The authoritative source commit is git_commit_sha above. A null embedded_version_string means execution has not been verified on the target.",
+    "sha256 is NOT reproducible across rebuilds: build.rs re-embeds BEAD_BUILD_TIMESTAMP on every build. Verify by hash comparison against these pinned bytes; do not rebuild and expect this hash."
+  ]
+}

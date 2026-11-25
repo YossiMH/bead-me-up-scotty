@@ -1,0 +1,116 @@
+{
+  "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+  "commands": [
+    {
+      "name": "npm-ci",
+      "command": [
+        "npm",
+        "ci",
+        "--no-audit",
+        "--no-fund"
+      ],
+      "exit": 0,
+      "timeout_seconds": 420
+    },
+    {
+      "name": "adapter-tests",
+      "command": [
+        "node",
+        "--test",
+        "--test-reporter=tap",
+        "scripts/test-backend-contract.mjs",
+        "scripts/test-native-editing.mjs",
+        "scripts/test-native-mutations.mjs",
+        "scripts/test-native-mutation-outcomes.mjs",
+        "scripts/test-native-credential-tenures.mjs"
+      ],
+      "exit": 0,
+      "timeout_seconds": 180
+    },
+    {
+      "name": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit": 0,
+      "timeout_seconds": 180
+    },
+    {
+      "name": "committed-diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check",
+        "HEAD^",
+        "HEAD"
+      ],
+      "exit": 0,
+      "timeout_seconds": 30
+    },
+    {
+      "name": "diff-check",
+      "command": [
+        "git",
+        "diff",
+        "--check"
+      ],
+      "exit": 0,
+      "timeout_seconds": 30
+    },
+    {
+      "name": "build",
+      "command": [
+        "npm",
+        "run",
+        "build"
+      ],
+      "exit": 0,
+      "timeout_seconds": 600
+    },
+    {
+      "name": "type-check",
+      "command": [
+        "node",
+        "node_modules/typescript/bin/tsc",
+        "--noEmit"
+      ],
+      "exit": 0,
+      "timeout_seconds": 120
+    },
+    {
+      "name": "tracked-source-check",
+      "command": [
+        "git",
+        "diff",
+        "--exit-code",
+        "HEAD"
+      ],
+      "exit": 0,
+      "timeout_seconds": 30
+    }
+  ],
+  "node": "v24.22.3",
+  "npm": "11.19.1",
+  "remaining_edit_directories": [],
+  "adapter_tests": {
+    "tests": 115,
+    "pass": 115,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0
+  },
+  "runtime": {
+    "manifest": "scotty-runtime.json",
+    "manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "file_count": 560,
+    "archive": "scotty-runtime.zip",
+    "archive_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "archive_bytes": 7137798,
+    "build_id": "YIOHeRJTEdlOszyc4LyHr"
+  },
+  "status": "passed"
+}
