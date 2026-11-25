@@ -10,28 +10,28 @@
   "independent_review_pending": true,
   "artifacts": {
     "checkpoint-handoff-20261125.mjs": {
-      "bytes": 54174,
-      "sha256": "c436bb5542facd97a350606cbb695a6938910eda6697bbfa10a82bf26359ab2c"
+      "bytes": 64408,
+      "sha256": "b34020ca1a54326af73baadb29c3d7a47da123abf4dac414594ded4a5b25b5ef"
     },
     "checkpoint-handoff-supervisor-20261125.ps1": {
       "bytes": 17207,
       "sha256": "396b849ec152da55e75078fa755eef6736b4d2327258aa0b48b60faf4cac2449"
     },
     "README.md": {
-      "bytes": 12612,
-      "sha256": "5a611d05843b1d85a3d0357482cf74710c91a5282a456f9905cc134edb5196a6"
+      "bytes": 16026,
+      "sha256": "fbefb0690f19c5fee29ba7cea23a90f82cb42fe614e802f2cebaf58a2b588c6a"
     },
     "request.template.json": {
-      "bytes": 1754,
-      "sha256": "11dda8c090a9ae3d2cded2670e62a19390107820c835f5f77fca5c0b95c3f578"
+      "bytes": 1807,
+      "sha256": "618ac94d51f365a48676e355030540373a4d2b5f5c8b8f988d0eb5eecfd1d542"
     },
     "author-audits.json": {
-      "bytes": 4386,
-      "sha256": "d8c92d7ba3022949cd92b0b8b868b936f74eabe43ddfd77db3f2a1e181134276"
+      "bytes": 4925,
+      "sha256": "349833cf7f81d51532e270252da15ff5cdf1a497670c4f30f6a10ba5ce4c61ab"
     },
     "static-checks.json": {
-      "bytes": 1171,
-      "sha256": "83df919a2ebb95627b00075968034ffd64e8f462fd79ab09a305a98024debb26"
+      "bytes": 1411,
+      "sha256": "2059c5ef1648466c853ad27cf830e421c60e1b0f119a0b2e773ed81d2eae6497"
     }
   },
   "current_plan_shape": {
@@ -51,5 +51,13 @@
     "Full independent delivery review",
     "Successful selected-current source restore before original native open"
   ],
-  "future_cleanup": "After exact helpers/audits are retained in the normal handoff location, root or a future agent conditionally removes task/checkpoint-helper-20261125. Inspect attempts/authority transfer before native writes; remove only clean published owned worktrees through Riftri without force."
+  "future_cleanup": "After exact helpers/audits are retained in the normal handoff location, root or a future agent conditionally removes task/checkpoint-helper-20261125. Inspect attempts/authority transfer before native writes; remove only clean published owned worktrees through Riftri without force.",
+  "original_preservation": {
+    "method": "Verified immutable Git tree plus copied selected current/previous closures",
+    "checkpoint_tree": "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+    "tracked_files": 53,
+    "tracked_bytes": 429072095,
+    "copied_files": 4,
+    "copied_bytes": 17063501
+  }
 }
