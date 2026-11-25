@@ -1,0 +1,834 @@
+{
+  "schema_version": 1,
+  "plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+  "canonical_state": "Revision6 fully materialized. Latest accepted closure31db8baa closed tray-repair-checks and installer-repair at revision5 and checkpoint-full-suite at revision2. Same32 IDs/51 edges/986 issues; all954 originals and unrelated stored fields unchanged. Real PC tray, final Windows native qualification, installation and final history preservation remain pending.",
+  "native_ids_for_new_tasks": {
+    "checkpoint-tests": "beadrs-940d77c6",
+    "checkpoint-red-build": "beadrs-0eaf8a73",
+    "checkpoint-red-checks": "beadrs-ce0423c1",
+    "checkpoint-tests-review": "beadrs-b1038d26",
+    "checkpoint-repair": "beadrs-b72dc0dc",
+    "checkpoint-linux-build": "beadrs-9c6d0088",
+    "checkpoint-windows-build": "beadrs-70721b6a",
+    "checkpoint-linux-checks": "beadrs-50ff08d3",
+    "checkpoint-windows-checks": "beadrs-cd3f5a63",
+    "checkpoint-repair-review": "beadrs-aee6eabb",
+    "checkpoint-full-suite": "beadrs-0890de3c"
+  },
+  "claim_credentials": null,
+  "root_is_sole_state_writer": true,
+  "known_connector_attempts": [
+    {
+      "action": "stage accepted32-task inputs and syntax-check",
+      "proposal_id": "V9ieI31qdjrA9aCDWw74YXst6y18XyJ_vzG6o4drzpE",
+      "status": "exited",
+      "exit_code": 0,
+      "node_checks": [
+        0,
+        0
+      ],
+      "database_written": false
+    },
+    {
+      "action": "prepare native materialization",
+      "status": "two calls timed out before a proposal ID was returned; admin_execute was never called",
+      "database_written": false
+    },
+    {
+      "action": "reconcile staged revision5 and native materialization",
+      "proposal_id": "U9eG4JwfLyuv-lCbf-57rBMePRxZ_T6HZ4z-YKbzjFk",
+      "status": "exited",
+      "exit_code": 0,
+      "result": "Old accepted32-task bytes still staged; materialization-v5, supervisor and result markers absent; all owned tasks stopped.",
+      "database_written": false
+    },
+    {
+      "action": "Windows tray identity attempt",
+      "proposal_id": "hydxJMN_hH5U-GQQEmHWv-H5gnXtVf8Xb8zUyfSuwCA",
+      "status": "cancelled",
+      "exit_code": 124,
+      "stdout_status": "deferred_memory",
+      "task_created": false,
+      "free_physical_bytes": 2593517568,
+      "product_launched": false
+    },
+    {
+      "action": "prepare small clarified-input stage batch1",
+      "status": "two prepare calls timed out with no proposal; no admin_execute called",
+      "database_written": false
+    },
+    {
+      "action": "first native revision5 attempt",
+      "proposal_id": "9Jx9o7ByXHxl7SOPgnnaVmd2qyL5QnAFwygoPhCPxFg",
+      "status": "failed before commit",
+      "phase": "dry-run",
+      "commit_attempted": false,
+      "result": "Manifest preview intentionally redacted one projected description; exact failure retained. Corrected report-only validator independently accepted."
+    },
+    {
+      "action": "corrected revision5 materialization",
+      "proposal_id": "338xzQkqL9dNqe0pJBBgToGIXjWebFxfOKxPbFbao4c",
+      "status": "completed",
+      "result_sha256": "6a46c9ddef4c847a0c8a5cf63c58bdec2e237a8bd04f4f4940467af8171f7d85",
+      "native_task": "ChatGPT-BeadEditing-MaterializeR5-20261125-v2",
+      "task_state": 3,
+      "task_result": 0,
+      "database_written": true
+    },
+    {
+      "action": "read corrected result then conditionally attempt tray",
+      "proposal_id": "rzb_EyJ3SNkOHrx4uazNYnsApiH3Q_gxbk4DcqqjkhY",
+      "status": "exited",
+      "exit_code": 0,
+      "native_readback": "passed exact",
+      "tray_status": "deferred_memory",
+      "free_physical_bytes": 654069760,
+      "task_created": false
+    },
+    {
+      "action": "record four accepted checkpoint foundation results",
+      "proposal_id": "dQA1rpBV9b4d8P3z-EWsmWwuYhEMocv_U2eZNZktbH8",
+      "status": "completed and independently read back",
+      "result_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "database_written": true
+    },
+    {
+      "action": "memory-gated tray diagnostic",
+      "proposal_id": "hbgos2z_CuEA5G-1q6pOGgtWSF1XZLsxEasU6P6FQ2o",
+      "status": "finished failed app test",
+      "native_task": "ChatGPT-BeadEditing-TrayIdentityWait-20261125-v1",
+      "task_state": 3,
+      "task_result": 1,
+      "result_sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+      "retry_allowed": false
+    },
+    {
+      "action": "read actual tray failure logs and owned process cleanup",
+      "proposal_id": "bikWt9r690lpCfsF1gkggCCbK7JT430xqNK0OZt8VNg",
+      "status": "exited0",
+      "database_written": false,
+      "all_recorded_pids_absent": true,
+      "port43971_free": true
+    },
+    {
+      "action": "combined request stage/native closure dispatch",
+      "proposal_id": "t1g9DxTpazimFoW_NQzRNZWk-GFeUd1W-ts0QQOi99A",
+      "status": "failed at10405-character command boundary",
+      "exit_code": 255,
+      "stderr": "'ConvertTo-Json' is not recognized as an internal or external command,\r\noperable program or batch file.\r\n",
+      "reconciliation_proposal": "XRTTa74Kig2m_RDFTAWwnW89J4_7_vCsGOV9IWuFLNg",
+      "reconciliation": "all request/task/intent/result markers absent; no mutation occurred"
+    },
+    {
+      "action": "stage exact3272byte native closure request",
+      "proposal_id": "IhoiXzGLrflILhat1xoI_7s3LfUQ-HJSdJ29Veb6YfU",
+      "status": "passed",
+      "sha256": "647595ed40c4460897fb147c8e7280f68fc319e87b8af9ed9d8c9999a2c5557a",
+      "database_written": false
+    },
+    {
+      "action": "close source producer and Linux build",
+      "proposal_id": "4oFjOtOZRAXMMKG0TUmyKpZqHXjmW38MpJ0ZTcwDQ3E",
+      "status": "completed and read back",
+      "receipt_sha256": "0fc58905f2c3f62bd8735f09f0f01751f1da5dd00752bdf8b3702d2224f664b9",
+      "closed": [
+        "checkpoint-repair",
+        "checkpoint-linux-build"
+      ],
+      "original954_unchanged": true,
+      "task_state": 3,
+      "task_result": 0,
+      "replay_allowed": false
+    },
+    {
+      "action": "stage six exact revision6 inputs and ordinary Node checks",
+      "proposal_id": "4UUpg7bcftmcrsdsNcFUJ6hRbq-jMOJQljzGKyV73TQ",
+      "status": "exited0",
+      "free_bytes": 2325417984,
+      "reviewed_hashes_verified": true,
+      "node_checks": [
+        0,
+        0
+      ],
+      "native_attempt_paths_absent": true,
+      "database_written": false
+    },
+    {
+      "action": "stage and parse reviewed bounded revision6 supervisor",
+      "proposal_id": "yMRoVhzw-1a5aM54eNZ7RV-Z030eJWV4jdjpg3DodVg",
+      "status": "exited1 at pre-write free-memory guard",
+      "reason": "Less than1GiB available",
+      "database_written": false,
+      "files_written": false
+    },
+    {
+      "action": "fresh supervisor staging request after known memory refusal",
+      "proposal_id": "0tJ2VfV2siVYtznixcQDpeHjfIIT1ads2ZGHCoatvL8",
+      "status": "completed and polled; exited0",
+      "job_id": "j1795582362800-37324-16438781144768896576",
+      "database_written": false,
+      "scope": "staging and parser only; no native helper invocation",
+      "free_physical_bytes": 11499843584,
+      "ordinary_powershell_parser_errors": 0,
+      "exact_supervisor_and_job_helper_hashes_verified": true
+    },
+    {
+      "action": "Direct owned-Job revision6 materialization",
+      "proposal_id": "zIKAJTabKpceWww3qW_P0bPlHNj7-cbSjQ3AsZ9pFBI",
+      "job_id": "j1795583113330-37324-15279828668082537180",
+      "status": "completed and polled; exited0",
+      "result_sha256": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2",
+      "duration_seconds": 3.581,
+      "free_physical_bytes_before_start": 7726264320,
+      "peak_total_resident_bytes": 318414848,
+      "cleanup_assisted": false,
+      "remaining_job_members": [],
+      "database_written": true,
+      "replay_allowed": false
+    },
+    {
+      "action": "Read exact completed revision6 receipt",
+      "proposal_id": "ixh45ZEQnYnfRRvUzeKuz0IqtaKo7j2nlFcFTdb_tZA",
+      "job_id": "j1795583447416-37324-6722199817048753184",
+      "status": "completed and polled; exited0",
+      "result_sha256": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2",
+      "exact_bytes_saved": "coordination/results/materialization-result-v6.json",
+      "database_written": false
+    },
+    {
+      "action": "Stage/ordinary parse accepted close supervisor and request",
+      "proposal_id": "kS94IMFbyWeZ9g2wD5UsBiekfb2kpAoQMPL-OvaOs_I",
+      "status": "exited0",
+      "free_physical_bytes": 2998833152,
+      "parse_errors": 0,
+      "request_tasks": 3,
+      "database_written": false
+    },
+    {
+      "action": "Close three accepted revision6 tasks",
+      "proposal_id": "RAGj1imk28X8hVyDvKpc9MxsSADV9PcuD7axxC1jMYk",
+      "job_id": "j1795584136216-37324-180947663746113032",
+      "status": "completed and polled; exited0",
+      "first_poll_timed_out": true,
+      "later_exact_poll_reconciled": true,
+      "result_sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c",
+      "raw_supervisor_sha256": "6ea931cf5109fdd8ed904af5514569a6c36056b9b0807e631829967b9db7ebca",
+      "closed": [
+        "tray-diagnose",
+        "tray-repair",
+        "checkpoint-linux-checks"
+      ],
+      "peak_total_resident_bytes": 242155520,
+      "duration_seconds": 4.986,
+      "free_physical_bytes_before_start": 1845522432,
+      "remaining_job_members": [],
+      "database_written": true,
+      "replay_allowed": false
+    },
+    {
+      "action": "Read exact three-task closure receipt",
+      "proposal_id": "FzPHA21-4g5e6NA6pem9-vV_4MoRNlJV89rz-UbQYzo",
+      "status": "exited0; exact bytes verified",
+      "result_sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c",
+      "database_written": false
+    },
+    {
+      "action": "stage exact five final PC execution helpers and parse",
+      "proposal_id": "pe_YLlvnUc-OkTOIcz7V35xz4oiC8FAd3YJQx0bdDyA",
+      "status": "exited",
+      "exit_code": 0,
+      "free_physical_bytes": 4414631936,
+      "application_launched": false,
+      "archive_mutated": false,
+      "execution_directory": "C:/Users/YossiMH/AppData/Local/bead-edit-20261111/tray-host-execution-20261125"
+    },
+    {
+      "action": "stage accepted tray checks/installer/full suite closure request",
+      "proposal_id": "vbxWNlWhvZLS2I5e7jL3-KLFPVO7oOwrnwphUcwUGu8",
+      "status": "exited",
+      "exit_code": 0,
+      "request_sha256": "1b379a018ecaedcf5f533b4689e1062220303aae5bda75f327d83f23a59c8530",
+      "database_written": false
+    },
+    {
+      "action": "close accepted tray checks/installer preparation/full suite",
+      "proposal_id": "Nt1sgYrUM1k2CwVgwMgLi2UC85c28rdrhczJQMM1TTw",
+      "status": "exited and independently reconciled",
+      "exit_code": 0,
+      "result_sha256": "31db8baa427d3bacb9200bdaf21bffa6035c285587479c8923a874b469bbf155",
+      "supervisor_raw_sha256": "66c1155fe65f43672b8446066fda0e3c05edc7ba1fc73bd504cd9e7995cbaff1",
+      "replay_allowed": false,
+      "original954_unchanged": true,
+      "peak_total_resident_bytes": 226381824,
+      "duration_seconds": 1.356,
+      "final_owned_job_empty": true
+    },
+    {
+      "action": "read exact three-task closure result",
+      "proposal_id": "Xz6PbDSayowwBrXcW5oIAsYb6gvWGTi-2ei33Ho-8gY",
+      "status": "exited",
+      "exit_code": 0,
+      "result_sha256": "31db8baa427d3bacb9200bdaf21bffa6035c285587479c8923a874b469bbf155",
+      "database_written": false
+    }
+  ],
+  "assignments": [
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-tests",
+      "worker": "/root/browser_finish",
+      "mode": "provisional accepted candidate work",
+      "native_id": "beadrs-940d77c6",
+      "source_candidate": "bb0638535172dead8f648b4a4944dddc6175f832",
+      "review": "7cf293ae3747eb405ae81d05f7e499dbe3ca9491032529dd3db43bf65ed9ffd3",
+      "next_action": "Preserve exact result and history; task complete.",
+      "source_result": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+      "status": "accepted output closed in canonical native store",
+      "native_status": "closed",
+      "native_revision": 2,
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-tests-review",
+      "worker": "/root/delivery_review",
+      "mode": "provisional independent review",
+      "native_id": "beadrs-b1038d26",
+      "status": "accepted output closed in canonical native store",
+      "native_status": "closed",
+      "native_revision": 2,
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "next_action": "Preserve exact result and history; task complete.",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-red-build",
+      "worker": "/root/browser_finish",
+      "native_id": "beadrs-0eaf8a73",
+      "mode": "provisional accepted hosted compilation",
+      "status": "accepted output closed in canonical native store",
+      "source": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+      "run_id": 45535362756,
+      "job_id": 138940518590,
+      "build_report_sha256": "24085cfbd33d3bb942dbb58decc24b0988934a4dfe7ea00cbb13ce53298a5dcb",
+      "outer_report_sha256": "a603191a83d0acac5cedeeb5df6a3d3a75e96456650fe52a15d0d2a1d2d39df1",
+      "tests_executed": false,
+      "next_action": "Preserve exact result and history; task complete.",
+      "native_status": "closed",
+      "native_revision": 2,
+      "accepted_run": 45537110469,
+      "accepted_job": 138946295563,
+      "accepted_build_report_sha256": "1e3291003588d67271c0f9813514b26fed8ec34f1be714a8a96b725b45669e71",
+      "accepted_outer_report_sha256": "cb1c7dc7d7fd32e920094b4f43fabf42ef982a7d5a735a17cf4c25a210bfeb90",
+      "artifact_id": 14986424212,
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-red-checks",
+      "worker": "/root/browser_finish",
+      "native_id": "beadrs-ce0423c1",
+      "native_status": "closed",
+      "native_revision": 2,
+      "mode": "accepted cloud execution reconciled to actual ID",
+      "status": "accepted output closed in canonical native store",
+      "run_id": 45538872739,
+      "job_id": 138952174706,
+      "result_sha256": "53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168",
+      "expected_failures": 6,
+      "artifact_id": 14988212379,
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "next_action": "Preserve exact result and history; task complete.",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-repair",
+      "worker": "/root/browser_finish",
+      "native_id": "beadrs-b72dc0dc",
+      "native_status": "closed",
+      "native_revision": 2,
+      "status": "source515 producer closed in native store",
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-linux-build",
+      "worker": "/root/browser_finish",
+      "native_id": "beadrs-9c6d0088",
+      "native_status": "closed",
+      "native_revision": 2,
+      "status": "Linux515 build closed in native store",
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-linux-checks",
+      "worker": "/root/browser_finish",
+      "native_id": "beadrs-50ff08d3",
+      "native_status": "open",
+      "native_revision": 1,
+      "status": "hosted original-corpus checks passed and independently accepted; native closure pending",
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-full-suite",
+      "worker": "/root/browser_finish",
+      "native_id": "beadrs-0890de3c",
+      "native_status": "closed",
+      "native_revision": 2,
+      "status": "accepted output closed in canonical native store",
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2,
+      "closure_receipt_sha256": "31db8baa427d3bacb9200bdaf21bffa6035c285587479c8923a874b469bbf155",
+      "next_action": "Preserve exact result and history; task complete."
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-windows-build",
+      "worker": "/root/checkpoint_finish",
+      "native_id": "beadrs-70721b6a",
+      "native_status": "open",
+      "native_revision": 1,
+      "status": "MSVCv3 stopped precompiler at Job enumeration race after12 commands; exact failure retained, bounded query correction in progress",
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "open",
+      "canonical_native_revision": 1
+    },
+    {
+      "unique_ref": "bead-edit-20261124:tray-diagnose",
+      "worker": "/root",
+      "native_id": "beadrs-9422c821",
+      "native_status": "closed",
+      "native_revision": 2,
+      "status": "hosted four-case launch probe passed; new diagnosis retained; guarded native reopen/update/closure pending",
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 5
+    }
+  ],
+  "resource_reservations": {
+    "backend_source_writer": "/root/browser_finish",
+    "canonical_pc_writer": "/root",
+    "linux_build": "All Linux qualification accepted. Fullsuite v2 Cargo0,145targets/1902passed/8existingignored; independent exact-stream reconciliation accepted9d4b0bea; original wrapper failure retained.",
+    "windows_build": "Checkpoint agent owns diagnosis of hosted extra compiler child7944 after successful v5 MSVC release compile; exact failed overall result retained, no release artifact survived. No qualified Windows515 binary yet. Source unchanged.",
+    "pc_app_check": "No current app; next real tray requires accepted replacement source/checks, reviewed exact patched-archive staging and immediate3GiB/512MiB bounds.",
+    "tray_source_writer": "Final5232 source and both execution packets accepted:39Linux +2realWindows; full lint0. Root final desktop tray remains pending reviewed exact archive staging. No source edits active.",
+    "installer_wrappers": "/root/checkpoint_finish owns only coordination/revision-6/wrappers/ for exact two-module installer, archive-stage helper, and host-aware/all-Job-memory smoke wrappers.",
+    "evidence_retention": "Browser agent owns read-only inventory of38app/5backendrefs and compact already-public evidence bundle plus exact browser ZIP. No ref deletions or PC access."
+  },
+  "cleanup_if_interrupted": "Canonical native authority is F:/Dev/.bead-edit-20261111/coordination-20261124 until the accepted same-UUID merge. Revision6 is complete with receipt838f89a3; three-task closure23e9fc74 is also completed. NEVER replay materialization or any accepted closure. All PC proposal IDs listed here are reconciled; no current mutation is uncertain. Reconcile any later started proposal by its exact ID before new work. Preserve954 original records,32 tasks/51 edges,15 original modified app files/config/index/old pin and all failures. Cloud filesystem is restored. Future agents MUST finish cleanup if this process ends: verify clean status and durable publication, then use /workspace/scratch/3160e3ba3d24/tools/node_modules/.bin/riftri from the parent clones to remove only /workspace/library-files/beads-build-temporary-3160/worktrees/bead-completion and /workspace/scratch/3160e3ba3d24/worktrees/scotty-completion without force. Remove only their exact compatibility symlink afterward. App worktree task/scotty-recovered-20261124 is canonical5232c8b9; owned local task/scotty-local-host-20261125 retains equivalent026f6a68 because shell push lacked credentials; trees both eadf3e74. Remove that duplicate branch after canonical publication is durable. Retain full browser ZIP throughDec9, all accepted raw logs/results and rollback copies. Reconcile and delete only exact task-owned stopped Windows task definitions/session caches/temporary Git branches at verified heads; preserve unrelated/dirty/unpublished work. Include tray-launch-probe(-draft),revision6-helpers,checkpoint-windows-startup/job-diagnostics, Windowsbuild/packet v2/v3/v4/v5, Linuxbuildv2/check/fullsuitev2, browserretention and finaltraycheck branches. Source38 real tray failure remains failed; 39Linux+2hostedWindows checks are accepted; actual5232 desktop tray and installed-default launch remain pending. No app is known running. Finish qualification, checked install, final preservation and actual cleanup before claiming completion.",
+  "updated_utc": "2026-11-25T05:47:36.116620+00:00",
+  "preserved_browser_output": {
+    "run_id": 45517446104,
+    "artifact_id": 14978387944,
+    "sha256": "0f906203b43420eeddf2fcfe52db7f5886a26f8d35da4b3916b587eb91f8a217",
+    "size_bytes": 17262599,
+    "full_zip_expires_utc": "2026-11-26T00:28:00Z",
+    "pc_retention": "Full unchanged browser ZIP retained in hosted artifact14986964968 throughDec9; cloud filesystem restored; no urgent PC copy needed.",
+    "text_only_archive_retained": true,
+    "retained_copy": {
+      "run_id": 45537302267,
+      "job_id": 138946930603,
+      "artifact_id": 14986964968,
+      "outer_zip_sha256": "f18e805eb7e3fbcfb9c29e1528a2fe0ef3532f7aa9dbfa717feaec9680cb6eb4",
+      "outer_zip_bytes": 17263281,
+      "expires_utc": "2026-12-09T03:03:53Z",
+      "original_zip_unchanged": true,
+      "result_sha256": "bd9016b2187c6e724023188c0193226b803c9a6f2bbcfb17c25265133aa57b57"
+    }
+  },
+  "native_task_mapping": {
+    "plan-review": "beadrs-3f06f163",
+    "reconcile": "beadrs-42379588",
+    "cloud-checks": "beadrs-fa756e78",
+    "browser-prepare": "beadrs-0b3a11f9",
+    "browser-runner-review": "beadrs-37f8c2bb",
+    "browser-check": "beadrs-08532231",
+    "tray-diagnose": "beadrs-9422c821",
+    "windows-tray": "beadrs-ea7bc5dd",
+    "candidate-review": "beadrs-ba8cbd23",
+    "install": "beadrs-0bab2976",
+    "configured-launch": "beadrs-c9526055",
+    "installed-review": "beadrs-47da80ac",
+    "backend-handoff": "beadrs-1371879c",
+    "app-handoff": "beadrs-f0039a6a",
+    "backend-text-review": "beadrs-30f13b5b",
+    "app-text-review": "beadrs-c62c1990",
+    "preserve-and-clean": "beadrs-3ec972f8",
+    "tray-repair": "beadrs-417f998c",
+    "tray-repair-checks": "beadrs-22b44782",
+    "installer-repair": "beadrs-f588ab27",
+    "tray-repair-review": "beadrs-a7df9f15",
+    "checkpoint-tests": "beadrs-940d77c6",
+    "checkpoint-red-build": "beadrs-0eaf8a73",
+    "checkpoint-red-checks": "beadrs-ce0423c1",
+    "checkpoint-tests-review": "beadrs-b1038d26",
+    "checkpoint-repair": "beadrs-b72dc0dc",
+    "checkpoint-linux-build": "beadrs-9c6d0088",
+    "checkpoint-windows-build": "beadrs-70721b6a",
+    "checkpoint-linux-checks": "beadrs-50ff08d3",
+    "checkpoint-windows-checks": "beadrs-cd3f5a63",
+    "checkpoint-repair-review": "beadrs-aee6eabb",
+    "checkpoint-full-suite": "beadrs-0890de3c"
+  },
+  "materialization": {
+    "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/materialization-result-v6.json",
+    "sha256": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2",
+    "helper_sha256": "461ee5a0bec9ce08b881b71a8891a44c2f9716173e9dd1e0437d4dcbb0120902",
+    "total_issues": 986,
+    "original_issues_unchanged": 954,
+    "tasks": 32,
+    "blocking_edges": 51,
+    "description_updates": 12,
+    "reopens": 4,
+    "manifest_sha256": "b5f2cc260ded27e527f0081926d89ec2e770608fc72abc20df8aa19984c38431",
+    "completed_utc": "2026-11-25T05:05:17.959Z"
+  },
+  "native_snapshot": [
+    {
+      "key": "plan-review",
+      "id": "beadrs-3f06f163",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "reconcile",
+      "id": "beadrs-42379588",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "cloud-checks",
+      "id": "beadrs-fa756e78",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-prepare",
+      "id": "beadrs-0b3a11f9",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-runner-review",
+      "id": "beadrs-37f8c2bb",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-check",
+      "id": "beadrs-08532231",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "tray-diagnose",
+      "id": "beadrs-9422c821",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "tray-repair",
+      "id": "beadrs-417f998c",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair-checks",
+      "id": "beadrs-22b44782",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "installer-repair",
+      "id": "beadrs-f588ab27",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-tests",
+      "id": "beadrs-940d77c6",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-red-build",
+      "id": "beadrs-0eaf8a73",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-red-checks",
+      "id": "beadrs-ce0423c1",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-tests-review",
+      "id": "beadrs-b1038d26",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-repair",
+      "id": "beadrs-b72dc0dc",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-linux-build",
+      "id": "beadrs-9c6d0088",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-windows-build",
+      "id": "beadrs-70721b6a",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "checkpoint-linux-checks",
+      "id": "beadrs-50ff08d3",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-windows-checks",
+      "id": "beadrs-cd3f5a63",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "checkpoint-repair-review",
+      "id": "beadrs-aee6eabb",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "id": "beadrs-0890de3c",
+      "status": "closed",
+      "revision": 2
+    }
+  ],
+  "backend_current_candidate": {
+    "commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+    "repair_parent": "cee3220b5e4b9a414c50379273c84759db645dbf",
+    "tests_parent": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "formatting_review_sha256": "58b141abde4fec0bf519d3d8628ced94d6e2fd3d35bfd3f6058c7fd2c95b665a",
+    "state": "Linux release/Clippy/fmt/corpus and complete145targets1902passed suite independently accepted. Windows v5 release compiled but overall ownership guard failed on unclassified extra PID7944; diagnostic pending. No new product defect or source change."
+  },
+  "tray_actual_failure": {
+    "source": "38c21a77b4e875d75e17ee68683846601df33591",
+    "result_sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+    "case_count": 0,
+    "controller_stderr": "Windows tray stopped unexpectedly: exit 0",
+    "actual_helpers": "PowerShell recorded; no server, READY or fixture receipt",
+    "secondary_error": "Controller already absent by later process-identity query",
+    "reconciled_pids_absent": [
+      47660,
+      57732,
+      81696
+    ],
+    "port43971_free": true,
+    "affected_closed_tasks": [
+      "tray-diagnose",
+      "tray-repair",
+      "tray-repair-checks",
+      "installer-repair"
+    ],
+    "native_reopen_status": "Four guarded reopens and all12 description updates completed in accepted revision6; historical failures preserved.",
+    "next_action": "Complete Windows2 host checks and reviewed wrappers/staging, run actualPC tray under3GiB/512MiB bounds, then install qualified native pin and final5232 app."
+  },
+  "canonical_native_plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+  "accepted_revision6": {
+    "commit": "c94c61f30ca5593a57c408c5e213d84db80a256c",
+    "plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+    "review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+    "native_update_pending": false,
+    "changed_tasks": [
+      "tray-diagnose",
+      "tray-repair",
+      "tray-repair-checks",
+      "installer-repair",
+      "tray-repair-review",
+      "windows-tray",
+      "install",
+      "configured-launch",
+      "candidate-review",
+      "app-handoff",
+      "app-text-review",
+      "preserve-and-clean"
+    ],
+    "reopen_tasks": [
+      "tray-diagnose",
+      "tray-repair",
+      "tray-repair-checks",
+      "installer-repair"
+    ],
+    "native_result_sha256": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2"
+  },
+  "tray_hosted_probe": {
+    "result_sha256": "6f5a3d614112671edb05deef8d817bf69d214b762b6f1d1fd1cc1f2bab1ea35f",
+    "run_id": 45544873983,
+    "job_id": 138971960404,
+    "status": "passed",
+    "actual_pc_tray_still_required": true
+  },
+  "tray_candidate": {
+    "commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+    "tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+    "source_result": "20261125/revision-6/results/tray-repair.json",
+    "source_result_sha256": "6543b68de5e9b481d2f360128a7055322b10f73f156961285f5814b9b793c672",
+    "linux_cases_expected": 39,
+    "windows_cases_expected": 2,
+    "actual_pc_tray_pending": true,
+    "source_review_sha256": "7c9a213d4e121b3db15f69588f9801d66780299656f764e903f244dd69f8b46a",
+    "linux_result_sha256": "166f35f0625f88e4f0756cffc8fc5245c892400f344ea31b1a1f24898ea97d80",
+    "linux_actual": "39 passed,0 failed/skipped/cancelled; full lint0 with one pre-existing warning",
+    "linux_evidence_commit": "82b57e83795754cd076252ff62311402fdd7cb0b",
+    "windows_actual": "Two real helper lifecycle cases passed on Node25.2.1; independent actual review9828fb4dffd8b108ba36f7450f83dd0d62f6f71fab6f8f57c25c90aa8d8442d4; run45552507526.",
+    "actual_evidence_commit": "ba6ebdb4c20da1d7b8d0266ef3e5e97f90fcba1d",
+    "pc_execution_helpers": {
+      "candidate_commit": "524a0433eb41951869b7de70f5305048ccc4d4e4",
+      "review_sha256": "30049f5537aee149b845dbebd2b59dbadfb5cabb52fd77bd7dd1e3312c7e7696",
+      "local_parser_passed": true,
+      "staged_archive_changed": false,
+      "actual_pc_tray_launched": false
+    }
+  },
+  "previous_materialization": {
+    "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/materialization-result-v5.json",
+    "sha256": "6a46c9ddef4c847a0c8a5cf63c58bdec2e237a8bd04f4f4940467af8171f7d85",
+    "helper_sha256": "af5e1a88712e7a6c9fb212fe15b0fa76abdeb6dcb25fbb92c7431818bf55a711",
+    "total_issues": 986,
+    "original_issues_unchanged": 954,
+    "tasks": 32,
+    "blocking_edges": 51,
+    "commit_manifest_sha256": "93a044747e7e24589498cd8c5025fb93ae8d14b6508effe77f5b8dba7ad6f9fd"
+  },
+  "pending_native_closure": {
+    "request": "coordination/revision-6/accepted-tray-checks-installer-suite-request.json",
+    "sha256": "1b379a018ecaedcf5f533b4689e1062220303aae5bda75f327d83f23a59c8530",
+    "tasks": [
+      "tray-repair-checks",
+      "installer-repair",
+      "checkpoint-full-suite"
+    ],
+    "supervisor_sha256": "08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033",
+    "state": "completed and independently reviewed; never replay",
+    "result_sha256": "31db8baa427d3bacb9200bdaf21bffa6035c285587479c8923a874b469bbf155",
+    "actual_review_sha256": "958d196741c2c080592ca8e7072e831774c1cdbc9ec6f5e9e9168047b2d6424f"
+  },
+  "full_suite_actual": {
+    "run_id": 45549798905,
+    "job_id": 138987980821,
+    "cargo_exit": 0,
+    "targets": 145,
+    "passed": 1902,
+    "failed": 0,
+    "ignored_existing": 8,
+    "filtered": 0,
+    "reconciled_result_sha256": "fcc0ffdfcaa6550f41036ddad2fe46bda7b396636bc6df4da4b145c5a645fcf0",
+    "independent_review_sha256": "9d4b0bea21328521285aa426b0c5b1d4772041868dc828dd622c4232078f4347",
+    "original_wrapper_status": "failed on two multiline name records; failure retained unchanged"
+  },
+  "final_preservation_candidate": {
+    "node_path": "coordination/revision-6/checkpoint-handoff-20261125.mjs",
+    "node_sha256": "37365873aab6a5f35db7205a1d9cc90929cddf16bc03b94c4d67aeaf650bc0fa",
+    "supervisor_path": "coordination/revision-6/checkpoint-handoff-supervisor-20261125.ps1",
+    "supervisor_sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+    "author_sha256": "545307a345a1b06d7a5963eec70740eeb74878ff3c30267ec178aa4c1cbf97e9",
+    "status": "Narrow revision6 rebind independently accepted; exact ordinary Windows parser pending. No request or phase executed.",
+    "baseline_commit": "6f57eee5cf24b65c59dafe49502d3a2b4a6d9d7e",
+    "do_not_use": "Older top-level coordination/checkpoint-handoff files are stale; accepted baseline is underrevision-6/preservation-baseline and new candidate underrevision-6.",
+    "static_review_sha256": "b7a77db9618b9f5fca37f63814100d945187dc637a5b1da7b1700238f5da164a"
+  },
+  "previous_accepted_closure": {
+    "request": "coordination/revision-6/accepted-tray-source-linux-corpus-request.json",
+    "sha256": "3da807e2579327caad09cafc7e0e674b5796b23fcd317ba69449971af80677d6",
+    "tasks": [
+      "tray-diagnose",
+      "tray-repair",
+      "checkpoint-linux-checks"
+    ],
+    "supervisor_sha256": "08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033",
+    "state": "completed, exact native result23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c; never replay",
+    "result_sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c"
+  }
+}
