@@ -2,8 +2,8 @@
   "schema_version": 1,
   "status": "passed",
   "scope": "Two complete static author inspections of the exact retained candidate; execution qualification remains pending.",
-  "helper_sha256": "b34020ca1a54326af73baadb29c3d7a47da123abf4dac414594ded4a5b25b5ef",
-  "supervisor_sha256": "396b849ec152da55e75078fa755eef6736b4d2327258aa0b48b60faf4cac2449",
+  "helper_sha256": "e290ece0f9785eafb16c4211e751e05f38603755fa0fdcc0fb93c54e2efb9364",
+  "supervisor_sha256": "6f94681f6dd23197642eaf0b493bf93877be8a0c3d3ca8531fbbd2bcdc4f972d",
   "audits": [
     {
       "pass": 1,
@@ -15,7 +15,8 @@
         "Original Git HEAD/tree53file429072095byte identity, full path/blob/size map, remote receipt and private index backup, transformation checks before status, no-optional-locks and unchanged index.",
         "Current/previous original selection4files17063501bytes, raw Git blob identity comparison, complete selected closure and oversize references,1MiB streaming hashes and64MiB selected cap.",
         "Exact current-source restore preflight before original native open; unchanged selected closures/Git state and all SQLite records, native canonical origins, receipts and auxiliary data.",
-        "Single same-UUID merge, original-owned authority transfer/publication, exact newly promoted previous pointer/object/corpus preservation, guarded single cleanup close and final restore."
+        "Single same-UUID merge, original-owned authority transfer/publication, exact newly promoted previous pointer/object/corpus preservation, guarded single cleanup close and final restore.",
+        "Ignored untracked checkpoint listing refuses all entries except the root-approved regular zero-byte publish.lock; optional presence recorded separately."
       ]
     },
     {
@@ -24,12 +25,13 @@
       "date": "2026-11-25",
       "findings": [],
       "inspected": [
-        "Second complete helper and unchanged supervisor reading, with every Git call restricted to read-only operations, pinned Git executable and stripped inherited Git selectors.",
+        "Second complete helper and supervisor reading, with every Git call restricted to read-only operations, pinned Git executable and stripped inherited Git selectors.",
         "Selected closure collection includes both pointer roots and transitive references, refuses unsafe paths/links/unknown mode/oversize recursion, and separately diagnoses historical previous corruption.",
         "Before/attempt/started/exit/result/failure durability; immutable input/result hash chains; no replay after uncertain mutation; no Git publication/deletion/original reset.",
         "Owned Windows Job and retained process handles/membership; BelowNormal, Node128MiB heap, aggregate512MiB,3GiB initial/1GiB live headroom,30second command and180second phase limits.",
         "Phase Git state comparisons before/after preservation, source restore, dry-run, merge and verification restore; publication commit ancestry/identical checkpoint tree before final close.",
-        "Private database/index backups remain PC-only; root owns Git commits/push/Riftri cleanup; conditional scratch-branch cleanup documented."
+        "Private database/index backups remain PC-only; root owns Git commits/push/Riftri cleanup; conditional scratch-branch cleanup documented.",
+        "Publication must preserve HEAD, checkpoint Git tree, tracked entry map and index identity; Windows supervisor checks publication-lock reparse/file/size attributes before, during and after work."
       ]
     }
   ],
@@ -49,7 +51,7 @@
     "Successful current-source native restore preflight",
     "Actual PC phases and separate Git/cleanup publication"
   ],
-  "candidate_revision": "Actual plan-review schema, promoted-generation retention, and original Git-object preservation route.",
+  "candidate_revision": "Git-backed preservation with explicit ignored-file/zero-byte-lock rule and immutable publication Git-state checks.",
   "review_corrections": [
     {
       "finding": "Plan review uses PASS/accepted schema.",
@@ -62,6 +64,14 @@
     {
       "finding": "Whole original checkpoint is409MiB, above initial64MiB aggregate bound.",
       "resolution": "Root-approved immutable-Git preservation for full53filetree plus17MiB selected copies; no repeated orphan-history reads/copies."
+    },
+    {
+      "finding": "Normal Git status omits ignored untracked files.",
+      "resolution": "Read-only ignored-file listing with root-approved optional regular non-reparse zero-byte publish.lock only; actual Windows attribute checks in supervisor."
+    },
+    {
+      "finding": "Publication captured Git state without requiring unchanged HEAD/index.",
+      "resolution": "Compare HEAD, checkpoint tree, tracked map and index path/hash after each original flush while retaining intended working-file status changes."
     }
   ]
 }
