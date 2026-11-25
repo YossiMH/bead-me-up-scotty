@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "operation": "materialize-continuation-v5",
+  "helper_revision": 2,
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "0d309304851d12ac79a1e1b8067017a97387a16f",
+    "path": "20261125/materialize-continuation-v5-v2.mjs",
+    "sha256": "af5e1a88712e7a6c9fb212fe15b0fa76abdeb6dcb25fbb92c7431818bf55a711",
+    "base_helper_sha256": "048833c21e8288cc84049c61e451a5f69b6b85ff5e2d80b2a75f3236350ad8ed",
+    "author_review_sha256": "9a0edc1cec71b156aa419933b5ecd66cbf47c90c3479c26fef76773d54e5f982"
+  },
+  "accepted_plan": {
+    "sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+    "template_sha256": "6e8fce15f4867c7599b1aaa169b61cd7f3b2d7ce9723e89be2c60a81443adf93",
+    "tasks": 32,
+    "edges": 51,
+    "operations": 37,
+    "total_issues": 986
+  },
+  "first_attempt": {
+    "supervisor_sha256": "c2aff965112bf4b772fa94bf9f2c80a205a759e2bdede71b147572ecd32715b8",
+    "failure_sha256": "8500c7d5a2dced8e56098d7d36954e27c8753104e56582030960320b1ae0ad94",
+    "status": "failed",
+    "phase": "dry-run",
+    "timed_out": false,
+    "commit_attempted": false,
+    "retained": true
+  },
+  "read_complete_helper": true,
+  "read_complete_author_review": true,
+  "read_actual_failed_reports": true,
+  "findings": [],
+  "source_contract": {
+    "commit": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+    "paths": [
+      "src/service/manifest.rs",
+      "src/service/secret_boundary.rs",
+      "src/model/redaction.rs"
+    ],
+    "marker": "[REDACTED:bead-rs]",
+    "assessment": "state_change_result builds raw changes then masks only projected title/description/issue_type strings for both dry-run and commit. redact_output_text explicitly retains stored text. The marker is defined exactly as shown. Both relevant service files are byte-identical at539 and986."
+  },
+  "checks": [
+    "Verified exact helper, two-pass author report and both first-attempt report hashes.",
+    "Read the complete final helper and compared every change with the previously accepted version.",
+    "The first-attempt reports establish dry-run failure before commit. The new helper requires these exact reports and absence of both prior commit-started.json and commit.json before proceeding.",
+    "Only the output/temp basenames, known-failure preflight and description report-field alternative change. All accepted input/native hashes, counts, graph checks, guarded revisions and single atomic commit remain.",
+    "The exact native marker is accepted only as an alternative to the planned description in both manifest report modes. Other outcomes, operation IDs, field set and revision deltas remain exact.",
+    "The complete975-record precommit inventory must remain unchanged, all954 original records are compared afterward, and every one of the32 stored titles/descriptions plus51 edges must match the full accepted plan literally.",
+    "Inspected the raw list/issue JSON projection path as well; stored descriptions remain available for the later literal comparison.",
+    "Fresh exclusive output/temp directories and absence of the final mapping prevent reuse of an uncertain attempt. Failed records remain intact.",
+    "The180-second whole-command deadline,30-second native child bound,16 MiB output cap and child-only temporary selectors are unchanged.",
+    "No scanner configuration, security control, product source, accepted task description or task state is changed by this validation correction."
+  ],
+  "static_parse": {
+    "v8_body_parse": "passed without invocation",
+    "ordinary_node_check": "required on exact staged bytes before use"
+  },
+  "acceptance_boundary": "This accepts the exact corrected materialization helper. Actual native execution,37-operation commit and result-to-task-ID reconciliation remain pending.",
+  "pc_actions_by_reviewer": false,
+  "canonical_database_writes_by_reviewer": false,
+  "product_tests_or_builds_by_reviewer": false
+}
