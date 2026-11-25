@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "status": "static_pass_execution_pending",
+  "task_key": "type-app-tests-review",
+  "reviewer": "root",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "source_commit": "3d3b0f3850e359bfb8d320d530f132a7e0d67469",
+  "source_tree": "794e6f2c694b21399feaa3a42c3dab435ba70113",
+  "read_complete_changed_files": true,
+  "review_method": "Independent direct inspection against the accepted revision 7 plan and current native/app contracts.",
+  "files": [
+    "scripts/fixtures/native-contract.mjs",
+    "scripts/test-native-editing.mjs",
+    "scripts/test-local-bead-rs.mjs",
+    "scripts/test-native-type-roundtrip.mjs"
+  ],
+  "findings": [],
+  "resolved_findings": [
+    {
+      "requirement": "Unsupported old-executable long types must be refused before temporary input creation.",
+      "correction": "The additional fs/promises observer exercises the real runNativeEdit and requires zero mkdtemp/writeFile calls and zero native commands when a long type and long description are unsupported."
+    }
+  ],
+  "checks": [
+    "Absent, false and malformed transport declarations preserve all existing scalar grants and short type edits with description files.",
+    "Exact 8192/8193 UTF-8 byte limits and the combined type/description/notes budget assert actual argv and exact temporary UTF-8 file contents.",
+    "Long types above the Windows inline limit retain cleanup after success, command uncertainty and failed readback; tests forbid a repeated mutation.",
+    "The claimed-store case obtains the credential through this store's own prior operation, then requires current revision, fencing token and priority reason on one scalar edit.",
+    "The permanent four-MiB schema contract is retained.",
+    "The real-store and production HTTP checks use disposable Git/config/directories and compare real native state, query-projected type, one revision increase, retained claim/assignee, unchanged dependency/label state and the priority audit.",
+    "Inspected native CreateOptions, change-feed MutationRecord and lifecycle priority_changed writer to confirm the new HTTP runner's command and response assertions.",
+    "The HTTP runner uses the existing owned-process helper and checks its listener and temporary inputs after cleanup; no Windows-incompatible negative-PID process-group operation was added."
+  ],
+  "required_before_acceptance": "Actual Red run on this exact tests-only source must complete and expose the intended missing behavior. A workflow parse/install failure is not a Red test result.",
+  "runtime_checks_run_by_reviewer": false,
+  "cleanup": "Keep this result with the accepted task records. Future agents must remove clean published task-owned Riftri worktrees after final delivery."
+}
