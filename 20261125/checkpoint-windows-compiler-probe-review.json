@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/delivery_review",
+  "reviewed_utc": "2026-11-25",
+  "operation": "complete-hosted-compiler-lifecycle-probe-static-review",
+  "candidate_commit": "bd722f3416733b3d648c9f5d27da6d17af16222e",
+  "candidate_tree": "9cfdf3d2df967fd5265c4a148182dbc07da07116",
+  "candidate_directory": "20261125/checkpoint-windows-compiler-probe",
+  "author_audits_sha256": "553b5520bb9cc01d685ccc464eb6d60b47eed8c5d87a1ff58b961df1bc06bd91",
+  "complete_new_helper_read": true,
+  "complete_workflow_and_contract_read": true,
+  "complete_current_supervisor_and_driver_read": true,
+  "verified_immutable_packet_files": 12,
+  "prior_actual_failure_review": "a8723240c459de32077ac6aa0e658e41a0484884879bd37ca71d351f0b3f849f",
+  "verdict": "Accept the exact bounded hosted fixture diagnostic. Its measurements and cleanup determine the diagnostic result. Any later production-build lifecycle change requires the actual measured identities and a separately reviewed correction.",
+  "method": [
+    "Read the whole new probe, fixture definitions, exact input/packet/workflow, both author inspections and execution notes.",
+    "Read the current complete supervisor and driver and traced the reused complete Job query, held baseline, command runner, cleaned environment and MSVC/linker selection in the previously accepted original build helper.",
+    "Compared every local file's length, canonical SHA-256 and Git blob identity with the immutable12-file Git tree.",
+    "Reversed the supervisor's sole210-second deadline substitution and recovered the exact accepted74980 baseline. The driver9bac and imported build helpereabf remain byte-identical.",
+    "Parsed only the source AST to extract literal fixture definitions, then reconciled all four fixture hashes and every packet/author binding without executing the probe."
+  ],
+  "findings": [],
+  "scope": {
+    "fixture_files": [
+      "Cargo.toml",
+      "Cargo.lock",
+      "build.rs",
+      "src/main.rs"
+    ],
+    "dependencies": 0,
+    "compiler_commands": [
+      "cargo build --release --locked --target x86_64-pc-windows-msvc",
+      "cargo test --locked --no-run --target x86_64-pc-windows-msvc"
+    ],
+    "serial": true,
+    "cargo_jobs": 1,
+    "rust_and_cargo": "1.100.0",
+    "target": "x86_64-pc-windows-msvc",
+    "verified_msvc_linker_selection": "Same exact reviewed activate_msvc implementation and child-only target linker binding as v5.",
+    "source_download": "Only the small diagnostic packet and unchanged owned Job helper; no bead-rs checkout.",
+    "generated_main_or_test_execution": false,
+    "build_script_execution": "Cargo may execute the exact empty fixture build script during normal compilation.",
+    "product_qualification": false,
+    "pc_access": false
+  },
+  "observations_and_cleanup": [
+    "Every command starts from the retained exact supervisor/Python/optional verified System32 console-host baseline.",
+    "The inherited immediate Job is queried with the accepted complete bounded routine. Recorded samples are observed memberships; the code does not fabricate identities for processes that disappear between reads.",
+    "Captured descendants have non-inheritable query/synchronization/termination handles, held PID/creation FILETIME, image path/hash, session and Toolhelp parent observations. Birth must fall within the current compiler attempt, and the held PID must remain in the complete immediate Job.",
+    "The entire five-second post-exit observation remains even if the Job becomes quiescent earlier, and any persistent PIDs are recorded before cleanup.",
+    "Termination is restricted to captured non-baseline handles after rechecking PID, birth and complete Job membership. Every forced termination is recorded. All captured handles must exit and the exact baseline must be restored before the next command.",
+    "The outer supervisor still requires zero children after Python exit and the caller observes supervisor exit. Diagnostic success may include explicitly recorded cleanup of fixture children; it never qualifies a product release or silently permits an extra production member."
+  ],
+  "bounds": {
+    "python_phase_seconds": 180,
+    "compiler_command_seconds": 60,
+    "post_exit_observation_seconds": 5,
+    "cleanup_reserve_seconds": 18,
+    "outer_supervisor_seconds": 210,
+    "workflow_step_minutes": 5,
+    "workflow_job_minutes": 6,
+    "captured_descendant_limit": 128,
+    "simultaneous_extra_limit": 32,
+    "distinct_membership_group_limit_per_command": 256,
+    "stream_limit_mib": 4,
+    "image_hash_limit_mib": 64,
+    "process_snapshot_entry_limit": 8192,
+    "job_query_max_reads": 8,
+    "job_query_seconds": 0.5
+  },
+  "workflow": {
+    "activation_branch": "task/checkpoint-windows-compiler-probe-20261125",
+    "runner": "windows-2025",
+    "permissions": {
+      "contents": "read"
+    },
+    "action_refs": {
+      "checkout": "d23441a48e516b6c34aea4fa41551a30e30af803",
+      "upload_artifact": "ea165f8d65b6e75b540449e92b4886f43607fa02"
+    },
+    "job_helper_commit": "6d40aacb49eba309f1f925e106cfbb9026cce744",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "explicit_lf_checkout": true,
+    "persist_credentials": false,
+    "retention_days": 7,
+    "fresh_exclusive_run_output": true,
+    "exact_receipts_and_raw_streams_retained": true
+  },
+  "limitations": [
+    "Actual runtime parsing, compiler observations and outer cleanup have not yet been supplied for this diagnostic.",
+    "A measured process from this new fixture is evidence for the fixture; historical PID7944 remains unidentified unless additional evidence supports that connection.",
+    "Failure to reproduce a persistent child must be reported as a limited observation while preserving the production guard.",
+    "The prior v5 failed result and missing release-output bytes remain historical failures. Future product-build retention must preserve bounded release output even if a later guard fails."
+  ],
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "reviewer_database_writes": 0,
+  "reviewed_files": {
+    "README.md": {
+      "sha256": "0de484f2bf211f6881fd2574dfe0f9a5132999f01033578f1b3adbf32cd722c2",
+      "git_blob": "749334d7e31a8876146522313cda64e20a547fd3",
+      "bytes": 5178
+    },
+    "author-audits.json": {
+      "sha256": "553b5520bb9cc01d685ccc464eb6d60b47eed8c5d87a1ff58b961df1bc06bd91",
+      "git_blob": "94cf2403638b1a2d20226b25312b969fd23bdc3b",
+      "bytes": 3219
+    },
+    "build-inputs.json": {
+      "sha256": "02bca3aca7cee48da621b08309d6c6ed9e07d1d78c6087a2c59a507ba06442d7",
+      "git_blob": "34ed5d683a8fcc7709bda971396d83216220681c",
+      "bytes": 830
+    },
+    "checkpoint-windows-build-20261125.py": {
+      "sha256": "25ceeb69bf3cd57ce73019b3eb96d63e59a8fb98bc5da5c80a8b5c89427441ab",
+      "git_blob": "4ba84d3c98ec2613e284eaa286f5609c7649757e",
+      "bytes": 20686
+    },
+    "checkpoint-windows-compiler-probe.workflow.yml": {
+      "sha256": "09012db196993421f3e856223989cd09672b333151eca5f13bb85777cc16312e",
+      "git_blob": "eded95fa4f4fe82b461abadc272b89293241feda",
+      "bytes": 2458
+    },
+    "checkpoint-windows-driver-20261125.ps1": {
+      "sha256": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+      "git_blob": "6612117befb1800cb93d75eae7d2dd035c484acf",
+      "bytes": 10139
+    },
+    "checkpoint-windows-supervisor-20261125.ps1": {
+      "sha256": "7de488bc35aee787e55b5a67abffe220f0685928242df78f7048ab3beca60fe2",
+      "git_blob": "891ea5b059eaaf6ce2fdc0f42ac376d7531de957",
+      "bytes": 10887
+    },
+    "packet.json": {
+      "sha256": "cf82361dc99280c94e2d9bbd5e40256392f25fdc49cdcee5b89adc90d944e0f2",
+      "git_blob": "7ff72a9051e23d102bcbf779ae2282cb9ac04b91",
+      "bytes": 1194
+    },
+    "reviewed-build-helper.py": {
+      "sha256": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+      "git_blob": "9f1849f69771c64acd7bba954cc6ee7760c2bcb1",
+      "bytes": 45467
+    },
+    "static-checks.json": {
+      "sha256": "555ff5cad4bf8ebb316fae473e6fd105914c461e3612ecfbf45103bab9d83580",
+      "git_blob": "18acb5a6ca9ed94511db745ab5ed4860ec1b4164",
+      "bytes": 654
+    },
+    "supervisor-deadline.patch": {
+      "sha256": "0c54c4389c342aa89621ae17e4484a1ba7ee3ef06cde2aa9aef0963014346484",
+      "git_blob": "3ba90bcdf739322579502806d3fcd4496289a361",
+      "bytes": 577
+    },
+    "v5-actual-review.json": {
+      "sha256": "a8723240c459de32077ac6aa0e658e41a0484884879bd37ca71d351f0b3f849f",
+      "git_blob": "9f1241523172628871b1345f44bcce23d6859c1d",
+      "bytes": 3466
+    }
+  }
+}
