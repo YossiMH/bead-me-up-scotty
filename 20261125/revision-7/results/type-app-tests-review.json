@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "task_key": "type-app-tests-review",
+  "reviewer": "root",
+  "source_commit": "3d3b0f3850e359bfb8d320d530f132a7e0d67469",
+  "source_tree": "794e6f2c694b21399feaa3a42c3dab435ba70113",
+  "static_review": "20261125/revision-7/results/type-app-tests-static-review.json",
+  "execution": {
+    "run_id": 45571286830,
+    "job_id": 139058279593,
+    "job_conclusion": "success",
+    "command": "node --test --test-reporter=tap scripts/test-native-editing.mjs",
+    "command_exit": 1,
+    "tests": 48,
+    "passed": 38,
+    "failed": 10,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "node": "24.22.3",
+    "npm": "11.19.1",
+    "tap_sha256": "dff39454a2078c8b4ad257b03e132c5208907e7dc6f3450569dd03ee32b01537",
+    "result_sha256": "a017d27154dea80ef435f7441a4a176933f2762dcdb224bb7a19d91c8bbfd275",
+    "source_hashes_sha256": "5ea1034f1b4f35d19a3314538aa2c4fdd0261c18350cf5d454c2295ac7910005",
+    "job_log_sha256": "c7261e09536e81b8416709f6edadd71eae8f189bf560257696e90a4d51e8afc4"
+  },
+  "inspection": [
+    "Read the entire actual TAP, every failure section, result and exact source-hash manifest; checked the GitHub job steps directly.",
+    "All 32 prior tests pass; six new compatibility/boundary/validation controls pass. The ten new failures are the missing unsupported-type rejection, missing type-file transport, omitted aggregate type budget and the resulting claimed/uncertain/readback cases.",
+    "Compared the failures with the current runNativeEdit source: it passes issue_type inline and counts only description and notes, which explains the observed failures.",
+    "No installation, import, syntax or setup failure substituted for a behavior failure. The actual test exit remains 1. No cancelled/skipped tests or remaining edit directories.",
+    "The four test/specification files match the independently inspected tree. The production HTTP and real-native runners have been inspected but their execution remains required separately after the actual fix."
+  ],
+  "findings": [],
+  "unblocks": "type-app-change",
+  "reviewer_ran_tests": false,
+  "remaining": "Implement the accepted three-module transport change, then pass the fresh checks, production build, actual hosted Windows long-type run and final independent source review before installation."
+}
