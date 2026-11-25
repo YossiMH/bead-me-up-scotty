@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "complete_independent_static_review",
+  "commit": "7f01716a3fb628f2d2c89e8f9ab53d472dede697",
+  "package_path": "20261125/revision6-helpers",
+  "continuation_revision": 6,
+  "plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+  "plan_review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+  "read_complete_helper": true,
+  "read_complete_supporting_files": true,
+  "reviewed_files": {
+    "README.md": "37df4bed1076ace774a1139bd4f6867d0c65272a4d3ee315a81ecd9726d33a6a",
+    "author-audits.json": "e05c18209f7129e505f9e0f1f17c371242c18664e2d04f875188cb7402c3cc94",
+    "input-contract.json": "b17844f446586cb42e7f9cc557c8771c97fb0d306e32b5d6cb62eae9d9a27d25",
+    "materialize-continuation-v6.mjs": "461ee5a0bec9ce08b881b71a8891a44c2f9716173e9dd1e0437d4dcbb0120902",
+    "record-accepted-tasks-v6.mjs": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+    "static-checks.json": "4c4738bc843ae3d790a065ffde993d3868e8b26d93a8334622df87bcb0af3927"
+  },
+  "remaining_findings": [],
+  "root_only_native_writer": true,
+  "authority_root": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+  "required_execution_bounds": {
+    "owned_job": true,
+    "priority": "BelowNormal",
+    "hidden": true,
+    "aggregate_mib": 512,
+    "node_heap_mib": 128,
+    "outer_seconds": 180
+  },
+  "actual_execution_pending": true,
+  "ordinary_node_parse_pending": true,
+  "cleanup_if_interrupted": "Preserve every intent, raw stream, exit and state readback. Reconcile uncertain writes before any continuation; never replay the same helper automatically. Retain the exact package/reviews, then remove only this assignment's clean Riftri worktrees and temporary branches after durable completion.",
+  "helper": "materialize-continuation-v6.mjs",
+  "helper_sha256": "461ee5a0bec9ce08b881b71a8891a44c2f9716173e9dd1e0437d4dcbb0120902",
+  "source_contracts": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+    "files": [
+      "src/main.rs cmd_reopen/publication_probe",
+      "src/service/lifecycle.rs reopen_issue_with_override/reopen_issue_impl",
+      "src/cli_history.rs complete file"
+    ]
+  },
+  "checks": [
+    "Read all 320 lines and all supporting README/input/audit/static records, comparing them with the complete accepted plan, description delta, native protocol and real plan-review schema.",
+    "All final plan/template/protocol, review, v5 plan/map and binary identities are bound. Exact 32 actual task IDs, 51 directed edges and original 954 records are verified before mutation.",
+    "Fresh literal inventory binds current unrelated task statuses/revisions and preserves already completed backend work. Only four named tasks must retain the reviewed closed revision2 state; no assignment or claim is invented.",
+    "Each supported guarded reopen records intent and actual raw output, then compares all 986 records, exact graph and retained history before the next write. Native source confirms only the expected lifecycle fields change and one reopened event is appended.",
+    "The four old close/history arrays remain exact prefixes. History projection anchors revisions consistently as reopened and later description events are appended.",
+    "The single 12-operation description-only manifest is rendered from the exact accepted template using post-reopen revisions. Dry-run reports accept only literal text or the known native redaction marker; complete stored literal descriptions remain required.",
+    "The full precommit inventory must remain unchanged; the actual commit executes once. Every unaffected stored field, original record and edge is checked again. Config/current-pointer/input/native/self hashes remain unchanged.",
+    "Every native updater call adds --no-auto-flush and retains one raw stdout/stderr/exit record, with 30-second per-call and 180-second whole-helper limits. Exclusive output/temp/result names and saved attempt flags prevent automatic replay.",
+    "No create, graph change, restore, direct SQLite write, reset, rollback or original/private-store access is present. Final accepted-plan/mapping result is written only after all comparisons pass."
+  ],
+  "scope": {
+    "total_records": 986,
+    "original_records": 954,
+    "continuation_tasks": 32,
+    "blocking_edges": 51,
+    "reopens": 4,
+    "description_updates": 12,
+    "creates": 0,
+    "edge_changes": 0
+  },
+  "conclusion": "Accept the exact updater for root-owned ordinary parsing and one bounded execution of the already accepted revision6 native state transition. Actual execution evidence remains a separate reconciliation."
+}
