@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "candidate_published",
+  "task_id": "beadrs-b72dc0dc",
+  "unique_ref": "bead-edit-20261124:checkpoint-repair",
+  "native_state_owner": "root",
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "branch": "task/bead-finish-20261124",
+    "commit": "cee3220b5e4b9a414c50379273c84759db645dbf",
+    "tree": "77ed48ea165859b23c5c72c6b85155ef5610fb14",
+    "parent": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "baseline": "986f2a332aca9dd567eee41ce835917d56e29468"
+  },
+  "accepted_candidate": {
+    "commit": "bb0638535172dead8f648b4a4944dddc6175f832",
+    "repair_only_patch_sha256": "f38adfc5d3e8f29349e9f3df82dc8d226ddc7d6486d5fd5632d9ea71f1c52b60",
+    "author_audits_sha256": "758c797fd9ef65d832d397b5bcd035c9ebe2e9eb3d6eb6af37fad7491046f72e"
+  },
+  "predecessors": {
+    "red_run": 45538872739,
+    "red_result_sha256": "53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168",
+    "raw_output_run": 45539450373,
+    "raw_output_sha256": "922781c0af2819e7804adfab62c0302ec3423fe5487ff2d337e58b5080be5318",
+    "test_review_sha256": "c23f492a896bbaed2de23874bb33c82b9cf0917d23e2df52adc7e23cc3b64ba5"
+  },
+  "files": [
+    {
+      "path": "research/specs/checkpoint-set-v2.md",
+      "git_blob": "4ae89effef5c62b416ff65adced6099eaf2c2ad5",
+      "bytes": 24968,
+      "sha256": "d06e0e890d84b52e0d22e63d954313e703dc187db635ccc44b93a96610a1b629",
+      "status": "M"
+    },
+    {
+      "path": "src/service/checkpoint/set_v2.rs",
+      "git_blob": "79ae17691601ed6902c7c66e211a40bc5d136617",
+      "bytes": 53522,
+      "sha256": "9227543341a0e7352a2aab1fdf7e9244df21e4c723cd705d537ad34341557642",
+      "status": "M"
+    },
+    {
+      "path": "tests/attempt_receipt_checkpoint_integrity.rs",
+      "git_blob": "5c09fc050e13874ad443b8937a9e4b50c3de9c56",
+      "bytes": 10332,
+      "sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+      "status": "M"
+    },
+    {
+      "path": "tests/checkpoint_set_v2_conformance.rs",
+      "git_blob": "80ee525a11fda62ad43acffbfa815a07829313cd",
+      "bytes": 75478,
+      "sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+      "status": "M"
+    },
+    {
+      "path": "tests/checkpoint_tail_generation_integrity.rs",
+      "git_blob": "df0aefe1a70e8253652bb4a112c4e988c9f5701a",
+      "bytes": 7875,
+      "sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705",
+      "status": "A"
+    }
+  ],
+  "tests_preserved_byte_for_byte": true,
+  "unchanged_parent_blobs": 649,
+  "readback_verified": true,
+  "git_result": "Ordinary expected-head update and full five-file readback; no force update.",
+  "author_inspections": [
+    {
+      "number": 1,
+      "scope": "Complete accepted five-file candidate and repair-only patch carried forward from frozen bb063853; exact source/spec bodies independently reread from the accepted proposal before publication.",
+      "checks": [
+        "Both production defects fixed by only the reviewed attempt-ID accumulation and existing immutable-object tail writer.",
+        "Tests identical to the accepted Red source, including the entire unit-test suffix.",
+        "Specification and related sealing comments match selected-generation retention."
+      ],
+      "findings": []
+    },
+    {
+      "number": 2,
+      "scope": "Final published complete five-file content and whole-tree delta against parent and baseline.",
+      "checks": [
+        "Exactly two repair/spec files differ from a42d7dad; all649 other blobs unchanged.",
+        "Exactly five cumulative files differ from986, each equals the fully reviewed candidate.",
+        "Remote branch/ref and all five published bodies read back exactly."
+      ],
+      "findings": []
+    }
+  ],
+  "pending": [
+    "Hosted fmt, all-target Clippy, all-default no-run compilation and Linux archive release build.",
+    "Fresh full default Cargo suite and isolated public-corpus checks.",
+    "Windows archive release, affected native checks and independent repair acceptance."
+  ],
+  "cleanup": "Root/future agents retain all actual evidence, integrate accepted product commits normally and remove owned clean Riftri worktrees/temporary qualification branches after delivery."
+}
