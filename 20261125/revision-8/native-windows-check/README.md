@@ -1,11 +1,11 @@
 # Windows qualification revision 8
 
-This is a dormant preparation draft on `task/windows-check-runner-v8-20261125`.
+This is the bound qualification packet on `task/windows-check-runner-v8-20261125`.
 The final source is `c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b`, tree
-`13e8f57a4de57819dfe3f13cc71f6078ac27bba7`. The producer run, downloaded output and
-release hashes remain explicit pending values. The active workflow directory
-has no revision 8 workflow. Backend execution starts only after measured
-bindings, two final author inspections and independent complete review.
+`13e8f57a4de57819dfe3f13cc71f6078ac27bba7`. Producer run 45586900986 and its separate download verification passed.
+The packet binds full output 15009252879 and the measured native release.
+The workflow runs only on the activation branch named below. Backend execution
+starts after two final author inspections and independent complete review.
 
 The checker retains the prior ad41 source/archive/file verification, original
 compile-time path restoration, native release checks and process supervision.
@@ -36,10 +36,8 @@ window. The aggregate verifier rechecks full retained file inventories,
 producer/source/release identities, command exits and selection, exact coverage,
 the original-corpus and smoke results, and observed owned Job cleanup.
 
-Before activation, populate all five input JSON files and the corpus input from
-the accepted new Windows producer, bind their SHA-256 values in packet.json,
-set its status to bound, and replace the workflow's pending packet SHA-256.
-Publish the final reviewed workflow template unchanged to
+The five input files, corpus input and packet hashes use the accepted producer.
+The exact workflow template is also published at
 `.github/workflows/native-final-windows-v8-20261125.yml`; the native execution
 owner activates only `task/checkpoint-windows-v8-check-20261125`.
 Keep every failed earlier run and all complete new outputs. PC installation,

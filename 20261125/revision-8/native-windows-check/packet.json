@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "status": "pending_producer",
+  "status": "bound",
   "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
   "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
   "files": {
@@ -10,17 +10,41 @@
     "checkpoint-windows-build-20261125.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
     "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
     "aggregate.py": "28158bbb8a802fda782093ca10ab8c0844a129644294aa68ed6ac7c4bdda7ff6",
-    "corpus-inputs.json": "838f4a9dbbc3242582531f213bff8a1ed4444ff04aa3a1750a8e48e99790d330"
+    "corpus-inputs.json": "211bf3f08a25b425485d2e14c716be52492c697bf26ec19cd6f74203ea12363a"
   },
   "phase_inputs": {
     "build": null,
     "check": {
-      "core": null,
-      "editing": null,
-      "grid-1": null,
-      "grid-2": null,
-      "grid-3": null
+      "core": {
+        "path": "check-inputs-core.json",
+        "sha256": "18bcf4e5d54d6332612fd9cb438451f1290cc0dde114de87bb3af36aabf388f6"
+      },
+      "editing": {
+        "path": "check-inputs-editing.json",
+        "sha256": "0a02e738a9a40a4f41b5e26e4199077bef53e1aff211067e2b8fcd57d2f73ec6"
+      },
+      "grid-1": {
+        "path": "check-inputs-grid-1.json",
+        "sha256": "eb8bc08b24655b70af9313604dffd44317b90173bc1bdfe1a16d92c712a2b5f9"
+      },
+      "grid-2": {
+        "path": "check-inputs-grid-2.json",
+        "sha256": "315c8ca5f4fbc8af653bc032ab308b0152c3444397c2e216c549046b09155195"
+      },
+      "grid-3": {
+        "path": "check-inputs-grid-3.json",
+        "sha256": "4bfdb525271f9c8b8d05cf2537df62bf787e679ecc2516801a35b1d1fcd5e2f3"
+      }
     }
   },
-  "accepted_producer": null
+  "accepted_producer": {
+    "run_id": "45586900986",
+    "run_attempt": "1",
+    "workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+    "artifact_id": 15009252879,
+    "artifact_manifest_sha256": "9431284af8c344956b6c7939950a71427d7d9e87eb26186bc9dce48bc91a43a6",
+    "build_result_sha256": "a33ab55da93e2ceeb23fd56a048b5e507a801bcf86a3c189d7156d1463f501f6",
+    "download_verification_job_id": 139117235701,
+    "retained_results": "780716d93a61776e8653cfd0b67656b9239094ee:20261125/revision-8/results/native-windows-build-45586900986"
+  }
 }
