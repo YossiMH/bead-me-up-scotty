@@ -1,0 +1,193 @@
+{
+  "tasks": 21,
+  "existing_tasks": 17,
+  "new_tasks": 4,
+  "existing_ids_preserved": {
+    "plan-review": "beadrs-3f06f163",
+    "reconcile": "beadrs-42379588",
+    "cloud-checks": "beadrs-fa756e78",
+    "browser-prepare": "beadrs-0b3a11f9",
+    "browser-runner-review": "beadrs-37f8c2bb",
+    "browser-check": "beadrs-08532231",
+    "tray-diagnose": "beadrs-9422c821",
+    "windows-tray": "beadrs-ea7bc5dd",
+    "candidate-review": "beadrs-ba8cbd23",
+    "install": "beadrs-0bab2976",
+    "configured-launch": "beadrs-c9526055",
+    "installed-review": "beadrs-47da80ac",
+    "backend-handoff": "beadrs-1371879c",
+    "app-handoff": "beadrs-f0039a6a",
+    "backend-text-review": "beadrs-30f13b5b",
+    "app-text-review": "beadrs-c62c1990",
+    "preserve-and-clean": "beadrs-3ec972f8"
+  },
+  "blocking_edges": 34,
+  "old_edges_preserved": 26,
+  "new_edges": 8,
+  "removed_edges": 0,
+  "delta_operations": 19,
+  "changed_existing_task_keys": [
+    "windows-tray",
+    "candidate-review",
+    "install",
+    "configured-launch",
+    "app-handoff",
+    "app-text-review",
+    "preserve-and-clean"
+  ],
+  "unchanged_existing_task_keys": [
+    "plan-review",
+    "reconcile",
+    "cloud-checks",
+    "browser-prepare",
+    "browser-runner-review",
+    "browser-check",
+    "tray-diagnose",
+    "installed-review",
+    "backend-handoff",
+    "backend-text-review"
+  ],
+  "acyclic": true,
+  "old_task_recreation": false,
+  "review_execution_cycle": false,
+  "language_violations": [],
+  "per_task": [
+    {
+      "key": "plan-review",
+      "description_sha256": "a50f38c432c706e372ec2e08900db5db1ad8c495d978f0c4d8ec427ef7877b04",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "reconcile",
+      "description_sha256": "348500c574f9facc41c237af21bb01c13665dc4c572160ed45e0695b4a41c5aa",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "cloud-checks",
+      "description_sha256": "a98ec1aec8ab4af6eb617f854155883ab975a748bf56b69a28cbb4bae9c5a35f",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "browser-prepare",
+      "description_sha256": "f76c3bc5129292a9d217dc9470af2af45555dfd4c02574e10434313ede1cb0d6",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "browser-runner-review",
+      "description_sha256": "f955f251b036d1e4c77692514cfd7d0df00112012e4686513142dcf0c9e7e03f",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "browser-check",
+      "description_sha256": "7191e0db701f6342af9a9eb42e05352ac8ffd0439373f65acd9c1f259ed86ae4",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "tray-diagnose",
+      "description_sha256": "a3a90a1ea2d98ba3a9883ae3df3c8527773eda62f9147113fe786a677ea0fb6c",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "tray-repair",
+      "description_sha256": "a0858afccb1e4bc0ba588a016ada36e298540e125ca7c9ebcaebe46e4cb91297",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "tray-repair-checks",
+      "description_sha256": "87a7d9706ef10d3d88a24f7be80496b9b7779c29fef690db39a9b47b7ebc74a6",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "installer-repair",
+      "description_sha256": "cf204b5e31720ed85c0a61ce5c7af21118ed493bc0e5e26a055a7e72bdfc8c42",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "tray-repair-review",
+      "description_sha256": "e354c4fcbcafe92930f8f18f27c4bc25c761b619a9bed68e442a1023c84c4856",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "windows-tray",
+      "description_sha256": "4130f04ca9a38b04227dab5eb3c106a53ffa0d5b35e88632d2de570a7b2c21f3",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "candidate-review",
+      "description_sha256": "9a7088f8784c16d2dbd516ac9ffbf054ad25af314f866f8e5408020ddf03deba",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "install",
+      "description_sha256": "e9d3c0b8b864e8a4f4f677428c0540a52b4efe8b9def2d6c2c2acd7d71866fff",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "configured-launch",
+      "description_sha256": "d6a40d2a975a07e6e81bee25129213179c89228efb3e41af549570cc3179e993",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "installed-review",
+      "description_sha256": "6f35c20a21a99d4b2111839aeedc6f13f75dc94cc646d9c7cf5120d9cf559b52",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "backend-handoff",
+      "description_sha256": "11d88c4e052c484b9edfdb6afb02f8d8b737773d98ac375fcfb4f897a950168a",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "app-handoff",
+      "description_sha256": "4abd3abd9bfa2af0e6eb00037459f5ecf18d80abd04b7e3ceaad89b2817eb629",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "backend-text-review",
+      "description_sha256": "377c81e2dd0b16a6ecfaa0bc1463c32c7a150682c70d84a36dd3460cc073f569",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "app-text-review",
+      "description_sha256": "e51e745e06e613deca009853e80cd89f1c6eecc0c5901562f697ddc5d975e2f8",
+      "language_matches": [],
+      "required_sections_present": true
+    },
+    {
+      "key": "preserve-and-clean",
+      "description_sha256": "88934a7dbd026e590c2f4d16a2b494ad75f68a67562f6f567aebb3ef033fbd44",
+      "language_matches": [],
+      "required_sections_present": true
+    }
+  ],
+  "product_tests_or_builds": false,
+  "database_access": false,
+  "files": {
+    "plan.json": "887b5036b9b1f588baaeb9a0fd9537c030e661b80325bd871b6c8b97bfbae178",
+    "delta-manifest.template.json": "6217b3df27ad05f23e370ba1211850d946c254cd6eb97796f1170750e41fd3f1",
+    "bindings.example.json": "eb716193ec90553f400a0af3964964927548b5465a81b86c1d41127495f2f004",
+    "writing-rules.json": "16fc148c3b355f4bfdfc68fc5f0dc184fc3af7e2925f551e966727e44a615454",
+    "make_revision.py": "0da20483650440cb368c1f001dc2c5074b457bcb1dfba7001526bdb2d68dadda",
+    "render_delta.py": "b6e57f862c57ea44dbd28f45fa92b10157446489147a336a080e4650c3f1793d",
+    "DB_UPDATE_PROCEDURE.md": "37b2023f1fcb02fce05dd7afd0c504d564fe82b63d0b57fa3feea24f732bd3fa"
+  }
+}

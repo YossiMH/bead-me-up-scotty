@@ -1,0 +1,257 @@
+{
+  "schema_version": 1,
+  "review_kind": "independent_complete_plan_and_decomposition_review",
+  "reviewer": "/root/delivery_review",
+  "review_date": "2026-11-24",
+  "continuation_revision": 4,
+  "status": "PASS",
+  "accepted": true,
+  "reviewed_files": {
+    "plan.json": "887b5036b9b1f588baaeb9a0fd9537c030e661b80325bd871b6c8b97bfbae178",
+    "delta-manifest.template.json": "6217b3df27ad05f23e370ba1211850d946c254cd6eb97796f1170750e41fd3f1",
+    "render_delta.py": "b6e57f862c57ea44dbd28f45fa92b10157446489147a336a080e4650c3f1793d",
+    "DB_UPDATE_PROCEDURE.md": "37b2023f1fcb02fce05dd7afd0c504d564fe82b63d0b57fa3feea24f732bd3fa",
+    "bindings.example.json": "eb716193ec90553f400a0af3964964927548b5465a81b86c1d41127495f2f004",
+    "checks.json": "2e3dfddd24fc3a0dec8be193b2d9b7c614f0f9075efbe17f29c968c7db1579f0",
+    "author-audits.json": "0c3b6c0171e954912ce556905d8a2612072b0adab89dec277a0d4b298d47aa3b",
+    "writing-rules.json": "16fc148c3b355f4bfdfc68fc5f0dc184fc3af7e2925f551e966727e44a615454",
+    "make_revision.py": "0da20483650440cb368c1f001dc2c5074b457bcb1dfba7001526bdb2d68dadda"
+  },
+  "author_audits": "Both clean author audits identify these exact final plan and template hashes. Independently rehashed every file listed by checks.json.",
+  "read_complete_plan": true,
+  "expanded_tasks_read": 21,
+  "blocking_edges_read": 34,
+  "references_read": [
+    "references/workflow.md",
+    "references/planner.md",
+    "references/execution.md",
+    "references/zcf.md",
+    "references/standards.md",
+    "references/postprocess.md",
+    "coordination/revision-4/writing-rules.json",
+    "coordination/results/tray-diagnose.json",
+    "worktrees/bead-completion/research/specs/issue-editing-v1.md",
+    "worktrees/bead-completion/research/specs/bulk-manifests-v1.md",
+    "worktrees/bead-completion/src/service/manifest.rs",
+    "worktrees/bead-completion/src/main.rs"
+  ],
+  "primary_source_checked": {
+    "node_commit": "4cac2b94bed4bf02810be054e8f63c0048c66564",
+    "process_source": "https://github.com/nodejs/node/blob/4cac2b94bed4bf02810be054e8f63c0048c66564/deps/uv/src/win/process.c",
+    "process_blob": "27605ca36f44348a6c2f24adce93d9d9b3e8b6da",
+    "version_source": "https://github.com/nodejs/node/blob/4cac2b94bed4bf02810be054e8f63c0048c66564/deps/uv/include/uv/version.h",
+    "version_blob": "77432f259588ebd56469cc15a90885854cb9df06",
+    "established": "Read parent-held kill-on-close Job initialization, detached spawn flags and assignment condition. The same commit reports libuv1.51.0. Detached launch skips this Node Job without requesting CREATE_BREAKAWAY_FROM_JOB; the planned enclosing Job and native run remain required."
+  },
+  "checks": [
+    {
+      "name": "complete_requested_result",
+      "status": "passed",
+      "detail": "Traced every requested field and dependency action through accepted native/editing code, current browser checks, combined review, checked installation and actual installed launch. Tray repair, usage text, publication and worktree cleanup remain explicit."
+    },
+    {
+      "name": "every_expanded_task",
+      "status": "passed",
+      "detail": "Read all21 complete descriptions including unchanged tasks, required inputs/actions/commands, completion conditions, resource limits, error handling, return files and Git steps. Four new activities separate code, focused execution, installer correction and independent review."
+    },
+    {
+      "name": "whole_graph",
+      "status": "passed",
+      "tasks": 21,
+      "edges": 34,
+      "acyclic": true,
+      "detail": "Independently derived edges from every prerequisite list. All keys are distinct, all endpoints resolve and the graph is acyclic. The34 entries exactly match the expanded task prerequisites."
+    },
+    {
+      "name": "prior_work_preserved",
+      "status": "passed",
+      "existing_ids": 17,
+      "existing_edges": 26,
+      "unchanged_task_objects": 10,
+      "detail": "Compared against accepted revision3 and actual materialization-result-v3. All17 actual IDs, all26 old edges and all existing resource declarations are retained. Ten unchanged task objects equal revision3. Seven changes concern only the required repair and affected delivery instructions."
+    },
+    {
+      "name": "parallel_execution_and_review",
+      "status": "passed",
+      "detail": "Repair enables separate cloud execution and installer authoring. Independent repair review starts after both candidates and reads execution results before closure. Windows execution depends on the code and focused checks, with no dependency on completed repair review. Install retains all old prerequisites and adds repair review. Browser work remains separate; PC starts remain serialized."
+    },
+    {
+      "name": "native_delta_exactness",
+      "status": "passed",
+      "operations": 19,
+      "creates": 4,
+      "description_updates": 7,
+      "dependency_additions": 8,
+      "detail": "Read every operation and compared all descriptions byte-for-byte with the fully read plan. Four stable unique references are new. Existing IDs are fixed, each update has a current-revision marker and changes only description, and all eight new edges match the complete graph. Creates precede uses. No existing status, assignee, notes, labels or resource changes are present."
+    },
+    {
+      "name": "current_state_binding",
+      "status": "passed",
+      "detail": "Read the complete renderer and procedure. They require full971-record readback, exact17 IDs, original descriptions/titles/resources, actual positive revisions, accepted old blocker/kind edges, confirmed new-reference absence and legitimate claim reconciliation for changed tasks. Renderer rejects changed closed tasks and permits unchanged tasks to remain closed. Only the actual revision numbers are substituted; output creation is exclusive."
+    },
+    {
+      "name": "native_contract_and_unknown_results",
+      "status": "passed",
+      "detail": "Checked manifest create/update/if_revision/dep_add fields against current source/specification. Claimed edits are refused by native manifests. The procedure retains before/after full reads and actual new IDs, preserves975 final records and original history, and requires reconciliation after timeout or committed/publication failure before any replay."
+    },
+    {
+      "name": "host_preservation",
+      "status": "passed",
+      "detail": "All actual PC app starts retain3GiB free RAM,512MiB aggregate process memory, hidden BelowNormal execution and existing deadlines. Browser remains96MiB heaps, headless with GPU disabled. Policy, original repositories/data and foreground application processes remain protected. Insufficient memory postpones affected runs while cloud work proceeds."
+    },
+    {
+      "name": "fixed_input_identities",
+      "status": "passed",
+      "detail": "Independently rehashed original installer, Job helper, full tray smoke, configured-launch smoke and230-file runtime manifest; all match exact hashes stated in the plan. Actual repair commit/module hash/blob must be obtained from the later author result before installer construction or staging."
+    },
+    {
+      "name": "current_language_and_static_structure",
+      "status": "passed",
+      "detail": "Independently scanned every task object against the fetched writing exclusions and found no matches. All description/title sizes fit the verified native limits. Both helper Python files parse. This was static document/code inspection only."
+    }
+  ],
+  "per_task": [
+    {
+      "key": "plan-review",
+      "description_sha256": "a50f38c432c706e372ec2e08900db5db1ad8c495d978f0c4d8ec427ef7877b04",
+      "status": "passed",
+      "review": "Whole-plan review remains recorded in the existing task; previous restore/create directions are historical and not repeated."
+    },
+    {
+      "key": "reconcile",
+      "description_sha256": "348500c574f9facc41c237af21bb01c13665dc4c572160ed45e0695b4a41c5aa",
+      "status": "passed",
+      "review": "Retains the accepted same-history restore, successful owned TEMP inventory, source preservation and native55 result."
+    },
+    {
+      "key": "cloud-checks",
+      "description_sha256": "a98ec1aec8ab4af6eb617f854155883ab975a748bf56b69a28cbb4bae9c5a35f",
+      "status": "passed",
+      "review": "Retains completed32 launcher and161 adapter/editor results; later focused launcher execution is separately assigned."
+    },
+    {
+      "key": "browser-prepare",
+      "description_sha256": "f76c3bc5129292a9d217dc9470af2af45555dfd4c02574e10434313ede1cb0d6",
+      "status": "passed",
+      "review": "Preserves the reviewed three-flow Windows route after the documented cloud prerequisite failures."
+    },
+    {
+      "key": "browser-runner-review",
+      "description_sha256": "f955f251b036d1e4c77692514cfd7d0df00112012e4686513142dcf0c9e7e03f",
+      "status": "passed",
+      "review": "Keeps unchanged test assertions, exact input hashes, resource checks and required independent runner inspection."
+    },
+    {
+      "key": "browser-check",
+      "description_sha256": "7191e0db701f6342af9a9eb42e05352ac8ffd0439373f65acd9c1f259ed86ae4",
+      "status": "passed",
+      "review": "Still requires all three actual UI/native results and clean shutdown, with one PC invocation at a time."
+    },
+    {
+      "key": "tray-diagnose",
+      "description_sha256": "a3a90a1ea2d98ba3a9883ae3df3c8527773eda62f9147113fe786a677ea0fb6c",
+      "status": "passed",
+      "review": "Concrete source diagnosis and retained real parent-loss failure support the narrow correction; incomplete standalone runs receive no credit."
+    },
+    {
+      "key": "tray-repair",
+      "description_sha256": "a0858afccb1e4bc0ba588a016ada36e298540e125ca7c9ebcaebe46e4cb91297",
+      "status": "passed",
+      "review": "Three named files only; detached Windows helper retains pipes/references and POSIX substitute remains in its owned process group."
+    },
+    {
+      "key": "tray-repair-checks",
+      "description_sha256": "87a7d9706ef10d3d88a24f7be80496b9b7779c29fef690db39a9b47b7ebc74a6",
+      "status": "passed",
+      "review": "Separately executable32-case launcher command plus lint/diff, exact candidate identity and process cleanup."
+    },
+    {
+      "key": "installer-repair",
+      "description_sha256": "cf204b5e31720ed85c0a61ce5c7af21118ed493bc0e5e26a055a7e72bdfc8c42",
+      "status": "passed",
+      "review": "Separate installer file permits only the actual canonical tray module blob and SHA256; old preservation/runtime controls stay intact."
+    },
+    {
+      "key": "tray-repair-review",
+      "description_sha256": "e354c4fcbcafe92930f8f18f27c4bc25c761b619a9bed68e442a1023c84c4856",
+      "status": "passed",
+      "review": "Independent complete module/test/installer inspection can begin before executions finish and closes only after cloud and Windows results pass."
+    },
+    {
+      "key": "windows-tray",
+      "description_sha256": "4130f04ca9a38b04227dab5eb3c106a53ffa0d5b35e88632d2de570a7b2c21f3",
+      "status": "passed",
+      "review": "Repaired task stage, exact source/module hashes and existing full native Exit, parent-loss and restart cases with unchanged host limits."
+    },
+    {
+      "key": "candidate-review",
+      "description_sha256": "9a7088f8784c16d2dbd516ac9ffbf054ad25af314f866f8e5408020ddf03deba",
+      "status": "passed",
+      "review": "Retains earlier valid reviews and requires actual browser/tray plus final exact module and installer acceptance."
+    },
+    {
+      "key": "install",
+      "description_sha256": "e9d3c0b8b864e8a4f4f677428c0540a52b4efe8b9def2d6c2c2acd7d71866fff",
+      "status": "passed",
+      "review": "Existing five prerequisites remain and repair review is added; guarded main adoption, preservation, pin selection and ordinary publication remain."
+    },
+    {
+      "key": "configured-launch",
+      "description_sha256": "d6a40d2a975a07e6e81bee25129213179c89228efb3e41af549570cc3179e993",
+      "status": "passed",
+      "review": "Real installed batch/default-pin use and actual Exit remain required after installation."
+    },
+    {
+      "key": "installed-review",
+      "description_sha256": "6f35c20a21a99d4b2111839aeedc6f13f75dc94cc646d9c7cf5120d9cf559b52",
+      "status": "passed",
+      "review": "Begins after installation and stays open until the actual installed launch result exists."
+    },
+    {
+      "key": "backend-handoff",
+      "description_sha256": "11d88c4e052c484b9edfdb6afb02f8d8b737773d98ac375fcfb4f897a950168a",
+      "status": "passed",
+      "review": "Truthful final appended result, original history and current recovery/removal instructions are retained."
+    },
+    {
+      "key": "app-handoff",
+      "description_sha256": "4abd3abd9bfa2af0e6eb00037459f5ecf18d80abd04b7e3ceaad89b2817eb629",
+      "status": "passed",
+      "review": "Tray-capable production/source launch comes before explicitly labeled frontend development; exact installed/module results are recorded."
+    },
+    {
+      "key": "backend-text-review",
+      "description_sha256": "377c81e2dd0b16a6ecfaa0bc1463c32c7a150682c70d84a36dd3460cc073f569",
+      "status": "passed",
+      "review": "Separate factual and language review of final backend text remains required."
+    },
+    {
+      "key": "app-text-review",
+      "description_sha256": "e51e745e06e613deca009853e80cd89f1c6eecc0c5901562f697ddc5d975e2f8",
+      "status": "passed",
+      "review": "Separate review covers final usage, production/dev distinction, source identities and truthful cleanup."
+    },
+    {
+      "key": "preserve-and-clean",
+      "description_sha256": "88934a7dbd026e590c2f4d16a2b494ad75f68a67562f6f567aebb3ef033fbd44",
+      "status": "passed",
+      "review": "Complete21-task graph, same-history publication, exact Riftri removal without force, final closure and durable receipts remain required."
+    }
+  ],
+  "current_closure_reconciliation": {
+    "status": "compatible_with_plan",
+    "detail": "Root reports six legitimate unchanged task closures before this revision. No closure operation is included in the delta and no replay is authorized. Native load_dependencies reads blocker_status from the current blocker and derives finished from closed, so changed read-time dependency status alone is distinct from an edited dependency. The renderer compares old blocker/kind identities; fresh bound revisions and preserved states are still required."
+  },
+  "findings": [],
+  "open_plan_items": [],
+  "materialization_result": "The full revision4 plan is accepted. Root may bind fresh actual revisions and apply only its19-operation delta after the specified current-state checks. No new task ID or completed product result is asserted by this review.",
+  "remaining_execution": "Actual repair, focused cloud results, new installer, full Windows tray and browser results, checked installation, installed launch, final text and cleanup remain governed by their existing task conditions.",
+  "product_tests_or_builds_run": false,
+  "pc_calls": 0,
+  "database_writes": false,
+  "production_files_changed": false,
+  "changed_files": [
+    "coordination/revision-4/plan-review.json"
+  ],
+  "git_result": "Only this independent review record was added. Root retains the existing permitted transfer publication and native task-state updates; no product source commit was created."
+}
