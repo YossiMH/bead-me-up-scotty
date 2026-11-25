@@ -4,13 +4,13 @@
   "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
   "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
   "files": {
-    "checkpoint-windows-build-20261125.py": "41af14335f70f707d85d32fc260be23761557fd2e7014ce3bc5f83a5cf7e0b31",
-    "checkpoint-windows-check-20261125.py": "b3455e6d6fe62c6fedfdcf44c3afb7c4ed03a2d138d54bca17b8e8b8ac91869d",
+    "checkpoint-windows-build-20261125.py": "e65746cc76a67091dda134ca51b86143d431372520e6639ad1f163f7a92f0b08",
+    "checkpoint-windows-check-20261125.py": "28174403b6cc8f0d9f5493d36f3c1ab271a51e75ca0883eb846926f417db96a1",
     "checkpoint-windows-supervisor-20261125.ps1": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
     "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
     "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
     "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
-    "check-inputs.template.json": "d0473f00fbce8f41991b462c89ca3a237f99e9f7d1fd97ea4d9907f7eff65c41",
+    "check-inputs.template.json": "2d1d6123c8877f1a9225521d507dddf871fda3d8c5d916f0e0ad96a320afd216",
     "corpus-inputs.template.json": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7"
   },
   "phase_inputs": {
@@ -70,5 +70,18 @@
     "source_and_build_inputs_unchanged": true,
     "hidden_launch_and_zero_owned_children_completion_unchanged": true,
     "console_policy": "At most one extra member: exact System32 conhost.exe, parent this Python, creation within ten seconds of Python; query/synchronization handles remain retained and live at every quiescent check."
+  },
+  "revision_4": {
+    "reason": "Bounded resampling and buffer sizing for an incomplete read-only Job list; the complete accepted membership and retained-handle checks remain exact.",
+    "failed_build_run": 45549348933,
+    "failed_build_job": 138986515662,
+    "failed_build_result_sha256": "b0932bdcd680bc31c11daa331ca068e8c8c7bceeed4de50f22f36a6c511bdadf",
+    "failed_outer_result_sha256": "4be16c46b50fb941485c61c59444c7d5abd823d8547496df9cacdd442a967f64",
+    "maximum_query_attempts": 8,
+    "query_elapsed_budget_seconds": 0.5,
+    "maximum_process_ids": 1024,
+    "maximum_phase_retry_records": 32,
+    "source_and_commands_unchanged": true,
+    "command_replay": false
   }
 }

@@ -1,0 +1,50 @@
+{
+  "status": "passed",
+  "scope": "Mocked Win32 query responses only; exact function extracted from final helper.",
+  "helper_sha256": "e65746cc76a67091dda134ca51b86143d431372520e6639ad1f163f7a92f0b08",
+  "cases": [
+    {
+      "name": "complete_snapshot",
+      "status": "passed",
+      "queries": 1,
+      "retry_records": 0
+    },
+    {
+      "name": "successful_incomplete_snapshot_then_complete",
+      "status": "passed",
+      "queries": 2,
+      "retry_records": 1
+    },
+    {
+      "name": "more_data_resize_then_complete",
+      "status": "passed",
+      "queries": 2,
+      "retry_records": 1
+    },
+    {
+      "name": "incomplete_query_attempts_exhausted",
+      "status": "passed",
+      "queries": 8,
+      "retry_records": 1
+    },
+    {
+      "name": "oversized_membership_refused",
+      "status": "passed",
+      "queries": 1,
+      "retry_records": 1
+    },
+    {
+      "name": "duplicate_pid_refused",
+      "status": "passed",
+      "queries": 1,
+      "retry_records": 0
+    },
+    {
+      "name": "unrelated_api_error_refused",
+      "status": "passed",
+      "queries": 1,
+      "retry_records": 1
+    }
+  ],
+  "commands_or_windows_calls_executed": 0
+}

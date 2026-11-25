@@ -25,6 +25,7 @@ TESTS_COMMIT = "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8"
 TARGET = "x86_64-pc-windows-msvc"
 TOOLCHAIN = "1.100.0"
 JOB_SHA256 = "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+JOB_QUERY_RETRIES = []
 ARCHIVE_SCRIPT_SHA256 = "f51d6073336edf3f6f06834f28232f540aa9f268ea87de0918fd53808c9c5143"
 EXPECTED_FILES = {
     "src/service/checkpoint/set_v2.rs": "M",
@@ -163,15 +164,35 @@ def job_pids():
     query.argtypes = [wintypes.HANDLE, ctypes.c_int, ctypes.c_void_p,
                       wintypes.DWORD, ctypes.POINTER(wintypes.DWORD)]
     query.restype = wintypes.BOOL
-    buffer = ctypes.create_string_buffer(8 + 8 * 1024)
-    used = wintypes.DWORD()
-    require(query(None, 3, buffer, len(buffer), ctypes.byref(used)),
-            "Cannot inspect the immediate inherited Windows Job: " + str(ctypes.get_last_error()))
-    assigned, count = struct.unpack_from("<II", buffer.raw)
-    require(0 < assigned == count <= 1024, "Incomplete or oversized Job process list")
-    pids = set(struct.unpack_from("<" + "Q" * count, buffer.raw, 8))
-    require(len(pids) == count and 0 not in pids, "Invalid Job process IDs")
-    return pids
+    capacity, until, retry = 32, time.monotonic() + 0.5, None
+    for attempt in range(8):
+        buffer = ctypes.create_string_buffer(8 + 8 * capacity)
+        used = wintypes.DWORD()
+        ok = bool(query(None, 3, buffer, len(buffer), ctypes.byref(used)))
+        error = 0 if ok else ctypes.get_last_error()
+        assigned, count = struct.unpack_from("<II", buffer.raw)
+        sample = {"attempt": attempt + 1, "capacity": capacity, "success": ok, "error": error,
+                  "assigned": assigned, "count": count, "returned_bytes": used.value}
+        complete = ok and 0 < assigned == count <= capacity and 8 + 8 * count <= used.value <= len(buffer)
+        if complete:
+            pids = set(struct.unpack_from("<" + "Q" * count, buffer.raw, 8))
+            require(len(pids) == count and 0 not in pids, "Invalid Job process IDs: " + json.dumps(sample))
+            if retry is not None:
+                retry["samples"].append(sample)
+                retry["complete_pids"] = sorted(pids)
+            return pids
+        if retry is None:
+            require(len(JOB_QUERY_RETRIES) < 32, "Too many incomplete Job queries in one phase")
+            retry = {"started": utc(), "samples": []}
+            JOB_QUERY_RETRIES.append(retry)
+        retry["samples"].append(sample)
+        require(error in (0, 234) and 0 <= count <= capacity and 0 < assigned <= 1024,
+                "Invalid or oversized Job query: " + json.dumps(retry))
+        require(attempt < 7 and time.monotonic() < until,
+                "Job query did not produce a complete bounded snapshot: " + json.dumps(retry))
+        capacity = min(1024, max(capacity * 2, assigned))
+        time.sleep(min(0.02, max(0, until - time.monotonic())))
+    raise RuntimeError("Job query exhausted its bounded attempts")
 
 
 class OwnedJobBaseline:
@@ -568,6 +589,7 @@ def main():
               "helper_sha256": args.helper_sha256, "job_helper_sha256": JOB_SHA256,
               "target": TARGET, "compile_command": COMMAND, "tests_executed": False,
               "owned_job_baseline": runner.baseline_record,
+              "job_query_retries": JOB_QUERY_RETRIES,
               "work_seconds": WORK_SECONDS, "python": sys.version, "python_executable": sys.executable,
               "runner_os": platform.platform(), "runner_image": {
                   "name": os.environ.get("ImageOS"), "version": os.environ.get("ImageVersion")}}
