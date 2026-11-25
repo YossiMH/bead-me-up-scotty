@@ -1,0 +1,199 @@
+name: Native Windows qualification revision 9
+
+on:
+  push:
+    branches:
+      - task/checkpoint-windows-v9-check-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: checkpoint-windows-v9-check-20261125
+  cancel-in-progress: false
+
+env:
+  CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+
+jobs:
+  window:
+    if: github.repository == 'YossiMH/bead-me-up-scotty'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    outputs:
+      started: ${{ steps.inputs.outputs.started }}
+      deadline: ${{ steps.inputs.outputs.deadline }}
+      native_run: ${{ steps.inputs.outputs.native_run }}
+      native_artifact: ${{ steps.inputs.outputs.native_artifact }}
+      driver_sha256: ${{ steps.inputs.outputs.driver_sha256 }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: 20261125/revision-9/native-windows-check
+      - name: Verify the complete bound packet and open its shared window
+        id: inputs
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, pathlib, py_compile, re, sys, time
+          packet = pathlib.Path("ci/20261125/revision-9/native-windows-check")
+          digest = lambda path: hashlib.sha256(path.read_bytes()).hexdigest()
+          assert re.fullmatch(r"[a-f0-9]{64}", os.environ["CHECK_PACKET_SHA256"])
+          assert digest(packet / "packet.json") == os.environ["CHECK_PACKET_SHA256"]
+          manifest = json.loads((packet / "packet.json").read_text())
+          assert manifest["schema_version"] == 1 and manifest["status"] == "bound"
+          assert manifest["source_commit"] == "2d801ba455b7a722daf644a7615445117d57e8e9"
+          assert manifest["source_tree"] == "509d6222300b84b16041a8366a8b6ae4c28ccc98"
+          sys.pycache_prefix = str(pathlib.Path(os.environ["RUNNER_TEMP"]) / "windows-qualification-parse")
+          for name, expected in manifest["files"].items():
+              assert re.fullmatch(r"[A-Za-z0-9_.-]+", name)
+              assert digest(packet / name) == expected
+              if name.endswith(".py"):
+                  py_compile.compile(str(packet / name), doraise=True)
+          partitions = ("core", "editing", "grid-1", "grid-2", "grid-3")
+          assert set(manifest["phase_inputs"]["check"]) == set(partitions)
+          common = None
+          for partition in partitions:
+              binding = manifest["phase_inputs"]["check"][partition]
+              assert re.fullmatch(r"[A-Za-z0-9_.-]+\.json", binding["path"])
+              assert digest(packet / binding["path"]) == binding["sha256"]
+              request = json.loads((packet / binding["path"]).read_text())
+              assert request["status"] == "bound" and request["partition"] == partition
+              assert request["source_commit"] == manifest["source_commit"]
+              assert request["source_tree"] == manifest["source_tree"]
+              normalized = {key: value for key, value in request.items() if key != "partition"}
+              if common is None:
+                  common = normalized
+              assert common == normalized
+          assert common["run"]["repository"] == "YossiMH/bead-me-up-scotty"
+          assert re.fullmatch(r"[0-9]+", common["run"]["id"])
+          assert isinstance(common["artifact_id"], int) and common["artifact_id"] > 0
+          started = int(time.time())
+          with open(os.environ["GITHUB_OUTPUT"], "a", encoding="utf-8") as output:
+              output.write(f"started={started}\ndeadline={started + 8400}\n")
+              output.write(f"native_run={common['run']['id']}\nnative_artifact={common['artifact_id']}\n")
+              output.write(f"driver_sha256={manifest['files']['checkpoint-windows-driver-20261125.ps1']}\n")
+          PY
+
+  partitions:
+    needs: window
+    name: Windows ${{ matrix.partition }}
+    runs-on: windows-2025
+    timeout-minutes: 140
+    strategy:
+      fail-fast: false
+      max-parallel: 5
+      matrix:
+        partition: [core, editing, grid-1, grid-2, grid-3]
+    env:
+      SCOTTY_WINDOWS_PARTITION: ${{ matrix.partition }}
+      SCOTTY_WINDOWS_START_EPOCH: ${{ needs.window.outputs.started }}
+      SCOTTY_WINDOWS_DEADLINE_EPOCH: ${{ needs.window.outputs.deadline }}
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+    steps:
+      - name: Read exact reviewed qualification packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/revision-9/native-windows-check
+
+      - name: Read the unchanged owned Job helper
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          ref: 6d40aacb49eba309f1f925e106cfbb9026cce744
+          path: job
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: windows-task-job.ps1
+
+      - name: Read the unchanged native editing smoke
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          ref: a532a268df26cb719bf0411a9c36668e0c9f0b04
+          path: smoke
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: windows-native-smoke.ps1
+
+      - name: Download the separately accepted exact build artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          run-id: ${{ needs.window.outputs.native_run }}
+          artifact-ids: ${{ needs.window.outputs.native_artifact }}
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/checkpoint-windows-download-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Execute the exact qualification partition
+        shell: pwsh
+        timeout-minutes: 138
+        run: |
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-windows-check'
+          $driver = Join-Path $packet 'checkpoint-windows-driver-20261125.ps1'
+          if ((Get-FileHash -LiteralPath $driver -Algorithm SHA256).Hash.ToLowerInvariant() -cne '${{ needs.window.outputs.driver_sha256 }}') { throw 'Driver bytes differ.' }
+          $download = Join-Path $env:RUNNER_TEMP "checkpoint-windows-download-$($env:GITHUB_RUN_ID)-$($env:GITHUB_RUN_ATTEMPT)"
+          & $driver -Phase check -Partition $env:SCOTTY_WINDOWS_PARTITION -PacketDirectory $packet -PacketSha256 $env:CHECK_PACKET_SHA256 -JobHelper (Join-Path $env:GITHUB_WORKSPACE 'job/windows-task-job.ps1') -ArtifactDirectory $download -SmokeHelper (Join-Path $env:GITHUB_WORKSPACE 'smoke/windows-native-smoke.ps1')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Retain qualification receipts, executable and complete logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-v9-${{ github.run_id }}-${{ github.run_attempt }}-part-${{ matrix.partition }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-checkpoint-windows-artifact-check-${{ github.run_id }}-${{ github.run_attempt }}/
+
+  aggregate:
+    needs: [window, partitions]
+    if: always()
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    env:
+      WINDOW_START: ${{ needs.window.outputs.started || '0' }}
+      WINDOW_DEADLINE: ${{ needs.window.outputs.deadline || '0' }}
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: 20261125/revision-9/native-windows-check
+      - name: Download every partition without merging its files
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          pattern: checkpoint-windows-v9-${{ github.run_id }}-${{ github.run_attempt }}-part-*
+          merge-multiple: false
+          path: partitions
+      - name: Reconcile complete coverage, native identities and cleanup
+        if: always()
+        shell: bash
+        run: |
+          python3 ci/20261125/revision-9/native-windows-check/aggregate.py \
+            --packet ci/20261125/revision-9/native-windows-check --packet-sha256 "$CHECK_PACKET_SHA256" \
+            --outputs partitions --run-id "$GITHUB_RUN_ID" --run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --workflow-commit "$GITHUB_SHA" --window-start "$WINDOW_START" --window-deadline "$WINDOW_DEADLINE" \
+            --output aggregate/result.json
+      - name: Retain the final actual coverage report
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-v9-${{ github.run_id }}-${{ github.run_attempt }}-aggregate
+          path: aggregate/
+          retention-days: 7
+          if-no-files-found: error

@@ -14,7 +14,7 @@ concurrency:
   cancel-in-progress: false
 
 env:
-  CHECK_PACKET_SHA256: PENDING_PACKET_SHA256
+  CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
 
 jobs:
   window:
@@ -46,8 +46,8 @@ jobs:
           assert digest(packet / "packet.json") == os.environ["CHECK_PACKET_SHA256"]
           manifest = json.loads((packet / "packet.json").read_text())
           assert manifest["schema_version"] == 1 and manifest["status"] == "bound"
-          assert manifest["source_commit"] == "PENDING_FINAL_SOURCE_COMMIT"
-          assert manifest["source_tree"] == "PENDING_FINAL_SOURCE_TREE"
+          assert manifest["source_commit"] == "2d801ba455b7a722daf644a7615445117d57e8e9"
+          assert manifest["source_tree"] == "509d6222300b84b16041a8366a8b6ae4c28ccc98"
           sys.pycache_prefix = str(pathlib.Path(os.environ["RUNNER_TEMP"]) / "windows-qualification-parse")
           for name, expected in manifest["files"].items():
               assert re.fullmatch(r"[A-Za-z0-9_.-]+", name)
