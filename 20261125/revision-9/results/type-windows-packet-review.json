@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root",
+  "scope": "Exact native-only binding of the app Windows native-store and production HTTP checks",
+  "task_key": "type-windows-roundtrip",
+  "continuation_revision": 9,
+  "candidate_commit": "f6679cad66ab1d280edcead8a7dc1f609e304c95",
+  "candidate_tree": "c94fd6e9409d5174aecd899c56ec3306c4435ffd",
+  "parent_packet_commit": "7da96fd2ec73fa0f3f7a378e70600c09b2821033",
+  "prior_packet_review": {
+    "commit": "0b3ab55e444548e000190e72620e668403421043",
+    "path": "20261125/revision-8/results/type-windows-packet-review.json",
+    "sha256": "26532878f9a04f758210810a0103c413e52789ddd31fa41ecba806408cd773b3"
+  },
+  "inputs": {
+    "schema_version": 1,
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "runtime_run_id": 45573503400,
+    "runtime_artifact_id": 15003467178,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "native_source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_run_id": 45600413942,
+    "native_artifact_id": 15014634952,
+    "native_manifest_sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+    "native_executable": {
+      "bytes": 12243456,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "native_metadata": {
+      "bytes": 2058,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    },
+    "task_job_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "native_qualification": "Final 2d801 Windows producer 45600413942 and separate full/small download verification passed. Activation also requires accepted actual final 2d801 affected-target results; complete checkpoint qualification remains a separate task."
+  },
+  "files": {
+    "20261125/revision-9/type-windows/run.py": {
+      "sha256": "7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112",
+      "git_blob": "d9e7289f1fa75a1ad7d3c6562598bb6cb5f6629e"
+    },
+    "20261125/revision-9/type-windows/inputs.json": {
+      "sha256": "b4b22df1d6799146fd21ccb534797acb31764055e5adad0f329f7f0b45162370",
+      "git_blob": "c99b55883fa0eb3bd7adce307ea6c7a212f5b489"
+    },
+    ".github/workflows/scotty-type-windows-20261125.yml": {
+      "sha256": "62345d39bfd71e6fa16bd2da3f8a8339d76dd9573cb626276fc38e11cd82ab15",
+      "git_blob": "b1853f0df31065ff8b88f904d15b2e26fa99ed11"
+    }
+  },
+  "producer_review": {
+    "commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40",
+    "sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5"
+  },
+  "author_inspections": {
+    "commit": "edbd014a92b3f476db5d185fd2832f0bfc38af08",
+    "path": "20261125/revision-9/results/type-windows-packet-author.json",
+    "sha256": "8991069eeb1bacf67209be3bcbe2a3ab42752673ce2aea066cb8fbaa801526f0",
+    "complete_clean_passes": 2
+  },
+  "checks": [
+    "Read the complete exact candidate inputs/workflow and entire unchanged driver; retrieved its immutable commit/parent and all changed paths. The three-file packet is a direct child of the accepted held revision 8 packet; no app source, runtime or test module changes.",
+    "Compared every input key. Exactly seven native fields differ: source, run, artifact, manifest digest, executable record, metadata record and qualification prose. All app source/tree/runtime/source manifest, ZIP, BUILD_ID/count and task Job inputs remain unchanged.",
+    "Matched the native source/run/artifact/manifest and every executable/metadata path/hash/length to the original final producer receipt, exact small manifest, independently accepted download results and directly retrieved Actions artifact metadata. Final Windows release is 0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a, 12,243,456 bytes; original metadata remains 21ca90e2 at 2,058 bytes.",
+    "The complete driver is byte-identical to accepted 7af8d974. Reversing only both revision directory references and measured native run/artifact identifiers recovers the entire prior workflow. Exact source checkout, pinned actions/Node, permissions, credential handling, existing owned Job, timeout, upload and cleanup paths are unchanged.",
+    "Rechecked the full verification-to-execution call chain. Runtime/source/lockfile Git blobs and bytes, all 560 nested files and BUILD_ID, native manifest and original provenance are verified before npm and both prescribed checks. The native-store test and real production HTTP long-type test retain guards, audit fields, byte readback and observed temporary/server/port cleanup.",
+    "Every command and result retains complete actual text via numbered UTF-8 chunks and hashes. Each command keeps its 180-second limit within the 15-minute hosted job. The 512 MiB Node heap is a hosted-only setting; this packet performs no PC work.",
+    "Read and verified both complete clean final binding inspections and all three recorded file hashes/blobs. Producer success is explicitly separate from accepted actual final affected-target results and from whole-source/PC completion."
+  ],
+  "findings": [],
+  "verdict": "PASS for the exact prepared Windows roundtrip packet. Keep activation held until the accepted actual final 2d801 type-backend-checks prerequisite is available; then the app executor may activate this exact candidate once after absence/prior-run reconciliation. Complete native checkpoint qualification and final app/PC acceptance remain separate.",
+  "activation_branch": "task/type-windows-roundtrip-20261125",
+  "activation_authorized": false,
+  "activation_hold": "Accepted actual final-source type-backend-checks result is pending.",
+  "reviewer_product_execution": false,
+  "pc_actions": 0,
+  "final_app_acceptance": false
+}
