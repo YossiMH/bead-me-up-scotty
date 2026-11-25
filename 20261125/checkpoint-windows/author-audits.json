@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "author": "/root/checkpoint_finish",
+  "status": "passed_two_static_author_inspections",
+  "preparation_only": true,
+  "files": {
+    "checkpoint-windows-build-20261125.py": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+    "checkpoint-windows-check-20261125.py": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
+    "checkpoint-windows-supervisor-20261125.ps1": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+    "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+    "check-inputs.template.json": "451167bf2f37a266fde9e5211517c555543263690fd8de12194223c4a256b0e9",
+    "corpus-inputs.template.json": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7",
+    "packet.json": "d292a74341832d15e7871d51aa677c7dabe36a78270e02396ae802200e0af2c2",
+    "checkpoint-windows-build.workflow.yml": "92a2cc8200f5cbb1d5ca7dd0e011a40c612b615e130cdd1a4de09f2a75640cac",
+    "checkpoint-windows-check.workflow.template.yml": "885dce18d0c636571ed0489da6707f75ad480fe00f4de9e8482494ed544cc2dc",
+    "README.md": "f1b8a96f32356112590ee149e1bbcc1387be9b7dbf685d275ebd012bf5cae1b5",
+    "static-checks.json": "4bfd45905ba4f0c4b45730155bbd526b00e11cb58f8f3586316777c670f84a57"
+  },
+  "inspections": [
+    {
+      "inspection": 1,
+      "status": "passed_static_author_inspection",
+      "author": "/root/checkpoint_finish",
+      "scope": "Complete authored build/check/supervisor/driver, both workflow documents, actual build inputs, future check/corpus templates, packet binding and README; copied corpus code bound to its separate accepted review.",
+      "method": "Read every authored script and follow normal, refusal, failure, timeout, packaging, restore and final-verification paths. Reconcile the final retention correction with the unchanged complete scripts.",
+      "source_binding": "515b503b24baf71737ff8fa6c879bd0752ef0fc6/b7c196bb6b337bdc7503e28d3a600e860fa3b799; four exact commits and five exact cumulative file pins.",
+      "conclusions": [
+        "Build first uses the unchanged pinned archive script, records its built-in host version execution, then compiles the six required harnesses without running tests.",
+        "Full source archive/Git blobs/modes and seven actual Windows debug PE outputs are retained; compile-time source paths are recreated exactly for separate checking.",
+        "Only the existing Job helper creates a Job. Query-only additions enforce serial child quiescence; direct handles and supervisor exit reclaim only owned processes.",
+        "Each complete test target is bounded to900 seconds; standalone corpus and smoke remain separate exact-release checks.",
+        "Normal and failed check artifacts retain exact release/metadata before testing, and those copies are hash-checked again.",
+        "Root alone activates workflows and selects the actual qualified PC pin. The check phase refuses missing actual artifact/receipt bindings."
+      ],
+      "remaining_runtime_gates": [
+        "Ordinary Windows PowerShell parsing and Python py_compile inside the reviewed hosted entry path",
+        "Actual immutable-source release/test compilation",
+        "Separate actual artifact-bound Windows checks",
+        "Independent full packet review"
+      ],
+      "blocking_findings": [],
+      "reviewed_files": {
+        "checkpoint-windows-build-20261125.py": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+        "checkpoint-windows-check-20261125.py": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
+        "checkpoint-windows-supervisor-20261125.ps1": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+        "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+        "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+        "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+        "check-inputs.template.json": "451167bf2f37a266fde9e5211517c555543263690fd8de12194223c4a256b0e9",
+        "corpus-inputs.template.json": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7",
+        "packet.json": "d292a74341832d15e7871d51aa677c7dabe36a78270e02396ae802200e0af2c2",
+        "checkpoint-windows-build.workflow.yml": "92a2cc8200f5cbb1d5ca7dd0e011a40c612b615e130cdd1a4de09f2a75640cac",
+        "checkpoint-windows-check.workflow.template.yml": "885dce18d0c636571ed0489da6707f75ad480fe00f4de9e8482494ed544cc2dc",
+        "README.md": "f1b8a96f32356112590ee149e1bbcc1387be9b7dbf685d275ebd012bf5cae1b5",
+        "static-checks.json": "4bfd45905ba4f0c4b45730155bbd526b00e11cb58f8f3586316777c670f84a57"
+      }
+    },
+    {
+      "inspection": 2,
+      "status": "passed_static_author_inspection",
+      "author": "/root/checkpoint_finish",
+      "scope": "Complete authored build/check/supervisor/driver, both workflow documents, actual build inputs, future check/corpus templates, packet binding and README; copied corpus code bound to its separate accepted review.",
+      "method": "Complete second read of all authored scripts, full workflow/input/README cross-check, backwards trace from accepted check artifact to source archive and exact build run, and exact unchanged-byte reconciliation of every file from inspection1.",
+      "conclusions": [
+        "All source ancestry, five allowed file statuses/hashes, source tree, script pin and distinct build/check runtime records agree.",
+        "Future run/artifact/release fields remain null, the check phase binding is null, and no executable SHA is fabricated.",
+        "Windows absolute paths, archive case/mode rules, Cargo executable identities, explicit debug runtime selection and full source postchecks agree across writer and reader.",
+        "Complete normal/failure/timeout/early-refusal paths preserve source and task ownership; any uncertain or remaining process outcome blocks pass and delegates cleanup to the existing owned Job.",
+        "The caller observes the supervisor's PID/creation-time identity exit after a root-only Job state, then preserves exact immutable receipts and artifact bytes.",
+        "Full target lists and summary counts, all six corpus comparisons, four restores,413 original outcomes and55 unchanged native smoke commands are required before qualified_release is assigned.",
+        "Artifact upload/download roots and manifest path names align; action pins, read-only permissions, seven-day retention and temporary-branch cleanup instructions are concrete."
+      ],
+      "reviewed_files": {
+        "checkpoint-windows-build-20261125.py": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+        "checkpoint-windows-check-20261125.py": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
+        "checkpoint-windows-supervisor-20261125.ps1": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+        "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+        "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+        "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+        "check-inputs.template.json": "451167bf2f37a266fde9e5211517c555543263690fd8de12194223c4a256b0e9",
+        "corpus-inputs.template.json": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7",
+        "packet.json": "d292a74341832d15e7871d51aa677c7dabe36a78270e02396ae802200e0af2c2",
+        "checkpoint-windows-build.workflow.yml": "92a2cc8200f5cbb1d5ca7dd0e011a40c612b615e130cdd1a4de09f2a75640cac",
+        "checkpoint-windows-check.workflow.template.yml": "885dce18d0c636571ed0489da6707f75ad480fe00f4de9e8482494ed544cc2dc",
+        "README.md": "f1b8a96f32356112590ee149e1bbcc1387be9b7dbf685d275ebd012bf5cae1b5",
+        "static-checks.json": "4bfd45905ba4f0c4b45730155bbd526b00e11cb58f8f3586316777c670f84a57"
+      },
+      "static_guards": 23,
+      "blocking_findings": [],
+      "runtime_validation": "Not executed by this author; ordinary platform parsing, compilation and separately artifact-bound execution remain required."
+    }
+  ],
+  "corrections_before_final_inspections": [
+    "First inspection correction: explicit Git Bash python3 version check, in addition to the recorded native Python interpreter.",
+    "First inspection correction: preserved exact source archive modes separately from Windows stat modes.",
+    "First inspection correction: Windows action artifact-ID download uses merge-multiple true so the accepted bundle is at the expected root.",
+    "First inspection correction: copy traversal rejects each reparse directory before recursing.",
+    "First inspection correction: small log records include the output root and stream-relative filename, and supervisor caller prints them only after its observed exit.",
+    "First inspection correction: the separate check refuses ancestor Git metadata before recreating compiled-in source paths.",
+    "Retain the exact release/metadata before any test execution under release-under-test, so a failed Windows check also supplies those artifact bytes. Qualified-release status is assigned only after all checks pass.",
+    "Updated source guard to an exact reviewed four-commit linear ancestry after the observed formatting-only descendant; cumulative five-file boundary remains exact."
+  ],
+  "external_verifier_review": {
+    "helper_sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "review_sha256": "a0c0faaaa023df054ca0b5949c833d238683070f8913f11b201df324d2b97a87"
+  },
+  "no_pc_actions": true,
+  "no_workflow_activation": true
+}

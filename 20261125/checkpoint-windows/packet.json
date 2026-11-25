@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "operation": "checkpoint-windows-qualification",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "files": {
+    "checkpoint-windows-build-20261125.py": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+    "checkpoint-windows-check-20261125.py": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
+    "checkpoint-windows-supervisor-20261125.ps1": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+    "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+    "check-inputs.template.json": "451167bf2f37a266fde9e5211517c555543263690fd8de12194223c4a256b0e9",
+    "corpus-inputs.template.json": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7"
+  },
+  "phase_inputs": {
+    "build": {
+      "path": "build-inputs.json",
+      "sha256": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a"
+    },
+    "check": null
+  },
+  "external_sources": {
+    "job_helper": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "6d40aacb49eba309f1f925e106cfbb9026cce744",
+      "path": "windows-task-job.ps1",
+      "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+    },
+    "smoke_helper": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "a532a268df26cb719bf0411a9c36668e0c9f0b04",
+      "path": "windows-native-smoke.ps1",
+      "sha256": "2a29faa7df3e9c04dd7543a5f8fd54552dd34c83248c1eda0d427e8f1a215a0b"
+    },
+    "corpus_helper": {
+      "scratch_commit": "e6eef961c7de7bb81031ffa413607cc14dde9b32",
+      "sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+      "review_sha256": "a0c0faaaa023df054ca0b5949c833d238683070f8913f11b201df324d2b97a87"
+    }
+  },
+  "native_tasks": {
+    "build": "beadrs-70721b6a",
+    "checks": "beadrs-cd3f5a63"
+  },
+  "activation": "Only the build phase is fully input-bound; root owns activation after independent review. Check artifact pins and corpus release pins remain null.",
+  "source_ancestry": [
+    "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "cee3220b5e4b9a414c50379273c84759db645dbf",
+    "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "986f2a332aca9dd567eee41ce835917d56e29468"
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "kind": "static source assertions, not runtime parsing or execution",
+  "checks": {
+    "archive_script": true,
+    "linear_ancestry": true,
+    "five_file_delta": true,
+    "compile_only": true,
+    "single_cargo_job": true,
+    "windows_pe_outputs": true,
+    "archive_git_blobs": true,
+    "existing_job_only": true,
+    "job_quiescence": true,
+    "observed_supervisor_exit": true,
+    "no_global_kill": true,
+    "bound_bundle": true,
+    "exact_source_restore": true,
+    "runtime_bead": true,
+    "all_targets_900_seconds": true,
+    "corpus_preservation": true,
+    "smoke_55": true,
+    "small_logs": true,
+    "check_inputs_gate": true,
+    "no_pc_paths": true,
+    "no_git_mutators": true,
+    "failed_check_retains_release": true,
+    "retained_release_postchecked": true
+  },
+  "sha256": {
+    "build": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+    "check": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
+    "supervisor": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+    "driver": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44"
+  },
+  "guard_development_notes": [
+    "One overly broad draft search matched ordinary checkout/commit variable names. Replaced it with an actual Git-command invocation search and manually inspected every Git call. No helper source changed for that search correction."
+  ]
+}

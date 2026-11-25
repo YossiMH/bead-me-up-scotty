@@ -1,0 +1,72 @@
+name: Temporary checkpoint Windows build
+
+on:
+  push:
+    branches:
+      - task/checkpoint-windows-build-20261125
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checkpoint-windows-build-20261125
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: windows-2025
+    timeout-minutes: 45
+    env:
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+    steps:
+      - name: Read exact reviewed Windows packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/checkpoint-windows
+
+      - name: Read exact Green source and three ancestors
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-rs
+          ref: 515b503b24baf71737ff8fa6c879bd0752ef0fc6
+          fetch-depth: 4
+          path: source
+          persist-credentials: false
+
+      - name: Read the unchanged owned Job helper
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          ref: 6d40aacb49eba309f1f925e106cfbb9026cce744
+          path: job
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: windows-task-job.ps1
+
+      - name: Build the immutable release and compile Windows tests
+        shell: pwsh
+        timeout-minutes: 43
+        run: |
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/checkpoint-windows'
+          $driver = Join-Path $packet 'checkpoint-windows-driver-20261125.ps1'
+          if ((Get-FileHash -LiteralPath $driver -Algorithm SHA256).Hash.ToLowerInvariant() -cne '9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44') { throw 'Driver bytes differ.' }
+          & $driver -Phase build -PacketDirectory $packet -PacketSha256 'd292a74341832d15e7871d51aa677c7dabe36a78270e02396ae802200e0af2c2' -JobHelper (Join-Path $env:GITHUB_WORKSPACE 'job/windows-task-job.ps1') -Checkout (Join-Path $env:GITHUB_WORKSPACE 'source')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Retain exact output bytes, receipts and failure logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-build-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-checkpoint-windows-artifact-build-${{ github.run_id }}-${{ github.run_attempt }}/
