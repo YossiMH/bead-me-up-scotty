@@ -33,8 +33,13 @@ def checked_file(root, row):
 def retain_text(filename, label):
     """Expose complete actual text and its hash for remote recovery without rebuilding."""
     data = filename.read_bytes()
+    content = data.decode("utf-8")
+    parts = (len(content) + 4095) // 4096
     print("RETAIN_FILE " + json.dumps({"path": label, "sha256": hashlib.sha256(data).hexdigest(),
-                                      "bytes": len(data), "content": data.decode("utf-8")}), flush=True)
+                                      "bytes": len(data), "parts": parts}), flush=True)
+    for index in range(parts):
+        print("RETAIN_PART " + json.dumps({"path": label, "part": index,
+                                          "content": content[index * 4096:(index + 1) * 4096]}), flush=True)
 
 
 def main():
@@ -160,7 +165,8 @@ def main():
         raise
     finally:
         for filename in sorted(args.fixtures.rglob("*")):
-            if filename.is_file() and filename.name in {"result.json", "server.log", "type-edit.json"}:
+            if filename.is_file() and filename.name in {"result.json", "server.log", "type-edit.json",
+                                                          "commands.json", "capabilities.json", "git-result.json"}:
                 relative = filename.relative_to(args.fixtures)
                 saved = output / "cases" / relative
                 saved.parent.mkdir(parents=True, exist_ok=True)
