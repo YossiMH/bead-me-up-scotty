@@ -39,7 +39,7 @@ jobs:
           $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'
           $parser=Join-Path $root 'parse-bindings.ps1'
           if((Get-FileHash -LiteralPath $parser -Algorithm SHA256).Hash.ToLowerInvariant() -cne 'c6ce24dd405de76c60936796424901dc5a2c6ec720c4d2a2342eb036e4c30691'){throw 'Parser changed.'}
-          & $parser -Directory $root -ManifestSha256 '6ef5953b33906431b34ca9c3c99c531efb79b42cbf4aa3ae4bc280cce2721eb7'
+          & $parser -Directory $root -ManifestSha256 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'
           if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
       - name: Check synthetic installer refusals
         shell: powershell -NoLogo -NoProfile -NonInteractive -Command ". '{0}'"
@@ -48,7 +48,7 @@ jobs:
           $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'
           $helper=Join-Path $root 'check-binding-refusals.ps1'
           if((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c'){throw 'Refusal helper changed.'}
-          & $helper -Directory $root -ManifestSha256 '6ef5953b33906431b34ca9c3c99c531efb79b42cbf4aa3ae4bc280cce2721eb7'
+          & $helper -Directory $root -ManifestSha256 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'
           if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
       - name: Check synthetic task mapping refusals
         shell: powershell -NoLogo -NoProfile -NonInteractive -Command ". '{0}'"
@@ -59,7 +59,7 @@ jobs:
           if((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '95152755e97a8ee62d0a9d127c0833f298400dec852361acc2e8caee13038d55'){throw 'History refusal helper changed.'}
           & node.exe --check $helper
           if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
-          & node.exe $helper $root '6ef5953b33906431b34ca9c3c99c531efb79b42cbf4aa3ae4bc280cce2721eb7'
+          & node.exe $helper $root 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'
           if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
       - name: Retain actual parser and refusal outputs
         if: always()

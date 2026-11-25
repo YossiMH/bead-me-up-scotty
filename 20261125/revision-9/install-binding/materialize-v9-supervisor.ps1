@@ -104,7 +104,7 @@ try{
     $jobHelper=Safe-Path $JobHelperPath
     Assert-That ((Hash $driver)-eq '239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686') 'Accepted revision-9 helper changed.'
     Assert-That ((Hash $jobHelper)-eq '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f') 'Qualified task Job helper differs.'
-    $reviewHash='5e3a51c06322e5ab49f8ee1d832a44a392e1e704b80ddced34c045f159bb8299'
+    $reviewHash='e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7'
     Assert-That ((Hash (Join-Path $repository 'revision-9/plan-review.json'))-eq $reviewHash) 'Accepted plan review changed.'
     foreach($name in @('materialization-v9','temp-materialize-v9','materialization-result-v9.json','materialization-v8','temp-materialize-v8','materialization-result-v8.json','materialization-v8-supervisor','materialization-v7','temp-materialize-v7','materialization-result-v7.json','materialization-v7-supervisor')){
         Assert-That (-not(Test-Path -LiteralPath (Join-Path $repository $name))) 'Existing transition attempt; reconcile before any new mutation.'
