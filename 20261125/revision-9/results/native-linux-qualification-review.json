@@ -1,0 +1,491 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "independent": true,
+  "continuation_revision": 9,
+  "scope": "Actual final-source full Linux native suite and affected-check evidence, with the separately accepted final-source original-corpus result.",
+  "task_keys": [
+    "checkpoint-full-suite",
+    "checkpoint-linux-checks"
+  ],
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98"
+  },
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "actual": {
+    "run_id": 45603324487,
+    "attempt": 1,
+    "job_id": 139167619928,
+    "workflow_commit": "41a1bcb1442987773d7c9a7391b959711394d9fd",
+    "evidence_commit": "cca7eb97932a9a141f650b695ebaa92567344f66",
+    "directory": "20261125/revision-9/results/native-linux-qualification-45603324487",
+    "status": "passed",
+    "result_sha256": "7516c4d9bda3146d19d7b24f7acab5c4bd7ee1cdb2eab5f41ca4b432aaa66dd0",
+    "result_bytes": 57206,
+    "job_log_sha256": "b65db5da1fb5ea1e5dff77583287036dc8df92bcdbd5d6f665521f03f9bbea1f",
+    "job_log_bytes": 759397,
+    "artifact_id": 15017138549,
+    "artifact_zip_bytes": 119637,
+    "artifact_zip_sha256": "bb398fcbaebf234b308f92fcabcd9eb397fa2d5946e4f226595db117c9c52125",
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--no-fail-fast",
+      "--",
+      "--test-threads=1"
+    ],
+    "command_exit_code": 0,
+    "total_duration_seconds": 866.519,
+    "full_suite_limit_seconds": 5400
+  },
+  "accepted_build": {
+    "run_id": 45600748319,
+    "workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7",
+    "build_result_sha256": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb",
+    "bundle_sha256": "70cce1166193b38a5baaa35419e447acf6f6a73cab040dc7c315dc2aed13fb9f",
+    "review_commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40"
+  },
+  "accepted_consumer": {
+    "commit": "41a1bcb1442987773d7c9a7391b959711394d9fd",
+    "review_commit": "57d694f711d254fe89cfe712d993c00e2ea16823",
+    "helper_sha256": "5fe0e762be507fc468ab71b17cd4647fc04e56a0eecbf846e122c597c86c391d",
+    "input_sha256": "7da8c52386b446ebe5156e549bf790d17c528c76c0096fe21e815337331511ea"
+  },
+  "counts": {
+    "passed": 1913,
+    "failed": 0,
+    "ignored": 8,
+    "filtered": 0,
+    "default_harnesses": 145,
+    "doctest_groups": 1,
+    "result_groups": 146,
+    "required_new_tests": 17,
+    "required_portability_tests": 17
+  },
+  "required_new_tests": [
+    "capability_schema_accepts_the_optional_type_transport",
+    "dry_run_and_repeated_file_values_preserve_saved_state",
+    "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+    "file_type_is_scanned_before_any_scalar_edit",
+    "help_and_generated_man_page_describe_type_file_input",
+    "inline_and_file_conflict_before_reading_the_file",
+    "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+    "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+    "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+    "only_one_text_field_may_consume_stdin",
+    "selected_set_v2_generation_remains_restorable_after_tail_append",
+    "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+    "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+    "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard",
+    "stdin_type_preserves_exact_text",
+    "stored_issue_and_manifest_keep_literal_type_text",
+    "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+  ],
+  "required_portability_tests": [
+    "assignee_metadata_is_redactable_without_deleting_the_issue",
+    "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+    "concurrent_editors_with_one_revision_have_one_complete_winner",
+    "concurrent_identical_requests_commit_once_and_replay_once",
+    "concurrent_workers_leave_one_intact_covering_generation",
+    "every_supported_nonissue_record_preserves_identity_and_integrity",
+    "garage_access_key_id_assignment_is_discoverable_and_redactable",
+    "higher_sequence_without_local_publication_proof_cannot_admit_a_mutation",
+    "issue_redaction_is_exact_atomic_and_idempotent",
+    "mutation_waits_for_a_stable_checkpoint_before_committing",
+    "service::checkpoint::tests::publication_lock_is_exclusive_across_openers",
+    "set_v2_concurrent_publication",
+    "set_v2_crash_ordering",
+    "set_v2_dual_layout_reader_equivalence",
+    "set_v2_shard_merge_on_deletion",
+    "set_v2_shard_split_on_update_storm",
+    "simultaneous_empty_target_restores_have_one_winner_and_one_refusal"
+  ],
+  "ignored_existing_cases": [
+    {
+      "target": "test:binary_variant_integration",
+      "cases": [
+        {
+          "name": "cleanup_test_binaries",
+          "status": "ignored, Cleanup helper"
+        },
+        {
+          "name": "integration_test_attempt_resolution_build_capabilities",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        },
+        {
+          "name": "integration_test_capability_framework_integration",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        },
+        {
+          "name": "integration_test_command_availability_across_variants",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        },
+        {
+          "name": "integration_test_compare_binary_variants",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        },
+        {
+          "name": "integration_test_default_build_capabilities",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        }
+      ]
+    },
+    {
+      "target": "test:redact_all_blocking",
+      "cases": [
+        {
+          "name": "all_blocking_sweeps_identical_secrets_across_duplicate_issues",
+          "status": "ignored, blocked by beadrs-9116e1a9: set-v2 retained lookup unsupported mode"
+        }
+      ]
+    },
+    {
+      "target": "test:redaction_storage",
+      "cases": [
+        {
+          "name": "every_redaction_record_round_trips_through_sharded_restore",
+          "status": "ignored, blocked by beadrs-9116e1a9: set-v2 redaction corpus writer rejects acknowledged findings"
+        }
+      ]
+    }
+  ],
+  "complete_named_results": {
+    "path": "complete-target-results.json",
+    "sha256": "d8393f600dad92270bbd83155efcc56c210aa30dacbf36124d7066690f2c39fb",
+    "bytes": 165970,
+    "all_names_independently_reproduced": true
+  },
+  "affected_checks": {
+    "passed": 95,
+    "failed": 0,
+    "ignored": 0,
+    "targets": 9,
+    "result_sha256": "2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f",
+    "review_commit": "3859355a8f0969af0d69bae894629a6226d134fb",
+    "review_path": "20261125/revision-9/results/type-backend-checks-review.json",
+    "review_sha256": "66f8c9b060745de0947cdd92eafbe74aef723fee7e9e56896b616da3589c1f05"
+  },
+  "original_corpus": {
+    "status": "passed",
+    "review_commit": "b3222f532f922f7b6a2fb5311425fc5200d493ed",
+    "review_path": "20261125/revision-9/results/native-linux-corpus-review.json",
+    "review_sha256": "b9dae2af558fd225fb10d7a966b97828ac838ec60e3fc6ba859d1f1db601f630",
+    "verification_restores": 4,
+    "complete_record_comparisons": 6,
+    "original_counts": {
+      "issues": 954,
+      "events": 11264,
+      "provenance_receipts": 5,
+      "attempt_outcomes": 413
+    }
+  },
+  "source_and_cleanup": {
+    "source_files_unchanged": 652,
+    "commands_exit_zero": 20,
+    "owned_process_groups_clear": 20,
+    "environment_correction_cleanup": "passed",
+    "cleanup_errors": []
+  },
+  "execution_identity": {
+    "toolchain": {
+      "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)",
+      "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)"
+    },
+    "profiles": {
+      "CARGO_INCREMENTAL": "0",
+      "CARGO_PROFILE_DEV_DEBUG": "0",
+      "CARGO_PROFILE_TEST_DEBUG": "0"
+    },
+    "before_executables": 147,
+    "after_executables": 147,
+    "recompiled_executable_keys": [
+      "binary:bead",
+      "binary:generate-man-pages",
+      "harness:bin:bead",
+      "harness:lib:bead_rs",
+      "harness:test:issue_type_file",
+      "harness:test:mutating_command_event_contract"
+    ],
+    "explanation": "The accepted Cargo consumer rebuilt these six executable outputs from the unchanged final source. Both exact before/after inventories are retained; release/corpus verification uses the separately bound original archive release.",
+    "before": {
+      "bytes": 53733,
+      "mode": 420,
+      "path": "executables-before.json",
+      "sha256": "e6dd9184049d6967e56fb84defd884180ca039c0fbf60807b2dffdf9f68bb646"
+    },
+    "after": {
+      "bytes": 39469,
+      "mode": 420,
+      "path": "executables-after.json",
+      "sha256": "14eed40d139598b288c562ef91c98f340b0154576047d0a23ad1e113ee03b995"
+    }
+  },
+  "independent_checks": [
+    "Fetched the completed actual job log and matched it byte-for-byte to retained job.log.",
+    "Decoded all 49 emitted records representing 46 unique files, checked every SHA-256 and byte count, and required repeated emissions to agree.",
+    "Matched all principal retained receipts, both complete Cargo stdout/stderr pairs, both executable inventories and environment-correction record byte-for-byte to the actual log emissions.",
+    "Independently scanned every raw serial test case and result group, including four case lines interrupted by real child bead-ID stdout and the two named doctests.",
+    "Mapped every raw result group to its Cargo Running/Doc-tests target and exactly reproduced all individual passed/ignored names and counts in complete-target-results.json.",
+    "Matched the 145 executed default harness names exactly to the restored producer executable inventory, with no skipped default target and no filtered default case.",
+    "Verified all 17 required new/retained checkpoint cases and all 17 required portability cases pass. The eight ignored cases are unchanged pre-existing ignores in unrelated variant/redaction targets.",
+    "Verified all source, bundle, producer, helper/input, workflow/run and toolchain identities, all 652 unchanged source files, all command exits and complete owned process/environment cleanup.",
+    "Compared all 147 before/after executable records, preserving the six reported recompilations explicitly.",
+    "Read the actual parser-fixture result: both retained real blocks, empty group and all four rejection mutations passed before native execution.",
+    "Independently matched the successful job and artifact API metadata."
+  ],
+  "raw_interrupted_case_names": [
+    "set_v2_green_scenarios_under_out_of_band_change",
+    "set_v2_oversize_record_once_cost",
+    "set_v2_shard_merge_on_deletion",
+    "set_v2_shard_split_on_update_storm"
+  ],
+  "decoded_record_inventory": [
+    {
+      "bytes": 11192,
+      "path": "type-backend-checks.json",
+      "sha256": "2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f"
+    },
+    {
+      "bytes": 57206,
+      "path": "result.json",
+      "sha256": "7516c4d9bda3146d19d7b24f7acab5c4bd7ee1cdb2eab5f41ca4b432aaa66dd0"
+    },
+    {
+      "bytes": 5317,
+      "path": "logs/cargo-type-checks.stderr",
+      "sha256": "adb8a163790052a8a8a89e320d80e751cdbbb98b1238d90b8d34597da436e73e"
+    },
+    {
+      "bytes": 6941,
+      "path": "logs/cargo-type-checks.stdout",
+      "sha256": "254634ca875240daee48bde6129a28b13badf0075f836a8ca6ebcc44c25c1ba4"
+    },
+    {
+      "bytes": 29121,
+      "path": "logs/cargo-full-suite.stderr",
+      "sha256": "b8d38c253514145929cef9e38cbc60492edc7ae5238c72337b3961d23d4a0ea1"
+    },
+    {
+      "bytes": 144477,
+      "path": "logs/cargo-full-suite.stdout",
+      "sha256": "3f6f68474425e5b9e317c28300708884262d8dde615dbc13ee69a72e5924190c"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/cargo-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 37,
+      "path": "logs/cargo-version.stdout",
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/native-loader-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 267,
+      "path": "logs/native-loader-version.stdout",
+      "sha256": "eef7b66219f3037fa101b68a3bb64cbb5b60799c11e9e6df0c3f8dcd3b48ee63"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-alias.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-alias.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-dependencies-0.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 402,
+      "path": "logs/pin-loader-dependencies-0.stdout",
+      "sha256": "7cf1a869c207fc4b3100cb3599be9486bf0a6180b9c89f80b819b31db670113d"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-dependencies-1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 402,
+      "path": "logs/pin-loader-dependencies-1.stdout",
+      "sha256": "2c47866ac05011260c6cad0cce42812a30b6cab715defaf5e5a22ea1c6bd24d7"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-dependencies-2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 402,
+      "path": "logs/pin-loader-dependencies-2.stdout",
+      "sha256": "0d57f08fd00292d9afc2b5c296c3666cefb01215a0cdf7d308ba3eb27384706e"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-dependencies-3.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 402,
+      "path": "logs/pin-loader-dependencies-3.stdout",
+      "sha256": "cb7bcafdd506943f08f56fa1ebb1fe39d606bb40655d2c305a30776fb90cc391"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-dependencies-4.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 402,
+      "path": "logs/pin-loader-dependencies-4.stdout",
+      "sha256": "469f7977edf1966dcc20be32c390b2e5ad009d00baa82d6e3135c51ab3423212"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-directory-0.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-directory-0.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-directory-1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-directory-1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-directory-2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-directory-2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-directory-3.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/pin-loader-directory-3.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-loader-directory-0.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-loader-directory-0.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-loader-directory-1.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-loader-directory-1.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-loader-directory-2.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-loader-directory-2.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-loader-directory-3.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-loader-directory-3.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-pin-loader-alias.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/remove-pin-loader-alias.stdout",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 0,
+      "path": "logs/rustc-version.stderr",
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "bytes": 37,
+      "path": "logs/rustc-version.stdout",
+      "sha256": "56625f11cb9e645f8e638a6bcdf0565a20a8724585b537b8548886789b9f77be"
+    },
+    {
+      "bytes": 165970,
+      "path": "complete-target-results.json",
+      "sha256": "d8393f600dad92270bbd83155efcc56c210aa30dacbf36124d7066690f2c39fb"
+    },
+    {
+      "bytes": 53733,
+      "path": "executables-before.json",
+      "sha256": "e6dd9184049d6967e56fb84defd884180ca039c0fbf60807b2dffdf9f68bb646"
+    },
+    {
+      "bytes": 39469,
+      "path": "executables-after.json",
+      "sha256": "14eed40d139598b288c562ef91c98f340b0154576047d0a23ad1e113ee03b995"
+    },
+    {
+      "bytes": 2506,
+      "path": "environment-corrections.json",
+      "sha256": "14011d9c413674f345199895ec073f726ca970536f5c144e2fbe086256006ce3"
+    }
+  ],
+  "findings": [],
+  "final_native_acceptance": false,
+  "remaining": [
+    "Independent final Windows qualification receipt",
+    "Two final native author inspections and combined source acceptance",
+    "Root app/installation binding review and actual PC completion"
+  ],
+  "reviewer_product_execution": 0,
+  "pc_actions": 0
+}
