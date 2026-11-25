@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "two clean complete author inspections",
+  "workflow_sha256": "56a7ba0c5c5529e5a80ad141fc991ffa7e2c442c9c1aafe5a0fcd724f21b226c",
+  "author": "browser_finish",
+  "source_run_id": 45535362756,
+  "source_job_id": 138940518590,
+  "source_artifact_id": 14985844517,
+  "purpose": "Read the retained successful Cargo compiler-artifact records after the failed helper path check; execute no source, compiler, test or product command.",
+  "inspections": [
+    {
+      "number": 1,
+      "result": "clean",
+      "statement": "I inspected the entire workflow and embedded Python. The exact artifact ID/run/repository and both known receipt hashes are fixed, source/workflow identities and compiler/whitespace success are checked, and only bounded JSON metadata is read and printed. Paths remain within the hosted runner's temporary directory; result creation is exclusive."
+    },
+    {
+      "number": 2,
+      "result": "clean",
+      "statement": "I rechecked every line after adding merge-multiple:true, which the pinned official download action requires to place a single artifact-ID download at the requested root. The sole trigger is the fresh diagnostic branch; the job is standard Ubuntu with read-only token and a five-minute cap. No source, test, compiler or PC command executes. Failure evidence remains unchanged and final output mapping acceptance remains pending."
+    }
+  ],
+  "activation": {
+    "branch": "task/checkpoint-red-diagnose-20261125",
+    "workflow_path": ".github/workflows/checkpoint-red-diagnose-20261125.yml",
+    "parent_scratch_commit": "7214002b1e091d658008cb1fea3224ce9b5379ca",
+    "retention_days": 7
+  },
+  "cleanup": "Root retains this temporary branch in the owned-branch cleanup list. Future agents reconcile uncertain actions and preserve evidence before cleanup."
+}

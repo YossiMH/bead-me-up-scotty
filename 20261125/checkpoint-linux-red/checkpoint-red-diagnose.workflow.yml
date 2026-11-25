@@ -1,0 +1,99 @@
+name: Inspect retained checkpoint compiler paths
+
+on:
+  push:
+    branches:
+      - task/checkpoint-red-diagnose-20261125
+
+permissions:
+  actions: read
+  contents: read
+
+jobs:
+  inspect:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Read the exact failed-run artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: '14985844517'
+          merge-multiple: true
+          repository: YossiMH/bead-me-up-scotty
+          run-id: '45535362756'
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/checkpoint-red-evidence-45535362756
+
+      - name: Verify receipts and report Cargo executable records
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          from pathlib import Path
+          def require(value, message):
+              if not value:
+                  raise RuntimeError(message)
+          base = Path(os.environ["RUNNER_TEMP"]) / "checkpoint-red-evidence-45535362756"
+          require(base.is_dir() and base.resolve() == base, "Unexpected evidence directory")
+          expected = {
+              "build-result.json": "24085cfbd33d3bb942dbb58decc24b0988934a4dfe7ea00cbb13ce53298a5dcb",
+              "result.json": "a603191a83d0acac5cedeeb5df6a3d3a75e96456650fe52a15d0d2a1d2d39df1",
+          }
+          receipts = {}
+          for name, digest in expected.items():
+              path = base / name
+              require(path.is_file() and not path.is_symlink() and path.stat().st_size < 262144, "Invalid receipt")
+              data = path.read_bytes()
+              require(hashlib.sha256(data).hexdigest() == digest, "Receipt hash differs: " + name)
+              receipts[name] = json.loads(data)
+          build = receipts["build-result.json"]
+          require(build["run"]["id"] == "45535362756" and build["run"]["attempt"] == "1", "Run differs")
+          require(build["run"]["workflow_commit"] == "1b2f9a2da3d5f4a64d71e58bc159b0ae22f27f6d", "Workflow differs")
+          require(build["source"]["commit"] == "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8", "Source differs")
+          require(build["status"] == "failed" and build["error"] == "RuntimeError: Unexpected test executable path", "Failure differs")
+          require(build["tests_executed"] is False and build["product_executed"] is False, "Unexpected execution")
+          for label in ("git-whitespace", "cargo"):
+              rows = [r for r in build["commands"] if r["label"] == label]
+              require(len(rows) == 1 and rows[0]["exit_code"] == 0 and rows[0]["error"] is None, "Command did not succeed: " + label)
+          path = base / "logs" / "cargo.stdout.jsonl"
+          require(path.is_file() and not path.is_symlink() and 0 < path.stat().st_size < 16777216, "Invalid Cargo log")
+          data = path.read_bytes()
+          messages = [json.loads(line) for line in data.decode("utf-8").splitlines() if line.strip()]
+          require([m["success"] for m in messages if m.get("reason") == "build-finished"] == [True], "Cargo completion differs")
+          expected_manifest = build["source_root"] + "/Cargo.toml"
+          records = [m for m in messages if m.get("reason") == "compiler-artifact"
+                     and m.get("executable") and m.get("manifest_path") == expected_manifest]
+          require(4 <= len(records) <= 10, "Unexpected executable record count")
+          report = {
+              "schema_version": 1,
+              "operation": "inspect-retained-compiler-output",
+              "status": "passed",
+              "artifact_id": 14985844517,
+              "source_run_id": 45535362756,
+              "source_workflow_commit": build["run"]["workflow_commit"],
+              "source_commit": build["source"]["commit"],
+              "build_root": build["build_root"],
+              "target_root": build["target_root"],
+              "receipt_hashes": expected,
+              "cargo_stdout_sha256": hashlib.sha256(data).hexdigest(),
+              "cargo_stdout_bytes": len(data),
+              "compiler_artifacts": records,
+              "product_or_test_commands_executed": False,
+          }
+          output = Path(os.environ["RUNNER_TEMP"]) / "checkpoint-red-path-diagnostic"
+          output.mkdir(exist_ok=False)
+          text = json.dumps(report, indent=2, sort_keys=True) + "\n"
+          (output / "result.json").write_text(text, encoding="utf-8")
+          print("PATH_DIAGNOSTIC_SHA256 " + hashlib.sha256(text.encode("utf-8")).hexdigest(), flush=True)
+          print(text, flush=True)
+          PY
+
+      - name: Retain the exact diagnostic result
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-red-path-diagnostic-${{ github.run_id }}
+          retention-days: 7
+          if-no-files-found: error
+          path: ${{ runner.temp }}/checkpoint-red-path-diagnostic/result.json
