@@ -142,10 +142,18 @@ Before any original native open, the helper requires the expected HEAD/tree,
 clean tracked and untracked checkpoint status, unchanged index, core.autocrlf
 false and no active filter/text/eol/encoding/ident transformations on tracked
 checkpoint files. A dirty/untracked tree or transforming attributes stops the
-phase. There is no automatic fallback to a large PC copy. Source restore checks
+phase. A separate read-only listing also checks ignored untracked files. The
+only allowed ignored entry is .beads/checkpoint/publish.lock when it is a
+regular, non-reparse, zero-byte file. Node checks its size/path and the supervisor
+checks its Windows attributes before, during and after work. The optional lock's
+presence is recorded separately so native lock creation can be represented.
+Every other ignored untracked entry stops the phase. There is no automatic
+fallback to a large PC copy. Source restore checks
 compare the selected closures and the original Git state before and after.
 Later publication/restore checks bind selected closures and the exact Git
-state, including intended pending publication changes. All Git commands are
+state, including intended pending publication changes. Each publication also
+requires HEAD, tracked checkpoint tree/map and index identity to remain exactly
+unchanged; only intended checkpoint working-file status may change. All Git commands are
 read-only, use --no-optional-locks, and receive fresh child-only selectors.
 
 Selected closures are capped at 64 MiB across 4,096 files, including referenced
