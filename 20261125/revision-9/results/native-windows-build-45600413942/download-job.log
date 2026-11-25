@@ -1,0 +1,300 @@
+﻿2026-11-25T11:12:18.2381481Z Current runner version: '2.338.2'
+2026-11-25T11:12:18.2419848Z ##[group]Runner Image Provisioner
+2026-11-25T11:12:18.2421072Z Hosted Compute Agent
+2026-11-25T11:12:18.2422023Z Version: 20261111.635
+2026-11-25T11:12:18.2423053Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-25T11:12:18.2424304Z Build Date: 2026-11-11T01:49:01Z
+2026-11-25T11:12:18.2425507Z Worker ID: {151fb5fc-5423-4519-a19f-65e73535acf0}
+2026-11-25T11:12:18.2426798Z Region: eastus
+2026-11-25T11:12:18.2427745Z Cloud: Azure
+2026-11-25T11:12:18.2428618Z ##[endgroup]
+2026-11-25T11:12:18.2430923Z ##[group]Operating System
+2026-11-25T11:12:18.2432342Z Microsoft Windows Server 2025
+2026-11-25T11:12:18.2433472Z 10.0.26100
+2026-11-25T11:12:18.2434342Z Datacenter
+2026-11-25T11:12:18.2435300Z ##[endgroup]
+2026-11-25T11:12:18.2436264Z ##[group]Runner Image
+2026-11-25T11:12:18.2437349Z Image: windows-2025-vs2026
+2026-11-25T11:12:18.2438308Z Version: 20261116.315.1
+2026-11-25T11:12:18.2441204Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261116.315/images/windows/Windows2025-VS2026-Readme.md
+2026-11-25T11:12:18.2444202Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261116.315
+2026-11-25T11:12:18.2445962Z ##[endgroup]
+2026-11-25T11:12:18.2447923Z ##[group]GITHUB_TOKEN Permissions
+2026-11-25T11:12:18.2450030Z Actions: read
+2026-11-25T11:12:18.2450629Z Contents: read
+2026-11-25T11:12:18.2451145Z Metadata: read
+2026-11-25T11:12:18.2451651Z ##[endgroup]
+2026-11-25T11:12:18.2454550Z Secret source: Actions
+2026-11-25T11:12:18.2455542Z Cache mode: write
+2026-11-25T11:12:18.2456246Z Prepare workflow directory
+2026-11-25T11:12:18.2875061Z Prepare all required actions
+2026-11-25T11:12:18.2924881Z Getting action download info
+2026-11-25T11:12:18.4617474Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-25T11:12:18.6220630Z Download action repository 'actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-11-25T11:12:18.8900902Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-25T11:12:19.3011938Z Complete job name: verify-download
+2026-11-25T11:12:19.5083656Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-25T11:12:19.5085625Z with:
+2026-11-25T11:12:19.5086408Z   ref: 975d21cca470dbca61a9221391b98eeebcba9d1d
+2026-11-25T11:12:19.5087388Z   path: ci
+2026-11-25T11:12:19.5088098Z   persist-credentials: false
+2026-11-25T11:12:19.5089161Z   sparse-checkout: 20261125/revision-9/native-windows-build
+
+2026-11-25T11:12:19.5090607Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:12:19.5097962Z   token: ***
+2026-11-25T11:12:19.5098627Z   ssh-strict: true
+2026-11-25T11:12:19.5099309Z   ssh-user: git
+2026-11-25T11:12:19.5099968Z   clean: true
+2026-11-25T11:12:19.5100691Z   sparse-checkout-cone-mode: true
+2026-11-25T11:12:19.5101593Z   fetch-depth: 1
+2026-11-25T11:12:19.5102283Z   fetch-tags: false
+2026-11-25T11:12:19.5102988Z   show-progress: true
+2026-11-25T11:12:19.5103700Z   lfs: false
+2026-11-25T11:12:19.5104348Z   submodules: false
+2026-11-25T11:12:19.5105054Z   set-safe-directory: true
+2026-11-25T11:12:19.5105907Z   allow-unsafe-pr-checkout: false
+2026-11-25T11:12:19.5107033Z env:
+2026-11-25T11:12:19.5107662Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:12:19.5108403Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:12:19.5109242Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:12:19.5110321Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:12:19.5111228Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:12:19.5112039Z ##[endgroup]
+2026-11-25T11:12:19.6960138Z Syncing repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:12:19.6962571Z ##[group]Getting Git version info
+2026-11-25T11:12:19.6963803Z Working directory is 'D:\a\bead-me-up-scotty\bead-me-up-scotty\ci'
+2026-11-25T11:12:19.8019395Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T11:12:20.3589330Z git version 2.56.1.windows.1
+2026-11-25T11:12:20.3646292Z ##[endgroup]
+2026-11-25T11:12:20.3665450Z Temporarily overriding HOME='D:\a\_temp\7cf12e43-1387-4797-a000-c5f538873a21' before making global git config changes
+2026-11-25T11:12:20.3666432Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:12:20.3676377Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T11:12:20.4582094Z ##[group]Determining repository object format
+2026-11-25T11:12:20.4585326Z ##[endgroup]
+2026-11-25T11:12:20.4585960Z ##[group]Initializing the repository
+2026-11-25T11:12:20.4595444Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T11:12:20.5914798Z Initialized empty Git repository in D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/
+2026-11-25T11:12:20.6008484Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:12:20.7048233Z ##[endgroup]
+2026-11-25T11:12:20.7049577Z ##[group]Disabling automatic garbage collection
+2026-11-25T11:12:20.7058565Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-25T11:12:20.7449397Z ##[endgroup]
+2026-11-25T11:12:20.7450727Z ##[group]Setting up auth
+2026-11-25T11:12:20.7451701Z Removing SSH command configuration
+2026-11-25T11:12:20.7463511Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:12:20.7857974Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:12:22.2494506Z Removing HTTP extra header
+2026-11-25T11:12:22.2506206Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:12:22.2911921Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:12:22.8848020Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:12:22.8859774Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:12:22.9242149Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:12:23.4653708Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-25T11:12:23.5048170Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:23.5449134Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:23.5926007Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:23.6306753Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:23.6688063Z ##[endgroup]
+2026-11-25T11:12:23.6688683Z ##[group]Fetching the repository
+2026-11-25T11:12:23.6702493Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin 975d21cca470dbca61a9221391b98eeebcba9d1d
+2026-11-25T11:12:24.6015204Z From https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:12:24.6015886Z  * branch            975d21cca470dbca61a9221391b98eeebcba9d1d -> FETCH_HEAD
+2026-11-25T11:12:24.6062577Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse --verify --quiet 975d21cca470dbca61a9221391b98eeebcba9d1d^{object}
+2026-11-25T11:12:24.6468546Z 975d21cca470dbca61a9221391b98eeebcba9d1d
+2026-11-25T11:12:24.6509537Z ##[endgroup]
+2026-11-25T11:12:24.6510261Z ##[group]Determining the checkout info
+2026-11-25T11:12:24.6511685Z ##[endgroup]
+2026-11-25T11:12:24.6512267Z ##[group]Setting up sparse checkout
+2026-11-25T11:12:24.6520634Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout set 20261125/revision-9/native-windows-build
+2026-11-25T11:12:24.7034090Z ##[endgroup]
+2026-11-25T11:12:24.7034492Z ##[group]Checking out the ref
+2026-11-25T11:12:24.7043970Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force 975d21cca470dbca61a9221391b98eeebcba9d1d
+2026-11-25T11:12:25.1901505Z Note: switching to '975d21cca470dbca61a9221391b98eeebcba9d1d'.
+2026-11-25T11:12:25.1902058Z 
+2026-11-25T11:12:25.1902419Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T11:12:25.1903296Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T11:12:25.1904022Z state without impacting any branches by switching back to a branch.
+2026-11-25T11:12:25.1904504Z 
+2026-11-25T11:12:25.1904813Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T11:12:25.1905520Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T11:12:25.1905946Z 
+2026-11-25T11:12:25.1906125Z   git switch -c <new-branch-name>
+2026-11-25T11:12:25.1906420Z 
+2026-11-25T11:12:25.1906579Z Or undo this operation with:
+2026-11-25T11:12:25.1906874Z 
+2026-11-25T11:12:25.1907003Z   git switch -
+2026-11-25T11:12:25.1907197Z 
+2026-11-25T11:12:25.1907557Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T11:12:25.1908062Z 
+2026-11-25T11:12:25.1908503Z HEAD is now at 975d21c docs: cite the complete current revision nine plan review
+2026-11-25T11:12:25.1994773Z ##[endgroup]
+2026-11-25T11:12:25.2500654Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-25T11:12:25.2859779Z 975d21cca470dbca61a9221391b98eeebcba9d1d
+2026-11-25T11:12:25.2982175Z ##[group]Removing auth
+2026-11-25T11:12:25.2982653Z Removing SSH command configuration
+2026-11-25T11:12:25.2989145Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:12:25.3326351Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:12:25.9197741Z Removing HTTP extra header
+2026-11-25T11:12:25.9207231Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:12:25.9599019Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:12:26.4905050Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:12:26.4913942Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:12:26.5290885Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:12:26.5292705Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:12:26.5293652Z includeif.gitdir:/github/workspace/ci/.git.path
+2026-11-25T11:12:26.5294995Z includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path
+2026-11-25T11:12:26.5351744Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:12:26.5734656Z D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:26.5785796Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:26.6182921Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:12:26.6604903Z D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:26.6662549Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:26.7076497Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/ci/.git.path
+2026-11-25T11:12:26.7428790Z /github/runner_temp/git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:26.7476236Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:26.7875401Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path
+2026-11-25T11:12:26.8219541Z /github/runner_temp/git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:26.8262862Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:26.8654298Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:12:27.4152909Z Removing credentials config 'D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config'
+2026-11-25T11:12:27.4165053Z ##[endgroup]
+2026-11-25T11:12:27.4594300Z ##[group]Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+2026-11-25T11:12:27.4594768Z with:
+2026-11-25T11:12:27.4594967Z   artifact-ids: 15016870072
+2026-11-25T11:12:27.4595217Z   path: D:\a\_temp/downloaded-windows-build
+2026-11-25T11:12:27.4595518Z   merge-multiple: true
+2026-11-25T11:12:27.4595744Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:12:27.4595994Z   run-id: 45600413942
+2026-11-25T11:12:27.4596168Z env:
+2026-11-25T11:12:27.4596333Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:12:27.4596532Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:12:27.4596781Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:12:27.4596991Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:12:27.4597199Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:12:27.4597397Z ##[endgroup]
+2026-11-25T11:12:27.6461296Z Downloading artifacts by ID
+2026-11-25T11:12:27.6707520Z (node:5848) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T11:12:27.6708815Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T11:12:27.7367725Z Found 2 artifact(s)
+2026-11-25T11:12:27.7369834Z Preparing to download the following artifacts:
+2026-11-25T11:12:27.7371359Z - checkpoint-windows-native-45600413942-1 (ID: 15016870072, Size: 135629755, Expected Digest: sha256:2cbc3e874464fe2703cb2c74e8d714ae15769f1156492823240026cff01888b7)
+2026-11-25T11:12:27.8519351Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/41f481ee-14f8-821a-9ff9-d3a06dd736dc/workflow-job-run-a7bfc6a2-649f-5e68-9afd-163b67dda84e/artifacts/c7df4ea8fa0be6f8b236b9e700e171bab64271d5a8c0d78c3f791229708f0e65.zip
+2026-11-25T11:12:27.8520949Z Starting download of artifact to: D:\a\_temp\downloaded-windows-build
+2026-11-25T11:12:27.9855532Z (node:5848) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-25T11:12:33.3745627Z SHA256 digest of downloaded artifact is 2cbc3e874464fe2703cb2c74e8d714ae15769f1156492823240026cff01888b7
+2026-11-25T11:12:33.3747101Z Artifact download completed successfully.
+2026-11-25T11:12:33.3748435Z Total of 1 artifact(s) downloaded
+2026-11-25T11:12:33.3758035Z Download artifact has finished successfully
+2026-11-25T11:12:33.4254350Z ##[group]Run $ErrorActionPreference = 'Stop'
+2026-11-25T11:12:33.4254977Z [36;1m$ErrorActionPreference = 'Stop'[0m
+2026-11-25T11:12:33.4255819Z [36;1m$python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source[0m
+2026-11-25T11:12:33.4257005Z [36;1m$verifier = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-windows-build/verify.py'[0m
+2026-11-25T11:12:33.4259583Z [36;1m& $python $verifier --directory (Join-Path $env:RUNNER_TEMP 'downloaded-windows-build') --manifest-sha256 '51735e621189c914cdbe88a0a9d36f49c43cd5eb215cec3530e987f2ecdfe0f6' --source-commit '2d801ba455b7a722daf644a7615445117d57e8e9' --receipt (Join-Path $env:RUNNER_TEMP 'windows-download-receipt/verification.json')[0m
+2026-11-25T11:12:33.4261899Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-25T11:12:33.5341885Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-25T11:12:33.5342495Z env:
+2026-11-25T11:12:33.5342857Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:12:33.5343223Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:12:33.5343633Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:12:33.5344007Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:12:33.5344405Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:12:33.5344746Z ##[endgroup]
+2026-11-25T11:12:36.0524435Z CHECKPOINT_WINDOWS_DOWNLOAD_VERIFICATION {"build_run_attempt": "1", "build_run_id": "45600413942", "executables": {"attempt_outcome_round_trip": {"bytes": 3276800, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\247133e70061dc39\\out\\attempt_outcome_round_trip-247133e70061dc39.exe", "kind": ["test"], "path": "executables/attempt_outcome_round_trip.exe", "sha256": "74ce6bc44f9eba88deabc33dcbaa304e615aa3e2d248288acc8288e4e1543c8e", "target_name": "attempt_outcome_round_trip", "test": true}, "attempt_receipt_checkpoint_integrity": {"bytes": 3217408, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\8a58db6ae0b79202\\out\\attempt_receipt_checkpoint_integrity-8a58db6ae0b79202.exe", "kind": ["test"], "path": "executables/attempt_receipt_checkpoint_integrity.exe", "sha256": "960bfa9005080fadd9e8e7d78e1616aba026265d1dd2d08e8d4395f5f71c1909", "target_name": "attempt_receipt_checkpoint_integrity", "test": true}, "bead": {"bytes": 18094592, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\bead.exe", "kind": ["bin"], "path": "executables/bead.exe", "sha256": "eecdc79b337f2bcee3bf14c4a7310539f3d7a51543c2a150c28a35bad713e528", "target_name": "bead", "test": false}, "checkpoint_publication_lock": {"bytes": 3083776, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\83f79d4a1a54920c\\out\\checkpoint_publication_lock-83f79d4a1a54920c.exe", "kind": ["test"], "path": "executables/checkpoint_publication_lock.exe", "sha256": "7c01d00c623b233549561c332ab898889c840236ea2803313c755d7a9c788f7e", "target_name": "checkpoint_publication_lock", "test": true}, "checkpoint_set_v2_conformance": {"bytes": 3375104, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe", "kind": ["test"], "path": "executables/checkpoint_set_v2_conformance.exe", "sha256": "d38211b7b18465c15532c6a35cd0a4273bec675c96966f1ddde0b4e2a535e947", "target_name": "checkpoint_set_v2_conformance", "test": true}, "checkpoint_tail_generation_integrity": {"bytes": 2967040, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\423f9a8ad4f672fd\\out\\checkpoint_tail_generation_integrity-423f9a8ad4f672fd.exe", "kind": ["test"], "path": "executables/checkpoint_tail_generation_integrity.exe", "sha256": "a14af7903454262f373d15f1547ad57d5719227ee3050cc196dcd8c66db25a67", "target_name": "checkpoint_tail_generation_integrity", "test": true}, "cli_capabilities": {"bytes": 3527680, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\00a6312fa7e538cd\\out\\cli_capabilities-00a6312fa7e538cd.exe", "kind": ["test"], "path": "executables/cli_capabilities.exe", "sha256": "8cd93f4449ba9b131a0a17b8b70fb068e78f4616fa479bf34025017d52196856", "target_name": "cli_capabilities", "test": true}, "cli_editing": {"bytes": 3524608, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\840e6bf27846ce04\\out\\cli_editing-840e6bf27846ce04.exe", "kind": ["test"], "path": "executables/cli_editing.exe", "sha256": "a92a9f88621d6cd56d351009dd112230e6a7b11788f92b3fe5a26f6a5d0d21c6", "target_name": "cli_editing", "test": true}, "issue_type_file": {"bytes": 4838400, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\68c7aca948873f68\\out\\issue_type_file-68c7aca948873f68.exe", "kind": ["test"], "path": "executables/issue_type_file.exe", "sha256": "69d5692931b335e88443b2461764f6c9a47a6f90d80a238bbd554b666ca0fe1b", "target_name": "issue_type_file", "test": true}, "lib": {"bytes": 14775808, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe", "kind": ["lib"], "path": "executables/lib.exe", "sha256": "bd41309007c45bb5a8f323fa99b1afa53f375ea18e6d493f6f77e389295b26c3", "target_name": "bead_rs", "test": true}, "r036_verified_restore": {"bytes": 3489792, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\24edee5f8398b828\\out\\r036_verified_restore-24edee5f8398b828.exe", "kind": ["test"], "path": "executables/r036_verified_restore.exe", "sha256": "5f66e6700515fddefd23b7dd079f2d0e58e6017aaf3a825b202c317b6ad69b5c", "target_name": "r036_verified_restore", "test": true}, "redaction_transaction": {"bytes": 7775232, "compiled_path": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\a813f5e86ed4d00d\\out\\redaction_transaction-a813f5e86ed4d00d.exe", "kind": ["test"], "path": "executables/redaction_transaction.exe", "sha256": "1b82257698a5024d6d72c242a9aaebb0a0bbcd46b79f6f311a8b1fe2f45a41cd", "target_name": "redaction_transaction", "test": true}}, "manifest_sha256": "51735e621189c914cdbe88a0a9d36f49c43cd5eb215cec3530e987f2ecdfe0f6", "operation": "build-download", "release": {"executable": {"bytes": 12243456, "path": "release/bead-checkpoint-2d801ba455b7.exe", "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"}, "metadata": {"bytes": 2058, "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json", "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"}}, "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9", "status": "passed", "target": "x86_64-pc-windows-msvc", "verified_bytes": 572563847, "verified_files": 56, "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d"}
+2026-11-25T11:12:36.1347427Z ##[group]Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+2026-11-25T11:12:36.1347891Z with:
+2026-11-25T11:12:36.1348086Z   artifact-ids: 15014634952
+2026-11-25T11:12:36.1348360Z   path: D:\a\_temp/downloaded-windows-release
+2026-11-25T11:12:36.1348651Z   merge-multiple: true
+2026-11-25T11:12:36.1348881Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:12:36.1349131Z   run-id: 45600413942
+2026-11-25T11:12:36.1349315Z env:
+2026-11-25T11:12:36.1349475Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:12:36.1349692Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:12:36.1349940Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:12:36.1350313Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:12:36.1350723Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:12:36.1351146Z ##[endgroup]
+2026-11-25T11:12:36.3132623Z Downloading artifacts by ID
+2026-11-25T11:12:36.3367225Z (node:6588) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T11:12:36.3368699Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T11:12:36.4115083Z Found 2 artifact(s)
+2026-11-25T11:12:36.4116470Z Preparing to download the following artifacts:
+2026-11-25T11:12:36.4117720Z - checkpoint-windows-release-45600413942-1 (ID: 15014634952, Size: 4524263, Expected Digest: sha256:6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8)
+2026-11-25T11:12:36.5455880Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/41f481ee-14f8-821a-9ff9-d3a06dd736dc/workflow-job-run-a7bfc6a2-649f-5e68-9afd-163b67dda84e/artifacts/e956836ab4a0717245073e448192bfddbf67f130dd444548b0d4fa5ed38d6219.zip
+2026-11-25T11:12:36.5458452Z Starting download of artifact to: D:\a\_temp\downloaded-windows-release
+2026-11-25T11:12:36.6171944Z (node:6588) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-25T11:12:36.7826457Z SHA256 digest of downloaded artifact is 6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8
+2026-11-25T11:12:36.7827421Z Artifact download completed successfully.
+2026-11-25T11:12:36.7827898Z Total of 1 artifact(s) downloaded
+2026-11-25T11:12:36.7835543Z Download artifact has finished successfully
+2026-11-25T11:12:36.8149009Z ##[group]Run $ErrorActionPreference = 'Stop'
+2026-11-25T11:12:36.8149454Z [36;1m$ErrorActionPreference = 'Stop'[0m
+2026-11-25T11:12:36.8149961Z [36;1m$python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source[0m
+2026-11-25T11:12:36.8150645Z [36;1m$verifier = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-windows-build/verify.py'[0m
+2026-11-25T11:12:36.8152199Z [36;1m& $python $verifier --directory (Join-Path $env:RUNNER_TEMP 'downloaded-windows-release') --manifest-sha256 'dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf' --source-commit '2d801ba455b7a722daf644a7615445117d57e8e9' --receipt (Join-Path $env:RUNNER_TEMP 'windows-download-receipt/release-verification.json') --release-only[0m
+2026-11-25T11:12:36.8153635Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-25T11:12:36.8222837Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-25T11:12:36.8223177Z env:
+2026-11-25T11:12:36.8223609Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:12:36.8223860Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:12:36.8224114Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:12:36.8224341Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:12:36.8224565Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:12:36.8224775Z ##[endgroup]
+2026-11-25T11:12:37.2640563Z CHECKPOINT_WINDOWS_DOWNLOAD_VERIFICATION {"build_run_attempt": "1", "build_run_id": "45600413942", "manifest_sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf", "operation": "release-download", "release": {"executable": {"bytes": 12243456, "path": "release/bead-checkpoint-2d801ba455b7.exe", "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"}, "metadata": {"bytes": 2058, "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json", "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"}}, "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9", "status": "passed", "target": "x86_64-pc-windows-msvc", "verified_bytes": 12262464, "verified_files": 3, "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d"}
+2026-11-25T11:12:37.3447554Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-25T11:12:37.3448011Z with:
+2026-11-25T11:12:37.3448300Z   name: checkpoint-windows-download-verification-45600413942-1
+2026-11-25T11:12:37.3448659Z   retention-days: 14
+2026-11-25T11:12:37.3448868Z   compression-level: 0
+2026-11-25T11:12:37.3449092Z   if-no-files-found: error
+2026-11-25T11:12:37.3449344Z   path: D:\a\_temp/windows-download-receipt/
+2026-11-25T11:12:37.3449617Z   overwrite: false
+2026-11-25T11:12:37.3449840Z   include-hidden-files: false
+2026-11-25T11:12:37.3450055Z env:
+2026-11-25T11:12:37.3450218Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:12:37.3450425Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:12:37.3450671Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:12:37.3450899Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:12:37.3451114Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:12:37.3451317Z ##[endgroup]
+2026-11-25T11:12:37.5441596Z (node:1412) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T11:12:37.5442322Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T11:12:37.5504092Z With the provided path, there will be 2 files uploaded
+2026-11-25T11:12:37.5509453Z Artifact name is valid!
+2026-11-25T11:12:37.5511596Z Root directory input is valid!
+2026-11-25T11:12:37.7577032Z Beginning upload of artifact content to blob storage
+2026-11-25T11:12:37.7790374Z (node:1412) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-25T11:12:37.8051506Z Uploaded bytes 8006
+2026-11-25T11:12:37.8233859Z Finished uploading artifact content to blob storage!
+2026-11-25T11:12:37.8235741Z SHA256 digest of uploaded artifact zip is 461794f0ce8ae521df490975a0d36f5d4b538fc895a3541a1201b9e54d49fa17
+2026-11-25T11:12:37.8237991Z Finalizing artifact upload
+2026-11-25T11:12:38.1317950Z Artifact checkpoint-windows-download-verification-45600413942-1.zip successfully finalized. Artifact ID 15016346475
+2026-11-25T11:12:38.1319637Z Artifact checkpoint-windows-download-verification-45600413942-1 has been successfully uploaded! Final size is 8006 bytes. Artifact ID is 15016346475
+2026-11-25T11:12:38.1329660Z Artifact download URL: https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45600413942/artifacts/15016346475
+2026-11-25T11:12:38.1688391Z Post job cleanup.
+2026-11-25T11:12:38.3607469Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T11:12:38.4042250Z git version 2.56.1.windows.1
+2026-11-25T11:12:38.4141457Z Temporarily overriding HOME='D:\a\_temp\d916ce04-bb89-4a2d-81ac-223bc8c23307' before making global git config changes
+2026-11-25T11:12:38.4142763Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:12:38.4154611Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T11:12:38.4566435Z Removing SSH command configuration
+2026-11-25T11:12:38.4580369Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:12:38.4988591Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:12:39.0657185Z Removing HTTP extra header
+2026-11-25T11:12:39.0667819Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:12:39.1053508Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:12:39.6648981Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:12:39.6661913Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:12:39.6998171Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:12:39.6998908Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:12:39.7042804Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:12:39.7376919Z D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:39.7422013Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:39.7803832Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:12:39.8135361Z D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:39.8178925Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config
+2026-11-25T11:12:39.8557235Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:12:40.3995152Z Removing credentials config 'D:\a\_temp\git-credentials-bd4d6300-19c1-487e-9e29-c352d50c7738.config'
+2026-11-25T11:12:40.4209311Z Cleaning up orphan processes
+2026-11-25T11:12:40.4336155Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/
