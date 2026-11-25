@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "PASS_STATIC",
+  "accepted": true,
+  "operation": "windows-build-startup-correction-review",
+  "reviewer": "delivery_review",
+  "packet_repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "8a4974a0533104f3bd43958e1d5781a9fe2842a3",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "prior_complete_packet_review_sha256": "5cf743fee3b5cadb0ee9abf4491a055398e1e5d9a9de3e2247099616e2e6bbd9",
+  "reviewed_files": {
+    "checkpoint-windows-supervisor-20261125.ps1": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
+    "packet.json": "10db15ed6732c9c8761e06ca164baf1599cefa426f89e5282fdb128c7efc34d7",
+    "checkpoint-windows-build.workflow.yml": "9e8412c60b007c968a510e9b691e9c87ff203c8204eeee446a5583f1530bf07b",
+    "author-audits-v2.json": "52bc7d59eb1341bf63569e783b7c765c44a1a75ecf5121b2a0ab0218b88dc71d",
+    "README.md": "02e75d8e95dff7f59bdcbbeab0c37841c42eb75fad2b10de94ff727cb4e9c456"
+  },
+  "measured_diagnosis": {
+    "run_id": 45544207610,
+    "job_id": 138969763607,
+    "workflow_commit": "cdb79305ec07c52ff9a3f2995af6fc1d27780043",
+    "result_sha256": "0c91dddd7064150af35cb79571bfb2b07c61c73c67c6128e537ab16ed4b093ce",
+    "stdout_sha256": "145a3a0e7d8a5a57334c6b195dd858fa4006a7839e72dce202964e9c9b9dc65b",
+    "child_exit": 1,
+    "meaning": "The exact original Python lookup returned hosted Python3.12.10 then a WindowsApps alias; scalar string binding joined both paths and GetFullPath rejected that two-drive string."
+  },
+  "complete_review": [
+    "Independently fetched the completed diagnostic job log, decoded its exact result and both complete streams, and verified every byte count/SHA. Frozen corrected-packet result/stdout/stderr are byte-identical to those observed outputs.",
+    "Read the complete205-line corrected supervisor, entire bound workflow, packet, revised author audits and appended README. Mechanically reversed the one replacement site to the exact previously reviewed supervisor.",
+    "Get-Command now selects the first ApplicationInfo before passing its single Source to the existing Get-SafePath. Original full-path, ordinary-file/reparse, input/executable hash, supported Python version, owned Job and output/timeout checks remain intact.",
+    "Verified all10 other original packet files by immutable Git blob identity, including complete previously reviewed build/check/driver/corpus helpers, all source/input bindings and the check workflow template.",
+    "Packet differences are exactly the corrected supervisor hash and retained diagnostic history. The build workflow differs only in that packet hash plus a fresh branch/concurrency name. Exact515 source ancestry, one compiler job, MSVC-first unchanged archive path, build bounds and seven debug executable outputs remain unchanged.",
+    "Actual affected tests,55-command editing smoke, full original-corpus recovery and final Windows pin remain separately bound after successful compilation. Current check phase inputs remain null and cannot be activated."
+  ],
+  "remaining_findings": [],
+  "activation_accepted": true,
+  "actual_build_accepted": false,
+  "pending": "Root-authorized fresh task/checkpoint-windows-build-20261125-v2 may execute this corrected build packet with its ordinary parser steps. Reconcile actual build output before preparing the separate Windows checks.",
+  "failure_retention": "Initial run45543077351 remains failed before compilation; neither it nor the startup diagnostic establishes an MSVC compiler failure or permits treating a GNU fallback as already justified.",
+  "interrupted_cleanup": "Preserve all exact results, reconcile uncertain runs, and remove only the named temporary Windows proposal/build/startup branches after durable retention."
+}

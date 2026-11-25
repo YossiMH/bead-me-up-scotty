@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "PASS_STATIC",
+  "accepted": true,
+  "operation": "hosted-windows-tray-launch-probe-review",
+  "reviewer": "delivery_review",
+  "packet_repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "978d4d45b22f3c2c307f22abe74dcb46b40ecee2",
+  "reviewed_files": {
+    "probe.mjs": "92c49c4c717a2e9deb22b8bc6baa75b1628ef1c2cb7ab51072703107e28ab629",
+    "marker.ps1": "2130a8157c558f7a8a323a40cc078f0fe0478fc7ce61fc75fd884d036118d3a9",
+    "workflow.yml": "942c7b8cba610bc877e9c6364180b9445deb8af28f6c2e11cbdb311266787d7a",
+    "author-checks.json": "85c7b827da754ceab26fd75ccaa9511fb56c52bc3df44744b75c34f385c9522e"
+  },
+  "read_complete_scripts_and_workflow": true,
+  "complete_review": [
+    "Read every branch of the probe, entire marker script and workflow, then reread the complete corrected version. Matched final SHA-256 values and author inspection record.",
+    "Direct attached and detached PowerShell use the same ordinary arguments and three new pipes; the detached Node host starts PowerShell with detached:false/windowsHide:true/shell:false and retained pipe references.",
+    "The probe requires direct attached/hosted script-controlled exit7 with entry/finally/READY, and the exact suspected direct-detached early exit0 with no entry/finally. A different observed outcome fails rather than being described as confirmation.",
+    "Parent-loss case uses the real original controller PID, now opens its actual Process.Handle before READY, and accumulates complete READY lines across stream chunks under a 4KiB bound. Only the owned controller handle is forcibly terminated after readiness.",
+    "Host input/output error handlers retain the child long enough to finish. COMPLETE after parent loss exercises broken output handling; acceptance requires final parentLost/completed, actual PowerShell close0 and absent host/child.",
+    "Every Node process has a 64MiB or 128MiB heap. Launches have 15-second process deadlines, the host bounds its child at12 seconds, PowerShell watches8 seconds, root has120 seconds and the hosted job5 minutes. Failure cleanup uses direct owned handles and reports remaining recorded PIDs.",
+    "Fresh output names, exact launch arguments/options and Node/libuv/PowerShell identities, complete marker/launch records, final Base64/hash and14-day output retention support actual result reconciliation.",
+    "Workflow preserves LF before checkout, pinned Node25.2.1 and immutable Actions, ordinary Node/PowerShell parsing and read-only contents permission. It does not start Forms, Next or a native database or access the user PC."
+  ],
+  "resolved_findings": [
+    "Acquire actual original-parent handle before READY.",
+    "Parse a bounded complete READY line across arbitrary stdout chunks.",
+    "Preserve canonical LF in hosted Windows checkout."
+  ],
+  "remaining_findings": [],
+  "activation_accepted": "After complete revision6 plan acceptance, root may activate these exact reviewed bytes on fresh task/tray-launch-probe-20261125.",
+  "actual_diagnosis_accepted": false,
+  "limits": "This diagnostic can establish process launch and parent-loss behavior. Actual desktop tray/menu/restart/cache checks remain separately required.",
+  "interrupted_cleanup": "Retain all failed and passing results, reconcile uncertain runs, then remove the owned probe/draft branches after durable copies are verified."
+}
