@@ -1,0 +1,115 @@
+{
+  "schema_version": 1,
+  "task_key": "type-windows-roundtrip",
+  "status": "author_inspections_passed_pending_independent_review_and_affected_checks",
+  "author": "app_reconcile",
+  "prepared_at": "2026-11-25T10:01:02.824Z",
+  "plan": {
+    "commit": "38332d9a3a9e4856291edd11237fc27d5759f4d4",
+    "path": "20261125/revision-8/plan.json",
+    "sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d"
+  },
+  "packet": {
+    "commit": "7da96fd2ec73fa0f3f7a378e70600c09b2821033",
+    "tree": "2687851d12c98548d9d7288e80a28a5fcf714b4f",
+    "branch": "task/type-windows-packet-v8-20261125",
+    "activation_branch": "task/type-windows-roundtrip-20261125",
+    "directory": "20261125/revision-8/type-windows",
+    "files": [
+      {
+        "path": "20261125/revision-8/type-windows/run.py",
+        "sha256": "7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112",
+        "bytes": 11347
+      },
+      {
+        "path": "20261125/revision-8/type-windows/inputs.json",
+        "sha256": "3a14f636eacb51c413b6c3782d2d6f6c66b51ebb96c0d96399b2af25cd812f1c",
+        "bytes": 1452
+      },
+      {
+        "path": ".github/workflows/scotty-type-windows-20261125.yml",
+        "sha256": "0a77e036df704bfb357caf13579c01cade454b726611963d64fde089a9cfbac8",
+        "bytes": 4568
+      }
+    ]
+  },
+  "retained_prior_review": {
+    "packet": "aeee174d9f7159dd8fd5da27164ff07fb4bbe26a",
+    "review": "7ee24435d4bdb13ccf6a4104529dca9bcfd75914",
+    "path": "20261125/revision-7/results/type-windows-packet-review.json",
+    "sha256": "a56ae97bac9ed23354697e2d03748f97a75b4840a6cb199e6bdadf708d85d021"
+  },
+  "inputs": {
+    "schema_version": 1,
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "runtime_run_id": 45573503400,
+    "runtime_artifact_id": 15003467178,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "native_source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "native_run_id": 45586900986,
+    "native_artifact_id": 15010535371,
+    "native_manifest_sha256": "843117f8f9f22da5053d9731610fc729c1e4dc744358d6f91506e843713f5181",
+    "native_executable": {
+      "path": "release/bead-checkpoint-c90f0cdbade9.exe",
+      "sha256": "cdd3b50d65504c52a27a8fd29c6494fe3847d512cbca1510aa74a6cc5da87a06",
+      "bytes": 12214272
+    },
+    "native_metadata": {
+      "path": "release/bead-checkpoint-c90f0cdbade9.exe.metadata.json",
+      "sha256": "ed74ccf87b21972261434f8c628dea12cfb958a577ba686658d24ae8123dc97a",
+      "bytes": 2056
+    },
+    "task_job_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "native_qualification": "Final c90 Windows producer 45586900986 and separate full/small download verification passed. Activation also requires accepted actual c90 affected-target results; complete checkpoint qualification remains a separate task."
+  },
+  "actual_native_build": {
+    "evidence_commit": "780716d93a61776e8653cfd0b67656b9239094ee",
+    "directory": "20261125/revision-8/results/native-windows-build-45586900986",
+    "run_id": 45586900986,
+    "producer_job": 139110692736,
+    "independent_download_job": 139117235701,
+    "status": "passed",
+    "small_zip_sha256": "71bfe76540a8276659d0b5e97c3688446c2d1b6967ea3a02f173139482401e7c",
+    "small_zip_bytes": 4519162
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "focus": "Native-only replacement and exact preserved app/runtime",
+      "findings": [],
+      "checks": [
+        "The helper is the exact previously accepted aeee174d Python blob d9e7289f1fa75a1ad7d3c6562598bb6cb5f6629e; no algorithm changed.",
+        "The app source03095397/tree84bb66cd, Linux runtime artifact15003467178,560-file manifest, ZIP hash and build ID are unchanged from the actual accepted build.",
+        "The new native inputs match the actual c90 producer and independently verified small package: manifest843117f8, releasecdd3b50d at12214272bytes, metadataed74ccf8 at2056bytes. The new artifact/run/path identities are exact.",
+        "The workflow changes only revision-8 packet paths and the native artifact/run. Its Node24.22.3,15-minute job,180-second command limits,512MiB heap and owned Job remain unchanged.",
+        "All three files were fetched at7da96fd2 and compared byte-for-byte with authored content; full hashes and sizes are retained above."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "focus": "End-to-end real editing checks, output recovery and activation gates",
+      "findings": [],
+      "checks": [
+        "Reread the complete unchanged Python helper and final workflow. The existing permanent real-store and HTTP tests retain exact long Unicode readback, same claim, revision+1, one guarded native write, priority audit actor/reason/revision, checkpoint preservation and request-file removal.",
+        "Runtime extraction verifies every ZIP member and full file inventory plus exact lockfile Git blob/hash, source file hashes/Git blobs and BUILD_ID. Native manifest, executable and executed git-archive release metadata are verified before either command.",
+        "The original full Linux manifest/source-hash/result files and actual native metadata are copied and emitted through complete numbered UTF-8 chunks with byte counts and SHA-256, allowing recovery without a repeated production build.",
+        "Both prescribed native-store and production HTTP commands run in a fresh owned fixture root outside the checkout. All command streams and result,server,type-edit,commands,capabilities and Git-result case files are retained, including failure paths.",
+        "Success requires one native-store test with no skips/failures, one passed HTTP result, exact native binary hash, observed server exit, released loopback port and no remaining request directories. The enclosing unchanged Job reclaims descendants on failure or timeout.",
+        "The branch is dormant. Accepted c90 affected-target results and final independent packet review are still required before app activation; the broader native Windows qualification can run concurrently according to revision8."
+      ]
+    }
+  ],
+  "qualification_status": "Not executed. The actual native build/download prerequisite is passed; the c90 affected-target prerequisite remains pending.",
+  "remaining": [
+    "Independent exact packet review",
+    "Accepted actual final c90 affected-target receipt",
+    "Activate once, retain complete actual Windows results and reconstruct the full runtime/source manifests",
+    "Root independent app final review; PC installation/tray/configured launch and canonical task mapping remain separate"
+  ]
+}
