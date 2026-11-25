@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "task_key": "windows-checkpoint-tests-review",
+  "accepted_plan": {
+    "commit": "38332d9a3a9e4856291edd11237fc27d5759f4d4",
+    "sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d",
+    "review_commit": "d8118ff886be31bb770e9d6f2192748548c15228"
+  },
+  "production_source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13"
+  },
+  "repair_start": {
+    "commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+    "tree": "eeab8ce79cf4a6950a4b09706fa1595572cd1b78",
+    "change_from_production": "Only the independently accepted two single-character empty-type test/spec oracle corrections; the checkpoint source and tests are unchanged."
+  },
+  "reviewed_files": {
+    "src/service/checkpoint.rs": "e36f67f74aa4d29233cb1037a12a57822032ab733087a81a807043f84645c7d1",
+    "src/service/checkpoint/set_v2.rs": "9227543341a0e7352a2aab1fdf7e9244df21e4c723cd705d537ad34341557642",
+    "tests/checkpoint_set_v2_conformance.rs": "20fd293a3484c689e70a02f2c162508a3d7a1bda9eecf142fdb8ea2fefc736f2",
+    "tests/checkpoint_publication_lock.rs": "690b83cb726c18e40a02e48a460b55ab674fb04e4d94f85bce4ab10195b34295",
+    "research/specs/checkpoint-set-v2.md": "d06e0e890d84b52e0d22e63d954313e703dc187db635ccc44b93a96610a1b629",
+    "Cargo.lock": "6fd658a52659f69947d96daea1171ad30d9833569912b7394a66d09cc1c51fb4"
+  },
+  "independent_read_scope": [
+    "Complete three failing conformance test bodies and their fixture, publication, restore and retained-state helpers.",
+    "Complete checkpoint_publication_lock integration target; publication_lock_is_exclusive_across_openers unit test, acquisition/drop implementation, timeout/poll constants and relevant callers.",
+    "Relative artifact enumeration, retained-file subtraction, deletion and tombstone validation, and normative slash-separated path/concurrency/retention requirements.",
+    "Complete six-scenario, two-fixture out-of-band characterization and its existing selectors.",
+    "Actual retained Windows job output, decoded complete conformance streams, CHECK_RESULT, SUPERVISOR and COMPLETION; failure-path interpretation in the accepted driver and supervisor.",
+    "Pinned fs2 0.4.3 Cargo.lock entry and primary Windows lock implementation/public contention API."
+  ],
+  "primary_dependency_contract": {
+    "repository": "danburkert/fs2-rs",
+    "ref": "0.4.3",
+    "files": {
+      "src/windows.rs": {
+        "git_blob": "0e37c66579c0ca7eb4c8138f65d309285e438b4a",
+        "sha256": "4178e02fe48c1148a4d0edcdac6cec8fecf016e636064843b60e7a1d78c817a7"
+      },
+      "src/lib.rs": {
+        "git_blob": "51b22db6acd0e964adf224e6a155b45660f7abf8",
+        "sha256": "38e0f03bb81d76ac8d71b73b00fae648359aa7e1c1b9ba7159cb1b19eb12b987"
+      }
+    },
+    "conclusion": "try_lock_exclusive uses LockFileEx with immediate failure and reports the OS error. Public lock_contended_error delegates to the platform lock_error; Windows constructs ERROR_LOCK_VIOLATION. Comparing the platform raw code alongside WouldBlock recognizes the observed error 33 without treating unrelated errors as contention."
+  },
+  "actual_red": {
+    "run": 45577891890,
+    "job": 139080245260,
+    "workflow_commit": "ad41d93182c9dc1a5c30f1e41c837af7c337773e",
+    "evidence_commit": "58f9df0925f4a9943687e9b35fc3f62fff7d084b",
+    "evidence_directory": "20261125/revision-7/results/native-windows-execution-45577891890",
+    "build_run": 45576002037,
+    "artifact_id": 15004896560,
+    "build_result_sha256": "d8577ea32add8e06d687419c46e6ccfa04023d55dd038b464fa105622d423941",
+    "release_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+    "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b",
+    "check_result_sha256": "3c3e997ba98922c79f88bcc128d034738b4101e24e9afd3bed4c7b792f5d0be0",
+    "supervisor_sha256": "4011f671e6d916c1148e2a67b8b2bd21d048a0cece9f2742dde3352f29b90b4a",
+    "completion_sha256": "36d554da40c8c26c4ad10b8e374d86a461e2ab7d034e81c78a0fb22589d271fc",
+    "conformance_stdout_sha256": "171f90a40e163d2a43e3d800b1177a738adaf63fe62bc2a4b442a1c84e71c336",
+    "conformance_stderr_sha256": "c14fb6afd5d00263c726722bea352b8ce6200e8c654aea7a40cc61d238ca5f7a",
+    "observed_failures": [
+      {
+        "test": "set_v2_concurrent_publication",
+        "assertion": "Both bounded racers must exit successfully after re-deriving under the publication lock.",
+        "actual": "Racer 0 failed: another process has locked a portion of the file (os error 33).",
+        "diagnosis": "The retry predicate recognizes WouldBlock only and misses fs2's Windows contention error."
+      },
+      {
+        "test": "set_v2_crash_ordering",
+        "assertion": "The next successful publication must reclaim injected orphan shards while preserving referenced generations.",
+        "actual": "orphan shard was not reaped by the next publication",
+        "diagnosis": "OS-native backslash relative strings do not match canonical retained paths and are rejected by the existing deletion predicate."
+      },
+      {
+        "test": "set_v2_dual_layout_reader_equivalence",
+        "assertion": "Reader/restore/clone/reconcile behavior must remain equivalent across checkpoint layouts.",
+        "actual": "Integrity failure on dual-layout advancement: unresolved tombstone set\\manifest-gen-77cc03e36b8da2dbd950625f11cb0d57.json",
+        "diagnosis": "Enumeration emits a Windows separator into a manifest-relative path required to use '/'; downstream validation correctly refuses it."
+      }
+    ],
+    "earlier_completed_tests": {
+      "lib_staging": 3,
+      "attempt_receipt_checkpoint_integrity": 4,
+      "checkpoint_tail_generation_integrity": 2,
+      "total": 9,
+      "failed": 0
+    },
+    "further_observations": "The ordinary budget, forced-monolith-limit and frozen-forensic cases passed before the grid. The conformance command was terminated at its owned deadline while the OOB grid remained unfinished; later conformance cases, integration targets, corpus and smoke were not completed.",
+    "overall_run_status": "FAILED",
+    "conformance_command_exit": "No successful exit: owned deadline timed out.",
+    "inputs_and_source_unchanged": true,
+    "supervision": "Supervisor observed zero owned children remaining and process exit. COMPLETION retains failed status and a false aggregate post-exit success flag because the driver requires a passed supervisor before setting it; this is not a successful qualification receipt.",
+    "actual_red_accepted": true,
+    "rerun_before_repair_required": false
+  },
+  "test_design_verdict": {
+    "existing_permanent_assertions_distinguish_repair": true,
+    "new_regression_required": false,
+    "lock_coverage": "Existing unit coverage requires a named bounded contention failure, exclusivity and successful reacquisition after guard drop. The full integration target checks covering concurrent workers, mutation admission waiting for a stable checkpoint, and refusal of higher sequence without local publication proof. Revision 8 explicitly adds these Windows executions.",
+    "path_coverage": "The unchanged crash-ordering and dual-layout cases fail on the externally visible retained-file and tombstone defects. Their full publication/restore/state assertions remain required. Literal backslashes within a Unix filename must remain invalid; component joining must preserve those bytes for the existing validator.",
+    "out_of_band": "probe_one catches scenario panics as measured characterization outcomes. The observed 2,026,471-byte value against a 262,144-byte budget under store deletion is recorded classification evidence, not a separate asserted baseline regression. All twelve scenario/fixture cells still require complete bounded execution and exact aggregate coverage.",
+    "assertion_weakening_allowed": false
+  },
+  "authorized_repair_scope": [
+    "Only acquire_checkpoint_publication_lock_within: recognize fs2's platform contention raw code alongside WouldBlock; retain the 30-second timeout, 10-millisecond polling, deadline, timeout message, File guard ownership/drop and propagation of unrelated errors.",
+    "Only enumerate_set_v2_artifacts: serialize checkpoint-relative Path components with '/', preserving literal Unix backslashes and all current artifact, symlink, retained-generation and tombstone validation.",
+    "No broad separator replacement, new dependency, fixture reduction, skipped required case, timeout waiver or changes to editing/claim/revision/schema/format semantics."
+  ],
+  "final_qualification_required": [
+    "Fresh same-source Linux and Windows producers and independent download verification for the repaired production descendant.",
+    "All required affected, publication-lock, twelve ordinary conformance and twelve OOB cells, complete Linux suite, original-corpus and native smoke outputs.",
+    "All execution bounds and owned cleanup, complete logs, final author inspections and independent native acceptance.",
+    "Actual PC mapping, tray/Exit and installed configured launch remain separate required delivery gates."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false,
+  "findings": []
+}
