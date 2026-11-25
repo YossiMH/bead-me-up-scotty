@@ -32,8 +32,8 @@
   "product_tests_run": false,
   "native_database_written": false,
   "files": {
-    "20261125/revision-6/plan.json": "06b9d4f8166db7ed7bba5444b53b26bd19731fe4445824ea629f8499b77b8a83",
-    "20261125/revision-6/delta-manifest.template.json": "489584fa13196a13718736bda81b3e0250233a5c102f40cb3d74ba5939136fc5",
+    "20261125/revision-6/plan.json": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+    "20261125/revision-6/delta-manifest.template.json": "06b7a0b5ecd5ca8cbdee4c1fd405c7162a4ccb3a4405d58ad923f34b31afd33c",
     "20261125/revision-6/native-update-protocol.json": "74668403c9737383aa99af6aa13056e5c77a2586193a7ccc15c7b2c6505e3c17",
     "20261125/revision-6/writing-rules.json": "f3868d4b51635ac291b7af3b9fef48c969e1a344e4cbbb7c3604ddae0af49f68",
     "20261125/tray-launch-probe/probe.mjs": "92c49c4c717a2e9deb22b8bc6baa75b1628ef1c2cb7ab51072703107e28ab629",
@@ -62,11 +62,20 @@
     {
       "pass": true,
       "focus": "Complete revised165-plus-line Node probe,38-line PS marker and47-line workflow reread; the three requested corrections are the only probe changes and all limits/process/error handling remain."
+    },
+    {
+      "pass": true,
+      "focus": "Full three corrected task descriptions and metadata reread; all32 IDs/51edges and20 unaffected task objects preserved; staged source may change only through reviewed file-specific helper; probe final bytes unchanged."
     }
   ],
   "probe_review_corrections": [
     "Acquire actual System.Diagnostics.Process.Handle before READY so original-parent identity persists after exit.",
     "Parse bounded complete READY lines across arbitrary stdout chunks.",
     "Set hosted Git core.autocrlf=false/core.eol=lf before checkout; ordinary execution and policy retained."
+  ],
+  "plan_review_corrections": [
+    "Stage-v6/scotty remains an archive with exact source38 patch, so use separately reviewed bounded immutable-file staging with old/new receipts; no stageGit assumption.",
+    "Add exact prior stage helper/receipt and new helper full inspection to installer and combined review.",
+    "Distinguish suspected DETACHED_PROCESS mechanism from actual mode comparison still pending."
   ]
 }
