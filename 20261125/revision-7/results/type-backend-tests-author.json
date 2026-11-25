@@ -1,0 +1,65 @@
+{
+  "task_key": "type-backend-tests",
+  "source_baseline": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "candidate_commit": "14051553b607bc160fb46f053c52ddeeadf846db",
+  "candidate_tree": "475f0e470b4c4a82be2f66f6195a0c044be7978e",
+  "changed_files": {
+    "tests/issue_type_file.rs": "0f0505e19216a230527f391e4835e63bdd2452f1e341b6d3111c27770e88980c",
+    "research/specs/issue-editing-v1.md": "aa17bc14898c8591da9fa3fe4b45cc77f3b893b8229b8bf78776c9349d7448d9"
+  },
+  "tests": [
+    "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+    "stdin_type_preserves_exact_text",
+    "inline_and_file_conflict_before_reading_the_file",
+    "only_one_text_field_may_consume_stdin",
+    "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+    "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+    "dry_run_and_repeated_file_values_preserve_saved_state",
+    "file_type_is_scanned_before_any_scalar_edit",
+    "capability_schema_accepts_the_optional_type_transport",
+    "help_and_generated_man_page_describe_type_file_input",
+    "stored_issue_and_manifest_keep_literal_type_text"
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean static inspection",
+      "checks": [
+        "Complete test and specification read after final edit",
+        "CLI fixture setup, exact file/stdin text, shared actor, guards and complete saved audit comparison",
+        "Usage conflicts precede reads; read error1, invalid UTF8 error2 and empty type error4 follow existing error definitions",
+        "Closed capability schema includes optional Boolean without removing required members; older decode remains tested",
+        "No production implementation changes"
+      ]
+    },
+    {
+      "pass": 2,
+      "result": "clean static inspection",
+      "checks": [
+        "Repeated complete read of same test/spec bytes",
+        "Counterexamples: missing file in source conflict, duplicate stdin with another unreadable file, no-op without credential, stale changed edit",
+        "Atomic compound update checks one revision and both actual audit events",
+        "Man generation and stored text/manifest properties remain separate from CLI transport",
+        "Comments, fixture ownership, imports and assertion failure output inspected"
+      ]
+    }
+  ],
+  "checks": {
+    "git_diff_check": 0,
+    "git_cached_diff_check": 0
+  },
+  "pending": [
+    "Rust formatting, compilation and actual expected-failure execution: rustc/cargo are absent in the cloud shell; hosted execution is authorized",
+    "Independent test/spec review"
+  ],
+  "worktree": "/tmp/beads-55c9/backend-type-edit",
+  "cleanup": "Remove clean published task worktree through Riftri after final delivery; future agents must finish if this session ends.",
+  "local_commit": "8b4fe754dcfa0b2768fddac96d66dedeae5a7866",
+  "publication": {
+    "route": "GitHub Git database API",
+    "branch": "task/type-file-20261125",
+    "verified_remote": "14051553b607bc160fb46f053c52ddeeadf846db",
+    "direct_push_failure": "fatal: could not read Username for https://github.com: No such device or address",
+    "tree_identity_matches_local": true
+  }
+}
