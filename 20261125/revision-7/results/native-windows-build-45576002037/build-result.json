@@ -1,0 +1,451 @@
+{
+  "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.031,
+      "exit_code": 0,
+      "stderr": "logs/source-head.stderr",
+      "stdout": "logs/source-head.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.047,
+      "exit_code": 0,
+      "stderr": "logs/source-tree.stderr",
+      "stdout": "logs/source-tree.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.203,
+      "exit_code": 0,
+      "stderr": "logs/source-status.stderr",
+      "stdout": "logs/source-status.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\vswhere.exe",
+        "-latest",
+        "-products",
+        "*",
+        "-requires",
+        "Microsoft.VisualStudio.Component.VC.Tools.x86.x64",
+        "-property",
+        "installationPath"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 0.281,
+      "exit_code": 0,
+      "stderr": "logs/vswhere.stderr",
+      "stdout": "logs/vswhere.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:\\Windows\\System32\\cmd.exe",
+        "/d",
+        "/c",
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\activate-msvc.cmd"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 2.203,
+      "exit_code": 0,
+      "stderr": "logs/activate-msvc.stderr",
+      "stdout": "logs/activate-msvc.stdout",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "rustup",
+        "toolchain",
+        "install",
+        "1.100.0",
+        "--profile",
+        "minimal",
+        "--component",
+        "rustfmt",
+        "--target",
+        "x86_64-pc-windows-msvc",
+        "--no-self-update"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 11.422,
+      "exit_code": 0,
+      "stderr": "logs/rustup.stderr",
+      "stdout": "logs/rustup.stdout",
+      "timeout_seconds": 600
+    },
+    {
+      "argv": [
+        "rustc",
+        "-vV"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 0.625,
+      "exit_code": 0,
+      "stderr": "logs/rustc.stderr",
+      "stdout": "logs/rustc.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "cargo",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 0.547,
+      "exit_code": 0,
+      "stderr": "logs/cargo-version.stderr",
+      "stdout": "logs/cargo-version.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Git\\usr\\bin\\cygpath.exe",
+        "-u",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source\\scripts\\build-from-archive.sh"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 0.031,
+      "exit_code": 0,
+      "stderr": "logs/cygpath-script.stderr",
+      "stdout": "logs/cygpath-script.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Git\\usr\\bin\\cygpath.exe",
+        "-u",
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1\\release"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 0.016,
+      "exit_code": 0,
+      "stderr": "logs/cygpath-release.stderr",
+      "stdout": "logs/cygpath-release.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Git\\usr\\bin\\cygpath.exe",
+        "-u",
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\archive-build-scratch"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 0.015,
+      "exit_code": 0,
+      "stderr": "logs/cygpath-scratch.stderr",
+      "stdout": "logs/cygpath-scratch.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "-c",
+        "python3 --version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 0.219,
+      "exit_code": 0,
+      "stderr": "logs/bash-python.stderr",
+      "stdout": "logs/bash-python.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Tools\\MSVC\\14.52.37025\\bin\\Hostx64\\x64\\dumpbin.exe",
+        "/DEPENDENTS",
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1\\release\\bead-checkpoint-9ffefad6bb3b.exe"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work",
+      "duration_seconds": 0.141,
+      "exit_code": 0,
+      "stderr": "logs/release-imports.stderr",
+      "stdout": "logs/release-imports.stdout",
+      "timeout_seconds": 30
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "ls-tree",
+        "-r",
+        "-z",
+        "9ffefad6bb3b21ac1362f54df245af82ed85ec6e"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.047,
+      "exit_code": 0,
+      "stderr": "logs/tracked-files.stderr",
+      "stdout": "logs/tracked-files.stdout",
+      "timeout_seconds": 60
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "archive",
+        "--format=tar",
+        "--output=D:\\a\\_temp\\bead-windows-native-45576002037-1\\source.tar",
+        "9ffefad6bb3b21ac1362f54df245af82ed85ec6e"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.953,
+      "exit_code": 0,
+      "stderr": "logs/source-archive.stderr",
+      "stdout": "logs/source-archive.stdout",
+      "timeout_seconds": 180
+    },
+    {
+      "argv": [
+        "cargo",
+        "fmt",
+        "--check"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "duration_seconds": 3.297,
+      "exit_code": 0,
+      "stderr": "logs/cargo-fmt.stderr",
+      "stdout": "logs/cargo-fmt.stdout",
+      "timeout_seconds": 120
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--no-run",
+        "--lib",
+        "--test",
+        "attempt_receipt_checkpoint_integrity",
+        "--test",
+        "checkpoint_tail_generation_integrity",
+        "--test",
+        "checkpoint_set_v2_conformance",
+        "--test",
+        "attempt_outcome_round_trip",
+        "--test",
+        "r036_verified_restore",
+        "--test",
+        "cli_editing",
+        "--test",
+        "cli_capabilities",
+        "--test",
+        "issue_type_file",
+        "--target",
+        "x86_64-pc-windows-msvc",
+        "--message-format=json"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "duration_seconds": 182.296,
+      "exit_code": 0,
+      "stderr": "logs/cargo-tests.stderr",
+      "stdout": "logs/cargo-tests.jsonl",
+      "timeout_seconds": 2377.296
+    }
+  ],
+  "duration_seconds": 205.532,
+  "executables": {
+    "attempt_outcome_round_trip": {
+      "bytes": 3276800,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\247133e70061dc39\\out\\attempt_outcome_round_trip-247133e70061dc39.exe",
+      "kind": [
+        "test"
+      ],
+      "path": "executables/attempt_outcome_round_trip.exe",
+      "sha256": "e6f8074982bc6a9c3cdbbbe5e882fecafcf463d2384beeb7f305ae01260e5b2a",
+      "target_name": "attempt_outcome_round_trip",
+      "test": true
+    },
+    "attempt_receipt_checkpoint_integrity": {
+      "bytes": 3217408,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\8a58db6ae0b79202\\out\\attempt_receipt_checkpoint_integrity-8a58db6ae0b79202.exe",
+      "kind": [
+        "test"
+      ],
+      "path": "executables/attempt_receipt_checkpoint_integrity.exe",
+      "sha256": "a6b3df5abb3a51cf3d5296d2a38295653a143c2bd5daf642e803a3bc1de4a6ec",
+      "target_name": "attempt_receipt_checkpoint_integrity",
+      "test": true
+    },
+    "bead": {
+      "bytes": 18092544,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\bead.exe",
+      "kind": [
+        "bin"
+      ],
+      "path": "executables/bead.exe",
+      "sha256": "4842b07cab6b944c6e9dead73b3016e53737282691a89f2614313e21314db4b8",
+      "target_name": "bead",
+      "test": false
+    },
+    "checkpoint_set_v2_conformance": {
+      "bytes": 3375104,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+      "kind": [
+        "test"
+      ],
+      "path": "executables/checkpoint_set_v2_conformance.exe",
+      "sha256": "691adb8da33422bf24ba48c2dc7976101393c04bfb2c3c8fa083b907faf97246",
+      "target_name": "checkpoint_set_v2_conformance",
+      "test": true
+    },
+    "checkpoint_tail_generation_integrity": {
+      "bytes": 2967040,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\423f9a8ad4f672fd\\out\\checkpoint_tail_generation_integrity-423f9a8ad4f672fd.exe",
+      "kind": [
+        "test"
+      ],
+      "path": "executables/checkpoint_tail_generation_integrity.exe",
+      "sha256": "629ff2108244cdbe99eb501e34f80b9161ffa9fc281aefe3946adbceea3d050a",
+      "target_name": "checkpoint_tail_generation_integrity",
+      "test": true
+    },
+    "cli_capabilities": {
+      "bytes": 3527680,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\00a6312fa7e538cd\\out\\cli_capabilities-00a6312fa7e538cd.exe",
+      "kind": [
+        "test"
+      ],
+      "path": "executables/cli_capabilities.exe",
+      "sha256": "737b93af25e21f8b69a3058e9b8d5ecf952e82ca7dcfb8448144d57190046640",
+      "target_name": "cli_capabilities",
+      "test": true
+    },
+    "cli_editing": {
+      "bytes": 3524608,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\840e6bf27846ce04\\out\\cli_editing-840e6bf27846ce04.exe",
+      "kind": [
+        "test"
+      ],
+      "path": "executables/cli_editing.exe",
+      "sha256": "d013363ce48cdadceefe36e6c8bbf7e9f7831d4e72f37ae74d61de8523931cca",
+      "target_name": "cli_editing",
+      "test": true
+    },
+    "issue_type_file": {
+      "bytes": 4838400,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\68c7aca948873f68\\out\\issue_type_file-68c7aca948873f68.exe",
+      "kind": [
+        "test"
+      ],
+      "path": "executables/issue_type_file.exe",
+      "sha256": "bddd5e49e0b798182269212a6dcba7071b81df00092512380f5ff33edefd702d",
+      "target_name": "issue_type_file",
+      "test": true
+    },
+    "lib": {
+      "bytes": 14773760,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe",
+      "kind": [
+        "lib"
+      ],
+      "path": "executables/lib.exe",
+      "sha256": "7fb5330b1aa6cfe372bfbce912a909dec5f2d0c997f6205fa715d6897eda33c0",
+      "target_name": "bead_rs",
+      "test": true
+    },
+    "r036_verified_restore": {
+      "bytes": 3489792,
+      "compiled_path": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\24edee5f8398b828\\out\\r036_verified_restore-24edee5f8398b828.exe",
+      "kind": [
+        "test"
+      ],
+      "path": "executables/r036_verified_restore.exe",
+      "sha256": "4b0c6d4de49ad19c3db04234a909e8fe8793a0f5708b436013e2dc1c6733eaa3",
+      "target_name": "r036_verified_restore",
+      "test": true
+    }
+  },
+  "finished": "2026-11-25T08:28:23.319106+00:00",
+  "git_bash_python": "Python 3.12.10",
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "release": {
+    "executable": {
+      "bytes": 12221440,
+      "path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+      "sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e"
+    },
+    "metadata": {
+      "bytes": 2062,
+      "path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    }
+  },
+  "reused_release": {
+    "manifest_sha256": "022128bca8006e74da54635bf16cf049a937f0723f134b0830982bda97fbf30e",
+    "release": {
+      "executable": {
+        "bytes": 12221440,
+        "path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+        "sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e"
+      },
+      "metadata": {
+        "bytes": 2062,
+        "path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+        "sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+      }
+    },
+    "run_id": "45572877188",
+    "workflow_commit": "db8bf8eb38f3910e1ed113aa0fd61a830bed3e68"
+  },
+  "run_attempt": "1",
+  "run_id": "45576002037",
+  "runner_image": "20261116.315.1",
+  "runner_os": "Windows",
+  "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-pc-windows-msvc\nrelease: 1.100.0\nLLVM version: 23.1.5",
+  "schema_version": 1,
+  "source_archive": {
+    "bytes": 487884800,
+    "path": "source.tar",
+    "sha256": "8abbb083f4cb55c43848011e150ed99c5cfadec0b5cc233a865d44f035731ca2"
+  },
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_manifest": {
+    "bytes": 205269,
+    "path": "source-files.json",
+    "sha256": "719e060d21888d2dcda6e6c97c4a737c7f9eead185f2a25bd72340ffd5116294"
+  },
+  "source_root": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "started": "2026-11-25T08:24:57.778975+00:00",
+  "status": "passed",
+  "target": "x86_64-pc-windows-msvc",
+  "target_root": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target",
+  "tests_executed": false,
+  "visual_cpp": {
+    "dumpbin_sha256": "34f2e3490499f92ac68870f198464bc0dcd662dca095bc2c41f035b96da6d134",
+    "installation": "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise",
+    "linker": "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Tools\\MSVC\\14.52.37025\\bin\\Hostx64\\x64\\link.exe",
+    "linker_sha256": "6089fbb8ca5d7beb5a69e625bf614ef23ebe07100a987c8a32b121f906e3fb51",
+    "sdk": "10.0.26100.0\\",
+    "toolset": "14.52.37025"
+  },
+  "workflow_commit": "13dbfb2f11b93d5b9ccf0301428cfe87a6465a5f"
+}

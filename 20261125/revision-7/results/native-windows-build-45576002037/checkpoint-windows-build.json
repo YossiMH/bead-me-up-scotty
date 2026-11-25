@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-windows-build",
+  "status": "passed",
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "target": "x86_64-pc-windows-msvc",
+  "run_id": "45576002037",
+  "workflow_commit": "13dbfb2f11b93d5b9ccf0301428cfe87a6465a5f",
+  "build_job_id": 139073976276,
+  "download_verification_job_id": 139076008395,
+  "artifact_id": 15004896560,
+  "artifact_zip_sha256": "4f6c72ba216df809a0f0e977d20105e78402577ce216e59ef74394ab1feba549",
+  "artifact_manifest_sha256": "43e7bedc2cd62e7eb9040cecff67584144b68189db0ede1290e5e2c823acc996",
+  "build_result_sha256": "d8577ea32add8e06d687419c46e6ccfa04023d55dd038b464fa105622d423941",
+  "release": {
+    "executable": {
+      "bytes": 12221440,
+      "path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+      "sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e"
+    },
+    "metadata": {
+      "bytes": 2062,
+      "path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    }
+  },
+  "test_support_executable_count": 10,
+  "test_support_executables": [
+    "attempt_outcome_round_trip",
+    "attempt_receipt_checkpoint_integrity",
+    "bead",
+    "checkpoint_set_v2_conformance",
+    "checkpoint_tail_generation_integrity",
+    "cli_capabilities",
+    "cli_editing",
+    "issue_type_file",
+    "lib",
+    "r036_verified_restore"
+  ],
+  "unique_release_executable_count": 1,
+  "total_unique_current_executables": 11,
+  "downloaded_files_verified": 88,
+  "downloaded_bytes_verified": 573955727,
+  "tests_executed": false,
+  "original_archive_release_run_id": "45572877188",
+  "original_small_release_artifact_id": 15003670786,
+  "receipt_retrieval": "Raw job logs retained. The build/result JSON text was recovered from its exact emitted JSON tokens, preserving numeric lexemes and applying the producer's indent=2 sorted-key layout. The formatter reproduces four directly decoded Linux result receipts byte for byte. The separate execution consumer will verify this build-result hash against the downloaded file and pinned artifact manifest.",
+  "pending": "Execute all required Windows tests, original corpus and unchanged smoke on these exact bytes."
+}
