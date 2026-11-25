@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "algorithm_draft_commit": "4cb3c18377d9ce73288eb4cd4ec959d087bce403",
+  "algorithm_review_commit": "e99a5745034c9805deded92e53a2de04f1a0aed5",
+  "producer": {
+    "run_id": 45600748319,
+    "attempt": 1,
+    "workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7",
+    "job_id": 139158703174,
+    "evidence_commit": "66d679b5fd3d190025068ad47167352fa5a90669",
+    "build_result_sha256": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb",
+    "outer_result_sha256": "62fc3533879226a627decab00b2ed196b850782503495c09de18e78df5ff2077",
+    "artifacts": [
+      {
+        "id": 15016141673,
+        "name": "checkpoint-linux-release-45600748319-1",
+        "size_in_bytes": 22283030,
+        "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15016141673",
+        "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15016141673/zip",
+        "expired": false,
+        "created_at": "2026-11-25T11:10:54Z",
+        "expires_at": "2026-12-02T11:10:52Z",
+        "updated_at": "2026-11-25T11:10:54Z",
+        "digest": "sha256:0ff1219eb6c86dee6b311387cf35b7fcfac6904df55b1e39d8159787f0baf8c2",
+        "workflow_run": {
+          "id": 45600748319,
+          "repository_id": 1430517452,
+          "head_repository_id": 1430517452,
+          "head_branch": "task/native-lock-linux-build-20261125",
+          "head_sha": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7"
+        }
+      },
+      {
+        "id": 15015039880,
+        "name": "checkpoint-linux-build-45600748319-1",
+        "size_in_bytes": 556410409,
+        "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15015039880",
+        "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15015039880/zip",
+        "expired": false,
+        "created_at": "2026-11-25T11:10:51Z",
+        "expires_at": "2026-12-02T11:10:43Z",
+        "updated_at": "2026-11-25T11:10:51Z",
+        "digest": "sha256:98068174ca86b4a7c20f17ec0db27395370c696740c57e021993d126dfcaae4c",
+        "workflow_run": {
+          "id": 45600748319,
+          "repository_id": 1430517452,
+          "head_repository_id": 1430517452,
+          "head_branch": "task/native-lock-linux-build-20261125",
+          "head_sha": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7"
+        }
+      }
+    ]
+  },
+  "files": {
+    "20261125/revision-9/native-linux-check/checkpoint-full-suite-20261125.py": {
+      "bytes": 39886,
+      "sha256": "5fe0e762be507fc468ab71b17cd4647fc04e56a0eecbf846e122c597c86c391d"
+    },
+    "20261125/revision-9/native-linux-check/checkpoint-release-corpus-20261125.py": {
+      "bytes": 42736,
+      "sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52"
+    },
+    "20261125/revision-9/native-linux-check/serial-output-fixtures.json": {
+      "bytes": 4745,
+      "sha256": "82a8a476f6705b4849e63dc5a89818eca800dc2c6261e79fe8ed9b874af44f15"
+    },
+    "20261125/revision-9/native-linux-check/check-serial-output-fixtures.py": {
+      "bytes": 3394,
+      "sha256": "202281437b10b677caaafb804dff50f0a97683a3ed9197c4f81558e055179a0d"
+    },
+    "20261125/revision-9/native-linux-check/full-suite-inputs.template.json": {
+      "bytes": 340,
+      "sha256": "88a0f962e6e277129362ea7d1c34df720bedec1d9ed81f32bddad672d0512cd4"
+    },
+    "20261125/revision-9/native-linux-check/corpus-inputs.template.json": {
+      "bytes": 439,
+      "sha256": "2ac32ca62f4b21782db6533c61dc61b5c682b241b7e5d2888638da171e676ae8"
+    },
+    "20261125/revision-9/native-linux-check/workflow.template.yml": {
+      "bytes": 11949,
+      "sha256": "ad9faf7faddfeebc500b3ed51951e463019ccab43acf780ea6b441480e650765"
+    },
+    "20261125/revision-9/native-linux-check/README.md": {
+      "bytes": 1940,
+      "sha256": "27ebeb8b268dc873366c377022f8ef662468fe8492d3577d4d9ce0c44a80c758"
+    },
+    "20261125/revision-9/native-linux-check/full-suite-inputs.json": {
+      "bytes": 577,
+      "sha256": "7da8c52386b446ebe5156e549bf790d17c528c76c0096fe21e815337331511ea"
+    },
+    "20261125/revision-9/native-linux-check/corpus-inputs.json": {
+      "bytes": 567,
+      "sha256": "8e1a3cd7c5b3aaf95a62f50d34e0b326d31fab4ced5ce22652fbfc542a817385"
+    },
+    "20261125/revision-9/native-linux-check/workflow.yml": {
+      "bytes": 12167,
+      "sha256": "ac12ebde5a6b302244c57e447e4a9c8e73e4ba2585bd6a773e197ddc687bb696"
+    },
+    ".github/workflows/native-lock-linux-check-20261125.yml": {
+      "bytes": 12167,
+      "sha256": "ac12ebde5a6b302244c57e447e4a9c8e73e4ba2585bd6a773e197ddc687bb696"
+    }
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "scope": "Complete final packet: both input objects, every workflow binding and inherited algorithm/fixture hash, README; source/run/artifact/member contracts and actual successful producer streams.",
+      "findings": [],
+      "passed": true,
+      "checks": [
+        "Every final input field and workflow literal comes from the successful producer's actual decoded receipt or API artifact identity.",
+        "The final source/tree, Linux workflow b9ae, 145 compiled harnesses/147 executables, bundle and separate release are consistent across producer, inputs, helper and workflow.",
+        "All inherited helper algorithms and actual fixtures match the completely read accepted draft; the installed workflow equals its packet copy."
+      ]
+    },
+    {
+      "pass": 2,
+      "passed": true,
+      "findings": [],
+      "scope": "Complete second inspection of the same final code/prose/input bytes, exact binding delta and failure, cleanup, restore and result contracts.",
+      "checks": [
+        "The required final nine-target affected result preserves exact eleven type-file and six maintenance assertions, all full-suite harness/name/count checks, and final operation/fixture/maintenance success gates.",
+        "All measured download bindings and release paths agree; exact original-corpus comparison and every source/executable inventory check are preserved.",
+        "The two actual parser fixtures and malformed controls, bounded process groups, timeouts and retained failure outputs remain unchanged.",
+        "Both final input JSON objects are complete, the actual workflow has no placeholder, and documentation states compilation and pending actual execution accurately."
+      ]
+    }
+  ],
+  "execution_started": false,
+  "pending": [
+    "Independent final packet binding review.",
+    "One reconciled hosted execution of both Linux jobs.",
+    "Actual complete result reconciliation and final source acceptance."
+  ]
+}
