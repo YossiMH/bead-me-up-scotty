@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/cloud_readiness",
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Bounded correction of the new empty issue-type test/spec exit-code oracle",
+  "candidate_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+  "candidate_tree": "eeab8ce79cf4a6950a4b09706fa1595572cd1b78",
+  "parent_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "reviewed_files": {
+    "tests/issue_type_file.rs": "b0ef90f6cbaf0f957bc6843321f2db373f382221e5de076cd937298ae29bd8ab",
+    "research/specs/issue-editing-v1.md": "b384a2537bd86c91e61d0978c8dd61c1200a9ad99adebe56313fe48d87ed7237"
+  },
+  "delta": {
+    "changed_files": 2,
+    "changed_characters": 2,
+    "description": "Only the empty-file expected exit and its new specification sentence change from 4 to 2.",
+    "production_files_changed": 0,
+    "message_and_complete_snapshot_assertions_unchanged": true
+  },
+  "established_contract": {
+    "baseline_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "production_candidate": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "lifecycle_git_blob": "14c67d086c46f9f1df79c353c155e4aa111120fe",
+    "error_git_blob": "960ce099f76a64f5244a665c37bb90c3e7cb863e",
+    "both_files_byte_identical_between_baseline_and_candidate": true,
+    "validation_path": "The shared IssueEdit validator returns Error::validation(\"issue_type cannot be empty\"). That unchanged constructor returns CliUsage, whose exit code is 2. The distinct typed Validation variant and conflicts use exit 4.",
+    "existing_regression": "cli_editing::invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged already rejects the empty inline type and preserves the complete snapshot.",
+    "reviewer_correction": "The initial test/spec review missed the distinction between Error::validation and the typed Validation variant. Actual execution exposed the mistaken new expectation; the correction preserves established behavior."
+  },
+  "observed_failure": {
+    "run_id": 45578817248,
+    "job_id": 139083374261,
+    "evidence_commit": "debd80cd20b9519077a03d90f4b96fd3a1673bc3",
+    "exit_code": 101,
+    "passing_tests": 72,
+    "failing_tests": 1,
+    "completed_targets": 6,
+    "empty_file_actual_exit": 2,
+    "empty_file_previous_expected_exit": 4,
+    "stdout_sha256": "7fe7823f7b50e8843da2d1449e3676c2fa1b3f8f4409d2e643e5f0a15cc63aac",
+    "stderr_sha256": "6bddb8a94684443f2c363eebc68056112608801ac9e8188331f0728f84a522a6",
+    "complete_streams_independently_decoded_and_read": true,
+    "empty_file_snapshot_assertion_reached": false,
+    "unexecuted_targets": [
+      "r041_text_inputs",
+      "r041_issue_json_documents"
+    ],
+    "full_suite_started": false
+  },
+  "preserved": [
+    "The failed result and its complete outputs remain failures.",
+    "The accepted missing-option Red evidence remains applicable; the successful file/stdin regression expectations are unchanged.",
+    "Existing production bytes, successful compilation and separately completed corpus recovery remain valid for their exact recorded source."
+  ],
+  "next_action": "Review a bounded consumer overlay that proves the exact two-file correction, retains production and test provenance separately, rebuilds the affected harness and runs all required affected targets and the complete suite. Corrected actual runtime results and two final author inspections remain required for final source acceptance.",
+  "final_source_accepted": false,
+  "reviewer_executed_product": false,
+  "findings": []
+}
