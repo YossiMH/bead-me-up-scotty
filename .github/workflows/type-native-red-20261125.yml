@@ -20,8 +20,8 @@ jobs:
       CARGO_BUILD_JOBS: '1'
       CARGO_INCREMENTAL: '0'
       RUSTUP_TOOLCHAIN: '1.100.0'
-      CARGO_TARGET_DIR: ${{ github.workspace }}/../bead-type-red-target
-      RESULTS: ${{ github.workspace }}/../bead-type-red-results
+      CARGO_TARGET_DIR: ${{ github.workspace }}/bead-type-red-target
+      RESULTS: ${{ github.workspace }}/bead-type-red-results
     defaults:
       run:
         working-directory: source
