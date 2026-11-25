@@ -1,0 +1,36 @@
+# Revision 6: exact tray installation and bounded PC checks
+
+This folder contains four separate candidates for root to stage and execute after independent acceptance. It preserves the four prior helpers and the two received host-aware draft wrappers. No PC execution or installation was performed while preparing this folder.
+
+## Bound source
+
+The app candidate is commit5232c8b94804064ab71af571ee28797667bd72bd, treeeadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9. The owner module is bin/windows-tray.mjs, Git blob329e2379c0dc72b396d9fa12872c7db39700451f, SHA2564205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446. The new host is bin/windows-tray-host.mjs, Git blobc3a31c8bd8b73f21ab15573080794198b12934dc, SHA25639d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd. Both actual-PC checks require those exact module hashes before any app launch.
+
+The final backend pin remains parameterized. Root must supply the independently qualified repaired Windows executable, matching source and adjacent metadata. Historical539 pins cannot qualify the installed-default check.
+
+## Four executable candidates
+
+- `windows-install-tray-host-20261125.ps1`: permits only the two exact production module paths in the existing runtime-descendant check. It verifies their source ancestry, canonical Git blobs and complete UTF-8 SHA256 before mutation and records both. All other installer behavior is retained: original app/backend main guards, fifteen-file preservation, private index adoption, protected paths/configuration, dependency lock, exact230-file Next runtime, parameterized native pin, rollback copies, ordinary publication and partial-install reconciliation.
+- `stage-tray-host-20261125.mjs`: applies exactly the nine immutable candidate files to the existing f47 archive plus the successful source38 three-file patch. It verifies both prior receipt hashes and old source hashes/blobs, requires absence for three new files, downloads/hashes every input, completes all six backups before the first replacement and records each mutation intent/result. New files use COPYFILE_EXCL. All230 Next runtime files, six UI inputs, the existing PowerShell tray module, dependencies/configuration and both old receipts are checked unchanged. Root runs `node --max-old-space-size=64 <helper> F:/Dev/.bead-edit-20261111/stage-tray-host-20261125-v1` in a fresh owned phase, after reconciling stopped app processes. Bounds remain60seconds and128MiB RSS. On any partial outcome, inspect receipts and all nine current file states before selecting a fresh attempt; no automatic replay/rollback exists.
+- `windows-tray-smoke-host-20261125.ps1`: real Forms Exit, parent-loss and code75 restart/Exit checks on the staged source. It validates the Node host and attached PowerShell helper separately, retains original controller PID semantics, requires copied-helper/cache removal, one server/icon across restart and a released loopback port. Default Node heap128MiB (allowed up to256), aggregate512MiB, full deadline180seconds, hidden BelowNormal launches and the existing Explorer session remain required.
+- `windows-configured-launch-host-20261125.ps1`: runs the installed batch launcher with the actual .env.local native pin, an isolated registration/workspace and the existing HTTP/native edit round trip, then real tray Exit/cache/port cleanup. Node heap128MiB, aggregate512MiB and full deadline120seconds. No original task store is opened by this check.
+
+## Exact Job accounting
+
+Both wrappers retain the unchanged sibling windows-task-job.ps1 SHA2562758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f. They borrow its private retained Job handle and query that exact Job. The initial set contains only the dedicated wrapper. Every observed member is captured with separate held process handle, PID, creation FILETIME, executable image and session; aggregate RSS includes the wrapper and every live Job member, including console hosts and short native descendants. Role records provide the behavioral identity assertions; they do not define which processes count toward memory.
+
+Incomplete process lists are re-read at most8times/500ms, capacity32..1024, with equal assigned/returned counts, byte bounds and unique positive PIDs. No command is replayed. Child records are sorted so the Node host can be validated before PowerShell; a child with a not-yet-observed parent is deferred until a later sample. Unknown or ambiguous live identities fail.
+
+The actual app controller's external preload checks at least3GiB of free physical RAM immediately before entry and writes a passing memory receipt, independently of the wrapper's immediate launch check. Each complete check verifies those receipts. The last12seconds are reserved for bounded cleanup; a timer terminates only this owned Job at the full180/120-second deadline. A successful result requires every retained process exited and an empty exact Job. A brief natural console-host exit grace is allowed. Any forced cleanup marks failure, even if all children subsequently exit. File/hash/result inspection is still required after a failed or interrupted run.
+
+`owned-job-accounting.fragment.ps1` is the exact common source embedded in both wrappers; it is review material, not another runtime dependency. Exact full diffs against all four retained prior files are supplied.
+
+## Syntax validation and remaining work
+
+The cloud Node syntax check passed. The separately branch-bound `parse-wrappers.workflow.yml` calls ordinary Windows PowerShell5.1 `Parser.ParseFile` on all three final PS files, Node `--check` on the stage helper and compiles only the identical embedded C# declarations. It does not execute the wrapper bodies or any declared Win32 method. `parse-inputs.json` binds all four source hashes. A small exact result is emitted as Base64/SHA and retained for seven days. Actual ordinary-parser output is pending at initial publication.
+
+Root alone may use the PC, perform native task changes, stage source, install or run app checks. Successful hosted syntax validation and complete independent review are prerequisites for execution. Real Windows tray success and installed-default success remain separate tasks with actual results.
+
+## Interruption handoff and cleanup
+
+Future agents must reconcile any started phase from its exact result/intent files and process identities before another mutation. Preserve original data and failed attempts. After delivery, clean only this assignment's temporary worktrees and task branches, including the wrapper preparation/parser branches; retain the final source and necessary evidence. No new local worktree was created for these wrapper files.

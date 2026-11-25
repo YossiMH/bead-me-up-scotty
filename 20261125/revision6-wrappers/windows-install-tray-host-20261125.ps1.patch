@@ -1,0 +1,66 @@
+--- previous/windows-install-tray-20261124.ps1
++++ candidate/windows-install-tray-host-20261125.ps1
+@@ -33,9 +33,14 @@
+ $PushUrls=@{$Scotty='https://github.com/YossiMH/bead-me-up-scotty.git';$Backend='https://github.com/YossiMH/bead-rs.git'}
+ $OldPinSha='376537b7917f18d33383a3e4bd3eb9e0955bb42d1a60b73aef5c81865662af28'
+ $OldPin=Join-Path $Scotty '.scotty-local\bin\bead-376537b7917f.exe'
+-$AcceptedTrayModule=@{path='bin/windows-tray.mjs';source_commit='38c21a77b4e875d75e17ee68683846601df33591';
+-    git_blob='f740c9b95370ed632c7f65f8778d034d32f75a51';
+-    sha256='a947ec77a5d742f3d735288483dcf0f54e5b057ec7d3b64370e656b878fea611'}
++$AcceptedTrayModules=@(
++    @{path='bin/windows-tray.mjs';source_commit='5232c8b94804064ab71af571ee28797667bd72bd';
++      git_blob='329e2379c0dc72b396d9fa12872c7db39700451f';
++      sha256='4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446'},
++    @{path='bin/windows-tray-host.mjs';source_commit='5232c8b94804064ab71af571ee28797667bd72bd';
++      git_blob='c3a31c8bd8b73f21ab15573080794198b12934dc';
++      sha256='39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd'}
++)
+ $ExpectedPaths=@('.gitignore','bin/backend-binary.mjs','bin/bead-me-up-scotty.mjs',
+     'docs/backend-compatibility.md','launch-scotty.bat','package.json',
+     'scripts/fixtures/owned-process-tree.mjs','scripts/support/git-fixture.mjs',
+@@ -142,10 +147,10 @@
+     foreach($name in $names){Assert-That ($name -notmatch '^(?:\.env(?:[./]|$)|\.beads(?:/|$)|\.dolt(?:/|$)|\.scotty-local(?:/|$)|node_modules(?:/|$)|\.next(?:/|$))') ('Incoming source touches protected state: '+$name)}
+ }
+ # The caller verifies an external module before allowing its exact path.
+-function Assert-DocumentedDescendant([string]$Repository,[string]$Built,[string]$Final,[string]$Allowed,[string]$ExactAllowedPath=''){
++function Assert-DocumentedDescendant([string]$Repository,[string]$Built,[string]$Final,[string]$Allowed,[string[]]$ExactAllowedPaths=@()){
+     $null=Git $Repository @('merge-base','--is-ancestor',$Built,$Final)
+     $names=(Git $Repository @('diff','--name-only','-z',$Built,$Final,'--')).Split([char]0)|Where-Object{$_}
+-    foreach($name in $names){Assert-That ($name -match $Allowed -or $name -ceq $ExactAllowedPath) ('Runtime differs from accepted source: '+$name)}
++    foreach($name in $names){Assert-That ($name -match $Allowed -or $ExactAllowedPaths -ccontains $name) ('Runtime differs from accepted source: '+$name)}
+ }
+ function Assert-NoServer{
+     $candidates=Get-CimInstance Win32_Process -Filter "Name='node.exe' OR Name='powershell.exe' OR Name='pwsh.exe' OR Name='cmd.exe'" -OperationTimeoutSec 5
+@@ -297,17 +302,21 @@
+     $lockBlob=(Git $Scotty @('rev-parse',($ScottyBaseline+':package-lock.json'))).Trim()
+     Assert-That ((Git $Scotty @('rev-parse',($ScottySourceCommit+':package-lock.json'))).Trim() -eq $lockBlob) 'Final source changes the installed dependency lockfile.'
+     Assert-That ((Git $Scotty @('hash-object','--','package-lock.json')).Trim() -eq $lockBlob) 'Installed dependency lockfile differs.'
+-    $null=Git $Scotty @('merge-base','--is-ancestor',$AcceptedTrayModule.source_commit,$ScottySourceCommit)
+-    $trayObject=$ScottySourceCommit+':'+$AcceptedTrayModule.path
+-    $trayBlob=(Git $Scotty @('rev-parse',$trayObject)).Trim()
+-    Assert-That ($trayBlob -ceq $AcceptedTrayModule.git_blob) 'Final tray module Git blob differs from the accepted repair.'
+-    # Preserve the complete canonical Git text, including its final newline.
+-    $trayText=Git $Scotty @('cat-file','blob',$trayObject)
+-    $traySha=Hash-Bytes ($Utf8.GetBytes($trayText))
+-    Assert-That ($traySha -ceq $AcceptedTrayModule.sha256) 'Final tray module canonical SHA-256 differs from the accepted repair.'
+-    $Result['external_tray_module']=@{path=$AcceptedTrayModule.path;source_commit=$AcceptedTrayModule.source_commit;
+-        git_blob=$trayBlob;sha256=$traySha}
+-    Assert-DocumentedDescendant $Scotty $Runtime.source_commit $ScottySourceCommit '^(?:README\.md$|AGENTS\.md$|\.gitignore$|docs/|scripts/test[^/]*$|scripts/fixtures/|scripts/support/)' $AcceptedTrayModule.path
++    $moduleIdentities=[Collections.Generic.List[object]]::new()
++    foreach($AcceptedTrayModule in $AcceptedTrayModules){
++        $null=Git $Scotty @('merge-base','--is-ancestor',$AcceptedTrayModule.source_commit,$ScottySourceCommit)
++        $trayObject=$ScottySourceCommit+':'+$AcceptedTrayModule.path
++        $trayBlob=(Git $Scotty @('rev-parse',$trayObject)).Trim()
++        Assert-That ($trayBlob -ceq $AcceptedTrayModule.git_blob) 'Final tray module Git blob differs from the accepted repair.'
++        # Preserve the complete canonical Git text, including its final newline.
++        $trayText=Git $Scotty @('cat-file','blob',$trayObject)
++        $traySha=Hash-Bytes ($Utf8.GetBytes($trayText))
++        Assert-That ($traySha -ceq $AcceptedTrayModule.sha256) 'Final tray module canonical SHA-256 differs from the accepted repair.'
++        $moduleIdentities.Add(@{path=$AcceptedTrayModule.path;source_commit=$AcceptedTrayModule.source_commit;
++            git_blob=$trayBlob;sha256=$traySha})
++    }
++    $Result['external_tray_modules']=@($moduleIdentities.ToArray())
++    Assert-DocumentedDescendant $Scotty $Runtime.source_commit $ScottySourceCommit '^(?:README\.md$|AGENTS\.md$|\.gitignore$|docs/|scripts/test[^/]*$|scripts/fixtures/|scripts/support/)' @($AcceptedTrayModules|ForEach-Object{$_.path})
+     Assert-DocumentedDescendant $Backend $Provenance.git_commit_sha $BackendSourceCommit '^(?:[^/]+\.md$|\.gitignore$|docs/|research/|man/|tests/|\.marathon/)'
+     $newPin=Safe-Path (Join-Path $Scotty ('.scotty-local\bin\bead-'+$BeadSha256.Substring(0,12)+'.exe')) $Scotty
+     $newProvenance=$newPin+'.metadata.json'
