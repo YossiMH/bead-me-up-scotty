@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "D:\a\bead-me-up-scotty\bead-me-up-scotty\ci\20261125\revision-9\native-maintenance-red\maintenance.py", line 266, in main
+    (build if args.phase == "build" else red)(args, output, result)
+  File "D:\a\bead-me-up-scotty\bead-me-up-scotty\ci\20261125\revision-9\native-maintenance-red\maintenance.py", line 141, in build
+    B.require((key == "redaction_transaction" and profile["test"] and info["kind"] == ["test"])
+  File "D:\a\bead-me-up-scotty\bead-me-up-scotty\ci\20261125\revision-9\native-maintenance-red\windows_build_support.py", line 20, in require
+    raise RuntimeError(message)
+RuntimeError: Unexpected compiled executable
