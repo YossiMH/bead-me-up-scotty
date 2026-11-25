@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "status": "FAIL",
+  "accepted": false,
+  "diagnosis_status": "complete",
+  "reviewer": "delivery_review",
+  "scope": "Actual complete Linux suite and bounded execution-environment diagnosis",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "run_id": 45544035266,
+  "job_id": 138969194030,
+  "workflow_commit": "2168ee51f06ea5b498bbbc7b00a833f19581fb26",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "result_sha256": "5c55e395d4d6324bee64b26188f861ac5a161c65404fc050fd239c1640c7590b",
+  "stdout_sha256": "7a800e27d6beeaae14ea6dd62e0476bb05478ce1b27bfbdf4d23d90a93b6f3dc",
+  "stderr_sha256": "2ee12877ffa526211d516c0cd4b9ac02f2aa2e7aa216f2887bc4636bc0cf7015",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--no-fail-fast",
+    "--",
+    "--test-threads=1"
+  ],
+  "actual": {
+    "actual_status": "failed",
+    "exit": 101,
+    "summary_blocks": 145,
+    "totals": {
+      "passed": 1847,
+      "failed": 55,
+      "ignored": 8,
+      "measured": 0,
+      "filtered": 0
+    },
+    "failed": [
+      {
+        "target": "capability_variant_matrix",
+        "failed": 6,
+        "passed": 5,
+        "panic_sites": [
+          "tests/capability_variant_matrix.rs:106:42:",
+          "tests/capability_variant_matrix.rs:68:42:",
+          "tests/capability_variant_matrix.rs:201:42:",
+          "tests/capability_variant_matrix.rs:296:42:",
+          "tests/capability_variant_matrix.rs:28:42:",
+          "tests/capability_variant_matrix.rs:343:42:"
+        ],
+        "failed_names": [
+          "capability_absence_degrades_gracefully",
+          "capability_detection_matches_each_variant",
+          "capability_presence_exposes_full_surface",
+          "feature_flag_handling_is_decoupled_from_capability",
+          "variant_pair_resolves_as_distinct_verified_binaries",
+          "variants_share_the_core_contract"
+        ]
+      },
+      {
+        "target": "concurrency_recovery_variants",
+        "failed": 11,
+        "passed": 0,
+        "panic_sites": [
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:",
+          "tests/concurrency_recovery_variants.rs:175:14:"
+        ],
+        "failed_names": [
+          "checkpoints_replay_across_variants_in_both_directions",
+          "concurrent_replays_into_one_target_admit_one_winner_and_exact_once_state",
+          "concurrent_revision_writers_admit_one_stale_token_per_revision",
+          "corrupted_pointer_is_reported_and_republish_recovers",
+          "damaged_current_generation_refuses_restore_while_previous_recovers",
+          "lease_takeover_invalidates_the_previous_holder_fencing_token",
+          "parallel_replays_of_one_checkpoint_are_deterministic_across_targets",
+          "publication_failure_splits_without_rollback_then_recovers",
+          "replay_is_idempotent_and_stable_across_hops",
+          "restore_recovers_sharded_and_monolithic_checkpoints_after_suppression",
+          "suppressed_publication_falls_behind_then_explicit_flush_recovers"
+        ]
+      },
+      {
+        "target": "managed_policy_pin",
+        "failed": 1,
+        "passed": 0,
+        "panic_sites": [
+          "tests/managed_policy_pin.rs:72:10:"
+        ],
+        "failed_names": [
+          "managed_pin_is_hash_checked_and_rejects_workspace_downgrade"
+        ]
+      },
+      {
+        "target": "needle_variant_dispatch_paths",
+        "failed": 11,
+        "passed": 0,
+        "panic_sites": [
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:",
+          "tests/needle_variant_dispatch_paths.rs:109:14:"
+        ],
+        "failed_names": [
+          "atomic_claim_is_exclusive_under_parallel_invocation_on_both_variants",
+          "both_variant_pins_resolve_as_distinct_verified_binaries",
+          "empty_frontier_claim_is_exit_zero_null_on_both_variants",
+          "feature_enabled_pin_recognizes_the_resolution_surface",
+          "needle_dispatch_lifecycle_round_trip_on_both_variants",
+          "pre_feature_pin_rejects_capability_commands_cleanly",
+          "resolve_execution_fails_with_recorded_integrity_defect_on_feature_enabled_pin",
+          "shared_dispatch_contract_is_identical_across_variants",
+          "stale_revision_fencing_rejects_cleanly_on_both_variants",
+          "starvation_visibility_differs_across_variants",
+          "variants_are_interoperable_on_shared_workspaces"
+        ]
+      },
+      {
+        "target": "needle_variant_paths",
+        "failed": 5,
+        "passed": 5,
+        "panic_sites": [
+          "tests/needle_variant_paths.rs:269:42:",
+          "tests/needle_variant_paths.rs:412:42:",
+          "tests/needle_variant_paths.rs:257:42:",
+          "tests/needle_variant_paths.rs:471:42:",
+          "tests/needle_variant_paths.rs:340:42:"
+        ],
+        "failed_names": [
+          "concurrent_claims_receive_distinct_beads_on_both_variants",
+          "error_exit_codes_are_stable_across_variants",
+          "needle_v1_required_surface_works_on_both_variants",
+          "resolve_failure_is_loud_and_non_corrupting_on_feature_enabled_pin",
+          "stale_revision_guard_rejects_identically_on_both_variants"
+        ]
+      },
+      {
+        "target": "pinned_binary_capability",
+        "failed": 7,
+        "passed": 15,
+        "panic_sites": [
+          "tests/pinned_binary_capability.rs:239:42:",
+          "tests/pinned_binary_capability.rs:302:42:",
+          "tests/pinned_binary_capability.rs:260:42:",
+          "tests/pinned_binary_capability.rs:285:42:",
+          "tests/pinned_binary_capability.rs:394:42:",
+          "tests/pinned_binary_capability.rs:336:42:",
+          "tests/pinned_binary_capability.rs:313:42:"
+        ],
+        "failed_names": [
+          "feature_enabled_pin_attempt_fields_present",
+          "feature_enabled_pin_checkpoint_persistence",
+          "feature_enabled_pin_resolve_command_available",
+          "feature_enabled_pin_why_shows_attempt_info",
+          "pre_feature_pin_passes_core_assertions_without_spurious_failures",
+          "pre_feature_pin_rejects_resolve_cleanly",
+          "pre_feature_pin_reports_capability_absence"
+        ]
+      },
+      {
+        "target": "quarantine_git_publication",
+        "failed": 2,
+        "passed": 1,
+        "panic_sites": [
+          "tests/quarantine_git_publication.rs:374:5:",
+          "tests/quarantine_git_publication.rs:547:5:"
+        ],
+        "failed_names": [
+          "quarantine_withholds_staging_and_commit_until_sanitized_republish",
+          "sync_commit_detects_a_new_finding_before_staging_and_commits_redaction_once"
+        ]
+      },
+      {
+        "target": "r002_leased_claims",
+        "failed": 12,
+        "passed": 0,
+        "panic_sites": [
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:",
+          "tests/r002_leased_claims.rs:40:9:"
+        ],
+        "failed_names": [
+          "test_backward_compatibility_non_leased_claims",
+          "test_basic_leased_claim",
+          "test_concurrent_leased_claims",
+          "test_empty_queue_with_lease_request",
+          "test_fencing_token_validation",
+          "test_lease_cleanup_after_expiry",
+          "test_lease_renewal",
+          "test_lease_renewal_preserves_historical_rows",
+          "test_lease_renewal_without_active_lease",
+          "test_lease_ttl_bounds",
+          "test_leased_claim_with_why_flag",
+          "test_plain_reclaim_after_leased_release_is_mutable"
+        ]
+      }
+    ],
+    "preservation": 651,
+    "required_checkpoint_pass_lines": [
+      "test service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards ... ok",
+      "test service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards ... ok",
+      "test service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard ... ok",
+      "test service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards ... ok",
+      "test service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards ... ok",
+      "test service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard ... ok",
+      "test verified_restore_preserves_all_attempt_outcomes_from_set_v2 ... ok",
+      "test legacy_fixed_tail_generation_remains_restorable_after_upgrade ... ok",
+      "test selected_set_v2_generation_remains_restorable_after_tail_append ... ok"
+    ]
+  },
+  "all_failure_sections_read": true,
+  "all_summary_blocks_reconciled": true,
+  "canonical_full_suite_task_may_close": false,
+  "primary_source_objects": [
+    {
+      "path": "pinned-binaries/BINARY_VERIFICATION.md",
+      "git_blob": "a7df8503c9b6cad963b9d619cd9af9efe54d7b33",
+      "bytes": 11500,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/COMMITS.md",
+      "git_blob": "85412b5d7ac6b142c7d6c591a54e26f7f247417e",
+      "bytes": 12735,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/README.md",
+      "git_blob": "f6cf320e3bd3899ab59fe42d038e57cfbddd2248",
+      "bytes": 14813,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/bead-attempt-resolution-e115609",
+      "git_blob": "cadc30411e8cf66c6082740c0cd462f2f48a9e55",
+      "bytes": 7305144,
+      "mode": "100755"
+    },
+    {
+      "path": "pinned-binaries/bead-attempt-resolution-e115609.metadata.json",
+      "git_blob": "01ecc50c22afbd00aef793091714238119b06e15",
+      "bytes": 1624,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/bead-attempt-resolution-f25ab5c",
+      "git_blob": "13605acadda21fd59a93bb86f14471734f5078fe",
+      "bytes": 7305184,
+      "mode": "100755"
+    },
+    {
+      "path": "pinned-binaries/bead-attempt-resolution-f25ab5c.metadata.json",
+      "git_blob": "c9acb3c61c777337470568d913085787355523b4",
+      "bytes": 3367,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/bead-managed-secret-policy-cd4986c",
+      "git_blob": "0f7612552cd2a3bd01a751b248657516d6c93ce5",
+      "bytes": 12725336,
+      "mode": "100755"
+    },
+    {
+      "path": "pinned-binaries/bead-managed-secret-policy-cd4986c.metadata.json",
+      "git_blob": "c20bdca650bce050ef318fec0038bf1c60cad35f",
+      "bytes": 1981,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/bead-metadata.json",
+      "git_blob": "1d06f24fd35052d77958f0474df9325de028fe0f",
+      "bytes": 1592,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/bead-pre-attempt-resolution",
+      "git_blob": "b024d72ed214a92b8c168999705cba42e24828b1",
+      "bytes": 7305144,
+      "mode": "100755"
+    },
+    {
+      "path": "pinned-binaries/bead-pre-attempt-resolution.metadata.json",
+      "git_blob": "64641b478dda9f7d592c6caf0930a75a53eb2769",
+      "bytes": 1624,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/bead-pre-feature",
+      "git_blob": "a943824fb394f0b9320c585750d045b0b395149a",
+      "bytes": 6788016,
+      "mode": "100755"
+    },
+    {
+      "path": "pinned-binaries/bead-pre-feature.metadata.json",
+      "git_blob": "8e5b145e7278881a0f6ea7c259e2531ef70ea451",
+      "bytes": 2931,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/bead-release-metadata.json",
+      "git_blob": "3433d26cd380360b943d1a110f869179b69c6fe3",
+      "bytes": 3134,
+      "mode": "100644"
+    },
+    {
+      "path": "pinned-binaries/commits.json",
+      "git_blob": "1055de228adc70d57f7e6762d515a9cbcd3988b4",
+      "bytes": 7980,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/capability_framework.rs",
+      "git_blob": "15e34763fa2f622960526f1f99489c37b295d5d1",
+      "bytes": 26879,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/capability_variant_matrix.rs",
+      "git_blob": "d9a6e8f6f9e24d1f7b7dae49e80fb9a0eddd71a4",
+      "bytes": 13522,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/concurrency_recovery_variants.rs",
+      "git_blob": "dd6257b0e947f196a5c160b66b9791cb62fb4f05",
+      "bytes": 47875,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/managed_policy_pin.rs",
+      "git_blob": "e752763f4fc95e02878139909f855b55bd6a510f",
+      "bytes": 5361,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/needle_variant_dispatch_paths.rs",
+      "git_blob": "8f96cbf680b897d6863049ec24f6a2705f81ab27",
+      "bytes": 23690,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/needle_variant_paths.rs",
+      "git_blob": "7c759e7a7f5f37c2e02ae7ce57f39be54fecc88b",
+      "bytes": 21818,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/pinned_binary_capability.rs",
+      "git_blob": "0d40fc032c6f707a37a2a056b148d53cd4ba70eb",
+      "bytes": 16951,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/quarantine_git_publication.rs",
+      "git_blob": "7f019d2f2326f707e7839ddcd9d7c817f1f1fbd5",
+      "bytes": 19982,
+      "mode": "100644"
+    },
+    {
+      "path": "tests/r002_leased_claims.rs",
+      "git_blob": "6c3ba7ade49e5a64fdc29fa3d21e5b12c795b28d",
+      "bytes": 23169,
+      "mode": "100644"
+    }
+  ],
+  "diagnosis": [
+    {
+      "failures": 41,
+      "targets": [
+        "capability_variant_matrix",
+        "concurrency_recovery_variants",
+        "managed_policy_pin",
+        "needle_variant_dispatch_paths",
+        "needle_variant_paths",
+        "pinned_binary_capability"
+      ],
+      "observation": "Every affected case fails while executing an existing historical pin. The resolvers first establish file presence, and several independently verify metadata SHA-256, before Command::output returns ENOENT. Static ELF inspection finds the same absolute Nix PT_INTERP in all five exact tracked pins.",
+      "interpreter": "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib/ld-linux-x86-64.so.2",
+      "rpath_or_runpath": [],
+      "needed": [
+        "libgcc_s.so.1",
+        "libm.so.6",
+        "libc.so.6",
+        "ld-linux-x86-64.so.2"
+      ],
+      "maximum_required_glibc_symbol": "GLIBC_2.39 for managed-secret-policy; GLIBC_2.34 for the other four pins",
+      "inference": "The missing absolute loader explains ENOENT without missing pin bytes. Actual corrected execution is still needed to establish the compatibility and all downstream assertions.",
+      "proposed_environment_correction": "In the disposable hosted runner, measure the actual native loader and libraries, and provide only the exact absent interpreter-path alias. Preserve every pinned binary byte and metadata hash. Refuse unexpected existing paths; retain setup identities."
+    },
+    {
+      "failures": 12,
+      "targets": [
+        "r002_leased_claims"
+      ],
+      "observation": "All cases fail at line40: current_exe.parent().parent()/bead does not exist under Cargo1.100's versioned harness layout. This helper ignores CARGO_BIN_EXE_bead.",
+      "proposed_environment_correction": "Derive the one legacy alias from the accepted Cargo executable record and create an exclusive owned target-directory symlink to the verified target/debug/bead. Record and check exact link/target identities before and after; the link follows Cargo's legitimate binary replacement. Remove only the owned alias."
+    },
+    {
+      "failures": 2,
+      "targets": [
+        "quarantine_git_publication"
+      ],
+      "observation": "Both cases reach the actual product's Git commit and fail for absent author identity. The test's direct git helper supplies -c identities only to its own commands; those settings do not propagate to bead's Git child.",
+      "proposed_environment_correction": "Set fixed synthetic GIT_AUTHOR_NAME/EMAIL and GIT_COMMITTER_NAME/EMAIL in the suite child environment after clean_environment. Preserve global/local Git configuration and all product/test source."
+    }
+  ],
+  "constraints": [
+    "Keep the complete unfiltered Cargo command, all144 harnesses and doctests, six required checkpoint regressions, exact source/executable accounting, deadlines and owned-process cleanup.",
+    "Preserve this failed run and its raw streams as failed evidence.",
+    "Review the exact runner/workflow correction before one fresh complete-suite invocation.",
+    "No source or assertion weakening, pin rebuild/patch, test skip or count reduction is accepted.",
+    "Accepted Red, archive build, Clippy, public corpus and UI evidence need no repeat for this environment-only correction."
+  ],
+  "reviewer_product_or_pc_execution": false
+}
