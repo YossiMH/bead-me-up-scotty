@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "scope": "Retain accepted browser evidence without product execution",
+  "workflow_sha256": "2a3d274ad0ec499e7a5a6d111de45565642dc2771df1d85c292e3acd97ceeead",
+  "author": "/root",
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "read_complete_workflow": true,
+      "checks": [
+        "Exact original artifact14978387944 and run45517446104",
+        "Fresh task-owned output; exact17,262,599byte upper bound and SHA-256 identity",
+        "Five-minute job and120-second download deadline;15-second network timeouts",
+        "No product command, checkout, PC access or build"
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "read_complete_workflow": true,
+      "checks": [
+        "Read-only actions and contents token only on authenticated GitHub request",
+        "Redirect disabled; HTTPS Azure blob destination only; no token on blob request",
+        "Exact accepted original ZIP retained unchanged as nested output",
+        "Official immutable upload action;14-day retention; no activation until independent review"
+      ]
+    }
+  ],
+  "failed_attempts": [
+    {
+      "stage": "authoring in functions JS",
+      "result": "JavaScript template interpolation syntax error before any tool/network/source operation; corrected by explicit expression placeholders"
+    }
+  ]
+}
