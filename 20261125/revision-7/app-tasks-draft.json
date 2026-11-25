@@ -1,0 +1,111 @@
+{
+  "version": 1,
+  "status": "draft_for_complete_revision_7_review",
+  "source": "YossiMH/bead-me-up-scotty at5232c8b94804064ab71af571ee28797667bd72bd",
+  "working_location": "/tmp/beads-55c9/app-type-edit",
+  "interface": {
+    "capability": "issue_editing.issue_type_file",
+    "enabled": "literal true only",
+    "native_flag": "--issue-type-file",
+    "api_max_utf8_bytes": 4194304,
+    "inline_total_utf8_bytes": 8192,
+    "old_executable": "Missing/false/malformed capability keeps other grants; <=8KiB type inline with description/notes file spillover; larger type refuses before mutation."
+  },
+  "tasks": [
+    {
+      "key": "type-app-tests",
+      "title": "Add permanent long custom-type checks",
+      "description": "Result: Add permanent tests for long custom types in requested bead editing. The 4 MiB type contract exceeds Windows inline command limits. Keep production unchanged until the intended failures and test review pass.\n\nPrerequisite: plan-review accepts revision 7 and these instructions.\n1. Extend scripts/test-native-editing.mjs and its capability document. Cover optional issue_editing.issue_type_file literal true; absent/false/malformed values preserve other editing grants. Check exact 8 KiB and above 8 KiB UTF-8 type input, combined type/description/notes budget, old-executable short type with long description, and rejection of unsupported long type before any write.\n2. For a type longer than 32,768 characters, require exact UTF-8 file contents, one update with current revision, acquired claim credential and priority reason, no inline long value, and file removal on success, command failure and readback failure. Preserve uncertain/committed outcomes and one submission.\n3. Extend scripts/test-local-bead-rs.mjs with a real claimed long-type update. Add a small permanent scripts/test-native-type-roundtrip.mjs using existing Git/process helpers for real Next HTTP editing; require exact native readback of all fields, revision+1, retained claim and audited priority reason. Keep its server/port cleanup bounded and owned. Run it later on hosted Windows with explicit BEAD_BIN and SCOTTY_TEST_ROOT.\n4. Record two complete clean author inspections of the same tests revision. Publish the tests-only commit; type-app-red runs it and type-app-tests-review accepts its design and actual failures.\n\nWork in /tmp/beads-55c9/app-type-edit (Riftri), YossiMH/bead-me-up-scotty initial source 5232c8b94804064ab71af571ee28797667bd72bd. Read AGENTS.md and current beads-workflow, engineering and post-process instructions at YossiMH/chatgpt-skills. Root alone changes task records or uses the PC. Use isolated cloud paths and bounded commands; protect Unreal/VR, private data and other edits. Stop on unexpected source identity or uncertain writes and retain the result.\n\nSave JSON on task/build-transfer-20261111 at 20261125/revision-7/results/type-app-tests.json: source/file hashes, commands/exits, results, changed files and remaining work. Commit owned changes; push ordinary descendants to task/scotty-finish-20261124 and verify the ref. Keep main at the installer baseline. With no changes check unpublished commits; add no empty commit. If pushing fails, try another permitted route, report it and continue.",
+      "prerequisites": [
+        "plan-review"
+      ],
+      "role": "executor",
+      "resource_keys": [
+        "scotty-app-type-source"
+      ]
+    },
+    {
+      "key": "type-app-red",
+      "title": "Confirm app long-type failures",
+      "description": "Result: Execute new app tests against unchanged production code and retain the intended failures. This demonstrates the custom-type Windows transport defect before repair.\n\nPrerequisite: type-app-tests supplies the exact tests-only commit and two author inspections; verify all production files still match 5232c8b9.\n1. Use an isolated hosted Node checkout of that commit. Install package-lock.json with npm ci; record Node/npm versions and exact source identity. Limit the job to 15 minutes and Node heap to 512 MiB. Do not build Next or start a browser.\n2. From the app root run node --test scripts/test-native-editing.mjs with a 120-second command deadline. Retain complete stdout/stderr and the actual exit. The new file-transport/budget and unsupported-old-executable cases must fail for their explicit assertions; existing behavior checks must retain their expected results.\n3. Distinguish an intended failure from missing dependencies, parse errors or timeouts. If setup fails, repair only the setup and rerun the same tests. If the design is wrong, return that finding to the test author; preserve both runs. Never manufacture an expected failure or weaken an assertion.\n4. Record every failed test name and assertion, passing totals, production comparison, test hashes and cleanup. Supply these to type-app-tests-review. Production repair stays pending until the review and intended failures are accepted.\n\nWork in /tmp/beads-55c9/app-type-edit (Riftri), YossiMH/bead-me-up-scotty initial source 5232c8b94804064ab71af571ee28797667bd72bd. Read AGENTS.md and current beads-workflow, engineering and post-process instructions at YossiMH/chatgpt-skills. Root alone changes task records or uses the PC. Use isolated cloud paths and bounded commands; protect Unreal/VR, private data and other edits. Stop on unexpected source identity or uncertain writes and retain the result.\n\nSave JSON on task/build-transfer-20261111 at 20261125/revision-7/results/type-app-red.json: source/file hashes, commands/exits, results, changed files and remaining work. Commit owned changes; push ordinary descendants to task/scotty-finish-20261124 and verify the ref. Keep main at the installer baseline. With no changes check unpublished commits; add no empty commit. If pushing fails, try another permitted route, report it and continue.",
+      "prerequisites": [
+        "type-app-tests"
+      ],
+      "role": "executor",
+      "resource_keys": [
+        "scotty-type-red-cloud"
+      ]
+    },
+    {
+      "key": "type-app-tests-review",
+      "title": "Review app long-type checks and failures",
+      "description": "Result: Independently accept the long-type test design and its actual failing execution before production repair.\n\nPrerequisite: type-app-tests provides a complete tests-only candidate; static reading may begin while type-app-red runs. Apply current zcf-evaluation/SKILL.md and engineering/post-process rules from YossiMH/chatgpt-skills. You must be different from the test author.\n1. Read every changed test and helper, the app 4 MiB schema, current runNativeEdit, capability parsing and native claim/revision contract. Confirm tests exercise the actual request-to-command boundary and permanent real native/API checks, without changing production behavior.\n2. Check literal-true negotiation; absent/false/malformed compatibility; exact UTF-8 budget boundaries; combined fields; short old type plus long description; and refusal before writes when an old executable cannot accept the type. Verify file bytes/removal and unchanged one-command revision/claim/priority semantics, including uncertain outcomes.\n3. Read complete type-app-red logs for this exact candidate. Accept only intended new assertion failures against unchanged 5232c8b9 production and valid existing outcomes. Review real Windows script setup, native readback and bounded owned cleanup even though its passing execution follows repair.\n4. Return PASS, FAIL or PENDING with concrete findings and exact required correction. Acceptance requires two clean author inspections and the actual Red result; do not run tests, builds or applications. Repair remains pending until this review and type-app-red pass.\n\nWork in /tmp/beads-55c9/app-type-edit (Riftri), YossiMH/bead-me-up-scotty initial source 5232c8b94804064ab71af571ee28797667bd72bd. Read AGENTS.md and current beads-workflow, engineering and post-process instructions at YossiMH/chatgpt-skills. Root alone changes task records or uses the PC. Use isolated cloud paths and bounded commands; protect Unreal/VR, private data and other edits. Stop on unexpected source identity or uncertain writes and retain the result.\n\nSave JSON on task/build-transfer-20261111 at 20261125/revision-7/results/type-app-tests-review.json: source/file hashes, commands/exits, results, changed files and remaining work. Commit owned changes; push ordinary descendants to task/scotty-finish-20261124 and verify the ref. Keep main at the installer baseline. With no changes check unpublished commits; add no empty commit. If pushing fails, try another permitted route, report it and continue.",
+      "prerequisites": [
+        "type-app-tests"
+      ],
+      "role": "reviewer",
+      "resource_keys": []
+    },
+    {
+      "key": "type-app-change",
+      "title": "Support native type input files in Scotty",
+      "description": "Result: Carry accepted custom types through request-owned files with 4 MiB input acceptance and older executable compatibility.\n\nPrerequisites: type-app-tests-review accepts the exact tests and type-app-red confirms intended failures. Use the agreed --issue-type-file contract supplied separately by type-backend-change; retain service/claim rules.\n1. In lib/native-process.ts read optional issue_editing.issue_type_file without making other editing grants depend on it. Enable the new transport only for literal true and pass that validated value through lib/native-store.ts to runNativeEdit.\n2. In lib/native-edit.ts include type, description and notes in the existing 8 KiB UTF-8 budget. Above the total budget, spool supplied text fields using existing request-owned UTF-8 files. Use --issue-type-file only when granted; with no grant retain type inline when its own bytes are at most 8 KiB and spool other long fields. Refuse a larger unsupported type before creating files or dispatching any mutation.\n3. Preserve one update, current revision/claim credential, priority reason, literal option values, four-MiB validation, error classification and cleanup. Keep scalar data out of bulk manifests because those updates lack claim credentials. Update only the relevant compatibility documentation; do not alter tray modules or UI behavior.\n4. Inspect the complete final change twice, run git diff --check and record both clean inspections on that revision. Publish the candidate. type-app-checks and independent type-app-review may then proceed; installation awaits passing checks, live Windows result and review.\n\nWork in /tmp/beads-55c9/app-type-edit (Riftri), YossiMH/bead-me-up-scotty initial source 5232c8b94804064ab71af571ee28797667bd72bd. Read AGENTS.md and current beads-workflow, engineering and post-process instructions at YossiMH/chatgpt-skills. Root alone changes task records or uses the PC. Use isolated cloud paths and bounded commands; protect Unreal/VR, private data and other edits. Stop on unexpected source identity or uncertain writes and retain the result.\n\nSave JSON on task/build-transfer-20261111 at 20261125/revision-7/results/type-app-change.json: source/file hashes, commands/exits, results, changed files and remaining work. Commit owned changes; push ordinary descendants to task/scotty-finish-20261124 and verify the ref. Keep main at the installer baseline. With no changes check unpublished commits; add no empty commit. If pushing fails, try another permitted route, report it and continue.",
+      "prerequisites": [
+        "type-app-tests-review",
+        "type-app-red"
+      ],
+      "role": "executor",
+      "resource_keys": [
+        "scotty-app-type-source"
+      ]
+    },
+    {
+      "key": "type-app-checks",
+      "title": "Check repaired app and build production files",
+      "description": "Result: Validate the repaired adapter and produce the fresh production runtime needed for installation.\n\nPrerequisite: type-app-change supplies the exact descendant commit and two clean author inspections. Use an isolated hosted Linux checkout; keep local/tmp memory for small reads. No native build is required here.\n1. Run npm ci from the app root with the existing lockfile. Record Node/npm versions. Use one build job, a 30-minute total deadline and Node heap at most 4096 MiB on the hosted worker.\n2. Run node --test on scripts/test-backend-contract.mjs, test-native-editing.mjs, test-native-mutations.mjs, test-native-mutation-outcomes.mjs and test-native-credential-tenures.mjs; each listed basename is under scripts/. Run npm run lint and git diff --check. Retain complete command outputs and exits; all must succeed with no weakened or skipped new assertions.\n3. Run npm run build with NEXT_TELEMETRY_DISABLED=1, then node node_modules/typescript/bin/tsc --noEmit. Retain a ZIP of required .next production files plus a complete per-file SHA-256 manifest, archive hash, source commit, build ID and dependency-lock hash. Exclude credentials, private settings and issue stores.\n4. If a concrete check fails, retain its output and return the finding before affected repair/rerun. Do not repeat accepted unchanged browser/tray checks. Send exact runtime/download details to type-windows-roundtrip and the installer author. Independent type-app-review must accept the complete source and results before installation.\n\nWork in /tmp/beads-55c9/app-type-edit (Riftri), YossiMH/bead-me-up-scotty initial source 5232c8b94804064ab71af571ee28797667bd72bd. Read AGENTS.md and current beads-workflow, engineering and post-process instructions at YossiMH/chatgpt-skills. Root alone changes task records or uses the PC. Use isolated cloud paths and bounded commands; protect Unreal/VR, private data and other edits. Stop on unexpected source identity or uncertain writes and retain the result.\n\nSave JSON on task/build-transfer-20261111 at 20261125/revision-7/results/type-app-checks.json: source/file hashes, commands/exits, results, changed files and remaining work. Commit owned changes; push ordinary descendants to task/scotty-finish-20261124 and verify the ref. Keep main at the installer baseline. With no changes check unpublished commits; add no empty commit. If pushing fails, try another permitted route, report it and continue.",
+      "prerequisites": [
+        "type-app-change"
+      ],
+      "role": "executor",
+      "resource_keys": [
+        "scotty-type-green-cloud"
+      ]
+    },
+    {
+      "key": "type-app-review",
+      "title": "Review repaired custom-type editing",
+      "description": "Result: Independently accept the repaired app transport and supplied checks for full native editing.\n\nPrerequisite: type-app-change provides the exact candidate; static review can overlap execution. Apply current zcf-evaluation/SKILL.md and engineering/post-process rules at YossiMH/chatgpt-skills. The author cannot review this repair.\n1. Read the complete three changed adapter files, permanent tests, relevant docs and final diff. Compare with the 4 MiB API contract and additive native --issue-type-file capability. Check literal-true negotiation without removing old editing grants, total 8 KiB budget, old short-type compatibility and oversized-type refusal before mutation.\n2. Trace one complete claimed edit through current revision, legitimate credential, title/description/type/notes/priority and priority reason. Verify temporary files preserve exact bytes and cleanup, and no error silently retries or reports an uncertain write as absent. Read the final native contract from type-backend-review; bulk-manifest substitution is forbidden because credentials are unavailable there.\n3. Reconcile type-app-checks actual adapter/type/lint/build results and runtime/source hashes. Reconcile type-windows-roundtrip actual store and Next HTTP results against the exact new Windows executable, including revision+1, claim/audit retention and owned cleanup.\n4. Retain unaffected prior browser/tray results. Return PASS, FAIL or PENDING with concrete findings. Acceptance requires both new check results, native review and two clean final author inspections. Actual logged-in-PC tray and installed launch remain separate requirements. Do not execute product checks or alter the task store.\n\nWork in /tmp/beads-55c9/app-type-edit (Riftri), YossiMH/bead-me-up-scotty initial source 5232c8b94804064ab71af571ee28797667bd72bd. Read AGENTS.md and current beads-workflow, engineering and post-process instructions at YossiMH/chatgpt-skills. Root alone changes task records or uses the PC. Use isolated cloud paths and bounded commands; protect Unreal/VR, private data and other edits. Stop on unexpected source identity or uncertain writes and retain the result.\n\nSave JSON on task/build-transfer-20261111 at 20261125/revision-7/results/type-app-review.json: source/file hashes, commands/exits, results, changed files and remaining work. Commit owned changes; push ordinary descendants to task/scotty-finish-20261124 and verify the ref. Keep main at the installer baseline. With no changes check unpublished commits; add no empty commit. If pushing fails, try another permitted route, report it and continue.",
+      "prerequisites": [
+        "type-app-change"
+      ],
+      "role": "reviewer",
+      "resource_keys": []
+    },
+    {
+      "key": "type-windows-roundtrip",
+      "title": "Check long-type editing on hosted Windows",
+      "description": "Result: Verify real Windows long-type transport through the native store and production Next HTTP API.\n\nPrerequisites: type-app-checks supplies the runtime ZIP/manifest; type-backend-checks and checkpoint-windows-build supply the new qualified Windows executable, source and SHA-256 containing type-backend-change.\n1. In a fresh hosted Windows checkout, verify the supplied app/native/runtime identities and install package-lock dependencies. Set BEAD_BIN to the absolute executable and SCOTTY_TEST_ROOT to a fresh absolute directory outside the checkout. Disable telemetry; bound the job to 15 minutes, each command to 180 seconds and Node heap to 512 MiB. Retain and clean owned children.\n2. Run node --conditions=react-server --import ./scripts/support/register-source.mjs --test scripts/test-local-bead-rs.mjs, then node scripts/test-native-type-roundtrip.mjs. The latter chooses a free loopback port, registers its isolated project, acquires a claim through HTTP and edits type/title/description/notes/priority once, with a Unicode type exceeding 32,768 characters.\n3. Require exact API readback and public native query IssueType, revision+1 and unchanged claim. Capture max_sequence with changes --latest --json before the edit; use changes --since <sequence> --json afterward to check priority_changed detail.reason, actor and revision. Verify request-file removal, no replay, unrelated fixture preservation, observed server exit and released port.\n4. Save complete outputs, actual exits, all input hashes and comparisons. Supply them to type-app-review. A failed run remains failed. Actual PC tray and installed default launch remain separate required results.\n\nWork in /tmp/beads-55c9/app-type-edit (Riftri), YossiMH/bead-me-up-scotty initial source 5232c8b94804064ab71af571ee28797667bd72bd. Read AGENTS.md and current beads-workflow, engineering and post-process instructions at YossiMH/chatgpt-skills. Root alone changes task records or uses the PC. Use isolated cloud paths and bounded commands; protect Unreal/VR, private data and other edits. Stop on unexpected source identity or uncertain writes and retain the result.\n\nSave JSON on task/build-transfer-20261111 at 20261125/revision-7/results/type-windows-roundtrip.json: source/file hashes, commands/exits, results, changed files and remaining work. Commit owned changes; push ordinary descendants to task/scotty-finish-20261124 and verify the ref. Keep main at the installer baseline. With no changes check unpublished commits; add no empty commit. If pushing fails, try another permitted route, report it and continue.",
+      "prerequisites": [
+        "type-app-checks",
+        "type-backend-checks",
+        "checkpoint-windows-build"
+      ],
+      "role": "executor",
+      "resource_keys": [
+        "scotty-type-windows-cloud"
+      ]
+    }
+  ],
+  "review_notes": [
+    "Draft only: root must merge these seven descriptions and their prerequisites into the complete revision 7 graph for independent review before any task-store change or production work.",
+    "Read the current default-branch language rules; all seven expanded titles/descriptions passed case-insensitive whole-word/phrase matching.",
+    "Hosted Windows uses a small new permanent HTTP script because the existing large backend integration script uses Unix process-group cleanup.",
+    "The production build must refresh installation runtime hashes. Retain existing tray module hashes and unchanged browser results.",
+    "Final cleanup must remove the exact Riftri worktree /tmp/beads-55c9/app-type-edit and its task branch after source/results are durable; future agents must finish this if the process ends early."
+  ],
+  "language_source": {
+    "repository": "YossiMH/copilot-instructions-history",
+    "path": "copilot-instructions.md",
+    "blob": "5178d027e5bd12886281f516f5b740be897b2ca1"
+  }
+}
