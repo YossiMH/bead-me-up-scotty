@@ -1,0 +1,39 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "scope": "Complete independent static review of one bounded hidden memory wait before the already accepted Windows tray smoke.",
+  "source_commit": "083429e0fcdf7b0dee27c1601e94d6cf2add1fbd",
+  "files": {
+    "20261125/windows-tray-memory-wait-20261125.ps1": "d910488dc368813108cec7b5836d8edf3ba08fd706dff3b6c9c790349c712eba",
+    "20261125/windows-tray-memory-wait-launch.json": "1b1326857f3f0fafbba92d06db1b0642e3a00ecd14c520cde8bf1368f53a7e1a",
+    "20261125/windows-tray-memory-wait-author.json": "ac8a0edd37cda6e112f8963ad65ebbbf66cbaabe7a3607dd91c91db2daa0b52e"
+  },
+  "read_complete_script": true,
+  "read_complete_launcher": true,
+  "read_two_author_inspections": true,
+  "checks": [
+    "The launcher requires fresh task/output names, existing session1 Explorer, no other active/queued owned task, a free fixed loopback port and at least1GiB free physical memory before creating the lightweight wait process.",
+    "One hidden BelowNormal PowerShell waits at most600seconds, samples every15seconds and exits if its own resident memory exceeds128MiB or free memory falls below512MiB. The outer task has an810second hard limit.",
+    "Before a smoke invocation the script verifies exact64ed tray helper,2758 Job helper,a947 production module and25a0 native binary hashes, fresh evidence, existing interactive session and no other active/queued owned task, then rechecks3GiB free immediately before invocation.",
+    "The unchanged smoke is invoked once in the same PowerShell process with180second timeout,256MiB Node heap and512MiB aggregate owned-resident limit. Its existing Job and complete-case cleanup remain authoritative.",
+    "No loop iteration retries after an invocation. Wrapper success requires the actual smoke result status passed and cleanup all_owned_processes_exited. Deferred or failed outputs remain separate and are retained.",
+    "The launcher uses the ordinary hidden PowerShell File route with no execution-policy override. Waiting and app checks do not change user processes, services, source, foreground input or private store configuration.",
+    "The active waiting task deliberately excludes only its own exact name from the mutual-exclusion check; root must schedule it after canonical writes and refrain from other owned app/task execution while it is active."
+  ],
+  "findings": [],
+  "result_interpretation": "The wrapper's app_launched flag is set at smoke invocation. Actual application creation, case outcomes and owned-process cleanup must be taken from the retained unchanged smoke result, including failures before application creation.",
+  "decision": "Accepted for ordinary parser verification and root-owned scheduling under the existing resource limits.",
+  "pending": [
+    "Ordinary Windows PowerShell parser on the exact script and command.",
+    "Root-owned actual wait/smoke result and cleanup reconciliation before any tray acceptance."
+  ],
+  "cleanup": "Reconcile launch/result markers before any retry and remove only this exact owned scheduled-task definition after its result is durably retained.",
+  "reviewer_execution": {
+    "pc_actions": false,
+    "product_runs": false,
+    "tests": false,
+    "builds": false
+  }
+}
