@@ -1,0 +1,348 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Exact revision 9 helper syntax and synthetic preservation/refusal checks",
+  "candidate_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+  "retention_commit": "ef223820d14d66b50c8e0541bc1694ebd40c05a8",
+  "preparation_review_commit": "3962c69bf04d7e14d789b13551bcd9df1f27fad4",
+  "run": {
+    "id": 45596905174,
+    "attempt": 1,
+    "head_sha": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+    "status": "completed",
+    "conclusion": "success",
+    "html_url": "https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45596905174",
+    "created_at": "2026-11-25T10:38:25Z",
+    "updated_at": "2026-11-25T10:38:58Z"
+  },
+  "jobs": [
+    {
+      "id": 139145263805,
+      "name": "verify",
+      "status": "completed",
+      "conclusion": "success",
+      "run_id": 45596905174,
+      "logs_url": null,
+      "steps": [
+        {
+          "name": "Set up job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 1
+        },
+        {
+          "name": "Read exact preparation files",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 2
+        },
+        {
+          "name": "Select qualified Node",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 3
+        },
+        {
+          "name": "Parse exact helpers and compile declarations only",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 4
+        },
+        {
+          "name": "Check synthetic installer refusals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 5
+        },
+        {
+          "name": "Check synthetic task mapping refusals",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 6
+        },
+        {
+          "name": "Retain actual parser and refusal outputs",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 7
+        },
+        {
+          "name": "Post Select qualified Node",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 13
+        },
+        {
+          "name": "Post Read exact preparation files",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 14
+        },
+        {
+          "name": "Complete job",
+          "status": "completed",
+          "conclusion": "success",
+          "number": 15
+        }
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "id": 15012534912,
+      "name": "bead-binding-checks-45596905174-1",
+      "size_in_bytes": 2597,
+      "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15012534912",
+      "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15012534912/zip",
+      "expired": false,
+      "created_at": "2026-11-25T10:38:54Z",
+      "expires_at": "2026-12-09T10:38:53Z",
+      "updated_at": "2026-11-25T10:38:54Z",
+      "digest": "sha256:847afda9173167b2b572d40dc4b7fa5c66c926fb8c39e674d74813180a6563c0",
+      "workflow_run": {
+        "id": 45596905174,
+        "repository_id": 1430517452,
+        "head_repository_id": 1430517452,
+        "head_branch": "task/type-binding-v9-checks-20261125",
+        "head_sha": "9e1adece7ff896ce1d6bfdbceed049421bda96af"
+      }
+    }
+  ],
+  "workflow": {
+    "path": ".github/workflows/type-binding-v9-checks-20261125.yml",
+    "sha256": "890cf053327df055dc1928011b7b2da06394331789ce4d2d2fb212642961beb6",
+    "content": "name: Revision 9 helper parsing and refusal checks\non:\n  push:\n    branches: [task/type-binding-v9-checks-20261125]\npermissions:\n  contents: read\nconcurrency:\n  group: type-binding-v9-checks-20261125\n  cancel-in-progress: false\njobs:\n  verify:\n    if: github.repository == 'YossiMH/bead-me-up-scotty'\n    runs-on: windows-2025\n    timeout-minutes: 7\n    env:\n      GIT_CONFIG_COUNT: '2'\n      GIT_CONFIG_KEY_0: core.autocrlf\n      GIT_CONFIG_VALUE_0: 'false'\n      GIT_CONFIG_KEY_1: core.eol\n      GIT_CONFIG_VALUE_1: lf\n      NODE_OPTIONS: '--max-old-space-size=128'\n    steps:\n      - name: Read exact preparation files\n        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803\n        with:\n          ref: ${{ github.sha }}\n          path: ci\n          persist-credentials: false\n          sparse-checkout: 20261125/revision-9/install-binding\n      - name: Select qualified Node\n        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38\n        with:\n          node-version: '24.22.3'\n          package-manager-cache: false\n      - name: Parse exact helpers and compile declarations only\n        shell: powershell -NoLogo -NoProfile -NonInteractive -Command \". '{0}'\"\n        timeout-minutes: 2\n        run: |\n          $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\n          $parser=Join-Path $root 'parse-bindings.ps1'\n          if((Get-FileHash -LiteralPath $parser -Algorithm SHA256).Hash.ToLowerInvariant() -cne 'c6ce24dd405de76c60936796424901dc5a2c6ec720c4d2a2342eb036e4c30691'){throw 'Parser changed.'}\n          & $parser -Directory $root -ManifestSha256 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'\n          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}\n      - name: Check synthetic installer refusals\n        shell: powershell -NoLogo -NoProfile -NonInteractive -Command \". '{0}'\"\n        timeout-minutes: 2\n        run: |\n          $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\n          $helper=Join-Path $root 'check-binding-refusals.ps1'\n          if((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c'){throw 'Refusal helper changed.'}\n          & $helper -Directory $root -ManifestSha256 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'\n          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}\n      - name: Check synthetic task mapping refusals\n        shell: powershell -NoLogo -NoProfile -NonInteractive -Command \". '{0}'\"\n        timeout-minutes: 1\n        run: |\n          $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\n          $helper=Join-Path $root 'check-history-refusals.mjs'\n          if((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '95152755e97a8ee62d0a9d127c0833f298400dec852361acc2e8caee13038d55'){throw 'History refusal helper changed.'}\n          & node.exe --check $helper\n          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}\n          & node.exe $helper $root 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'\n          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}\n      - name: Retain actual parser and refusal outputs\n        if: always()\n        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02\n        with:\n          name: bead-binding-checks-${{ github.run_id }}-${{ github.run_attempt }}\n          retention-days: 14\n          if-no-files-found: error\n          path: ${{ runner.temp }}/bead-binding-checks-${{ github.run_id }}-${{ github.run_attempt }}/\n"
+  },
+  "job_log": {
+    "job_id": 139145263805,
+    "sha256": "8696e0118db91cacb6e36ae85a5e3e855dca68e663832a9d11dc0ac7eab8cac0",
+    "content": "﻿2026-11-25T10:38:29.1451769Z Current runner version: '2.338.2'\r\n2026-11-25T10:38:29.1482427Z ##[group]Runner Image Provisioner\r\n2026-11-25T10:38:29.1483377Z Hosted Compute Agent\r\n2026-11-25T10:38:29.1483918Z Version: 20261111.635\r\n2026-11-25T10:38:29.1484573Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed\r\n2026-11-25T10:38:29.1485222Z Build Date: 2026-11-11T01:49:01Z\r\n2026-11-25T10:38:29.1485843Z Worker ID: {bed153e4-d24b-4ae1-9564-dbdf461b9b99}\r\n2026-11-25T10:38:29.1486483Z Region: centralus\r\n2026-11-25T10:38:29.1487027Z Cloud: Azure\r\n2026-11-25T10:38:29.1487483Z ##[endgroup]\r\n2026-11-25T10:38:29.1488596Z ##[group]Operating System\r\n2026-11-25T10:38:29.1489161Z Microsoft Windows Server 2025\r\n2026-11-25T10:38:29.1489729Z 10.0.26100\r\n2026-11-25T10:38:29.1490168Z Datacenter\r\n2026-11-25T10:38:29.1490645Z ##[endgroup]\r\n2026-11-25T10:38:29.1491155Z ##[group]Runner Image\r\n2026-11-25T10:38:29.1491736Z Image: windows-2025-vs2026\r\n2026-11-25T10:38:29.1492330Z Version: 20261116.315.1\r\n2026-11-25T10:38:29.1493949Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261116.315/images/windows/Windows2025-VS2026-Readme.md\r\n2026-11-25T10:38:29.1495571Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261116.315\r\n2026-11-25T10:38:29.1496547Z ##[endgroup]\r\n2026-11-25T10:38:29.1497573Z ##[group]GITHUB_TOKEN Permissions\r\n2026-11-25T10:38:29.1499614Z Contents: read\r\n2026-11-25T10:38:29.1500110Z Metadata: read\r\n2026-11-25T10:38:29.1500630Z ##[endgroup]\r\n2026-11-25T10:38:29.1502605Z Secret source: Actions\r\n2026-11-25T10:38:29.1503354Z Cache mode: write\r\n2026-11-25T10:38:29.1504024Z Prepare workflow directory\r\n2026-11-25T10:38:29.1874748Z Prepare all required actions\r\n2026-11-25T10:38:29.1927489Z Getting action download info\r\n2026-11-25T10:38:29.4391021Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)\r\n2026-11-25T10:38:29.5277104Z Download action repository 'actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38' (SHA:249970729cb0ef3589644e2896645e5dc5ba9c38)\r\n2026-11-25T10:38:29.6315551Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)\r\n2026-11-25T10:38:29.8827650Z Complete job name: verify\r\n2026-11-25T10:38:30.0668931Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803\r\n2026-11-25T10:38:30.0669822Z with:\r\n2026-11-25T10:38:30.0670089Z   ref: 9e1adece7ff896ce1d6bfdbceed049421bda96af\r\n2026-11-25T10:38:30.0670407Z   path: ci\r\n2026-11-25T10:38:30.0670632Z   persist-credentials: false\r\n2026-11-25T10:38:30.0670951Z   sparse-checkout: 20261125/revision-9/install-binding\r\n2026-11-25T10:38:30.0671306Z   repository: YossiMH/bead-me-up-scotty\r\n2026-11-25T10:38:30.0673495Z   token: ***\r\n2026-11-25T10:38:30.0673715Z   ssh-strict: true\r\n2026-11-25T10:38:30.0673945Z   ssh-user: git\r\n2026-11-25T10:38:30.0674161Z   clean: true\r\n2026-11-25T10:38:30.0674400Z   sparse-checkout-cone-mode: true\r\n2026-11-25T10:38:30.0674684Z   fetch-depth: 1\r\n2026-11-25T10:38:30.0674931Z   fetch-tags: false\r\n2026-11-25T10:38:30.0675167Z   show-progress: true\r\n2026-11-25T10:38:30.0675400Z   lfs: false\r\n2026-11-25T10:38:30.0675619Z   submodules: false\r\n2026-11-25T10:38:30.0675860Z   set-safe-directory: true\r\n2026-11-25T10:38:30.0676171Z   allow-unsafe-pr-checkout: false\r\n2026-11-25T10:38:30.0676552Z env:\r\n2026-11-25T10:38:30.0676760Z   GIT_CONFIG_COUNT: 2\r\n2026-11-25T10:38:30.0677003Z   GIT_CONFIG_KEY_0: core.autocrlf\r\n2026-11-25T10:38:30.0677274Z   GIT_CONFIG_VALUE_0: false\r\n2026-11-25T10:38:30.0677529Z   GIT_CONFIG_KEY_1: core.eol\r\n2026-11-25T10:38:30.0677783Z   GIT_CONFIG_VALUE_1: lf\r\n2026-11-25T10:38:30.0678076Z   NODE_OPTIONS: --max-old-space-size=128\r\n2026-11-25T10:38:30.0678367Z ##[endgroup]\r\n2026-11-25T10:38:30.1868628Z Syncing repository: YossiMH/bead-me-up-scotty\r\n2026-11-25T10:38:30.1870958Z ##[group]Getting Git version info\r\n2026-11-25T10:38:30.1871724Z Working directory is 'D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci'\r\n2026-11-25T10:38:30.2386509Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" version\r\n2026-11-25T10:38:30.5875952Z git version 2.56.1.windows.1\r\n2026-11-25T10:38:30.5924361Z ##[endgroup]\r\n2026-11-25T10:38:30.5939962Z Temporarily overriding HOME='D:\\a\\_temp\\05b37ffc-991f-463e-ac6e-7b25da895923' before making global git config changes\r\n2026-11-25T10:38:30.5941025Z Adding repository directory to the temporary git global config as a safe directory\r\n2026-11-25T10:38:30.5948107Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --global --add safe.directory D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\r\n2026-11-25T10:38:30.6579299Z ##[group]Determining repository object format\r\n2026-11-25T10:38:30.6581701Z ##[endgroup]\r\n2026-11-25T10:38:30.6582779Z ##[group]Initializing the repository\r\n2026-11-25T10:38:30.6590621Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" init D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\r\n2026-11-25T10:38:30.7614901Z Initialized empty Git repository in D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/\r\n2026-11-25T10:38:30.7671501Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" remote add origin https://github.com/YossiMH/bead-me-up-scotty\r\n2026-11-25T10:38:30.8302920Z ##[endgroup]\r\n2026-11-25T10:38:30.8311710Z ##[group]Disabling automatic garbage collection\r\n2026-11-25T10:38:30.8312899Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local gc.auto 0\r\n2026-11-25T10:38:30.8607012Z ##[endgroup]\r\n2026-11-25T10:38:30.8607935Z ##[group]Setting up auth\r\n2026-11-25T10:38:30.8608694Z Removing SSH command configuration\r\n2026-11-25T10:38:30.8616217Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp core\\.sshCommand\r\n2026-11-25T10:38:30.8899957Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"sh -c \\\"git config --local --name-only --get-regexp 'core\\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\\\"\"\r\n2026-11-25T10:38:32.2993881Z Removing HTTP extra header\r\n2026-11-25T10:38:32.3002044Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp http\\.https\\:\\/\\/github\\.com\\/\\.extraheader\r\n2026-11-25T10:38:32.3307968Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"sh -c \\\"git config --local --name-only --get-regexp 'http\\.https\\:\\/\\/github\\.com\\/\\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\\\"\"\r\n2026-11-25T10:38:32.8184564Z Removing includeIf entries pointing to credentials config files\r\n2026-11-25T10:38:32.8195339Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp ^includeIf\\.gitdir:\r\n2026-11-25T10:38:32.8502919Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"git config --local --show-origin --name-only --get-regexp remote.origin.url\"\r\n2026-11-25T10:38:33.3226453Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --file D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config http.https://github.com/.extraheader \"AUTHORIZATION: basic ***\"\r\n2026-11-25T10:38:33.3556364Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:33.3865087Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:33.4211873Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local includeIf.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:33.4522362Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local includeIf.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:33.4847019Z ##[endgroup]\r\n2026-11-25T10:38:33.4847552Z ##[group]Fetching the repository\r\n2026-11-25T10:38:33.4860118Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin 9e1adece7ff896ce1d6bfdbceed049421bda96af\r\n2026-11-25T10:38:34.5951946Z From https://github.com/YossiMH/bead-me-up-scotty\r\n2026-11-25T10:38:34.5952600Z  * branch            9e1adece7ff896ce1d6bfdbceed049421bda96af -> FETCH_HEAD\r\n2026-11-25T10:38:34.5997676Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" rev-parse --verify --quiet 9e1adece7ff896ce1d6bfdbceed049421bda96af^{object}\r\n2026-11-25T10:38:34.6307932Z 9e1adece7ff896ce1d6bfdbceed049421bda96af\r\n2026-11-25T10:38:34.6343032Z ##[endgroup]\r\n2026-11-25T10:38:34.6343945Z ##[group]Determining the checkout info\r\n2026-11-25T10:38:34.6345286Z ##[endgroup]\r\n2026-11-25T10:38:34.6345629Z ##[group]Setting up sparse checkout\r\n2026-11-25T10:38:34.6355252Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" sparse-checkout set 20261125/revision-9/install-binding\r\n2026-11-25T10:38:34.6773892Z ##[endgroup]\r\n2026-11-25T10:38:34.6774174Z ##[group]Checking out the ref\r\n2026-11-25T10:38:34.6782917Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" checkout --progress --force 9e1adece7ff896ce1d6bfdbceed049421bda96af\r\n2026-11-25T10:38:35.4803715Z Note: switching to '9e1adece7ff896ce1d6bfdbceed049421bda96af'.\r\n2026-11-25T10:38:35.4804198Z \r\n2026-11-25T10:38:35.4804405Z You are in 'detached HEAD' state. You can look around, make experimental\r\n2026-11-25T10:38:35.4805023Z changes and commit them, and you can discard any commits you make in this\r\n2026-11-25T10:38:35.4805335Z state without impacting any branches by switching back to a branch.\r\n2026-11-25T10:38:35.4805653Z \r\n2026-11-25T10:38:35.4805761Z If you want to create a new branch to retain commits you create, you may\r\n2026-11-25T10:38:35.4806014Z do so (now or later) by using -c with the switch command. Example:\r\n2026-11-25T10:38:35.4806154Z \r\n2026-11-25T10:38:35.4806268Z   git switch -c <new-branch-name>\r\n2026-11-25T10:38:35.4806379Z \r\n2026-11-25T10:38:35.4806451Z Or undo this operation with:\r\n2026-11-25T10:38:35.4806556Z \r\n2026-11-25T10:38:35.4806605Z   git switch -\r\n2026-11-25T10:38:35.4806682Z \r\n2026-11-25T10:38:35.4806807Z Turn off this advice by setting config variable advice.detachedHead to false\r\n2026-11-25T10:38:35.4806974Z \r\n2026-11-25T10:38:35.4808185Z HEAD is now at 9e1adec Bind the complete compatible revision 9 plan receipt\r\n2026-11-25T10:38:35.4878993Z ##[endgroup]\r\n2026-11-25T10:38:35.5268483Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" log -1 --format=%H\r\n2026-11-25T10:38:35.5555692Z 9e1adece7ff896ce1d6bfdbceed049421bda96af\r\n2026-11-25T10:38:35.5602926Z ##[group]Removing auth\r\n2026-11-25T10:38:35.5603219Z Removing SSH command configuration\r\n2026-11-25T10:38:35.5610434Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp core\\.sshCommand\r\n2026-11-25T10:38:35.5939676Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"sh -c \\\"git config --local --name-only --get-regexp 'core\\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\\\"\"\r\n2026-11-25T10:38:36.1111990Z Removing HTTP extra header\r\n2026-11-25T10:38:36.1120862Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp http\\.https\\:\\/\\/github\\.com\\/\\.extraheader\r\n2026-11-25T10:38:36.1461423Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"sh -c \\\"git config --local --name-only --get-regexp 'http\\.https\\:\\/\\/github\\.com\\/\\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\\\"\"\r\n2026-11-25T10:38:36.6760613Z Removing includeIf entries pointing to credentials config files\r\n2026-11-25T10:38:36.6769934Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp ^includeIf\\.gitdir:\r\n2026-11-25T10:38:36.7066986Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path\r\n2026-11-25T10:38:36.7067510Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path\r\n2026-11-25T10:38:36.7067897Z includeif.gitdir:/github/workspace/ci/.git.path\r\n2026-11-25T10:38:36.7068829Z includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path\r\n2026-11-25T10:38:36.7119688Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path\r\n2026-11-25T10:38:36.7421407Z D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:36.7469796Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:36.7805455Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path\r\n2026-11-25T10:38:36.8088206Z D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:36.8134698Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:36.8474701Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --get-all includeif.gitdir:/github/workspace/ci/.git.path\r\n2026-11-25T10:38:36.8748667Z /github/runner_temp/git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:36.8792791Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --unset includeif.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:36.9139345Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --get-all includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path\r\n2026-11-25T10:38:36.9451476Z /github/runner_temp/git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:36.9497035Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --unset includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:36.9832894Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"git config --local --show-origin --name-only --get-regexp remote.origin.url\"\r\n2026-11-25T10:38:37.4933829Z Removing credentials config 'D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config'\r\n2026-11-25T10:38:37.4945201Z ##[endgroup]\r\n2026-11-25T10:38:37.5312588Z ##[group]Run actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38\r\n2026-11-25T10:38:37.5312888Z with:\r\n2026-11-25T10:38:37.5313009Z   node-version: 24.22.3\r\n2026-11-25T10:38:37.5313148Z   package-manager-cache: false\r\n2026-11-25T10:38:37.5313287Z   check-latest: false\r\n2026-11-25T10:38:37.5314794Z   token: ***\r\n2026-11-25T10:38:37.5314913Z env:\r\n2026-11-25T10:38:37.5315018Z   GIT_CONFIG_COUNT: 2\r\n2026-11-25T10:38:37.5315148Z   GIT_CONFIG_KEY_0: core.autocrlf\r\n2026-11-25T10:38:37.5315292Z   GIT_CONFIG_VALUE_0: false\r\n2026-11-25T10:38:37.5315422Z   GIT_CONFIG_KEY_1: core.eol\r\n2026-11-25T10:38:37.5315562Z   GIT_CONFIG_VALUE_1: lf\r\n2026-11-25T10:38:37.5315706Z   NODE_OPTIONS: --max-old-space-size=128\r\n2026-11-25T10:38:37.5315855Z ##[endgroup]\r\n2026-11-25T10:38:37.6739826Z Found in cache @ C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\r\n2026-11-25T10:38:37.6747113Z ##[group]Environment details\r\n2026-11-25T10:38:42.7313891Z node: v24.22.3\r\n2026-11-25T10:38:42.7314163Z npm: 11.19.1\r\n2026-11-25T10:38:42.7314452Z yarn: 1.22.22\r\n2026-11-25T10:38:42.7314943Z ##[endgroup]\r\n2026-11-25T10:38:42.7592575Z ##[group]Run $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\r\n2026-11-25T10:38:42.7593067Z \u001b[36;1m$root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\u001b[0m\r\n2026-11-25T10:38:42.7593333Z \u001b[36;1m$parser=Join-Path $root 'parse-bindings.ps1'\u001b[0m\r\n2026-11-25T10:38:42.7593799Z \u001b[36;1mif((Get-FileHash -LiteralPath $parser -Algorithm SHA256).Hash.ToLowerInvariant() -cne 'c6ce24dd405de76c60936796424901dc5a2c6ec720c4d2a2342eb036e4c30691'){throw 'Parser changed.'}\u001b[0m\r\n2026-11-25T10:38:42.7594751Z \u001b[36;1m& $parser -Directory $root -ManifestSha256 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'\u001b[0m\r\n2026-11-25T10:38:42.7595068Z \u001b[36;1mif($LASTEXITCODE -ne 0){exit $LASTEXITCODE}\u001b[0m\r\n2026-11-25T10:38:42.8186161Z shell: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.EXE -NoLogo -NoProfile -NonInteractive -Command \". '{0}'\"\r\n2026-11-25T10:38:42.8186711Z env:\r\n2026-11-25T10:38:42.8186871Z   GIT_CONFIG_COUNT: 2\r\n2026-11-25T10:38:42.8187071Z   GIT_CONFIG_KEY_0: core.autocrlf\r\n2026-11-25T10:38:42.8187216Z   GIT_CONFIG_VALUE_0: false\r\n2026-11-25T10:38:42.8187347Z   GIT_CONFIG_KEY_1: core.eol\r\n2026-11-25T10:38:42.8187477Z   GIT_CONFIG_VALUE_1: lf\r\n2026-11-25T10:38:42.8187613Z   NODE_OPTIONS: --max-old-space-size=128\r\n2026-11-25T10:38:42.8187774Z ##[endgroup]\r\n2026-11-25T10:38:47.9238187Z BINDING_PARSE_RESULT_BASE64 ew0KICAgICJzY2hlbWFfdmVyc2lvbiI6ICAxLA0KICAgICJzdGF0dXMiOiAgInBhc3NlZCIsDQogICAgIm9wZXJhdGlvbiI6ICAib3JkaW5hcnktcG93ZXJzaGVsbC1hbmQtbm9kZS1wYXJzZSIsDQogICAgInJ1bl9pZCI6ICAiNDU1OTY5MDUxNzQiLA0KICAgICJ3b3JrZmxvd19jb21taXQiOiAgIjllMWFkZWNlN2ZmODk2Y2UxZDZiZmRiY2VlZDA0OTQyMWJkYTk2YWYiLA0KICAgICJhcHBfc291cmNlX2NvbW1pdCI6ICAiMDMwOTUzOTc5N2ZkN2QwMTZlMmI4ZmQ4YmRjMGFlOWNlZmMyMDIxOSIsDQogICAgIm5hdGl2ZV9zb3VyY2VfY29tbWl0IjogIG51bGwsDQogICAgInBvd2Vyc2hlbGxfdmVyc2lvbiI6ICAiNS4xLjI2MTAwLjMzODIyIiwNCiAgICAiZmlsZXMiOiAgWw0KICAgICAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICAgICAgICJwYXRoIjogICJjaGVja3BvaW50LWhhbmRvZmYtMjAyNjExMjUubWpzIiwNCiAgICAgICAgICAgICAgICAgICAgICAic2hhMjU2IjogICIxNzlkMjE1MzNjNjRhYzM5NzgzZGRjNTU2MDU2ZDI0OWY4MTAwYjEwNzQzZjgyZThmN2EzM2Y3MmE4M2ExMzQxIiwNCiAgICAgICAgICAgICAgICAgICAgICAicGFyc2VyIjogICJub2RlIC0tY2hlY2siLA0KICAgICAgICAgICAgICAgICAgICAgICJleGl0X2NvZGUiOiAgMA0KICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicGF0aCI6ICAiY2hlY2twb2ludC1oYW5kb2ZmLXN1cGVydmlzb3ItMjAyNjExMjUucHMxIiwNCiAgICAgICAgICAgICAgICAgICAgICAic2hhMjU2IjogICI1NmU4OWJhM2JmMWVjY2E5OTVkYmRiMmM5OTJkMmJhYTYxNjdkMDI3MWQyYmJjYmMyODg1MjU1MmNkYjgxMTYxIiwNCiAgICAgICAgICAgICAgICAgICAgICAiZXJyb3JzIjogIFsNCg0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXSwNCiAgICAgICAgICAgICAgICAgICAgICAicGFyc2VyIjogICJQb3dlclNoZWxsLlBhcnNlci5QYXJzZUZpbGUiLA0KICAgICAgICAgICAgICAgICAgICAgICJlcnJvcl9jb3VudCI6ICAwDQogICAgICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICAgICAgICJwYXRoIjogICJtYXRlcmlhbGl6ZS12OS5tanMiLA0KICAgICAgICAgICAgICAgICAgICAgICJzaGEyNTYiOiAgIjIzOWUzZjIxYzk1ODUzNDE1YmFlZDRkNTBlOWIyZmNiMzgyOTEwNWFkZWM3MmIyNmVjMGYwNzdhY2Q5NmM2ODYiLA0KICAgICAgICAgICAgICAgICAgICAgICJwYXJzZXIiOiAgIm5vZGUgLS1jaGVjayIsDQogICAgICAgICAgICAgICAgICAgICAgImV4aXRfY29kZSI6ICAwDQogICAgICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICAgICAgICJwYXRoIjogICJtYXRlcmlhbGl6ZS12OS1zdXBlcnZpc29yLnBzMSIsDQogICAgICAgICAgICAgICAgICAgICAgInNoYTI1NiI6ICAiYmRmOGZhZmZlYWVkNWMzMjk0ZGJlNGRhZjdlZDljZWUyMWU0OWVjYzY4NzBhYWFhYjgyZTA3NWEzOWRkNTdlMyIsDQogICAgICAgICAgICAgICAgICAgICAgImVycm9ycyI6ICBbDQoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF0sDQogICAgICAgICAgICAgICAgICAgICAgInBhcnNlciI6ICAiUG93ZXJTaGVsbC5QYXJzZXIuUGFyc2VGaWxlIiwNCiAgICAgICAgICAgICAgICAgICAgICAiZXJyb3JfY291bnQiOiAgMA0KICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicGF0aCI6ICAid2luZG93cy1pbnN0YWxsLXRyYXktaG9zdC0yMDI2MTEyNS5wczEiLA0KICAgICAgICAgICAgICAgICAgICAgICJzaGEyNTYiOiAgIjNjN2UyYjVjY2JlNWQzMWIzMmEyMzZkOWIzMzZmZWZmYTg2OGZmYzEyYmJmOGVlMmRiMmU5ZDlmM2FkMjE0YzAiLA0KICAgICAgICAgICAgICAgICAgICAgICJlcnJvcnMiOiAgWw0KDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBdLA0KICAgICAgICAgICAgICAgICAgICAgICJwYXJzZXIiOiAgIlBvd2VyU2hlbGwuUGFyc2VyLlBhcnNlRmlsZSIsDQogICAgICAgICAgICAgICAgICAgICAgImVycm9yX2NvdW50IjogIDANCiAgICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgICAgInBhdGgiOiAgIndpbmRvd3MtY29uZmlndXJlZC1sYXVuY2gtaG9zdC0yMDI2MTEyNS5wczEiLA0KICAgICAgICAgICAgICAgICAgICAgICJzaGEyNTYiOiAgImVkMjU2Zjk5MmQ4Mzk4ZWIwN2YwMGQxOTkxYjFlZTI0MjQ1Y2U1MzdhYjI5NzMyMjJjYTcxZWZiZDRkZGE1MWUiLA0KICAgICAgICAgICAgICAgICAgICAgICJlcnJvcnMiOiAgWw0KDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBdLA0KICAgICAgICAgICAgICAgICAgICAgICJwYXJzZXIiOiAgIlBvd2VyU2hlbGwuUGFyc2VyLlBhcnNlRmlsZSIsDQogICAgICAgICAgICAgICAgICAgICAgImVycm9yX2NvdW50IjogIDANCiAgICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgICAgInBhdGgiOiAgInBsYW4uanNvbiIsDQogICAgICAgICAgICAgICAgICAgICAgInNoYTI1NiI6ICAiMTgxMzBlNDRhYjI3MDQ3ZGNiMzk3ZGU1M2NhYTBhOTAwNmM1NmNmZDQ3OGQ0MTdmODg0ZTQyNDUyZmY2MjU4MiIsDQogICAgICAgICAgICAgICAgICAgICAgInN0YXR1cyI6ICAicGFzc2VkIiwNCiAgICAgICAgICAgICAgICAgICAgICAicGFyc2VyIjogICJDb252ZXJ0RnJvbS1Kc29uIg0KICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicGF0aCI6ICAicGxhbi1yZXZpZXcuanNvbiIsDQogICAgICAgICAgICAgICAgICAgICAgInNoYTI1NiI6ICAiZTI2YjU4MTJiMDNjMzdmNjE4M2VkMzE4MmM2NzEzM2RmNzhjZDE3ZDc0ZmUwYjMzNjMyNGRmN2M4NDlkZWNlNyIsDQogICAgICAgICAgICAgICAgICAgICAgInN0YXR1cyI6ICAicGFzc2VkIiwNCiAgICAgICAgICAgICAgICAgICAgICAicGFyc2VyIjogICJDb252ZXJ0RnJvbS1Kc29uIg0KICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICBdLA0KICAgICJkZWNsYXJhdGlvbnMiOiAgWw0KICAgICAgICAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgInNoYTI1NiI6ICAiN2E0Y2QzZTAzZDQ2ZWYwOGNkODQzN2NjNWU5NzQ0MTg2MTI2NzE3Mzk4NTE5YTBiMDdkMzlmZjM0YzAwYTExMiIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICJtZXRob2RzX2ludm9rZWQiOiAgZmFsc2UsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICJjb21waWxlZCI6ICB0cnVlLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiY2xhc3MiOiAgIkNoZWNrcG9pbnQyMDI2MTEyNUluc3BlY3RvciINCiAgICAgICAgICAgICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgInNoYTI1NiI6ICAiODMyMTJlYzA3MjM4Njg1ZTdhZWU4YzQ4ZDM2ZjZlN2M4MWY4NzlkOWY0NTU5NDhlMDBlODIyNWNkNzJjZjkxNyIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICJtZXRob2RzX2ludm9rZWQiOiAgZmFsc2UsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICJjb21waWxlZCI6ICB0cnVlLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiY2xhc3MiOiAgIlNjb3R0eTIwMjYxMTI1Q29vcmRpbmF0aW9uSW5zcGVjdG9yIg0KICAgICAgICAgICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAic2hhMjU2IjogICIyYTllNDcyZWI3Mzk0N2YzN2E5NjU2MmViMWFkNTYwNDE4NjI4NTAzNzMyNDg5Zjg3YjY5ZDBkYmJhMDllM2Q0IiwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIm1ldGhvZHNfaW52b2tlZCI6ICBmYWxzZSwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgImNvbXBpbGVkIjogIHRydWUsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICJjbGFzcyI6ICAiU2NvdHR5MjAyNjExMTFJbmRleEZpbGUiDQogICAgICAgICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICJzaGEyNTYiOiAgImMwZjBmZTljYTg5NmExOTY1MWM0NWMwNDhiMTkwOGYwZmIyMzFlNTQ4YmZmYTU4OTZiYmQ3OGIzNThkOTIzZWEiLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAibWV0aG9kc19pbnZva2VkIjogIGZhbHNlLA0KICAgICAgICAgICAgICAgICAgICAgICAgICAgICAiY29tcGlsZWQiOiAgdHJ1ZSwNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgImNsYXNzIjogICJTY290dHkyMDI2MTEyNVRyYXlKb2JJbnNwZWN0b3IiDQogICAgICAgICAgICAgICAgICAgICAgICAgfQ0KICAgICAgICAgICAgICAgICAgICAgXSwNCiAgICAicHJvZHVjdF9leGVjdXRpb24iOiAgZmFsc2UsDQogICAgInBjX2FjdGlvbnMiOiAgMA0KfQo=\r\n2026-11-25T10:38:47.9436442Z BINDING_PARSE_RESULT_SHA256 f9438595cf8da2d7837d63cb2fcb122d975fbdc5dc2a41b25c89a262cabfaa49\r\n2026-11-25T10:38:47.9727843Z ##[group]Run $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\r\n2026-11-25T10:38:47.9728291Z \u001b[36;1m$root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\u001b[0m\r\n2026-11-25T10:38:47.9728563Z \u001b[36;1m$helper=Join-Path $root 'check-binding-refusals.ps1'\u001b[0m\r\n2026-11-25T10:38:47.9729077Z \u001b[36;1mif((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c'){throw 'Refusal helper changed.'}\u001b[0m\r\n2026-11-25T10:38:47.9729672Z \u001b[36;1m& $helper -Directory $root -ManifestSha256 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'\u001b[0m\r\n2026-11-25T10:38:47.9729992Z \u001b[36;1mif($LASTEXITCODE -ne 0){exit $LASTEXITCODE}\u001b[0m\r\n2026-11-25T10:38:47.9783120Z shell: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.EXE -NoLogo -NoProfile -NonInteractive -Command \". '{0}'\"\r\n2026-11-25T10:38:47.9783618Z env:\r\n2026-11-25T10:38:47.9783809Z   GIT_CONFIG_COUNT: 2\r\n2026-11-25T10:38:47.9783938Z   GIT_CONFIG_KEY_0: core.autocrlf\r\n2026-11-25T10:38:47.9784075Z   GIT_CONFIG_VALUE_0: false\r\n2026-11-25T10:38:47.9784205Z   GIT_CONFIG_KEY_1: core.eol\r\n2026-11-25T10:38:47.9784325Z   GIT_CONFIG_VALUE_1: lf\r\n2026-11-25T10:38:47.9784472Z   NODE_OPTIONS: --max-old-space-size=128\r\n2026-11-25T10:38:47.9784625Z ##[endgroup]\r\n2026-11-25T10:38:50.7610054Z BINDING_INSTALLER_REFUSALS_BASE64 ew0KICAgICJzY2hlbWFfdmVyc2lvbiI6ICAxLA0KICAgICJzdGF0dXMiOiAgInBhc3NlZCIsDQogICAgIm9wZXJhdGlvbiI6ICAic3ludGhldGljLWluc3RhbGxlci1yZWZ1c2FscyIsDQogICAgInNvdXJjZV9zaGEyNTYiOiAgIjNjN2UyYjVjY2JlNWQzMWIzMmEyMzZkOWIzMzZmZWZmYTg2OGZmYzEyYmJmOGVlMmRiMmU5ZDlmM2FkMjE0YzAiLA0KICAgICJjYXNlcyI6ICBbDQogICAgICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgICAgInJlc3VsdCI6ICAicGFzc2VkIiwNCiAgICAgICAgICAgICAgICAgICAgICAibmFtZSI6ICAibWF0Y2hpbmctcnVudGltZSINCiAgICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgICAgInJlc3VsdCI6ICAicGFzc2VkIiwNCiAgICAgICAgICAgICAgICAgICAgICAibmFtZSI6ICAicnVudGltZS1oYXNoIiwNCiAgICAgICAgICAgICAgICAgICAgICAiZXhwZWN0ZWRfcmVmdXNhbCI6ICAiUnVudGltZSBoYXNoL3NpemUgZGlmZmVyczogLm5leHQvc2VydmVyLmpzIg0KICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicmVzdWx0IjogICJwYXNzZWQiLA0KICAgICAgICAgICAgICAgICAgICAgICJuYW1lIjogICJydW50aW1lLXNpemUiLA0KICAgICAgICAgICAgICAgICAgICAgICJleHBlY3RlZF9yZWZ1c2FsIjogICJSdW50aW1lIGhhc2gvc2l6ZSBkaWZmZXJzOiAubmV4dC9zZXJ2ZXIuanMiDQogICAgICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICAgICAgICJyZXN1bHQiOiAgInBhc3NlZCIsDQogICAgICAgICAgICAgICAgICAgICAgIm5hbWUiOiAgInJ1bnRpbWUtYnVpbGQtaWQiLA0KICAgICAgICAgICAgICAgICAgICAgICJleHBlY3RlZF9yZWZ1c2FsIjogICJSdW50aW1lIEJVSUxEX0lEIGRpZmZlcnMuIg0KICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicmVzdWx0IjogICJwYXNzZWQiLA0KICAgICAgICAgICAgICAgICAgICAgICJuYW1lIjogICJydW50aW1lLXRyYXZlcnNhbCIsDQogICAgICAgICAgICAgICAgICAgICAgImV4cGVjdGVkX3JlZnVzYWwiOiAgIlVuZXhwZWN0ZWQgcnVudGltZSBtYW5pZmVzdCBwYXRoLiINCiAgICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgICAgInJlc3VsdCI6ICAicGFzc2VkIiwNCiAgICAgICAgICAgICAgICAgICAgICAibmFtZSI6ICAicnVudGltZS1kdXBsaWNhdGUiLA0KICAgICAgICAgICAgICAgICAgICAgICJleHBlY3RlZF9yZWZ1c2FsIjogICJEdXBsaWNhdGUgcnVudGltZSBtYW5pZmVzdCBwYXRoLiINCiAgICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgICAgInJlc3VsdCI6ICAicGFzc2VkIiwNCiAgICAgICAgICAgICAgICAgICAgICAibmFtZSI6ICAiZG9jdW1lbnRhdGlvbi1kZXNjZW5kYW50Ig0KICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicmVzdWx0IjogICJwYXNzZWQiLA0KICAgICAgICAgICAgICAgICAgICAgICJuYW1lIjogICJ1bmJ1aWx0LWFkYXB0ZXItc291cmNlIiwNCiAgICAgICAgICAgICAgICAgICAgICAiZXhwZWN0ZWRfcmVmdXNhbCI6ICAiUnVudGltZSBkaWZmZXJzIGZyb20gYWNjZXB0ZWQgc291cmNlOiBsaWIvbmF0aXZlLWVkaXQudHMiDQogICAgICAgICAgICAgICAgICB9LA0KICAgICAgICAgICAgICAgICAgew0KICAgICAgICAgICAgICAgICAgICAgICJyZXN1bHQiOiAgInBhc3NlZCIsDQogICAgICAgICAgICAgICAgICAgICAgIm5hbWUiOiAgIm5vbi1kZXNjZW5kYW50LXNvdXJjZSIsDQogICAgICAgICAgICAgICAgICAgICAgImV4cGVjdGVkX3JlZnVzYWwiOiAgIkluc3RhbGwgY29tbWFuZCBmYWlsZWQ6IEM6XFxQcm9ncmFtIEZpbGVzXFxHaXRcXGJpblxcZ2l0LmV4ZSAtQyBEOlxcYVxcX3RlbXBcXGJlYWQtYmluZGluZy1maXh0dXJlLTQ1NTk2OTA1MTc0LTFcXHNvdXJjZSAtYyBnYy5hdXRvPTAgLWMgbWFpbnRlbmFuY2UuYXV0bz1mYWxzZSBtZXJnZS1iYXNlIC0taXMtYW5jZXN0b3IgNzY1YjI4NmJjMTBkN2IyNmRiZmI0MzJhNDg1NTgxMzhjNmIxMjBhZCA3ZTQ2MjQzZjNhNTU0M2M2MjFmMTc1YmZmMWFmYzk3YzY3NmM0OWY4ICINCiAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgXSwNCiAgICAiaW5zdGFsbGVyX2V4ZWN1dGVkIjogIGZhbHNlLA0KICAgICJuYXRpdmVfY29tbWFuZHMiOiAgMCwNCiAgICAicGNfYWN0aW9ucyI6ICAwLA0KICAgICJydW50aW1lX2J5dGVzX3VuY2hhbmdlZCI6ICB0cnVlLA0KICAgICJzb3VyY2VfYnl0ZXNfdW5jaGFuZ2VkIjogIHRydWUNCn0K\r\n2026-11-25T10:38:50.9206697Z ##[group]Run $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\r\n2026-11-25T10:38:50.9207592Z \u001b[36;1m$root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/install-binding'\u001b[0m\r\n2026-11-25T10:38:50.9207872Z \u001b[36;1m$helper=Join-Path $root 'check-history-refusals.mjs'\u001b[0m\r\n2026-11-25T10:38:50.9208609Z \u001b[36;1mif((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '95152755e97a8ee62d0a9d127c0833f298400dec852361acc2e8caee13038d55'){throw 'History refusal helper changed.'}\u001b[0m\r\n2026-11-25T10:38:50.9209115Z \u001b[36;1m& node.exe --check $helper\u001b[0m\r\n2026-11-25T10:38:50.9209293Z \u001b[36;1mif($LASTEXITCODE -ne 0){exit $LASTEXITCODE}\u001b[0m\r\n2026-11-25T10:38:50.9209583Z \u001b[36;1m& node.exe $helper $root 'd775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c'\u001b[0m\r\n2026-11-25T10:38:50.9209877Z \u001b[36;1mif($LASTEXITCODE -ne 0){exit $LASTEXITCODE}\u001b[0m\r\n2026-11-25T10:38:50.9263258Z shell: C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.EXE -NoLogo -NoProfile -NonInteractive -Command \". '{0}'\"\r\n2026-11-25T10:38:50.9263614Z env:\r\n2026-11-25T10:38:50.9263748Z   GIT_CONFIG_COUNT: 2\r\n2026-11-25T10:38:50.9263896Z   GIT_CONFIG_KEY_0: core.autocrlf\r\n2026-11-25T10:38:50.9264052Z   GIT_CONFIG_VALUE_0: false\r\n2026-11-25T10:38:50.9264203Z   GIT_CONFIG_KEY_1: core.eol\r\n2026-11-25T10:38:50.9264333Z   GIT_CONFIG_VALUE_1: lf\r\n2026-11-25T10:38:50.9264476Z   NODE_OPTIONS: --max-old-space-size=128\r\n2026-11-25T10:38:50.9264649Z ##[endgroup]\r\n2026-11-25T10:38:53.1264442Z BINDING_HISTORY_REFUSALS_BASE64 ewogICJzY2hlbWFfdmVyc2lvbiI6IDEsCiAgInN0YXR1cyI6ICJwYXNzZWQiLAogICJvcGVyYXRpb24iOiAic3ludGhldGljLWhpc3RvcnktcmVmdXNhbHMiLAogICJzb3VyY2Vfc2hhMjU2IjogIjE3OWQyMTUzM2M2NGFjMzk3ODNkZGM1NTYwNTZkMjQ5ZjgxMDBiMTA3NDNmODJlOGY3YTMzZjcyYTgzYTEzNDEiLAogICJwbGFuX3NoYTI1NiI6ICIxODEzMGU0NGFiMjcwNDdkY2IzOTdkZTUzY2FhMGE5MDA2YzU2Y2ZkNDc4ZDQxN2Y4ODRlNDI0NTJmZjYyNTgyIiwKICAiY2FzZXMiOiBbCiAgICB7CiAgICAgICJuYW1lIjogIm1hdGNoaW5nLTU1LXRhc2stOTEtZWRnZS1ncmFwaCIsCiAgICAgICJyZXN1bHQiOiAicGFzc2VkIgogICAgfSwKICAgIHsKICAgICAgIm5hbWUiOiAibWlzc2luZy10YXNrLW1hcHBpbmciLAogICAgICAicmVzdWx0IjogInBhc3NlZCIsCiAgICAgICJleHBlY3RlZF9yZWZ1c2FsIjogdHJ1ZQogICAgfSwKICAgIHsKICAgICAgIm5hbWUiOiAiZHVwbGljYXRlLXRhc2staWQiLAogICAgICAicmVzdWx0IjogInBhc3NlZCIsCiAgICAgICJleHBlY3RlZF9yZWZ1c2FsIjogdHJ1ZQogICAgfSwKICAgIHsKICAgICAgIm5hbWUiOiAiaW5jb3JyZWN0LWVkZ2UtY291bnQiLAogICAgICAicmVzdWx0IjogInBhc3NlZCIsCiAgICAgICJleHBlY3RlZF9yZWZ1c2FsIjogdHJ1ZQogICAgfSwKICAgIHsKICAgICAgIm5hbWUiOiAiaW5jb3JyZWN0LWVkZ2Uta2luZCIsCiAgICAgICJyZXN1bHQiOiAicGFzc2VkIiwKICAgICAgImV4cGVjdGVkX3JlZnVzYWwiOiB0cnVlCiAgICB9LAogICAgewogICAgICAibmFtZSI6ICJjaGFuZ2VkLW9yaWdpbmFsLXJlY29yZCIsCiAgICAgICJyZXN1bHQiOiAicGFzc2VkIiwKICAgICAgImV4cGVjdGVkX3JlZnVzYWwiOiB0cnVlCiAgICB9LAogICAgewogICAgICAibmFtZSI6ICJ1bmNsb3NlZC1zdWJzdGFudGl2ZS10YXNrIiwKICAgICAgInJlc3VsdCI6ICJwYXNzZWQiLAogICAgICAiZXhwZWN0ZWRfcmVmdXNhbCI6IHRydWUKICAgIH0sCiAgICB7CiAgICAgICJuYW1lIjogImNoYW5nZWQtdGFzay1kZXNjcmlwdGlvbiIsCiAgICAgICJyZXN1bHQiOiAicGFzc2VkIiwKICAgICAgImV4cGVjdGVkX3JlZnVzYWwiOiB0cnVlCiAgICB9CiAgXSwKICAibmF0aXZlX2NvbW1hbmRzIjogMCwKICAiaGlzdG9yeV9waGFzZV9leGVjdXRlZCI6IGZhbHNlLAogICJwY19hY3Rpb25zIjogMCwKICAiaW5wdXRzX3VuY2hhbmdlZCI6IHRydWUKfQo=\r\n2026-11-25T10:38:53.1904945Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02\r\n2026-11-25T10:38:53.1905250Z with:\r\n2026-11-25T10:38:53.1905387Z   name: bead-binding-checks-45596905174-1\r\n2026-11-25T10:38:53.1905547Z   retention-days: 14\r\n2026-11-25T10:38:53.1905679Z   if-no-files-found: error\r\n2026-11-25T10:38:53.1905842Z   path: D:\\a\\_temp/bead-binding-checks-45596905174-1/\r\n2026-11-25T10:38:53.1906021Z   compression-level: 6\r\n2026-11-25T10:38:53.1906139Z   overwrite: false\r\n2026-11-25T10:38:53.1906259Z   include-hidden-files: false\r\n2026-11-25T10:38:53.1906392Z env:\r\n2026-11-25T10:38:53.1906495Z   GIT_CONFIG_COUNT: 2\r\n2026-11-25T10:38:53.1906617Z   GIT_CONFIG_KEY_0: core.autocrlf\r\n2026-11-25T10:38:53.1906756Z   GIT_CONFIG_VALUE_0: false\r\n2026-11-25T10:38:53.1906883Z   GIT_CONFIG_KEY_1: core.eol\r\n2026-11-25T10:38:53.1907012Z   GIT_CONFIG_VALUE_1: lf\r\n2026-11-25T10:38:53.1907147Z   NODE_OPTIONS: --max-old-space-size=128\r\n2026-11-25T10:38:53.1907317Z ##[endgroup]\r\n2026-11-25T10:38:53.3360373Z (node:6408) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.\r\n2026-11-25T10:38:53.3361164Z (Use `node --trace-deprecation ...` to show where the warning was created)\r\n2026-11-25T10:38:53.3480421Z With the provided path, there will be 3 files uploaded\r\n2026-11-25T10:38:53.3484398Z Artifact name is valid!\r\n2026-11-25T10:38:53.3485423Z Root directory input is valid!\r\n2026-11-25T10:38:53.6175442Z Beginning upload of artifact content to blob storage\r\n2026-11-25T10:38:53.6352520Z (node:6408) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.\r\n2026-11-25T10:38:53.7951102Z Uploaded bytes 2597\r\n2026-11-25T10:38:53.8382821Z Finished uploading artifact content to blob storage!\r\n2026-11-25T10:38:53.8383823Z SHA256 digest of uploaded artifact zip is 847afda9173167b2b572d40dc4b7fa5c66c926fb8c39e674d74813180a6563c0\r\n2026-11-25T10:38:53.8385056Z Finalizing artifact upload\r\n2026-11-25T10:38:54.2165716Z Artifact bead-binding-checks-45596905174-1.zip successfully finalized. Artifact ID 15012534912\r\n2026-11-25T10:38:54.2166707Z Artifact bead-binding-checks-45596905174-1 has been successfully uploaded! Final size is 2597 bytes. Artifact ID is 15012534912\r\n2026-11-25T10:38:54.2177055Z Artifact download URL: https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45596905174/artifacts/15012534912\r\n2026-11-25T10:38:54.2473491Z Post job cleanup.\r\n2026-11-25T10:38:54.3846420Z Post job cleanup.\r\n2026-11-25T10:38:54.5132933Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" version\r\n2026-11-25T10:38:54.5476699Z git version 2.56.1.windows.1\r\n2026-11-25T10:38:54.5545556Z Temporarily overriding HOME='D:\\a\\_temp\\ac007579-42c9-43fc-93d0-2813ba947ea7' before making global git config changes\r\n2026-11-25T10:38:54.5546340Z Adding repository directory to the temporary git global config as a safe directory\r\n2026-11-25T10:38:54.5554101Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --global --add safe.directory D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\r\n2026-11-25T10:38:54.5905183Z Removing SSH command configuration\r\n2026-11-25T10:38:54.5915609Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp core\\.sshCommand\r\n2026-11-25T10:38:54.6242730Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"sh -c \\\"git config --local --name-only --get-regexp 'core\\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\\\"\"\r\n2026-11-25T10:38:55.1091402Z Removing HTTP extra header\r\n2026-11-25T10:38:55.1102584Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp http\\.https\\:\\/\\/github\\.com\\/\\.extraheader\r\n2026-11-25T10:38:55.1495276Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"sh -c \\\"git config --local --name-only --get-regexp 'http\\.https\\:\\/\\/github\\.com\\/\\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\\\"\"\r\n2026-11-25T10:38:55.5959622Z Removing includeIf entries pointing to credentials config files\r\n2026-11-25T10:38:55.5970182Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --name-only --get-regexp ^includeIf\\.gitdir:\r\n2026-11-25T10:38:55.6232472Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path\r\n2026-11-25T10:38:55.6233125Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path\r\n2026-11-25T10:38:55.6279374Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path\r\n2026-11-25T10:38:55.6558377Z D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:55.6605758Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:55.6933612Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path\r\n2026-11-25T10:38:55.7198787Z D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:55.7242868Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config\r\n2026-11-25T10:38:55.7558877Z [command]\"C:\\Program Files\\Git\\bin\\git.exe\" submodule foreach --recursive \"git config --local --show-origin --name-only --get-regexp remote.origin.url\"\r\n2026-11-25T10:38:56.2324199Z Removing credentials config 'D:\\a\\_temp\\git-credentials-10a55e9a-3e60-40c8-8b1c-9fc0eed9c3d0.config'\r\n2026-11-25T10:38:56.2510566Z Cleaning up orphan processes\r\n2026-11-25T10:38:56.2989832Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/\r\n"
+  },
+  "reports": {
+    "BINDING_PARSE_RESULT_BASE64": {
+      "raw": "{\r\n    \"schema_version\":  1,\r\n    \"status\":  \"passed\",\r\n    \"operation\":  \"ordinary-powershell-and-node-parse\",\r\n    \"run_id\":  \"45596905174\",\r\n    \"workflow_commit\":  \"9e1adece7ff896ce1d6bfdbceed049421bda96af\",\r\n    \"app_source_commit\":  \"0309539797fd7d016e2b8fd8bdc0ae9cefc20219\",\r\n    \"native_source_commit\":  null,\r\n    \"powershell_version\":  \"5.1.26100.33822\",\r\n    \"files\":  [\r\n                  {\r\n                      \"path\":  \"checkpoint-handoff-20261125.mjs\",\r\n                      \"sha256\":  \"179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341\",\r\n                      \"parser\":  \"node --check\",\r\n                      \"exit_code\":  0\r\n                  },\r\n                  {\r\n                      \"path\":  \"checkpoint-handoff-supervisor-20261125.ps1\",\r\n                      \"sha256\":  \"56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161\",\r\n                      \"errors\":  [\r\n\r\n                                 ],\r\n                      \"parser\":  \"PowerShell.Parser.ParseFile\",\r\n                      \"error_count\":  0\r\n                  },\r\n                  {\r\n                      \"path\":  \"materialize-v9.mjs\",\r\n                      \"sha256\":  \"239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686\",\r\n                      \"parser\":  \"node --check\",\r\n                      \"exit_code\":  0\r\n                  },\r\n                  {\r\n                      \"path\":  \"materialize-v9-supervisor.ps1\",\r\n                      \"sha256\":  \"bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3\",\r\n                      \"errors\":  [\r\n\r\n                                 ],\r\n                      \"parser\":  \"PowerShell.Parser.ParseFile\",\r\n                      \"error_count\":  0\r\n                  },\r\n                  {\r\n                      \"path\":  \"windows-install-tray-host-20261125.ps1\",\r\n                      \"sha256\":  \"3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0\",\r\n                      \"errors\":  [\r\n\r\n                                 ],\r\n                      \"parser\":  \"PowerShell.Parser.ParseFile\",\r\n                      \"error_count\":  0\r\n                  },\r\n                  {\r\n                      \"path\":  \"windows-configured-launch-host-20261125.ps1\",\r\n                      \"sha256\":  \"ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e\",\r\n                      \"errors\":  [\r\n\r\n                                 ],\r\n                      \"parser\":  \"PowerShell.Parser.ParseFile\",\r\n                      \"error_count\":  0\r\n                  },\r\n                  {\r\n                      \"path\":  \"plan.json\",\r\n                      \"sha256\":  \"18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582\",\r\n                      \"status\":  \"passed\",\r\n                      \"parser\":  \"ConvertFrom-Json\"\r\n                  },\r\n                  {\r\n                      \"path\":  \"plan-review.json\",\r\n                      \"sha256\":  \"e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7\",\r\n                      \"status\":  \"passed\",\r\n                      \"parser\":  \"ConvertFrom-Json\"\r\n                  }\r\n              ],\r\n    \"declarations\":  [\r\n                         {\r\n                             \"sha256\":  \"7a4cd3e03d46ef08cd8437cc5e9744186126717398519a0b07d39ff34c00a112\",\r\n                             \"methods_invoked\":  false,\r\n                             \"compiled\":  true,\r\n                             \"class\":  \"Checkpoint20261125Inspector\"\r\n                         },\r\n                         {\r\n                             \"sha256\":  \"83212ec07238685e7aee8c48d36f6e7c81f879d9f455948e00e8225cd72cf917\",\r\n                             \"methods_invoked\":  false,\r\n                             \"compiled\":  true,\r\n                             \"class\":  \"Scotty20261125CoordinationInspector\"\r\n                         },\r\n                         {\r\n                             \"sha256\":  \"2a9e472eb73947f37a96562eb1ad560418628503732489f87b69d0dbba09e3d4\",\r\n                             \"methods_invoked\":  false,\r\n                             \"compiled\":  true,\r\n                             \"class\":  \"Scotty20261111IndexFile\"\r\n                         },\r\n                         {\r\n                             \"sha256\":  \"c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea\",\r\n                             \"methods_invoked\":  false,\r\n                             \"compiled\":  true,\r\n                             \"class\":  \"Scotty20261125TrayJobInspector\"\r\n                         }\r\n                     ],\r\n    \"product_execution\":  false,\r\n    \"pc_actions\":  0\r\n}\n",
+      "sha256": "f9438595cf8da2d7837d63cb2fcb122d975fbdc5dc2a41b25c89a262cabfaa49",
+      "result": {
+        "schema_version": 1,
+        "status": "passed",
+        "operation": "ordinary-powershell-and-node-parse",
+        "run_id": "45596905174",
+        "workflow_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+        "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+        "native_source_commit": null,
+        "powershell_version": "5.1.26100.33822",
+        "files": [
+          {
+            "path": "checkpoint-handoff-20261125.mjs",
+            "sha256": "179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341",
+            "parser": "node --check",
+            "exit_code": 0
+          },
+          {
+            "path": "checkpoint-handoff-supervisor-20261125.ps1",
+            "sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+            "errors": [],
+            "parser": "PowerShell.Parser.ParseFile",
+            "error_count": 0
+          },
+          {
+            "path": "materialize-v9.mjs",
+            "sha256": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686",
+            "parser": "node --check",
+            "exit_code": 0
+          },
+          {
+            "path": "materialize-v9-supervisor.ps1",
+            "sha256": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3",
+            "errors": [],
+            "parser": "PowerShell.Parser.ParseFile",
+            "error_count": 0
+          },
+          {
+            "path": "windows-install-tray-host-20261125.ps1",
+            "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+            "errors": [],
+            "parser": "PowerShell.Parser.ParseFile",
+            "error_count": 0
+          },
+          {
+            "path": "windows-configured-launch-host-20261125.ps1",
+            "sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+            "errors": [],
+            "parser": "PowerShell.Parser.ParseFile",
+            "error_count": 0
+          },
+          {
+            "path": "plan.json",
+            "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+            "status": "passed",
+            "parser": "ConvertFrom-Json"
+          },
+          {
+            "path": "plan-review.json",
+            "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+            "status": "passed",
+            "parser": "ConvertFrom-Json"
+          }
+        ],
+        "declarations": [
+          {
+            "sha256": "7a4cd3e03d46ef08cd8437cc5e9744186126717398519a0b07d39ff34c00a112",
+            "methods_invoked": false,
+            "compiled": true,
+            "class": "Checkpoint20261125Inspector"
+          },
+          {
+            "sha256": "83212ec07238685e7aee8c48d36f6e7c81f879d9f455948e00e8225cd72cf917",
+            "methods_invoked": false,
+            "compiled": true,
+            "class": "Scotty20261125CoordinationInspector"
+          },
+          {
+            "sha256": "2a9e472eb73947f37a96562eb1ad560418628503732489f87b69d0dbba09e3d4",
+            "methods_invoked": false,
+            "compiled": true,
+            "class": "Scotty20261111IndexFile"
+          },
+          {
+            "sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+            "methods_invoked": false,
+            "compiled": true,
+            "class": "Scotty20261125TrayJobInspector"
+          }
+        ],
+        "product_execution": false,
+        "pc_actions": 0
+      }
+    },
+    "BINDING_INSTALLER_REFUSALS_BASE64": {
+      "raw": "{\r\n    \"schema_version\":  1,\r\n    \"status\":  \"passed\",\r\n    \"operation\":  \"synthetic-installer-refusals\",\r\n    \"source_sha256\":  \"3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0\",\r\n    \"cases\":  [\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"matching-runtime\"\r\n                  },\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"runtime-hash\",\r\n                      \"expected_refusal\":  \"Runtime hash/size differs: .next/server.js\"\r\n                  },\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"runtime-size\",\r\n                      \"expected_refusal\":  \"Runtime hash/size differs: .next/server.js\"\r\n                  },\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"runtime-build-id\",\r\n                      \"expected_refusal\":  \"Runtime BUILD_ID differs.\"\r\n                  },\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"runtime-traversal\",\r\n                      \"expected_refusal\":  \"Unexpected runtime manifest path.\"\r\n                  },\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"runtime-duplicate\",\r\n                      \"expected_refusal\":  \"Duplicate runtime manifest path.\"\r\n                  },\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"documentation-descendant\"\r\n                  },\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"unbuilt-adapter-source\",\r\n                      \"expected_refusal\":  \"Runtime differs from accepted source: lib/native-edit.ts\"\r\n                  },\r\n                  {\r\n                      \"result\":  \"passed\",\r\n                      \"name\":  \"non-descendant-source\",\r\n                      \"expected_refusal\":  \"Install command failed: C:\\\\Program Files\\\\Git\\\\bin\\\\git.exe -C D:\\\\a\\\\_temp\\\\bead-binding-fixture-45596905174-1\\\\source -c gc.auto=0 -c maintenance.auto=false merge-base --is-ancestor 765b286bc10d7b26dbfb432a48558138c6b120ad 7e46243f3a5543c621f175bff1afc97c676c49f8 \"\r\n                  }\r\n              ],\r\n    \"installer_executed\":  false,\r\n    \"native_commands\":  0,\r\n    \"pc_actions\":  0,\r\n    \"runtime_bytes_unchanged\":  true,\r\n    \"source_bytes_unchanged\":  true\r\n}\n",
+      "sha256": "5fd442ca79399fdc9647c52a66818bfd1cd5700930dfeb925330c8bb3331f37b",
+      "result": {
+        "schema_version": 1,
+        "status": "passed",
+        "operation": "synthetic-installer-refusals",
+        "source_sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+        "cases": [
+          {
+            "result": "passed",
+            "name": "matching-runtime"
+          },
+          {
+            "result": "passed",
+            "name": "runtime-hash",
+            "expected_refusal": "Runtime hash/size differs: .next/server.js"
+          },
+          {
+            "result": "passed",
+            "name": "runtime-size",
+            "expected_refusal": "Runtime hash/size differs: .next/server.js"
+          },
+          {
+            "result": "passed",
+            "name": "runtime-build-id",
+            "expected_refusal": "Runtime BUILD_ID differs."
+          },
+          {
+            "result": "passed",
+            "name": "runtime-traversal",
+            "expected_refusal": "Unexpected runtime manifest path."
+          },
+          {
+            "result": "passed",
+            "name": "runtime-duplicate",
+            "expected_refusal": "Duplicate runtime manifest path."
+          },
+          {
+            "result": "passed",
+            "name": "documentation-descendant"
+          },
+          {
+            "result": "passed",
+            "name": "unbuilt-adapter-source",
+            "expected_refusal": "Runtime differs from accepted source: lib/native-edit.ts"
+          },
+          {
+            "result": "passed",
+            "name": "non-descendant-source",
+            "expected_refusal": "Install command failed: C:\\Program Files\\Git\\bin\\git.exe -C D:\\a\\_temp\\bead-binding-fixture-45596905174-1\\source -c gc.auto=0 -c maintenance.auto=false merge-base --is-ancestor 765b286bc10d7b26dbfb432a48558138c6b120ad 7e46243f3a5543c621f175bff1afc97c676c49f8 "
+          }
+        ],
+        "installer_executed": false,
+        "native_commands": 0,
+        "pc_actions": 0,
+        "runtime_bytes_unchanged": true,
+        "source_bytes_unchanged": true
+      }
+    },
+    "BINDING_HISTORY_REFUSALS_BASE64": {
+      "raw": "{\n  \"schema_version\": 1,\n  \"status\": \"passed\",\n  \"operation\": \"synthetic-history-refusals\",\n  \"source_sha256\": \"179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341\",\n  \"plan_sha256\": \"18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582\",\n  \"cases\": [\n    {\n      \"name\": \"matching-55-task-91-edge-graph\",\n      \"result\": \"passed\"\n    },\n    {\n      \"name\": \"missing-task-mapping\",\n      \"result\": \"passed\",\n      \"expected_refusal\": true\n    },\n    {\n      \"name\": \"duplicate-task-id\",\n      \"result\": \"passed\",\n      \"expected_refusal\": true\n    },\n    {\n      \"name\": \"incorrect-edge-count\",\n      \"result\": \"passed\",\n      \"expected_refusal\": true\n    },\n    {\n      \"name\": \"incorrect-edge-kind\",\n      \"result\": \"passed\",\n      \"expected_refusal\": true\n    },\n    {\n      \"name\": \"changed-original-record\",\n      \"result\": \"passed\",\n      \"expected_refusal\": true\n    },\n    {\n      \"name\": \"unclosed-substantive-task\",\n      \"result\": \"passed\",\n      \"expected_refusal\": true\n    },\n    {\n      \"name\": \"changed-task-description\",\n      \"result\": \"passed\",\n      \"expected_refusal\": true\n    }\n  ],\n  \"native_commands\": 0,\n  \"history_phase_executed\": false,\n  \"pc_actions\": 0,\n  \"inputs_unchanged\": true\n}\n",
+      "sha256": "5a22940aaca7941b87a76e67dcd820637c064d1ca9fe9074d742e0ec96a95794",
+      "result": {
+        "schema_version": 1,
+        "status": "passed",
+        "operation": "synthetic-history-refusals",
+        "source_sha256": "179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341",
+        "plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+        "cases": [
+          {
+            "name": "matching-55-task-91-edge-graph",
+            "result": "passed"
+          },
+          {
+            "name": "missing-task-mapping",
+            "result": "passed",
+            "expected_refusal": true
+          },
+          {
+            "name": "duplicate-task-id",
+            "result": "passed",
+            "expected_refusal": true
+          },
+          {
+            "name": "incorrect-edge-count",
+            "result": "passed",
+            "expected_refusal": true
+          },
+          {
+            "name": "incorrect-edge-kind",
+            "result": "passed",
+            "expected_refusal": true
+          },
+          {
+            "name": "changed-original-record",
+            "result": "passed",
+            "expected_refusal": true
+          },
+          {
+            "name": "unclosed-substantive-task",
+            "result": "passed",
+            "expected_refusal": true
+          },
+          {
+            "name": "changed-task-description",
+            "result": "passed",
+            "expected_refusal": true
+          }
+        ],
+        "native_commands": 0,
+        "history_phase_executed": false,
+        "pc_actions": 0,
+        "inputs_unchanged": true
+      }
+    }
+  },
+  "summary": {
+    "powershell_files_parsed": 4,
+    "node_files_syntax_checked": 2,
+    "json_inputs_parsed": 2,
+    "embedded_declarations_compiled": 4,
+    "embedded_methods_invoked": 0,
+    "installer_fixture_cases": 9,
+    "history_fixture_cases": 8,
+    "failures": 0,
+    "native_commands": 0,
+    "pc_actions": 0
+  },
+  "note": "The parser emits a separate digest; the two unchanged refusal helpers emit complete raw JSON as base64 without an additional digest line. Every original byte was decoded from the actual log and its SHA-256 is retained here. All three case records were read in full; this result is preparation only."
+}
