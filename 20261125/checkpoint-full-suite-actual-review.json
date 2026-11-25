@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "independent_complete_native_suite_actual_reconciliation",
+  "task_key": "checkpoint-full-suite",
+  "task_id": "beadrs-0890de3c",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "packet_commit": "ba6ebdb4c20da1d7b8d0266ef3e5e97f90fcba1d",
+  "packet_directory": "20261125/full-suite-reconciliation",
+  "run_id": 45549798905,
+  "job_id": 138987980821,
+  "workflow_commit": "3db3742bfb91e3b38cf35535fa95403f2de3a093",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--no-fail-fast",
+    "--",
+    "--test-threads=1"
+  ],
+  "actual_cargo_exit_code": 0,
+  "original_workflow_status": "failed",
+  "original_wrapper_error": "RuntimeError: Test names do not match target counts",
+  "original_receipt_unchanged": true,
+  "reviewed_hashes": {
+    "original_result": "fdfa1a269d7add294a7edd8a73927a908211c2617bb19e981a0b4f7e1d8d362a",
+    "stdout": "860a15585ba2ff6f52ba7a56486ef7e60b9429651d93e2ac98643fdc58ddfaee",
+    "stderr": "05e2a706f406b6fa6da750d04e0d7189e6c382b24120c88758ed860336b0b9d2",
+    "reconciler": "87dd631ec8f87688e737ad8656552bffd2f760813639f25328250030d2286489",
+    "reconciled_result": "fcc0ffdfcaa6550f41036ddad2fe46bda7b396636bc6df4da4b145c5a645fcf0",
+    "author_audits": "9484382b6984367bad86b13411b09deaca97c40d363a0a71b1e992f5891cf665",
+    "accepted_build_result": "384000475ed36cf748ed952c9cc2952d3d978928a5433e51c01a1eef6ce389fd",
+    "exact_conformance_source": "20fd293a3484c689e70a02f2c162508a3d7a1bda9eecf142fdb8ea2fefc736f2",
+    "direct_decoded_job_log": "af0fbf940e057b44210fcac271521917f673095ed43febff899a24ccda2733d8"
+  },
+  "actual": {
+    "default_harnesses": 144,
+    "summary_blocks": 145,
+    "library_doctest_groups": 1,
+    "passed": 1902,
+    "failed": 0,
+    "ignored": 8,
+    "measured": 0,
+    "filtered_out": 0,
+    "required_new_checkpoint_regressions_passed": 6,
+    "commands_exited_zero": 19,
+    "owned_process_groups_empty": 19,
+    "source_files_unchanged": 651,
+    "executable_records_before_and_after": 146,
+    "expected_default_cargo_recompiled_records": 5,
+    "environment_cleanup": "passed",
+    "duration_seconds": 899.788,
+    "raw_emitted_files_independently_decoded": 42
+  },
+  "multiline_reconciliation": [
+    {
+      "target": "test:checkpoint_set_v2_conformance",
+      "name": "set_v2_green_scenarios_under_out_of_band_change",
+      "native_update_stdout": [
+        "bead-9fdb3c71",
+        "bead-3696c52a"
+      ],
+      "actual_terminal_status": "ok"
+    },
+    {
+      "target": "test:checkpoint_set_v2_conformance",
+      "name": "set_v2_oversize_record_once_cost",
+      "native_update_stdout": [
+        "bead-370a33b5"
+      ],
+      "actual_terminal_status": "ok"
+    }
+  ],
+  "existing_ignored_tests": [
+    "cleanup_test_binaries",
+    "integration_test_attempt_resolution_build_capabilities",
+    "integration_test_capability_framework_integration",
+    "integration_test_command_availability_across_variants",
+    "integration_test_compare_binary_variants",
+    "integration_test_default_build_capabilities",
+    "all_blocking_sweeps_identical_secrets_across_duplicate_issues",
+    "every_redaction_record_round_trips_through_sharded_restore"
+  ],
+  "checks": [
+    "Read the complete retained original execution result, all command/cleanup records, complete Cargo stderr, both anomalous stdout records, exact related source and complete13315-byte read-only reconciler. Read both final author inspections and four altered-text rejection results.",
+    "Fetched the actual job log independently, decoded all42 emitted records/streams, and verified every byte count/SHA against retained files. The complete77-blob combined result package matches immutable remote Git blobs and sizes.",
+    "Independently parsed all145 complete output blocks, matched all144 absolute harness paths to the accepted build inventory and the single library doctest group, and compared every1902 passing test name plus all8 ignored names and all summary fields to the retained reconciliation. No failed/measured/filtered test exists.",
+    "All six new checkpoint regressions pass. The unchanged eight ignored tests retain their existing cleanup-helper, expensive-variant or separately tracked redaction reasons; this task added no ignored test or execution filter.",
+    "The exact existing conformance helper launches update --notes-file - with inherited stdout. Its two grid invocations and one direct invocation print issue IDs between the named test prefix and actual terminal ok. The reconciler accepts only these two names, exact observed two/one ID shapes and their conformance target. Count, name uniqueness, default-target, doctest, new-test and ignored-set checks remain strict.",
+    "The actual unfiltered command exited0 once. All19 owned command groups ended naturally, both owned compatibility aliases and four directories were removed, and all651 source files remained unchanged. The146 executable inventories remain complete; the five recorded recompilations are ordinary effects of the required Cargo test invocation, not new source changes.",
+    "The original workflow and wrapper failure remain historical evidence. This independent result accepts the completed native test work based on actual successful execution and exact retained-output reconciliation; it requires no product rerun."
+  ],
+  "artifact": {
+    "id": 14994600782,
+    "bytes": 81457,
+    "sha256": "b9398827ef92bc42ab0811143040ac36c3dc19f63b933bb2a4166a4eefd56b6c",
+    "expires_at": "2026-12-02T05:09:52Z"
+  },
+  "remaining_findings": [],
+  "next_action": "Record accepted checkpoint-full-suite completion using its current native revision. Windows release qualification and the separate combined repair/delivery gates remain pending.",
+  "reviewer_execution": "Read-only artifact/source/hash analysis; no product test or build executed."
+}

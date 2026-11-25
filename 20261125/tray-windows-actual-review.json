@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "independent_complete_hosted_windows_tray_actual_review",
+  "task_key": "tray-repair-checks",
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "source_tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+  "packet_commit": "ba6ebdb4c20da1d7b8d0266ef3e5e97f90fcba1d",
+  "packet_directory": "20261125/results/tray-windows-host-45552507526",
+  "run_id": 45552507526,
+  "job_id": 138996715302,
+  "workflow_commit": "6b9a796690729037cd8a959cf1afd858711f8404",
+  "workflow_sha256": "9f73fbf5b5e0b0e4a0738d0e6c6d3b443024cea21f95a7c5560e8f9f63cae2f6",
+  "static_packet_review_sha256": "c09a53c3a0dc0600e307aee8cf8ed47842077a94d9a016eccef21b96b54b58e8",
+  "source_review_sha256": "7c9a213d4e121b3db15f69588f9801d66780299656f764e903f244dd69f8b46a",
+  "reviewed_hashes": {
+    "caller_result": "4e00fe47b95f954d0c286fcb3ea32aa9566c58206163048c2c2529a076139b31",
+    "supervisor_result": "1c65bdd55ed786505b217853bc15473f97a6505a8c845d3aafeb042ce5c60f02",
+    "stop_result": "735da7faa9ac0486cb9e3d4e7dff9f769d2a3e4e6be3655e3466eb8c7d9b4975",
+    "parent_loss_result": "01d537c3c9d18a9450896f9e3140a1de81f0f4a6076ea951f258b70d29b448ad",
+    "tap_stdout": "feffcfbd31ca7dff518dbb4262a7dfb89efb017edbf3ad666fafcfcc3e37bbf8",
+    "direct_decoded_crlf_job_log": "ca18e1db49b54bd4ea2a860e4e6f677c3a0f911f206bbf6398749b52d2dedd8b",
+    "retained_lf_job_log": "2c8353be8621433c3dd0171251a5994fbc3e0b73c340f77f0f00dcf6d6f451de"
+  },
+  "actual": {
+    "workflow_conclusion": "success",
+    "node_version": "v25.2.1",
+    "node_sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa",
+    "tests": 2,
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0,
+    "node_exit_code": 0,
+    "supervisor_exit_code": 0,
+    "owned_children_remaining": 0,
+    "supervisor_exit_observed": true,
+    "source_unchanged": true,
+    "embedded_powershell_parse": "passed",
+    "test_duration_ms": 3552.7834,
+    "supervisor_elapsed_seconds": 6.668,
+    "complete_emitted_files_independently_decoded": 21
+  },
+  "cases": [
+    {
+      "action": "stop",
+      "controller_pid": 7100,
+      "controller_exit_code": 0,
+      "host_pid": 764,
+      "powershell_pid": 4796,
+      "both_children_exit_zero": true,
+      "ready_observed": true,
+      "cache_removed": true,
+      "forced_cleanup": [],
+      "registration_errors": [],
+      "controller_stdout": "READY\\nSTOPPED\\n"
+    },
+    {
+      "action": "parent-loss",
+      "controller_pid": 2404,
+      "controller_exit_code": 1,
+      "host_pid": 1264,
+      "powershell_pid": 7460,
+      "both_children_exit_zero": true,
+      "ready_observed": true,
+      "cache_removed": true,
+      "forced_cleanup": [],
+      "registration_errors": [],
+      "controller_stdout": "READY\\n"
+    }
+  ],
+  "checks": [
+    "Verified the actual completed-success run metadata and exact activated workflow text at the observed workflow commit. All packet/source/Node bindings match the independent static acceptance.",
+    "Fetched the full actual job log directly and decoded all21 evidence files, verifying exact hashes, sizes and retained raw bytes. Read both complete case/process/observer records, controller streams, TAP, outer result and caller completion.",
+    "Each actual controller spawned the exact523 Node host detached with three pipes; the host spawned the unchanged real PowerShell helper attached with three pipes and ordinary-File flags. Original controller PID, host parent relationship, command, source hashes and birth observations agree.",
+    "Both cases reached real Forms READY. STOP returned controller0 and READY/STOPPED output; intentional original-controller self-SIGKILL produced controller1 while both host and PowerShell still exited0. Actual cache removal, no forced cleanup, no registration errors and passed sentinel/source assertions are retained.",
+    "The complete bounded Job snapshot reached no children before observed supervisor exit0; the caller then observed closure of the non-inheritable Job handle. Node and all case stderr streams are empty.",
+    "Exact previously accepted Linux39/39 and full lint results on this same source remain valid. The prepared tray-repair-checks task now has its required Linux and real Windows execution evidence."
+  ],
+  "linux_prerequisite": {
+    "result_sha256": "166f35f0625f88e4f0756cffc8fc5245c892400f344ea31b1a1f24898ea97d80",
+    "independent_actual_review_sha256": "4c8df2a23699d32902c2a7f3fa5e3f1ca3b642fa8db93fc188c16a9218e4df33",
+    "passed": 39,
+    "skipped": 0,
+    "full_lint_exit_code": 0
+  },
+  "evidence_precision": "The retained overall job.log normalizes CRLF to LF; direct and retained text normalize identically. All21 embedded per-file Base64 payloads remain byte-exact. Both overall-log hashes are recorded separately.",
+  "artifact": {
+    "id": 14994022929,
+    "bytes": 25913,
+    "sha256": "dde5625fe1df21ff2dd5ff31ee32e65aa587e75a014f7925ab09ab271d3fbb75",
+    "expires_at": "2026-12-09T05:17:53Z"
+  },
+  "remaining_findings": [],
+  "pending": "The interactive PC real Exit/menu, code75 restart and installed configured-launch checks remain separate required tasks.",
+  "reviewer_execution": "Read-only complete output/source/hash reconciliation."
+}
