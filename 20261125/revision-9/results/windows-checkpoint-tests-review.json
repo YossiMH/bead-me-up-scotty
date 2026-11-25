@@ -1,0 +1,157 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "task_key": "windows-checkpoint-tests-review",
+  "continuation_revision": 9,
+  "scope": "Complete existing operation and maintenance regression design, actual Windows Red evidence and exact tests-only fixture candidate",
+  "accepted_plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "review_commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
+    "review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+  },
+  "accepted_fixture_candidate": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "b492aa51b6f9a6049298d0534674572dc0c5a5e5",
+    "tree": "de17d8366f656fc271e52002b2b00822a5b06044",
+    "parent": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "review_commit": "5242d7019155bce1a52943d09b8bd950483394c2",
+    "review_path": "20261125/revision-9/results/windows-test-fixtures-review.json",
+    "review_sha256": "ab031c1c6c5ce3706fa183b148d84a6a9b84c1825c02e1f7a79ef6385cc4d1c1",
+    "files": {
+      "tests/checkpoint_publication_lock.rs": "24a1de6e7de016d392515f33f5f48af8cb517a5e418b1fd89fd8470f2cf8e75f",
+      "tests/checkpoint_set_v2_conformance.rs": "3d579ebc628546ce2f2dc3e656f7ff0e072b6d8ad17e52e0f7e185c45f46db19"
+    },
+    "production_unchanged": true,
+    "author_complete_clean_inspections": 2
+  },
+  "retained_operation_red": {
+    "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "run_id": 45590705550,
+    "job_id": 139123992896,
+    "evidence_commit": "4241fb5712d0e5aed7caf5368645a31146714384",
+    "review_commit": "3831a547328e7a29a0723bcb7d5e58b00238dccc",
+    "review_path": "20261125/revision-8/results/windows-operation-lock-tests-review.json",
+    "review_sha256": "7d3ca2e9c0b4486ba8eef6bde227ebc88f791d3005afaa26904cf951591d0a27",
+    "failed_cases": [
+      "r036_verified_restore::simultaneous_empty_target_restores_have_one_winner_and_one_refusal",
+      "cli_editing::concurrent_editors_with_one_revision_have_one_complete_winner"
+    ],
+    "actual_failure": "Both expected logical losers instead failed to acquire operation.lock with Windows error 33.",
+    "tests_unchanged_since_baseline": true
+  },
+  "maintenance_actual": {
+    "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+    "packet_commit": "82b96b95947bb5a586364e7fc4664064e204c77d",
+    "packet_review_commit": "06134f2b81b6ea8a300a85c6c4066ec46980cc26",
+    "evidence_commit": "31c4751e9eb5fec165c01087134958597fe8059a",
+    "evidence_directory": "20261125/revision-9/results/maintenance-red-45597738356",
+    "run_id": 45597738356,
+    "attempt": 1,
+    "compile_job_id": 139148186964,
+    "red_job_id": 139150521216,
+    "compile_status": "passed",
+    "post_compile_source_unchanged": true,
+    "source_manifest_sha256": "2a5df46f02af6c304a3dd48ee172dd7ad52d0bc1d434c114c104e864f2a651b1",
+    "source_hashes": {
+      "src/service/redaction.rs": "d5151ce88ada09a57ed7fcfcd38faacf84e168356c7a56ba640cf4bf34ec4480",
+      "tests/redaction_transaction.rs": "4a88e30fa515bf2b92dc55671dd5ba09e22230c353d50dbb5d1c0d1b96c6cd34"
+    },
+    "compile_receipt_sha256": "81be8f25f822293f33154088fc1639df95adfbf5d73d7b97b5da3dcef1e16565",
+    "red_receipt_sha256": "915bfc1060e1e27cfb0567dbaeb39bb1412952a2026823ef6687932533e0454e",
+    "supervisor_receipt_sha256": "23ba3f5c20236237c5de6d6fe6464c1d7dbe6df303817e012cf5cc3352742665",
+    "compile_actual_log_sha256": "731bf7ce79629cf744ffaa4677d34476605d8575d206d595ed7f988b0d234fac",
+    "red_actual_log_sha256": "de3a3e5f6318fa3f10a1b7911567c30b3659d05cce31c6242fae924b2b0f9154",
+    "compiler_exit": 0,
+    "compiler_duration_seconds": 135.109,
+    "executables": {
+      "bead": {
+        "bytes": 18094080,
+        "compiled_path": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\bead.exe",
+        "path": "executables/bead.exe",
+        "sha256": "1eb33e6b2c87da1ac20a8517ed206cfc0e6c4ea6014d4af8ea1011d3cd4c9b7e"
+      },
+      "redaction_transaction": {
+        "bytes": 7774720,
+        "compiled_path": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\a813f5e86ed4d00d\\out\\redaction_transaction-a813f5e86ed4d00d.exe",
+        "path": "executables/redaction_transaction.exe",
+        "sha256": "8128d90f87c4b40f20f4d7863b7a479ac51d7e327dfe69d7018c7238aefc4ed8"
+      }
+    },
+    "artifact_id": 15013957692,
+    "artifact_zip_sha256": "93cf47b499da1168976590db3425d6f051c5265edb22835c969fd355e4d75159",
+    "manifest_sha256": "f1adc05084ceb589f8232dae8331386d4f86e8ee6033f7231b23941d4ec8ba92",
+    "download_verified_files": 28,
+    "runtime_artifact_id": 15014262071,
+    "runtime_artifact_zip_sha256": "a167ee07f4f28a6c3e164c23041c5e3bdaf65aa57dd623a3c959db699723540e",
+    "target": "redaction_transaction",
+    "complete_target_executions": 1,
+    "harness_exit": 101,
+    "passed": 5,
+    "failed": 1,
+    "ignored": 0,
+    "filtered": 0,
+    "timed_out": false,
+    "duration_seconds": 0.547,
+    "failed_case": "concurrent_identical_requests_commit_once_and_replay_once",
+    "actual_error": "Integrity(\"could not acquire workspace maintenance lock\")",
+    "stdout_sha256": "5ef077b8e24f2a8bfda81062a2a7843be357ad364de087cf439472bbd0b1fb80",
+    "stderr_sha256": "45a3d621b028164458f7d6ca6a7afe1bbc30732adbc4fee953a4928a19a19c6f",
+    "helper_exit": 0,
+    "owned_children_remaining": 0,
+    "cases": [
+      {
+        "name": "assignee_metadata_is_redactable_without_deleting_the_issue",
+        "status": "ok"
+      },
+      {
+        "name": "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+        "status": "ok"
+      },
+      {
+        "name": "concurrent_identical_requests_commit_once_and_replay_once",
+        "status": "FAILED"
+      },
+      {
+        "name": "every_supported_nonissue_record_preserves_identity_and_integrity",
+        "status": "ok"
+      },
+      {
+        "name": "garage_access_key_id_assignment_is_discoverable_and_redactable",
+        "status": "ok"
+      },
+      {
+        "name": "issue_redaction_is_exact_atomic_and_idempotent",
+        "status": "ok"
+      }
+    ]
+  },
+  "checks": [
+    "Retained the complete prior independent operation-race and fixture-source inspections. The two operation races preserve one valid winner, one later logical refusal/conflict, exact revision/data and receipt outcomes. Actual c90 Windows failures occur earlier at the unchanged operation lock; the permanent tests remain unchanged.",
+    "The full six-case maintenance target and direct-service concurrent request test were previously read. Separate barrier-started stores exercise maintenance acquisition directly, without the CLI operation lock masking it. Its assertions require both requests to succeed, exactly one committed result plus one replay, the same receipt identity and one receipt/event. All six tests and maintenance source bytes remain identical to the accepted baseline/c90.",
+    "Independently retrieved both completed fixed-run job logs, job outcomes and artifact metadata. Decoded and hash-checked all 31 MAINTENANCE_TEXT records plus the supervisor result. Both complete retained job logs and principal compile/manifest/Red/supervisor files equal the independent API output byte for byte.",
+    "The compiler command exits zero and its actual Cargo stream contains exactly the expected harness plus non-test generator and bead binaries, followed by one successful completion. The two selected executables, complete source inventory and source/test hashes match the receipt. Every compile command succeeds; the all-source post-compile rehash and empty checkout-status check are reached and pass.",
+    "The separate actual execution downloads this successful run's artifact, verifies all 28 members, and restores the exact selected executable identities at their original owned paths. Its complete six-name listing matches the unchanged target; the complete target executes once with a 180-second bound.",
+    "Read all actual six-case stdout and full stderr. Exactly five named cases pass; only concurrent_identical_requests_commit_once_and_replay_once fails with the expected maintenance acquisition Integrity error at the worker unwrap. No operation.lock error, ignored/filtered case or timeout occurs. The supervisor separately exits zero with no remaining owned children.",
+    "The exact b492 tests-only fixture correction preserves all product assertions and payload bytes: root publish.lock remains a map entry with its zero-length invariant checked through metadata while locked; only the two 40 KiB notes setup calls switch to the existing stdin helper. No production source or maintenance race changed.",
+    "The first run 45595234517 remains an incomplete collector attempt with unobserved post-compile stability and no Red execution. It is not relabeled as a complete compile or counted as a race retry. The fixed run independently supplies every missing measurement."
+  ],
+  "findings": [],
+  "verdict": "PASS. The accepted Windows tests-review prerequisites are complete. Author the two remaining contention-predicate changes from exact tests-only parent b492aa51b6f9a6049298d0534674572dc0c5a5e5 under the accepted revision 9 scope.",
+  "production_scope": [
+    "src/cli_checkpoint_guard.rs::acquire: recognize the existing WouldBlock condition or raw fs2::lock_contended_error() using the platform value.",
+    "src/service/redaction.rs::acquire_maintenance_lock: apply the same contention predicate only.",
+    "Preserve the existing 30-second deadlines, 10-millisecond waits, error paths, acquisition order, unlock behavior and all test oracles."
+  ],
+  "remaining": [
+    "Independent exact production-delta inspection",
+    "Fresh final-source Linux and Windows compilation, complete affected targets including all six maintenance tests, full Linux suite, corpus checks, bounded Windows ordinary/grid qualification and smoke",
+    "Final native author inspections/reviews and actual app Windows native-store/HTTP roundtrip",
+    "Actual revision 9 mapping, staging, PC tray/installation/history and cleanup"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
