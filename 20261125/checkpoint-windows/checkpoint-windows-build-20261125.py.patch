@@ -1,0 +1,186 @@
+--- a/checkpoint-windows-build-20261125.py
++++ b/checkpoint-windows-build-20261125.py
+@@ -1,6 +1,7 @@
+ #!/usr/bin/env python3
+ """Build one reviewed Windows release and its tests under an inherited owned Job."""
+ import argparse
++import atexit
+ import base64
+ import ctypes
+ from ctypes import wintypes
+@@ -173,6 +174,123 @@
+     return pids
+ 
+ 
++class OwnedJobBaseline:
++    """Retain handles for the supervisor, this Python, and its measured console host."""
++    def __init__(self, supervisor_pid):
++        self.kernel = ctypes.WinDLL("kernel32", use_last_error=True)
++        self.handles = {}
++        self.records = []
++        kernel = self.kernel
++        declarations = {
++            "OpenProcess": ([wintypes.DWORD, wintypes.BOOL, wintypes.DWORD], wintypes.HANDLE),
++            "CloseHandle": ([wintypes.HANDLE], wintypes.BOOL),
++            "WaitForSingleObject": ([wintypes.HANDLE, wintypes.DWORD], wintypes.DWORD),
++            "GetProcessId": ([wintypes.HANDLE], wintypes.DWORD),
++            "GetProcessTimes": ([wintypes.HANDLE, *([ctypes.POINTER(wintypes.FILETIME)] * 4)], wintypes.BOOL),
++            "QueryFullProcessImageNameW": ([wintypes.HANDLE, wintypes.DWORD, wintypes.LPWSTR,
++                                            ctypes.POINTER(wintypes.DWORD)], wintypes.BOOL),
++            "GetSystemDirectoryW": ([wintypes.LPWSTR, wintypes.UINT], wintypes.UINT),
++            "CreateToolhelp32Snapshot": ([wintypes.DWORD, wintypes.DWORD], wintypes.HANDLE),
++        }
++        for name, (arguments, result) in declarations.items():
++            function = getattr(kernel, name)
++            function.argtypes, function.restype = arguments, result
++        self.pids = job_pids()
++        expected = {os.getpid(), supervisor_pid}
++        extra = self.pids - expected
++        require(expected <= self.pids and len(extra) <= 1 and os.getppid() == supervisor_pid,
++                "Unexpected initial Job membership or Python parent")
++
++        class ProcessEntry(ctypes.Structure):
++            _fields_ = [("dwSize", wintypes.DWORD), ("cntUsage", wintypes.DWORD),
++                        ("th32ProcessID", wintypes.DWORD), ("th32DefaultHeapID", ctypes.c_size_t),
++                        ("th32ModuleID", wintypes.DWORD), ("cntThreads", wintypes.DWORD),
++                        ("th32ParentProcessID", wintypes.DWORD), ("pcPriClassBase", wintypes.LONG),
++                        ("dwFlags", wintypes.DWORD), ("szExeFile", wintypes.WCHAR * 260)]
++
++        for name in ("Process32FirstW", "Process32NextW"):
++            function = getattr(kernel, name)
++            function.argtypes = [wintypes.HANDLE, ctypes.POINTER(ProcessEntry)]
++            function.restype = wintypes.BOOL
++        try:
++            for pid in sorted(self.pids):
++                handle = kernel.OpenProcess(0x1000 | 0x100000, False, pid)
++                require(handle, "Cannot retain a query/synchronization handle for an owned baseline process")
++                self.handles[pid] = handle
++            snapshot = kernel.CreateToolhelp32Snapshot(2, 0)
++            require(snapshot not in (None, 0, ctypes.c_void_p(-1).value), "Cannot inspect owned process parents")
++            rows = {}
++            try:
++                entry = ProcessEntry()
++                entry.dwSize = ctypes.sizeof(entry)
++                present = kernel.Process32FirstW(snapshot, ctypes.byref(entry))
++                examined = 0
++                while present:
++                    examined += 1
++                    require(examined <= 8192, "Process snapshot exceeds its bound")
++                    pid = int(entry.th32ProcessID)
++                    if pid in self.pids:
++                        require(pid not in rows, "Repeated process identity in the snapshot")
++                        rows[pid] = {"pid": pid, "parent_pid": int(entry.th32ParentProcessID),
++                                     "image_name": entry.szExeFile}
++                    present = kernel.Process32NextW(snapshot, ctypes.byref(entry))
++                require(ctypes.get_last_error() == 18 and set(rows) == self.pids,
++                        "Incomplete owned process identity snapshot")
++            finally:
++                kernel.CloseHandle(snapshot)
++            system_buffer = ctypes.create_unicode_buffer(32768)
++            length = kernel.GetSystemDirectoryW(system_buffer, len(system_buffer))
++            require(0 < length < len(system_buffer), "Cannot identify the Windows system directory")
++            system = safe_existing(Path(system_buffer.value), directory=True)
++            images = {os.getpid(): safe_existing(Path(sys.executable)),
++                      supervisor_pid: safe_existing(system / "WindowsPowerShell" / "v1.0" / "powershell.exe")}
++            if extra:
++                console_pid = next(iter(extra))
++                images[console_pid] = safe_existing(system / "conhost.exe")
++                require(rows[console_pid]["parent_pid"] == os.getpid()
++                        and rows[console_pid]["image_name"].lower() == "conhost.exe",
++                        "The extra Job member is not this Python's console host")
++            require(rows[os.getpid()]["parent_pid"] == supervisor_pid,
++                    "Python's recorded parent differs from the supervisor")
++            births = {}
++            for pid, handle in self.handles.items():
++                require(kernel.GetProcessId(handle) == pid
++                        and kernel.WaitForSingleObject(handle, 0) == 258,
++                        "An owned baseline process exited or changed before identity validation")
++                image = ctypes.create_unicode_buffer(32768)
++                image_size = wintypes.DWORD(len(image))
++                require(kernel.QueryFullProcessImageNameW(handle, 0, image, ctypes.byref(image_size)),
++                        "Cannot read an owned process image")
++                actual_image = safe_existing(Path(image.value))
++                require(actual_image == images[pid], "An owned baseline process image differs")
++                created, exited, kernel_time, user_time = (wintypes.FILETIME() for _ in range(4))
++                require(kernel.GetProcessTimes(handle, ctypes.byref(created), ctypes.byref(exited),
++                                               ctypes.byref(kernel_time), ctypes.byref(user_time)),
++                        "Cannot read an owned process creation time")
++                births[pid] = (int(created.dwHighDateTime) << 32) | int(created.dwLowDateTime)
++                self.records.append({**rows[pid], "image_path": str(actual_image),
++                                     "creation_filetime": str(births[pid]),
++                                     "query_and_synchronization_handle_retained": True})
++            require(0 < births[supervisor_pid] <= births[os.getpid()], "Owned parent birth order differs")
++            if extra:
++                require(0 <= births[console_pid] - births[os.getpid()] <= 10 * 10_000_000,
++                        "Console host was not created during this Python's startup")
++            require(self.matches(job_pids()), "Owned Job changed during baseline validation")
++        except BaseException:
++            self.close()
++            raise
++        atexit.register(self.close)
++
++    def matches(self, members):
++        return members == self.pids and set(self.handles) == self.pids and all(
++            self.kernel.WaitForSingleObject(handle, 0) == 258 for handle in self.handles.values())
++
++    def close(self):
++        for handle in self.handles.values():
++            self.kernel.CloseHandle(handle)
++        self.handles.clear()
++
++
+ class Runner:
+     def __init__(self, root, env, deadline):
+         self.root, self.env, self.deadline = root, env, deadline
+@@ -182,11 +300,16 @@
+                 "Reviewed outer Job helper was not identified")
+         outer = os.environ.get("SCOTTY_CHECKPOINT_SUPERVISOR_PID", "")
+         require(re.fullmatch(r"[1-9][0-9]*", outer), "Missing outer supervisor identity")
+-        self.baseline = {os.getpid(), int(outer)}
+-        require(job_pids() == self.baseline, "Job contains unexpected initial processes")
++        self.owned_baseline = OwnedJobBaseline(int(outer))
++        self.baseline = self.owned_baseline.pids
++        self.baseline_record = {
++            "schema_version": 1, "pids": sorted(self.baseline),
++            "processes": self.owned_baseline.records, "validated_at": utc(),
++            "policy": "supervisor, Python, and at most its one verified System32 console host"}
+ 
+     def run(self, args, cwd, label, seconds=60, stdout_path=None, allowed_exits=(0,)):
+-        require(self.active is None and job_pids() == self.baseline, "Owned command tree is not quiescent")
++        require(self.active is None and self.owned_baseline.matches(job_pids()),
++                "Owned command tree is not quiescent or a retained baseline process exited")
+         remaining = min(float(seconds), self.deadline - time.monotonic())
+         require(remaining > 0, "Owned phase deadline expired")
+         out = stdout_path or self.root / "logs" / (label + ".stdout")
+@@ -223,11 +346,11 @@
+                 process.kill()
+             until = time.monotonic() + 5
+             members = job_pids()
+-            while members != self.baseline and time.monotonic() < until:
++            while not self.owned_baseline.matches(members) and time.monotonic() < until:
+                 time.sleep(0.05)
+                 members = job_pids()
+             record["job_pids_after"] = sorted(members)
+-            if members != self.baseline:
++            if not self.owned_baseline.matches(members):
+                 failure = RuntimeError("Owned descendants remain after " + label + "; outer Job cleanup is required")
+             record["finished"] = utc()
+             record["error"] = str(failure) if failure else None
+@@ -444,6 +567,7 @@
+               "target_root": str(target), "input_sha256": args.inputs_sha256,
+               "helper_sha256": args.helper_sha256, "job_helper_sha256": JOB_SHA256,
+               "target": TARGET, "compile_command": COMMAND, "tests_executed": False,
++              "owned_job_baseline": runner.baseline_record,
+               "work_seconds": WORK_SECONDS, "python": sys.version, "python_executable": sys.executable,
+               "runner_os": platform.platform(), "runner_image": {
+                   "name": os.environ.get("ImageOS"), "version": os.environ.get("ImageVersion")}}
+@@ -568,7 +692,8 @@
+         require(not (source / ".git").exists(), "Compilation recreated Git metadata")
+         require(file_hash(helper) == args.helper_sha256 and file_hash(request_path) == args.inputs_sha256,
+                 "Reviewed helper or input changed")
+-        require(job_pids() == runner.baseline and time.monotonic() < runner.deadline, "Build deadline or Job gate failed")
++        require(runner.owned_baseline.matches(job_pids()) and time.monotonic() < runner.deadline,
++                "Build deadline or owned process check failed")
+         status.update({"status": "passed", "commands": runner.commands, "finished": utc(),
+                        "duration_seconds": round(time.monotonic() - began, 3),
+                        "cleanup": {"owned_job_quiescent": True, "remaining_pids": sorted(runner.baseline),

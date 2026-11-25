@@ -3,13 +3,13 @@ name: Temporary checkpoint Windows build
 on:
   push:
     branches:
-      - task/checkpoint-windows-build-20261125-v2
+      - task/checkpoint-windows-build-20261125-v3
 
 permissions:
   contents: read
 
 concurrency:
-  group: checkpoint-windows-build-20261125-v2
+  group: checkpoint-windows-build-20261125-v3
   cancel-in-progress: false
 
 jobs:
@@ -58,7 +58,7 @@ jobs:
           $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/checkpoint-windows'
           $driver = Join-Path $packet 'checkpoint-windows-driver-20261125.ps1'
           if ((Get-FileHash -LiteralPath $driver -Algorithm SHA256).Hash.ToLowerInvariant() -cne '9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44') { throw 'Driver bytes differ.' }
-          & $driver -Phase build -PacketDirectory $packet -PacketSha256 '10db15ed6732c9c8761e06ca164baf1599cefa426f89e5282fdb128c7efc34d7' -JobHelper (Join-Path $env:GITHUB_WORKSPACE 'job/windows-task-job.ps1') -Checkout (Join-Path $env:GITHUB_WORKSPACE 'source')
+          & $driver -Phase build -PacketDirectory $packet -PacketSha256 'f9611013f283f04dca3762d376a358bedd7e9603cc4d1f223f9c0aaa7541cafb' -JobHelper (Join-Path $env:GITHUB_WORKSPACE 'job/windows-task-job.ps1') -Checkout (Join-Path $env:GITHUB_WORKSPACE 'source')
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Retain exact output bytes, receipts and failure logs

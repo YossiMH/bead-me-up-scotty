@@ -1,0 +1,19 @@
+--- a/checkpoint-windows-check-20261125.py
++++ b/checkpoint-windows-check-20261125.py
+@@ -227,6 +227,7 @@
+               "input_sha256": args.inputs_sha256, "helper_sha256": args.helper_sha256,
+               "build_result_sha256": request["build_result_sha256"], "source_commit": request["source_commit"],
+               "source_tree": request["source_tree"], "target": B.TARGET, "started": B.utc(),
++              "owned_job_baseline": runner.baseline_record,
+               "test_results": [], "outer_windows_job_verification_required": True}
+     B.write_json(root / "attempt-started.json", result)
+     source_files, executables, release_path, metadata_path, corpus_root = None, None, None, None, None
+@@ -372,7 +373,7 @@
+                     and sha(corpus_helper) == request["corpus_helper_sha256"]
+                     and sha(corpus_inputs) == request["corpus_inputs_sha256"]
+                     and sha(smoke_helper) == SMOKE_SHA256, "A reviewed check input changed")
+-            require(B.job_pids() == runner.baseline, "Owned child processes remain after checks")
++            require(runner.owned_baseline.matches(B.job_pids()), "Owned child processes or baseline identity differ after checks")
+             require(time.monotonic() - began <= WORK_SECONDS, "Qualification exceeded its total deadline")
+             result["inputs_and_source_unchanged"] = True
+             result["owned_children_quiescent"] = True

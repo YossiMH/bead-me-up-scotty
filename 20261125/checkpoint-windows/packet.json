@@ -4,13 +4,13 @@
   "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
   "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
   "files": {
-    "checkpoint-windows-build-20261125.py": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
-    "checkpoint-windows-check-20261125.py": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
+    "checkpoint-windows-build-20261125.py": "41af14335f70f707d85d32fc260be23761557fd2e7014ce3bc5f83a5cf7e0b31",
+    "checkpoint-windows-check-20261125.py": "b3455e6d6fe62c6fedfdcf44c3afb7c4ed03a2d138d54bca17b8e8b8ac91869d",
     "checkpoint-windows-supervisor-20261125.ps1": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
     "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
     "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
     "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
-    "check-inputs.template.json": "451167bf2f37a266fde9e5211517c555543263690fd8de12194223c4a256b0e9",
+    "check-inputs.template.json": "d0473f00fbce8f41991b462c89ca3a237f99e9f7d1fd97ea4d9907f7eff65c41",
     "corpus-inputs.template.json": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7"
   },
   "phase_inputs": {
@@ -57,5 +57,18 @@
     "startup_result_sha256": "0c91dddd7064150af35cb79571bfb2b07c61c73c67c6128e537ab16ed4b093ce",
     "prior_supervisor_sha256": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
     "source_and_build_inputs_unchanged": true
+  },
+  "revision_3": {
+    "reason": "The hidden Python launch creates one verified System32 console host inside its owned Job; retain that process identity in the exact baseline.",
+    "failed_build_run": 45544961876,
+    "job_diagnostic_run": 45547723281,
+    "job_diagnostic_workflow_commit": "3bb89f6a3f47da4cba49a448b7e8ba05cb15981d",
+    "job_diagnostic_result_sha256": "371d309587f3e857d9ba711daf79b0e5191ad02636f118fb6c9f3be659eb11ee",
+    "job_diagnostic_supervisor_sha256": "a45b159ae63a5123e7acc43f7ef03bad8e8e157f1924b28158bc9800e7511668",
+    "job_diagnostic_completion_sha256": "15bb25ad6a15d194692fe76cf29ddcba57b13acf7cf46efa69d12186e70f6fb2",
+    "prior_build_helper_sha256": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+    "source_and_build_inputs_unchanged": true,
+    "hidden_launch_and_zero_owned_children_completion_unchanged": true,
+    "console_policy": "At most one extra member: exact System32 conhost.exe, parent this Python, creation within ten seconds of Python; query/synchronization handles remain retained and live at every quiescent check."
   }
 }

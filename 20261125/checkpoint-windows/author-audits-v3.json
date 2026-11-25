@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "author": "checkpoint_finish",
+  "completed_utc": "2026-11-25T04:45:01.643154+00:00",
+  "scope": "Hosted Windows ownership correction only; exact source515 and source build flags remain unchanged.",
+  "files": {
+    "README.md": {
+      "sha256": "d6b92c4f54744780c4d10cedc52ef292d653a8e65ac4d4a8874f031f76814252",
+      "bytes": 15390
+    },
+    "build-inputs.json": {
+      "sha256": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+      "bytes": 1612
+    },
+    "check-inputs.template.json": {
+      "sha256": "d0473f00fbce8f41991b462c89ca3a237f99e9f7d1fd97ea4d9907f7eff65c41",
+      "bytes": 1157
+    },
+    "checkpoint-release-corpus-20261125.py": {
+      "sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+      "bytes": 42736
+    },
+    "checkpoint-windows-build-20261125.py": {
+      "sha256": "41af14335f70f707d85d32fc260be23761557fd2e7014ce3bc5f83a5cf7e0b31",
+      "bytes": 43248
+    },
+    "checkpoint-windows-build-20261125.py.patch": {
+      "sha256": "aefe93380fd51c3228e6d2f95c8728eac9716df7a20259d7ad1b32c36f482f63",
+      "bytes": 11314
+    },
+    "checkpoint-windows-build.workflow.yml": {
+      "sha256": "0fcf37ba94588f45664e846d25693c393a469e6b6436b17f5f65a11fbc68fc20",
+      "bytes": 2793
+    },
+    "checkpoint-windows-check-20261125.py": {
+      "sha256": "b3455e6d6fe62c6fedfdcf44c3afb7c4ed03a2d138d54bca17b8e8b8ac91869d",
+      "bytes": 25762
+    },
+    "checkpoint-windows-check-20261125.py.patch": {
+      "sha256": "2322f174999aa0607bb443eb55108a9fd51ec886c65dbf207d2cbdd97496a8d0",
+      "bytes": 1431
+    },
+    "checkpoint-windows-check.workflow.template.yml": {
+      "sha256": "885dce18d0c636571ed0489da6707f75ad480fe00f4de9e8482494ed544cc2dc",
+      "bytes": 3532
+    },
+    "checkpoint-windows-driver-20261125.ps1": {
+      "sha256": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+      "bytes": 10139
+    },
+    "checkpoint-windows-supervisor-20261125.ps1": {
+      "sha256": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
+      "bytes": 10888
+    },
+    "corpus-inputs.template.json": {
+      "sha256": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7",
+      "bytes": 437
+    },
+    "job-diagnostic-artifacts.json": {
+      "sha256": "b8a6c968d68f05f22a2f76912b88474d3cda9d46c4a32e327e96b4b0a0b99849",
+      "bytes": 902
+    },
+    "job-diagnostic-completion.json": {
+      "sha256": "15bb25ad6a15d194692fe76cf29ddcba57b13acf7cf46efa69d12186e70f6fb2",
+      "bytes": 1217
+    },
+    "job-diagnostic-job.log": {
+      "sha256": "a4712025dc7f9c49162e19b2b002f91e874acd774fcde818466d367664d027de",
+      "bytes": 103141
+    },
+    "job-diagnostic-result.json": {
+      "sha256": "371d309587f3e857d9ba711daf79b0e5191ad02636f118fb6c9f3be659eb11ee",
+      "bytes": 7118
+    },
+    "job-diagnostic-supervisor.json": {
+      "sha256": "a45b159ae63a5123e7acc43f7ef03bad8e8e157f1924b28158bc9800e7511668",
+      "bytes": 37192
+    },
+    "packet.json": {
+      "sha256": "f9611013f283f04dca3762d376a358bedd7e9603cc4d1f223f9c0aaa7541cafb",
+      "bytes": 4157
+    },
+    "static-checks-v3.json": {
+      "sha256": "96203701d6054b71f93166d1724b4c76c21a0a9f334d0779599dfc6955a88244",
+      "bytes": 2148
+    }
+  },
+  "inspections": [
+    {
+      "number": 1,
+      "status": "passed",
+      "complete_authored_helpers_reviewed": true,
+      "method": "Read the complete build/check helper paths, diagnostic evidence, supervisor/driver and exact source/build contracts.",
+      "findings_resolved": [
+        "The identity receipt is embedded in the existing build/check JSON rather than adding a bundle member that the exact checker would refuse.",
+        "The retained-handle comparison rejects missing handles as well as exited or unexpected processes."
+      ],
+      "checked": [
+        "Win64 PROCESSENTRY32W/FILETIME and API declarations, bounded snapshot, least query/synchronization rights and non-inheritable handles.",
+        "Exact supervisor/Python parent, system-directory console image, birth order, startup interval, immutable handle identities and exact Job set.",
+        "No new kill operation, deadline change, launch flag or end-of-Job exception."
+      ]
+    },
+    {
+      "number": 2,
+      "status": "passed",
+      "complete_authored_helpers_reviewed": true,
+      "method": "Re-inspected every changed block and its complete callers; mechanically reversed only the reviewed changes and matched both entire prior helper files byte for byte.",
+      "findings_resolved": [],
+      "checked": [
+        "Initial validation before commands and repeated live-handle comparisons at start, after descendant cleanup and at final completion.",
+        "All build/archive/Cargo/output packaging code is unchanged after exact reversal.",
+        "The check helper imports the exact updated helper and retains its otherwise unchanged test/corpus/smoke sequence.",
+        "Both complete Python files parse; all packet file hashes and the fresh v3 workflow binding match.",
+        "Actual diagnostic records show one same-Job Python console descendant and successful zero-child outer cleanup."
+      ]
+    }
+  ],
+  "activation": {
+    "scratch_branch": "task/checkpoint-windows-packet-20261125-v3",
+    "build_branch": "task/checkpoint-windows-build-20261125-v3",
+    "requires_independent_review": true,
+    "check_phase_requires_future_actual_result_binding": true
+  },
+  "remaining_actual_checks": [
+    "Execute the reviewed host API validation on Windows under the existing Job helper.",
+    "Build through the unchanged MSVC archive script, then compile the six selected Windows harnesses.",
+    "After separately reviewed actual result bindings, run all43 selected tests, original public checkpoint restores and unchanged55 native checks."
+  ],
+  "cleanup": "Root or a future agent must reconcile uncertain runs, retain these receipts, then remove owned temporary worktrees and scratch/build/check branches after handoff."
+}
