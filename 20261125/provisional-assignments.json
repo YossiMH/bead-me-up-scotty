@@ -21,6 +21,29 @@
       "action": "prepare native materialization",
       "status": "two calls timed out before a proposal ID was returned; admin_execute was never called",
       "database_written": false
+    },
+    {
+      "action": "reconcile staged revision5 and native materialization",
+      "proposal_id": "U9eG4JwfLyuv-lCbf-57rBMePRxZ_T6HZ4z-YKbzjFk",
+      "status": "exited",
+      "exit_code": 0,
+      "result": "Old accepted32-task bytes still staged; materialization-v5, supervisor and result markers absent; all owned tasks stopped.",
+      "database_written": false
+    },
+    {
+      "action": "Windows tray identity attempt",
+      "proposal_id": "hydxJMN_hH5U-GQQEmHWv-H5gnXtVf8Xb8zUyfSuwCA",
+      "status": "cancelled",
+      "exit_code": 124,
+      "stdout_status": "deferred_memory",
+      "task_created": false,
+      "free_physical_bytes": 2593517568,
+      "product_launched": false
+    },
+    {
+      "action": "prepare small clarified-input stage batch1",
+      "status": "two prepare calls timed out with no proposal; no admin_execute called",
+      "database_written": false
     }
   ],
   "assignments": [
@@ -31,7 +54,9 @@
       "native_id": null,
       "source_candidate": "bb0638535172dead8f648b4a4944dddc6175f832",
       "review": "7cf293ae3747eb405ae81d05f7e499dbe3ca9491032529dd3db43bf65ed9ffd3",
-      "next_action": "After dispatch clarification review, publish the exact tests-only candidate and return actual source commit."
+      "next_action": "Accept actual Red execution and independent test review before applying the separately reviewed production repair.",
+      "source_result": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+      "status": "tests-only source published and independently reconciled; no production repair applied"
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-tests-review",
@@ -39,14 +64,38 @@
       "mode": "provisional independent review",
       "native_id": null,
       "status": "static candidate accepted; actual Red results required before final test acceptance"
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-red-build",
+      "worker": "/root/browser_finish",
+      "native_id": null,
+      "mode": "provisional accepted hosted compilation",
+      "status": "first compilation returned0; wrapper failed executable-path validation afterward; build acceptance pending corrected complete output bundle",
+      "source": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+      "run_id": 45535362756,
+      "job_id": 138940518590,
+      "build_report_sha256": "24085cfbd33d3bb942dbb58decc24b0988934a4dfe7ea00cbb13ce53298a5dcb",
+      "outer_report_sha256": "a603191a83d0acac5cedeeb5df6a3d3a75e96456650fe52a15d0d2a1d2d39df1",
+      "tests_executed": false,
+      "next_action": "Reviewed read-only diagnostic e86bd323a010fd3b7825472306d6f80c954b5764 extracts actual compiler-artifact rows from retained artifact14985844517; correct against measured layout before new compile."
     }
   ],
   "resource_reservations": {
     "backend_source_writer": "/root/browser_finish",
     "canonical_pc_writer": "/root",
-    "linux_build": "not_started",
-    "windows_build": "not_started",
-    "pc_app_check": "not_started;3GiB rule retained"
+    "linux_build": "/root/browser_finish owns current Red build/check; future Green build/full suite remain behind accepted repair",
+    "windows_build": "/root/checkpoint_finish prepares packet only; execution remains behind accepted repair",
+    "pc_app_check": "root only; last attempt hydx reported deferred_memory and task_created:false;3GiB immediate launch threshold and512MiB aggregate remain required"
   },
-  "cleanup_if_interrupted": "Preserve current Git source/results and reconcile native markers before resuming. Remove exact recorded Riftri worktrees and task-only temporary branches after verified publication, including checkpoint-candidate/helper/browser/build-transfer branches. Never force-remove dirty/unpublished work."
+  "cleanup_if_interrupted": "Reconcile exact proposal IDs and materialization markers before any replay. Canonical native task state remains solely F:/Dev/.bead-edit-20261111/coordination-20261124 until the accepted same-UUID merge. Preserve source/results and original954 records,15dirty app files, config/index and old pin. Cloud filesystem is unavailable; do not claim worktrees removed. When available, verify status/publication and use Riftri from the parent clones to remove only /workspace/library-files/beads-build-temporary-3160/worktrees/bead-completion and /workspace/scratch/3160e3ba3d24/worktrees/scotty-completion, without force; remove the exact compatibility symlink afterward. Retain full browser ZIP before expiry. Once evidence is durable, reconcile and delete this task's exact stopped Windows task definitions, owned session caches and temporary CI/transfer/helper/candidate branches after verifying their expected heads. Never remove unrelated processes, tasks or dirty/unpublished work.",
+  "updated_utc": "2026-11-25T02:58:00Z",
+  "preserved_browser_output": {
+    "run_id": 45517446104,
+    "artifact_id": 14978387944,
+    "sha256": "0f906203b43420eeddf2fcfe52db7f5886a26f8d35da4b3916b587eb91f8a217",
+    "size_bytes": 17262599,
+    "full_zip_expires_utc": "2026-11-26T00:28:00Z",
+    "pc_retention": "pending; fresh reusable artifact reference obtained; cloud filesystem unavailable",
+    "text_only_archive_retained": true
+  }
 }
