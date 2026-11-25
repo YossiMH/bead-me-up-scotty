@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Final-source Linux execution preparation and serial-output parser correction",
+  "activation_authorized": false,
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "candidate_commit": "54dda6e4109f9006e2caae303cb549bc81e62ff8",
+  "directory": "20261125/native-repair-linux-check",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "reviewed_files": {
+    "README.md": "c1e787ff05e7dabf9f4a647e3ac3ec86673c0298d3f2dba1cfd190e6867a10d8",
+    "check-serial-output-fixtures.py": "ad6ff9a0f6f8f8e8c2c25c77460e493ca8be5f7375f0c257979ff332e40532e9",
+    "checkpoint-full-suite-20261125.py": "989e1cb6631af8e9181ec4e28e15175c1bc65f7480b5b3615cea33a5d1cd22a7",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "corpus-inputs.template.json": "cd595e9ea2503110342b27218ecaf7605d75d590e7055f8d409f6dd1d920328a",
+    "full-suite-inputs.template.json": "aa82d5cca573763533d1aef758fcbcba6f5d68dea738f9c956b83bffe991d7a7",
+    "serial-output-fixtures.json": "82a8a476f6705b4849e63dc5a89818eca800dc2c6261e79fe8ed9b874af44f15",
+    "workflow.template.yml": "64900fcd336fe3c26d4e933ab01de93d5abf837a0ea674d0b151a8f206970546"
+  },
+  "prior_accepted_helper_sha256": "f41956953752cd2b799651ea00dd86e1f405ba9c8a33f4f4b83c7c07c22a9e56",
+  "complete_changed_code_and_call_sites_read": true,
+  "preserved": [
+    "Original source/build/bundle/executable/metadata identity checks, compile-time path restoration and generated-man record.",
+    "Eight complete affected targets and every unfiltered default harness plus library doctests.",
+    "Owned process groups, source/executable after-checks, historical binary-loader prerequisites and their cleanup.",
+    "Unchanged four-restore/six-comparison original-corpus verifier."
+  ],
+  "parser_review": {
+    "actual_source_run": 45581211706,
+    "actual_source_job": 139091460269,
+    "actual_stdout_sha256": "4de96772dc2e860a38c72d4662a0168181d2a0b4217c02a6f6584724c5707175",
+    "exact_fixture_blocks_verified": [
+      {
+        "target": "test:checkpoint_set_v2_conformance",
+        "sha256": "6a5bf451673e431c4a5e3830482f6b9b81db28337228e2187ae286d4d338214d",
+        "names": 13
+      },
+      {
+        "target": "test:binary_variant_integration",
+        "sha256": "e5b8c20798eddc40376aceaae3dc74ce0d19efbf84d4fe1f770f3437a077617d",
+        "names": 11
+      }
+    ],
+    "contract": "Each serialized test prefix must have a terminal ok or existing ignored status before the next prefix; duplicate names are refused. Per-target starts, complete counts, exact harness mapping, zero failures and zero filtered tests remain enforced by both callers.",
+    "fixture_refusals": [
+      "missing_last_status",
+      "duplicate_test_name",
+      "failed_status",
+      "incomplete_interrupted_status"
+    ],
+    "empty_group_preserved": true,
+    "actual_parser_execution_pending": true,
+    "old_wrapper_failure_retained": true
+  },
+  "required_results": {
+    "affected_targets": 8,
+    "type_file_cases": 11,
+    "prior_checkpoint_regressions": 6,
+    "additional_existing_checkpoint_repair_assertions": 7,
+    "full_suite_command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--no-fail-fast",
+      "--",
+      "--test-threads=1"
+    ],
+    "command_limit_seconds": 5400
+  },
+  "workflow_review": {
+    "corpus_and_full_suite_may_run_independently": true,
+    "fixture_check_precedes_product_execution": true,
+    "producer_and_release_identity_checks_preserved": true,
+    "placeholders_intentionally_unbound": true
+  },
+  "findings": [],
+  "pending": [
+    "Measured successful c90 producer run/artifact/bundle/receipt/release bindings and exact final workflow.",
+    "Two final clean author packet inspections, immutable readback and independent final activation verdict.",
+    "Actual syntax/parser-fixture execution, affected checks, complete suite, corpus results and final native acceptance."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
