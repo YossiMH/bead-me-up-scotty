@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-25T09:37:57.618Z",
+  "updated_utc": "2026-11-25T09:55:07.291Z",
   "owner": "/root/backend_reconcile",
-  "status": "final_source_producers_and_consumers_in_progress",
+  "status": "final_source_builds_complete_execution_packets_bound",
   "source": {
     "repository": "YossiMH/bead-rs",
     "branch": "task/type-file-20261125",
@@ -66,22 +66,9 @@
       "artifact_id": 15007188514
     }
   },
-  "active_runs": [
-    {
-      "repository": "YossiMH/bead-me-up-scotty",
-      "run_id": 45586900986,
-      "attempt": 1,
-      "workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
-      "native_source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
-      "job_id": 139110692736,
-      "tasks": [
-        "checkpoint-windows-build"
-      ],
-      "last_observed": "Build release and compile affected Windows tests in progress; no result yet."
-    }
-  ],
+  "active_runs": [],
   "next_actions": [
-    "Reconcile the active Windows producer before any retry; activate the exact Linux producer only after root's independent packet PASS.",
+    "Activate each exactly reviewed final-source consumer once after its final packet PASS. Reconcile any active run before any retry.",
     "Bind final Linux/Windows consumers to measured successful c90 producer receipts and download-verified artifacts; obtain final packet reviews. Preserve all native Windows ordinary/grid cases through partitioned hosted jobs and aggregate exact coverage.",
     "Run final-source affected checks, complete Linux suite, original-corpus recovery and partitioned Windows qualification. The final Linux parser includes bounded fixtures from actual interrupted output; do not rerun the completed historical baseline.",
     "After actual final-source checks, reread maintainer post-process guidance, perform two complete clean final author inspections and obtain independent source acceptance.",
@@ -96,7 +83,11 @@
     "local_auxiliary_branch": "task/type-file-local-tests-20261125",
     "instruction": "Remove the clean published task worktree through Riftri after the assignment is complete. If this process dies or the session ends early, future agents must finish this cleanup. Preserve any later unrelated edits and recover the exact published source before removal.",
     "cloud_hosted_checkouts": "Actions runner teardown owns all hosted temporary checkouts and processes.",
-    "local_worktree_note": "Local checkout last observed clean at 9ff; remote task branch advanced through 7adb to c90 via GitHub. Fetch/reconcile exact descendants before Riftri cleanup when cloud execution returns. Cleanup has not been performed."
+    "local_worktree_note": "Local checkout last observed clean at 9ff; remote task branch advanced through 7adb to c90 via GitHub. Fetch/reconcile exact descendants before Riftri cleanup when cloud execution returns. Cleanup has not been performed.",
+    "parent_clone": "/tmp/beads-55c9/bead-rs",
+    "riftri_executable": "/tmp/beads-55c9/tools/node_modules/.bin/riftri",
+    "riftri_version": "0.7.0",
+    "command_after_reconciliation": "/tmp/beads-55c9/tools/node_modules/.bin/riftri exec -- git -C /tmp/beads-55c9/bead-rs worktree remove /tmp/beads-55c9/backend-type-edit"
   },
   "limits": [
     "No PC calls by this executor.",
@@ -146,9 +137,65 @@
   "prepared_packets": {
     "producers": "33931b999a973b266e211c7af531c84f694bf0a6",
     "windows_producer_review": "41430d7cdf9dc2450390cb4f58802b7f8935daa8:20261125/revision-8/results/native-windows-producer-review.json",
-    "linux_producer_review": "Root independently reviewing; activation pending PASS.",
-    "linux_consumer": "54dda6e4109f9006e2caae303cb549bc81e62ff8:20261125/native-repair-linux-check",
+    "linux_producer_review": "b98cd9a2c1871e8af1f6bc36a6327b38e5c2fc45:20261125/revision-8/results/native-linux-producer-review.json",
+    "linux_consumer": "ea2deb25060a3f163550c44ce572e831312b321b:20261125/native-repair-linux-check",
     "windows_consumer": "38b9c2b4120859d1e9d12effb582663fc4c84f93:20261125/revision-8/native-windows-check",
-    "consumer_status": "Both dormant; exact measured c90 producer bindings and final reviews required before activation."
+    "consumer_status": "Linux final binding under independent review; Windows author binding measured successful producer. Final native execution has not started in this handoff."
+  },
+  "final_source_builds": {
+    "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+    "evidence_commit": "780716d93a61776e8653cfd0b67656b9239094ee",
+    "windows": {
+      "run_id": 45586900986,
+      "build_status": "passed",
+      "download_status": "passed",
+      "artifact_id": 15009252879,
+      "small_release_artifact_id": 15010535371,
+      "full_manifest_sha256": "9431284af8c344956b6c7939950a71427d7d9e87eb26186bc9dce48bc91a43a6",
+      "small_manifest_sha256": "843117f8f9f22da5053d9731610fc729c1e4dc744358d6f91506e843713f5181",
+      "build_result_sha256": "a33ab55da93e2ceeb23fd56a048b5e507a801bcf86a3c189d7156d1463f501f6",
+      "release": {
+        "executable": {
+          "bytes": 12214272,
+          "path": "release/bead-checkpoint-c90f0cdbade9.exe",
+          "sha256": "cdd3b50d65504c52a27a8fd29c6494fe3847d512cbca1510aa74a6cc5da87a06"
+        },
+        "metadata": {
+          "bytes": 2056,
+          "path": "release/bead-checkpoint-c90f0cdbade9.exe.metadata.json",
+          "sha256": "ed74ccf87b21972261434f8c628dea12cfb958a577ba686658d24ae8123dc97a"
+        }
+      },
+      "test_support_executables": 11,
+      "separate_release_executables": 1
+    },
+    "linux": {
+      "run_id": 45587412193,
+      "status": "passed",
+      "build_artifact_id": 15009891712,
+      "release_artifact_id": 15009666984,
+      "build_result_sha256": "2c2d704504d238880e0a4bdef29ffc963f25b7588ec45ce62193eb33886937d2",
+      "release": {
+        "binary": {
+          "bytes": 13643392,
+          "mode": 493,
+          "path": "release/bead-editing-c90f0cd-linux-20261125",
+          "sha256": "ddc29ba25be1684b887bf10954c5ef7643ec57982e934ed633178a44d04a90cc"
+        },
+        "metadata": {
+          "bytes": 2082,
+          "mode": 420,
+          "path": "release/bead-editing-c90f0cd-linux-20261125.metadata.json",
+          "sha256": "f1774c33a33fce6cad1bb58152898cf676323753f9b36201fd02e4079c48d98c"
+        },
+        "target": "x86_64-unknown-linux-gnu",
+        "version": "bead 0.3.0 (unknown 2026-11-25T09:43:40Z)"
+      },
+      "compiled_harnesses": 145,
+      "compiled_executables": 147,
+      "format_and_clippy": "passed",
+      "download_verification": "Pending bound consumers"
+    }
   }
 }
