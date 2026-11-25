@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Existing app runtime metadata recovery packet; hosted download-only activation",
+  "packet_commit": "a868065b2a5d5c24190f3036e87f4f8e556d1901",
+  "activation_branch": "task/runtime-manifest-recovery-20261125",
+  "reviewed_files": {
+    "20261125/revision-8/runtime-manifest-recovery/recover.py": "65b27a6f92c002a2aec271ee58fb36dac399bc71eeb583972879d6abd1ddd02a",
+    "20261125/revision-8/runtime-manifest-recovery/inputs.json": "bf06c8d8e13d407f9f2bc98c85a1677ee62883c15abe8c67e0eecbd5362f1fe0",
+    ".github/workflows/scotty-runtime-recovery-20261125.yml": "f38365b853cf59023ee370729696487ddc8f826d7d26bee1f57fe665090039fd",
+    "20261125/revision-8/type-windows/run.py": "7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112"
+  },
+  "author_receipt": {
+    "commit": "26fbb485e265fa0c4582ff87682626021812e3e5",
+    "path": "20261125/revision-8/results/runtime-manifest-recovery-author.json",
+    "sha256": "94ad5e955bdfefa31f032c8eab6191a1232152bd48a4226d90c1a028fae8f658",
+    "complete_clean_inspections": 2
+  },
+  "inspection": [
+    "Read the full helper, inputs, workflow and both final author inspections. Fetched and hashed the exact retainer at this packet commit; its bytes equal the previously accepted aeee/7da96 helper, and importing it only defines functions because main is guarded.",
+    "The workflow downloads only existing artifact 15003467178 from successful app run 45573503400 and checks out exact app source 0309539797fd7d016e2b8fd8bdc0ae9cefc20219/tree 84bb66cde1832ad8d30b63773efb77c952787b94. Its app/runtime identities match the prior independently read app packet and retained producer inputs.",
+    "The helper pins the original complete runtime manifest, archive SHA-256 and byte length, dependency lock bytes and Git blob, build ID, eleven complete source inventory paths/bytes/hashes/Git blobs and exactly 560 unique safe runtime member paths. It streams every ZIP member through SHA-256 and requires each measured member length.",
+    "The original producer result must retain its exact app source/tree, all 115 passing adapter tests, eight exit-zero commands, zero remaining edit directories and matching runtime identities. Source checkout cleanliness is verified after these read operations.",
+    "Only bounded Git metadata/status subprocesses run. No dependency install, application launch, native invocation, source modification or runtime extraction is present. The hosted job limit is five minutes and the verification step is two minutes.",
+    "Three original JSON files are copied byte-for-byte into a fresh run/attempt-owned results directory and copy hashes are checked. The accepted numbered 4096-character RETAIN_FILE/RETAIN_PART protocol emits complete UTF-8 text with full byte lengths and SHA-256; the failure/success recovery receipt is retained likewise.",
+    "Both complete author inspections match the final immutable file identities. The workflow's helper/input shell hash gates and the helper's retainer hash gate precede their use."
+  ],
+  "verdict": "GO for one hosted download-only recovery activation at the exact reviewed candidate. Actual recovered bytes and receipt must be reconciled after the run.",
+  "remaining": [
+    "Actual hosted recovery execution and complete text reconstruction",
+    "Root reconciliation of the recovered original source/runtime inventories",
+    "Final native source qualification and app Windows roundtrip after the operation/maintenance lock repair",
+    "Actual PC mapping, installation, tray acceptance and worktree cleanup"
+  ],
+  "native_and_app_execution": "Held; this recovery grants no product execution or final release acceptance.",
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
