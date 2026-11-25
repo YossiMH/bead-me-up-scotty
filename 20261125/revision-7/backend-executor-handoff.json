@@ -1,15 +1,18 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-25T08:45:43.365Z",
+  "updated_utc": "2026-11-25T09:03:43.996Z",
   "owner": "/root/backend_reconcile",
-  "status": "final_native_execution_active",
+  "status": "corrected_linux_checks_active_windows_platform_repairs_pending",
   "source": {
     "repository": "YossiMH/bead-rs",
     "branch": "task/type-file-20261125",
     "commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
     "tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
     "accepted_tests_commit": "14051553b607bc160fb46f053c52ddeeadf846db",
-    "tests_review_receipt": "2f002ced46f233a05a287085d1373039c383e547:20261125/revision-7/results/type-backend-tests-review.json"
+    "tests_review_receipt": "2f002ced46f233a05a287085d1373039c383e547:20261125/revision-7/results/type-backend-tests-review.json",
+    "oracle_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+    "oracle_tree": "eeab8ce79cf4a6950a4b09706fa1595572cd1b78",
+    "oracle_note": "Branch task/type-file-20261125 now points to7adb; it changes exactly two4-to2 characters in the test/spec. All product files and retained release identities remain9ff. Shared task/bead-finish-20261124 is still515."
   },
   "actual_completed": {
     "linux_producer": {
@@ -18,7 +21,7 @@
       "build_artifact_id": 15004218651,
       "release_artifact_id": 15005116461,
       "release_sha256": "266245fab0e7b8378877083b258131b63036ec4bac5d64447429a839ee9becbf",
-      "download_verification": "Pending execution-consumer checks"
+      "download_verification": "Both consumers in45578817248 verified the exact producer artifacts before execution."
     },
     "windows_producer": {
       "run_id": 45576002037,
@@ -31,35 +34,37 @@
       "release_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
       "metadata_path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
       "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    },
+    "linux_corpus": {
+      "run_id": 45578817248,
+      "status": "passed",
+      "evidence": "debd80cd20b9519077a03d90f4b96fd3a1673bc3:20261125/revision-7/results/native-linux-execution-45578817248",
+      "restores": 4,
+      "complete_comparisons": 6,
+      "original_issue_count": 954,
+      "original_event_count": 11264,
+      "original_receipts": 5,
+      "original_attempt_outcomes": 413
     }
   },
   "active_runs": [
     {
       "repository": "YossiMH/bead-me-up-scotty",
-      "run_id": 45578817248,
-      "source_commit": "1bb64f56ee464587ece7caf55ed3f2da0adb6fd5",
+      "run_id": 45581211706,
+      "source_commit": "4855e53de5d74d6d16fbfc934ddcfcfdf8a23f78",
       "tasks": [
         "type-backend-checks",
-        "checkpoint-full-suite",
-        "checkpoint-linux-checks"
+        "checkpoint-full-suite"
       ],
-      "note": "First reconcile live jobs and retained outputs; do not launch another build or duplicate these executions."
-    },
-    {
-      "repository": "YossiMH/bead-me-up-scotty",
-      "run_id": 45577891890,
-      "source_commit": "ad41d93182c9dc1a5c30f1e41c837af7c337773e",
-      "tasks": [
-        "checkpoint-windows-checks"
-      ],
-      "note": "Uses the exact retained release and10 test/support executables; no Rust compilation."
+      "note": "Reuses accepted producer bundle, applies exact accepted test/spec oracle7adb, runs eight affected targets then complete suite. Do not duplicate this active run or completed corpus."
     }
   ],
   "next_actions": [
-    "Read completed execution logs and artifacts; retain failures and results separately.",
-    "Publish the distinct affected-target result as soon as available so the app Windows task can proceed.",
-    "After Green checks, reread the complete maintainer post-process and perform two complete clean final source inspections on unchanged9ff bytes, then obtain independent native implementation acceptance.",
-    "Root owns canonical task-state mutations, task-branch integration, PC staging/install and eventual main publication."
+    "Reconcile45581211706 actual outputs; publish complete affected result for app/reviewer.",
+    "Root coordinates explicitly scoped Windows platform repair because the existing execution task forbids checkpoint source changes. App reviewer diagnosed os33/backslash, independent reviewer diagnosed orphan/OOB assumptions. Do not retry broad qualification before repairs and review.",
+    "After actual checks, perform two complete final author inspections and independent acceptance on the exact final bytes.",
+    "Append native .marathon/progress.md with actual outcome and PC denial. Ordinary-fast-forward the permitted shared task branch only after source acceptance; verify its remote ref.",
+    "Root alone materializes accepted revision7 task graph and reconciles results before guarded PC installation when access/headroom returns."
   ],
   "cleanup_required": {
     "manager": "Riftri",
@@ -68,7 +73,8 @@
     "last_observed_status": "clean",
     "local_auxiliary_branch": "task/type-file-local-tests-20261125",
     "instruction": "Remove the clean published task worktree through Riftri after the assignment is complete. If this process dies or the session ends early, future agents must finish this cleanup. Preserve any later unrelated edits and recover the exact published source before removal.",
-    "cloud_hosted_checkouts": "Actions runner teardown owns all hosted temporary checkouts and processes."
+    "cloud_hosted_checkouts": "Actions runner teardown owns all hosted temporary checkouts and processes.",
+    "local_worktree_note": "Local checkout last observed clean9ff; remote task branch advanced to7adb through GitHub. Fetch/reconcile exact descendants before Riftri cleanup when cloud execution returns. Cleanup has not been performed."
   },
   "limits": [
     "No PC calls by this executor.",
@@ -76,5 +82,32 @@
     "One Cargo job per hosted producer and serialized native tests.",
     "Main remains unchanged until the root's checked installation."
   ],
-  "evidence_retention": "All failed Red and first producer attempts remain retained on the transfer branch; later passing attempts do not overwrite them."
+  "evidence_retention": "All failed Red and first producer attempts remain retained on the transfer branch; later passing attempts do not overwrite them.",
+  "failed_attempts": {
+    "linux_affected": {
+      "run_id": 45578817248,
+      "reason": "New empty-type test/spec incorrectly expected conflict code4; established usage code2 confirmed independently.72tests passed,1failed;R041targets/fullsuite not executed.",
+      "evidence": "debd80cd20b9519077a03d90f4b96fd3a1673bc3:20261125/revision-7/results/native-linux-execution-45578817248"
+    },
+    "windows_qualification": {
+      "run_id": 45577891890,
+      "reason": "Concurrent-publication os33 contention, orphan cleanup and dual-layout tombstone test failures; conformance target incomplete at900seconds. OOB characterization panic is intentionally caught and is not a separate regression.",
+      "evidence": "58f9df0925f4a9943687e9b35fc3f62fff7d084b:20261125/revision-7/results/native-windows-execution-45577891890"
+    }
+  },
+  "pc_gate": {
+    "last_memory_utc": "2026-11-25T07:38:27.0544240Z",
+    "free_mib": 702,
+    "total_mib": 31905,
+    "proposal": "6Tf4AjmM58-pk_qxj6LCoJD5wKqr7rW-ZV8MRLKxHS0",
+    "job": "j1795593147532-37324-2134047166569034316",
+    "status": "not-started",
+    "error": "ADMIN_BROKER_DENIED",
+    "replay_allowed": false,
+    "actions_after_denial": "None",
+    "actual_task_graph": "Revision6:32tasks/51edges,18closed14open,986issues including954originals.",
+    "accepted_task_graph": "Revision7:49tasks/78edges;17newIDs/full49mapping/78actualedges absent. Accepted materializer907e1a6 andreview15542c443 never executed.",
+    "thresholds": "Root-only native mutation >=1GiBfree; full app/tray launch >=3GiBfree,512MiBowned resident cap."
+  },
+  "pending_plan": "Root is drafting revision8 for bounded Windows lock/path fixes, with20new task keys overall; no new production mutation before whole-plan review and dispatch. Actual canonical native store remains revision6; neitherrevision7nor8 has been materialized."
 }

@@ -72,11 +72,6 @@
       "test": "set_v2_dual_layout_reader_equivalence",
       "location": "tests/checkpoint_set_v2_conformance.rs:92",
       "message": "checkpoint_integrity_failure: unresolved tombstone set\\\\manifest-gen-77cc03e36b8da2dbd950625f11cb0d57.json"
-    },
-    {
-      "test": "set_v2_green_scenarios_under_out_of_band_change",
-      "location": "tests/checkpoint_set_v2_conformance.rs:459",
-      "message": "publication0 added2026471 new blob bytes; budget262144; target later hit900-second deadline"
     }
   ],
   "remaining_work": "The target did not finish. Later integration targets, original-corpus verification and55-command editing smoke did not execute. No broad retry has been started.",
@@ -101,5 +96,10 @@
     "driver_outer_job_success_flag": false,
     "meaning": "The driver recorded an unsuccessful phase; the supervisor reported zero remaining owned children. Do not treat the false combined phase flag as successful qualification."
   },
-  "evidence": "Full actual job, unmodified decoded receipts and all emitted stdout/stderr are retained here. Original executable artifact remains available separately."
+  "evidence": "Full actual job, unmodified decoded receipts and all emitted stdout/stderr are retained here. Original executable artifact remains available separately.",
+  "characterization_output": {
+    "test": "set_v2_green_scenarios_under_out_of_band_change",
+    "observed_panic": "publication0 added2026471 new blob bytes; budget262144",
+    "interpretation": "The existing probe_one/catch_unwind characterization grid intentionally records red combinations. This caught panic is not an asserted production regression. The grid did not finish before the900-second target deadline; that incomplete target remains a failed qualification attempt. The ordinary set_v2_budget_single_issue_update test passed."
+  }
 }
