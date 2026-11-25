@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/delivery_review",
+  "reviewed_utc": "2026-11-25T00:25:46.239710+00:00",
+  "task_key": "windows-tray",
+  "task_id": "beadrs-ea7bc5dd",
+  "step": "archive_staging_correction",
+  "status": "passed_static",
+  "accepted_for_root_execution": true,
+  "script": {
+    "path": "/workspace/scratch/3160e3ba3d24/coordination/stage-tray-repair-20261125.mjs",
+    "sha256": "3326344b6a5319faf8e5890a210fd5e4d3c3c238579f2cd0384dedf64b172712",
+    "bytes": 14676
+  },
+  "author_record": {
+    "path": "/workspace/scratch/3160e3ba3d24/coordination/results/stage-tray-repair-author.json",
+    "sha256": "913e49c29c9d6cde544b7149796f27fc0843084fe9fe6ff3dbfc27aa3447eea3",
+    "complete_clean_author_inspections": 2
+  },
+  "base_archive_commit": "f47fd7adef41e989072d5fa8c39160681aa6fd2a",
+  "patch_source_commit": "38c21a77b4e875d75e17ee68683846601df33591",
+  "source_file_identities": {
+    "f47fd7adef41e989072d5fa8c39160681aa6fd2a": {
+      "bin/windows-tray.mjs": {
+        "sha256": "fa66d90908397d29722b5a8fcae54f89ec815d5dea54f221af33ce8f9ca4eb5b",
+        "bytes": 5789,
+        "git_blob": "43f29fdebe6f85028343d2a3ebb12ef63dcedbc3"
+      },
+      "scripts/fixtures/tray-process-boundary.mjs": {
+        "sha256": "ff7dae48575110ac0d7f8e23ca92cfb9761da00f95fc38092067d1af92b0f6c3",
+        "bytes": 1632,
+        "git_blob": "9a73140d87f74ee98f6335ff26ce345eaabefc3f"
+      },
+      "scripts/test-windows-tray.mjs": {
+        "sha256": "7f0be31c8f19384896b4bc7bdc42c38598e536ef75bf3b6dd641e0c4ababdb40",
+        "bytes": 16378,
+        "git_blob": "69054d79fc3d826dab9dd7bd5b14cbc417a86b3e"
+      }
+    },
+    "38c21a77b4e875d75e17ee68683846601df33591": {
+      "bin/windows-tray.mjs": {
+        "sha256": "a947ec77a5d742f3d735288483dcf0f54e5b057ec7d3b64370e656b878fea611",
+        "bytes": 5896,
+        "git_blob": "f740c9b95370ed632c7f65f8778d034d32f75a51"
+      },
+      "scripts/fixtures/tray-process-boundary.mjs": {
+        "sha256": "7e94e76548e61bde08ca2899fb8a24ed0bb74041ebfa2375436bba3573cd1e31",
+        "bytes": 1765,
+        "git_blob": "2ba0b1a937d2880b1aa522670a62dc591a03a21c"
+      },
+      "scripts/test-windows-tray.mjs": {
+        "sha256": "d48e8b73c16b4196ab880d53023d98fbe89df3068ea111b0b05c5a29a8acbacb",
+        "bytes": 16500,
+        "git_blob": "6d12ea6c8bde18f672e84098e9ac82c2cd1edb97"
+      }
+    }
+  },
+  "input_manifest": {
+    "pc_path": "C:/Users/YossiMH/AppData/Local/bead-edit-20261111/browser-execution-20261124/windows-browser-input-local.json",
+    "sha256": "2c689e960998deaf41c13b507f3596cb3c5c56000e826416cac9357fc55f8b86",
+    "runtime_files": 230,
+    "ui_source_files": 6,
+    "build_id": "Eox2_s2VuIuWWAISvMqKK"
+  },
+  "inspection": [
+    "Read the complete final helper and both complete-file author inspections. Independently compared all six original/repaired canonical Git objects, lengths and SHA-256 values. The fixed browser input SHA and its six source/230 runtime entries also match.",
+    "Read the original stage-result.json retained inside pc-browser-local-stage.json. Its actual fields match the helper checks: passed status, stage/app directories, f47 archive base, fbb runtime source/build and exact native pin record.",
+    "Writes are limited to the three fixed source paths in the existing archive and a new named immediate child of the task root. Reused output and symlink/junction mutation paths are refused. The old archive receipt is preserved and rehashed; the patch is recorded separately without claiming a Git HEAD or complete-archive equivalence.",
+    "All three old-file hashes are checked before downloads. Only immutable published 38c21a7 raw-file URLs are used. Downloads refuse redirects, require exact byte counts, SHA-256 and Git blob identity, and are limited to 10 seconds and the remaining cooperative budget.",
+    "All three backups are complete and rehashed before the first replacement. Protected configuration/dependency inputs and runtime/source bytes are checked again. Each replacement records a flushed intent before rename and a completion after the final hash comparison.",
+    "The unchanged PowerShell helper, all 230 runtime files and six source/config files are rechecked after replacement. The largest retained runtime member is 1,324,630 bytes, below the helper 2 MiB read bound.",
+    "Configuration is read for hashes only. The node_modules link and five installed package manifests are compared before and after; process environment and root/user config hashes are also compared. No config, dependency, native executable or runtime file is changed.",
+    "The helper launches no child process and sets BelowNormal priority. The 64 MiB heap invocation, 128 MiB cooperative RSS check and 60-second cooperative elapsed check suit the small sequential copy. Root retains the external timeout and serializes staging with all app checks; synchronous filesystem calls are not claimed to have continuous monitoring.",
+    "A failure retains every available phase record and the current replacement count. Recovery wording correctly requires inspecting current file hashes and only recorded backups before retry; it never assumes backups exist or automatically reapplies/rolls back."
+  ],
+  "findings": [],
+  "conclusion": "The exact helper safely implements the already accepted three-file archive staging correction. Root may verify the transferred hash and execute it once under the existing PC reservation and external time bound, then read the full result before the assigned Windows tray run.",
+  "execution_status": "pending_root_execution",
+  "product_checks_or_builds_run_by_reviewer": false,
+  "pc_calls_by_reviewer": 0,
+  "script_body_executed_by_reviewer": false,
+  "external_writes_by_reviewer": 0,
+  "task_database_written_by_reviewer": false
+}
