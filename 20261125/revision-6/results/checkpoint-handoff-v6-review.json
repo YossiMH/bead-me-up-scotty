@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/delivery_review",
+  "reviewed_utc": "2026-11-25",
+  "operation": "static-revision-6-preservation-binding-review",
+  "continuation_revision": 6,
+  "accepted_baseline": {
+    "commit": "6f57eee5cf24b65c59dafe49502d3a2b4a6d9d7e",
+    "review_sha256": "a7f2c8cf1ba3e859324c1e43d727d410123fa2f37d4d76f4fd9f7d728aff6ce5",
+    "node_sha256": "e290ece0f9785eafb16c4211e751e05f38603755fa0fdcc0fb93c54e2efb9364",
+    "supervisor_sha256": "6f94681f6dd23197642eaf0b493bf93877be8a0c3d3ca8531fbbd2bcdc4f972d"
+  },
+  "reviewed_files": {
+    "checkpoint-handoff-20261125.mjs": "37365873aab6a5f35db7205a1d9cc90929cddf16bc03b94c4d67aeaf650bc0fa",
+    "checkpoint-handoff-supervisor-20261125.ps1": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+    "checkpoint-handoff-v6-author.json": "545307a345a1b06d7a5963eec70740eeb74878ff3c30267ec178aa4c1cbf97e9",
+    "checkpoint-handoff-20261125.mjs.patch": "643a6f5437b1b18a2a9f64f1fdb3768dbc9fd3f9873d7baa554ecdd6ca7d1f16",
+    "checkpoint-handoff-supervisor-20261125.ps1.patch": "e8263f617dc9670e612ac26cf66b1482b68c40d5ed07b29b2f2a177dc089a69d"
+  },
+  "plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+  "plan_review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+  "materialization_sha256": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2",
+  "complete_current_supervisor_read": true,
+  "complete_prior_node_review_retained": true,
+  "method": [
+    "Recovered and hashed the actual previously accepted baseline files; the stale earlier root copies are not the reviewed baseline.",
+    "Reconstructed the complete current Node file from the accepted 65,197-byte baseline using only the three exact plan-path, materialization-path and accepted-review-version replacements. Every other byte remains equal.",
+    "Read the full current supervisor, its complete baseline diff and both final author inspections. Independently compared the entire new Members method with the already reviewed and successfully executed08a25f85 closer supervisor.",
+    "Read the complete affected Node request/plan/mapping/prerequisite and graph-validation logic and reconciled the actual current revision6 review and materialization schemas."
+  ],
+  "exact_changes": [
+    "revision-5/plan.json becomes revision-6/plan.json.",
+    "materialization-result-v5.json becomes materialization-result-v6.json.",
+    "The accepted plan review must have continuation_revision6 rather than5.",
+    "The supervisor imports generic collections and Stopwatch and uses the complete bounded Job membership query: at most8 reads/500ms, capacity32 through1024, complete returned bytes, equal positive assigned/returned counts and unique positive PIDs; unrelated API failures remain failures.",
+    "The phase result is read with IO.File.ReadAllText before the existing exact phase/request/status comparison."
+  ],
+  "preserved_behavior": [
+    "All986 rows derive from954 originals plus the32 accepted task IDs and51 edges. Complete task titles/descriptions and graph comparisons remain exact; all31 substantive tasks must be closed before the final cleanup task.",
+    "Exact current plan and materialization hashes, root's exclusive-writer/installed/text-review attestations, private original SQLite preservation, immutable Git/tree/blob/index identity and selected current/previous checkpoint closure checks remain.",
+    "The original tracked409-MiB checkpoint history is retained by its verified immutable Git identity; only selected closures and private consistent SQLite are copied. Dirty/untracked/transformed checkpoint content stops. The optional regular non-reparse zero-byte publish.lock rule remains.",
+    "The helper refuses the known historical539 binary and requires exact reviewed replacement-native qualification/source/hash evidence before opening the original store. No replacement Windows pin or install evidence is invented by this rebind.",
+    "Same-UUID restore/dry-run/merge, original-only publication, byte-identical promoted previous pointer and selected-object retention, fresh current/previous restores, guarded final cleanup closure and final publication remain mandatory.",
+    "Every phase uses a fresh exclusive result directory, hashed request and one-use command intent. Unknown outcomes require reconciliation, and no command replay is added.",
+    "BelowNormal,3-GiB start headroom,1-GiB free during work,128-MiB Node heap,512-MiB all-owned RSS,100-ms sampling and180-second hard owned-Job deadline remain. Cleanup sampling preserves exact owned termination without repeating ordinary budget assertions; any excess peak, forced cleanup or remaining child still fails."
+  ],
+  "schema_reconciliation": {
+    "plan_review_status": "PASS",
+    "plan_review_accepted": true,
+    "read_complete_plan": true,
+    "expanded_tasks_read": 32,
+    "blocking_edges_read": 51,
+    "materialization_status": "passed",
+    "original_inventory_unchanged": true,
+    "total_issues": 986,
+    "mapping_keys_and_cleanup_id_match": true
+  },
+  "actual_checks": {
+    "author_inspections": 2,
+    "author_node_syntax_exit": 0,
+    "ordinary_windows_powershell_parser": "pending exact staged file"
+  },
+  "verdict": "The narrow source rebind is accepted for the existing preservation procedure. Root must use the exact ordinary-parsed files and bind the later measured replacement-native and installation/handoff results before executing any phase.",
+  "pending_existing_requirements": [
+    "Ordinary Windows parsing of the exact new supervisor.",
+    "Actual accepted Windows replacement-native build/qualification and independent review.",
+    "Actual install, configured launch, installed review, handoff/text review, current original Git baseline and root-owned exact per-phase request bindings.",
+    "Successful actual preservation, publication, fresh restore, cleanup and final closure results."
+  ],
+  "findings": [],
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "reviewer_database_writes": 0
+}

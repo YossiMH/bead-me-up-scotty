@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/delivery_review",
+  "operation": "guarded-accepted-task-closure-request-review",
+  "request_sha256": "1b379a018ecaedcf5f533b4689e1062220303aae5bda75f327d83f23a59c8530",
+  "request_bytes": 2913,
+  "current_native_result_sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c",
+  "supervisor_sha256": "08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033",
+  "helper_sha256": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+  "output_name": "completed-20261125-tray-checks-installer-suite",
+  "tasks": [
+    {
+      "key": "tray-repair-checks",
+      "id": "beadrs-22b44782",
+      "revision": 4,
+      "accepted_evidence": "Linux39/full lint and hosted Windows2 exact source523; reviews4c8df2a2 and9828fb4d.",
+      "prerequisite": "tray-repair closed revision5"
+    },
+    {
+      "key": "installer-repair",
+      "id": "beadrs-f588ab27",
+      "revision": 4,
+      "accepted_evidence": "Complete four-file preparation and final ordinary parser; review30049f55.",
+      "prerequisite": "tray-repair closed revision5"
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "id": "beadrs-0890de3c",
+      "revision": 1,
+      "accepted_evidence": "Exact source515,1902 passed/0 failed/8 existing ignored, all6 new regressions; complete retained-output review9d4b0bea.",
+      "prerequisite": "checkpoint-linux-build closed revision2"
+    }
+  ],
+  "method": "Read all three complete request reasons, verified exact bytes/hash and every cited accepted result, and compared all requested current revisions and closed prerequisites with the complete latest native state and accepted plan6.",
+  "scope": "Only these three accepted tasks may close. Actual logged-in-PC tray, combined tray-repair-review, installation/configured launch and replacement-native Windows qualification retain their existing requirements.",
+  "findings": [],
+  "actual_execution": "pending root-owned guarded invocation",
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "reviewer_database_writes": 0
+}
