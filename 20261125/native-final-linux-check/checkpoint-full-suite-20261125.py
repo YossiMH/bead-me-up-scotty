@@ -19,6 +19,22 @@ GREEN_HELPER_SHA256 = "11cfb8375b81ca715b78e63db545981cc329cadaa64fe006b3b3a1d32
 BUILD_INPUTS_SHA256 = "05bdd98fbbd95f7ce39485d8659f13fbeee8f6bc882bf11cf757f65e0723adf4"
 SOURCE_COMMIT = "9ffefad6bb3b21ac1362f54df245af82ed85ec6e"
 SOURCE_TREE = "31c63a88be4d7f818aa115b8b83b1ef58518ad13"
+ORACLE_COMMIT = "7adb497b6fc27553f5a8d8f272214e3f49200676"
+ORACLE_TREE = "eeab8ce79cf4a6950a4b09706fa1595572cd1b78"
+ORACLE_EDITS = {
+    "tests/issue_type_file.rs": (
+        "aa52f2cfc87a14ec3d1e0279297b8d80c2e383dae3146e67ac0bbdc28f321995",
+        "b0ef90f6cbaf0f957bc6843321f2db373f382221e5de076cd937298ae29bd8ab",
+        b'("empty.txt", 4, "issue_type cannot be empty")',
+        b'("empty.txt", 2, "issue_type cannot be empty")',
+    ),
+    "research/specs/issue-editing-v1.md": (
+        "aa17bc14898c8591da9fa3fe4b45cc77f3b893b8229b8bf78776c9349d7448d9",
+        "b384a2537bd86c91e61d0978c8dd61c1200a9ad99adebe56313fe48d87ed7237",
+        b"exits 4. Each failure leaves the entire edit unapplied.",
+        b"exits 2. Each failure leaves the entire edit unapplied.",
+    ),
+}
 COMMAND = ["cargo", "test", "--locked", "--no-fail-fast", "--", "--test-threads=1"]
 SECONDS = 5400
 MAX_BUNDLE_BYTES = 10 * 1024 * 1024 * 1024
@@ -311,6 +327,30 @@ def remove_test_environment(B, runner, source, correction):
 
 
 
+def apply_oracle_correction(B, source, source_files, output):
+    """Apply the accepted two-byte test/spec correction to the retained source."""
+    report = {"source_commit": ORACLE_COMMIT, "source_tree": ORACLE_TREE,
+              "production_source_commit": SOURCE_COMMIT, "production_source_tree": SOURCE_TREE,
+              "production_files_changed": [], "files": {}}
+    for name, (before_sha, after_sha, before, after) in ORACLE_EDITS.items():
+        path = check_record(B, source, source_files[name])
+        raw = path.read_bytes()
+        require(sha(path) == before_sha and raw.count(before) == 1,
+                "Original test/spec oracle differs: " + name)
+        corrected = raw.replace(before, after)
+        require(hashlib.sha256(corrected).hexdigest() == after_sha
+                and len(raw) == len(corrected)
+                and sum(left != right for left, right in zip(raw, corrected)) == 1,
+                "Oracle correction exceeds one byte: " + name)
+        path.write_bytes(corrected)
+        record = B.file_record(path, source)
+        require(record["sha256"] == after_sha, "Corrected oracle bytes differ")
+        report["files"][name] = {"before_sha256": before_sha, "after": record}
+        source_files[name].update(record)
+    B.write_json(output / "oracle-correction.json", report)
+    return report
+
+
 def run_type_checks(B, runner, source, build_root, build, output, build_result_hash):
     """Run the explicitly required affected targets using the retained compilation."""
     command = ["cargo", "test", "--locked"]
@@ -319,6 +359,7 @@ def run_type_checks(B, runner, source, build_root, build, output, build_result_h
     command.extend(["--", "--test-threads=1"])
     report = {"schema_version": 1, "task_key": "type-backend-checks", "status": "failed",
               "source_commit": SOURCE_COMMIT, "source_tree": SOURCE_TREE,
+              "oracle_commit": ORACLE_COMMIT, "oracle_tree": ORACLE_TREE,
               "build_result_sha256": build_result_hash, "command": command,
               "format_and_clippy": "Passed in the exact source producer receipt",
               "required_targets": TYPE_TARGETS, "required_type_tests": sorted(TYPE_TESTS),
@@ -463,6 +504,7 @@ def main():
     (build_root / "tmp").mkdir()
     result = {"schema_version": 1, "status": "failed", "operation": "checkpoint-full-suite",
               "source_commit": SOURCE_COMMIT, "source_tree": SOURCE_TREE, "build_root": str(build_root),
+              "oracle_commit": ORACLE_COMMIT, "oracle_tree": ORACLE_TREE,
               "output": str(output), "input_sha256": args.inputs_sha256, "helper_sha256": args.helper_sha256,
               "build_result_sha256": inputs["build_result_sha256"], "bundle_sha256": inputs["bundle_sha256"],
               "producing_run": build["run"], "seconds": SECONDS, "command": COMMAND, "profiles": G.PROFILES,
@@ -540,6 +582,9 @@ def main():
         B.write_json(output / "environment-corrections.json", correction)
         B.write_json(output / "executables-before.json", reproduced)
         result["executables_before_file"] = B.file_record(output / "executables-before.json", output)
+        result["oracle_correction"] = apply_oracle_correction(B, source, source_files, output)
+        runner.run(["cargo", "fmt", "--all", "--", "--check"], source, "oracle-format-check")
+        result["oracle_correction"]["format_status"] = "passed"
         run_type_checks(B, runner, source, build_root, build, output, inputs["build_result_sha256"])
         suite_failure = None
         try:
@@ -581,7 +626,8 @@ def main():
             if source_files is not None and source.exists():
                 for name, row in source_files.items():
                     check_record(B, source, row)
-                result["source_files_unchanged"] = len(source_files)
+                result["source_files_preserved_against_accepted_oracle"] = len(source_files)
+                result["production_files_unchanged"] = True
             if target.exists():
                 after = {}
                 for key, row in build["executables"].items():
@@ -611,7 +657,7 @@ def main():
         result["logs_retention_days_required"] = 7
         B.write_json(output / "result.json", result)
         G.emit_text_records(B, output, ["result.json", "type-backend-checks.json"])
-        for name in ("complete-target-results.json", "executables-before.json", "executables-after.json", "environment-corrections.json"):
+        for name in ("complete-target-results.json", "executables-before.json", "executables-after.json", "environment-corrections.json", "oracle-correction.json"):
             path = output / name
             if path.is_file():
                 record = B.file_record(path, output)

@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "scope": "Linux execution-only correction; unchanged native9ff production and release",
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "oracle_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+  "oracle_tree": "eeab8ce79cf4a6950a4b09706fa1595572cd1b78",
+  "helper_sha256": "1ee330ceae483afb66e96cde5ea8c1e701bd0aae341d91ee5a07a0e53196407d",
+  "workflow_sha256": "699c8d2c97b2e71fabef8ff69c7f9626f553ed021d191ad2eb3891bd0fc61824",
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "coverage": "Complete helper control flow and source inventory preservation; both exact one-byte replacements are bounded by original/final hashes and distinct oracle identity. Full eight-target and unfiltered default-suite assertions remain unchanged. Original bundle/producer/source validation remains before correction."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "coverage": "Complete final helper/workflow/prose read. Production and oracle provenance stay separate; every original source file is rechecked against its accepted exact bytes after execution. Rustfmt checks corrected source. The independent successful corpus is not repeated. Original executable map and post-execution binary hashes remain retained; owned process cleanup/deadline/log behavior remains unchanged."
+    }
+  ],
+  "actual_execution": "Pending activation and successful output. The earlier failed attempt is preserved at debd80cd20b9519077a03d90f4b96fd3a1673bc3.",
+  "resource_contract": "Hosted Ubuntu only, inherited one Cargo job and serial tests,90-minute helper bound; no new release producer."
+}
