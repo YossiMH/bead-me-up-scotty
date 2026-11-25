@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Actual final c90 Linux original-corpus recovery and retained-generation preservation",
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "task_key": "checkpoint-linux-checks",
+  "final_native_acceptance": false,
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "release_sha256": "ddc29ba25be1684b887bf10954c5ef7643ec57982e934ed633178a44d04a90cc",
+  "metadata_sha256": "f1774c33a33fce6cad1bb58152898cf676323753f9b36201fd02e4079c48d98c",
+  "executed_packet_commit": "ea2deb25060a3f163550c44ce572e831312b321b",
+  "run_id": 45590105450,
+  "run_attempt": 1,
+  "job_id": 139121719373,
+  "job_conclusion": "success",
+  "packet_review": {
+    "commit": "5db78980952af6de3bde88ba3f6dca74de406e20",
+    "sha256": "583708176d9de3b9e44a4551a3f29e1ab61de43f7c0320a8f3fb532047eefada"
+  },
+  "evidence": {
+    "commit": "5cf449b157c54aaec067634e72faa28d0a96dbec",
+    "directory": "20261125/revision-8/results/native-linux-corpus-45590105450",
+    "result_sha256": "db18de1ed00eca5022edbdfcee16ab78e599f7de4a5caf49a9b555e4d3f37901",
+    "job_log_sha256": "427ce237b3bde0f29faaa76ed7d0f972621ed39476e4ff4a080d142f11b45f9b",
+    "stream_records_sha256": "6193de5adab3449133e16d6810d9736b096c3c3531e6d6e052f2f1d899887e90",
+    "artifact": {
+      "id": 15010901460,
+      "bytes": 20849188,
+      "sha256": "bf317984581a03dcea01f15530c59e603c5e786e05291121accf09a53e2c36ed"
+    }
+  },
+  "independent_reconciliation": {
+    "completed_job_and_artifact_api_read": true,
+    "complete_actual_log_read": true,
+    "retained_log_byte_equal_actual_api_fetch": true,
+    "original_result_base64_independently_decoded": true,
+    "retained_result_bytes_equal_actual_decoding": true,
+    "all_twenty_native_streams_independently_decoded": true,
+    "all_twenty_stream_hashes_byte_counts_and_retained_records_match": true,
+    "exact_helper_input_source_release_and_metadata_match_accepted_packet": true,
+    "complete_six_comparison_records_read": true,
+    "all_original_changed_and_missing_lists_empty": true,
+    "current_previous_and_restore_identity_relations_verified": true
+  },
+  "result": {
+    "original_public_commit": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+    "original_store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "original_issues": 954,
+    "original_events": 11264,
+    "original_receipts": 5,
+    "original_attempt_outcomes": 413,
+    "original_complete_record_index_sha256": "c3a9498f88fde65eb89842b6e881a59fe404ca4739e0b713dac9afbbc397c9ac",
+    "fresh_restores": 4,
+    "complete_full_record_comparisons": 6,
+    "comparison_names": [
+      "current_restore_after_append",
+      "isolated_create",
+      "original_restore",
+      "previous_preserved",
+      "previous_restore_after_append",
+      "published_current_restore"
+    ],
+    "original_record_values_and_identities_preserved": true,
+    "original_extensions_preserved_by_full_record_comparison": true,
+    "only_expected_isolated_create_and_restore_additions": true,
+    "original_source_unchanged": true,
+    "checkpoint_configuration_unchanged": true,
+    "previous_generation_equals_before_append": true,
+    "current_generation_issues": 955,
+    "all_ten_native_commands_exit_zero": true,
+    "all_ten_owned_process_groups_exited": true,
+    "duration_seconds": 23.177,
+    "actual_issue_type_file_capability": true,
+    "actual_update_help_lists_issue_type_file": true
+  },
+  "limits": {
+    "command_seconds": 120,
+    "phase_seconds": 900,
+    "supervision": "owned-process-groups"
+  },
+  "findings": [],
+  "pending": [
+    "The distinct final c90 affected/full-suite job and complete partitioned Windows qualification remain separate gates.",
+    "Final native source/runtime acceptance requires those results and both final author inspections.",
+    "Actual app Windows roundtrip, PC mapping/tray/installation/history and worktree cleanup remain outside this result."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
