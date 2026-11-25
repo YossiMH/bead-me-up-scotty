@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Revision 8 hosted helper syntax, declaration and synthetic refusal results only",
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "final_binding_accepted": false,
+  "installation_authorized_to_execute": false,
+  "candidate_commit": "98a2daa3ef411c0f986daee1794c130f025c49cd",
+  "candidate_directory": "20261125/revision-8/install-binding",
+  "prior_preparation_review": {
+    "commit": "a410b976e028022316fb1e9e1d956ea1c606d5b8",
+    "path": "20261125/revision-8/results/binding-preparation-review.json",
+    "sha256": "12f33c58f4a4e6d5252ca4d97663221bba7896cab93dab2dac69381d00f45903"
+  },
+  "reviewed_results": {
+    "commit": "1de67bc68c0011c2a39549df653d3df1a5355c44",
+    "path": "20261125/revision-8/results/type-binding-checks-45586305325.json",
+    "sha256": "e6377330ec1d88b3b1895834fb4a8aa51f014ed45daba77c5878a94ae5586d8d"
+  },
+  "reviewed_author_status": {
+    "commit": "f58f0edb02ca8e7614e04757672bf16790cf5598",
+    "path": "20261125/revision-8/results/type-install-binding.json",
+    "sha256": "12b5d3024a42ee13fec07deb962484d0b44486f845655d4430f29d5ad917283f",
+    "complete_final_clean_inspections": 2
+  },
+  "actual_execution": {
+    "run_id": 45586305325,
+    "job_id": 139108673492,
+    "job_conclusion": "success",
+    "all_steps_success": true,
+    "workflow_sha256": "58f8af90bcf7f770b8a6e84cd4d5bbaafe9f248532ad7d334dc7dd52a759dddf",
+    "job_log_sha256": "19c5d10a8941a13aa6dadec5ee821a0ebc7ff4474fb7f8bfe5c386a66528cc44",
+    "powershell_version": "5.1.26100.33822",
+    "artifact": {
+      "id": 15008862267,
+      "bytes": 2595,
+      "sha256": "884eb42ea3f7adfcb33c43675a74cf634b3c7e8bb7970ac5b57513fa90adb739"
+    }
+  },
+  "independent_reconciliation": {
+    "actual_job_api_and_full_log_read": true,
+    "retained_job_api_and_artifact_metadata_equal_independent_fetch": true,
+    "retained_full_log_byte_equal_independent_fetch": true,
+    "retained_workflow_byte_equal_reviewed_candidate": true,
+    "all_three_records_independently_decoded_from_actual_log": true,
+    "retained_raw_records_byte_equal_independent_decoding": true,
+    "retained_parsed_records_equal_raw_json": true,
+    "actual_eight_input_hashes_match_prepared_files": true,
+    "all_four_declaration_hashes_independently_derived_from_reviewed_here_strings": true,
+    "all_sixteen_final_author_file_hashes_match_reviewed_candidate": true
+  },
+  "decoded_records": [
+    {
+      "marker": "BINDING_PARSE_RESULT_BASE64",
+      "bytes": 4652,
+      "sha256": "1476109d753a22e8b9ce67455f3c3d53a779cb01ad5593eb881518a916dd9911"
+    },
+    {
+      "marker": "BINDING_INSTALLER_REFUSALS_BASE64",
+      "bytes": 2484,
+      "sha256": "6a5bb1c8da0825f0a4f70b4ba11bde6f1a7a62c181a9159f475b10f09afac385"
+    },
+    {
+      "marker": "BINDING_HISTORY_REFUSALS_BASE64",
+      "bytes": 1238,
+      "sha256": "a294971cc0c0d65454ca5099093919a55753a88c4751de7811ac60d86e87491d"
+    }
+  ],
+  "counts": {
+    "powershell_parses": 4,
+    "node_syntax_checks": 2,
+    "json_parses": 2,
+    "compiled_declarations": 4,
+    "declaration_methods_invoked": 0,
+    "installer_cases": 9,
+    "history_cases": 8,
+    "failed_cases": 0
+  },
+  "preservation_results": {
+    "runtime_and_source_bytes_unchanged": true,
+    "history_mock_inputs_unchanged": true,
+    "runtime_cases": [
+      "matching-runtime",
+      "runtime-hash",
+      "runtime-size",
+      "runtime-build-id",
+      "runtime-traversal",
+      "runtime-duplicate",
+      "documentation-descendant",
+      "unbuilt-adapter-source",
+      "non-descendant-source"
+    ],
+    "history_cases": [
+      "matching-52-task-86-edge-graph",
+      "missing-task-mapping",
+      "duplicate-task-id",
+      "incorrect-edge-count",
+      "incorrect-edge-kind",
+      "changed-original-record",
+      "unclosed-substantive-task",
+      "changed-task-description"
+    ]
+  },
+  "native_commands": 0,
+  "pc_actions": 0,
+  "product_helper_main_executed": false,
+  "actual_materialization": false,
+  "actual_installation": false,
+  "actual_history_merge": false,
+  "actual_native_state": {
+    "continuation_revision": 6,
+    "tasks": 32,
+    "blocking_edges": 51,
+    "total_issues": 986,
+    "original_issues": 954,
+    "new_revision8_ids": [],
+    "native_selection": null
+  },
+  "findings": [],
+  "pending": [
+    "Final c90 native production qualification, exact release/provenance selection and independent final acceptance.",
+    "Complete downloaded app runtime/source verification and actual Windows app/store roundtrip against the final native executable.",
+    "Permitted Emergency Maintenance access and the immediate resource gates, followed by one accepted direct revision6-to8 materialization and exact actual mapping/current-revision bindings.",
+    "Dependency-ordered canonical result reconciliation; actual logged-in-PC tray/Exit, configured launch and installation acceptance.",
+    "Original-history preservation/publication and verified Riftri worktree cleanup. The retained final author status accurately reports that current inaccessible worktrees have not been removed."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
