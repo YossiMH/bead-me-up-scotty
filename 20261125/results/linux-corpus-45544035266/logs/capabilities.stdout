@@ -1,0 +1,381 @@
+{
+  "contract": "native-v1",
+  "implementation": "bead-rs",
+  "version": "0.3.0",
+  "store_layout": 1,
+  "atomic_claim": true,
+  "priority_change": true,
+  "issue_editing": {
+    "version": 1,
+    "fields": [
+      "title",
+      "description",
+      "priority",
+      "issue_type",
+      "notes",
+      "status",
+      "assignee"
+    ],
+    "clear_description": true,
+    "revision_guard": true,
+    "priority_reason_required": true
+  },
+  "priorities": {
+    "min": 0,
+    "max": 4,
+    "default": 2,
+    "p4_claimable_by_fifo": true
+  },
+  "statuses": [
+    "closed",
+    "deferred",
+    "in_progress",
+    "open"
+  ],
+  "dependency_kinds": [
+    "blocks",
+    "relates_to",
+    "verifies"
+  ],
+  "checkpoint_modes": [
+    "monolithic",
+    "sharded"
+  ],
+  "checkpoint_formats": [
+    "issues-jsonl-v1",
+    "checkpoint-set-v1"
+  ],
+  "logical_revision": true,
+  "schema_ref": "urn:bead-rs:schema:capabilities:native-v1",
+  "schemas": [
+    {
+      "schema_ref": "urn:bead-rs:schema:attempt-outcome:native-v1",
+      "document_kind": "attempt_outcome",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:capabilities:native-v1",
+      "document_kind": "capabilities",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [],
+      "emit": [
+        "capabilities"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:checkpoint-manifest:native-v1",
+      "document_kind": "checkpoint_manifest",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "checkpoint-set-v1"
+      ],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:checkpoint-pointer:native-v1",
+      "document_kind": "checkpoint_pointer",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "checkpoint-set-v1"
+      ],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:event:native-v1",
+      "document_kind": "audit_event",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:field-guide:native-v1",
+      "document_kind": "field_guide",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [],
+      "emit": [
+        "schema.explain"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:issue:native-v1",
+      "document_kind": "issue",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "sync.import-only"
+      ],
+      "emit": [
+        "checkpoint-set-v1",
+        "sync.flush-only"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:provenance-receipt:native-v1",
+      "document_kind": "provenance_receipt",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "checkpoint-set-v1"
+      ],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:redaction-acknowledgment:native-v1",
+      "document_kind": "redaction_acknowledgment",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "checkpoint-set-v1"
+      ],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:redaction-epoch:native-v1",
+      "document_kind": "redaction_epoch",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "checkpoint-set-v1"
+      ],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:redaction-field-selector:native-v1",
+      "document_kind": "redaction_field_selector",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [],
+      "emit": []
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:redaction-finding:native-v1",
+      "document_kind": "redaction_finding",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "checkpoint-set-v1"
+      ],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:redaction-receipt:native-v1",
+      "document_kind": "redaction_receipt",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "checkpoint-set-v1"
+      ],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:redaction-tombstone:native-v1",
+      "document_kind": "redaction_tombstone",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "checkpoint-set-v1"
+      ],
+      "emit": [
+        "checkpoint-set-v1"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:resolve-receipt:native-v1",
+      "document_kind": "resolve_receipt",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [],
+      "emit": [
+        "resolve"
+      ]
+    },
+    {
+      "schema_ref": "urn:bead-rs:schema:resolve-request:native-v1",
+      "document_kind": "resolve_request",
+      "validate": true,
+      "readable": true,
+      "writable": true,
+      "lossy": null,
+      "consume": [
+        "resolve"
+      ],
+      "emit": []
+    }
+  ],
+  "commands": [
+    "analyze-exclusion",
+    "capabilities",
+    "changes",
+    "claim",
+    "close",
+    "comment",
+    "compare",
+    "create",
+    "data",
+    "dep",
+    "doctor",
+    "help",
+    "init",
+    "label",
+    "list",
+    "manifest",
+    "policy",
+    "query",
+    "redact",
+    "recurrence",
+    "ref",
+    "release",
+    "reopen",
+    "resolve",
+    "restore",
+    "resource",
+    "schema",
+    "show",
+    "sync",
+    "update",
+    "watchdog",
+    "why"
+  ],
+  "agent_ergonomics": {
+    "version": 1,
+    "issue_documents": {
+      "list_json": "array",
+      "list_jsonl": "object-per-line",
+      "show_json": "object",
+      "create_json": "object",
+      "history_json": "array",
+      "dependency_list_json": "array",
+      "count_json": "object"
+    },
+    "json_selectors": [
+      "--json",
+      "--format json"
+    ],
+    "claim_credential_environment": [
+      "NEEDLE_BEAD_ID",
+      "NEEDLE_BEAD_FENCING_TOKEN"
+    ],
+    "text_sources": [
+      "inline",
+      "file",
+      "stdin"
+    ],
+    "shortcuts": [
+      "ready",
+      "search",
+      "list-all",
+      "list-search",
+      "list-count",
+      "dependency-list",
+      "bare-id",
+      "history",
+      "positional-labels"
+    ]
+  },
+  "auto_flush": true,
+  "auto_stage": true,
+  "attempt_outcome": {
+    "supported": true,
+    "outcomes": [
+      "verified_success",
+      "work_failure",
+      "infrastructure_failure",
+      "cancelled",
+      "indeterminate"
+    ],
+    "actions": [
+      "close",
+      "release",
+      "quarantine",
+      "block",
+      "none"
+    ],
+    "replay_detection": true,
+    "revision_guard": true,
+    "fencing_token": true,
+    "evidence_refs": true,
+    "resolve_receipt_schema": "urn:bead-rs:schema:resolve-receipt:native-v1",
+    "resolve_request_schema": "urn:bead-rs:schema:resolve-request:native-v1"
+  },
+  "attempt_summary": true,
+  "secret_scan": {
+    "contract_identity": "urn:bead-rs:spec:secret-rejection:v1",
+    "ruleset_version": 4,
+    "effective_mode": "enforce",
+    "blocking": true,
+    "advisory": true,
+    "exact_fingerprint_acknowledgment": true,
+    "ruleset_contract": "urn:bead-rs:spec:secret-ruleset:v4",
+    "compiled_policy": "workspace-configurable",
+    "service_write_gate": true,
+    "recovery_quarantine": true
+  },
+  "historical_redaction": {
+    "contract": "urn:bead-rs:spec:historical-redaction:v1",
+    "doctor_findings": true,
+    "atomic_redact": true,
+    "anti_resurrection": true,
+    "sanitized_generation_set": true,
+    "resumable_publication": true,
+    "atomic_batch": true,
+    "local_sqlite_cleanup": true,
+    "metadata_redaction": true,
+    "identity_key_redaction": true
+  }
+}
