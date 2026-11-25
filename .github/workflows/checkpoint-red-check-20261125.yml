@@ -1,0 +1,68 @@
+name: Check exact checkpoint Red regressions
+
+on:
+  push:
+    branches:
+      - task/checkpoint-red-check-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: checkpoint-red-check-20261125
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 30
+    steps:
+      - name: Read exact qualification files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/checkpoint-linux-red
+
+      - name: Read the separately accepted compile artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: '14986424212'
+          merge-multiple: true
+          repository: YossiMH/bead-me-up-scotty
+          run-id: '45537110469'
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/checkpoint-red-accepted-build-45537110469
+
+      - name: Parse both exact helpers
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/checkpoint-check-python-cache-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python3 -m py_compile \
+            "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/checkpoint-red-build-20261125.py" \
+            "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/check/checkpoint-red-check-20261125.py"
+
+      - name: Verify artifacts and check six intended failures
+        timeout-minutes: 23
+        run: |
+          python3 "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/check/checkpoint-red-check-20261125.py" \
+            --artifact-directory "$RUNNER_TEMP/checkpoint-red-accepted-build-45537110469" \
+            --inputs "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/check/check-inputs.json" \
+            --inputs-sha256 100bef573d636eae9d1ba4c165f4c26e05e80dbd93d79d23018346dc8463f673 \
+            --helper-sha256 f23d8dba421ae09b28f9b54bcc0cffbcdddb6b475596d347d6f3534a15b62314 \
+            --build-helper "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/checkpoint-red-build-20261125.py"
+
+      - name: Retain exact test results and complete streams
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-red-check-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/bead-checkpoint-red-check-${{ github.run_id }}-${{ github.run_attempt }}/result.json
+            ${{ runner.temp }}/bead-checkpoint-red-check-${{ github.run_id }}-${{ github.run_attempt }}/attempt-started.json
+            ${{ runner.temp }}/bead-checkpoint-red-check-${{ github.run_id }}-${{ github.run_attempt }}/logs
