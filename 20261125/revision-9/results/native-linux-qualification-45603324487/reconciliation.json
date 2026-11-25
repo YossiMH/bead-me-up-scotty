@@ -1,0 +1,273 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Actual final Linux affected checks and complete default suite",
+  "run_id": 45603324487,
+  "run_attempt": 1,
+  "job_id": 139167619928,
+  "workflow_commit": "41a1bcb1442987773d7c9a7391b959711394d9fd",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "affected": {
+    "result_sha256": "2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f",
+    "passed": 95,
+    "failed": 0,
+    "ignored": 0,
+    "targets": 9,
+    "exit_code": 0
+  },
+  "full_suite": {
+    "result_sha256": "7516c4d9bda3146d19d7b24f7acab5c4bd7ee1cdb2eab5f41ca4b432aaa66dd0",
+    "passed": 1913,
+    "failed": 0,
+    "ignored": 8,
+    "default_harnesses": 145,
+    "doctest_result_groups": 1,
+    "complete_result_groups": 146,
+    "exit_code": 0,
+    "required_checkpoint_repair_tests_passed": 17,
+    "required_new_tests_passed": 17
+  },
+  "source_files_unchanged": 652,
+  "owned_process_groups": 20,
+  "remaining_process_groups": 0,
+  "environment_cleanup": "passed",
+  "executable_before_after_records": "Exact inventories are retained; Cargo refreshed six build outputs as recorded, on the unchanged source. Release qualification remains bound to the original producer and its separately executed exact Windows output.",
+  "actual_log": {
+    "bytes": 759397,
+    "sha256": "b65db5da1fb5ea1e5dff77583287036dc8df92bcdbd5d6f665521f03f9bbea1f"
+  },
+  "decoded_records": [
+    {
+      "path": "type-backend-checks.json",
+      "bytes": 11192,
+      "sha256": "2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f"
+    },
+    {
+      "path": "logs/cargo-type-checks.stderr",
+      "bytes": 5317,
+      "sha256": "adb8a163790052a8a8a89e320d80e751cdbbb98b1238d90b8d34597da436e73e"
+    },
+    {
+      "path": "logs/cargo-type-checks.stdout",
+      "bytes": 6941,
+      "sha256": "254634ca875240daee48bde6129a28b13badf0075f836a8ca6ebcc44c25c1ba4"
+    },
+    {
+      "path": "result.json",
+      "bytes": 57206,
+      "sha256": "7516c4d9bda3146d19d7b24f7acab5c4bd7ee1cdb2eab5f41ca4b432aaa66dd0"
+    },
+    {
+      "path": "logs/cargo-full-suite.stderr",
+      "bytes": 29121,
+      "sha256": "b8d38c253514145929cef9e38cbc60492edc7ae5238c72337b3961d23d4a0ea1"
+    },
+    {
+      "path": "logs/cargo-full-suite.stdout",
+      "bytes": 144477,
+      "sha256": "3f6f68474425e5b9e317c28300708884262d8dde615dbc13ee69a72e5924190c"
+    },
+    {
+      "path": "logs/cargo-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/cargo-version.stdout",
+      "bytes": 37,
+      "sha256": "d62bac2223cd9bd1a54c0ccd82d4084b7d1d60044855e2f6a1b49f4f77e6f41c"
+    },
+    {
+      "path": "logs/native-loader-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/native-loader-version.stdout",
+      "bytes": 267,
+      "sha256": "eef7b66219f3037fa101b68a3bb64cbb5b60799c11e9e6df0c3f8dcd3b48ee63"
+    },
+    {
+      "path": "logs/pin-loader-alias.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-alias.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-0.stdout",
+      "bytes": 402,
+      "sha256": "7cf1a869c207fc4b3100cb3599be9486bf0a6180b9c89f80b819b31db670113d"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-1.stdout",
+      "bytes": 402,
+      "sha256": "2c47866ac05011260c6cad0cce42812a30b6cab715defaf5e5a22ea1c6bd24d7"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-2.stdout",
+      "bytes": 402,
+      "sha256": "0d57f08fd00292d9afc2b5c296c3666cefb01215a0cdf7d308ba3eb27384706e"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-3.stdout",
+      "bytes": 402,
+      "sha256": "cb7bcafdd506943f08f56fa1ebb1fe39d606bb40655d2c305a30776fb90cc391"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-4.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-dependencies-4.stdout",
+      "bytes": 402,
+      "sha256": "469f7977edf1966dcc20be32c390b2e5ad009d00baa82d6e3135c51ab3423212"
+    },
+    {
+      "path": "logs/pin-loader-directory-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-directory-0.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-directory-1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-directory-1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-directory-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-directory-2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-directory-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/pin-loader-directory-3.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-loader-directory-0.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-loader-directory-0.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-loader-directory-1.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-loader-directory-1.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-loader-directory-2.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-loader-directory-2.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-loader-directory-3.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-loader-directory-3.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-pin-loader-alias.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/remove-pin-loader-alias.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/rustc-version.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "logs/rustc-version.stdout",
+      "bytes": 37,
+      "sha256": "56625f11cb9e645f8e638a6bcdf0565a20a8724585b537b8548886789b9f77be"
+    },
+    {
+      "path": "complete-target-results.json",
+      "bytes": 165970,
+      "sha256": "d8393f600dad92270bbd83155efcc56c210aa30dacbf36124d7066690f2c39fb"
+    },
+    {
+      "path": "executables-before.json",
+      "bytes": 53733,
+      "sha256": "e6dd9184049d6967e56fb84defd884180ca039c0fbf60807b2dffdf9f68bb646"
+    },
+    {
+      "path": "executables-after.json",
+      "bytes": 39469,
+      "sha256": "14eed40d139598b288c562ef91c98f340b0154576047d0a23ad1e113ee03b995"
+    },
+    {
+      "path": "environment-corrections.json",
+      "bytes": 2506,
+      "sha256": "14011d9c413674f345199895ec073f726ca970536f5c144e2fbe086256006ce3"
+    }
+  ],
+  "original_corpus": "Separate completed recovery job139167619794 and its retained evidence/review remain unchanged."
+}

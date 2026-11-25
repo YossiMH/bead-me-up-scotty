@@ -1,0 +1,306 @@
+{
+  "build_result_sha256": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--test",
+    "issue_type_file",
+    "--test",
+    "cli_editing",
+    "--test",
+    "r041_text_inputs",
+    "--test",
+    "r041_issue_json_documents",
+    "--test",
+    "cli_capabilities",
+    "--test",
+    "cli_schema",
+    "--test",
+    "capability_framework",
+    "--test",
+    "capability_variant_matrix",
+    "--test",
+    "redaction_transaction",
+    "--",
+    "--test-threads=1"
+  ],
+  "commands": [
+    {
+      "args": [
+        "cargo",
+        "test",
+        "--locked",
+        "--test",
+        "issue_type_file",
+        "--test",
+        "cli_editing",
+        "--test",
+        "r041_text_inputs",
+        "--test",
+        "r041_issue_json_documents",
+        "--test",
+        "cli_capabilities",
+        "--test",
+        "cli_schema",
+        "--test",
+        "capability_framework",
+        "--test",
+        "capability_variant_matrix",
+        "--test",
+        "redaction_transaction",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:35.291983+00:00",
+      "label": "cargo-type-checks",
+      "pgid": 2307,
+      "pid": 2307,
+      "started": "2026-11-25T11:20:03.005551+00:00",
+      "stderr": "logs/cargo-type-checks.stderr",
+      "stdout": "logs/cargo-type-checks.stdout"
+    }
+  ],
+  "duration_seconds": 32.288,
+  "exit_code": 0,
+  "format_and_clippy": "Passed in the exact source producer receipt",
+  "ignored_test_count": 0,
+  "passed_test_count": 95,
+  "producing_run": {
+    "attempt": "1",
+    "id": "45600748319",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7"
+  },
+  "required_maintenance_tests": [
+    "assignee_metadata_is_redactable_without_deleting_the_issue",
+    "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+    "concurrent_identical_requests_commit_once_and_replay_once",
+    "every_supported_nonissue_record_preserves_identity_and_integrity",
+    "garage_access_key_id_assignment_is_discoverable_and_redactable",
+    "issue_redaction_is_exact_atomic_and_idempotent"
+  ],
+  "required_targets": [
+    "issue_type_file",
+    "cli_editing",
+    "r041_text_inputs",
+    "r041_issue_json_documents",
+    "cli_capabilities",
+    "cli_schema",
+    "capability_framework",
+    "capability_variant_matrix",
+    "redaction_transaction"
+  ],
+  "required_type_tests": [
+    "capability_schema_accepts_the_optional_type_transport",
+    "dry_run_and_repeated_file_values_preserve_saved_state",
+    "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+    "file_type_is_scanned_before_any_scalar_edit",
+    "help_and_generated_man_page_describe_type_file_input",
+    "inline_and_file_conflict_before_reading_the_file",
+    "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+    "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+    "only_one_text_field_may_consume_stdin",
+    "stdin_type_preserves_exact_text",
+    "stored_issue_and_manifest_keep_literal_type_text"
+  ],
+  "schema_version": 1,
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "status": "passed",
+  "stderr": {
+    "bytes": 5317,
+    "mode": 420,
+    "path": "logs/cargo-type-checks.stderr",
+    "sha256": "adb8a163790052a8a8a89e320d80e751cdbbb98b1238d90b8d34597da436e73e"
+  },
+  "stdout": {
+    "bytes": 6941,
+    "mode": 420,
+    "path": "logs/cargo-type-checks.stdout",
+    "sha256": "254634ca875240daee48bde6129a28b13badf0075f836a8ca6ebcc44c25c1ba4"
+  },
+  "targets": [
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 5,
+      "passed_tests": [
+        "tests::test_command_exists",
+        "tests::test_get_capabilities",
+        "tests::test_harness_creation",
+        "tests::test_has_capability_field",
+        "tests::test_workspace_init"
+      ],
+      "target": "capability_framework"
+    },
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 11,
+      "passed_tests": [
+        "capability_absence_degrades_gracefully",
+        "capability_detection_matches_each_variant",
+        "capability_framework::tests::test_command_exists",
+        "capability_framework::tests::test_get_capabilities",
+        "capability_framework::tests::test_harness_creation",
+        "capability_framework::tests::test_has_capability_field",
+        "capability_framework::tests::test_workspace_init",
+        "capability_presence_exposes_full_surface",
+        "feature_flag_handling_is_decoupled_from_capability",
+        "variant_pair_resolves_as_distinct_verified_binaries",
+        "variants_share_the_core_contract"
+      ],
+      "target": "capability_variant_matrix"
+    },
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 12,
+      "passed_tests": [
+        "auto_flush_advertisement_ignores_workspace_state",
+        "auto_flush_advertisement_matches_binary_behavior",
+        "auto_flush_field_tracks_the_compiled_default",
+        "capability_library_boundary_cannot_forge_a_managed_downgrade",
+        "secret_scan_capability_reports_effective_workspace_mode",
+        "secret_scan_capability_uses_compiled_default_without_workspace",
+        "test_capabilities_default_profile",
+        "test_capabilities_invalid_profile",
+        "test_capabilities_native_profile",
+        "test_capabilities_needle_profile",
+        "test_capabilities_no_workspace",
+        "test_capabilities_schema_entries"
+      ],
+      "target": "cli_capabilities"
+    },
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 23,
+      "passed_tests": [
+        "capabilities_schema_and_help_describe_the_same_editable_fields",
+        "claimed_edits_require_the_issued_credential",
+        "compound_edit_preserves_identity_extensions_and_related_records",
+        "concurrent_editors_with_one_revision_have_one_complete_winner",
+        "conflicting_sources_and_invalid_utf8_do_not_modify_the_issue",
+        "description_file_stdin_and_clear_preserve_exact_text",
+        "dry_run_enforces_revision_claim_and_transition_checks",
+        "dry_run_projects_the_committed_edit_without_writing",
+        "dry_run_redacts_new_text_fields_and_assignment_summary",
+        "dry_run_redacts_stored_closed_metadata_and_preserves_exact_clean_text",
+        "edited_content_and_audit_survive_published_checkpoint_restore",
+        "editing_closed_metadata_preserves_the_close_record",
+        "invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged",
+        "manifest_edits_and_dependency_changes_commit_together",
+        "manifest_edits_cannot_take_over_an_existing_claim",
+        "manifest_later_failure_rolls_back_edits_and_priority_audit",
+        "manifest_output_redacts_scalar_changes_without_masking_stored_values",
+        "new_edit_fields_keep_native_content_checks_and_redacted_errors",
+        "priority_change_records_reason_actor_and_changes_ready_order",
+        "priority_requires_a_reason_and_same_value_has_no_priority_event",
+        "repeated_edits_are_noops_after_revision_and_claim_checks",
+        "stale_revision_rejects_the_whole_edit",
+        "title_limits_count_utf8_bytes"
+      ],
+      "target": "cli_editing"
+    },
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 11,
+      "passed_tests": [
+        "schema_explain_concise_path_fits_published_schema",
+        "schema_explain_guide_fits_its_published_schema",
+        "schema_explain_json_and_markdown_are_deterministic",
+        "schema_explain_json_and_markdown_represent_the_same_typed_source",
+        "schema_explain_output_is_byte_identical_across_runs",
+        "schema_list_is_workspace_independent_and_deterministic",
+        "schema_list_matches_capabilities_catalog",
+        "schema_list_rejects_unsupported_format_as_usage_error",
+        "schema_show_and_explain_reject_malformed_identities",
+        "schema_show_and_explain_reject_unknown_identity",
+        "schema_show_resolves_every_catalog_identity"
+      ],
+      "target": "cli_schema"
+    },
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 11,
+      "passed_tests": [
+        "capability_schema_accepts_the_optional_type_transport",
+        "dry_run_and_repeated_file_values_preserve_saved_state",
+        "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+        "file_type_is_scanned_before_any_scalar_edit",
+        "help_and_generated_man_page_describe_type_file_input",
+        "inline_and_file_conflict_before_reading_the_file",
+        "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+        "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+        "only_one_text_field_may_consume_stdin",
+        "stdin_type_preserves_exact_text",
+        "stored_issue_and_manifest_keep_literal_type_text"
+      ],
+      "target": "issue_type_file"
+    },
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 10,
+      "passed_tests": [
+        "capabilities_advertise_issue_document_shapes",
+        "create_and_claim_format_aliases_match_existing_json_bytes",
+        "format_based_commands_show_json_in_leaf_help",
+        "format_commands_advertise_json_and_preserve_other_renderings",
+        "help_describes_the_issue_json_shapes",
+        "list_json_and_jsonl_conflict_with_usage_exit_code",
+        "list_json_is_one_array_for_empty_one_and_many_results",
+        "output_selector_aliases_are_byte_identical_and_query_keeps_its_json_input",
+        "show_json_is_the_complete_issue_object",
+        "unsupported_and_conflicting_output_selectors_have_stable_usage_errors"
+      ],
+      "target": "r041_issue_json_documents"
+    },
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 6,
+      "passed_tests": [
+        "append_and_hyphen_leading_values_are_stored_verbatim",
+        "append_honors_revision_and_claim_credentials",
+        "blocked_secret_in_append_leaves_the_issue_unchanged",
+        "file_and_stdin_sources_match_inline_values",
+        "multiple_text_sources_are_usage_errors",
+        "two_connections_append_without_losing_either_value"
+      ],
+      "target": "r041_text_inputs"
+    },
+    {
+      "failed": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "passed": 6,
+      "passed_tests": [
+        "assignee_metadata_is_redactable_without_deleting_the_issue",
+        "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+        "concurrent_identical_requests_commit_once_and_replay_once",
+        "every_supported_nonissue_record_preserves_identity_and_integrity",
+        "garage_access_key_id_assignment_is_discoverable_and_redactable",
+        "issue_redaction_is_exact_atomic_and_idempotent"
+      ],
+      "target": "redaction_transaction"
+    }
+  ],
+  "task_key": "type-backend-checks",
+  "timeout_seconds": 900
+}

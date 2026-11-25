@@ -1,0 +1,2214 @@
+{
+  "build_result_sha256": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb",
+  "build_root": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1",
+  "bundle_sha256": "70cce1166193b38a5baaa35419e447acf6f6a73cab040dc7c315dc2aed13fb9f",
+  "cargo_bin_exe_bead": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/bead",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--no-fail-fast",
+    "--",
+    "--test-threads=1"
+  ],
+  "commands": [
+    {
+      "args": [
+        "rustc",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.870653+00:00",
+      "label": "rustc-version",
+      "pgid": 2280,
+      "pid": 2280,
+      "started": "2026-11-25T11:20:02.848488+00:00",
+      "stderr": "logs/rustc-version.stderr",
+      "stdout": "logs/rustc-version.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.896956+00:00",
+      "label": "cargo-version",
+      "pgid": 2286,
+      "pid": 2286,
+      "started": "2026-11-25T11:20:02.871501+00:00",
+      "stderr": "logs/cargo-version.stderr",
+      "stdout": "logs/cargo-version.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.943087+00:00",
+      "label": "native-loader-version",
+      "pgid": 2291,
+      "pid": 2291,
+      "started": "2026-11-25T11:20:02.940421+00:00",
+      "stderr": "logs/native-loader-version.stderr",
+      "stdout": "logs/native-loader-version.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "mkdir",
+        "-m",
+        "755",
+        "--",
+        "/nix"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.952728+00:00",
+      "label": "pin-loader-directory-0",
+      "pgid": 2292,
+      "pid": 2292,
+      "started": "2026-11-25T11:20:02.944463+00:00",
+      "stderr": "logs/pin-loader-directory-0.stderr",
+      "stdout": "logs/pin-loader-directory-0.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "mkdir",
+        "-m",
+        "755",
+        "--",
+        "/nix/store"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.961833+00:00",
+      "label": "pin-loader-directory-1",
+      "pgid": 2294,
+      "pid": 2294,
+      "started": "2026-11-25T11:20:02.953340+00:00",
+      "stderr": "logs/pin-loader-directory-1.stderr",
+      "stdout": "logs/pin-loader-directory-1.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "mkdir",
+        "-m",
+        "755",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.970632+00:00",
+      "label": "pin-loader-directory-2",
+      "pgid": 2296,
+      "pid": 2296,
+      "started": "2026-11-25T11:20:02.962308+00:00",
+      "stderr": "logs/pin-loader-directory-2.stderr",
+      "stdout": "logs/pin-loader-directory-2.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "mkdir",
+        "-m",
+        "755",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.979348+00:00",
+      "label": "pin-loader-directory-3",
+      "pgid": 2298,
+      "pid": 2298,
+      "started": "2026-11-25T11:20:02.971080+00:00",
+      "stderr": "logs/pin-loader-directory-3.stderr",
+      "stdout": "logs/pin-loader-directory-3.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "ln",
+        "-s",
+        "--",
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib/ld-linux-x86-64.so.2"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.988567+00:00",
+      "label": "pin-loader-alias",
+      "pgid": 2300,
+      "pid": 2300,
+      "started": "2026-11-25T11:20:02.980245+00:00",
+      "stderr": "logs/pin-loader-alias.stderr",
+      "stdout": "logs/pin-loader-alias.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source/pinned-binaries/bead-pre-feature"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.991448+00:00",
+      "label": "pin-loader-dependencies-0",
+      "pgid": 2302,
+      "pid": 2302,
+      "started": "2026-11-25T11:20:02.989032+00:00",
+      "stderr": "logs/pin-loader-dependencies-0.stderr",
+      "stdout": "logs/pin-loader-dependencies-0.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source/pinned-binaries/bead-pre-attempt-resolution"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.994125+00:00",
+      "label": "pin-loader-dependencies-1",
+      "pgid": 2303,
+      "pid": 2303,
+      "started": "2026-11-25T11:20:02.991879+00:00",
+      "stderr": "logs/pin-loader-dependencies-1.stderr",
+      "stdout": "logs/pin-loader-dependencies-1.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source/pinned-binaries/bead-attempt-resolution-f25ab5c"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:02.996910+00:00",
+      "label": "pin-loader-dependencies-2",
+      "pgid": 2304,
+      "pid": 2304,
+      "started": "2026-11-25T11:20:02.994543+00:00",
+      "stderr": "logs/pin-loader-dependencies-2.stderr",
+      "stdout": "logs/pin-loader-dependencies-2.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source/pinned-binaries/bead-attempt-resolution-e115609"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:03.000068+00:00",
+      "label": "pin-loader-dependencies-3",
+      "pgid": 2305,
+      "pid": 2305,
+      "started": "2026-11-25T11:20:02.997822+00:00",
+      "stderr": "logs/pin-loader-dependencies-3.stderr",
+      "stdout": "logs/pin-loader-dependencies-3.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source/pinned-binaries/bead-managed-secret-policy-cd4986c"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:03.002628+00:00",
+      "label": "pin-loader-dependencies-4",
+      "pgid": 2306,
+      "pid": 2306,
+      "started": "2026-11-25T11:20:03.000433+00:00",
+      "stderr": "logs/pin-loader-dependencies-4.stderr",
+      "stdout": "logs/pin-loader-dependencies-4.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "test",
+        "--locked",
+        "--test",
+        "issue_type_file",
+        "--test",
+        "cli_editing",
+        "--test",
+        "r041_text_inputs",
+        "--test",
+        "r041_issue_json_documents",
+        "--test",
+        "cli_capabilities",
+        "--test",
+        "cli_schema",
+        "--test",
+        "capability_framework",
+        "--test",
+        "capability_variant_matrix",
+        "--test",
+        "redaction_transaction",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:20:35.291983+00:00",
+      "label": "cargo-type-checks",
+      "pgid": 2307,
+      "pid": 2307,
+      "started": "2026-11-25T11:20:03.005551+00:00",
+      "stderr": "logs/cargo-type-checks.stderr",
+      "stdout": "logs/cargo-type-checks.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "test",
+        "--locked",
+        "--no-fail-fast",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:34:04.998716+00:00",
+      "label": "cargo-full-suite",
+      "pgid": 3700,
+      "pid": 3700,
+      "started": "2026-11-25T11:20:35.295335+00:00",
+      "stderr": "logs/cargo-full-suite.stderr",
+      "stdout": "logs/cargo-full-suite.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "unlink",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib/ld-linux-x86-64.so.2"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:34:05.044894+00:00",
+      "label": "remove-pin-loader-alias",
+      "pgid": 42718,
+      "pid": 42718,
+      "started": "2026-11-25T11:34:05.012669+00:00",
+      "stderr": "logs/remove-pin-loader-alias.stderr",
+      "stdout": "logs/remove-pin-loader-alias.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "rmdir",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:34:05.053726+00:00",
+      "label": "remove-loader-directory-0",
+      "pgid": 42720,
+      "pid": 42720,
+      "started": "2026-11-25T11:34:05.045627+00:00",
+      "stderr": "logs/remove-loader-directory-0.stderr",
+      "stdout": "logs/remove-loader-directory-0.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "rmdir",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:34:05.062219+00:00",
+      "label": "remove-loader-directory-1",
+      "pgid": 42722,
+      "pid": 42722,
+      "started": "2026-11-25T11:34:05.054151+00:00",
+      "stderr": "logs/remove-loader-directory-1.stderr",
+      "stdout": "logs/remove-loader-directory-1.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "rmdir",
+        "--",
+        "/nix/store"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:34:05.070625+00:00",
+      "label": "remove-loader-directory-2",
+      "pgid": 42724,
+      "pid": 42724,
+      "started": "2026-11-25T11:34:05.062611+00:00",
+      "stderr": "logs/remove-loader-directory-2.stderr",
+      "stdout": "logs/remove-loader-directory-2.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "rmdir",
+        "--",
+        "/nix"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:34:05.079100+00:00",
+      "label": "remove-loader-directory-3",
+      "pgid": 42726,
+      "pid": 42726,
+      "started": "2026-11-25T11:34:05.071042+00:00",
+      "stderr": "logs/remove-loader-directory-3.stderr",
+      "stdout": "logs/remove-loader-directory-3.stdout"
+    }
+  ],
+  "complete_target_results_file": {
+    "bytes": 165970,
+    "mode": 420,
+    "path": "complete-target-results.json",
+    "sha256": "d8393f600dad92270bbd83155efcc56c210aa30dacbf36124d7066690f2c39fb"
+  },
+  "doctest_result_groups": 1,
+  "doctests": [
+    "doctest:bead_rs"
+  ],
+  "duration_seconds": 866.519,
+  "environment_corrections": {
+    "child_git_identity": {
+      "GIT_AUTHOR_EMAIL": "bead-checkpoint-ci@example.invalid",
+      "GIT_AUTHOR_NAME": "Bead checkpoint CI",
+      "GIT_COMMITTER_EMAIL": "bead-checkpoint-ci@example.invalid",
+      "GIT_COMMITTER_NAME": "Bead checkpoint CI"
+    },
+    "cleanup_errors": [],
+    "cleanup_status": "passed",
+    "created_directories": [
+      "/nix",
+      "/nix/store",
+      "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67",
+      "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib"
+    ],
+    "lease_binary_alias": {
+      "path": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/389083daec335191/bead",
+      "removed": true,
+      "target": "/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/bead"
+    },
+    "loader_alias": {
+      "path": "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib/ld-linux-x86-64.so.2",
+      "removed": true,
+      "target": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2"
+    },
+    "native_loader": {
+      "absolute_path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "bytes": 236616,
+      "mode": 493,
+      "path": "usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "5fc0940888e9d2e1a00e66d6b1a559c36364ee867683652e1074fa576952cc3f",
+      "version": "ld.so (Ubuntu GLIBC 2.39-0ubuntu8.12) stable release version 2.39.\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.\nThere is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A\nPARTICULAR PURPOSE."
+    },
+    "pins": [
+      {
+        "bytes": 6788016,
+        "mode": 509,
+        "path": "pinned-binaries/bead-pre-feature",
+        "sha256": "7e0e73defebb75fc987ddf8b6fb959f47c73ccbbcd7e066e2af302a6a43db6b5"
+      },
+      {
+        "bytes": 7305144,
+        "mode": 509,
+        "path": "pinned-binaries/bead-pre-attempt-resolution",
+        "sha256": "d0da42bbf59b721bc64bc3d55610844efe3f1f06e37c2d9494c0b3dda6e29ac6"
+      },
+      {
+        "bytes": 7305184,
+        "mode": 509,
+        "path": "pinned-binaries/bead-attempt-resolution-f25ab5c",
+        "sha256": "9a8455f25bacf5bc961bd740442fdc1b30a67fb6e38d304c23c97a57cf57b04e"
+      },
+      {
+        "bytes": 7305144,
+        "mode": 509,
+        "path": "pinned-binaries/bead-attempt-resolution-e115609",
+        "sha256": "68fe8d534721be4ba4147312364d8f0b216b62f3093e85e7c91f0a0db695a645"
+      },
+      {
+        "bytes": 12725336,
+        "mode": 509,
+        "path": "pinned-binaries/bead-managed-secret-policy-cd4986c",
+        "sha256": "6a5969ed9c1c5215d3f0f93505aa0603d7375281f6fb3f64ea6101ece149a50f"
+      }
+    ],
+    "status": "prepared"
+  },
+  "executables_after_file": {
+    "bytes": 39469,
+    "mode": 420,
+    "path": "executables-after.json",
+    "sha256": "14eed40d139598b288c562ef91c98f340b0154576047d0a23ad1e113ee03b995"
+  },
+  "executables_before_file": {
+    "bytes": 53733,
+    "mode": 420,
+    "path": "executables-before.json",
+    "sha256": "e6dd9184049d6967e56fb84defd884180ca039c0fbf60807b2dffdf9f68bb646"
+  },
+  "failed_test_count": 0,
+  "finished": "2026-11-25T11:34:05.853226+00:00",
+  "helper_sha256": "5fe0e762be507fc468ab71b17cd4647fc04e56a0eecbf846e122c597c86c391d",
+  "ignored_test_count": 8,
+  "input_sha256": "7da8c52386b446ebe5156e549bf790d17c528c76c0096fe21e815337331511ea",
+  "logs_retention_days_required": 7,
+  "operation": "checkpoint-full-suite",
+  "output": "/home/runner/work/_temp/bead-checkpoint-full-suite-45603324487-1",
+  "passed_test_count": 1913,
+  "process_group_cleanup": [
+    {
+      "label": "rustc-version",
+      "pgid": 2280,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo-version",
+      "pgid": 2286,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "native-loader-version",
+      "pgid": 2291,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-directory-0",
+      "pgid": 2292,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-directory-1",
+      "pgid": 2294,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-directory-2",
+      "pgid": 2296,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-directory-3",
+      "pgid": 2298,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-alias",
+      "pgid": 2300,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-0",
+      "pgid": 2302,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-1",
+      "pgid": 2303,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-2",
+      "pgid": 2304,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-3",
+      "pgid": 2305,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-4",
+      "pgid": 2306,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo-type-checks",
+      "pgid": 2307,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo-full-suite",
+      "pgid": 3700,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-pin-loader-alias",
+      "pgid": 42718,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-loader-directory-0",
+      "pgid": 42720,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-loader-directory-1",
+      "pgid": 42722,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-loader-directory-2",
+      "pgid": 42724,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-loader-directory-3",
+      "pgid": 42726,
+      "remaining": false,
+      "signals": []
+    }
+  ],
+  "producing_run": {
+    "attempt": "1",
+    "id": "45600748319",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7"
+  },
+  "profiles": {
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0"
+  },
+  "recompiled_executables": [
+    "binary:bead",
+    "binary:generate-man-pages",
+    "harness:bin:bead",
+    "harness:lib:bead_rs",
+    "harness:test:issue_type_file",
+    "harness:test:mutating_command_event_contract"
+  ],
+  "required_checkpoint_repair_tests": [
+    "assignee_metadata_is_redactable_without_deleting_the_issue",
+    "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+    "concurrent_editors_with_one_revision_have_one_complete_winner",
+    "concurrent_identical_requests_commit_once_and_replay_once",
+    "concurrent_workers_leave_one_intact_covering_generation",
+    "every_supported_nonissue_record_preserves_identity_and_integrity",
+    "garage_access_key_id_assignment_is_discoverable_and_redactable",
+    "higher_sequence_without_local_publication_proof_cannot_admit_a_mutation",
+    "issue_redaction_is_exact_atomic_and_idempotent",
+    "mutation_waits_for_a_stable_checkpoint_before_committing",
+    "service::checkpoint::tests::publication_lock_is_exclusive_across_openers",
+    "set_v2_concurrent_publication",
+    "set_v2_crash_ordering",
+    "set_v2_dual_layout_reader_equivalence",
+    "set_v2_shard_merge_on_deletion",
+    "set_v2_shard_split_on_update_storm",
+    "simultaneous_empty_target_restores_have_one_winner_and_one_refusal"
+  ],
+  "required_checkpoint_repair_tests_passed": 17,
+  "required_new_tests": [
+    "capability_schema_accepts_the_optional_type_transport",
+    "dry_run_and_repeated_file_values_preserve_saved_state",
+    "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+    "file_type_is_scanned_before_any_scalar_edit",
+    "help_and_generated_man_page_describe_type_file_input",
+    "inline_and_file_conflict_before_reading_the_file",
+    "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+    "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+    "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+    "only_one_text_field_may_consume_stdin",
+    "selected_set_v2_generation_remains_restorable_after_tail_append",
+    "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+    "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+    "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard",
+    "stdin_type_preserves_exact_text",
+    "stored_issue_and_manifest_keep_literal_type_text",
+    "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+  ],
+  "required_new_tests_passed": 17,
+  "run": {
+    "attempt": "1",
+    "id": "45603324487",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "41a1bcb1442987773d7c9a7391b959711394d9fd"
+  },
+  "schema_version": 1,
+  "seconds": 5400,
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_files_unchanged": 652,
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "started": "2026-11-25T11:19:39.925194+00:00",
+  "status": "passed",
+  "stderr": {
+    "bytes": 29121,
+    "mode": 420,
+    "path": "logs/cargo-full-suite.stderr",
+    "sha256": "b8d38c253514145929cef9e38cbc60492edc7ae5238c72337b3961d23d4a0ea1"
+  },
+  "stdout": {
+    "bytes": 144477,
+    "mode": 420,
+    "path": "logs/cargo-full-suite.stdout",
+    "sha256": "3f6f68474425e5b9e317c28300708884262d8dde615dbc13ee69a72e5924190c"
+  },
+  "target_count": 146,
+  "targets": [
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 381,
+      "target": "lib:bead_rs"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 376,
+      "target": "bin:bead"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 0,
+      "target": "bin:generate-man-pages"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:advisory_lifecycle_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 9,
+      "target": "test:atomic_dependent_creation"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:attempt_outcome_round_trip"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:attempt_receipt_checkpoint_integrity"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:attempt_receipt_diagnostics"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:attempt_summary_json"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 19,
+      "target": "test:attempts_mod"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:authorization_value_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:bare_interchange_merge_restore"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 6,
+      "ignored_tests": [
+        {
+          "name": "cleanup_test_binaries",
+          "status": "ignored, Cleanup helper"
+        },
+        {
+          "name": "integration_test_attempt_resolution_build_capabilities",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        },
+        {
+          "name": "integration_test_capability_framework_integration",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        },
+        {
+          "name": "integration_test_command_availability_across_variants",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        },
+        {
+          "name": "integration_test_compare_binary_variants",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        },
+        {
+          "name": "integration_test_default_build_capabilities",
+          "status": "ignored, This test builds multiple binary variants and takes time"
+        }
+      ],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:binary_variant_integration"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:build_artifact_paths"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:build_from_archive_checkout_untouched"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 18,
+      "target": "test:capability_detection"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:capability_framework"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:capability_variant_matrix"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:checkpoint_auto_stage"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 14,
+      "target": "test:checkpoint_fixture_conformance"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 7,
+      "target": "test:checkpoint_mode_selection"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:checkpoint_mutation_guard"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:checkpoint_object_reuse_verification"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:checkpoint_publication_lock"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:checkpoint_restore_unknown_fields"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:checkpoint_round_trip_conformance"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 13,
+      "target": "test:checkpoint_set_v2_conformance"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:checkpoint_tail_generation_integrity"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:checkpoint_tombstones"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 8,
+      "target": "test:checkpoint_unknown_field_fixture"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:checkpoint_unknown_field_generation_conformance"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 8,
+      "target": "test:checkpoint_unknown_field_record_corpus"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 15,
+      "target": "test:checkpoint_unknown_field_round_trip"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:checkpoint_windows_filesystem"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 15,
+      "target": "test:claim_epoch"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 12,
+      "target": "test:cli_capabilities"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:cli_claim"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 9,
+      "target": "test:cli_create"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 15,
+      "target": "test:cli_dep"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 13,
+      "target": "test:cli_doctor"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 23,
+      "target": "test:cli_editing"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 8,
+      "target": "test:cli_field_projection"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:cli_history"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 22,
+      "target": "test:cli_init"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 7,
+      "target": "test:cli_label"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 35,
+      "target": "test:cli_lifecycle"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:cli_list"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 13,
+      "target": "test:cli_read_shortcuts"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:cli_schema"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:cli_show"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 7,
+      "target": "test:cli_sync"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 18,
+      "target": "test:cli_sync_import"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:clone_recovery"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 14,
+      "target": "test:comment_mutation"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:concurrency_recovery_variants"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:connection_pragmas"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 7,
+      "target": "test:credential_assignment_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:data_value_file"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:decoded_view_coverage"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 1,
+      "target": "test:dependency_status_projection"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:doctor_runtime_dir_ignore"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 8,
+      "target": "test:f017_forensic"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:fallback_starvation_recovery"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:foreign_schema_refusal"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:git_reachability_status"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:identity_rekey"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 1,
+      "target": "test:install_release_e2e"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:issue_type_file"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:jwt_header_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 0,
+      "target": "test:lease_history_seeding"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 1,
+      "target": "test:managed_policy_pin"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:msrv_lane_consistency"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:msrv_lane_sync"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:mutating_command_event_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:needle_v1_compatibility"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:needle_variant_dispatch_paths"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 10,
+      "target": "test:needle_variant_paths"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 22,
+      "target": "test:pinned_binary_capability"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:plan_tag_consistency"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 13,
+      "target": "test:post_commit_publication"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:provider_context_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:quarantine_absent_retained_root"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:quarantine_git_publication"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 13,
+      "target": "test:r001_decision_traces"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 12,
+      "target": "test:r002_leased_claims"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:r003_revision_guard_atomicity"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 12,
+      "target": "test:r003_revision_guards"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 10,
+      "target": "test:r004_query_language"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 9,
+      "target": "test:r009_schema_negotiation"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 14,
+      "target": "test:r011_external_references"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 13,
+      "target": "test:r013_change_feed"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 12,
+      "target": "test:r014_import_diagnostics"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:r015_recovery_rehearsal"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 16,
+      "target": "test:r016_scoped_doctor"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 15,
+      "target": "test:r018_structured_data"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 9,
+      "target": "test:r020_comparison"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 12,
+      "target": "test:r021_policy"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 14,
+      "target": "test:r022_dryrun"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:r023_why"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 20,
+      "target": "test:r024_recurrence"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 14,
+      "target": "test:r027_remote_advanced_reconcile"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 14,
+      "target": "test:r028_fork_identity"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 7,
+      "target": "test:r029_checkpoint_archaeology"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 8,
+      "target": "test:r030_workspace_discovery"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:r031_resource_locks"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:r032_unique_ref"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 9,
+      "target": "test:r033_bulk_manifests"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:r034_stale_in_progress"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:r035_assignment_held_diagnosis"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 17,
+      "target": "test:r036_verified_restore"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 10,
+      "target": "test:r037_command_errors"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 10,
+      "target": "test:r041_issue_json_documents"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:r041_text_inputs"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:readme_build_paths"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:ready_sort_attempts"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 27,
+      "target": "test:reconciliation_report"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:recovery_quarantine_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 1,
+      "ignored_tests": [
+        {
+          "name": "all_blocking_sweeps_identical_secrets_across_duplicate_issues",
+          "status": "ignored, blocked by beadrs-9116e1a9: set-v2 retained lookup unsupported mode"
+        }
+      ],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:redact_all_blocking"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:redaction_event_identity"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:redaction_maintenance"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 11,
+      "target": "test:redaction_publication"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 1,
+      "ignored_tests": [
+        {
+          "name": "every_redaction_record_round_trips_through_sharded_restore",
+          "status": "ignored, blocked by beadrs-9116e1a9: set-v2 redaction corpus writer rejects acknowledged findings"
+        }
+      ],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:redaction_storage"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:redaction_transaction"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 10,
+      "target": "test:resolve_attempt_e2e"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:restore_export_unknown_field_conformance"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:restored_branch_reconciliation"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 7,
+      "target": "test:schema_explain_conformance"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:schema_explain_render_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 6,
+      "target": "test:schema_explain_snapshot"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:schema_upgrade_on_init"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 31,
+      "target": "test:secret_gap_contract"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 10,
+      "target": "test:secret_rejection"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 1,
+      "target": "test:sharded_view_retirement"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 10,
+      "target": "test:sync_commit"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:sync_configure"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 15,
+      "target": "test:sync_flag_fixes"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:sync_ready_to_commit_end_to_end"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:test_migration_on_open"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 4,
+      "target": "test:unknown_field_interchange_conformance"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 5,
+      "target": "test:unknown_field_side_export"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 3,
+      "target": "test:verifies_concurrency"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 15,
+      "target": "test:verifies_edges"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:verifies_fixtures"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:watchdog_cli"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "test:workspace_identity"
+    },
+    {
+      "failed": 0,
+      "filtered_out": 0,
+      "ignored": 0,
+      "ignored_tests": [],
+      "measured": 0,
+      "passed": 2,
+      "target": "doctest:bead_rs:1"
+    }
+  ],
+  "toolchain": {
+    "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)",
+    "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)"
+  },
+  "unfiltered_default_harnesses": [
+    "bin:bead",
+    "bin:generate-man-pages",
+    "lib:bead_rs",
+    "test:advisory_lifecycle_contract",
+    "test:atomic_dependent_creation",
+    "test:attempt_outcome_round_trip",
+    "test:attempt_receipt_checkpoint_integrity",
+    "test:attempt_receipt_diagnostics",
+    "test:attempt_summary_json",
+    "test:attempts_mod",
+    "test:authorization_value_contract",
+    "test:bare_interchange_merge_restore",
+    "test:binary_variant_integration",
+    "test:build_artifact_paths",
+    "test:build_from_archive_checkout_untouched",
+    "test:capability_detection",
+    "test:capability_framework",
+    "test:capability_variant_matrix",
+    "test:checkpoint_auto_stage",
+    "test:checkpoint_fixture_conformance",
+    "test:checkpoint_mode_selection",
+    "test:checkpoint_mutation_guard",
+    "test:checkpoint_object_reuse_verification",
+    "test:checkpoint_publication_lock",
+    "test:checkpoint_restore_unknown_fields",
+    "test:checkpoint_round_trip_conformance",
+    "test:checkpoint_set_v2_conformance",
+    "test:checkpoint_tail_generation_integrity",
+    "test:checkpoint_tombstones",
+    "test:checkpoint_unknown_field_fixture",
+    "test:checkpoint_unknown_field_generation_conformance",
+    "test:checkpoint_unknown_field_record_corpus",
+    "test:checkpoint_unknown_field_round_trip",
+    "test:checkpoint_windows_filesystem",
+    "test:claim_epoch",
+    "test:cli_capabilities",
+    "test:cli_claim",
+    "test:cli_create",
+    "test:cli_dep",
+    "test:cli_doctor",
+    "test:cli_editing",
+    "test:cli_field_projection",
+    "test:cli_history",
+    "test:cli_init",
+    "test:cli_label",
+    "test:cli_lifecycle",
+    "test:cli_list",
+    "test:cli_read_shortcuts",
+    "test:cli_schema",
+    "test:cli_show",
+    "test:cli_sync",
+    "test:cli_sync_import",
+    "test:clone_recovery",
+    "test:comment_mutation",
+    "test:concurrency_recovery_variants",
+    "test:connection_pragmas",
+    "test:credential_assignment_contract",
+    "test:data_value_file",
+    "test:decoded_view_coverage",
+    "test:dependency_status_projection",
+    "test:doctor_runtime_dir_ignore",
+    "test:f017_forensic",
+    "test:fallback_starvation_recovery",
+    "test:foreign_schema_refusal",
+    "test:git_reachability_status",
+    "test:identity_rekey",
+    "test:install_release_e2e",
+    "test:issue_type_file",
+    "test:jwt_header_contract",
+    "test:lease_history_seeding",
+    "test:managed_policy_pin",
+    "test:msrv_lane_consistency",
+    "test:msrv_lane_sync",
+    "test:mutating_command_event_contract",
+    "test:needle_v1_compatibility",
+    "test:needle_variant_dispatch_paths",
+    "test:needle_variant_paths",
+    "test:pinned_binary_capability",
+    "test:plan_tag_consistency",
+    "test:post_commit_publication",
+    "test:provider_context_contract",
+    "test:quarantine_absent_retained_root",
+    "test:quarantine_git_publication",
+    "test:r001_decision_traces",
+    "test:r002_leased_claims",
+    "test:r003_revision_guard_atomicity",
+    "test:r003_revision_guards",
+    "test:r004_query_language",
+    "test:r009_schema_negotiation",
+    "test:r011_external_references",
+    "test:r013_change_feed",
+    "test:r014_import_diagnostics",
+    "test:r015_recovery_rehearsal",
+    "test:r016_scoped_doctor",
+    "test:r018_structured_data",
+    "test:r020_comparison",
+    "test:r021_policy",
+    "test:r022_dryrun",
+    "test:r023_why",
+    "test:r024_recurrence",
+    "test:r027_remote_advanced_reconcile",
+    "test:r028_fork_identity",
+    "test:r029_checkpoint_archaeology",
+    "test:r030_workspace_discovery",
+    "test:r031_resource_locks",
+    "test:r032_unique_ref",
+    "test:r033_bulk_manifests",
+    "test:r034_stale_in_progress",
+    "test:r035_assignment_held_diagnosis",
+    "test:r036_verified_restore",
+    "test:r037_command_errors",
+    "test:r041_issue_json_documents",
+    "test:r041_text_inputs",
+    "test:readme_build_paths",
+    "test:ready_sort_attempts",
+    "test:reconciliation_report",
+    "test:recovery_quarantine_contract",
+    "test:redact_all_blocking",
+    "test:redaction_event_identity",
+    "test:redaction_maintenance",
+    "test:redaction_publication",
+    "test:redaction_storage",
+    "test:redaction_transaction",
+    "test:resolve_attempt_e2e",
+    "test:restore_export_unknown_field_conformance",
+    "test:restored_branch_reconciliation",
+    "test:schema_explain_conformance",
+    "test:schema_explain_render_contract",
+    "test:schema_explain_snapshot",
+    "test:schema_upgrade_on_init",
+    "test:secret_gap_contract",
+    "test:secret_rejection",
+    "test:sharded_view_retirement",
+    "test:sync_commit",
+    "test:sync_configure",
+    "test:sync_flag_fixes",
+    "test:sync_ready_to_commit_end_to_end",
+    "test:test_migration_on_open",
+    "test:unknown_field_interchange_conformance",
+    "test:unknown_field_side_export",
+    "test:verifies_concurrency",
+    "test:verifies_edges",
+    "test:verifies_fixtures",
+    "test:watchdog_cli",
+    "test:workspace_identity"
+  ]
+}
