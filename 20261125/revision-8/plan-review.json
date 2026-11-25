@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "read_complete_plan": true,
+  "expanded_tasks_read": 52,
+  "blocking_edges_read": 86,
+  "plan_commit": "38332d9a3a9e4856291edd11237fc27d5759f4d4",
+  "plan_sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d",
+  "reviewed_files": {
+    "plan.json": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d"
+  },
+  "prior_complete_review": {
+    "plan_commit": "8115a533b95c7994ffb6441e8d29edee08b5d602",
+    "plan_sha256": "16e0e0f465ab1f906f2faa6b29aa198ef6b8a42409e1f1bbf0856342ac2ec3d7",
+    "review_commit": "153413aed7d9f3aca50cf90b4c5ba6bd1bc57fc9",
+    "unchanged_expanded_instructions_reused_only_after_exact_comparison": true
+  },
+  "review_scope": [
+    "Complete expanded task instructions, all changed lines and three new tasks",
+    "Complete dependency graph, task/resource declarations and phase ordering",
+    "Existing Windows regression evidence and separation of genuine failures from caught characterization outcomes",
+    "Final source/build/runtime identities, platform qualification, original-history preservation and installation prerequisites",
+    "Direct revision 6 to revision 8 materialization, exact state reconciliation and provisional cloud dispatch",
+    "User resource limits, permissions, cleanup handoffs and instruction clarity"
+  ],
+  "graph": {
+    "tasks": 52,
+    "blocking_edges": 86,
+    "unique_task_keys": true,
+    "unique_edges": true,
+    "prerequisite_arrays_match_edges": true,
+    "acyclic": true,
+    "all_resource_keys_arrays": true,
+    "prior_edges_preserved": true
+  },
+  "actual_state": {
+    "native_revision": 6,
+    "existing_continuation_tasks": 32,
+    "existing_edges": 51,
+    "original_issues": 954,
+    "revision_7_materialized": false,
+    "revision_8_materialized": false
+  },
+  "reviewed_materialization_delta": {
+    "absent_new_keys": 20,
+    "existing_description_updates": 15,
+    "additional_edges": 35,
+    "atomic_manifest_operations": 70,
+    "guarded_reopens": [
+      "checkpoint-linux-build",
+      "checkpoint-linux-checks",
+      "checkpoint-full-suite"
+    ],
+    "expected_total_issues": 1006,
+    "preserves_original_rows_and_complete_history": true,
+    "preserves_existing_ids_and_close_history": true,
+    "actual_ids_required_before_installation": true,
+    "restore_or_prior_create_replay": false
+  },
+  "substantive_findings_resolved": [
+    "The two new reviewer tasks explicitly declare empty resource arrays, matching the existing materializer contract.",
+    "App Windows execution depends on its actual build/download and affected checks; broader final recovery reviews remain separate acceptance gates."
+  ],
+  "acceptance_reasoning": [
+    "The three new tasks preserve author/reviewer separation: whole-plan acceptance, permanent-test/actual-Red acceptance, then only the two scoped production functions may change.",
+    "The lock repair retains the 30-second deadline, 10-millisecond polling, exclusivity and error propagation. Path repair creates slash-separated relative references by components and keeps existing validation, including literal Unix backslash rejection.",
+    "Both platform producers, affected tests, complete Linux suite, original corpus and final native reviews use the new production source. Earlier successful outputs remain valid historical evidence for their exact source.",
+    "Windows qualification requires all twelve ordinary conformance names and all twelve distinct characterization cells, plus lock, editing, recovery and smoke checks. Each invocation remains bounded to 900 seconds; all jobs and the qualification window remain bounded to 140 minutes. Missing, duplicate, mixed-source or unfinished coverage cannot pass.",
+    "The existing app source and 560-file runtime remain reusable. Its Windows packet requires fresh measured native bindings and independent review before activation.",
+    "Revision 8 supersedes the unexecuted revision 7 materialization. Actual mapping, original records/history, dirty app files, indexes, rollback and final PC tray/configured launch requirements remain in force."
+  ],
+  "provisional_dispatch_authorized": true,
+  "provisional_dispatch_scope": "All twenty stable new task keys, with every declared prerequisite intact and no invented native IDs, claims, credentials or closures.",
+  "pc_authorization_changed": false,
+  "reviewer_performed_native_mutations": false,
+  "reviewer_executed_product": false,
+  "remaining": [
+    "Separate permanent Windows test and actual Red review before repair",
+    "Exact repaired candidate, builds, actual qualification and independent acceptance",
+    "Separately reviewed materializer and permitted PC access",
+    "Actual logged-in PC tray, installed configured launch, original-history reconciliation and recorded Riftri cleanup"
+  ],
+  "findings": []
+}
