@@ -1,0 +1,8 @@
+OOB-PROBE start: set-v2-budget-single-issue-update under store-deletion
+
+thread 'set_v2_green_scenarios_under_out_of_band_change' (9212) panicked at tests\checkpoint_set_v2_conformance.rs:459:9:
+publication 0 added 1772010 new blob bytes, budget is 262144
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+OOB-PROBE RED: set-v2-budget-single-issue-update under store-deletion
+OOB-PROBE RED failure text: publication 0 added 1772010 new blob bytes, budget is 262144
+OOB-PROBE summary: 0/1 combinations stayed green

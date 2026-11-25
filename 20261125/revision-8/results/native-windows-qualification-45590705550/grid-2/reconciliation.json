@@ -1,0 +1,196 @@
+{
+  "partition": "grid-2",
+  "log_sha256": "c0806ca35c17cbdce7940d02bc71318ff5d2b7b2f9672b78540565555186f7b1",
+  "receipts": {
+    "CHECK_RESULT": "9c6b783f87eefbda2f19a0bfd164de7f9f82bca5b15d5f7117e334575c97d037",
+    "SUPERVISOR": "661e549dc7e2ebbd690d464f48302bc4ff01e4ccc239900d4bef29fcb2cefc06",
+    "COMPLETION": "259d8afebbbcdeb5f739aff42ca3ff2b97e6e09b6e92f6c63fb49d60653a4db1"
+  },
+  "stream_count": 18,
+  "status": "passed",
+  "tests": [
+    {
+      "case": "set-v2-tail-seal-and-immutability-store-deletion",
+      "duration_seconds": 39.218,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-tail-seal-and-immutability"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-0",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "store-deletion",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-tail-seal-and-immutability"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 193,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stderr",
+        "sha256": "41cd83e9fd26582b0fca495b7e14ac8e69b7f650a665af04128a1e698a9ceea5"
+      },
+      "stdout": {
+        "bytes": 174,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stdout",
+        "sha256": "1de1987cca2c51eaba701080dd720a83c9fd7053cd897bdcc49e901203d2f2dc"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-0",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-tail-seal-and-immutability-orphan-set-files",
+      "duration_seconds": 38.938,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-tail-seal-and-immutability"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-1",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "orphan-set-files",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-tail-seal-and-immutability"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 197,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stderr",
+        "sha256": "4a0725a4930019dd4fcf1fab420e74f6e32ba6628d1931d9eba6e0491a19c1b7"
+      },
+      "stdout": {
+        "bytes": 174,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stdout",
+        "sha256": "1549194df4d21b0bdb46e40f733f48fa04b6cd7c838fb97d15a68a772556b825"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-1",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-oversize-record-once-cost-store-deletion",
+      "duration_seconds": 5.859,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-oversize-record-once-cost"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-2",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "store-deletion",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-oversize-record-once-cost"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 191,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stderr",
+        "sha256": "598dd97a4aed051e0100efc235b426bdfcc5ada672cfb5d3038a7f341a4f82ca"
+      },
+      "stdout": {
+        "bytes": 187,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stdout",
+        "sha256": "37b4b61fa1ead166358f0e2be62b7e74349ce45a35d06eb2b1d16cc23a2002ff"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-2",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-oversize-record-once-cost-orphan-set-files",
+      "duration_seconds": 5.875,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-oversize-record-once-cost"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-3",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "orphan-set-files",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-oversize-record-once-cost"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 195,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stderr",
+        "sha256": "ca34c4382d286ce2784975969ab0a3673b23f012df11b206a7130b86460c7861"
+      },
+      "stdout": {
+        "bytes": 187,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stdout",
+        "sha256": "5adb3fa7ae1e5bda465913b6c9183e0d03a3d5a5343085f69bfda7ba9be02e1d"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-3",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    }
+  ],
+  "grid": [
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-tail-seal-and-immutability"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-tail-seal-and-immutability"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-oversize-record-once-cost"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-oversize-record-once-cost"
+    }
+  ],
+  "children": true
+}

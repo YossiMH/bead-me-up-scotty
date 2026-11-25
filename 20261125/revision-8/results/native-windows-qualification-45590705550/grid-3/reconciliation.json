@@ -1,0 +1,196 @@
+{
+  "partition": "grid-3",
+  "log_sha256": "c3c227662cb2e7be721160a7bda7784c30d4eac3fefd4efd3b14aa08e03d4d00",
+  "receipts": {
+    "CHECK_RESULT": "b419c01b0054a18d691f386120ccc26a588fdb9439db9f8d7f3ea69d9659efb8",
+    "SUPERVISOR": "e5ca8a1e71dffee92bf279b74982a27d574fa1c430261523a6a3bfef16315a22",
+    "COMPLETION": "33315c19393cc5ba913ef2b7cecb233d6f9a9916390fa7dae73338dcc56e1901"
+  },
+  "stream_count": 18,
+  "status": "passed",
+  "tests": [
+    {
+      "case": "set-v2-pointer-boundedness-store-deletion",
+      "duration_seconds": 10.203,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-pointer-boundedness"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-0",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "store-deletion",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-pointer-boundedness"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 179,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stderr",
+        "sha256": "79478839c512ad9564ff94bc969d570b05cba2a7685ade134ca76a19e339c6c9"
+      },
+      "stdout": {
+        "bytes": 174,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stdout",
+        "sha256": "9e6083c1e7b50b6eca4a4519a2e1ee775e22da736d4be492bdb1894544c15035"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-0",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-pointer-boundedness-orphan-set-files",
+      "duration_seconds": 10.657,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-pointer-boundedness"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-1",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "orphan-set-files",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-pointer-boundedness"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 183,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stderr",
+        "sha256": "f8a8e43d4997db93d9acba0318915120bcc35e50a8d5e96710e37ff2b2b17f80"
+      },
+      "stdout": {
+        "bytes": 174,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stdout",
+        "sha256": "2a0e3ac1480431378b6ccac10ef656dd9928c6ec3a13ec3f5986d8625460ff92"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-1",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-forensic-frozen-store-deletion",
+      "duration_seconds": 3.562,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-forensic-frozen"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-2",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "store-deletion",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-forensic-frozen"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 171,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stderr",
+        "sha256": "d44f389a81c33b87d42e7dd4a5689fe670ae52c025d3ec019a9c82df40a0e345"
+      },
+      "stdout": {
+        "bytes": 173,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stdout",
+        "sha256": "a0d793d7b5bf4cc178c673d928645f4100fe66106b851e6228b1368fd2f78c18"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-2",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-forensic-frozen-orphan-set-files",
+      "duration_seconds": 3.625,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-forensic-frozen"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-3",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "orphan-set-files",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-forensic-frozen"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 175,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stderr",
+        "sha256": "bb8a3e79a9b12be0677b4595202cf67f049e5da8ee66765dc44592ea2114209f"
+      },
+      "stdout": {
+        "bytes": 173,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stdout",
+        "sha256": "962c3b320b9e381f8a31ed86901366bc3b3a2944c582e52972086b2db58b1ebf"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-3",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    }
+  ],
+  "grid": [
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-pointer-boundedness"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-pointer-boundedness"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-forensic-frozen"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-forensic-frozen"
+    }
+  ],
+  "children": true
+}

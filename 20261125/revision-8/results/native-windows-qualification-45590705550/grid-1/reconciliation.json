@@ -1,0 +1,196 @@
+{
+  "partition": "grid-1",
+  "log_sha256": "e225c0607cfebd6fd721b955b792bef9c02cd5efd31cec384e435d65bd544b4a",
+  "receipts": {
+    "CHECK_RESULT": "7875c513e77648172764b88d853daa1292eb8acb4259ede0df5ec5a756d38c7e",
+    "SUPERVISOR": "69919524d8b93247f785c1ccca26c313daf38b2b36772c1a629349d4a0ca9fd7",
+    "COMPLETION": "f064b8ed76a7f4e274950c0c5a381b9fda5e1469624a78eb6c3162ea91fd56f7"
+  },
+  "stream_count": 18,
+  "status": "passed",
+  "tests": [
+    {
+      "case": "set-v2-budget-single-issue-update-store-deletion",
+      "duration_seconds": 107.844,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "RED",
+        "failure_text": "publication 0 added 1772010 new blob bytes, budget is 262144",
+        "fixture": "store-deletion",
+        "scenario": "set-v2-budget-single-issue-update"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-0",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "store-deletion",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-budget-single-issue-update"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 542,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stderr",
+        "sha256": "b10aed26f4f571adfef376a4cef59408be38b3da251a5c6afbaef335ae6f8fd3"
+      },
+      "stdout": {
+        "bytes": 175,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stdout",
+        "sha256": "e74cff3fcad5383ab8847df50adc67e2fa3023a008ca2c0f9893df1c178e253f"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-0",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-budget-single-issue-update-orphan-set-files",
+      "duration_seconds": 303.421,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-budget-single-issue-update"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-1",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "orphan-set-files",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-budget-single-issue-update"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 197,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stderr",
+        "sha256": "1c354505087ab953610aa20ebbb3cb76c51b8f4aca6bdd1ab5c0f1a49bf47078"
+      },
+      "stdout": {
+        "bytes": 175,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stdout",
+        "sha256": "0e62490ba163f6de13c1827292892b39eaf966fb99a79414c58fb81e075b8ddf"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-1",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-shard-split-on-update-storm-store-deletion",
+      "duration_seconds": 14.032,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "RED",
+        "failure_text": "failed to run bead: Os { code: 206, kind: InvalidFilename, message: \"The filename or extension is too long.\" }",
+        "fixture": "store-deletion",
+        "scenario": "set-v2-shard-split-on-update-storm"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-2",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "store-deletion",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-shard-split-on-update-storm"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 644,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stderr",
+        "sha256": "781577fcb4f5f5fae59b234f7f6599b68a8192af7b0c5031b0c0cfd5b5387511"
+      },
+      "stdout": {
+        "bytes": 174,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stdout",
+        "sha256": "1ae90d3d47f8e7c68783525ce705c14abf2610c2a6fd65c8c0c589cf64059365"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-2",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-shard-split-on-update-storm-orphan-set-files",
+      "duration_seconds": 13.797,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "RED",
+        "failure_text": "failed to run bead: Os { code: 206, kind: InvalidFilename, message: \"The filename or extension is too long.\" }",
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-shard-split-on-update-storm"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-3",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "orphan-set-files",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-shard-split-on-update-storm"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 648,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stderr",
+        "sha256": "ff17d21b618f910375af27dd17250ad9bd5c58130f42fb00bffd72df2cec83e3"
+      },
+      "stdout": {
+        "bytes": 174,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stdout",
+        "sha256": "de76c32d4c1e8ccb9a096bb46411eb7fd4a5a9ab7be491a80f7b158df582cd30"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-3",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    }
+  ],
+  "grid": [
+    {
+      "classification": "RED",
+      "failure_text": "publication 0 added 1772010 new blob bytes, budget is 262144",
+      "fixture": "store-deletion",
+      "scenario": "set-v2-budget-single-issue-update"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-budget-single-issue-update"
+    },
+    {
+      "classification": "RED",
+      "failure_text": "failed to run bead: Os { code: 206, kind: InvalidFilename, message: \"The filename or extension is too long.\" }",
+      "fixture": "store-deletion",
+      "scenario": "set-v2-shard-split-on-update-storm"
+    },
+    {
+      "classification": "RED",
+      "failure_text": "failed to run bead: Os { code: 206, kind: InvalidFilename, message: \"The filename or extension is too long.\" }",
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-shard-split-on-update-storm"
+    }
+  ],
+  "children": true
+}

@@ -1,0 +1,1878 @@
+{
+  "artifact_id": 15009252879,
+  "build_result_sha256": "a33ab55da93e2ceeb23fd56a048b5e507a801bcf86a3c189d7156d1463f501f6",
+  "build_run": {
+    "attempt": "1",
+    "id": "45586900986",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6"
+  },
+  "commands": [
+    {
+      "args": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "-m",
+        "py_compile",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-8\\native-windows-check\\checkpoint-windows-check-20261125.py",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-8\\native-windows-check\\checkpoint-windows-build-20261125.py",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-8\\native-windows-check\\checkpoint-release-corpus-20261125.py"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:56.338237+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "parse-check-helpers",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 3152,
+      "started": "2026-11-25T10:00:55.944292+00:00",
+      "stderr": "logs/parse-check-helpers.stderr",
+      "stdout": "logs/parse-check-helpers.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45590705550-1\\release\\bead-checkpoint-c90f0cdbade9.exe",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:02.943602+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "release-version",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 4112,
+      "started": "2026-11-25T10:01:02.641781+00:00",
+      "stderr": "logs/release-version.stderr",
+      "stdout": "logs/release-version.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45590705550-1\\release\\bead-checkpoint-c90f0cdbade9.exe",
+        "capabilities"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:03.019407+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "release-capabilities",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 7380,
+      "started": "2026-11-25T10:01:02.943602+00:00",
+      "stderr": "logs/release-capabilities.stderr",
+      "stdout": "logs/release-capabilities.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45590705550-1\\release\\bead-checkpoint-c90f0cdbade9.exe",
+        "update",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:03.095019+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "release-update-help",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 4400,
+      "started": "2026-11-25T10:01:03.020943+00:00",
+      "stderr": "logs/release-update-help.stderr",
+      "stdout": "logs/release-update-help.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:03.197139+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "lib-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 7536,
+      "started": "2026-11-25T10:01:03.117110+00:00",
+      "stderr": "logs/lib-list.stderr",
+      "stdout": "logs/lib-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe",
+        "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:03.277752+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "lib-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 8616,
+      "started": "2026-11-25T10:01:03.199986+00:00",
+      "stderr": "logs/lib-case-0.stderr",
+      "stdout": "logs/lib-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe",
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:03.357065+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "lib-case-1",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 9952,
+      "started": "2026-11-25T10:01:03.281773+00:00",
+      "stderr": "logs/lib-case-1.stderr",
+      "stdout": "logs/lib-case-1.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe",
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:03.386062+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "lib-case-2",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 8888,
+      "started": "2026-11-25T10:01:03.361084+00:00",
+      "stderr": "logs/lib-case-2.stderr",
+      "stdout": "logs/lib-case-2.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe",
+        "service::checkpoint::tests::publication_lock_is_exclusive_across_openers",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:03.617191+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "lib-case-3",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 3272,
+      "started": "2026-11-25T10:01:03.388623+00:00",
+      "stderr": "logs/lib-case-3.stderr",
+      "stdout": "logs/lib-case-3.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\8a58db6ae0b79202\\out\\attempt_receipt_checkpoint_integrity-8a58db6ae0b79202.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:03.703360+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "attempt_receipt_checkpoint_integrity-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 7112,
+      "started": "2026-11-25T10:01:03.626087+00:00",
+      "stderr": "logs/attempt_receipt_checkpoint_integrity-list.stderr",
+      "stdout": "logs/attempt_receipt_checkpoint_integrity-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\8a58db6ae0b79202\\out\\attempt_receipt_checkpoint_integrity-8a58db6ae0b79202.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:05.209518+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "attempt_receipt_checkpoint_integrity-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 7876,
+      "started": "2026-11-25T10:01:03.705375+00:00",
+      "stderr": "logs/attempt_receipt_checkpoint_integrity-case-0.stderr",
+      "stdout": "logs/attempt_receipt_checkpoint_integrity-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\423f9a8ad4f672fd\\out\\checkpoint_tail_generation_integrity-423f9a8ad4f672fd.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:05.294866+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_tail_generation_integrity-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 5652,
+      "started": "2026-11-25T10:01:05.218044+00:00",
+      "stderr": "logs/checkpoint_tail_generation_integrity-list.stderr",
+      "stdout": "logs/checkpoint_tail_generation_integrity-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\423f9a8ad4f672fd\\out\\checkpoint_tail_generation_integrity-423f9a8ad4f672fd.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:06.268020+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_tail_generation_integrity-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 7840,
+      "started": "2026-11-25T10:01:05.296877+00:00",
+      "stderr": "logs/checkpoint_tail_generation_integrity-case-0.stderr",
+      "stdout": "logs/checkpoint_tail_generation_integrity-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\83f79d4a1a54920c\\out\\checkpoint_publication_lock-83f79d4a1a54920c.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:06.353130+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_publication_lock-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 8740,
+      "started": "2026-11-25T10:01:06.275913+00:00",
+      "stderr": "logs/checkpoint_publication_lock-list.stderr",
+      "stdout": "logs/checkpoint_publication_lock-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\83f79d4a1a54920c\\out\\checkpoint_publication_lock-83f79d4a1a54920c.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 101,
+      "finished": "2026-11-25T10:01:07.517812+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_publication_lock-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 9612,
+      "started": "2026-11-25T10:01:06.354889+00:00",
+      "stderr": "logs/checkpoint_publication_lock-case-0.stderr",
+      "stdout": "logs/checkpoint_publication_lock-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:07.604312+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 8316,
+      "started": "2026-11-25T10:01:07.526397+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-list.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_budget_single_issue_update",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:08:06.914424+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 8016,
+      "started": "2026-11-25T10:01:07.607083+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-0.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_shard_split_on_update_storm",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 101,
+      "finished": "2026-11-25T10:08:28.016200+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-1",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 4532,
+      "started": "2026-11-25T10:08:06.918451+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-1.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-1.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_shard_merge_on_deletion",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 101,
+      "finished": "2026-11-25T10:08:49.129195+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-2",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 7308,
+      "started": "2026-11-25T10:08:28.020235+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-2.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-2.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_tail_seal_and_immutability",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:09:27.111034+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-3",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 2972,
+      "started": "2026-11-25T10:08:49.133224+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-3.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-3.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_oversize_record_once_cost",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:09:32.778446+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-4",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 3284,
+      "started": "2026-11-25T10:09:27.115099+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-4.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-4.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_pointer_boundedness",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:09:42.971210+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-5",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 8644,
+      "started": "2026-11-25T10:09:32.782472+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-5.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-5.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_forensic_frozen",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:09:46.613926+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-6",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 3752,
+      "started": "2026-11-25T10:09:42.974721+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-6.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-6.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_crash_ordering",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:10:44.716513+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-7",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 6000,
+      "started": "2026-11-25T10:09:46.616619+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-7.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-7.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_migration_full_rewrite",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:10:46.357808+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-8",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 5908,
+      "started": "2026-11-25T10:10:44.719875+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-8.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-8.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_dual_layout_reader_equivalence",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:10:48.956894+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-9",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 8604,
+      "started": "2026-11-25T10:10:46.359818+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-9.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-9.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_concurrent_publication",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 101,
+      "finished": "2026-11-25T10:10:49.900349+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-10",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 4520,
+      "started": "2026-11-25T10:10:48.959542+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-10.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-10.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_forced_monolith_limits",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:10:50.471890+00:00",
+      "job_pids_after": [
+        1976,
+        3556,
+        4208
+      ],
+      "label": "checkpoint_set_v2_conformance-case-11",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        1976,
+        3556,
+        4208
+      ],
+      "pid": 6572,
+      "started": "2026-11-25T10:10:49.904369+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-11.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-11.stdout"
+    }
+  ],
+  "duration_seconds": 595.953,
+  "error": "RuntimeError: One or more required Windows cases failed",
+  "finished": "2026-11-25T10:10:51.883040+00:00",
+  "finished_epoch": 1795601451.8830402,
+  "grid_results": [],
+  "helper_sha256": "31ccfe21ec0e703429df1846389cbbf159901a1eddd67316dd09ff1202b83943",
+  "input_sha256": "18bcf4e5d54d6332612fd9cb438451f1290cc0dde114de87bb3af36aabf388f6",
+  "inputs_and_source_unchanged": true,
+  "job_query_retries": [],
+  "listings": {
+    "attempt_receipt_checkpoint_integrity": {
+      "file": {
+        "bytes": 277,
+        "mode": 438,
+        "path": "logs/attempt_receipt_checkpoint_integrity-list.stdout",
+        "sha256": "c8861b123133fd46fd7a99ebdc58b0d157fa6745e9570115611a4fc9db9143e9"
+      },
+      "tests": [
+        "exact_resulting_state_survives_both_checkpoint_layouts",
+        "public_schemas_describe_attempt_state_and_checkpoint_counts",
+        "replacement_restore_removes_displaced_attempt_outcomes",
+        "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+      ]
+    },
+    "checkpoint_publication_lock": {
+      "file": {
+        "bytes": 226,
+        "mode": 438,
+        "path": "logs/checkpoint_publication_lock-list.stdout",
+        "sha256": "44ef41c37929c7340f964d8c6c9a1a23a4afc5968c7710f8901e9f1aed07dabf"
+      },
+      "tests": [
+        "concurrent_workers_leave_one_intact_covering_generation",
+        "higher_sequence_without_local_publication_proof_cannot_admit_a_mutation",
+        "mutation_waits_for_a_stable_checkpoint_before_committing"
+      ]
+    },
+    "checkpoint_set_v2_conformance": {
+      "file": {
+        "bytes": 517,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-list.stdout",
+        "sha256": "30e10480cb93e947f61ba76e023ac32aeb61948b8cd008e25e2fe016c3565557"
+      },
+      "tests": [
+        "set_v2_budget_single_issue_update",
+        "set_v2_concurrent_publication",
+        "set_v2_crash_ordering",
+        "set_v2_dual_layout_reader_equivalence",
+        "set_v2_forced_monolith_limits",
+        "set_v2_forensic_frozen",
+        "set_v2_green_scenarios_under_out_of_band_change",
+        "set_v2_migration_full_rewrite",
+        "set_v2_oversize_record_once_cost",
+        "set_v2_pointer_boundedness",
+        "set_v2_shard_merge_on_deletion",
+        "set_v2_shard_split_on_update_storm",
+        "set_v2_tail_seal_and_immutability"
+      ]
+    },
+    "checkpoint_tail_generation_integrity": {
+      "file": {
+        "bytes": 161,
+        "mode": 438,
+        "path": "logs/checkpoint_tail_generation_integrity-list.stdout",
+        "sha256": "cd945f6adaf2767b4d5070e1ac671d3e5c56373f5db9eb564538880f35b875ba"
+      },
+      "tests": [
+        "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+        "selected_set_v2_generation_remains_restorable_after_tail_append"
+      ]
+    },
+    "lib": {
+      "file": {
+        "bytes": 27316,
+        "mode": 438,
+        "path": "logs/lib-list.stdout",
+        "sha256": "e0d28a93f15822d66b27143b444335d3d75575287fb2b1f02ce3005c4aac7047"
+      },
+      "tests": [
+        "cli::tests::test_cli_help",
+        "cli::tests::test_cli_parsing",
+        "docs::tests::test_help_coverage",
+        "docs::tests::test_help_examples_parse",
+        "docs::tests::test_long_help_is_reachable",
+        "docs::tests::test_man_page_content_matches_its_command",
+        "docs::tests::test_man_page_generation",
+        "docs::tests::test_man_pages_do_not_collide",
+        "docs::tests::test_public_commands_exist",
+        "error::tests::exit_code_taxonomy_keeps_six_exclusive_to_the_split_outcome",
+        "model::attempt::tests::test_action_parse",
+        "model::attempt::tests::test_evidence_ref_validation",
+        "model::attempt::tests::test_exit_codes",
+        "model::attempt::tests::test_invalid_combination",
+        "model::attempt::tests::test_outcome_parse",
+        "model::attempt::tests::test_request_validation",
+        "model::attempt::tests::test_request_validation_empty_attempt_id",
+        "model::attempt::tests::test_valid_combinations",
+        "model::recurrence::tests::test_generate_occurrence_title",
+        "model::recurrence::tests::test_get_labels",
+        "model::recurrence::tests::test_materialization_validation",
+        "model::recurrence::tests::test_materialization_validation_invalid_sequence",
+        "model::recurrence::tests::test_template_validation",
+        "model::recurrence::tests::test_template_validation_invalid_priority",
+        "model::redaction::tests::actor_is_bounded",
+        "model::redaction::tests::epoch_identity_is_order_independent_and_content_sensitive",
+        "model::redaction::tests::epoch_rejects_published_without_a_root_or_time",
+        "model::redaction::tests::error_exit_codes_follow_the_contract",
+        "model::redaction::tests::field_path_accepts_identifiers_and_indexes_only",
+        "model::redaction::tests::finding_accepts_the_scanners_opaque_fingerprint",
+        "model::redaction::tests::hashes_must_be_lowercase_hex_sha256",
+        "model::redaction::tests::marker_is_the_specified_fixed_string",
+        "model::redaction::tests::no_known_v1_record_field_carries_arbitrary_removed_content",
+        "model::redaction::tests::publication_state_round_trips",
+        "model::redaction::tests::reason_is_bounded_and_free_of_control_characters",
+        "model::redaction::tests::receipt_identity_distinguishes_a_different_reason",
+        "model::redaction::tests::receipt_identity_ignores_publication_state_and_epoch",
+        "model::redaction::tests::receipt_identity_is_a_function_of_semantic_fields",
+        "model::redaction::tests::receipt_rejects_matching_prior_and_sanitized_hashes",
+        "model::redaction::tests::receipt_rejects_selector_hash_disagreement",
+        "model::redaction::tests::receipt_verify_identity_accepts_and_rejects",
+        "model::redaction::tests::records_survive_a_serde_round_trip_and_tolerate_unknown_fields",
+        "model::redaction::tests::schema_refs_must_stay_in_the_redaction_namespace",
+        "model::redaction::tests::selector_rejects_a_negative_or_empty_range",
+        "model::redaction::tests::selector_rejects_a_range_wider_than_any_field",
+        "model::redaction::tests::tombstone_identity_is_stable_across_recovery",
+        "model::redaction::tests::tombstone_precedence_key_covers_location_and_prior_hash",
+        "model::tests::test_base_status_parse",
+        "model::tests::test_issue_is_ready",
+        "model::tests::test_issue_validation",
+        "model::tests::test_validate_issue_id_invalid",
+        "model::tests::test_validate_issue_id_valid",
+        "model::tests::test_validate_priority_invalid",
+        "model::tests::test_validate_priority_valid",
+        "model::tests::test_validate_status_transitions_invalid",
+        "model::tests::test_validate_status_transitions_valid",
+        "model::tests::test_validate_title_invalid",
+        "model::tests::test_validate_title_valid",
+        "profile::native_v1::tests::test_description",
+        "profile::native_v1::tests::test_native_to_profile",
+        "profile::native_v1::tests::test_profile_id",
+        "profile::native_v1::tests::test_profile_to_native",
+        "profile::native_v1::tests::test_validate_complete_data",
+        "profile::native_v1::tests::test_validate_missing_required_fields",
+        "profile::needle_v1::tests::test_native_to_needle",
+        "profile::needle_v1::tests::test_needle_to_native",
+        "profile::needle_v1::tests::test_profile_id",
+        "profile::needle_v1::tests::test_status_conversions",
+        "profile::needle_v1::tests::test_unknown_status",
+        "profile::tests::test_get_adapter",
+        "profile::tests::test_invalid_profile_id",
+        "profile::tests::test_profile_id_parsing",
+        "profile::tests::test_profile_registry",
+        "scan::credential_shape::tests::advisory_hash_shapes_match_complete_normative_grammar",
+        "scan::credential_shape::tests::exclusions_are_literal_and_keywords_are_whole_components",
+        "scan::credential_shape::tests::qualifier_matches_each_normative_representative_at_all_thresholds",
+        "scan::external::tests::escaped_view_maps_every_byte_back_to_its_raw_character",
+        "scan::external::tests::responses_parse_spans_and_skips_and_reject_malformed_rules",
+        "scan::fingerprint::tests::every_component_changes_the_fingerprint",
+        "scan::fingerprint::tests::fingerprint_of_a_real_match_differs_from_a_neighbor",
+        "scan::fingerprint::tests::fingerprints_are_deterministic",
+        "scan::fingerprint::tests::fingerprints_are_lowercase_hex_sha256",
+        "scan::fingerprint::tests::length_prefixing_makes_the_encoding_injective",
+        "scan::jwt::tests::complete_object_nonempty_string_alg_and_json_whitespace",
+        "scan::jwt::tests::header_requires_strict_unpadded_url_alphabet_and_utf8",
+        "scan::jwt::tests::rejects_duplicate_members_at_every_depth_and_escape_equivalents",
+        "scan::jwt::tests::valid_numbers_and_depth_are_not_machine_representation_constraints",
+        "scan::rules::tests::base62_crc32_round_trip",
+        "scan::rules::tests::checksum_rejects_non_base62_trailer",
+        "scan::rules::tests::npm_checksum_is_six_characters_and_rejects_tampering",
+        "scan::rules::tests::patterns_are_re2_syntax_without_lookaround",
+        "scan::rules::tests::ruleset_is_closed_and_versioned",
+        "scan::tests::advisory_and_off_modes_never_reject",
+        "scan::tests::aws_secret_access_key_assignment_blocks_with_or_without_namespace",
+        "scan::tests::aws_secret_access_key_assignment_preserves_placeholder_downgrade",
+        "scan::tests::compound_identifier_exclusion_is_advisory_only_and_preserves_opaque_siblings",
+        "scan::tests::embedded_checksum_controls_blocking_disposition",
+        "scan::tests::exact_acknowledgment_audit_commits_once_with_the_mutation",
+        "scan::tests::exact_acknowledgment_audit_rolls_back_with_the_mutation",
+        "scan::tests::exact_fingerprint_acknowledgment_admits_only_that_finding",
+        "scan::tests::fingerprints_are_deterministic_and_bind_location",
+        "scan::tests::garage_access_key_id_blocks_only_in_assignment_context",
+        "scan::tests::hostile_four_mebibyte_clean_field_has_bounded_scan_cost",
+        "scan::tests::indented_yaml_marker_is_not_a_document_boundary",
+        "scan::tests::integer_qualifier_excludes_identifiers_and_accepts_labelled_randomness",
+        "scan::tests::invocation_acknowledgment_validation_never_echoes_input",
+        "scan::tests::kubernetes_secret_yaml_does_not_cross_document_boundary",
+        "scan::tests::malformed_configuration_fails_closed_without_echoing_the_value",
+        "scan::tests::overlapping_prefilter_runs_both_rules_for_overlapping_anchors",
+        "scan::tests::placeholder_shape_is_advisory_not_blocking",
+        "scan::tests::provider_formatted_value_blocks_without_exposing_bytes",
+        "scan::tests::rejection_contains_remediation_but_never_the_value",
+        "scan::tests::secret_buffer_rendering_is_redacted",
+        "scan::tests::unicode_prefix_uses_byte_offsets",
+        "scan::tests::unlabelled_aws_secret_access_key_shape_does_not_block",
+        "scan::tests::workspace_configuration_defaults_to_enforce_and_loads_exact_acknowledgments",
+        "scan::tests::workspace_configuration_fails_closed_without_echoing_content",
+        "scan::text_views::tests::decoded_run_length_boundaries_and_whole_run_provenance",
+        "scan::text_views::tests::decoded_threshold_retains_ascii_candidates_with_non_utf8_remainder",
+        "scan::text_views::tests::decoded_views_are_lenient_but_strict_decoder_keeps_unused_bit_check",
+        "scan::text_views::tests::invalid_nonprintable_and_oversized_runs_each_consume_a_slot",
+        "scan::text_views::tests::printable_threshold_includes_vertical_tab_and_is_inclusive_at_ninety_percent",
+        "service::archaeology::tests::semantic_delta_ignores_object_key_order",
+        "service::archaeology::tests::semantic_delta_is_stably_ordered",
+        "service::attempt::tests::test_abbreviate_hash",
+        "service::attempt::tests::test_compute_canonical_hash",
+        "service::attempt::tests::test_generate_receipt_id",
+        "service::changes::tests::test_cursor_at_beginning",
+        "service::changes::tests::test_cursor_at_sequence",
+        "service::changes::tests::test_cursor_from_string",
+        "service::changes::tests::test_cursor_invalid_format",
+        "service::changes::tests::test_cursor_serialization",
+        "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard",
+        "service::checkpoint::set_v2::tests::tombstone_partitions_on_its_own_id_not_the_embedded_epoch",
+        "service::checkpoint::tests::bare_interchange_source_uuid_is_stable_and_distinct",
+        "service::checkpoint::tests::content_object_reuse_requires_bytes_that_hash_to_their_name",
+        "service::checkpoint::tests::fork_origin_start_is_anchored_to_matching_receipt",
+        "service::checkpoint::tests::heals_only_the_legacy_bare_interchange_merge_shape",
+        "service::checkpoint::tests::local_event_identity_is_stable_across_canonicalization_with_empty_workspace_uuid",
+        "service::checkpoint::tests::monolithic_publication_repairs_a_root_planted_at_the_next_address",
+        "service::checkpoint::tests::publication_lock_file_is_created_and_never_a_tombstone_target",
+        "service::checkpoint::tests::publication_lock_is_exclusive_across_openers",
+        "service::checkpoint::tests::read_all_attempt_outcomes_reads_a_migrated_workspace",
+        "service::checkpoint::tests::read_all_attempt_outcomes_tolerates_a_legacy_workspace",
+        "service::checkpoint::tests::read_all_provenance_receipts_heals_a_legacy_bare_interchange_merge_row",
+        "service::checkpoint::tests::recovery_activation_waits_for_the_publication_lock",
+        "service::checkpoint::tests::select_checkpoint_mode_follows_spec_9",
+        "service::checkpoint::tests::set_v2_staging_matches_monolithic_staging_on_a_fixture_store",
+        "service::checkpoint::tests::test_calculate_file_hash",
+        "service::checkpoint::tests::test_flush_checkpoint_empty",
+        "service::checkpoint::tests::test_flush_checkpoint_with_issues",
+        "service::claim::tests::test_assignee_has_active_claim_reason_code",
+        "service::claim::tests::test_claim_result_serialization",
+        "service::comparison::tests::test_calculate_summary",
+        "service::comparison::tests::test_semantic_equality_objects",
+        "service::comparison::tests::test_semantic_equality_primitive",
+        "service::comparison::tests::test_semantic_equality_string",
+        "service::comparison::tests::test_semantic_inequality",
+        "service::conditions::tests::test_condition_serialization",
+        "service::conditions::tests::test_evaluate_data_field_condition",
+        "service::conditions::tests::test_evaluate_equals_condition",
+        "service::conditions::tests::test_evaluate_in_set_condition",
+        "service::conditions::tests::test_evaluate_labels_condition",
+        "service::conditions::tests::test_evaluate_logical_operators",
+        "service::conditions::tests::test_evaluate_numeric_comparison",
+        "service::conditions::tests::test_evaluate_string_condition",
+        "service::conditions::tests::test_validate_supported_fields",
+        "service::data::tests::test_complex_json_value",
+        "service::data::tests::test_data_events_advance_sequence_per_mutation",
+        "service::data::tests::test_get_nonexistent_namespace",
+        "service::data::tests::test_list_data",
+        "service::data::tests::test_list_data_on_nonexistent_issue",
+        "service::data::tests::test_list_empty_issue",
+        "service::data::tests::test_multiple_namespaces_per_issue",
+        "service::data::tests::test_remove_data",
+        "service::data::tests::test_remove_data_appends_event",
+        "service::data::tests::test_remove_data_idempotent",
+        "service::data::tests::test_remove_data_on_nonexistent_issue",
+        "service::data::tests::test_remove_nonexistent_data_appends_no_event",
+        "service::data::tests::test_set_and_get_data",
+        "service::data::tests::test_set_data_appends_event",
+        "service::data::tests::test_set_data_changed_schema_ref_appends_event",
+        "service::data::tests::test_set_data_changed_value_appends_event",
+        "service::data::tests::test_set_data_event_omits_document_body",
+        "service::data::tests::test_set_data_identical_reset_appends_no_event",
+        "service::data::tests::test_set_data_on_nonexistent_issue",
+        "service::data::tests::test_set_replaces_existing",
+        "service::data::tests::test_validate_namespace",
+        "service::data::tests::test_validate_schema_ref",
+        "service::dependencies::tests::test_add_dependency",
+        "service::dependencies::tests::test_add_dependency_appends_event",
+        "service::dependencies::tests::test_add_dependency_creates_cycle",
+        "service::dependencies::tests::test_add_dependency_idempotent",
+        "service::dependencies::tests::test_add_dependency_idempotent_appends_no_event",
+        "service::dependencies::tests::test_add_dependency_invalid_kind",
+        "service::dependencies::tests::test_add_dependency_nonexistent_blocked",
+        "service::dependencies::tests::test_add_dependency_nonexistent_blocker",
+        "service::dependencies::tests::test_add_dependency_self_edge",
+        "service::dependencies::tests::test_add_dependency_with_condition_records_condition",
+        "service::dependencies::tests::test_add_label",
+        "service::dependencies::tests::test_add_label_appends_event",
+        "service::dependencies::tests::test_add_label_idempotent",
+        "service::dependencies::tests::test_add_label_idempotent_appends_no_event",
+        "service::dependencies::tests::test_add_label_nonexistent_issue",
+        "service::dependencies::tests::test_conditional_dependency_basic",
+        "service::dependencies::tests::test_conditional_dependency_evaluation",
+        "service::dependencies::tests::test_conditional_dependency_inactive",
+        "service::dependencies::tests::test_conditional_dependency_prevents_cycles",
+        "service::dependencies::tests::test_conditional_dependency_validation",
+        "service::dependencies::tests::test_conditional_dependency_with_issue_type",
+        "service::dependencies::tests::test_conditional_dependency_with_logical_operators",
+        "service::dependencies::tests::test_cycle_rejection_still_fires_for_a_pair_that_is_also_an_inversion",
+        "service::dependencies::tests::test_dependency_events_advance_sequence_per_mutation",
+        "service::dependencies::tests::test_dfs_has_path_direct",
+        "service::dependencies::tests::test_dfs_has_path_indirect",
+        "service::dependencies::tests::test_dfs_has_path_none",
+        "service::dependencies::tests::test_is_valid_kind",
+        "service::dependencies::tests::test_relates_to_allows_cycles",
+        "service::dependencies::tests::test_remove_dependency",
+        "service::dependencies::tests::test_remove_dependency_appends_event",
+        "service::dependencies::tests::test_remove_dependency_idempotent",
+        "service::dependencies::tests::test_remove_dependency_idempotent_appends_no_event",
+        "service::dependencies::tests::test_remove_dependency_without_kind",
+        "service::dependencies::tests::test_remove_dependency_without_kind_records_null_kind",
+        "service::dependencies::tests::test_remove_label",
+        "service::dependencies::tests::test_remove_label_appends_event",
+        "service::dependencies::tests::test_remove_label_idempotent",
+        "service::dependencies::tests::test_remove_label_idempotent_appends_no_event",
+        "service::dependencies::tests::test_verifies_add_persists_kind",
+        "service::dependencies::tests::test_verifies_allows_cycles",
+        "service::dependencies::tests::test_verifies_and_blocks_coexist_for_inverted_pair",
+        "service::dependencies::tests::test_verifies_appends_event_with_kind",
+        "service::dependencies::tests::test_verifies_self_edge_rejected",
+        "service::doctor::runtime_ignore_coverage_tests::comments_blanks_and_other_names_do_not_cover",
+        "service::doctor::runtime_ignore_coverage_tests::content_coverage_reports_presence_without_negation",
+        "service::doctor::runtime_ignore_coverage_tests::every_runtime_ignore_dir_is_self_covered_by_its_own_pattern",
+        "service::doctor::runtime_ignore_coverage_tests::generated_style_patterns_cover_the_directory",
+        "service::doctor::runtime_ignore_coverage_tests::negation_un_covers_even_after_a_positive_rule",
+        "service::dryrun::tests::test_dryrun_result_serialization",
+        "service::external_refs::tests::test_add_and_list_external_references",
+        "service::external_refs::tests::test_add_duplicate_reference_idempotent",
+        "service::external_refs::tests::test_add_duplicate_reference_idempotent_appends_no_event",
+        "service::external_refs::tests::test_add_external_reference_appends_event",
+        "service::external_refs::tests::test_add_external_reference_event_omits_value_verbatim",
+        "service::external_refs::tests::test_add_reference_with_changed_value_appends_event",
+        "service::external_refs::tests::test_external_reference_events_advance_sequence_per_mutation",
+        "service::external_refs::tests::test_external_reference_validation",
+        "service::external_refs::tests::test_find_issues_by_reference",
+        "service::external_refs::tests::test_nonexistent_issue",
+        "service::external_refs::tests::test_remove_external_reference",
+        "service::external_refs::tests::test_remove_external_reference_appends_event",
+        "service::external_refs::tests::test_remove_nonexistent_reference_appends_no_event",
+        "service::external_refs::tests::test_remove_nonexistent_reference_idempotent",
+        "service::git::tests::buckets_name_staged_unstaged_and_committed",
+        "service::git::tests::buckets_split_untracked_from_ignored",
+        "service::git::tests::committed_checkpoint_reports_committed",
+        "service::git::tests::gate_accumulates_behind_existing_internals_reasons",
+        "service::git::tests::gate_case_a_consistent_and_fully_committed_reads_yes",
+        "service::git::tests::gate_case_b_anything_uncommitted_is_never_a_bare_yes",
+        "service::git::tests::gate_case_b_ignored_blocks_the_never_healable_shape",
+        "service::git::tests::gate_case_b_staged_alone_still_blocks",
+        "service::git::tests::gate_case_c_unavailable_is_explicit_never_a_silent_yes",
+        "service::git::tests::gate_fully_committed_leaves_an_internally_not_ready_verdict_alone",
+        "service::git::tests::gate_none_reachability_passes_the_internals_verdict_through",
+        "service::git::tests::ignored_checkpoint_reports_ignored",
+        "service::git::tests::invisible_files_are_asked_not_assumed",
+        "service::git::tests::missing_git_binary_is_unavailable_not_silent",
+        "service::git::tests::porcelain_parses_empty_and_unterminated_output",
+        "service::git::tests::porcelain_parses_mixed_records",
+        "service::git::tests::repoless_workspace_is_unavailable_without_spawning_git",
+        "service::git::tests::runtime_lock_file_is_carved_out_of_every_bucket",
+        "service::git::tests::runtime_lock_file_shows_nothing_even_when_git_would_classify_it",
+        "service::git::tests::staged_deletion_counts_as_pending",
+        "service::git::tests::staged_files_report_staged",
+        "service::git::tests::staged_then_modified_lands_in_both_buckets",
+        "service::git::tests::unstaged_files_report_unstaged",
+        "service::git::tests::untracked_files_report_untracked_by_file_path",
+        "service::git::tests::verdict_ranks_least_progressed_bucket",
+        "service::git::tests::worktree_deletion_is_unstaged_pending",
+        "service::git_commit::tests::a_pointer_path_escaping_the_checkpoint_refuses",
+        "service::git_commit::tests::message_resolution_rejects_empty_and_names_the_generation_by_default",
+        "service::git_commit::tests::safe_paths_reject_traversal_absolute_and_backslash",
+        "service::git_commit::tests::verified_set_spans_both_pointers_the_view_and_the_tombstones",
+        "service::git_stage::tests::missing_git_binary_is_an_error_reason_not_a_crash",
+        "service::git_stage::tests::plan_carves_runtime_files_out_of_both_inputs",
+        "service::git_stage::tests::plan_keeps_deletion_candidates_regardless_of_disk_state",
+        "service::git_stage::tests::plan_maps_candidates_to_workspace_relative_pathspecs",
+        "service::git_stage::tests::plan_rejects_a_checkpoint_dir_outside_the_workspace",
+        "service::git_stage::tests::plan_skips_addition_candidates_that_are_not_on_disk",
+        "service::git_stage::tests::repoless_workspace_is_a_noop_without_spawning_git",
+        "service::git_stage::tests::staging_adds_published_files_to_the_index",
+        "service::git_stage::tests::staging_removal_only_for_tracked_tombstones",
+        "service::issues::tests::test_parse_base_status",
+        "service::leases::tests::test_lease_serialization",
+        "service::leases::tests::test_lease_ttl_bounds",
+        "service::lifecycle::tests::test_parse_base_status_in_lifecycle",
+        "service::manifest::tests::accepts_an_empty_manifest",
+        "service::manifest::tests::parses_a_minimal_v1_manifest",
+        "service::manifest::tests::refuses_duplicate_local_ids_and_fieldless_updates",
+        "service::manifest::tests::refuses_forward_and_undefined_references",
+        "service::manifest::tests::refuses_unknown_version_op_and_fields",
+        "service::manifest::tests::scans_every_operation_before_the_manifest_transaction",
+        "service::policy::tests::test_diagnostic_summary_counts",
+        "service::policy::tests::test_validate_aging_v1_policy_invalid_promotions",
+        "service::policy::tests::test_validate_balanced_v1_policy_invalid_ratio",
+        "service::policy::tests::test_validate_fifo_v1_policy",
+        "service::policy::tests::test_validate_unknown_version",
+        "service::projection::tests::apply_notes_mode_leaves_default_json_untouched",
+        "service::projection::tests::apply_notes_mode_none_omits_and_tail_trims",
+        "service::projection::tests::notes_tail_counts_characters_not_bytes",
+        "service::projection::tests::notes_text_section_bounds_default_and_names_the_escape_hatch",
+        "service::projection::tests::notes_text_section_explicit_tail_states_the_omission",
+        "service::projection::tests::notes_text_section_none_and_all",
+        "service::projection::tests::parse_notes_mode_accepts_documented_forms",
+        "service::projection::tests::parse_notes_mode_rejects_garbage_as_usage_error",
+        "service::projection::tests::project_document_keeps_requested_order_and_conditional_absence",
+        "service::query::tests::test_build_order_clause",
+        "service::query::tests::test_build_where_clause",
+        "service::query::tests::test_parse_invalid_version",
+        "service::query::tests::test_parse_simple_query",
+        "service::query::tests::test_query_field_validation",
+        "service::query::tests::test_sort_field_validation",
+        "service::recurrence::tests::test_create_duplicate_template",
+        "service::recurrence::tests::test_create_template",
+        "service::recurrence::tests::test_delete_template",
+        "service::recurrence::tests::test_get_materialization_history",
+        "service::recurrence::tests::test_get_next_sequence",
+        "service::recurrence::tests::test_get_nonexistent_template",
+        "service::recurrence::tests::test_get_template",
+        "service::recurrence::tests::test_list_templates",
+        "service::recurrence::tests::test_materialize_next_occurrence",
+        "service::recurrence::tests::test_materialize_sequence_incrementing",
+        "service::redaction::tests::event_identity_canonicalization_rolls_back_with_redaction",
+        "service::redaction::tests::failure_before_commit_rolls_back_every_effect",
+        "service::redaction::tests::secret_bearing_reason_is_rejected_without_echoing_it",
+        "service::redaction::tests::stale_preflight_location_conflicts_without_mutation",
+        "service::resource_locks::tests::normalizes_and_orders_keys",
+        "service::resource_locks::tests::rejects_empty_control_duplicate_and_oversized_keys",
+        "service::scheduling::tests::test_attempt_tier_conversion",
+        "service::scheduling::tests::test_policy_as_str",
+        "service::scheduling::tests::test_scheduling_policy_parsing",
+        "service::secret_diagnostics::tests::checkpoint_paths_cannot_escape_the_checkpoint_directory",
+        "service::secret_diagnostics::tests::identical_text_in_two_shards_yields_distinct_resolvable_findings",
+        "service::secret_diagnostics::tests::live_selector_is_stable_and_does_not_expose_identity_text",
+        "service::secret_diagnostics::tests::monolithic_retained_selectors_keep_the_record_only_shape",
+        "service::secret_diagnostics::tests::native_event_selector_matches_read_only_checkpoint_wire_identity",
+        "service::secret_diagnostics::tests::recovery_artifact_scan_reports_without_returning_matched_bytes",
+        "service::secret_diagnostics::tests::reset_scan_reports_absent_current_root_and_strict_scan_refuses",
+        "service::secret_diagnostics::tests::reset_scan_reports_absent_shard_of_a_sharded_generation",
+        "service::secret_diagnostics::tests::reset_scan_reports_untombstoned_absent_previous_root_and_keeps_current_findings",
+        "service::secret_diagnostics::tests::reset_scan_still_fails_closed_on_malformed_pointer_or_record",
+        "service::secret_diagnostics::tests::reset_scan_treats_tombstoned_previous_root_as_clean_absence",
+        "service::secret_diagnostics::tests::retained_finding_lookup_skips_tombstoned_previous_root",
+        "service::secret_diagnostics::tests::stored_fingerprint_matching_survives_a_ruleset_version_change",
+        "service::secret_diagnostics::tests::unsafe_record_keys_and_machine_hashes_are_not_reported_as_content",
+        "store::identity::tests::classify_empty_database",
+        "store::identity::tests::classify_foreign_database",
+        "store::identity::tests::classify_foreign_database_with_schema_migrations_but_no_workspace",
+        "store::identity::tests::classify_native_database",
+        "store::identity::tests::verify_format_identity_accepts_matching_marker",
+        "store::identity::tests::verify_format_identity_rejects_mismatched_marker",
+        "store::identity::tests::verify_format_identity_tolerates_absent_marker",
+        "store::migrations::tests::apply_migrations_tolerates_a_concurrent_winner",
+        "store::migrations::tests::historical_redaction_migration_is_additive_and_content_free",
+        "store::migrations::tests::migrate_if_pending_advances_a_legacy_store",
+        "store::migrations::tests::migrate_if_pending_bootstraps_an_unversioned_store",
+        "store::migrations::tests::migrate_if_pending_is_a_noop_when_current",
+        "store::migrations::tests::test_apply_migrations_empty_db",
+        "store::migrations::tests::test_apply_migrations_idempotent",
+        "store::migrations::tests::test_migration_1_checksum",
+        "store::sqlite::tests::test_generate_uuid_format",
+        "store::sqlite::tests::test_init_workspace",
+        "store::sqlite::tests::test_init_workspace_idempotent",
+        "store::sqlite::tests::test_validate_prefix_invalid",
+        "store::sqlite::tests::test_validate_prefix_valid",
+        "store::tests::test_discovery_override_continues_past_unrecognized_beads",
+        "store::tests::test_discovery_sandwiched_workspace_still_wins",
+        "store::tests::test_discovery_stops_at_first_beads_without_fingerprint",
+        "store::tests::test_workspace_discovery_none"
+      ]
+    }
+  },
+  "logs_retention_days_required": 7,
+  "operation": "checkpoint-windows-checks",
+  "outer_windows_job_verification_required": true,
+  "owned_children_quiescent": true,
+  "owned_job_baseline": {
+    "pids": [
+      1976,
+      3556,
+      4208
+    ],
+    "policy": "supervisor, Python, and at most its one verified System32 console host",
+    "processes": [
+      {
+        "creation_filetime": "134400744539060000",
+        "image_name": "python.exe",
+        "image_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "parent_pid": 4208,
+        "pid": 1976,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400744539113654",
+        "image_name": "conhost.exe",
+        "image_path": "C:\\Windows\\System32\\conhost.exe",
+        "parent_pid": 1976,
+        "pid": 3556,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400744497096290",
+        "image_name": "powershell.exe",
+        "image_path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "parent_pid": 8048,
+        "pid": 4208,
+        "query_and_synchronization_handle_retained": true
+      }
+    ],
+    "schema_version": 1,
+    "validated_at": "2026-11-25T10:00:55.936251+00:00"
+  },
+  "partition": "core",
+  "release_under_test": {
+    "executable": {
+      "bytes": 12214272,
+      "mode": 511,
+      "path": "release-under-test/bead-checkpoint-c90f0cdbade9.exe",
+      "sha256": "cdd3b50d65504c52a27a8fd29c6494fe3847d512cbca1510aa74a6cc5da87a06"
+    },
+    "metadata": {
+      "bytes": 2056,
+      "mode": 438,
+      "path": "release-under-test/bead-checkpoint-c90f0cdbade9.exe.metadata.json",
+      "sha256": "ed74ccf87b21972261434f8c628dea12cfb958a577ba686658d24ae8123dc97a"
+    }
+  },
+  "run": {
+    "attempt": "1",
+    "id": "45590705550",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "ddc93993a810e100bbbd62059cae92d3b6c78a56",
+    "workflow_ref": "YossiMH/bead-me-up-scotty/.github/workflows/native-final-windows-v8-20261125.yml@refs/heads/task/checkpoint-windows-v8-check-20261125"
+  },
+  "schema_version": 1,
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "started": "2026-11-25T10:00:55.936251+00:00",
+  "status": "failed",
+  "target": "x86_64-pc-windows-msvc",
+  "test_results": [
+    {
+      "case": "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+      "duration_seconds": 0.078,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 380,
+      "ignored": 0,
+      "label": "lib-case-0",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/lib-case-0.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 215,
+        "mode": 438,
+        "path": "logs/lib-case-0.stdout",
+        "sha256": "1c248a14e71689c7fc8a9839d91ff5901760d2cae7c021bc33853a4d4d13bee3"
+      },
+      "target": "lib",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\lib-case-0",
+      "tests": [
+        "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards"
+      ]
+    },
+    {
+      "case": "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+      "duration_seconds": 0.079,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 380,
+      "ignored": 0,
+      "label": "lib-case-1",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/lib-case-1.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 218,
+        "mode": 438,
+        "path": "logs/lib-case-1.stdout",
+        "sha256": "e24fe54d819af994596f503b30f14568dcb3a6e251aebd39244d2fc73aefb9de"
+      },
+      "target": "lib",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\lib-case-1",
+      "tests": [
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards"
+      ]
+    },
+    {
+      "case": "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard",
+      "duration_seconds": 0.031,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 380,
+      "ignored": 0,
+      "label": "lib-case-2",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/lib-case-2.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 219,
+        "mode": 438,
+        "path": "logs/lib-case-2.stdout",
+        "sha256": "057246c7822337a5951d55bdcb7d3e9ca521868220a8538d00f330ef12c56a99"
+      },
+      "target": "lib",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\lib-case-2",
+      "tests": [
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard"
+      ]
+    },
+    {
+      "case": "service::checkpoint::tests::publication_lock_is_exclusive_across_openers",
+      "duration_seconds": 0.234,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 380,
+      "ignored": 0,
+      "label": "lib-case-3",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/lib-case-3.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 199,
+        "mode": 438,
+        "path": "logs/lib-case-3.stdout",
+        "sha256": "119838e82d28e4609860d299e2de56fff4691d9063cf60ac6e988a5ea90f31e3"
+      },
+      "target": "lib",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\lib-case-3",
+      "tests": [
+        "service::checkpoint::tests::publication_lock_is_exclusive_across_openers"
+      ]
+    },
+    {
+      "case": "attempt_receipt_checkpoint_integrity",
+      "duration_seconds": 1.5,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "label": "attempt_receipt_checkpoint_integrity-case-0",
+      "measured": 0,
+      "passed": 4,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/attempt_receipt_checkpoint_integrity-case-0.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 391,
+        "mode": 438,
+        "path": "logs/attempt_receipt_checkpoint_integrity-case-0.stdout",
+        "sha256": "8799e3ef6b0b80ed764651c94d356f07ecadbeb2ddd68d528a8f08d30ba06793"
+      },
+      "target": "attempt_receipt_checkpoint_integrity",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\attempt_receipt_checkpoint_integrity-case-0",
+      "tests": [
+        "exact_resulting_state_survives_both_checkpoint_layouts",
+        "public_schemas_describe_attempt_state_and_checkpoint_counts",
+        "replacement_restore_removes_displaced_attempt_outcomes",
+        "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+      ]
+    },
+    {
+      "case": "checkpoint_tail_generation_integrity",
+      "duration_seconds": 0.984,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "label": "checkpoint_tail_generation_integrity-case-0",
+      "measured": 0,
+      "passed": 2,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_tail_generation_integrity-case-0.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 263,
+        "mode": 438,
+        "path": "logs/checkpoint_tail_generation_integrity-case-0.stdout",
+        "sha256": "11e382bff4a670f4b72706531db696ffeb737fdd09715c0ed8a8cf0fe2fe1a20"
+      },
+      "target": "checkpoint_tail_generation_integrity",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_tail_generation_integrity-case-0",
+      "tests": [
+        "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+        "selected_set_v2_generation_remains_restorable_after_tail_append"
+      ]
+    },
+    {
+      "case": "checkpoint_publication_lock",
+      "duration_seconds": 1.171,
+      "error": "Harness failed",
+      "exit_code": 101,
+      "label": "checkpoint_publication_lock-case-0",
+      "selectors": {},
+      "status": "failed",
+      "stderr": {
+        "bytes": 792,
+        "mode": 438,
+        "path": "logs/checkpoint_publication_lock-case-0.stderr",
+        "sha256": "b2244d9abdbd51bcad2b96943eab90b93557143c59f7036d943e20d621a4ebde"
+      },
+      "stdout": {
+        "bytes": 504,
+        "mode": 438,
+        "path": "logs/checkpoint_publication_lock-case-0.stdout",
+        "sha256": "f57ab188457231682bc4f5e6d9b1230ef6d6cc15ff49987099724dfe0da7168a"
+      },
+      "target": "checkpoint_publication_lock",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_publication_lock-case-0"
+    },
+    {
+      "case": "set_v2_budget_single_issue_update",
+      "duration_seconds": 419.312,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-0",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 161,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stdout",
+        "sha256": "1645f4902c61a52c47c86c7c8bcc05d8005420cfb10f098b436419fa70406b22"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-0",
+      "tests": [
+        "set_v2_budget_single_issue_update"
+      ]
+    },
+    {
+      "case": "set_v2_shard_split_on_update_storm",
+      "duration_seconds": 21.109,
+      "error": "Harness failed",
+      "exit_code": 101,
+      "label": "checkpoint_set_v2_conformance-case-1",
+      "selectors": {},
+      "status": "failed",
+      "stderr": {
+        "bytes": 299,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stderr",
+        "sha256": "fdea931b6b3a1a41b27124dd963891416686e5dd0a960a68863247fd393605bd"
+      },
+      "stdout": {
+        "bytes": 230,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stdout",
+        "sha256": "b326e9c351bf10fae0d0289cf0b555b2c70aa22b23d11003ead6d90cb5092a83"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-1"
+    },
+    {
+      "case": "set_v2_shard_merge_on_deletion",
+      "duration_seconds": 21.11,
+      "error": "Harness failed",
+      "exit_code": 101,
+      "label": "checkpoint_set_v2_conformance-case-2",
+      "selectors": {},
+      "status": "failed",
+      "stderr": {
+        "bytes": 294,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stderr",
+        "sha256": "d4cdd6fc514bf9ad0c2b7558577afba14b076417c133666f3835210c42b13147"
+      },
+      "stdout": {
+        "bytes": 222,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stdout",
+        "sha256": "fad7a0f2e09737392238eef627771695838c4c828e6c98c48afc9f5a8e8fe406"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-2"
+    },
+    {
+      "case": "set_v2_tail_seal_and_immutability",
+      "duration_seconds": 37.984,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-3",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 160,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stdout",
+        "sha256": "6e0ab617e7867137f74cb610a484d892ac788707966002da743061a00c69ad08"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-3",
+      "tests": [
+        "set_v2_tail_seal_and_immutability"
+      ]
+    },
+    {
+      "case": "set_v2_oversize_record_once_cost",
+      "duration_seconds": 5.672,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-4",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-4.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 172,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-4.stdout",
+        "sha256": "be88fc17b7e07072eea7cd47932817e696d20de2c466042e1fd46a0e7200b556"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-4",
+      "tests": [
+        "set_v2_oversize_record_once_cost"
+      ]
+    },
+    {
+      "case": "set_v2_pointer_boundedness",
+      "duration_seconds": 10.188,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-5",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-5.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 153,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-5.stdout",
+        "sha256": "f54f7ddea0beb3ca11b4dd82d6358d51098e0db67d75577b448b787796a5c85e"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-5",
+      "tests": [
+        "set_v2_pointer_boundedness"
+      ]
+    },
+    {
+      "case": "set_v2_forensic_frozen",
+      "duration_seconds": 3.64,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-6",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-6.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 148,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-6.stdout",
+        "sha256": "c8393ac52efa8d0d48c1719810f30333d4021eef14c195ee70e591210296159b"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-6",
+      "tests": [
+        "set_v2_forensic_frozen"
+      ]
+    },
+    {
+      "case": "set_v2_crash_ordering",
+      "duration_seconds": 58.11,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-7",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-7.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 148,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-7.stdout",
+        "sha256": "cf23e844915782ef6ae06dacfef61efa99267a4db86031085ce5badf4712c74c"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-7",
+      "tests": [
+        "set_v2_crash_ordering"
+      ]
+    },
+    {
+      "case": "set_v2_migration_full_rewrite",
+      "duration_seconds": 1.64,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-8",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-8.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 155,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-8.stdout",
+        "sha256": "7e90fd6a40dd9dd16d522d6207781236a68c94d4985728af87717dfcb19989d1"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-8",
+      "tests": [
+        "set_v2_migration_full_rewrite"
+      ]
+    },
+    {
+      "case": "set_v2_dual_layout_reader_equivalence",
+      "duration_seconds": 2.594,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-9",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-9.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 163,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-9.stdout",
+        "sha256": "3d6a8b1f27d783b3f61dd25670c4263b6506d8eb2da0f5b0b7add455ba6c410e"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-9",
+      "tests": [
+        "set_v2_dual_layout_reader_equivalence"
+      ]
+    },
+    {
+      "case": "set_v2_concurrent_publication",
+      "duration_seconds": 0.953,
+      "error": "Harness failed",
+      "exit_code": 101,
+      "label": "checkpoint_set_v2_conformance-case-10",
+      "selectors": {},
+      "status": "failed",
+      "stderr": {
+        "bytes": 480,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-10.stderr",
+        "sha256": "5518706ed4c598e391defef6bf8212980026eedc705b48d9e2179236b50c91b8"
+      },
+      "stdout": {
+        "bytes": 219,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-10.stdout",
+        "sha256": "fe7672906b3a2ebf7e880a6e9429bc742407fae8ef0b3a6b638dcc6e0ae62498"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-10"
+    },
+    {
+      "case": "set_v2_forced_monolith_limits",
+      "duration_seconds": 0.563,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-11",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-11.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 155,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-11.stdout",
+        "sha256": "a673eefd3fa0700476df8bf5c68ca5db49a37bbb655cd1097b17146d3dbc6ada"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\checkpoint_set_v2_conformance-case-11",
+      "tests": [
+        "set_v2_forced_monolith_limits"
+      ]
+    }
+  ],
+  "window_deadline_epoch": 1795609208,
+  "window_start_epoch": 1795600808
+}
