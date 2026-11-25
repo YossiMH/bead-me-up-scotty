@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "status": "passed_build_and_final_source_preflights",
+  "native_tasks": {
+    "repair": "beadrs-b72dc0dc",
+    "linux_build": "beadrs-9c6d0088"
+  },
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "run": {
+    "attempt": "1",
+    "id": "45542149965",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "5753653247952185fef0b8c2c83ecacb6bbb190a"
+  },
+  "job_id": 138962980149,
+  "workflow_url": "https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45542149965",
+  "checks": {
+    "repair_diff_sha256": "58e41bcc75c57907ec3f3e40ae0d340836ae6871e0601326a3cafaa92d254caf",
+    "format_sha256": "46dc0f8896e42d62d1add86e340990640e4927721ae02cd721c1b2cfd123f4af",
+    "all_target_clippy": "passed",
+    "all_default_no_run": "passed",
+    "default_harnesses_compiled": 144,
+    "ordinary_binaries_compiled": 2,
+    "archive_release_build": "passed",
+    "all_commands_exit_zero": 22,
+    "owned_process_groups_empty": 22,
+    "tests_executed": false
+  },
+  "build_result_sha256": "384000475ed36cf748ed952c9cc2952d3d978928a5433e51c01a1eef6ce389fd",
+  "outer_result_sha256": "883855edfa517188d3864f7bdd91b186131d3c4887f0f6663bc3b97627aafd91",
+  "bundle": {
+    "bytes": 553143568,
+    "mode": 420,
+    "path": "qualification-bundle.tar.gz",
+    "sha256": "fe0299594c0141f5214ef32cdf421efb1ba3cd893e093f2519836d4f865c880b"
+  },
+  "release": {
+    "binary": {
+      "bytes": 13641240,
+      "mode": 493,
+      "path": "release/bead-editing-515b503-linux-20261125",
+      "sha256": "af2570ccdd3c34a1278b660a66ac7e780a13a2de96d9f3e91c7265e2efbf85db"
+    },
+    "metadata": {
+      "bytes": 2089,
+      "mode": 420,
+      "path": "release/bead-editing-515b503-linux-20261125.metadata.json",
+      "sha256": "5195149700e36ffa4692258e000a54f8353b6eb879df66df332beb07c8d140b8"
+    },
+    "target": "x86_64-unknown-linux-gnu",
+    "version": "bead 0.3.0 (unknown 2026-11-25T03:49:53Z)"
+  },
+  "artifacts": [
+    {
+      "id": 14990360952,
+      "name": "checkpoint-linux-build-45542149965-1",
+      "sha256": "e7aed337b161ec4f8416a321823cb4ee80e287a220b5800394aed86297c12849",
+      "bytes": 553648863,
+      "expires_at": "2026-12-02T03:52:56Z"
+    },
+    {
+      "id": 14990206627,
+      "name": "checkpoint-linux-release-45542149965-1",
+      "sha256": "64b636a9398e3c9c05c55e88afcc8d6df1d6e6eff3e5212d230a012ccc7db164",
+      "bytes": 22295678,
+      "expires_at": "2026-12-02T03:53:00Z"
+    }
+  ],
+  "duration_seconds": 406.03,
+  "source_and_checkout_unchanged": true,
+  "notes": [
+    "First cee build remains failed on formatting; this successful qualification uses the independently reviewed formatting-only descendant 515b503b.",
+    "Archive release stdout retains two manifest unused-dependency warnings; all-target Clippy with -D warnings completed successfully.",
+    "Full-suite execution and original-corpus release checks remain separate pending tasks."
+  ],
+  "author_inspections": [
+    {
+      "number": 1,
+      "scope": "Complete actual build and outer receipts, 144-harness map, all22 command/cleanup records, final whitespace/fmt receipts and complete small native build streams.",
+      "remaining_findings": []
+    },
+    {
+      "number": 2,
+      "scope": "Reconciled exact source/tree/helper/input/run and both live artifact identities; rehashed every inline Base64 record; verified successful build is distinct from test execution.",
+      "remaining_findings": []
+    }
+  ]
+}
