@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "static_author_inspections_passed",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "helper_sha256": "94c4a9012f35326234cd0eb613017b22018f0679be2d4f53fce08c9f1d4af6ad",
+  "manifest_sha256": "800e419fbbf8c8eda234df6ed67394d83adcdc51bc0fd4818a6dee534a4f7cd3",
+  "inspections": [
+    {
+      "number": 1,
+      "scope": "Complete415-line final helper, support import, bound inputs, whole YAML and notes.",
+      "checks": [
+        "Rebound only to the independently accepted formatted source and three measured test hashes; production/spec pins unchanged.",
+        "Verified formatted→repair→tests chain, exact three-file format delta, exact two-file repair delta and cumulative five-file boundary.",
+        "The first repair diff check covers finala42..515 source, and successful fmt emits its own immediate receipt before Clippy.",
+        "All compiler commands, one-job/debug profiles, owned process cleanup, full target bundle and release route remain the accepted implementation."
+      ],
+      "findings": []
+    },
+    {
+      "number": 2,
+      "scope": "Complete final v2 packet after the first full inspection.",
+      "checks": [
+        "Reconstructed the exact helper rebind patch and reviewed every call/input/log/receipt path.",
+        "Checkout depth4 includes the complete required history; fresh v2 branch retains the failed first workflow.",
+        "Early raw stream emission is restricted to each relevant preflight, while final complete streams retain the existing256KiB per-file limit.",
+        "All actual result/hash/source identities and old failure descriptions match the retained reports."
+      ],
+      "findings": []
+    }
+  ],
+  "runtime": {
+    "python_parse": "pending fresh hosted invocation",
+    "format_and_compilers": "pending exact formatted source run"
+  },
+  "cleanup": "Root/future agents preserve both failed and accepted evidence and clean owned branches/worktrees after delivery."
+}

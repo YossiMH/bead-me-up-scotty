@@ -1,0 +1,111 @@
+--- a/checkpoint-linux-build-20261125.py
++++ b/checkpoint-linux-build-20261125.py
+@@ -18,14 +18,15 @@
+ SUPPORT_SHA256 = "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0"
+ BASELINE = "986f2a332aca9dd567eee41ce835917d56e29468"
+ TESTS_COMMIT = "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8"
+-SOURCE_COMMIT = "cee3220b5e4b9a414c50379273c84759db645dbf"
+-SOURCE_TREE = "77ed48ea165859b23c5c72c6b85155ef5610fb14"
++REPAIR_COMMIT = "cee3220b5e4b9a414c50379273c84759db645dbf"
++SOURCE_COMMIT = "515b503b24baf71737ff8fa6c879bd0752ef0fc6"
++SOURCE_TREE = "b7c196bb6b337bdc7503e28d3a600e860fa3b799"
+ EXPECTED_FILES = {
+     "src/service/checkpoint/set_v2.rs": ("M", "9227543341a0e7352a2aab1fdf7e9244df21e4c723cd705d537ad34341557642"),
+     "research/specs/checkpoint-set-v2.md": ("M", "d06e0e890d84b52e0d22e63d954313e703dc187db635ccc44b93a96610a1b629"),
+-    "tests/attempt_receipt_checkpoint_integrity.rs": ("M", "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2"),
+-    "tests/checkpoint_set_v2_conformance.rs": ("M", "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58"),
+-    "tests/checkpoint_tail_generation_integrity.rs": ("A", "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705"),
++    "tests/attempt_receipt_checkpoint_integrity.rs": ("M", "4d8ea6a7de30da774223fb06e4817c7fb07dce6fbf69c2a78c5ee411ae8e3425"),
++    "tests/checkpoint_set_v2_conformance.rs": ("M", "20fd293a3484c689e70a02f2c162508a3d7a1bda9eecf142fdb8ea2fefc736f2"),
++    "tests/checkpoint_tail_generation_integrity.rs": ("A", "4cc62663252b25b9538d703718ca8b439bc57c32455484dbed95f83d0460b2af"),
+ }
+ BUILD_COMMAND = ["cargo", "test", "--locked", "--no-run", "--message-format=json"]
+ PROFILES = {"CARGO_PROFILE_DEV_DEBUG": "0", "CARGO_PROFILE_TEST_DEBUG": "0", "CARGO_INCREMENTAL": "0"}
+@@ -147,7 +148,7 @@
+     return files, total
+ 
+ 
+-def emit_text_records(B, root, result_names):
++def emit_text_records(B, root, result_names, selected_text=None):
+     for name in result_names:
+         path = root / name
+         if path.is_file():
+@@ -157,6 +158,8 @@
+                 "path": name, "sha256": hashlib.sha256(data).hexdigest(), "bytes": len(data),
+                 "base64": base64.b64encode(data).decode("ascii")}, sort_keys=True), flush=True)
+     for path in sorted((root / "logs").iterdir()):
++        if selected_text is not None and path.name not in selected_text:
++            continue
+         if not path.is_file() or not (path.name.endswith((".stdout", ".stderr", ".jsonl"))):
+             continue
+         record = B.file_record(path, root)
+@@ -188,7 +191,8 @@
+     inputs = B.read_json(request)
+     require(inputs.get("schema_version") == 1 and inputs.get("source_commit") == SOURCE_COMMIT
+             and inputs.get("source_tree") == SOURCE_TREE and inputs.get("baseline_commit") == BASELINE
+-            and inputs.get("tests_commit") == TESTS_COMMIT, "Unexpected approved source")
++            and inputs.get("tests_commit") == TESTS_COMMIT and inputs.get("repair_commit") == REPAIR_COMMIT,
++            "Unexpected approved source")
+     approved = {p: {"status": pair[0], "sha256": pair[1]} for p, pair in EXPECTED_FILES.items()}
+     require(inputs.get("approved_files") == approved and inputs.get("profiles") == PROFILES,
+             "Approved files/profiles differ")
+@@ -214,7 +218,8 @@
+               "helper_sha256": args.helper_sha256, "support_helper_sha256": SUPPORT_SHA256,
+               "input_sha256": args.inputs_sha256, "build_root": str(root), "source_root": str(source),
+               "target_root": str(target), "source_commit": SOURCE_COMMIT, "source_tree": SOURCE_TREE,
+-              "baseline_commit": BASELINE, "tests_commit": TESTS_COMMIT, "approved_files": approved,
++              "baseline_commit": BASELINE, "tests_commit": TESTS_COMMIT, "repair_commit": REPAIR_COMMIT,
++              "approved_files": approved,
+               "profiles": PROFILES, "cargo_build_jobs": 1, "build_seconds": BUILD_SECONDS,
+               "started": B.utc(), "tests_executed": False,
+               "run": {"id": run_id, "attempt": attempt, "workflow_commit": os.environ["GITHUB_SHA"],
+@@ -242,8 +247,15 @@
+         require(git(["rev-parse", "HEAD^{tree}"], "git-tree").read_text().strip() == SOURCE_TREE,
+                 "Checkout tree differs")
+         require(git(["rev-list", "--parents", "-n", "1", "HEAD"], "git-parent").read_text().split()
+-                == [SOURCE_COMMIT, TESTS_COMMIT], "Repair must directly descend from accepted tests")
+-        parent_delta = parse_delta(git(["diff", "--name-status", "--no-renames", "-z", TESTS_COMMIT, SOURCE_COMMIT, "--"],
++                == [SOURCE_COMMIT, REPAIR_COMMIT], "Formatting must directly descend from accepted repair")
++        require(git(["rev-list", "--parents", "-n", "1", REPAIR_COMMIT], "git-repair-parent").read_text().split()
++                == [REPAIR_COMMIT, TESTS_COMMIT], "Repair ancestry differs from accepted tests")
++        formatting_delta = parse_delta(git(
++            ["diff", "--name-status", "--no-renames", "-z", REPAIR_COMMIT, SOURCE_COMMIT, "--"],
++            "git-formatting-delta").read_bytes())
++        require(formatting_delta == {p: "M" for p in EXPECTED_FILES if p.startswith("tests/")},
++                "Formatting changed production source or unrelated files")
++        parent_delta = parse_delta(git(["diff", "--name-status", "--no-renames", "-z", TESTS_COMMIT, REPAIR_COMMIT, "--"],
+                                        "git-repair-delta").read_bytes())
+         require(parent_delta == {"src/service/checkpoint/set_v2.rs": "M", "research/specs/checkpoint-set-v2.md": "M"},
+                 "Repair changed accepted tests or unrelated files")
+@@ -257,7 +269,8 @@
+                       "stdout": B.file_record(root / "logs" / "git-repair-whitespace.stdout", root),
+                       "stderr": B.file_record(root / "logs" / "git-repair-whitespace.stderr", root)}
+         B.write_json(root / "repair-whitespace.json", whitespace)
+-        emit_text_records(B, root, ["repair-whitespace.json"])
++        emit_text_records(B, root, ["repair-whitespace.json"],
++                          {"git-repair-whitespace.stdout", "git-repair-whitespace.stderr"})
+         git(["diff", "--check", BASELINE, SOURCE_COMMIT, "--"], "git-whitespace")
+         listing = git(["ls-tree", "-r", "-z", "--full-tree", "HEAD"], "git-files").read_bytes().split(b"\0")
+         tracked = {}
+@@ -286,6 +299,12 @@
+                 and re.fullmatch(r"cargo 1\.100\.0 \([^\n]+\)", cargo), "Rust/Cargo1.100.0 required")
+         status["toolchain"] = {"rustc": rustc, "cargo": cargo}
+         runner.run(["cargo", "fmt", "--all", "--", "--check"], source, "cargo-fmt")
++        formatting = {"schema_version": 1, "status": "passed", "operation": "repaired-source-format-check",
++                      "source_commit": SOURCE_COMMIT, "exit_code": 0, "command": runner.commands[-1],
++                      "stdout": B.file_record(root / "logs" / "cargo-fmt.stdout", root),
++                      "stderr": B.file_record(root / "logs" / "cargo-fmt.stderr", root)}
++        B.write_json(root / "format-check.json", formatting)
++        emit_text_records(B, root, ["format-check.json"], {"cargo-fmt.stdout", "cargo-fmt.stderr"})
+         runner.run(["cargo", "clippy", "--locked", "--all-targets", "--", "-D", "warnings"], source, "cargo-clippy")
+         metadata_log = runner.run(["cargo", "metadata", "--locked", "--no-deps", "--format-version", "1"],
+                                   source, "cargo-metadata")
+@@ -334,7 +353,7 @@
+         status["duration_seconds"] = round(time.monotonic() - began, 3)
+         B.write_json(root / "build-result.json", status)
+         names = {"source.tar", "source-files.json", "target-files.json", "build-inputs.json",
+-                 "build-result.json", "attempt-started.json", "repair-whitespace.json"}
++                 "build-result.json", "attempt-started.json", "repair-whitespace.json", "format-check.json"}
+         names.update(path.relative_to(root).as_posix() for path in (root / "logs").iterdir())
+         names.update(target_files)
+         names.update(row["path"] for row in status["release"].values() if isinstance(row, dict))
