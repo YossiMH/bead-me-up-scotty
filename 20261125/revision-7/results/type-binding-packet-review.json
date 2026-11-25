@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "task_key": "type-install-binding-review",
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "review_kind": "independent cloud-only parsing and synthetic refusal preparation review",
+  "date": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "17c3d498cf9d9970dfa157700216481428448a51",
+    "directory": "20261125/revision-7/install-binding",
+    "workflow": ".github/workflows/type-binding-checks-20261125.yml",
+    "activation_branch": "task/type-binding-checks-20261125"
+  },
+  "reviewed_files": {
+    "README.md": "de6bdd4fb8d3c75742aa3dbaee31159084533deb967829f72426f691621bb355",
+    "author-inspections.json": "51e62e77f191268deb2557fec129a9ff43e4982cc94ca9c8aeddd80e54475b43",
+    "binding.json": "8e6484c83e1a3de181d221539806e632b757449f1feddcc196247f3f509212fd",
+    "check-binding-refusals.ps1": "8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c",
+    "check-history-refusals.mjs": "bcc28f3cd2c6958594e5a55b80f84366155352619f19a3a35ca22379cc5e99b1",
+    "checkpoint-handoff-20261125.mjs": "1b9e234de7a96c087a0e1a622eb3b8dffaceae1bf1e5134117e02334dab71b9a",
+    "checkpoint-handoff-supervisor-20261125.ps1": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+    "materialize-v7-supervisor.ps1": "cf70b0a6a9c77a73a46058a456e3cc1b8b4da2d0972721b8db19120bc6a998da",
+    "materialize-v7.mjs": "04267e53eb65c32d676f3d7c274f654e7a0353d8d6b5de31bfe855f04cd83d58",
+    "parse-bindings.ps1": "41f721f2dafb844b4ad05eced2588ecd3b57ad54dee0a2dd00cac8fa5d818d6a",
+    "parse-inputs.json": "5ffa14e2cefea47362f0e5ae5663836530b6740a3066923034f8bb6fa41d74d6",
+    "plan-review.json": "9d0673d5f7c5d151bf4fdf250295b7ec60ad3326df7e313fa06be06216e27ce1",
+    "plan.json": "16e0e0f465ab1f906f2faa6b29aa198ef6b8a42409e1f1bbf0856342ac2ec3d7",
+    "verify-bindings.workflow.yml": "aff3b35958c603246324f15315dfa762cc4c4bbc05431fc607e6b411ea62c3b2",
+    "windows-configured-launch-host-20261125.ps1": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+    "windows-install-tray-host-20261125.ps1": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0"
+  },
+  "acceptance_scope": "This accepts only activation of the exact hosted parser/declaration/synthetic-refusal workflow. It is not final installation/history binding acceptance and does not complete the actual materialization or installation prerequisites.",
+  "retained_baselines": {
+    "installer_review": "2e3119345baaa250530790910721d7828ae65967:20261125/revision-6/results/tray-wrappers-v6-review.json",
+    "history_review": "97dc52e5458b526bd75df2de8c908a125e1274e4:20261125/revision-6/results/checkpoint-handoff-v6-review.json",
+    "history_sha256": "37365873aab6a5f35db7205a1d9cc90929cddf16bc03b94c4d67aeaf650bc0fa",
+    "materializer_review": "15542c44397f755aff3924fab928b240cefd433d:20261125/revision-7/materialize-v7-review.json"
+  },
+  "inspection": {
+    "complete_new_parser_read": true,
+    "complete_new_synthetic_refusal_helpers_read": true,
+    "complete_workflow_binding_read": true,
+    "complete_author_record_read": true,
+    "all_eight_parser_input_hashes_verified": true,
+    "history_entire_file_exact_reversal": true,
+    "complete_affected_history_request_plan_mapping_logic_read": true,
+    "complete_extracted_installer_function_bodies_read": true,
+    "unchanged_production_baseline_reviews_retained": true,
+    "complete_final_author_inspections": 2,
+    "reviewer_product_execution": false,
+    "reviewer_pc_actions": 0
+  },
+  "exact_history_changes": [
+    "revision-6/plan.json -> revision-7/plan.json",
+    "materialization-result-v6.json -> materialization-result-v7.json",
+    "Accepted plan-review continuation_revision 6 -> 7"
+  ],
+  "conclusions": [
+    "The three literal substitutions are the entire history delta; reversing them reproduces every accepted baseline byte. Dynamic task count, complete graph and original-record checks remain exact.",
+    "Installer, configured launcher, history supervisor and revision 7 materializer match their accepted hashes. The fresh runtime is an input inventory; no exception is added for unbuilt adapter code.",
+    "The parser checks exact files, ordinary PowerShell 5.1/Node syntax and four named C# declarations. It compiles declarations without invoking their methods or production helper entry points.",
+    "The PowerShell fixture loads only the listed existing installer functions. It checks runtime hash/size/build/path/duplicate refusals and documentation/adapter/ancestry rules in a newly created local Git repository.",
+    "The fresh hosted F: mapping or fresh child is used only for the existing read-only path verifier; created fixtures are tracked and removed. No F:/Dev path is opened or constructed by the fixture.",
+    "The Node fixture preserves every history implementation byte and appends only a test export. Import does not satisfy the main-entry comparison; only verifyPlan runs on explicitly synthetic 954-original/49-task/78-edge data.",
+    "The graph fixture checks missing/duplicate IDs, edge count/kind, changed original rows, unclosed tasks and changed descriptions while ensuring its inputs remain unchanged.",
+    "The workflow uses an isolated Windows hosted runner, read-only repository permissions, pinned Actions, a seven-minute bound and fourteen-day output retention.",
+    "binding.json explicitly leaves actual materialization null and installation execution false. Qualified release/download/runtime/PC results remain pending."
+  ],
+  "findings": [],
+  "cloud_verification_activation_ready": true,
+  "installation_authorized_to_execute": false,
+  "actual_materialization_available": false,
+  "next_action": "Activate the exact cloud verification workflow, retain and review its actual parser/declaration/refusal results, then bind real qualified downloads and the root-written revision 7 materialization before any final helper acceptance.",
+  "pending": [
+    "Actual ordinary parser and declaration compilation results",
+    "Actual synthetic refusal results",
+    "Qualified exact native release and downloaded hashes",
+    "Complete fresh app runtime readback and Windows type roundtrip",
+    "Actual revision 7 native mapping and measured hash",
+    "Required actual PC tray, checked installation and configured launch"
+  ],
+  "cleanup": "Future agents must reconcile this packet and any running hosted job, recover only authorized changes into the recorded Riftri worktree, preserve unpublished work and remove only clean published worktrees without force after retained final results."
+}
