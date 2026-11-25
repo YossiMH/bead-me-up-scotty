@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Actual revision 9 helper syntax, declaration and synthetic refusal checks only",
+  "task_key": "type-install-binding-review",
+  "continuation_revision": 9,
+  "complete_binding_status": "PENDING",
+  "candidate_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+  "preparation_review": {
+    "commit": "3962c69bf04d7e14d789b13551bcd9df1f27fad4",
+    "path": "20261125/revision-9/results/binding-preparation-review.json",
+    "sha256": "fb62b68a08e1a177c36c88857a1b6cbc5a466ec8e3e0b9da193352fbf74d518b"
+  },
+  "actual_result": {
+    "commit": "b7dd3bfa6a09cab9e29b136303fce4e7a7309396",
+    "path": "20261125/revision-9/results/type-binding-checks-45596905174.json",
+    "sha256": "7f7dca61100f812239ce3f286a68aa2a3565091f02bbbfc98f4a174262b2a8a0",
+    "run_id": 45596905174,
+    "run_attempt": 1,
+    "job_id": 139145263805,
+    "conclusion": "success",
+    "workflow_sha256": "890cf053327df055dc1928011b7b2da06394331789ce4d2d2fb212642961beb6",
+    "actual_job_log_sha256": "8696e0118db91cacb6e36ae85a5e3e855dca68e663832a9d11dc0ac7eab8cac0",
+    "decoded_records": [
+      {
+        "marker": "BINDING_PARSE_RESULT_BASE64",
+        "sha256": "f9438595cf8da2d7837d63cb2fcb122d975fbdc5dc2a41b25c89a262cabfaa49",
+        "bytes": 4652
+      },
+      {
+        "marker": "BINDING_INSTALLER_REFUSALS_BASE64",
+        "sha256": "5fd442ca79399fdc9647c52a66818bfd1cd5700930dfeb925330c8bb3331f37b",
+        "bytes": 2484
+      },
+      {
+        "marker": "BINDING_HISTORY_REFUSALS_BASE64",
+        "sha256": "5a22940aaca7941b87a76e67dcd820637c064d1ca9fe9074d742e0ec96a95794",
+        "bytes": 1238
+      }
+    ]
+  },
+  "artifact": {
+    "id": 15012534912,
+    "bytes": 2597,
+    "zip_sha256": "847afda9173167b2b572d40dc4b7fa5c66c926fb8c39e674d74813180a6563c0",
+    "metadata_independently_retrieved": true
+  },
+  "author_status": {
+    "commit": "a54c9b5208f8c206c7c67e1f6f12fa65f10ddf60",
+    "path": "20261125/revision-9/results/type-install-binding.json",
+    "sha256": "2b4e7af6d53e6653726d32c1320639c6f3807f806b4e096dc63397841c210322",
+    "status": "PENDING",
+    "clean_complete_final_inspections": 2,
+    "all_17_helper_hashes_and_git_blobs_match": true
+  },
+  "summary": {
+    "powershell_files_parsed": 4,
+    "node_files_syntax_checked": 2,
+    "json_inputs_parsed": 2,
+    "embedded_declarations_compiled": 4,
+    "embedded_methods_invoked": 0,
+    "installer_fixture_cases": 9,
+    "history_fixture_cases": 8,
+    "failures": 0,
+    "native_commands": 0,
+    "pc_actions": 0
+  },
+  "checks": [
+    "Retrieved the actual completed run metadata, sole job and full raw job log independently. The retained full log equals the API log byte for byte and hashes to 8696e0118db91cacb6e36ae85a5e3e855dca68e663832a9d11dc0ac7eab8cac0. The exact accepted candidate was activated once as attempt 1; every job step succeeded.",
+    "Independently decoded all three original base64 result records from their single actual log markers. Each original byte sequence, SHA-256 and parsed JSON equals the retained record. The retained workflow equals the accepted complete workflow byte for byte; actual artifact metadata and digest agree.",
+    "Read every actual parser/declaration entry and all nine installer and eight graph cases. Four PowerShell parsers report zero errors; two Node syntax checks exit zero; both JSON inputs parse. Four exact embedded declarations compiled with methods_invoked=false.",
+    "The synthetic installer checks accept matching runtime and documentation descendants, and reject hash, size, BUILD_ID, traversal, duplicate path, unbuilt adapter source and unrelated ancestry. Runtime/source bytes remain unchanged.",
+    "The synthetic history checks accept the exact 55-task/91-edge fixture, and reject missing mapping, duplicate IDs, wrong edge count/kind, changed original history, unclosed work and changed descriptions. Inputs remain unchanged.",
+    "Matched all 17 final author-record helper SHA-256 values and Git blobs against the independently read immutable preparation candidate. Both complete final author inspections retain null native selection, absent actual mapping, pending staging and PC completion.",
+    "These are preparation checks: product helper main, native commands and actual PC actions did not execute. Synthetic mapping acceptance establishes no actual IDs or task closure."
+  ],
+  "findings": [],
+  "verdict": "PASS for the complete measured preparation checks. Keep the overall installation/history binding pending the final qualified native source, actual Windows app roundtrip, separately reviewed staging helper and actual revision 9 canonical mapping.",
+  "pending": [
+    "Complete maintenance Red and independent tests review, then final native two-predicate repair and fresh platform qualification",
+    "Actual Windows native-store and production HTTP roundtrip using the final native release",
+    "Independent archive staging helper review and measured checks, with exact final artifacts",
+    "Permitted resource-gated PC transition directly from actual revision 6 to revision 9, preserving all original history and obtaining the actual 55 IDs/91 edges",
+    "Actual mapping-hash binding of closure/history requests, real logged-in tray and configured launch checks, guarded installation/publication and Riftri cleanup"
+  ],
+  "reviewer_product_execution": false,
+  "pc_actions": 0
+}
