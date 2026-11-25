@@ -1,0 +1,172 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Actual final-source Linux and Windows producers; Windows full/small download verification",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "source_review_commit": "e7fcc03cff93601bfad5cc7ba8427006b020b76f",
+  "evidence_commit": "66d679b5fd3d190025068ad47167352fa5a90669",
+  "source_archive_sha256": "a17e47a617a3d16590b0d94bb12d303d22450a67b12ac444ec1be37d8c28fee2",
+  "source_archive_bytes": 487884800,
+  "linux": {
+    "run_id": 45600748319,
+    "attempt": 1,
+    "workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7",
+    "job_id": 139158703174,
+    "status": "passed",
+    "build_result": {
+      "path": "20261125/revision-9/results/native-linux-build-45600748319/build-result.json",
+      "sha256": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb"
+    },
+    "outer_result": {
+      "path": "20261125/revision-9/results/native-linux-build-45600748319/result.json",
+      "sha256": "62fc3533879226a627decab00b2ed196b850782503495c09de18e78df5ff2077"
+    },
+    "actual_job_log": {
+      "path": "20261125/revision-9/results/native-linux-build-45600748319/job.log",
+      "sha256": "40832e0aa3b738e8da3d503cd6607508662b95957b363699c2d5009505b98945"
+    },
+    "helper_sha256": "9842bb88312c15cc9daac8dc58a80d7c2eb7d9d3b52330acd51a020dbdaa4b32",
+    "inputs_sha256": "fe56cc4aab123d53a6e438586c38adaf5489e35f01a0c75a8abf85eca90ab1e3",
+    "commands_exit_zero": 31,
+    "owned_process_groups_clear": 31,
+    "compiled_default_harnesses": 145,
+    "compiled_executables": 147,
+    "tests_executed": false,
+    "formatting": "passed",
+    "clippy": "passed with warnings denied",
+    "approved_source_hashes": 13,
+    "source_manifest": {
+      "bytes": 243108,
+      "mode": 420,
+      "path": "source-files.json",
+      "sha256": "24c09fb4d9ec0bd48ae0e3598192556d2de72bcaeaff94e4007cf4acb5cbf143"
+    },
+    "bundle": {
+      "bytes": 555870647,
+      "mode": 420,
+      "path": "qualification-bundle.tar.gz",
+      "sha256": "70cce1166193b38a5baaa35419e447acf6f6a73cab040dc7c315dc2aed13fb9f"
+    },
+    "release": {
+      "binary": {
+        "bytes": 13618928,
+        "mode": 493,
+        "path": "release/bead-editing-2d801ba-linux-20261125",
+        "sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c"
+      },
+      "metadata": {
+        "bytes": 2085,
+        "mode": 420,
+        "path": "release/bead-editing-2d801ba-linux-20261125.metadata.json",
+        "sha256": "866c10c4909ad736c06e0c44c7955033179134165f157be6b054c4a0b55510cf"
+      },
+      "target": "x86_64-unknown-linux-gnu",
+      "version": "bead 0.3.0 (unknown 2026-11-25T11:07:44Z)"
+    },
+    "full_artifact": {
+      "id": 15015039880,
+      "bytes": 556410409,
+      "zip_sha256": "98068174ca86b4a7c20f17ec0db27395370c696740c57e021993d126dfcaae4c"
+    },
+    "release_artifact": {
+      "id": 15016141673,
+      "bytes": 22283030,
+      "zip_sha256": "0ff1219eb6c86dee6b311387cf35b7fcfac6904df55b1e39d8159787f0baf8c2"
+    },
+    "consumer_download_preflight": "Required and pending exact bound consumer execution."
+  },
+  "windows": {
+    "run_id": 45600413942,
+    "attempt": 1,
+    "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+    "build_job_id": 139157539016,
+    "download_job_id": 139163782606,
+    "status": "passed",
+    "build_result": {
+      "path": "20261125/revision-9/results/native-windows-build-45600413942/build-result.json",
+      "sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c"
+    },
+    "actual_build_log": {
+      "path": "20261125/revision-9/results/native-windows-build-45600413942/build-job.log",
+      "sha256": "005859885c453d5323f366b0633793e2b209eec7cc947b94efb83f2126ceacd4"
+    },
+    "actual_download_log": {
+      "path": "20261125/revision-9/results/native-windows-build-45600413942/download-job.log",
+      "sha256": "0f981e41217781a38257bc8223086b8ec994c20d2b01fbb182029f78c839753a"
+    },
+    "full_download": {
+      "path": "20261125/revision-9/results/native-windows-build-45600413942/verification.json",
+      "sha256": "5a32e5650425d7f231655fbb10fef53a71683163b0f851b2013bf54f4453e3cc"
+    },
+    "small_download": {
+      "path": "20261125/revision-9/results/native-windows-build-45600413942/release-verification.json",
+      "sha256": "d04c5c37eb3d2a692dba24dab0ee36dd8f620963e9a22b1410f209eaf8f63097"
+    },
+    "small_manifest": {
+      "path": "20261125/revision-9/results/native-windows-build-45600413942/release-artifact-manifest.json",
+      "sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf"
+    },
+    "full_manifest_sha256": "51735e621189c914cdbe88a0a9d36f49c43cd5eb215cec3530e987f2ecdfe0f6",
+    "commands_exit_zero": 18,
+    "compiled_integration_harnesses": 10,
+    "compiled_test_support_executables": 12,
+    "tests_executed": false,
+    "full_download_verified_files": 56,
+    "small_download_verified_files": 3,
+    "source_manifest": {
+      "bytes": 205269,
+      "path": "source-files.json",
+      "sha256": "3a1b0cad713b76e44c09bfab9d74c3039f659ff452b819248ac44f36ccc2a179"
+    },
+    "release": {
+      "executable": {
+        "bytes": 12243456,
+        "path": "release/bead-checkpoint-2d801ba455b7.exe",
+        "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+      },
+      "metadata": {
+        "bytes": 2058,
+        "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+        "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+      }
+    },
+    "full_artifact": {
+      "id": 15016870072,
+      "bytes": 135629755,
+      "zip_sha256": "2cbc3e874464fe2703cb2c74e8d714ae15769f1156492823240026cff01888b7"
+    },
+    "small_artifact": {
+      "id": 15014634952,
+      "bytes": 4524263,
+      "zip_sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8"
+    },
+    "download_artifact": {
+      "id": 15016346475,
+      "bytes": 8006,
+      "zip_sha256": "461794f0ce8ae521df490975a0d36f5d4b538fc895a3541a1201b9e54d49fa17"
+    }
+  },
+  "checks": [
+    "Retrieved the actual completed platform job metadata, all three full job logs and actual artifact metadata independently. Every principal retained job/receipt/man file equals the corresponding API log or independently decoded/reconstructed bytes.",
+    "Decoded and hash-verified all 64 embedded Linux text records, all four emitted receipt records and the separate raw generated man record. The large Cargo JSONL stream is retained by artifact/hash rather than embedded as base64; complete compiled inventory and successful compiler receipts remain explicit.",
+    "The Linux producer reports the exact seven-commit source lineage, thirteen approved source identities, successful whitespace/format/Clippy/default compilation/original archive release, unchanged source/checkout comparisons and every owned command group cleared. The raw generated man file retains the already reviewed single synopsis-space normalization with all other bytes unchanged.",
+    "The Windows producer's actual sorted JSON result was reconstructed using its unchanged two-space serialization. It matches the retained 16,950-byte receipt. The three-file release manifest constructed from this receipt and both release rows matches the actual emitted small-manifest digest, independently confirming the reconstructed receipt identity.",
+    "Read both actual Windows download-verification results. Full and small packages use the exact successful source/run/attempt/workflow and release identities; all twelve retained executable records equal the producer and full download record. Exact full and small inventories verify 56 and three files respectively.",
+    "Both platforms archive the same immutable 487,884,800-byte source with SHA a17e47a617a3d16590b0d94bb12d303d22450a67b12ac444ec1be37d8c28fee2. Their platform binaries and metadata remain distinct and explicitly bound. The Linux and Windows workflow commits also remain distinct.",
+    "These are successful producers and download checks, with tests_executed=false. They establish no final harness outcome, app Windows result, PC mapping, tray behavior or installation."
+  ],
+  "findings": [],
+  "verdict": "PASS for the complete measured producers and Windows artifact downloads. Use these exact identities to finish independent consumer binding reviews and execute the required final-source qualification.",
+  "final_native_acceptance": false,
+  "pending": [
+    "Final bound Linux and Windows execution packets and all required runtime results",
+    "Linux bundle/source preflight inside the accepted consumer",
+    "Both complete final native author inspections and final native review",
+    "Actual app Windows native-store/HTTP result, PC mapping, staging, tray/install and cleanup"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
