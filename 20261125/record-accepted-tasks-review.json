@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/delivery_review",
+  "reviewed_utc": "2026-11-25T00:44:33.758029+00:00",
+  "status": "passed_static",
+  "accepted_for_root_use": true,
+  "script_path": "/workspace/scratch/3160e3ba3d24/coordination/record-accepted-tasks.mjs",
+  "script_sha256": "654e523115ca3fa27d8fd05896e0a9d3ab9991d0db0841b69bbfdd7e85d68845",
+  "author_record": "/workspace/scratch/3160e3ba3d24/coordination/results/record-accepted-tasks-author.json",
+  "author_record_sha256": "2478e946bf6d1d83c784f5365aaee4935f3faa118d1dd40ba55911dad2deff13",
+  "basis_script": "coordination/record-completed-v2.mjs",
+  "basis_actual_result": "coordination/results/completed-v2.json",
+  "complete_final_source_and_diff_read": true,
+  "complete_final_author_inspections": 2,
+  "inspection": [
+    "The exact native binary hash, accepted revision4 plan hash, successful975-record/34-edge materialization and954-record original inventory remain fixed. The full diff only parameterizes the request/output and changes prerequisite/count checks.",
+    "The request path must be inside the owned coordination directory, its SHA-256 must equal the supplied fixed-format hash, schema_version must be1, task selection must be nonempty and at most21, keys must be unique and known to the exact accepted plan, and every reason must be a bounded substantive string.",
+    "The output name is constrained to a fresh immediate child and created exclusively. Existing results cannot be overwritten. Only child TEMP/TMP are changed after removing inherited native workspace selectors; the fixed directory must exist.",
+    "A complete fresh list must contain exactly975 unique records and each original954 record must compare exactly before a mutation. Selected records must match actual mapped ID, planned title/description, open state, no assignee and the request revision.",
+    "Prerequisites must already be closed or must appear earlier in the same ordered request. This preserves the existing task ordering without adding task semantics. The selection produces only close operations with if_revision.",
+    "The exact request and manifest are saved, a native dry-run must report the same operation/change count, and a commit-started marker records request/manifest hashes before one commit with automatic flush suppressed. Every native command stores stdout, stderr and exit result; command timeout/failure requires reconciliation before another mutation.",
+    "Readback compares all original records exactly. For continuation tasks, only effective_status and dependency blocker_status/finished are normalized. Selected tasks may differ only in closed status, one revision increment and updated_at. All other stored fields must remain unchanged.",
+    "Commands stay hidden, shell:false, with15-second per-command deadlines and16MiB output bounds. The final report records the actual selected IDs, current continuation states, readiness and request hash. Explicit checkpoint publication remains separate."
+  ],
+  "execution_authority": "Root owns each request and must select only work whose actual completion and required independent review are already established. The generic utility does not inspect those completion files or authorize a task by itself.",
+  "findings": [],
+  "conclusion": "The exact utility passes independent static review for recording already accepted completed tasks in the existing plan. Root may use a separately prepared exact-hash request with current revisions; unknown command outcomes must be reconciled without replay.",
+  "script_body_executed_by_reviewer": false,
+  "product_tests_or_builds_run_by_reviewer": false,
+  "pc_calls_by_reviewer": 0,
+  "task_database_written_by_reviewer": false
+}

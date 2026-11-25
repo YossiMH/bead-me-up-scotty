@@ -1,0 +1,141 @@
+{
+  "status": "passed",
+  "task_key": "browser-check",
+  "task_id": "beadrs-08532231",
+  "source_commits": {
+    "app": "38c21a77b4e875d75e17ee68683846601df33591",
+    "native": "539cdd0b4c54665c2db01da08fdf9f3871f7148a"
+  },
+  "binary_sha256": "29e887009b0c74ab0be2cf7a9e6607746ec89347f676d90501df5c88a2c5fc35",
+  "route": "GitHub Actions Ubuntu cloud host",
+  "result_file": "github-browser-45517446104/result.json",
+  "result_sha256": "2ea611bce74231b0cbacca430fc815b6b893091d9214b965996e74064482265a",
+  "review_file": "browser-result-review.json",
+  "review_sha256": "3caeb542f211d1dccebe75fff7e364b7d3d6e9a90d87f406ee28c93533b71741",
+  "checks": {
+    "native_commands": 38,
+    "http_outcomes": 37,
+    "browser_scripts": 3,
+    "all_script_exit_codes": [
+      0,
+      0,
+      0
+    ],
+    "remaining_owned_processes": 0,
+    "port_free": true
+  },
+  "changed_files": [],
+  "open_items": [],
+  "git_result": {
+    "product_changes": "none",
+    "temporary_runner_branch": "task/browser-check-20261125",
+    "commit": "09c66f0563f86c90b1a588b829115b3aec356010",
+    "cleanup": "Final cleanup task must delete the exact owned branch after retaining its outputs."
+  },
+  "details": {
+    "status": "passed",
+    "task_id": "beadrs-08532231",
+    "run_id": 45517446104,
+    "run_attempt": 1,
+    "job_id": 138880435097,
+    "run_url": "https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45517446104",
+    "workflow_branch": "task/browser-check-20261125",
+    "workflow_commit": "09c66f0563f86c90b1a588b829115b3aec356010",
+    "product_commit": "38c21a77b4e875d75e17ee68683846601df33591",
+    "backend_source_commit": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+    "native_binary_sha256": "29e887009b0c74ab0be2cf7a9e6607746ec89347f676d90501df5c88a2c5fc35",
+    "runtime_source_commit": "fbb09312e43ec8094da6db04f126a16e8c5746f7",
+    "runtime_archive_sha256": "6a399adb2567757db1f69cb4a1cd6ce1148e6a315a798999932f2b2339ab7dc7",
+    "runtime_manifest_sha256": "948194c2eda868f879152111570f52ce6f643dc6f4c4fe79f8f4eef8043a510a",
+    "runtime_build_id": "Eox2_s2VuIuWWAISvMqKK",
+    "runtime_files": 230,
+    "script_results": [
+      {
+        "boundary": "browser-harness",
+        "script": "test-native-ui-flows.mjs",
+        "exit": 0,
+        "stdout": "PASS native UI scalar edits, cancellation, checklist, read-only mode, comments, assignment, labels, exact-kind dependencies, lifecycle, reload and mobile comment: contract-80e72450\n",
+        "stderr": "",
+        "sha256": "e75daad7fd6f4ff8101b68eb6ab0e6dc2701ed212ee7b170b4bab415d0f12a40"
+      },
+      {
+        "boundary": "browser-harness",
+        "script": "test-native-ui-recovery.mjs",
+        "exit": 0,
+        "stdout": "PASS UI-boundary create/comment/edit/priority/label recovery; priority refresh preserves the separate content draft, one real write each\n",
+        "stderr": "",
+        "sha256": "a0d395b9c9b19ce4794548a5d544a8eeab8b01905b280021a8d4dac6e87a6fd2"
+      },
+      {
+        "boundary": "browser-harness",
+        "script": "test-native-priority-recovery.mjs",
+        "exit": 0,
+        "stdout": "PASS native palette priority remains owned through uncertain response and refresh without a second write\n",
+        "stderr": "",
+        "sha256": "9fe8b9bd2b4623cb3fa70ecf2960ab1d65e91a3e3be18086978f73e59b807cc0"
+      }
+    ],
+    "supervisor": {
+      "status": "passed",
+      "exit_code": 0,
+      "elapsed_seconds": 53.799,
+      "deadline_seconds": 900,
+      "node_heap_mib": 512,
+      "remaining_processes": [],
+      "port_free_after": true,
+      "cleanup_errors": [],
+      "signals_received": []
+    },
+    "workspace_config_preserved": true,
+    "workspace_uuid_preserved": true,
+    "api_cli_record_counts": {
+      "cli": 38,
+      "http": 37,
+      "browser-harness": 3
+    },
+    "ui_page_errors": [],
+    "recovery_write_counts": {
+      "creates": 1,
+      "comments": 1,
+      "updates": 1,
+      "priorityUpdates": 1,
+      "labels": 1,
+      "labelReads": 2
+    },
+    "priority_palette_write_count": 1,
+    "recovery_test_boundary": "HTTP response replaced after a real successful native write",
+    "priority_test_boundary": "HTTP response replaced after a real successful native priority write",
+    "retained_archive": {
+      "path": "/workspace/scratch/3160e3ba3d24/coordination/results/github-browser-45517446104/bead-browser-45517446104-1.zip",
+      "bytes": 17262599,
+      "sha256": "0f906203b43420eeddf2fcfe52db7f5886a26f8d35da4b3916b587eb91f8a217",
+      "artifact_id": 14978387944,
+      "github_retention_expires_at": "2026-11-26T00:28:03Z",
+      "local_copy_verified": true
+    },
+    "retained_job_log": "/workspace/scratch/3160e3ba3d24/coordination/results/github-browser-45517446104/job-138880435097.log",
+    "retained_result_directory": "/workspace/scratch/3160e3ba3d24/coordination/results/github-browser-45517446104/extracted",
+    "screenshots": [
+      "extracted/bead-rs-BWy70p/test-native-priority-recovery/native-palette-priority-recovery.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-flows/native-ui-desktop.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-flows/native-ui-graph.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-flows/native-ui-mobile.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-recovery/native-comment-recovery.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-recovery/native-create-recovery.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-recovery/native-edit-recovery.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-recovery/native-label-recovery-locked.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-recovery/native-label-recovery-refreshed.png",
+      "extracted/bead-rs-BWy70p/test-native-ui-recovery/native-priority-draft-recovery.png"
+    ],
+    "traces": [
+      "extracted/bead-rs-BWy70p/test-native-priority-recovery/native-priority-recovery-trace.zip",
+      "extracted/bead-rs-BWy70p/test-native-ui-flows/native-ui-trace.zip",
+      "extracted/bead-rs-BWy70p/test-native-ui-recovery/native-ui-recovery-trace.zip"
+    ],
+    "limits": [
+      "Recovery scripts replace HTTP responses after successful real native writes; they verify UI recovery and prevention of duplicate submission.",
+      "This hosted browser result is separate from real Windows tray validation."
+    ],
+    "mutations_by_monitor": "None to GitHub refs, settings, workflows or the canonical task store. Only read-only retrieval and local result retention."
+  }
+}
