@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_final_packet_review",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "producer_run": "45587412193",
+  "producer_workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+  "producer_evidence": "780716d93a61776e8653cfd0b67656b9239094ee:20261125/revision-8/results/native-linux-build-45587412193",
+  "independent_draft_review": "46c1704d44f54e363af9053cf8a8b93d37e41cec:20261125/revision-8/results/native-linux-consumer-draft-review.json",
+  "files": {
+    "20261125/native-repair-linux-check/checkpoint-full-suite-20261125.py": "989e1cb6631af8e9181ec4e28e15175c1bc65f7480b5b3615cea33a5d1cd22a7",
+    "20261125/native-repair-linux-check/checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "20261125/native-repair-linux-check/serial-output-fixtures.json": "82a8a476f6705b4849e63dc5a89818eca800dc2c6261e79fe8ed9b874af44f15",
+    "20261125/native-repair-linux-check/check-serial-output-fixtures.py": "ad6ff9a0f6f8f8e8c2c25c77460e493ca8be5f7375f0c257979ff332e40532e9",
+    "20261125/native-repair-linux-check/full-suite-inputs.template.json": "aa82d5cca573763533d1aef758fcbcba6f5d68dea738f9c956b83bffe991d7a7",
+    "20261125/native-repair-linux-check/corpus-inputs.template.json": "cd595e9ea2503110342b27218ecaf7605d75d590e7055f8d409f6dd1d920328a",
+    "20261125/native-repair-linux-check/workflow.template.yml": "64900fcd336fe3c26d4e933ab01de93d5abf837a0ea674d0b151a8f206970546",
+    "20261125/native-repair-linux-check/README.md": "fb594761cb8dcece77c6db6361c9d3ca7e2d06aa666fd89891764242e3871d84",
+    "20261125/native-repair-linux-check/full-suite-inputs.json": "f1e22983f49f22e5fc8485cae942ada5aa11e75fd6ec93696a0757ef23823ef8",
+    "20261125/native-repair-linux-check/corpus-inputs.json": "fab43d52f0a9e5942884318157e50016cf407c0bfee565ffca8c1d33a21dccf0",
+    "20261125/native-repair-linux-check/workflow.yml": "cd6c68744dbbdeb4b8cb0a04c3bbf2e74c94b1987c0590458169e12121b18cb0",
+    ".github/workflows/native-repair-linux-check-20261125.yml": "cd6c68744dbbdeb4b8cb0a04c3bbf2e74c94b1987c0590458169e12121b18cb0"
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "finished": "2026-11-25T09:53:26.108Z",
+      "coverage": "Complete final code, workflow, inputs, fixtures and associated prose inspected. Measured source/run/receipt/bundle/release/artifact bindings agree with the retained successful producer. Original full source/target inventory, man comparison, host prerequisites, cleanup, 90-minute limit and original-corpus verifier remain preserved."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "finished": "2026-11-25T09:53:42.260Z",
+      "coverage": "Complete final packet inspected again. Active files contain no placeholders; both workflow copies match. The shared serial parser requires a terminal status and unique names; caller target/name totals and every existing assertion remain. Actual fixture bodies match retained stdout, rejection cases remain discriminatory, and all seven existing checkpoint repair assertions are required. No algorithm or fixture changed after the independent draft review."
+    }
+  ],
+  "verification_scope": "These are packet preparation inspections. Exact Python fixture execution and final native affected/full-suite/corpus qualification remain pending the reviewed activation.",
+  "activation_branch": "task/native-repair-linux-check-20261125"
+}

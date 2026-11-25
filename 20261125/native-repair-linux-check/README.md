@@ -1,6 +1,6 @@
 # Final Linux checkpoint qualification
 
-The source is `c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b`, tree `13e8f57a4de57819dfe3f13cc71f6078ac27bba7`. This dormant packet retains the previously reviewed complete-suite and original-corpus consumers. Measured producer bindings must replace every template placeholder before activation.
+The source is `c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b`, tree `13e8f57a4de57819dfe3f13cc71f6078ac27bba7`. This packet retains the previously reviewed complete-suite and original-corpus consumers. The active inputs and workflow bind the successful producer run 45587412193, attempt 1, workflow commit 33931b999a973b266e211c7af531c84f694bf0a6. The original templates remain as preparation records; execution uses only the fully bound files.
 
 The suite runs the same eight complete affected targets and every default Cargo target plus doctests, with one test thread. It requires the eleven type-file cases, the six existing checkpoint regressions, and all seven existing assertions that cover the scoped Windows lock/path repair. Source and executable inventories, original build receipt, generated-man record, test-host prerequisites, owned-process cleanup and the 90-minute command limit remain checked.
 
