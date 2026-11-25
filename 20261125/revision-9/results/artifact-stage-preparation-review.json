@@ -6,7 +6,7 @@
   "scope": "Fresh archive staging source and focused hosted check preparation only",
   "task_key": "type-install-binding-review",
   "continuation_revision": 9,
-  "candidate_commit": "4d363ac40282b866d9391ab36e6f1374deb95ae8",
+  "candidate_commit": "02154b5dc7c3bbca62fec12d7aa57499f90d740e",
   "activation_branch": "task/artifact-stage-checks-20261125",
   "files": {
     "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1": {
@@ -18,20 +18,20 @@
       "git_blob": "87c74cfcf25c9a5b80ff30c5c15a31462b5730bf"
     },
     "20261125/revision-9/artifact-stage/check-inputs.json": {
-      "sha256": "8764ee056a188a4477dca3e878f9056ad9e577feda20205516133badc85a34d9",
-      "git_blob": "2fda9432ddf2bdb9c4c3e0d9906ac0bdfa010f09"
+      "sha256": "0b5eb3c01620a6fa7a457066dff740a52c30e89b940214449218424747eeb857",
+      "git_blob": "1e57b7124ab1108a290ba0c4669765ec819b872c"
     },
     "20261125/revision-9/artifact-stage/check-stage-archives.ps1": {
-      "sha256": "7874d07260df337cfee59ce04da184633c926d5f2e7edee59f4714956cd6d21f",
-      "git_blob": "f2e1d95a5ade6671ae6622c5162179bbfce6e7b9"
+      "sha256": "708879be8ed9a2d3a7d3ddfe8262987769c7aa44f8f72c8166481d24a782fe51",
+      "git_blob": "ba3284ee4668e77159473b3c6af92f2f614f537a"
     },
     "20261125/revision-9/artifact-stage/download-existing-app.py": {
       "sha256": "40deb91bc7a48712169a7df63a26ed54b9431f5754ec7cdb473f701b21f7220e",
       "git_blob": "c772d4a71254db4548ac2db2e6cc03389176776f"
     },
     "20261125/revision-9/artifact-stage/workflow.yml": {
-      "sha256": "2e2bd932a1f9151ff79fe1dcf5e13b2e41625addced790cf367fddf5b986b9f5",
-      "git_blob": "f6c9390ded41d90698a8600a0a3345fda24c61c0"
+      "sha256": "bee03e4929d337aa00867dd6e0ab5df225936776fdb689e40c34c874efbbc60f",
+      "git_blob": "f38ee90963c34ab63109309fc4eaada8305a2c1d"
     },
     "20261125/revision-9/artifact-stage/README.md": {
       "sha256": "3764fb44cb194348414b528d4114eada6914df8623b05b58a4c0adbebfceaa80",
@@ -42,8 +42,8 @@
       "git_blob": "7a8de1a98603349e1789a5c7565a9d9f95842b10"
     },
     ".github/workflows/scotty-artifact-stage-checks-20261125.yml": {
-      "sha256": "2e2bd932a1f9151ff79fe1dcf5e13b2e41625addced790cf367fddf5b986b9f5",
-      "git_blob": "f6c9390ded41d90698a8600a0a3345fda24c61c0"
+      "sha256": "bee03e4929d337aa00867dd6e0ab5df225936776fdb689e40c34c874efbbc60f",
+      "git_blob": "f38ee90963c34ab63109309fc4eaada8305a2c1d"
     }
   },
   "accepted_runtime_review": {
@@ -71,7 +71,9 @@
     "Independently counted all 40 declared checks and read every assertion. The exact actual-runtime inventory uses complete chunked retention; the entire result is emitted as original base64 JSON. All check filesystem work is within a fresh hosted temporary fixture, with an external canary verified unchanged.",
     "The workflow has only hosted Windows checkout, download, focused checks and retained output; no package installation, product build or product start. Its exact candidate, pinned actions, read-only permissions, isolated activation branch and 8-minute hosted job bound are preserved.",
     "Independently fetched the first actual failed job log and immutable full receipt. Their raw bytes match. Decoded the sole original base64 result and verified exact bytes/hash: three preliminary checks passed, then the actual archive case rejected adapter-tests.stderr. The downloader had verified the exact original ZIP. The failure is retained without any runtime-copy success claim.",
-    "Read the complete four-file correction at 4d363ac4. Reversing the single helper line reproduces all original helper bytes; each stdout/stderr concatenation is now separately parenthesized in the expected-path array. Only its input digest and both workflow manifest-hash bindings also change. Both workflows remain identical, every other check/helper/source remains unchanged, and the existing real-archive case directly exercises the defect."
+    "Read the complete four-file correction at 4d363ac4. Reversing the single helper line reproduces all original helper bytes; each stdout/stderr concatenation is now separately parenthesized in the expected-path array. Only its input digest and both workflow manifest-hash bindings also change. Both workflows remain identical, every other check/helper/source remains unchanged, and the existing real-archive case directly exercises the defect.",
+    "Independently fetched the second failed job log and compared the complete retained bytes/hash. Reconstructed the sole original base64 result and every ordered inventory chunk. All 560 copied files match the accepted manifest's exact path, hash and size, totaling 27,426,391 bytes with the correct source/build ID. The run remains failed after four cases because the first synthetic success fixture selected the already used stage; no remaining case is counted as passed.",
+    "Read the exact 02154b5d fixture correction. Replacing its three $commandName uses back with $name recovers the entire prior check script byte for byte. The change prevents a case-insensitive collision with New-StageFixture's $Name parameter. All 40 assertions and both production helper bytes stay unchanged. Only this fixture hash and both workflow input-hash literals also change; their exact inverses and complete four-file commit delta agree."
   ],
   "resolved_findings": [
     {
@@ -81,18 +83,22 @@
     {
       "finding": "The initial real-archive check exposed PowerShell array/concatenation precedence in expected command-log filenames.",
       "resolution": "Parenthesize both concatenations explicitly. Preserve the actual failure and execute the same exact tests on the corrected candidate; no oracle or scope change."
+    },
+    {
+      "finding": "The synthetic fixture constructor overwrote its $Name parameter through a case-insensitive $name loop variable, so later fixtures reused the real-copy stage path.",
+      "resolution": "Use $commandName in that one command-log loop. Preserve the valid complete runtime-copy evidence and the failed overall run, then execute the unchanged 40-case checks on the corrected fixture."
     }
   ],
   "findings": [],
-  "verdict": "PASS for one hosted check execution at exact 4d363ac40282b866d9391ab36e6f1374deb95ae8 after reconciling the completed prior failure and activation ref. Final staging acceptance still requires the complete actual result and two final author inspections. Final native artifact selection and PC invocation remain pending.",
+  "verdict": "PASS for one hosted check execution at exact 02154b5dc7c3bbca62fec12d7aa57499f90d740e after reconciling the completed prior run and activation ref. Final staging acceptance still requires every focused case to complete and two final author inspections. The actual 560-file copy is independently verified partial evidence; final native artifact selection and PC invocation remain pending.",
   "final_staging_acceptance": false,
   "native_identity_bound": false,
   "reviewer_product_execution": false,
   "pc_actions": 0,
   "previous_preparation_review": {
-    "commit": "29ce68d30d2289da35fd09bec6ee507021b3e8d9",
-    "sha256": "00fd41b17d1ba61c589dba442da97ebeb75749da1acd076a21a378779406b8d0",
-    "candidate_commit": "e8a46ad6832b521752b2fececdcb4a061e4a6d8c"
+    "commit": "b8bc7b390eede792af922e09115249a408365c6a",
+    "sha256": "01b3eb8e35adb2af41c66a97d64543475e66fddf567d192fcad2972dac7d1a29",
+    "candidate_commit": "4d363ac40282b866d9391ab36e6f1374deb95ae8"
   },
   "actual_prior_failure": {
     "run_id": 45601172516,
@@ -105,5 +111,20 @@
     "error": "System.Management.Automation.RuntimeException: Unexpected ZIP entry: adapter-tests.stderr",
     "download_verified": true,
     "pc_actions": 0
+  },
+  "actual_second_attempt": {
+    "run_id": 45602027818,
+    "job_id": 139163097064,
+    "retained_commit": "b179a575f2726b5ec169cf79b76a2bb14c08e377",
+    "receipt_sha256": "3662f659b35b5148fe32187cefc76b7623ccbe8f73ab3edf9990c35df0cafb27",
+    "actual_job_log_sha256": "37fc115ece0a806637d5f0095858d7f405d74f2119287311e41f51c4c5547823",
+    "original_result_sha256": "645aee768ec192e9376b81ab8f3d29852f40aa1d52d48c16ac5e69b37c0793da",
+    "actual_inventory_sha256": "6741bc56b4d8934edea7578d6d4ce54457c8bd2764d49bb515c3e89411949de2",
+    "case_count": 4,
+    "complete_runtime_copy_verified": true,
+    "all_560_original_rows_match": true,
+    "expanded_bytes": 27426391,
+    "overall_status": "failed",
+    "error": "System.Management.Automation.RuntimeException: Existing staging attempt; reconcile before a new request."
   }
 }
