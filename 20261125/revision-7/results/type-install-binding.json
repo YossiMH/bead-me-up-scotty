@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "task_key": "type-install-binding",
+  "status": "pending_actual_materialization_and_final_runtime_evidence",
+  "author": "/root",
+  "candidate_commit": "17c3d498cf9d9970dfa157700216481428448a51",
+  "retention_commit": "bd7342833a08ea7716223b96640185f24307520a",
+  "directory": "20261125/revision-7/install-binding",
+  "changed_executable_files": [
+    {
+      "path": "checkpoint-handoff-20261125.mjs",
+      "sha256": "1b9e234de7a96c087a0e1a622eb3b8dffaceae1bf1e5134117e02334dab71b9a",
+      "changes": [
+        "revision-6/plan.json to revision-7/plan.json",
+        "materialization-result-v6.json to materialization-result-v7.json",
+        "accepted plan-review continuation_revision 6 to 7"
+      ],
+      "exact_baseline_recovered_by_reversal": true
+    }
+  ],
+  "unchanged_executable_files": [
+    {
+      "path": "checkpoint-handoff-supervisor-20261125.ps1",
+      "sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161"
+    },
+    {
+      "path": "materialize-v7.mjs",
+      "sha256": "04267e53eb65c32d676f3d7c274f654e7a0353d8d6b5de31bfe855f04cd83d58"
+    },
+    {
+      "path": "materialize-v7-supervisor.ps1",
+      "sha256": "cf70b0a6a9c77a73a46058a456e3cc1b8b4da2d0972721b8db19120bc6a998da"
+    },
+    {
+      "path": "windows-install-tray-host-20261125.ps1",
+      "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0"
+    },
+    {
+      "path": "windows-configured-launch-host-20261125.ps1",
+      "sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e"
+    }
+  ],
+  "unbuilt_adapter_allowances_added": false,
+  "actual_cloud_checks": {
+    "run_id": 45577402715,
+    "job_id": 139078641316,
+    "workflow_commit": "17c3d498cf9d9970dfa157700216481428448a51",
+    "status": "passed",
+    "powershell": "5.1.26100.33822",
+    "node_syntax_files": 2,
+    "powershell_files": 4,
+    "embedded_declarations": 4,
+    "json_inputs": 2,
+    "installer_cases": 9,
+    "history_cases": 8,
+    "failed_cases": 0,
+    "native_commands": 0,
+    "pc_actions": 0,
+    "results_commit": "8d6d4a1c77b073b2573ee1dc2a29dd297a45d712",
+    "results_path": "20261125/revision-7/results/type-binding-checks-45577402715.json",
+    "results_sha256": "9f97321684fc63059282d8549bc87f0bf98080732870e50ac43b6810d647f8b9",
+    "raw_job_log_sha256": "e25e3d9aaaee29f78c70873db15538212aa27a31475e3b1b374229e1d090fc75"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean",
+      "candidate_commit": "17c3d498cf9d9970dfa157700216481428448a51",
+      "inspection": "Read the complete changed helpers and prose, complete accepted originals and affected functions. Verified the exact three substitutions and every unchanged executable hash; no allowance was added for unbuilt application code. Read all actual parser/declaration/refusal outputs and all command exits."
+    },
+    {
+      "pass": 2,
+      "result": "clean",
+      "candidate_commit": "17c3d498cf9d9970dfa157700216481428448a51",
+      "inspection": "Rechecked every changed declaration, caller and control path against the supplied successful results. Source/runtime mismatches still refuse through existing read-only checks; synthetic mapping failures preserve the original-record and graph guards. The tested source is byte-identical to the candidate. Actual native mapping, download qualification and installation remain explicitly pending; no native task result is invented."
+    }
+  ],
+  "measured_inputs": {
+    "schema_version": 1,
+    "status": "pending_final_qualification_and_actual_materialization",
+    "app": {
+      "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+      "run_id": 45573503400,
+      "output_id": 15003467178,
+      "output_sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+      "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+      "runtime_zip_bytes": 7137798,
+      "manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+      "file_count": 560,
+      "build_id": "YIOHeRJTEdlOszyc4LyHr",
+      "download_verified": false
+    },
+    "native": {
+      "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+      "producer_run_id": 45572877188,
+      "output_id": 15003670786,
+      "binary_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+      "binary_bytes": 12221440,
+      "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b",
+      "build_target": "x86_64-pc-windows-msvc",
+      "qualification": "download verified; actual Windows native execution and independent source acceptance pending",
+      "installed_basename": "bead-fb791327c771.exe",
+      "output_sha256": "50a0e43732431bbcfe637510a9e1f0ce37a7fadb8251947bd2dbda6c8bbc5183",
+      "output_bytes": 4537917,
+      "output_manifest_sha256": "022128bca8006e74da54635bf16cf049a937f0723f134b0830982bda97fbf30e",
+      "binary_archive_path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+      "metadata_archive_path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "download_verification_run_id": 45576002037
+    },
+    "plan": {
+      "sha256": "16e0e0f465ab1f906f2faa6b29aa198ef6b8a42409e1f1bbf0856342ac2ec3d7",
+      "review_sha256": "9d0673d5f7c5d151bf4fdf250295b7ec60ad3326df7e313fa06be06216e27ce1",
+      "tasks": 49,
+      "blocking_edges": 78,
+      "original_issues": 954,
+      "total_issues": 1003,
+      "actual_materialization": null
+    },
+    "preservation": {
+      "baseline_commit": "55f17568be93442abc6e4725d3e159448e0c9ab5",
+      "original_modified_app_files": 15,
+      "installer_sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+      "configured_launcher_sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+      "history_sha256": "1b9e234de7a96c087a0e1a622eb3b8dffaceae1bf1e5134117e02334dab71b9a",
+      "history_supervisor_sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+      "unbuilt_adapter_path_allowances_added": false
+    },
+    "installation_authorized_to_execute": false,
+    "pending": [
+      "Independently qualified native release and actual artifact download hashes.",
+      "Full app runtime/source hash readback and actual Windows type roundtrip.",
+      "Actual reviewed revision 7 native materialization receipt and all 49 IDs/78 edges.",
+      "Independent binding review, actual logged-in-PC tray and the existing installation prerequisites.",
+      "Emergency Maintenance access and the accepted immediate free-memory/owned-resource checks."
+    ]
+  },
+  "actual_native_mapping_available": false,
+  "native_task_state": "The existing revision 6 authority is preserved. No revision 7 create, reopen, description, dependency or close command has run in this session.",
+  "pc_gate": {
+    "last_successful_memory_read_utc": "2026-11-25T07:38:27.0544240Z",
+    "free_mib_at_that_read": 702,
+    "last_memory_query": {
+      "proposal_id": "6Tf4AjmM58-pk_qxj6LCoJD5wKqr7rW-ZV8MRLKxHS0",
+      "status": "not-started",
+      "error": "ADMIN_BROKER_DENIED",
+      "replay_allowed": false
+    },
+    "action": "Do not replay the denied request or change connectors to bypass it. Finish cloud qualification; obtain renewed permitted PC access before an actual materialization or installation."
+  },
+  "pending": [
+    "Final native affected/full-suite/corpus/Windows qualification and its independent review.",
+    "Fresh runtime/source manifest readback and real Windows app roundtrip.",
+    "Actual accepted revision 7 materialization receipt, all 49 IDs/78 edges and its measured hash.",
+    "Exact staged invocation parameters and final independent binding acceptance.",
+    "Actual PC tray, checked installation, configured launch and history preservation under their existing resource bounds."
+  ],
+  "preserved": [
+    "Original 954 records and complete event/receipt/outcome history.",
+    "Original 15 modified app files, index and private task/configuration state.",
+    "Previous binary/runtime rollback and original checkpoint generation.",
+    "Current/previous checkpoint verification, same-UUID merge and no uncertain-command replay."
+  ],
+  "cleanup": "Future agents must reconcile /tmp/beads-55c9/coordination-type-edit and the other recorded Riftri worktrees when the cloud environment returns, preserve unpublished work, and remove only clean published worktrees without force. The inaccessible worktrees are not claimed removed."
+}
