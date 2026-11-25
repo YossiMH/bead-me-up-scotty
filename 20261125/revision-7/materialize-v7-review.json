@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "review_kind": "independent complete static materialization helper review",
+  "date": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "branch": "task/coordination-type-20261125",
+    "commit": "907e1a6ebb3b9ce4d0f9936fb7adee7f3c913b9a",
+    "directory": "20261125/revision-7"
+  },
+  "read_complete_files": true,
+  "reviewed_files": {
+    "materialize-v7.mjs": "04267e53eb65c32d676f3d7c274f654e7a0353d8d6b5de31bfe855f04cd83d58",
+    "materialize-v7-supervisor.ps1": "cf70b0a6a9c77a73a46058a456e3cc1b8b4da2d0972721b8db19120bc6a998da",
+    "materialization.md": "3b5cef7e2c2a2d8ba0d638e5dee1a37c211220b245eaa9b24e32f02247680b2a",
+    "materialize-author-review.json": "f5654c611573a700677edb786e1b999686a01adda0e9a8877ebb466c35253216"
+  },
+  "plan_sha256": "16e0e0f465ab1f906f2faa6b29aa198ef6b8a42409e1f1bbf0856342ac2ec3d7",
+  "plan_review_sha256": "9d0673d5f7c5d151bf4fdf250295b7ec60ad3326df7e313fa06be06216e27ce1",
+  "findings": [],
+  "checks": [
+    "Read the complete22882-character Node helper, complete15814-character PowerShell supervisor, documentation and both final author inspections. Reconciled all exact file hashes.",
+    "Compared the supervisor to accepted2e3119345baaa250530790910721d7828ae65967:20261125/revision-6/materialize-v6-supervisor.ps1. Its10 changed lines contain only reviewed revision, path and SHA-256 literals. Complete process accounting, embedded C#, quoting, cleanup and memory/deadline control are unchanged.",
+    "Read the accepted v6 materializer in full and compared the new17 creates,15 description changes and27 dependency additions with the exact accepted49-task/78-edge plan. All51 old edges remain.",
+    "Verified old32 IDs,954 original records, existing titles/descriptions/resource sets, current unassigned states, all49 stable-reference lookups and absence checks, current guarded reopen revisions and no-repeat output names.",
+    "Traced each of the three guarded reopens through saved intent, native exit/raw streams, full986-row comparison and unchanged history prefix plus the expected reopened event before the next mutation.",
+    "Verified59 operations share one native manifest transaction after the supported reopens. Dry-run IDs are local only; actual create IDs come from the successful commit result. The precommit full inventory and all fixed inputs are rechecked.",
+    "Read manifest.rs and dependencies.rs at pinned native539cdd0b4c54665c2db01da08fdf9f3871f7148a. The checked create/update/dep_add result shapes match the helper; dependency additions append audit events without another issue revision, matching final revision/history assertions.",
+    "Verified final1003-row readback, every49-task description/resource set, all78 exact directed edges,17 created task defaults and references, unchanged unrelated stored fields, retained reopened-task histories and unchanged configuration/checkpoint-pointer hashes.",
+    "Verified every native invocation adds --no-auto-flush; only the isolated coordination store is addressed. Failed or uncertain commands stop further writes, preserve intent/streams, and leave an exclusive attempt directory that prevents automatic replay.",
+    "Verified the supervisor hashes the exact helper, accepted plan review and prior qualified Job helper; rejects ancestor reparse paths and prior attempt/result paths; checks initial single-process Job membership and at least1GiB free RAM before the Node child.",
+    "Verified128MiB Node old-space,512MiB aggregate resident sampling across the supervisor and all owned descendants,168-second work allowance and180-second owned-Job deadline. Only retained owned process handles can be stopped. Actual exit0, exact native passed result and clean unassisted termination are all required."
+  ],
+  "author_validation": {
+    "node_parse_exit": 0,
+    "diff_check_exit": 0,
+    "complete_final_inspections": 2,
+    "supplied_by": "materialize-author-review.json",
+    "supervisor_prior_static_review": "2e3119345baaa250530790910721d7828ae65967:20261125/revision-6/materialize-v6-supervisor-review.json"
+  },
+  "permitted_next_action": "Root may stage and verify these exact bytes, obtain an ordinary PowerShell5.1 parser pass on the final supervisor, and execute once under its existing resource checks when a suitable PC window exists. Reconcile actual native/supervisor results and cleanup before accepting materialization. Any uncertain earlier attempt must be reconciled first.",
+  "execution_status": "pending",
+  "reviewer_product_or_pc_execution": false,
+  "scope_of_acceptance": "Static preparation only. This result does not claim native tasks were changed, the app was installed, or final source qualification passed."
+}
