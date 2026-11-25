@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-windows-build",
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "review_kind": "independent Windows producer continuation review",
+  "date": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "13dbfb2f11b93d5b9ccf0301428cfe87a6465a5f",
+    "activation_branch": "task/checkpoint-windows-final-resume-20261125"
+  },
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "product_source_changed": false,
+  "prior_complete_review": "3d9e0565ec065f0d33f9f14999d32bb826f3e337:20261125/revision-7/results/checkpoint-windows-build-packet-review.json",
+  "reviewed_files": {
+    "20261125/checkpoint-windows-simple/build.py": "0260416fb7c714cf418c214ecdc4f286b9c1081d2bf054d7758936281311162f",
+    "20261125/checkpoint-windows-simple/verify.py": "6d80e1cdefa652c38d1d6474c781f0ce3876a13d32fa3ab5c509deed404f3417",
+    "20261125/checkpoint-windows-simple/build-inputs.json": "897979ee5416fd851ec06da5c4311e20b13f0a83de8447fcf99d969dafd5721c",
+    ".github/workflows/checkpoint-windows-final-20261125.yml": "fa55683790e429775b23d13e455516d117bce9942b4df95bd9c6afe71d6b99ec",
+    "20261125/checkpoint-windows-simple/author-inspections.json": "458c41a1eaf2b173b2d6608160a2918c040df0b128553f62396571f205184c16"
+  },
+  "observed_failure": {
+    "run_id": 45572877188,
+    "job_id": 139063568236,
+    "conclusion": "failed",
+    "artifact_id": 15003670786,
+    "artifact_zip_sha256": "50a0e43732431bbcfe637510a9e1f0ce37a7fadb8251947bd2dbda6c8bbc5183",
+    "artifact_manifest_sha256": "022128bca8006e74da54635bf16cf049a937f0723f134b0830982bda97fbf30e",
+    "cause": "The unchanged archive release command completed with exit zero; the subsequent bare dumpbin.exe lookup failed before affected test compilation.",
+    "release_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+    "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+  },
+  "delta_review": [
+    "Complete prior producer/verifier review retained; every new reuse_release line, its callers, input delta and final workflow read.",
+    "Prior download is checked against an exact frozen manifest; every listed file and the complete downloaded file set must agree before any reuse.",
+    "Prior source/tree/target/run/workflow, exact failed post-build command and successful archive command must match the observed retained result.",
+    "The exact release/metadata are copied and the complete old failed-run output is retained under prior-release-evidence.",
+    "dumpbin.exe resolves beside the already verified x64 MSVC linker; its architecture and hash are checked.",
+    "The eight integration targets plus library/default executable remain bound to the same native source and one compiler job; the separate download verifier checks every final retained file.",
+    "Ordinary hosted lifecycle, original time limits, fixed Actions, read-only permissions and complete output retention are preserved.",
+    "Two final clean author inspections bind the exact helper, inputs and workflow."
+  ],
+  "findings": [],
+  "author_clean_final_inspections": 2,
+  "product_commands_executed_by_reviewer": false,
+  "next_action": "Activate the reviewed continuation to compile the missing Windows test executables and verify the downloaded completed output. Preserve the original failed run and unchanged release identity.",
+  "pending": [
+    "Actual successful test compilation",
+    "Actual downloaded hash verification",
+    "Windows test/corpus execution",
+    "Native affected-check acceptance and combined installation"
+  ],
+  "cleanup": "Future agents must reconcile any running hosted workflow and remove clean published task branches/worktrees after final retention if this session ends."
+}
