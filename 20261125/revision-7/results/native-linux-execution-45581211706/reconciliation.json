@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "run_id": 45581211706,
+  "job_id": 139091460269,
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "oracle_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+  "affected": {
+    "status": "passed",
+    "passed": 89,
+    "failed": 0,
+    "ignored": 0,
+    "targets": 8,
+    "type_file_regressions": 11,
+    "receipt": "type-backend-checks.json",
+    "sha256": "2ecc5e6bc888d9c206dc8fec779ab4425bbbc6be0986a88a59cab2eb739021ae"
+  },
+  "full_suite": {
+    "cargo_exit_code": 0,
+    "default_harnesses": 145,
+    "doctest_groups": 1,
+    "passed": 1913,
+    "failed": 0,
+    "existing_ignored": 8,
+    "filtered": 0,
+    "original_wrapper_result": "Failed after Cargo completed: strict line-oriented name parser could not read2 statuses interrupted by child stdout.",
+    "reconciliation": "All raw starts/statuses/counts and actual executable mappings reconcile; complete names and all17required regressions are in complete-target-results-reconciled.json. Independent review remains pending."
+  },
+  "new_windows_repair": "This is baseline evidence. Revision8 requires final-source builds and tests after the bounded Windows production repair."
+}
