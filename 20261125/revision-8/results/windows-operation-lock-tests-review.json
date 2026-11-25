@@ -1,0 +1,113 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Existing operation-lock tests and actual Windows Red evidence",
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "qualification_status": "failed",
+  "final_native_acceptance": false,
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "run_id": 45590705550,
+  "run_attempt": 1,
+  "job_id": 139123992896,
+  "partition": "editing",
+  "workflow_commit": "ddc93993a810e100bbbd62059cae92d3b6c78a56",
+  "evidence": {
+    "commit": "4241fb5712d0e5aed7caf5368645a31146714384",
+    "directory": "20261125/revision-8/results/native-windows-qualification-45590705550/editing",
+    "result_sha256": "312c531b11fe5d1a7e8dc09578c9881e4f506f45a23a0c2d6551d9210439da07",
+    "job_log_sha256": "af5eda4f53822af9368b573af9f9bdf0c86f78303aea253c7ea4b0660cd4d901",
+    "supervisor_sha256": "5e9ebb4cd36f21d5d3d6bf4e5a1ef903eeb91154c0c281b281bb762e1aa99501",
+    "completion_sha256": "2c6bc26820cef470b84bdc0543cf90ddda8546b9f1cdbdb7fb7b5bb294d76c65",
+    "stream_records_sha256": "123d8abd4cb1a1338bfd0cbcbae13b2cfc0d0c16e5978270cd7482e0f34e8f77"
+  },
+  "independent_reconciliation": {
+    "completed_job_log_independently_fetched": true,
+    "three_actual_receipts_and_28_streams_independently_decoded": true,
+    "retained_full_log_receipts_and_both_failure_streams_byte_equal": true,
+    "all_28_stream_bindings_match_retained_metadata": true,
+    "actual_source_run_input_helper_release_bindings_match_accepted_packet": true,
+    "source_and_inputs_unchanged": true
+  },
+  "reviewed_source": {
+    "tests/r036_verified_restore.rs": "9c1cda90f6f645d8769d1b66baee8212ded58d79340b6234e3280781c5ccd04c",
+    "tests/cli_editing.rs": "93bf5f9ccc4901fd8becc49ae1542052aadb212e277bc218156ac7385a01a966",
+    "src/cli_checkpoint_guard.rs": "0822b824be0eff825a47dd7c4463e32597d50288b1ef0561c603a49f36887254"
+  },
+  "baseline": {
+    "commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "all_three_files_byte_identical_through_c90": true
+  },
+  "cases": [
+    {
+      "target": "r036_verified_restore",
+      "name": "simultaneous_empty_target_restores_have_one_winner_and_one_refusal",
+      "full_test_and_relevant_fixture_contract_read": true,
+      "required": "One competing restore activates the initialized empty target; the loser observes the winner's committed nonempty target; exactly one restore receipt remains.",
+      "actual": "One winner; loser exits 1 with raw OS error33 on .beads/operation.lock before observing the committed winner.",
+      "assertion_failure": "Expected losing stderr to contain Target database is not empty.",
+      "actual_stderr_sha256": "aff58fe5d243f59db728eefcd0c40f8df2aca275e99f21c173fd61b4651edde8",
+      "harness_passed": 16,
+      "harness_failed": 1,
+      "harness_exit_code": 101
+    },
+    {
+      "target": "cli_editing",
+      "name": "concurrent_editors_with_one_revision_have_one_complete_winner",
+      "full_test_and_relevant_fixture_contract_read": true,
+      "required": "Barrier-started competing edits yield one success and one revision-conflict exit4; title and notes belong to the same winner and revision increases exactly once.",
+      "actual": "One editor succeeds; the other exits1 with raw OS error33 on .beads/operation.lock. The expected conflict count is zero.",
+      "actual_stderr_sha256": "71bb848e98b167228c2f1b70f85826b3be0581f4e2b61d0c7752d3cfbb8bedf7",
+      "harness_passed": 22,
+      "harness_failed": 1,
+      "harness_exit_code": 101
+    }
+  ],
+  "actual_aggregate": {
+    "passed": 65,
+    "failed": 2,
+    "other_targets": {
+      "attempt_outcome_round_trip": 4,
+      "cli_capabilities": 12,
+      "issue_type_file": 11
+    },
+    "original_corpus_executed": false,
+    "editing_smoke_executed": false
+  },
+  "diagnosis": {
+    "operation_guard_complete_source_read": true,
+    "observed_contention_branch": "Retries only ErrorKind::WouldBlock; raw fs2 Windows lock contention is propagated as I/O instead of waiting.",
+    "preserve_in_repair": [
+      "30-second deadline",
+      "10-ms polling",
+      "ordinary/recovery/read-only command policy",
+      "checkpoint conflict and writable-state validation",
+      "RAII exclusive file ownership",
+      "unrelated I/O errors"
+    ]
+  },
+  "test_design": {
+    "existing_tests_discriminate_the_bug": true,
+    "existing_tests_need_oracle_change": false,
+    "redundant_new_operation_tests_required": false,
+    "actual_red_predates_production_repair": true
+  },
+  "cleanup": {
+    "helper_owned_children_quiescent": true,
+    "supervisor_owned_children_remaining": 0,
+    "supervisor_observed_exit": true,
+    "outer_combined_success": false,
+    "failed_outer_flag_is_not_relabelled_as_qualification_success": true
+  },
+  "findings": [],
+  "scope_boundary": "This accepts the two existing operation-lock tests and their actual Red evidence. Maintenance-lock contention is a separate code path and is not claimed covered by these cases.",
+  "pending": [
+    "Accepted portability-plan scope amendment before additional production changes.",
+    "If maintenance contention is added to scope, preserve its own discriminating existing test and actual Windows Red evidence.",
+    "Narrow source repair, both final author inspections, and final-source qualification/release rebinding; all c90 results remain retained for their exact source."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
