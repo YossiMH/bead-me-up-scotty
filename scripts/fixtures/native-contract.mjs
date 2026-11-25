@@ -39,5 +39,6 @@ export const editingNativeCapabilities = {
     clear_description: true,
     revision_guard: true,
     priority_reason_required: true,
+    issue_type_file: true,
   },
 };

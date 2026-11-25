@@ -2,6 +2,7 @@
 // Persisted native edits are checked separately by test-backend-integration.mjs.
 import assert from 'node:assert/strict';
 import fs from 'node:fs';
+import promises from 'node:fs/promises';
 import path from 'node:path';
 import test from 'node:test';
 import { editingNativeCapabilities, nativeCapabilities, nativeIssue, nativeMetadata } from './fixtures/native-contract.mjs';
@@ -30,6 +31,196 @@ function optionValue(args, name) {
   const index = args.indexOf(name);
   return index < 0 ? undefined : args[index + 1];
 }
+
+for (const [label, grant] of [['absent', undefined], ['false', false], ['malformed', 'true']]) {
+  test('type-file grant ' + label + ' preserves short edits and description files', async () => {
+    const capabilities = { ...editingNativeCapabilities,
+      issue_editing: { ...editingNativeCapabilities.issue_editing, issue_type_file: grant } };
+    const patch = { issue_type: '界'.repeat(2730) + 'xy', description: 'Long description 日本語\n'.repeat(1000) };
+    const files = [];
+    const harness = editingHarness({ after: nativeIssue('work-a', patch), reply: ({ args }) => {
+      if (args[0] === 'capabilities') return capabilities;
+      if (args[0] === 'update') {
+        assert.equal(optionValue(args, '--issue-type'), patch.issue_type);
+        assert.equal(optionValue(args, '--issue-type-file'), undefined);
+        const filename = optionValue(args, '--description-file');
+        assert.ok(filename && path.isAbsolute(filename));
+        files.push(filename);
+        assert.equal(fs.readFileSync(filename, 'utf8'), patch.description);
+      }
+    } });
+    const store = await harness.getStore();
+    for (const field of ['title', 'description', 'priority', 'issue_type', 'notes']) {
+      assert.ok(store.capabilities.editableFields.includes(field), field);
+    }
+    const result = await store.update('work-a', patch, harness.actor);
+    assert.equal(result.issue_type, patch.issue_type);
+    assert.equal(result.description, patch.description);
+    assert.equal(writes(harness.calls).length, 1);
+    assert.equal(files.length, 1);
+    assert.equal(fs.existsSync(path.dirname(files[0])), false);
+  });
+
+  test('type-file grant ' + label + ' refuses oversized types before any native write', async () => {
+    const capabilities = { ...editingNativeCapabilities,
+      issue_editing: { ...editingNativeCapabilities.issue_editing, issue_type_file: grant } };
+    const harness = editingHarness({ reply: ({ args }) => args[0] === 'capabilities' ? capabilities : undefined });
+    const store = await harness.getStore();
+    await assert.rejects(store.update('work-a', {
+      issue_type: '界'.repeat(2731), title: 'Must remain unchanged', priority: 0,
+    }, harness.actor), error => error.code === 'unsupported_operation');
+    assert.equal(writes(harness.calls).length, 0);
+  });
+}
+
+test('unsupported long native type creates no temporary input before refusal', async () => {
+  const allocations = [];
+  const commands = [];
+  const loader = sourceLoader({ replacements: {
+    'node:fs/promises': {
+      ...promises,
+      mkdtemp: async (...args) => { allocations.push('mkdtemp'); return promises.mkdtemp(...args); },
+      writeFile: async (...args) => { allocations.push('writeFile'); return promises.writeFile(...args); },
+    },
+  } });
+  const { runNativeEdit } = loader.load('lib/native-edit.ts');
+  const { NativeMutation } = loader.load('lib/native-mutation.ts');
+  const process = { run: async (...args) => { commands.push(args); return '{}'; } };
+  await assert.rejects(runNativeEdit(process, ['update', 'work-a', '--if-revision', '7'], {
+    issue_type: '界'.repeat(2731), description: 'd'.repeat(9000),
+  }, 'test-person', new NativeMutation('update', 'work-a'), false),
+  error => error.code === 'unsupported_operation');
+  assert.deepEqual(allocations, [], 'Unsupported input must be refused before temporary directory or file creation');
+  assert.deepEqual(commands, [], 'Unsupported input must never reach the native executable');
+});
+
+for (const [bytes, issueType] of [[8192, '界'.repeat(2730) + 'xy'], [8193, '界'.repeat(2731)]]) {
+  test('native type transport observes the ' + bytes + '-byte UTF-8 boundary', async () => {
+    assert.equal(Buffer.byteLength(issueType, 'utf8'), bytes);
+    const files = [];
+    const patch = { issue_type: issueType };
+    const harness = editingHarness({ after: nativeIssue('work-a', patch), reply: ({ args }) => {
+      if (args[0] !== 'update') return;
+      if (bytes === 8192) {
+        assert.equal(optionValue(args, '--issue-type'), issueType);
+        assert.equal(optionValue(args, '--issue-type-file'), undefined);
+      } else {
+        const filename = optionValue(args, '--issue-type-file');
+        assert.ok(filename && path.isAbsolute(filename), 'The type must use a request-owned input file');
+        files.push(filename);
+        assert.equal(fs.readFileSync(filename, 'utf8'), issueType);
+        assert.equal(optionValue(args, '--issue-type'), undefined);
+      }
+    } });
+    assert.equal((await (await harness.getStore()).update('work-a', patch, harness.actor)).issue_type, issueType);
+    assert.equal(writes(harness.calls).length, 1);
+    for (const filename of files) assert.equal(fs.existsSync(path.dirname(filename)), false);
+  });
+}
+
+for (const bytes of [8192, 8193]) {
+  test('native text transport counts type description and notes together at ' + bytes + ' bytes', async () => {
+    const patch = { issue_type: 't'.repeat(4096), description: 'd'.repeat(4095), notes: bytes === 8192 ? 'n' : 'nn' };
+    assert.equal(Object.values(patch).reduce((total, value) => total + Buffer.byteLength(value, 'utf8'), 0), bytes);
+    const files = [];
+    const harness = editingHarness({ after: nativeIssue('work-a', patch), reply: ({ args }) => {
+      if (args[0] !== 'update') return;
+      for (const [field, flag] of [['issue_type', 'issue-type'], ['description', 'description'], ['notes', 'notes']]) {
+        if (bytes === 8192) {
+          assert.equal(optionValue(args, '--' + flag), patch[field]);
+          assert.equal(optionValue(args, '--' + flag + '-file'), undefined);
+        } else {
+          const filename = optionValue(args, '--' + flag + '-file');
+          assert.ok(filename && path.isAbsolute(filename), field + ' must use the combined file budget');
+          files.push(filename);
+          assert.equal(fs.readFileSync(filename, 'utf8'), patch[field]);
+          assert.equal(optionValue(args, '--' + flag), undefined);
+        }
+      }
+    } });
+    const result = await (await harness.getStore()).update('work-a', patch, harness.actor);
+    for (const [field, value] of Object.entries(patch)) assert.equal(result[field], value);
+    assert.equal(writes(harness.calls).length, 1);
+    for (const filename of files) assert.equal(fs.existsSync(path.dirname(filename)), false);
+  });
+}
+
+for (const outcome of ['success', 'command failure', 'readback failure']) {
+  test('long native custom types use exact UTF-8 files and clean up after ' + outcome, async () => {
+    const patch = { issue_type: 'custom_界'.repeat(5000), description: 'Description 日本語\n', notes: 'Retained notes\n' };
+    assert.ok(patch.issue_type.length > 32768, 'This value cannot fit a Windows inline command');
+    const files = [];
+    const harness = editingHarness({ after: nativeIssue('work-a', patch), reply: ({ args }, calls) => {
+      if (args[0] === 'update') {
+        for (const [field, flag] of [['issue_type', 'issue-type'], ['description', 'description'], ['notes', 'notes']]) {
+          const filename = optionValue(args, '--' + flag + '-file');
+          assert.ok(filename && path.isAbsolute(filename), field + ' must use a request-owned input file');
+          files.push(filename);
+          assert.equal(fs.readFileSync(filename, 'utf8'), patch[field]);
+          assert.equal(optionValue(args, '--' + flag), undefined);
+        }
+        if (outcome === 'command failure') throw Object.assign(new Error('Timed out after dispatch'), { code: 'ETIMEDOUT' });
+      }
+      if (outcome === 'readback failure' && args[0] === 'show' && calls.some(call => call.args[0] === 'update')) {
+        throw Object.assign(new Error('Read timed out'), { code: 'ETIMEDOUT' });
+      }
+    } });
+    const store = await harness.getStore();
+    if (outcome === 'success') {
+      assert.equal((await store.update('work-a', patch, harness.actor)).issue_type, patch.issue_type);
+    } else {
+      await assert.rejects(store.update('work-a', patch, harness.actor), error =>
+        error.code === (outcome === 'command failure' ? 'mutation_uncertain' : 'mutation_committed'));
+    }
+    assert.equal(writes(harness.calls).length, 1, 'An uncertain update must never be replayed');
+    assert.equal(files.length, 3, 'Every supplied text field must use a file');
+    for (const filename of files) assert.equal(fs.existsSync(path.dirname(filename)), false);
+  });
+}
+
+test('a long native type edit retains the claim acquired by this store and its revision guard', async () => {
+  const before = nativeIssue('work-a', { revision: 7, claim_epoch: 0 });
+  const claimed = { ...before, assignee: 'test-person', claim_epoch: 1,
+    status: 'in_progress', effective_status: 'in_progress', revision: 8 };
+  const patch = { issue_type: 'claimed_界'.repeat(5000), priority: 0 };
+  const after = { ...claimed, ...patch, revision: 9 };
+  const files = [];
+  const harness = editingHarness({ before, after, reply: ({ args }, calls) => {
+    const updates = calls.filter(call => call.args[0] === 'update');
+    const document = updates.length === 0 ? before : updates.length === 1 ? claimed : after;
+    if (args[0] === 'show') return document;
+    if (args[0] === 'list') return [document];
+    if (args[0] === 'query') return [nativeMetadata(document.id, { IssueType: document.issue_type || 'task' })];
+    if (args[0] === 'update') {
+      if (updates.length === 2) {
+        assert.equal(optionValue(args, '--if-revision'), '8');
+        assert.equal(optionValue(args, '--fencing-token'), '1');
+        assert.equal(optionValue(args, '--priority'), '0');
+        assert.equal(optionValue(args, '--reason'), 'Priority edited in Scotty');
+        const filename = optionValue(args, '--issue-type-file');
+        assert.ok(filename && path.isAbsolute(filename), 'The claimed type edit must use its input file');
+        files.push(filename);
+        assert.equal(fs.readFileSync(filename, 'utf8'), patch.issue_type);
+      }
+      return {};
+    }
+  } });
+  const store = await harness.getStore();
+  await store.setStatus('work-a', 'in_progress', harness.actor);
+  const result = await store.update('work-a', patch, harness.actor);
+  assert.equal(result.issue_type, patch.issue_type);
+  assert.equal(result.assignee, harness.actor);
+  assert.equal(writes(harness.calls).length, 2, 'One claim acquisition followed by one scalar update');
+  assert.equal(files.length, 1);
+  assert.equal(fs.existsSync(path.dirname(files[0])), false);
+});
+
+test('native type validation retains the complete four-MiB input allowance', () => {
+  const { nativeUpdateInputSchema } = sourceLoader().load('lib/schema.ts');
+  const issueType = 't'.repeat(4 * 1024 * 1024);
+  assert.equal(nativeUpdateInputSchema.parse({ issue_type: issueType }).issue_type, issueType);
+  assert.equal(nativeUpdateInputSchema.safeParse({ issue_type: issueType + 'x' }).success, false);
+});
 
 test('editing capabilities enable only the declared native scalar fields', async () => {
   const store = await editingHarness().getStore();

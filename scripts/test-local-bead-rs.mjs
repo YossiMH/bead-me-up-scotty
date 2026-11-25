@@ -34,6 +34,7 @@ test('local bead-rs supports complete reads and native edits through the real st
   await cli(['init', '--prefix', 'local']);
   const capabilities = JSON.parse(await cli(['capabilities']));
   fs.writeFileSync(path.join(run, 'capabilities.json'), JSON.stringify(capabilities, null, 2));
+  assert.equal(capabilities.issue_editing?.issue_type_file, true, 'The selected native executable must accept type input files');
   const id = (await cli(['create', '--title', 'Local Scotty compatibility'])).trim();
   const store = await createNativeStore(workspace);
   const listed = await store.listSnapshot();
@@ -54,6 +55,33 @@ test('local bead-rs supports complete reads and native edits through the real st
   assert.equal((await store.setStatus(created.id, 'closed', 'scotty-test', 'Verified close')).close_reason, 'Verified close');
   await store.setStatus(created.id, 'open', 'scotty-test');
   assert.equal((await store.setStatus(created.id, 'in_progress', 'scotty-test')).assignee, 'scotty-test');
+  const beforeEdit = JSON.parse(await cli(['show', created.id, '--json']));
+  const cursor = JSON.parse(await cli(['changes', '--latest', '--json']));
+  const patch = { title: 'Claimed native type file', issue_type: 'custom_界'.repeat(5000),
+    description: 'Description 日本語\n', notes: 'Notes survive\n', priority: 0 };
+  assert.ok(patch.issue_type.length > 32768);
+  const edited = await store.update(created.id, patch, 'scotty-test');
+  for (const [field, value] of Object.entries(patch)) assert.equal(edited[field], value, field);
+  const afterEdit = JSON.parse(await cli(['show', created.id, '--json']));
+  assert.equal(afterEdit.revision, beforeEdit.revision + 1);
+  assert.equal(afterEdit.claim_epoch, beforeEdit.claim_epoch);
+  assert.equal(afterEdit.assignee, 'scotty-test');
+  for (const field of ['title', 'description', 'notes', 'priority']) assert.equal(afterEdit[field], patch[field], field);
+  const metadata = JSON.parse(await cli(['query', '--json', JSON.stringify({
+    version: 'v1', predicates: [], sort: [], projection: { fields: ['id', 'issue_type'] },
+  }), '--output-json']));
+  assert.equal(metadata.find(row => row.Id === created.id)?.IssueType, patch.issue_type);
+  const changes = JSON.parse(await cli(['changes', '--since', String(cursor.max_sequence), '--json']));
+  const audit = changes.mutations.filter(change => change.issue_id === created.id && change.kind === 'priority_changed');
+  assert.equal(audit.length, 1);
+  assert.equal(audit[0].actor, 'scotty-test');
+  assert.equal(audit[0].detail.reason, 'Priority edited in Scotty');
+  assert.equal(audit[0].detail.revision, afterEdit.revision);
+  fs.writeFileSync(path.join(run, 'type-edit.json'), JSON.stringify({
+    characters: patch.issue_type.length, utf8Bytes: Buffer.byteLength(patch.issue_type, 'utf8'),
+    beforeRevision: beforeEdit.revision, afterRevision: afterEdit.revision,
+    claimEpoch: afterEdit.claim_epoch, priorityAudit: audit[0],
+  }, null, 2));
   assert.equal((await store.setStatus(created.id, 'open', 'scotty-test')).assignee, '');
   fs.writeFileSync(path.join(run, 'git-result.json'), JSON.stringify(await assertGitCheckpoint(workspace, unrelatedMarker), null, 2));
 });
