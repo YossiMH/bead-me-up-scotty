@@ -37,6 +37,13 @@ function Safe-Path([string]$Value){
     }
     return $full
 }
+function Check-PublicationLock{
+    $publicationLock='F:\Dev\bead-rs\.beads\checkpoint\publish.lock'
+    try{$item=Get-Item -LiteralPath $publicationLock -Force -ErrorAction Stop}
+    catch [System.Management.Automation.ItemNotFoundException]{return @{present=$false}}
+    Assert-That (-not $item.PSIsContainer -and ($item.Attributes -band [IO.FileAttributes]::ReparsePoint)-eq 0 -and $item.Length -eq 0) 'Only a regular non-reparse zero-byte publication lock is allowed.'
+    return @{present=$true;bytes=0;regular=$true;reparse=$false}
+}
 function Quote-Argument([string]$Value){
     $builder=[Text.StringBuilder]::new();[void]$builder.Append('"');$slashes=0
     foreach($character in $Value.ToCharArray()){
@@ -86,6 +93,7 @@ function Sample-Budget([switch]$Cleanup){
     }
     if($resident -gt $script:PeakResident){$script:PeakResident=$resident}
     if(-not $Cleanup){
+        [void](Check-PublicationLock)
         Assert-That ($resident -le $MaxOwnedResidentMiB*1MB) 'Aggregate task resident memory exceeded its budget.'
         Assert-That ($Clock.Elapsed.TotalSeconds -lt $TimeoutSeconds-12) 'Checkpoint phase work deadline expired.'
         Assert-That ([Checkpoint20261125Inspector]::AvailablePhysical() -ge 1GB) 'Foreground memory pressure: stop the owned phase.'
@@ -116,6 +124,8 @@ try{
     $manifest=[IO.File]::ReadAllText($InputManifest)|ConvertFrom-Json
     $Phase=[string]$manifest.phase;$Result.phase=$Phase
     Assert-That (@('preserve','freeze','source-restore','dry-run','merge','publish','restore','close','final-publish','final-restore') -contains $Phase) 'Unknown phase.'
+    [void](Safe-Path 'F:/Dev/bead-rs/.beads/checkpoint')
+    $Result['publication_lock_initial']=Check-PublicationLock
     $taskRoot=Safe-Path 'F:/Dev/.bead-edit-20261111'
     $repository=Safe-Path 'F:/Dev/.bead-edit-20261111/coordination-20261124'
     $binary=Safe-Path $manifest.runtime.path
@@ -221,6 +231,7 @@ public static class Checkpoint20261125Inspector {
     $driverResult=Get-Content -LiteralPath $phaseResult -Raw|ConvertFrom-Json
     Assert-That ($driverResult.status -eq 'passed' -and $driverResult.phase -eq $Phase) 'No passed result for this exact phase.'
     Assert-That ($driverResult.request_sha256 -eq $InputSha256) 'Result belongs to another request.'
+    $Result['publication_lock_final']=Check-PublicationLock
     $Result['phase_result']=$phaseResult;$Result['phase_result_sha256']=Hash $phaseResult;$Result.status='passed'
 }catch{
     $Result['error']=$_.Exception.ToString();$Result.status='failed'
