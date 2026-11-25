@@ -1,0 +1,118 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Completed Linux baseline execution and parser reconciliation",
+  "final_native_acceptance": false,
+  "reviewer": "/root/cloud_readiness",
+  "run": 45581211706,
+  "job": 139091460269,
+  "workflow_commit": "4855e53de5d74d6d16fbfc934ddcfcfdf8a23f78",
+  "evidence_commit": "4c70b7f6442dfe010ca74429dcc5ae97cda49b7e",
+  "evidence_directory": "20261125/revision-7/results/native-linux-execution-45581211706",
+  "production": {
+    "commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13"
+  },
+  "qualification_source": {
+    "commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+    "tree": "eeab8ce79cf4a6950a4b09706fa1595572cd1b78"
+  },
+  "actual_job_status": "failure",
+  "actual_wrapper_status": "failed",
+  "actual_wrapper_error": "RuntimeError: Test names do not match target counts",
+  "actual_command_status": {
+    "affected_exit_code": 0,
+    "full_suite_exit_code": 0,
+    "format_exit_code": 0
+  },
+  "affected": {
+    "targets": 8,
+    "passed": 89,
+    "failed": 0,
+    "ignored": 0,
+    "all_eleven_type_regressions_passed": true,
+    "receipt_sha256": "2ecc5e6bc888d9c206dc8fec779ab4425bbbc6be0986a88a59cab2eb739021ae"
+  },
+  "full_suite": {
+    "default_harnesses": 145,
+    "doctest_groups": 1,
+    "passed": 1913,
+    "failed": 0,
+    "ignored": 8,
+    "filtered": 0,
+    "measured": 0,
+    "all_seventeen_required_regressions_passed": true,
+    "conformance_passed": 13,
+    "conformance_seconds": 650.33,
+    "publication_lock_integration_passed": 3,
+    "publication_lock_unit_passed": true
+  },
+  "independent_verification": {
+    "actual_api_job_log_equals_retained": true,
+    "embedded_receipts_and_streams_decoded": 44,
+    "all_embedded_hashes_and_byte_counts_match": true,
+    "complete_streams_equal_retained": true,
+    "all_serialized_harness_starts_match_summaries": true,
+    "all_harness_executables_map_to_inventory": true,
+    "all_147_before_after_executable_records_present": true,
+    "all_author_reconciled_names_and_counts_match": true,
+    "conformance_names_equal_retained_actual_windows_list": true,
+    "all_process_groups_exited": true,
+    "environment_alias_cleanup_passed": true,
+    "source_rows_preserved_against_accepted_oracle": 652,
+    "production_files_unchanged": true
+  },
+  "parser_reconciliation": {
+    "cause": "Two successful serialized conformance cases print child bead IDs between the harness test-name prefix and trailing ok. The existing parser required each status to occupy one line.",
+    "exact_interleaved_results": [
+      {
+        "name": "set_v2_green_scenarios_under_out_of_band_change",
+        "raw": "test set_v2_green_scenarios_under_out_of_band_change ... bead-0774b1c4\nbead-24d983d3\nok"
+      },
+      {
+        "name": "set_v2_oversize_record_once_cost",
+        "raw": "test set_v2_oversize_record_once_cost ... bead-9fe3d653\nok"
+      }
+    ],
+    "method": "Independently recognized only these two exact observed patterns, then parsed every ordinary result line and every harness count. Matched 145 actual stderr executable paths to the retained inventory and the final doctest group. Compared every passed/ignored name with the author's reconciliation; ignored entries retain their reasons.",
+    "native_rerun_required": false,
+    "original_failure_preserved": true
+  },
+  "existing_ignores": {
+    "verified_at_source": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "count": 8,
+    "files": {
+      "tests/binary_variant_integration.rs": "3e91053dd7e09a274bea74623ed2b013bb808875d8ed7b923b983d4b47c9be79",
+      "tests/redact_all_blocking.rs": "fe85813a6c66f31774d2059a6e2e8070091f0b4dea7b1b816d42c7f60880e601",
+      "tests/redaction_storage.rs": "c4d6d8566f004bd874006bcd5d232792da482f07332e3bb4faa9d3b4dcba3a28"
+    },
+    "meaning": "Six existing optional build/cleanup cases and two existing beadrs-9116e1a9 redaction cases remain ignored; no ignore was introduced by the type change or this reconciliation."
+  },
+  "reviewed_files": {
+    "job.log": "cb1dbdb2b42842d330fa320743c8cc8a002b3305fd55c43f00f8d048e4e87fa3",
+    "result.json": "16d368826868ab03f2b79d0f5ebb83b011e1421e3326e86a6d81c748ddc9c4ca",
+    "type-backend-checks.json": "2ecc5e6bc888d9c206dc8fec779ab4425bbbc6be0986a88a59cab2eb739021ae",
+    "logs/cargo-full-suite.stdout": "4de96772dc2e860a38c72d4662a0168181d2a0b4217c02a6f6584724c5707175",
+    "logs/cargo-full-suite.stderr": "10b5ffe1c2551a963929019257b06bd7f4d311a093aaaab41dfcf0b59f1d0cdb",
+    "logs/cargo-type-checks.stdout": "c645f85b2a8d50c730b113ea3b9f003fdbc8a60de046ddf6746dd052ad85221b",
+    "logs/cargo-type-checks.stderr": "e1b3162ebb84d4184fecbd7255f7e24eda6ae5ed64e05f2eb11971747659f61a",
+    "executables-before.json": "9f899b803a79091c9927b999082bcfed8d54c8d72b6fd0718ca3141d4b9f4462",
+    "executables-after.json": "fff5d811eb5bf1d1dad1001289e6c939fc6097a0db49f1b0307e705d42f0de53",
+    "oracle-correction.json": "701da346ebfb6de2719fb8d18f0882791e5c157243478fdff9e5783944caa3d3",
+    "environment-corrections.json": "36585cf0e0a9c983528c21d880585ed8583d4a9ce5a0b5ccb0d5b2548a8788f5",
+    "complete-target-results-reconciled.json": "43241535e77752ff1ab105bf859cb168302a9e7a040ae8556a081edad1cdd38a"
+  },
+  "recompiled_executables": [
+    "binary:bead",
+    "binary:generate-man-pages",
+    "harness:bin:bead",
+    "harness:lib:bead_rs",
+    "harness:test:issue_type_file",
+    "harness:test:mutating_command_event_contract"
+  ],
+  "scope_limit": "These actual results qualify the unchanged 9ff production with the accepted 7adb test oracle. Revision 8's later c90 production checkpoint repair still requires fresh same-source builds and execution. This receipt does not close final native, app, installation or PC gates.",
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false,
+  "findings": []
+}
