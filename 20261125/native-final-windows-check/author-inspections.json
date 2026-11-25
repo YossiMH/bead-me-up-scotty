@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-windows-checks",
+  "author": "/root/backend_reconcile",
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "files": {
+    "checkpoint-windows-check-20261125.py": "ade52d7538906850c38f12555e45fe731528417b83dedd124532cdee9ceb4195",
+    "checkpoint-windows-build-20261125.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+    "checkpoint-windows-supervisor-20261125.ps1": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "corpus-inputs.json": "b17dac61c10ac045b6d128b51e1f897d2716fb7620e8b2b6f480b4a0588103c1",
+    "check-inputs.json": "4458055bd1de94501deb2b2a77fc5856b81bff17ff685c4ffcf60923761b515f",
+    "packet.json": "52dbaaf6054cc737856f3e18c8ea2d793f7f53b10deb18c6abc29ea0d712dd0c",
+    "workflow.yml": "f8200aef35a06d0af1435ea095bb0888232d61a85241bf6d0f47dfe14462ddbf"
+  },
+  "producer": {
+    "run_id": "45576002037",
+    "workflow_commit": "13dbfb2f11b93d5b9ccf0301428cfe87a6465a5f",
+    "artifact_id": 15004896560,
+    "artifact_manifest_sha256": "43e7bedc2cd62e7eb9040cecff67584144b68189db0ede1290e5e2c823acc996",
+    "build_result_sha256": "d8577ea32add8e06d687419c46e6ccfa04023d55dd038b464fa105622d423941",
+    "download_verification_evidence": "3c1de572b0d8ac4502131d8383ed3348d2ff695a:20261125/revision-7/results/native-windows-build-45576002037/download-verification.json"
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Read the complete adapted checker and workflow, traced each restored source/executable path and producer manifest entry, all nine target counts, required type tests, original corpus assertions, smoke identity, output retention and unchanged supervision."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Read the same final checker and bound input/packet/workflow again, cross-checking actual producer source/tree/run, downloaded-manifest receipt, release and metadata identities, every command/timeout, preserved fixture bytes and failure results. Reused utility/driver/supervisor/corpus sources are byte-identical to the previously reviewed packet."
+    }
+  ],
+  "execution_status": "Pending this separate hosted execution; producer compilation and downloaded-byte verification already passed.",
+  "result_identity_note": "The exact build-result bytes are reconstructed from the producer's emitted JSON tokens and indentation; the consumer additionally checks their SHA-256 against the actual downloaded file and root artifact manifest before executing anything.",
+  "cleanup_handoff": "Remove clean published Riftri task worktrees when the full assignment is complete. If this session ends, the next agent must finish cleanup, including /tmp/beads-55c9/backend-type-edit."
+}

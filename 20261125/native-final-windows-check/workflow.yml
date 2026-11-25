@@ -1,0 +1,85 @@
+name: Temporary checkpoint Windows qualification
+
+on:
+  push:
+    branches:
+      - task/checkpoint-windows-final-check-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: checkpoint-windows-final-check-20261125
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: windows-2025
+    timeout-minutes: 150
+    env:
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+    steps:
+      - name: Read exact reviewed qualification packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/native-final-windows-check
+
+      - name: Read the unchanged owned Job helper
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          ref: 6d40aacb49eba309f1f925e106cfbb9026cce744
+          path: job
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: windows-task-job.ps1
+
+      - name: Read the unchanged native editing smoke
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          ref: a532a268df26cb719bf0411a9c36668e0c9f0b04
+          path: smoke
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: windows-native-smoke.ps1
+
+      - name: Download the separately accepted exact build artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          run-id: '45576002037'
+          artifact-ids: '15004896560'
+          merge-multiple: true
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/checkpoint-windows-download-${{ github.run_id }}-${{ github.run_attempt }}
+
+      - name: Validate exact binaries, recovery and editing
+        shell: pwsh
+        timeout-minutes: 143
+        run: |
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/native-final-windows-check'
+          $driver = Join-Path $packet 'checkpoint-windows-driver-20261125.ps1'
+          if ((Get-FileHash -LiteralPath $driver -Algorithm SHA256).Hash.ToLowerInvariant() -cne '9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44') { throw 'Driver bytes differ.' }
+          $download = Join-Path $env:RUNNER_TEMP "checkpoint-windows-download-$($env:GITHUB_RUN_ID)-$($env:GITHUB_RUN_ATTEMPT)"
+          & $driver -Phase check -PacketDirectory $packet -PacketSha256 '52dbaaf6054cc737856f3e18c8ea2d793f7f53b10deb18c6abc29ea0d712dd0c' -JobHelper (Join-Path $env:GITHUB_WORKSPACE 'job/windows-task-job.ps1') -ArtifactDirectory $download -SmokeHelper (Join-Path $env:GITHUB_WORKSPACE 'smoke/windows-native-smoke.ps1')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Retain qualification receipts, executable and complete logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-check-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-checkpoint-windows-artifact-check-${{ github.run_id }}-${{ github.run_attempt }}/
