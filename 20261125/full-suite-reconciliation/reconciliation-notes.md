@@ -1,0 +1,15 @@
+# Reconcile the retained complete native suite
+
+Hosted run 45549798905, job 138987980821, executed the required unfiltered command on exact backend commit 515b503b24baf71737ff8fa6c879bd0752ef0fc6. Cargo exited 0. The original wrapper result remains failed because its single-line libtest parser did not recognize two complete passing records containing inherited subprocess stdout. All145 target/doctest summaries report success:1902 passed,0 failed,8 existing ignored,0 measured and0 filtered. All19 commands exited0, their owned process groups were empty, all651 source files were unchanged, and both owned compatibility aliases/directories were removed.
+
+The exact existing helper set_notes_via_stdin in checkpoint_set_v2_conformance.rs launches native update --notes-file - with piped stdin and inherited stdout. Its issue-ID output appears between the libtest test-name prefix and terminal ok. The full conformance grid executes that case twice; the direct oversize case executes it once. The complete observed records and source are retained.
+
+The read-only reconciler accepts only those two named records in the conformance harness, with their exact-shaped two/one issue-ID lines and actual terminal ok. All original summary/name/duplicate/unfiltered/default-target/doctest/new-regression checks are preserved. It matches the exact accepted absolute harness paths lexically against retained Cargo stderr because the hosted filesystem has ended; the actual execution receipt already verifies the real source/executable files before and after the run. No product command, test or build is run during reconciliation.
+
+The immutable original receipt, all42 emitted records/streams, accepted build receipt, exact source file and independent parser output are retained separately. The prepared environment receipt is compared against the final receipt with exactly the four recorded cleanup additions: two removed flags, cleanup_status passed, and empty cleanup_errors. No source data or failed receipt is rewritten.
+
+Validation of the pure parser accepts the exact retained text and rejects four altered in-memory inputs: a failed multiline terminal result, a missing native-update line, a missing ordinary passing test, and an unknown harness path. Two complete author inspections found no remaining correction. Independent actual-result acceptance remains required; this packet records the technical reconciliation without relabeling the failed GitHub workflow run.
+
+Reproduction: python reconcile-full-suite.py --evidence original-evidence --output <fresh-owned-result-path>. The helper consumes only the exact SHA-pinned files and writes one fresh report. All original emitted bytes were decoded from actual job logs and individually size/SHA256 verified. The original complete Actions artifact14994600782 is81457bytes, SHA256 b9398827ef92bc42ab0811143040ac36c3dc19f63b933bb2a4166a4eefd56b6c, retained until2026-12-02T05:09:52Z.
+
+Cleanup remains root-owned after delivery evidence is durable. Future agents should remove this task's temporary validation branches/worktrees if the process ends early, preserving the exact retained results and rollback copies.

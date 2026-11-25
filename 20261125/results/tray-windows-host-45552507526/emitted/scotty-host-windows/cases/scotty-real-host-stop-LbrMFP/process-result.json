@@ -1,0 +1,100 @@
+{
+    "action":  "stop",
+    "children":  [
+                     {
+                         "exited":  true,
+                         "exit_code":  0,
+                         "pid":  764,
+                         "created_ms":  1795583866502,
+                         "kind":  "tray-host",
+                         "image":  "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe"
+                     },
+                     {
+                         "exited":  true,
+                         "exit_code":  0,
+                         "pid":  4796,
+                         "created_ms":  1795583866558,
+                         "kind":  "tray",
+                         "image":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                     }
+                 ],
+    "cache_removed":  true,
+    "schema_version":  1,
+    "forced_cleanup":  [
+
+                       ],
+    "finished":  "2026-11-25T05:17:48.0211658Z",
+    "started":  "2026-11-25T05:17:46.3477197Z",
+    "controller_exit_code":  0,
+    "helper_sha256_before":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+    "ready_observed":  true,
+    "records":  [
+                    {
+                        "kind":  "tray-host",
+                        "pid":  764,
+                        "parentPid":  7100,
+                        "command":  "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+                        "args":  [
+                                     "--import",
+                                     "file:///D:/a/bead-me-up-scotty/bead-me-up-scotty/app/scripts/fixtures/windows-tray-observer.mjs",
+                                     "--max-old-space-size=64",
+                                     "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\app\\bin\\windows-tray-host.mjs",
+                                     "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-stop-LbrMFP\\local\\bead-me-up-scotty\\tray\\session-VWfAMv\\windows-tray.ps1",
+                                     "7100",
+                                     "http://127.0.0.1:43971",
+                                     "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-stop-LbrMFP\\local\\bead-me-up-scotty\\tray\\session-VWfAMv"
+                                 ],
+                        "windowsHide":  true,
+                        "detached":  true,
+                        "stdio":  [
+                                      "pipe",
+                                      "pipe",
+                                      "pipe"
+                                  ],
+                        "hostScript":  "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\app\\bin\\windows-tray-host.mjs",
+                        "hostScriptSha256":  "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+                        "startedAfter":  1795583866488,
+                        "recordedAt":  1795583866493
+                    },
+                    {
+                        "kind":  "tray",
+                        "pid":  4796,
+                        "parentPid":  764,
+                        "command":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                        "args":  [
+                                     "-NoLogo",
+                                     "-NoProfile",
+                                     "-NonInteractive",
+                                     "-STA",
+                                     "-WindowStyle",
+                                     "Hidden",
+                                     "-File",
+                                     "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-stop-LbrMFP\\local\\bead-me-up-scotty\\tray\\session-VWfAMv\\windows-tray.ps1",
+                                     "-ParentProcessId",
+                                     "7100",
+                                     "-Url",
+                                     "http://127.0.0.1:43971",
+                                     "-CacheDirectory",
+                                     "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-stop-LbrMFP\\local\\bead-me-up-scotty\\tray\\session-VWfAMv"
+                                 ],
+                        "windowsHide":  true,
+                        "detached":  false,
+                        "stdio":  [
+                                      "pipe",
+                                      "pipe",
+                                      "pipe"
+                                  ],
+                        "helperScript":  "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-stop-LbrMFP\\local\\bead-me-up-scotty\\tray\\session-VWfAMv\\windows-tray.ps1",
+                        "helperScriptSha256":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+                        "startedAfter":  1795583866550,
+                        "recordedAt":  1795583866556
+                    }
+                ],
+    "controller_pid":  7100,
+    "status":  "passed",
+    "registration_errors":  [
+
+                            ],
+    "controller_exited":  true,
+    "action_started":  "2026-11-25T05:17:47.3329684Z"
+}

@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "action": "parent-loss",
+  "root": "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-parent-loss-xeqm6H",
+  "sources": {
+    "bin/windows-tray.mjs": "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+    "bin/windows-tray-host.mjs": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+    "bin/windows-tray.ps1": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+    "scripts/fixtures/windows-tray-observer.mjs": "a46859f6582fd1d248e4548c7a6d1f00673ab9541c77ed045930aa231c5b45de",
+    "scripts/test-windows-tray-host-windows.mjs": "609fe2e0ae05acd9ddea4e9e8db5a9f349ee86fb5b4bac2443d1c7314434ed5e"
+  },
+  "node": {
+    "executable": "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+    "version": "v25.2.1"
+  },
+  "scope": "Real Forms helper readiness and process/cache cleanup; interactive tray menu is checked separately.",
+  "started": "2026-11-25T05:17:48.064Z",
+  "supervisor": {
+    "code": 0,
+    "signal": null
+  },
+  "processes": {
+    "action": "parent-loss",
+    "children": [
+      {
+        "exited": true,
+        "exit_code": 0,
+        "pid": 7460,
+        "created_ms": 1795583868494,
+        "kind": "tray",
+        "image": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+      },
+      {
+        "exited": true,
+        "exit_code": 0,
+        "pid": 1264,
+        "created_ms": 1795583868443,
+        "kind": "tray-host",
+        "image": "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe"
+      }
+    ],
+    "cache_removed": true,
+    "schema_version": 1,
+    "forced_cleanup": [],
+    "finished": "2026-11-25T05:17:49.5387981Z",
+    "started": "2026-11-25T05:17:48.3029144Z",
+    "controller_exit_code": 1,
+    "helper_sha256_before": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+    "ready_observed": true,
+    "records": [
+      {
+        "kind": "tray-host",
+        "pid": 1264,
+        "parentPid": 2404,
+        "command": "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+        "args": [
+          "--import",
+          "file:///D:/a/bead-me-up-scotty/bead-me-up-scotty/app/scripts/fixtures/windows-tray-observer.mjs",
+          "--max-old-space-size=64",
+          "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\app\\bin\\windows-tray-host.mjs",
+          "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-parent-loss-xeqm6H\\local\\bead-me-up-scotty\\tray\\session-3ZoikA\\windows-tray.ps1",
+          "2404",
+          "http://127.0.0.1:43971",
+          "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-parent-loss-xeqm6H\\local\\bead-me-up-scotty\\tray\\session-3ZoikA"
+        ],
+        "windowsHide": true,
+        "detached": true,
+        "stdio": [
+          "pipe",
+          "pipe",
+          "pipe"
+        ],
+        "hostScript": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\app\\bin\\windows-tray-host.mjs",
+        "hostScriptSha256": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+        "startedAfter": 1795583868427,
+        "recordedAt": 1795583868433
+      },
+      {
+        "kind": "tray",
+        "pid": 7460,
+        "parentPid": 1264,
+        "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "args": [
+          "-NoLogo",
+          "-NoProfile",
+          "-NonInteractive",
+          "-STA",
+          "-WindowStyle",
+          "Hidden",
+          "-File",
+          "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-parent-loss-xeqm6H\\local\\bead-me-up-scotty\\tray\\session-3ZoikA\\windows-tray.ps1",
+          "-ParentProcessId",
+          "2404",
+          "-Url",
+          "http://127.0.0.1:43971",
+          "-CacheDirectory",
+          "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-parent-loss-xeqm6H\\local\\bead-me-up-scotty\\tray\\session-3ZoikA"
+        ],
+        "windowsHide": true,
+        "detached": false,
+        "stdio": [
+          "pipe",
+          "pipe",
+          "pipe"
+        ],
+        "helperScript": "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-parent-loss-xeqm6H\\local\\bead-me-up-scotty\\tray\\session-3ZoikA\\windows-tray.ps1",
+        "helperScriptSha256": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+        "startedAfter": 1795583868490,
+        "recordedAt": 1795583868496
+      }
+    ],
+    "controller_pid": 2404,
+    "status": "passed",
+    "registration_errors": [],
+    "controller_exited": true,
+    "action_started": "2026-11-25T05:17:48.9131888Z"
+  },
+  "finished": "2026-11-25T05:17:49.561Z",
+  "evidence": {
+    "controller.stdout": {
+      "bytes": 6,
+      "sha256": "3dfa3fb239f56c778a1e9b33eb31328349edd155a95806dac4378904e88527e5"
+    },
+    "controller.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "supervisor.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "supervisor.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "processes.jsonl": {
+      "bytes": 1948,
+      "sha256": "b6e22c81762f6cbea623d19fd7d891a69beed2c0736953aba44ff5b8be8d7e3e"
+    },
+    "process-result.json": {
+      "bytes": 5391,
+      "sha256": "33978127cf126642a6a9a34e23d1821b62698b2f0b51544ee17477b164e8f56b"
+    }
+  }
+}

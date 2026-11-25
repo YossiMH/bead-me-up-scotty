@@ -1,0 +1,48 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "source_commit":  "5232c8b94804064ab71af571ee28797667bd72bd",
+    "source_tree":  "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+    "helper_sha256":  "b5792316a07fafade0aa2e42a7d90216f87b88df681907f3cc0a9e31101627e1",
+    "inputs_sha256":  "683529f4fe58f17be8846c3b9d640eb1c056a360c4b012b160ecd0941ed20123",
+    "job_helper_sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "output_directory":  "D:\\a\\_temp\\scotty-host-windows-45552507526-1",
+    "supervisor_pid":  7064,
+    "started":  "2026-11-25T05:17:44.1068841Z",
+    "deadline_seconds":  150,
+    "owned_children_remaining":  0,
+    "scope":  "Two real Forms host lifecycle checks; the interactive PC tray result remains separate.",
+    "node":  {
+                 "path":  "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+                 "sha256":  "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa",
+                 "version":  "v25.2.1"
+             },
+    "embedded_powershell_parse":  "passed",
+    "command":  [
+                    "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+                    "--test",
+                    "--test-reporter=tap",
+                    "--test-concurrency=1",
+                    "scripts/test-windows-tray-host-windows.mjs"
+                ],
+    "node_pid":  4888,
+    "node_exit_code":  0,
+    "cases":  [
+                  {
+                      "path":  "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-parent-loss-xeqm6H\\result.json",
+                      "sha256":  "01d537c3c9d18a9450896f9e3140a1de81f0f4a6076ea951f258b70d29b448ad",
+                      "bytes":  5550,
+                      "action":  "parent-loss"
+                  },
+                  {
+                      "path":  "D:\\a\\_temp\\scotty-host-windows-45552507526-1\\cases\\scotty-real-host-stop-LbrMFP\\result.json",
+                      "sha256":  "735da7faa9ac0486cb9e3d4e7dff9f769d2a3e4e6be3655e3466eb8c7d9b4975",
+                      "bytes":  5492,
+                      "action":  "stop"
+                  }
+              ],
+    "source_unchanged":  true,
+    "owned_children_empty_before_supervisor_exit":  true,
+    "finished":  "2026-11-25T05:17:49.7739512Z",
+    "elapsed_seconds":  6.668
+}

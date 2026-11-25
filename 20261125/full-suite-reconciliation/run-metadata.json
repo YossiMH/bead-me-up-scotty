@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "workflow_commit": "3db3742bfb91e3b38cf35535fa95403f2de3a093",
+  "run_id": 45549798905,
+  "job_id": 138987980821,
+  "url": "https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45549798905",
+  "jobs": {
+    "jobs": [
+      {
+        "id": 138987980821,
+        "name": "full-suite",
+        "status": "completed",
+        "conclusion": "failure",
+        "run_id": 45549798905,
+        "logs_url": null,
+        "steps": [
+          {
+            "name": "Set up job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 1
+          },
+          {
+            "name": "Read exact reviewed check helpers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 2
+          },
+          {
+            "name": "Download the exact accepted full compilation artifact",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 3
+          },
+          {
+            "name": "Install the exact compiling toolchain",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 4
+          },
+          {
+            "name": "Parse the exact suite and build helpers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 5
+          },
+          {
+            "name": "Run every default native test serially",
+            "status": "completed",
+            "conclusion": "failure",
+            "number": 6
+          },
+          {
+            "name": "Retain complete target results and native test streams",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 7
+          },
+          {
+            "name": "Post Read exact reviewed check helpers",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 14
+          },
+          {
+            "name": "Complete job",
+            "status": "completed",
+            "conclusion": "success",
+            "number": 15
+          }
+        ]
+      }
+    ]
+  },
+  "artifacts": {
+    "artifacts": [
+      {
+        "id": 14994600782,
+        "name": "checkpoint-full-suite-45549798905-1",
+        "size_in_bytes": 81457,
+        "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/14994600782",
+        "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/14994600782/zip",
+        "expired": false,
+        "created_at": "2026-11-25T05:09:54Z",
+        "expires_at": "2026-12-02T05:09:52Z",
+        "updated_at": "2026-11-25T05:09:54Z",
+        "digest": "sha256:b9398827ef92bc42ab0811143040ac36c3dc19f63b933bb2a4166a4eefd56b6c",
+        "workflow_run": {
+          "id": 45549798905,
+          "repository_id": 1430517452,
+          "head_repository_id": 1430517452,
+          "head_branch": "task/checkpoint-linux-full-suite-20261125-v2",
+          "head_sha": "3db3742bfb91e3b38cf35535fa95403f2de3a093"
+        }
+      }
+    ]
+  }
+}

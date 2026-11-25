@@ -1,0 +1,619 @@
+{
+  "build_result_sha256": "384000475ed36cf748ed952c9cc2952d3d978928a5433e51c01a1eef6ce389fd",
+  "build_root": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1",
+  "bundle_sha256": "fe0299594c0141f5214ef32cdf421efb1ba3cd893e093f2519836d4f865c880b",
+  "cargo_bin_exe_bead": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/target/debug/bead",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--no-fail-fast",
+    "--",
+    "--test-threads=1"
+  ],
+  "commands": [
+    {
+      "args": [
+        "rustc",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.818506+00:00",
+      "label": "rustc-version",
+      "pgid": 2297,
+      "pid": 2297,
+      "started": "2026-11-25T04:54:18.798616+00:00",
+      "stderr": "logs/rustc-version.stderr",
+      "stdout": "logs/rustc-version.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.827557+00:00",
+      "label": "cargo-version",
+      "pgid": 2303,
+      "pid": 2303,
+      "started": "2026-11-25T04:54:18.819023+00:00",
+      "stderr": "logs/cargo-version.stderr",
+      "stdout": "logs/cargo-version.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.886674+00:00",
+      "label": "native-loader-version",
+      "pgid": 2308,
+      "pid": 2308,
+      "started": "2026-11-25T04:54:18.884250+00:00",
+      "stderr": "logs/native-loader-version.stderr",
+      "stdout": "logs/native-loader-version.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "mkdir",
+        "-m",
+        "755",
+        "--",
+        "/nix"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.895683+00:00",
+      "label": "pin-loader-directory-0",
+      "pgid": 2309,
+      "pid": 2309,
+      "started": "2026-11-25T04:54:18.887500+00:00",
+      "stderr": "logs/pin-loader-directory-0.stderr",
+      "stdout": "logs/pin-loader-directory-0.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "mkdir",
+        "-m",
+        "755",
+        "--",
+        "/nix/store"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.904201+00:00",
+      "label": "pin-loader-directory-1",
+      "pgid": 2311,
+      "pid": 2311,
+      "started": "2026-11-25T04:54:18.896153+00:00",
+      "stderr": "logs/pin-loader-directory-1.stderr",
+      "stdout": "logs/pin-loader-directory-1.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "mkdir",
+        "-m",
+        "755",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.912939+00:00",
+      "label": "pin-loader-directory-2",
+      "pgid": 2313,
+      "pid": 2313,
+      "started": "2026-11-25T04:54:18.904789+00:00",
+      "stderr": "logs/pin-loader-directory-2.stderr",
+      "stdout": "logs/pin-loader-directory-2.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "mkdir",
+        "-m",
+        "755",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.921294+00:00",
+      "label": "pin-loader-directory-3",
+      "pgid": 2315,
+      "pid": 2315,
+      "started": "2026-11-25T04:54:18.913308+00:00",
+      "stderr": "logs/pin-loader-directory-3.stderr",
+      "stdout": "logs/pin-loader-directory-3.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "ln",
+        "-s",
+        "--",
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib/ld-linux-x86-64.so.2"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.930083+00:00",
+      "label": "pin-loader-alias",
+      "pgid": 2317,
+      "pid": 2317,
+      "started": "2026-11-25T04:54:18.922034+00:00",
+      "stderr": "logs/pin-loader-alias.stderr",
+      "stdout": "logs/pin-loader-alias.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source/pinned-binaries/bead-pre-feature"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.932463+00:00",
+      "label": "pin-loader-dependencies-0",
+      "pgid": 2319,
+      "pid": 2319,
+      "started": "2026-11-25T04:54:18.930606+00:00",
+      "stderr": "logs/pin-loader-dependencies-0.stderr",
+      "stdout": "logs/pin-loader-dependencies-0.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source/pinned-binaries/bead-pre-attempt-resolution"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.934842+00:00",
+      "label": "pin-loader-dependencies-1",
+      "pgid": 2320,
+      "pid": 2320,
+      "started": "2026-11-25T04:54:18.932887+00:00",
+      "stderr": "logs/pin-loader-dependencies-1.stderr",
+      "stdout": "logs/pin-loader-dependencies-1.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source/pinned-binaries/bead-attempt-resolution-f25ab5c"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.937037+00:00",
+      "label": "pin-loader-dependencies-2",
+      "pgid": 2321,
+      "pid": 2321,
+      "started": "2026-11-25T04:54:18.935227+00:00",
+      "stderr": "logs/pin-loader-dependencies-2.stderr",
+      "stdout": "logs/pin-loader-dependencies-2.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source/pinned-binaries/bead-attempt-resolution-e115609"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.939454+00:00",
+      "label": "pin-loader-dependencies-3",
+      "pgid": 2322,
+      "pid": 2322,
+      "started": "2026-11-25T04:54:18.937619+00:00",
+      "stderr": "logs/pin-loader-dependencies-3.stderr",
+      "stdout": "logs/pin-loader-dependencies-3.stdout"
+    },
+    {
+      "args": [
+        "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+        "--list",
+        "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source/pinned-binaries/bead-managed-secret-policy-cd4986c"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:54:18.941733+00:00",
+      "label": "pin-loader-dependencies-4",
+      "pgid": 2323,
+      "pid": 2323,
+      "started": "2026-11-25T04:54:18.939964+00:00",
+      "stderr": "logs/pin-loader-dependencies-4.stderr",
+      "stdout": "logs/pin-loader-dependencies-4.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "test",
+        "--locked",
+        "--no-fail-fast",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:08:59.337303+00:00",
+      "label": "cargo-full-suite",
+      "pgid": 2324,
+      "pid": 2324,
+      "started": "2026-11-25T04:54:18.943885+00:00",
+      "stderr": "logs/cargo-full-suite.stderr",
+      "stdout": "logs/cargo-full-suite.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "unlink",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib/ld-linux-x86-64.so.2"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:08:59.362281+00:00",
+      "label": "remove-pin-loader-alias",
+      "pgid": 41232,
+      "pid": 41232,
+      "started": "2026-11-25T05:08:59.346070+00:00",
+      "stderr": "logs/remove-pin-loader-alias.stderr",
+      "stdout": "logs/remove-pin-loader-alias.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "rmdir",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:08:59.370861+00:00",
+      "label": "remove-loader-directory-0",
+      "pgid": 41234,
+      "pid": 41234,
+      "started": "2026-11-25T05:08:59.362741+00:00",
+      "stderr": "logs/remove-loader-directory-0.stderr",
+      "stdout": "logs/remove-loader-directory-0.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "rmdir",
+        "--",
+        "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:08:59.379298+00:00",
+      "label": "remove-loader-directory-1",
+      "pgid": 41236,
+      "pid": 41236,
+      "started": "2026-11-25T05:08:59.371207+00:00",
+      "stderr": "logs/remove-loader-directory-1.stderr",
+      "stdout": "logs/remove-loader-directory-1.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "rmdir",
+        "--",
+        "/nix/store"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:08:59.387682+00:00",
+      "label": "remove-loader-directory-2",
+      "pgid": 41238,
+      "pid": 41238,
+      "started": "2026-11-25T05:08:59.379650+00:00",
+      "stderr": "logs/remove-loader-directory-2.stderr",
+      "stdout": "logs/remove-loader-directory-2.stdout"
+    },
+    {
+      "args": [
+        "sudo",
+        "-n",
+        "rmdir",
+        "--",
+        "/nix"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:08:59.396008+00:00",
+      "label": "remove-loader-directory-3",
+      "pgid": 41240,
+      "pid": 41240,
+      "started": "2026-11-25T05:08:59.387995+00:00",
+      "stderr": "logs/remove-loader-directory-3.stderr",
+      "stdout": "logs/remove-loader-directory-3.stdout"
+    }
+  ],
+  "duration_seconds": 899.788,
+  "environment_corrections": {
+    "child_git_identity": {
+      "GIT_AUTHOR_EMAIL": "bead-checkpoint-ci@example.invalid",
+      "GIT_AUTHOR_NAME": "Bead checkpoint CI",
+      "GIT_COMMITTER_EMAIL": "bead-checkpoint-ci@example.invalid",
+      "GIT_COMMITTER_NAME": "Bead checkpoint CI"
+    },
+    "cleanup_errors": [],
+    "cleanup_status": "passed",
+    "created_directories": [
+      "/nix",
+      "/nix/store",
+      "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67",
+      "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib"
+    ],
+    "lease_binary_alias": {
+      "path": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/target/debug/build/bead-rs/389083daec335191/bead",
+      "removed": true,
+      "target": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/target/debug/bead"
+    },
+    "loader_alias": {
+      "path": "/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib/ld-linux-x86-64.so.2",
+      "removed": true,
+      "target": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2"
+    },
+    "native_loader": {
+      "absolute_path": "/usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "bytes": 236616,
+      "mode": 493,
+      "path": "usr/lib/x86_64-linux-gnu/ld-linux-x86-64.so.2",
+      "sha256": "5fc0940888e9d2e1a00e66d6b1a559c36364ee867683652e1074fa576952cc3f",
+      "version": "ld.so (Ubuntu GLIBC 2.39-0ubuntu8.12) stable release version 2.39.\nCopyright (C) 2024 Free Software Foundation, Inc.\nThis is free software; see the source for copying conditions.\nThere is NO warranty; not even for MERCHANTABILITY or FITNESS FOR A\nPARTICULAR PURPOSE."
+    },
+    "pins": [
+      {
+        "bytes": 6788016,
+        "mode": 509,
+        "path": "pinned-binaries/bead-pre-feature",
+        "sha256": "7e0e73defebb75fc987ddf8b6fb959f47c73ccbbcd7e066e2af302a6a43db6b5"
+      },
+      {
+        "bytes": 7305144,
+        "mode": 509,
+        "path": "pinned-binaries/bead-pre-attempt-resolution",
+        "sha256": "d0da42bbf59b721bc64bc3d55610844efe3f1f06e37c2d9494c0b3dda6e29ac6"
+      },
+      {
+        "bytes": 7305184,
+        "mode": 509,
+        "path": "pinned-binaries/bead-attempt-resolution-f25ab5c",
+        "sha256": "9a8455f25bacf5bc961bd740442fdc1b30a67fb6e38d304c23c97a57cf57b04e"
+      },
+      {
+        "bytes": 7305144,
+        "mode": 509,
+        "path": "pinned-binaries/bead-attempt-resolution-e115609",
+        "sha256": "68fe8d534721be4ba4147312364d8f0b216b62f3093e85e7c91f0a0db695a645"
+      },
+      {
+        "bytes": 12725336,
+        "mode": 509,
+        "path": "pinned-binaries/bead-managed-secret-policy-cd4986c",
+        "sha256": "6a5969ed9c1c5215d3f0f93505aa0603d7375281f6fb3f64ea6101ece149a50f"
+      }
+    ],
+    "status": "prepared"
+  },
+  "error": "RuntimeError: Test names do not match target counts",
+  "executables_after_file": {
+    "bytes": 39212,
+    "mode": 420,
+    "path": "executables-after.json",
+    "sha256": "0cfd9da9d1119718ebcf3c5d00ba80c8cc2d9ca76a05091437db81bd5d02c387"
+  },
+  "executables_before_file": {
+    "bytes": 53385,
+    "mode": 420,
+    "path": "executables-before.json",
+    "sha256": "22d8c8144f4d7b3a5d60da1abfa0b50a5ab25b4a2863be79b1ebe74a211f0a57"
+  },
+  "finished": "2026-11-25T05:09:00.374702+00:00",
+  "helper_sha256": "6160208310ae6764170ec7655b81947048aadc5d0ff702f057a39bf7cb773107",
+  "input_sha256": "bac053be6852025b11f30ac8a9fe8f0f97f7e0b18e22855c1ac5b2ea9895786f",
+  "logs_retention_days_required": 7,
+  "operation": "checkpoint-full-suite",
+  "output": "/home/runner/work/_temp/bead-checkpoint-full-suite-45549798905-1",
+  "process_group_cleanup": [
+    {
+      "label": "rustc-version",
+      "pgid": 2297,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo-version",
+      "pgid": 2303,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "native-loader-version",
+      "pgid": 2308,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-directory-0",
+      "pgid": 2309,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-directory-1",
+      "pgid": 2311,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-directory-2",
+      "pgid": 2313,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-directory-3",
+      "pgid": 2315,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-alias",
+      "pgid": 2317,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-0",
+      "pgid": 2319,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-1",
+      "pgid": 2320,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-2",
+      "pgid": 2321,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-3",
+      "pgid": 2322,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "pin-loader-dependencies-4",
+      "pgid": 2323,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo-full-suite",
+      "pgid": 2324,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-pin-loader-alias",
+      "pgid": 41232,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-loader-directory-0",
+      "pgid": 41234,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-loader-directory-1",
+      "pgid": 41236,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-loader-directory-2",
+      "pgid": 41238,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "remove-loader-directory-3",
+      "pgid": 41240,
+      "remaining": false,
+      "signals": []
+    }
+  ],
+  "producing_run": {
+    "attempt": "1",
+    "id": "45542149965",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "5753653247952185fef0b8c2c83ecacb6bbb190a"
+  },
+  "profiles": {
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0"
+  },
+  "recompiled_executables": [
+    "binary:bead",
+    "binary:generate-man-pages",
+    "harness:bin:bead",
+    "harness:lib:bead_rs",
+    "harness:test:mutating_command_event_contract"
+  ],
+  "run": {
+    "attempt": "1",
+    "id": "45549798905",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "3db3742bfb91e3b38cf35535fa95403f2de3a093"
+  },
+  "schema_version": 1,
+  "seconds": 5400,
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_files_unchanged": 651,
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "started": "2026-11-25T04:54:01.335373+00:00",
+  "status": "failed",
+  "stderr": {
+    "bytes": 32355,
+    "mode": 420,
+    "path": "logs/cargo-full-suite.stderr",
+    "sha256": "05e2a706f406b6fa6da750d04e0d7189e6c382b24120c88758ed860336b0b9d2"
+  },
+  "stdout": {
+    "bytes": 143504,
+    "mode": 420,
+    "path": "logs/cargo-full-suite.stdout",
+    "sha256": "860a15585ba2ff6f52ba7a56486ef7e60b9429651d93e2ac98643fdc58ddfaee"
+  },
+  "toolchain": {
+    "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)",
+    "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)"
+  }
+}

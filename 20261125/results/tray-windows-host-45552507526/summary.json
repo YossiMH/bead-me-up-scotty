@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "phase": "hosted-windows-tray-host-checks",
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "source_tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+  "workflow_commit": "6b9a796690729037cd8a959cf1afd858711f8404",
+  "run_id": 45552507526,
+  "job_id": 138996715302,
+  "node": {
+    "path": "C:\\hostedtoolcache\\windows\\node\\25.2.1\\x64\\node.exe",
+    "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa",
+    "version": "v25.2.1"
+  },
+  "test_totals": {
+    "passed": 2,
+    "failed": 0,
+    "skipped": 0,
+    "cancelled": 0,
+    "todo": 0
+  },
+  "cases": [
+    {
+      "action": "parent-loss",
+      "result": "emitted/scotty-host-windows/cases/scotty-real-host-parent-loss-xeqm6H/result.json",
+      "sha256": "01d537c3c9d18a9450896f9e3140a1de81f0f4a6076ea951f258b70d29b448ad",
+      "ready": true,
+      "children_exited_zero": 2,
+      "cache_removed": true,
+      "forced_cleanup": []
+    },
+    {
+      "action": "stop",
+      "result": "emitted/scotty-host-windows/cases/scotty-real-host-stop-LbrMFP/result.json",
+      "sha256": "735da7faa9ac0486cb9e3d4e7dff9f769d2a3e4e6be3655e3466eb8c7d9b4975",
+      "ready": true,
+      "children_exited_zero": 2,
+      "cache_removed": true,
+      "forced_cleanup": []
+    }
+  ],
+  "caller_result_sha256": "4e00fe47b95f954d0c286fcb3ea32aa9566c58206163048c2c2529a076139b31",
+  "supervisor_result_sha256": "1c65bdd55ed786505b217853bc15473f97a6505a8c845d3aafeb042ce5c60f02",
+  "owned_children_remaining": 0,
+  "supervisor_exit_code": 0,
+  "source_unchanged": true,
+  "elapsed_seconds": 6.668,
+  "raw_emitted_files": 21,
+  "interactive_pc_menu_check": "pending root-owned task",
+  "independent_actual_review": "pending",
+  "artifact": {
+    "id": 14994022929,
+    "name": "tray-windows-host-45552507526-1",
+    "size_in_bytes": 25913,
+    "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/14994022929",
+    "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/14994022929/zip",
+    "expired": false,
+    "created_at": "2026-11-25T05:17:54Z",
+    "expires_at": "2026-12-09T05:17:53Z",
+    "updated_at": "2026-11-25T05:17:54Z",
+    "digest": "sha256:dde5625fe1df21ff2dd5ff31ee32e65aa587e75a014f7925ab09ab271d3fbb75",
+    "workflow_run": {
+      "id": 45552507526,
+      "repository_id": 1430517452,
+      "head_repository_id": 1430517452,
+      "head_branch": "task/tray-windows-host-20261125",
+      "head_sha": "6b9a796690729037cd8a959cf1afd858711f8404"
+    }
+  }
+}

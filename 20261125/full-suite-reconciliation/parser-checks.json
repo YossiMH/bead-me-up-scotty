@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "operation": "read-only-retained-text-parser-check",
+  "product_commands_executed": 0,
+  "helper_sha256": "87dd631ec8f87688e737ad8656552bffd2f760813639f25328250030d2286489",
+  "actual_retained_text": {
+    "status": "passed",
+    "targets": 145,
+    "passed": 1902
+  },
+  "altered_in_memory_text": [
+    {
+      "case": "failed multiline completion",
+      "status": "rejected",
+      "message": "Test names do not match target counts"
+    },
+    {
+      "case": "missing observed native-update line",
+      "status": "rejected",
+      "message": "Unexpected inherited native-update output"
+    },
+    {
+      "case": "missing regular passing name",
+      "status": "rejected",
+      "message": "Test names do not match target counts"
+    },
+    {
+      "case": "unknown harness identity",
+      "status": "rejected",
+      "message": "Unknown or repeated test harness"
+    }
+  ]
+}
