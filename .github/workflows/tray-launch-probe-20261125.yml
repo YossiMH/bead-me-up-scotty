@@ -1,0 +1,46 @@
+name: Windows tray launch mechanism
+on:
+  push:
+    branches:
+      - task/tray-launch-probe-20261125
+permissions:
+  contents: read
+jobs:
+  probe:
+    runs-on: windows-2025
+    timeout-minutes: 5
+    steps:
+      - name: Preserve canonical line endings
+        shell: powershell
+        run: |
+          git config --global core.autocrlf false
+          if ($LASTEXITCODE -ne 0) { throw 'Could not disable checkout conversion' }
+          git config --global core.eol lf
+          if ($LASTEXITCODE -ne 0) { throw 'Could not select canonical line endings' }
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: 25.2.1
+      - name: Parse exact scripts
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          node --check 20261125/tray-launch-probe/probe.mjs
+          if ($LASTEXITCODE -ne 0) { throw 'Node parse failed' }
+          $parseTokens = $null; $parseErrors = $null
+          [void][Management.Automation.Language.Parser]::ParseFile((Join-Path $pwd '20261125/tray-launch-probe/marker.ps1'), [ref]$parseTokens, [ref]$parseErrors)
+          if ($parseErrors.Count) { throw ($parseErrors | Out-String) }
+      - name: Compare launch and original-parent loss
+        shell: powershell
+        run: |
+          node --max-old-space-size=128 20261125/tray-launch-probe/probe.mjs "$env:RUNNER_TEMP\tray-launch-probe-output"
+          exit $LASTEXITCODE
+      - uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        if: always()
+        with:
+          name: tray-launch-probe-20261125
+          path: ${{ runner.temp }}/tray-launch-probe-output
+          if-no-files-found: error
+          retention-days: 14
