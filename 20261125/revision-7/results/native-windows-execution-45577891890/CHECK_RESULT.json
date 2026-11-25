@@ -1,0 +1,459 @@
+{
+  "artifact_id": 15004896560,
+  "build_result_sha256": "d8577ea32add8e06d687419c46e6ccfa04023d55dd038b464fa105622d423941",
+  "build_run": {
+    "attempt": "1",
+    "id": "45576002037",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "13dbfb2f11b93d5b9ccf0301428cfe87a6465a5f"
+  },
+  "commands": [
+    {
+      "args": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "-m",
+        "py_compile",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\native-final-windows-check\\checkpoint-windows-check-20261125.py",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\native-final-windows-check\\checkpoint-windows-build-20261125.py",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\native-final-windows-check\\checkpoint-release-corpus-20261125.py"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45577891890-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:02.523367+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "parse-check-helpers",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 6972,
+      "started": "2026-11-25T08:38:01.909326+00:00",
+      "stderr": "logs/parse-check-helpers.stderr",
+      "stdout": "logs/parse-check-helpers.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45577891890-1\\release\\bead-checkpoint-9ffefad6bb3b.exe",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45577891890-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:06.746306+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "release-version",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 9744,
+      "started": "2026-11-25T08:38:06.716616+00:00",
+      "stderr": "logs/release-version.stderr",
+      "stdout": "logs/release-version.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45577891890-1\\release\\bead-checkpoint-9ffefad6bb3b.exe",
+        "capabilities"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45577891890-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:06.822537+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "release-capabilities",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 9752,
+      "started": "2026-11-25T08:38:06.748317+00:00",
+      "stderr": "logs/release-capabilities.stderr",
+      "stdout": "logs/release-capabilities.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45577891890-1\\release\\bead-checkpoint-9ffefad6bb3b.exe",
+        "update",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45577891890-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:06.897051+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "release-update-help",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 3172,
+      "started": "2026-11-25T08:38:06.823561+00:00",
+      "stderr": "logs/release-update-help.stderr",
+      "stdout": "logs/release-update-help.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe",
+        "service::checkpoint::set_v2::tests::set_v2_staging_",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:06.997676+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "lib-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 10216,
+      "started": "2026-11-25T08:38:06.913242+00:00",
+      "stderr": "logs/lib-list.stderr",
+      "stdout": "logs/lib-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\5f98cb5872c252af\\out\\bead_rs-5f98cb5872c252af.exe",
+        "service::checkpoint::set_v2::tests::set_v2_staging_",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:07.082019+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "lib-tests",
+      "limit_seconds": 894.906,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 8044,
+      "started": "2026-11-25T08:38:06.997676+00:00",
+      "stderr": "logs/lib-tests.stderr",
+      "stdout": "logs/lib-tests.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\8a58db6ae0b79202\\out\\attempt_receipt_checkpoint_integrity-8a58db6ae0b79202.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:07.166601+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "attempt_receipt_checkpoint_integrity-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 2420,
+      "started": "2026-11-25T08:38:07.087358+00:00",
+      "stderr": "logs/attempt_receipt_checkpoint_integrity-list.stderr",
+      "stdout": "logs/attempt_receipt_checkpoint_integrity-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\8a58db6ae0b79202\\out\\attempt_receipt_checkpoint_integrity-8a58db6ae0b79202.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:08.763787+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "attempt_receipt_checkpoint_integrity-tests",
+      "limit_seconds": 894.906,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 6076,
+      "started": "2026-11-25T08:38:07.168001+00:00",
+      "stderr": "logs/attempt_receipt_checkpoint_integrity-tests.stderr",
+      "stdout": "logs/attempt_receipt_checkpoint_integrity-tests.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\423f9a8ad4f672fd\\out\\checkpoint_tail_generation_integrity-423f9a8ad4f672fd.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:08.846294+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "checkpoint_tail_generation_integrity-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 9832,
+      "started": "2026-11-25T08:38:08.769347+00:00",
+      "stderr": "logs/checkpoint_tail_generation_integrity-list.stderr",
+      "stdout": "logs/checkpoint_tail_generation_integrity-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\423f9a8ad4f672fd\\out\\checkpoint_tail_generation_integrity-423f9a8ad4f672fd.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:09.877011+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "checkpoint_tail_generation_integrity-tests",
+      "limit_seconds": 894.922,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 2356,
+      "started": "2026-11-25T08:38:08.846294+00:00",
+      "stderr": "logs/checkpoint_tail_generation_integrity-tests.stderr",
+      "stdout": "logs/checkpoint_tail_generation_integrity-tests.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T08:38:09.960498+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "checkpoint_set_v2_conformance-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 1072,
+      "started": "2026-11-25T08:38:09.883039+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-list.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45576002037-1-work\\source",
+      "error": "checkpoint_set_v2_conformance-tests exceeded its owned deadline; outer Job cleanup is required",
+      "finished": "2026-11-25T08:53:06.079654+00:00",
+      "job_pids_after": [
+        2332,
+        4928,
+        9732
+      ],
+      "label": "checkpoint_set_v2_conformance-tests",
+      "limit_seconds": 894.907,
+      "outer_job_pids": [
+        2332,
+        4928,
+        9732
+      ],
+      "pid": 5364,
+      "started": "2026-11-25T08:38:09.962068+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-tests.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-tests.stdout",
+      "timed_out": true
+    }
+  ],
+  "duration_seconds": 905.485,
+  "error": "TimeoutError: checkpoint_set_v2_conformance-tests exceeded its owned deadline; outer Job cleanup is required",
+  "finished": "2026-11-25T08:53:07.244760+00:00",
+  "helper_sha256": "ade52d7538906850c38f12555e45fe731528417b83dedd124532cdee9ceb4195",
+  "input_sha256": "4458055bd1de94501deb2b2a77fc5856b81bff17ff685c4ffcf60923761b515f",
+  "inputs_and_source_unchanged": true,
+  "job_query_retries": [],
+  "logs_retention_days_required": 7,
+  "operation": "checkpoint-windows-checks",
+  "outer_windows_job_verification_required": true,
+  "owned_children_quiescent": true,
+  "owned_job_baseline": {
+    "pids": [
+      2332,
+      4928,
+      9732
+    ],
+    "policy": "supervisor, Python, and at most its one verified System32 console host",
+    "processes": [
+      {
+        "creation_filetime": "134400694793187447",
+        "image_name": "conhost.exe",
+        "image_path": "C:\\Windows\\System32\\conhost.exe",
+        "parent_pid": 9732,
+        "pid": 2332,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400694744854527",
+        "image_name": "powershell.exe",
+        "image_path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "parent_pid": 3272,
+        "pid": 4928,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400694793125960",
+        "image_name": "python.exe",
+        "image_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "parent_pid": 4928,
+        "pid": 9732,
+        "query_and_synchronization_handle_retained": true
+      }
+    ],
+    "schema_version": 1,
+    "validated_at": "2026-11-25T08:38:01.824131+00:00"
+  },
+  "release_under_test": {
+    "executable": {
+      "bytes": 12221440,
+      "mode": 511,
+      "path": "release-under-test/bead-checkpoint-9ffefad6bb3b.exe",
+      "sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e"
+    },
+    "metadata": {
+      "bytes": 2062,
+      "mode": 438,
+      "path": "release-under-test/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    }
+  },
+  "run": {
+    "attempt": "1",
+    "id": "45577891890",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "ad41d93182c9dc1a5c30f1e41c837af7c337773e",
+    "workflow_ref": "YossiMH/bead-me-up-scotty/.github/workflows/native-final-windows-check-20261125.yml@refs/heads/task/checkpoint-windows-final-check-20261125"
+  },
+  "schema_version": 1,
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "started": "2026-11-25T08:38:01.824131+00:00",
+  "status": "failed",
+  "target": "x86_64-pc-windows-msvc",
+  "test_results": [
+    {
+      "duration_seconds": 0.172,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 378,
+      "ignored": 0,
+      "measured": 0,
+      "passed": 3,
+      "status": "passed",
+      "target": "lib",
+      "tests": [
+        "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard"
+      ]
+    },
+    {
+      "duration_seconds": 1.687,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "measured": 0,
+      "passed": 4,
+      "status": "passed",
+      "target": "attempt_receipt_checkpoint_integrity",
+      "tests": [
+        "exact_resulting_state_survives_both_checkpoint_layouts",
+        "public_schemas_describe_attempt_state_and_checkpoint_counts",
+        "replacement_restore_removes_displaced_attempt_outcomes",
+        "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+      ]
+    },
+    {
+      "duration_seconds": 1.11,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "measured": 0,
+      "passed": 2,
+      "status": "passed",
+      "target": "checkpoint_tail_generation_integrity",
+      "tests": [
+        "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+        "selected_set_v2_generation_remains_restorable_after_tail_append"
+      ]
+    }
+  ]
+}

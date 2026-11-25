@@ -1,0 +1,17 @@
+
+thread 'set_v2_concurrent_publication' (1284) panicked at tests\checkpoint_set_v2_conformance.rs:1876:13:
+racer 0 must exit 0 after re-deriving: bead: Internal error: The process cannot access the file because another process has locked a portion of the file. (os error 33)
+
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'set_v2_crash_ordering' (10032) panicked at tests\checkpoint_set_v2_conformance.rs:1111:5:
+orphan shard was not reaped by the next publication
+
+thread 'set_v2_dual_layout_reader_equivalence' (4848) panicked at tests\checkpoint_set_v2_conformance.rs:92:5:
+`bead create --title dual-layout advancement 0` failed: bead: Integrity error: checkpoint_integrity_failure: covered-ahead integrity failure - verified pointer: unresolved tombstone: set\manifest-gen-77cc03e36b8da2dbd950625f11cb0d57.json
+
+OOB-PROBE start: set-v2-budget-single-issue-update under store-deletion
+
+thread 'set_v2_green_scenarios_under_out_of_band_change' (9180) panicked at tests\checkpoint_set_v2_conformance.rs:459:9:
+publication 0 added 2026471 new blob bytes, budget is 262144
+OOB-PROBE start: set-v2-budget-single-issue-update under orphan-set-files

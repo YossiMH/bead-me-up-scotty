@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "native_source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "native_source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "run_id": 45577891890,
+  "job_id": 139080245260,
+  "workflow_commit": "ad41d93182c9dc1a5c30f1e41c837af7c337773e",
+  "passed_targets": [
+    {
+      "duration_seconds": 0.172,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 378,
+      "ignored": 0,
+      "measured": 0,
+      "passed": 3,
+      "status": "passed",
+      "target": "lib",
+      "tests": [
+        "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+        "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard"
+      ]
+    },
+    {
+      "duration_seconds": 1.687,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "measured": 0,
+      "passed": 4,
+      "status": "passed",
+      "target": "attempt_receipt_checkpoint_integrity",
+      "tests": [
+        "exact_resulting_state_survives_both_checkpoint_layouts",
+        "public_schemas_describe_attempt_state_and_checkpoint_counts",
+        "replacement_restore_removes_displaced_attempt_outcomes",
+        "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+      ]
+    },
+    {
+      "duration_seconds": 1.11,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "measured": 0,
+      "passed": 2,
+      "status": "passed",
+      "target": "checkpoint_tail_generation_integrity",
+      "tests": [
+        "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+        "selected_set_v2_generation_remains_restorable_after_tail_append"
+      ]
+    }
+  ],
+  "first_failed_target": "checkpoint_set_v2_conformance",
+  "observed_failures": [
+    {
+      "test": "set_v2_concurrent_publication",
+      "location": "tests/checkpoint_set_v2_conformance.rs:1876",
+      "message": "racer0 received os error33: another process locked a portion of the file"
+    },
+    {
+      "test": "set_v2_crash_ordering",
+      "location": "tests/checkpoint_set_v2_conformance.rs:1111",
+      "message": "orphan shard was not reaped by next publication"
+    },
+    {
+      "test": "set_v2_dual_layout_reader_equivalence",
+      "location": "tests/checkpoint_set_v2_conformance.rs:92",
+      "message": "checkpoint_integrity_failure: unresolved tombstone set\\\\manifest-gen-77cc03e36b8da2dbd950625f11cb0d57.json"
+    },
+    {
+      "test": "set_v2_green_scenarios_under_out_of_band_change",
+      "location": "tests/checkpoint_set_v2_conformance.rs:459",
+      "message": "publication0 added2026471 new blob bytes; budget262144; target later hit900-second deadline"
+    }
+  ],
+  "remaining_work": "The target did not finish. Later integration targets, original-corpus verification and55-command editing smoke did not execute. No broad retry has been started.",
+  "release_under_test": {
+    "executable": {
+      "bytes": 12221440,
+      "mode": 511,
+      "path": "release-under-test/bead-checkpoint-9ffefad6bb3b.exe",
+      "sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e"
+    },
+    "metadata": {
+      "bytes": 2062,
+      "mode": 438,
+      "path": "release-under-test/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    }
+  },
+  "source_inputs_unchanged": true,
+  "cleanup": {
+    "helper_owned_children_quiescent": true,
+    "supervisor_children_remaining": 0,
+    "driver_outer_job_success_flag": false,
+    "meaning": "The driver recorded an unsuccessful phase; the supervisor reported zero remaining owned children. Do not treat the false combined phase flag as successful qualification."
+  },
+  "evidence": "Full actual job, unmodified decoded receipts and all emitted stdout/stderr are retained here. Original executable artifact remains available separately."
+}
