@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "prepared-for-independent-review",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "accepted_producer_parent": "33931b999a973b266e211c7af531c84f694bf0a6",
+  "activation_branch": "task/native-maintenance-red-20261125",
+  "dormant_branch": "task/native-maintenance-red-packet-20261125",
+  "author": "/root/backend_reconcile",
+  "inspections": [
+    {
+      "utc": "2026-11-25 10:22:50 UTC",
+      "conditions": {
+        "source_pin": true,
+        "only_compile_target": true,
+        "six_cases": true,
+        "support_unchanged": true,
+        "job_unchanged": true,
+        "exact_original_test": true,
+        "exact_original_source": true,
+        "workflow_copies": true,
+        "separate_download": true,
+        "no_release_build": true,
+        "no_product_edit": true
+      },
+      "inspection": "Read complete helper, unchanged support interfaces, PowerShell Job/probe, workflow and README; traced archive/source inventory, exact Cargo command, two executable records, independent download, fixed path restore, six-case list/result discrimination and failure retention. No blocking finding.",
+      "status": "clean"
+    },
+    {
+      "utc": "2026-11-25 10:23:39 UTC",
+      "status": "clean",
+      "inspection": "Second complete inspection of final packet bytes: checked build/result fields against separate consumer use; fixed c90/tree and both source hashes; bounded command failure paths and retained raw logs; output-only artifact membership/hash checks; restored path ownership and actual two-executable hashes; exact six names, five passes and one maintenance-only failure; unchanged Job helper, pre/post descendant probe and controller exit handling; workflow contexts, artifact outputs, immutable tool actions, same-run binding and dormant trigger. No product source or assertion changes. Runtime parse/compile/actual Red remain pending hosted execution."
+    }
+  ],
+  "files": {
+    "20261125/revision-9/native-maintenance-red/maintenance.py": {
+      "bytes": 16735,
+      "sha256": "eb5fcdf0e3719ca11112ec7bf2f6f437c750e1869b95a885c4e312a9bd9e8a41"
+    },
+    "20261125/revision-9/native-maintenance-red/windows_build_support.py": {
+      "bytes": 19307,
+      "sha256": "1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07"
+    },
+    "20261125/revision-9/native-maintenance-red/windows-task-job.ps1": {
+      "bytes": 2101,
+      "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+    },
+    "20261125/revision-9/native-maintenance-red/supervise.ps1": {
+      "bytes": 4549,
+      "sha256": "5bdaf4dd3f6e89e8bdd5a2e895df179392ff26c4d71a1caa335a16f7ab0c17e2"
+    },
+    "20261125/revision-9/native-maintenance-red/workflow.yml": {
+      "bytes": 6630,
+      "sha256": "8df5cb67f7431f25c90d78693fe208db53a84ac85a9821a7afa28ae5da36001f"
+    },
+    ".github/workflows/native-maintenance-red-20261125.yml": {
+      "bytes": 6630,
+      "sha256": "8df5cb67f7431f25c90d78693fe208db53a84ac85a9821a7afa28ae5da36001f"
+    },
+    "20261125/revision-9/native-maintenance-red/README.md": {
+      "bytes": 2340,
+      "sha256": "5abb4cc498e13dfc81326fddc532365bccdf9ea0218f4cb434ad489e8bc96324"
+    }
+  },
+  "pending": [
+    "complete current revision-9 plan acceptance",
+    "independent exact packet review",
+    "actual focused compile, download, six-case Red and cleanup",
+    "independent inspection of actual expected failure"
+  ]
+}

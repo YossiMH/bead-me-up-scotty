@@ -1,0 +1,11 @@
+# Focused Windows maintenance-lock Red
+
+This dormant packet compiles unchanged bead-rs c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b and executes its existing six-case redaction_transaction integration harness in a separate hosted Windows job. Its dedicated activation branch is task/native-maintenance-red-20261125.
+
+The producer imports the unchanged accepted ordinary Windows archive/MSVC support at 33931b999a973b266e211c7af531c84f694bf0a6. It builds only the requested test and Cargo's bead support binary, using Rust 1.100.0, x86_64-pc-windows-msvc and one Cargo compiler job. It neither builds nor qualifies a release. Complete Git archive blobs, source inventory, source/test hashes, toolchain, commands and executable hashes are retained; source and checkout must stay unchanged. Compilation is bounded to 30 minutes within a 35-minute job.
+
+A separate ten-minute job downloads the produced artifact by its actual output ID and verifies every member against the producer's manifest SHA-256 before restoring exactly the two compiled executables at their original owned paths. The complete test listing must contain exactly six accepted names. The full target runs once with one test thread, --nocapture and a 180-second bound inside the unchanged accepted Windows Job controller. The only accepted outcome is exit 101, five passes, exactly the existing concurrent maintenance test failing with the maintenance acquisition Integrity message, and no ignored/filtered cases or timeout. Unexpected success or any other failure is retained and stops the packet; this packet never retries a race.
+
+The supervisor separately records zero remaining owned children and exact helper exits. Closing the supervisor also closes the existing kill-on-close Job. Fixture directories exist only on the disposable hosted VM. All stdout/stderr and receipts remain in artifacts and are encoded with individual hashes in completed job logs for independent review. A workflow success means the expected pre-repair Red was observed; it does not qualify any final product.
+
+Activation requires the complete current plan and this exact packet to receive independent acceptance. Production edits require the independently inspected actual Red. No user PC command, source/test edit, native task-state mutation, app launch or shared worktree operation occurs here.

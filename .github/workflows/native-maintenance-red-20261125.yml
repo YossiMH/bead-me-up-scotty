@@ -1,0 +1,126 @@
+name: Compile and execute focused Windows maintenance Red
+
+on:
+  push:
+    branches:
+      - task/native-maintenance-red-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-maintenance-red-20261125
+  cancel-in-progress: false
+
+env:
+  GIT_CONFIG_COUNT: '2'
+  GIT_CONFIG_KEY_0: core.autocrlf
+  GIT_CONFIG_VALUE_0: 'false'
+  GIT_CONFIG_KEY_1: core.eol
+  GIT_CONFIG_VALUE_1: lf
+
+jobs:
+  compile:
+    runs-on: windows-2025
+    timeout-minutes: 35
+    outputs:
+      manifest_sha256: ${{ steps.compile.outputs.manifest_sha256 }}
+      artifact_id: ${{ steps.upload.outputs.artifact-id }}
+      artifact_digest: ${{ steps.upload.outputs.artifact-digest }}
+    steps:
+      - name: Read the exact reviewed maintenance packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/revision-9/native-maintenance-red
+
+      - name: Read unchanged c90 source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-rs
+          ref: c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b
+          path: source
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Compile only the six-case maintenance harness and required support
+        id: compile
+        timeout-minutes: 31
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-maintenance-red'
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'maintenance.py')).Hash.ToLowerInvariant() -ne 'eb5fcdf0e3719ca11112ec7bf2f6f437c750e1869b95a885c4e312a9bd9e8a41') { throw 'Reviewed maintenance.py differs.' }
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'windows_build_support.py')).Hash.ToLowerInvariant() -ne '1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07') { throw 'Reviewed windows_build_support.py differs.' }
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'windows-task-job.ps1')).Hash.ToLowerInvariant() -ne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f') { throw 'Reviewed windows-task-job.ps1 differs.' }
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'supervise.ps1')).Hash.ToLowerInvariant() -ne '5bdaf4dd3f6e89e8bdd5a2e895df179392ff26c4d71a1caa335a16f7ab0c17e2') { throw 'Reviewed supervise.ps1 differs.' }
+          $python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source
+          & $python -m py_compile (Join-Path $packet 'maintenance.py') (Join-Path $packet 'windows_build_support.py')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & $python (Join-Path $packet 'maintenance.py') build --checkout (Join-Path $env:GITHUB_WORKSPACE 'source') --output (Join-Path $env:RUNNER_TEMP 'bead-maintenance-${{ github.run_id }}-${{ github.run_attempt }}')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Retain exact harness, support, source inventory and compiler logs
+        if: always()
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-maintenance-build-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          compression-level: 6
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-maintenance-${{ github.run_id }}-${{ github.run_attempt }}/
+
+  red:
+    needs: compile
+    runs-on: windows-2025
+    timeout-minutes: 10
+    steps:
+      - name: Read the same reviewed execution packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/revision-9/native-maintenance-red
+
+      - name: Download this run's accepted focused compilation
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: ${{ needs.compile.outputs.artifact_id }}
+          path: ${{ runner.temp }}/downloaded-maintenance
+          merge-multiple: true
+
+      - name: Verify the download and execute all six existing cases once
+        timeout-minutes: 6
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-maintenance-red'
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'maintenance.py')).Hash.ToLowerInvariant() -ne 'eb5fcdf0e3719ca11112ec7bf2f6f437c750e1869b95a885c4e312a9bd9e8a41') { throw 'Reviewed maintenance.py differs.' }
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'windows_build_support.py')).Hash.ToLowerInvariant() -ne '1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07') { throw 'Reviewed windows_build_support.py differs.' }
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'windows-task-job.ps1')).Hash.ToLowerInvariant() -ne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f') { throw 'Reviewed windows-task-job.ps1 differs.' }
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'supervise.ps1')).Hash.ToLowerInvariant() -ne '5bdaf4dd3f6e89e8bdd5a2e895df179392ff26c4d71a1caa335a16f7ab0c17e2') { throw 'Reviewed supervise.ps1 differs.' }
+          foreach ($name in @('supervise.ps1','windows-task-job.ps1')) {
+            $tokens = $null
+            $errors = $null
+            [void][Management.Automation.Language.Parser]::ParseFile((Join-Path $packet $name),[ref]$tokens,[ref]$errors)
+            if ($errors.Count -ne 0) { throw ('PowerShell parse failed: ' + $name) }
+          }
+          & (Join-Path $packet 'supervise.ps1') -Artifact (Join-Path $env:RUNNER_TEMP 'downloaded-maintenance') -ManifestSha256 '${{ needs.compile.outputs.manifest_sha256 }}' -ArtifactId '${{ needs.compile.outputs.artifact_id }}' -OutputDirectory (Join-Path $env:RUNNER_TEMP 'bead-maintenance-red')
+          exit $LASTEXITCODE
+
+      - name: Retain the complete actual Red and owned-process receipt
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: native-maintenance-red-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          compression-level: 0
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-maintenance-red/
