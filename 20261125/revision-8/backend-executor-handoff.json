@@ -1,8 +1,8 @@
 {
   "schema_version": 1,
-  "updated_utc": "2026-11-25T09:55:07.291Z",
+  "updated_utc": "2026-11-25T10:00:55.455Z",
   "owner": "/root/backend_reconcile",
-  "status": "final_source_builds_complete_execution_packets_bound",
+  "status": "final_source_linux_and_windows_qualification_active",
   "source": {
     "repository": "YossiMH/bead-rs",
     "branch": "task/type-file-20261125",
@@ -66,9 +66,34 @@
       "artifact_id": 15007188514
     }
   },
-  "active_runs": [],
+  "active_runs": [
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "run_id": 45590105450,
+      "attempt": 1,
+      "workflow_commit": "ea2deb25060a3f163550c44ce572e831312b321b",
+      "native_source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+      "tasks": [
+        "type-backend-checks",
+        "checkpoint-full-suite",
+        "checkpoint-linux-checks"
+      ],
+      "last_observed": "Parser fixtures and original-corpus recovery passed. Full-suite job139121719042 is still running; actual affected receipt remains inside that job."
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "run_id": 45590705550,
+      "attempt": 1,
+      "workflow_commit": "ddc93993a810e100bbbd62059cae92d3b6c78a56",
+      "native_source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+      "tasks": [
+        "checkpoint-windows-checks"
+      ],
+      "last_observed": "Reviewed five-partition workflow activated once after branch/run absence reconciliation; exact aggregation pending."
+    }
+  ],
   "next_actions": [
-    "Activate each exactly reviewed final-source consumer once after its final packet PASS. Reconcile any active run before any retry.",
+    "Reconcile active45590105450 and45590705550 before any repeat. Publish actual affected-target result to root/app as soon as the completed job makes it available.",
     "Bind final Linux/Windows consumers to measured successful c90 producer receipts and download-verified artifacts; obtain final packet reviews. Preserve all native Windows ordinary/grid cases through partitioned hosted jobs and aggregate exact coverage.",
     "Run final-source affected checks, complete Linux suite, original-corpus recovery and partitioned Windows qualification. The final Linux parser includes bounded fixtures from actual interrupted output; do not rerun the completed historical baseline.",
     "After actual final-source checks, reread maintainer post-process guidance, perform two complete clean final author inspections and obtain independent source acceptance.",
@@ -139,8 +164,10 @@
     "windows_producer_review": "41430d7cdf9dc2450390cb4f58802b7f8935daa8:20261125/revision-8/results/native-windows-producer-review.json",
     "linux_producer_review": "b98cd9a2c1871e8af1f6bc36a6327b38e5c2fc45:20261125/revision-8/results/native-linux-producer-review.json",
     "linux_consumer": "ea2deb25060a3f163550c44ce572e831312b321b:20261125/native-repair-linux-check",
-    "windows_consumer": "38b9c2b4120859d1e9d12effb582663fc4c84f93:20261125/revision-8/native-windows-check",
-    "consumer_status": "Linux final binding under independent review; Windows author binding measured successful producer. Final native execution has not started in this handoff."
+    "windows_consumer": "ddc93993a810e100bbbd62059cae92d3b6c78a56:20261125/revision-8/native-windows-check",
+    "consumer_status": "Both exact reviewed final-source workflows activated once. Reconcile current runs before any repeat.",
+    "linux_consumer_review": "5db78980952af6de3bde88ba3f6dca74de406e20:20261125/revision-8/results/native-linux-consumer-review.json",
+    "windows_consumer_review": "b35847d5c2884434b4aa2300510a5a630c0e663c:20261125/revision-8/results/native-windows-runner-review.json"
   },
   "final_source_builds": {
     "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
@@ -197,5 +224,19 @@
       "format_and_clippy": "passed",
       "download_verification": "Pending bound consumers"
     }
+  },
+  "final_source_linux_corpus": {
+    "status": "passed",
+    "run_id": 45590105450,
+    "job_id": 139121719373,
+    "evidence": "5cf449b157c54aaec067634e72faa28d0a96dbec:20261125/revision-8/results/native-linux-corpus-45590105450",
+    "result_sha256": "db18de1ed00eca5022edbdfcee16ab78e599f7de4a5caf49a9b555e4d3f37901",
+    "restores": 4,
+    "full_record_comparisons": 6,
+    "original_issues": 954,
+    "original_events": 11264,
+    "original_receipts": 5,
+    "original_attempt_outcomes": 413,
+    "artifact_id": 15010901460
   }
 }
