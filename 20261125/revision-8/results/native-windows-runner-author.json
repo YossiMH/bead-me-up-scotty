@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-windows-checks",
+  "operation": "partitioned Windows runner preparation",
+  "status": "author_inspections_passed_pending_independent_final_review",
+  "prepared_at": "2026-11-25T09:58:40.979Z",
+  "author": "app_reconcile",
+  "execution_owner": "backend_reconcile",
+  "plan": {
+    "commit": "38332d9a3a9e4856291edd11237fc27d5759f4d4",
+    "path": "20261125/revision-8/plan.json",
+    "sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d"
+  },
+  "packet": {
+    "commit": "ddc93993a810e100bbbd62059cae92d3b6c78a56",
+    "tree": "f4dfd8ff1638c7337696d70c1acee22b3703516e",
+    "branch": "task/windows-check-runner-v8-20261125",
+    "directory": "20261125/revision-8/native-windows-check",
+    "sha256": "dd28c70e08d92ca580d61c785f352cd70c922819ed5b627ae4a274b0883a409c",
+    "workflow_path": ".github/workflows/native-final-windows-v8-20261125.yml",
+    "workflow_sha256": "e8129f78dbdc082d2c6e77a2a8a4c1d57b817132cbe38393e29893c9243076e5",
+    "activation_branch": "task/checkpoint-windows-v8-check-20261125"
+  },
+  "retained_draft_review": {
+    "commit": "a408adfaaabdb68b585c49e9b77d9e15c5ba899f",
+    "path": "20261125/revision-8/results/native-windows-runner-draft-review.json",
+    "sha256": "07d39ebecc97870b8b8be9c2e570f63138bd01350615487502ef48b361d79c8e",
+    "reviewed_source": "38b9c2b4120859d1e9d12effb582663fc4c84f93"
+  },
+  "actual_producer": {
+    "run_id": "45586900986",
+    "run_attempt": "1",
+    "workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+    "artifact_id": 15009252879,
+    "artifact_manifest_sha256": "9431284af8c344956b6c7939950a71427d7d9e87eb26186bc9dce48bc91a43a6",
+    "build_result_sha256": "a33ab55da93e2ceeb23fd56a048b5e507a801bcf86a3c189d7156d1463f501f6",
+    "download_verification_job_id": 139117235701,
+    "retained_results": "780716d93a61776e8653cfd0b67656b9239094ee:20261125/revision-8/results/native-windows-build-45586900986"
+  },
+  "files": [
+    {
+      "name": "checkpoint-windows-check-20261125.py",
+      "sha256": "31ccfe21ec0e703429df1846389cbbf159901a1eddd67316dd09ff1202b83943",
+      "bytes": 31179
+    },
+    {
+      "name": "checkpoint-windows-driver-20261125.ps1",
+      "sha256": "706acc980a6b70f1136fe8ea1b7367f1d8e7e1fbe5dcd4907a89c9b005cfac9f",
+      "bytes": 10471
+    },
+    {
+      "name": "checkpoint-windows-supervisor-20261125.ps1",
+      "sha256": "aba1bd6053bded3a350d96ff92f56eed2ce7e97722d3b70a06999e5b9c97ba9b",
+      "bytes": 11986
+    },
+    {
+      "name": "checkpoint-windows-build-20261125.py",
+      "sha256": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+      "bytes": 45467
+    },
+    {
+      "name": "checkpoint-release-corpus-20261125.py",
+      "sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+      "bytes": 42736
+    },
+    {
+      "name": "aggregate.py",
+      "sha256": "28158bbb8a802fda782093ca10ab8c0844a129644294aa68ed6ac7c4bdda7ff6",
+      "bytes": 16684
+    },
+    {
+      "name": "corpus-inputs.json",
+      "sha256": "211bf3f08a25b425485d2e14c716be52492c697bf26ec19cd6f74203ea12363a",
+      "bytes": 565
+    },
+    {
+      "name": "check-inputs.template.json",
+      "sha256": "2170801eef054da53e8ea0fedc8b019fe596097814322dd515385c6213468d53",
+      "bytes": 952
+    },
+    {
+      "name": "packet.json",
+      "sha256": "dd28c70e08d92ca580d61c785f352cd70c922819ed5b627ae4a274b0883a409c",
+      "bytes": 2336
+    },
+    {
+      "name": "workflow.template.yml",
+      "sha256": "e8129f78dbdc082d2c6e77a2a8a4c1d57b817132cbe38393e29893c9243076e5",
+      "bytes": 9402
+    },
+    {
+      "name": "README.md",
+      "sha256": "8ed9ba934fda60663ff48242fa0a934511c7ec6ec95170d62b2c545321bbd7b6",
+      "bytes": 2839
+    },
+    {
+      "name": "check-inputs-core.json",
+      "sha256": "18bcf4e5d54d6332612fd9cb438451f1290cc0dde114de87bb3af36aabf388f6",
+      "bytes": 1182
+    },
+    {
+      "name": "check-inputs-editing.json",
+      "sha256": "0a02e738a9a40a4f41b5e26e4199077bef53e1aff211067e2b8fcd57d2f73ec6",
+      "bytes": 1185
+    },
+    {
+      "name": "check-inputs-grid-1.json",
+      "sha256": "eb8bc08b24655b70af9313604dffd44317b90173bc1bdfe1a16d92c712a2b5f9",
+      "bytes": 1184
+    },
+    {
+      "name": "check-inputs-grid-2.json",
+      "sha256": "315c8ca5f4fbc8af653bc032ab308b0152c3444397c2e216c549046b09155195",
+      "bytes": 1184
+    },
+    {
+      "name": "check-inputs-grid-3.json",
+      "sha256": "4bfdb525271f9c8b8d05cf2537df62bf787e679ecc2516801a35b1d1fcd5e2f3",
+      "bytes": 1184
+    }
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "focus": "Exact producer and immutable packet binding",
+      "findings": [],
+      "checks": [
+        "Read actual build and independent full/small download receipts; source c90/tree13e8, build run/attempt/workflow, all eleven executable records and separate release agree.",
+        "Reconstructed the original 16381-byte build-result text from the complete producer log and checked SHA-256 a33ab55da93e2ceeb23fd56a048b5e507a801bcf86a3c189d7156d1463f501f6.",
+        "All five request files bind the same measured full artifact, manifest, build inputs and result; partition is their only value difference.",
+        "Computed every selected input/helper/workflow hash, checked source/corpus/release/metadata bindings and read back all ten final changed files from ddc93993 with exact equality.",
+        "The six reviewed helper algorithms are byte-for-byte identical to the accepted 38b9c2b4 draft. The workflow and README contain measured bindings; the unused template remains outside phase selection."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "focus": "Complete final coverage, failure handling, retention and execution boundaries",
+      "findings": [],
+      "checks": [
+        "Reread the bound workflow, complete aggregate verifier, driver and supervisor, and both halves of the qualification checker.",
+        "Core has four selected library invocations, three complete integration targets and twelve ordinary conformance invocations. Editing runs five complete targets plus four original-corpus restores and the unchanged 55-command smoke. Three grid entries each run four unique fresh scenario/fixture invocations.",
+        "Complete listings, exact argument vectors and passing/filtered counts establish coverage without the earlier child-stdout test-name parser failure. Caught OOB RED retains its complete classification text; any failed required invocation still fails qualification.",
+        "Every test invocation uses one thread, a fresh owned temporary directory, cleared selectors and a 895-second command/900-second complete bound. Shared start/deadline clamps the checker, outer supervisor and aggregate to 140 minutes.",
+        "Original producer file inventories/source blobs and all executable hashes are checked before execution and checked inputs/source/binaries after it; exact command logs, receipts, corpus outputs and release copies are retained.",
+        "The unchanged owned Job helper, recorded process baseline and observed supervisor exit are required. Aggregation rejects missing or duplicate partitions, targets, ordinary cases or grid cells, nonzero/timed-out commands, failed cleanup, identity disagreement and elapsed window.",
+        "The packet is on its dormant preparation branch. Only the native execution owner may create the activation branch after final independent review."
+      ]
+    }
+  ],
+  "verification_scope": "Static source and actual producer-result reconciliation. No qualification test or hosted workflow has run for this bound packet. Python parsing and PowerShell parsing are explicit first hosted execution steps.",
+  "remaining": [
+    "Independent final packet review",
+    "Backend owner activation and complete actual partition/aggregate results",
+    "Independent actual-result acceptance; separate app Windows round trip, PC install/tray/configured-launch and canonical task mapping remain pending"
+  ]
+}
