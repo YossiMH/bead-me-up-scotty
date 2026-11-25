@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "static_author_inspections_passed",
+  "source_sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+  "source_bytes": 42736,
+  "inputs_template_sha256": "a9cc1c9019b8940436c539ca315231a16e45536928d346e4ebcfaccaf1d64f39",
+  "notes_sha256": "542eeaf2fee7823ac506426a4e879654eff52185ed7053f3eecfd450b636da8d",
+  "author_inspections": [
+    {
+      "number": 1,
+      "scope": "Complete 763-line helper, input template and invocation/result notes.",
+      "checks": [
+        "Read original pointer, native restore report/receipt/summary definitions, set-v2 staging and writer contracts against every parser and comparison assertion.",
+        "Verified full record hashes preserve every field and canonical identity; original 954/11264/5/413 counts and SQL/origin sequence distinction are explicit.",
+        "Verified exact selected closures, content-addressed tail checks, four fresh restores, old/current generation differences and source fingerprints."
+      ],
+      "findings_resolved": [
+        "The fresh-target displaced-count guard now requires the exact seven native report fields and all-zero values."
+      ],
+      "remaining_findings": []
+    },
+    {
+      "number": 2,
+      "scope": "Complete final helper and unchanged input/notes after the report-schema correction.",
+      "checks": [
+        "Rechecked CLI hash pins, immutable public source, fresh owned output, serial limits, Linux process groups and the existing Windows outer Job contract.",
+        "Rechecked success/failure receipts, bounded stdout metadata, full retained evidence and no implicit native task state changes.",
+        "Matched all report counts, receipt hash recipe and new canonical event identities to pinned implementation."
+      ],
+      "remaining_findings": []
+    }
+  ],
+  "runtime_validation": {
+    "python_parse": "pending; cloud execution environment unavailable",
+    "execution": "pending exact qualified release and hosted review gate"
+  },
+  "task_ids": {
+    "linux_checks": "beadrs-50ff08d3"
+  },
+  "native_state_owner": "root",
+  "cleanup": "Root or a future agent must retain evidence and clean owned task branches/worktrees after delivery; no force deletion."
+}

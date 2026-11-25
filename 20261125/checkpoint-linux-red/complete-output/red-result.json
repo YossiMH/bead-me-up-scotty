@@ -1,0 +1,237 @@
+{
+  "artifact_id": 14986424212,
+  "build_helper_sha256": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+  "build_root": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1",
+  "check_root": "/home/runner/work/_temp/bead-checkpoint-red-check-45538872739-1",
+  "commands": [
+    {
+      "args": [
+        "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/target/debug/build/bead-rs/b0e4373cffa1e878/out/bead_rs-b0e4373cffa1e878",
+        "service::checkpoint::set_v2::tests::set_v2_staging_",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+      "error": "harness-lib exited 101",
+      "exit_code": 101,
+      "finished": "2026-11-25T03:17:10.725733+00:00",
+      "label": "harness-lib",
+      "pgid": 2469,
+      "pid": 2469,
+      "started": "2026-11-25T03:17:10.715642+00:00",
+      "stderr": "logs/harness-lib.stderr",
+      "stdout": "logs/harness-lib.stdout"
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/target/debug/build/bead-rs/2354cbbf17db3a5a/out/attempt_receipt_checkpoint_integrity-2354cbbf17db3a5a",
+        "verified_restore_preserves_all_attempt_outcomes_from_set_v2",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+      "error": "harness-attempt_receipt_checkpoint_integrity exited 101",
+      "exit_code": 101,
+      "finished": "2026-11-25T03:17:10.906729+00:00",
+      "label": "harness-attempt_receipt_checkpoint_integrity",
+      "pgid": 2473,
+      "pid": 2473,
+      "started": "2026-11-25T03:17:10.741022+00:00",
+      "stderr": "logs/harness-attempt_receipt_checkpoint_integrity.stderr",
+      "stdout": "logs/harness-attempt_receipt_checkpoint_integrity.stdout"
+    },
+    {
+      "args": [
+        "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/target/debug/build/bead-rs/ec998085bdfc0936/out/checkpoint_tail_generation_integrity-ec998085bdfc0936",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+      "error": "harness-checkpoint_tail_generation_integrity exited 101",
+      "exit_code": 101,
+      "finished": "2026-11-25T03:17:11.386235+00:00",
+      "label": "harness-checkpoint_tail_generation_integrity",
+      "pgid": 2487,
+      "pid": 2487,
+      "started": "2026-11-25T03:17:10.918336+00:00",
+      "stderr": "logs/harness-checkpoint_tail_generation_integrity.stderr",
+      "stdout": "logs/harness-checkpoint_tail_generation_integrity.stdout"
+    }
+  ],
+  "duration_seconds": 6.934,
+  "failed_test_count": 6,
+  "finished": "2026-11-25T03:17:11.992685+00:00",
+  "harness_limit_seconds": 300,
+  "harnesses": [
+    {
+      "args": [
+        "service::checkpoint::set_v2::tests::set_v2_staging_",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "duration_seconds": 0.011,
+      "exit_code": 101,
+      "failed": 3,
+      "ignored": 0,
+      "name": "lib",
+      "observations": [
+        {
+          "defect": "count",
+          "line": 1365,
+          "panic_sha256": "8981beebbc67aed47d7814fe97295fb9fd76a34374c2652ba2f8c24eece86920",
+          "source": "src/service/checkpoint/set_v2.rs",
+          "test": "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards"
+        },
+        {
+          "defect": "duplicate",
+          "line": 1392,
+          "panic_sha256": "c19f071b6936e4768ba882c2102885e6a14e42876addaa7972deff54014dcb0a",
+          "source": "src/service/checkpoint/set_v2.rs",
+          "test": "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards"
+        },
+        {
+          "defect": "duplicate",
+          "line": 1378,
+          "panic_sha256": "fdc3bed63452c8b357ebc32dc4b0e05f842dbfa49edcc3fba9121cfb8d853e59",
+          "source": "src/service/checkpoint/set_v2.rs",
+          "test": "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard"
+        }
+      ],
+      "passed": 0,
+      "status": "matched_expected_failures",
+      "stderr": {
+        "bytes": 4555,
+        "mode": 420,
+        "path": "logs/harness-lib.stderr",
+        "sha256": "8ce61987fa0cd7b9778c06f62f9b288eb69eb28cef55716c0a0c5a9e17ef130b"
+      },
+      "stdout": {
+        "bytes": 749,
+        "mode": 420,
+        "path": "logs/harness-lib.stdout",
+        "sha256": "33dc706efa8e1ce9bb5c484ef904809735fd4e7091c7f2a95d29fa8a765796a6"
+      }
+    },
+    {
+      "args": [
+        "verified_restore_preserves_all_attempt_outcomes_from_set_v2",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "duration_seconds": 0.166,
+      "exit_code": 101,
+      "failed": 1,
+      "ignored": 0,
+      "name": "attempt_receipt_checkpoint_integrity",
+      "observations": [
+        {
+          "defect": "restore",
+          "line": 276,
+          "panic_sha256": "3baf7d3e26102d1d3a99fd072b62391ef927649d8db42cd8abf95984e30be686",
+          "source": "tests/attempt_receipt_checkpoint_integrity.rs",
+          "test": "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+        }
+      ],
+      "passed": 0,
+      "status": "matched_expected_failures",
+      "stderr": {
+        "bytes": 405,
+        "mode": 420,
+        "path": "logs/harness-attempt_receipt_checkpoint_integrity.stderr",
+        "sha256": "cde39cefa6145edf4209a82ed704170dac3ce1b60081a814e99be60c0a747925"
+      },
+      "stdout": {
+        "bytes": 278,
+        "mode": 420,
+        "path": "logs/harness-attempt_receipt_checkpoint_integrity.stdout",
+        "sha256": "05b75c08e1d7729568ca56b2b1e8e4612583948c9d0cb79023e864a58c8049c5"
+      }
+    },
+    {
+      "args": [
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "duration_seconds": 0.469,
+      "exit_code": 101,
+      "failed": 2,
+      "ignored": 0,
+      "name": "checkpoint_tail_generation_integrity",
+      "observations": [
+        {
+          "defect": "tail",
+          "line": 126,
+          "panic_sha256": "86b4a3b8dbc4a09868062a8c4b053210a53bcde708f5cc2a285f59014f9b2eab",
+          "source": "tests/checkpoint_tail_generation_integrity.rs",
+          "test": "legacy_fixed_tail_generation_remains_restorable_after_upgrade"
+        },
+        {
+          "defect": "tail",
+          "line": 126,
+          "panic_sha256": "2ffda271044f474280499410e8dc61f84a8d8703f4ce7cc9dd0f02bf41087af9",
+          "source": "tests/checkpoint_tail_generation_integrity.rs",
+          "test": "selected_set_v2_generation_remains_restorable_after_tail_append"
+        }
+      ],
+      "passed": 0,
+      "status": "matched_expected_failures",
+      "stderr": {
+        "bytes": 10761,
+        "mode": 420,
+        "path": "logs/harness-checkpoint_tail_generation_integrity.stderr",
+        "sha256": "8aebb357d23bcfe33c4f6f24cb4995c74f379cf1ac2e2915666e3125e0c162c3"
+      },
+      "stdout": {
+        "bytes": 431,
+        "mode": 420,
+        "path": "logs/harness-checkpoint_tail_generation_integrity.stdout",
+        "sha256": "e78f2c858d45f98e35be7eb3de50aab477b4ea066bf67daab705f6029fc969c1"
+      }
+    }
+  ],
+  "helper_sha256": "f23d8dba421ae09b28f9b54bcc0cffbcdddb6b475596d347d6f3534a15b62314",
+  "input_sha256": "100bef573d636eae9d1ba4c165f4c26e05e80dbd93d79d23018346dc8463f673",
+  "logs_retention_days_required": 7,
+  "operation": "checkpoint-red-check",
+  "overall_limit_seconds": 1200,
+  "passed_test_count": 0,
+  "process_group_cleanup": [
+    {
+      "label": "harness-lib",
+      "pgid": 2469,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "harness-attempt_receipt_checkpoint_integrity",
+      "pgid": 2473,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "harness-checkpoint_tail_generation_integrity",
+      "pgid": 2487,
+      "remaining": false,
+      "signals": []
+    }
+  ],
+  "producing_run": {
+    "attempt": "1",
+    "id": "45537110469",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "3847da49b76a8526f3d9621d77be8f7e70d5334b"
+  },
+  "run": {
+    "attempt": "1",
+    "id": "45538872739",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "5b930b7d0ff152eb2a0f80e24e278033399f46cd"
+  },
+  "schema_version": 1,
+  "source_commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+  "source_tree": "c9707f7b58dd76826244719af018bf4c02a3e5fc",
+  "started": "2026-11-25T03:17:05.058691+00:00",
+  "status": "passed_expected_failures"
+}

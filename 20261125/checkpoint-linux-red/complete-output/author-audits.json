@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "static_author_inspections_passed",
+  "workflow_sha256": "e260bb5010e6d4971b71e428ade89ecd3b8ec3bd269c0034235139dc8daed629",
+  "python_sha256": "908ff8ffc60251f99caeff447aea6484d127cfb9813d0e6fa306540b2e9cb42d",
+  "source_run": 45538872739,
+  "artifact_id": 14988212379,
+  "accepted_result_sha256": "53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168",
+  "author_inspections": [
+    {
+      "number": 1,
+      "scope": "Entire workflow and embedded Python",
+      "checks": [
+        "Bound exact retained artifact, producing run/head, complete result SHA and all six actual raw stream sizes/hashes.",
+        "Read-only token and ordinary ubuntu-24.04 runner; no checkout, test, Rust or product execution.",
+        "Fresh owned output; strict artifact inventory; UTF-8 text only, per-file/aggregate output bounds, exact Base64 and SHA receipts."
+      ],
+      "findings": []
+    },
+    {
+      "number": 2,
+      "scope": "Entire final workflow after independent cross-check against the actual Red receipt",
+      "checks": [
+        "All pinned stream hashes match result53f23983; expected command logs derived only from that hash-bound receipt.",
+        "Final YAML heredoc indentation and ordinary action refs match prior accepted patterns.",
+        "Existing failed tests remain unchanged evidence; diagnostic performs only artifact reads and retained text conversion."
+      ],
+      "findings": []
+    }
+  ],
+  "cleanup": "Root/future agents delete owned task/checkpoint-red-streams-20261125 after durable retention and accepted handoff; do not replay uncertain execution."
+}
