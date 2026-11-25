@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "FAIL",
+  "accepted": false,
+  "reviewer": "/root/delivery_review",
+  "reviewed_utc": "2026-11-25",
+  "operation": "actual-windows-native-v5-result-reconciliation",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "run_id": 45552623126,
+  "job_id": 138997085133,
+  "workflow_commit": "d0d47d868dc46aa2e12f070ca3e59c458c8a1ac4",
+  "packet_commit": "77e52f2e614823147e14eaf2e7ffc03412aa9207",
+  "packet_static_review_sha256": "997ed4b8a4632e833df8664d4de87ed2ddf903e686f31faaf4e95509574e5c94",
+  "evidence_commit": "297adf86be9b55de1202f2e69d92763a4cf1b7b5",
+  "evidence_directory": "20261125/checkpoint-windows/results/v5-failed",
+  "raw_job_log_sha256": "26e4bc34e9b96941d0d60f84f223f18d8ca0ef94058aa0495f1166bb9bd9faf0",
+  "exact_receipts": {
+    "build": "94f8c19c32148f4c078d5a1b4a4964375fd66a07d8486c6d267d2487a585ef31",
+    "outer": "1189ee3ec381e021bf706247ae9324f23cb11ad1937ad903e6ef1f548612d51f",
+    "supervisor": "ba1e55b6370c4542ca0abf6f540fd56a34aa34313c08eee3fcde98d6ed05d897",
+    "completion": "c2344ed2d04a0a4814d4c6a2ca7c53e9832a9557dd80615d37e3f1d49994d115"
+  },
+  "reconciliation": {
+    "directly_fetched_job_log_matches_all_retained_bytes": true,
+    "raw_log_bytes": 480287,
+    "all_four_emitted_receipts_decoded_and_matched": true,
+    "complete_emitted_streams_verified": 60,
+    "archive_command_exit": 0,
+    "archive_command_pid": 5412,
+    "archive_release_compile_report": "Finished release profile in5m47s",
+    "archive_compiler_warnings": [
+      "unused serial_test dependency",
+      "unused uuid dependency"
+    ],
+    "expected_owned_baseline": [
+      4548,
+      4852,
+      7668
+    ],
+    "actual_after_archive": [
+      4548,
+      4852,
+      7668,
+      7944
+    ],
+    "job_query_retries": 0,
+    "supervisor_children_after_python_exit": [
+      7944
+    ],
+    "python_exit": 1,
+    "supervisor_exit": 1,
+    "overall_status": "failed",
+    "retained_file_entries": 127,
+    "retained_release_or_metadata_entries": 0,
+    "emitted_release_sha256": "0205d054ab256202da0bb3bea5bc151c68113bbbda5733352a1c6c1988be222d",
+    "release_bytes_retained": false,
+    "test_compilation_started": false,
+    "tests_executed": false
+  },
+  "conclusions": [
+    "The selected exact MSVC linker corrected the prior link.exe selection failure and the archive build command completed successfully.",
+    "The unchanged exact quiescent Job gate correctly rejected an additional live PID7944. Its image, parent and birth identity were not recorded; a compiler-server or telemetry explanation remains unconfirmed.",
+    "The supervisor observed that child after Python exited. Its own exit invokes the retained kill-on-close mechanism, but the overall completion receipt correctly remains failed; this review does not convert it to an observed clean qualification.",
+    "The retained artifact contains logs/receipts and no emitted executable or metadata. A printed digest is insufficient to recover or qualify those bytes.",
+    "A small same-toolchain identity fixture and unconditional bounded retention of release output are justified next steps. The accepted source, archive flags and membership criteria remain unchanged pending measured evidence."
+  ],
+  "artifact": {
+    "id": 14994178982,
+    "sha256": "35e9fef316df6abd1f41329f18d8f0742fa9ef5c7a40ddc4b4920e50ee1cb99c"
+  },
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "reviewer_database_writes": 0
+}

@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "operation": "owned-msvc-compiler-lifecycle-probe",
+  "files": {
+    "checkpoint-windows-build-20261125.py": "25ceeb69bf3cd57ce73019b3eb96d63e59a8fb98bc5da5c80a8b5c89427441ab",
+    "checkpoint-windows-supervisor-20261125.ps1": "7de488bc35aee787e55b5a67abffe220f0685928242df78f7048ab3beca60fe2",
+    "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+    "reviewed-build-helper.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "build-inputs.json": "02bca3aca7cee48da621b08309d6c6ed9e07d1d78c6087a2c59a507ba06442d7"
+  },
+  "phase_inputs": {
+    "build": {
+      "path": "build-inputs.json",
+      "sha256": "02bca3aca7cee48da621b08309d6c6ed9e07d1d78c6087a2c59a507ba06442d7"
+    },
+    "check": null
+  },
+  "external_job_helper": {
+    "commit": "6d40aacb49eba309f1f925e106cfbb9026cce744",
+    "path": "windows-task-job.ps1",
+    "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "prior_failed_review_sha256": "a8723240c459de32077ac6aa0e658e41a0484884879bd37ca71d351f0b3f849f",
+  "product_source_compiled": false,
+  "product_qualification": false
+}

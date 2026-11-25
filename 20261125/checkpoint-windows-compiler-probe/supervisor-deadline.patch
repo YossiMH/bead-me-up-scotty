@@ -1,0 +1,11 @@
+--- v5/checkpoint-windows-supervisor-20261125.ps1
++++ probe/checkpoint-windows-supervisor-20261125.ps1
+@@ -20,7 +20,7 @@
+ $ProgressPreference = 'SilentlyContinue'
+ $Utf8 = [Text.UTF8Encoding]::new($false)
+ $JobSha256 = '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'
+-$LimitSeconds = if ($Phase -eq 'build') { 2520 } else { 8460 }
++$LimitSeconds = if ($Phase -eq 'build') { 210 } else { 8460 }
+ 
+ function Get-SafePath([string]$Value, [bool]$Directory=$false) {
+     if ($Value -notmatch '^[A-Za-z]:[\\/]') { throw 'A full local Windows path is required.' }

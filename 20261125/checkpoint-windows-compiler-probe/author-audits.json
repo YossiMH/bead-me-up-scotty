@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "passed_code_inspections",
+  "author": "checkpoint_finish",
+  "files": {
+    "README.md": "0de484f2bf211f6881fd2574dfe0f9a5132999f01033578f1b3adbf32cd722c2",
+    "build-inputs.json": "02bca3aca7cee48da621b08309d6c6ed9e07d1d78c6087a2c59a507ba06442d7",
+    "checkpoint-windows-build-20261125.py": "25ceeb69bf3cd57ce73019b3eb96d63e59a8fb98bc5da5c80a8b5c89427441ab",
+    "checkpoint-windows-compiler-probe.workflow.yml": "09012db196993421f3e856223989cd09672b333151eca5f13bb85777cc16312e",
+    "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+    "checkpoint-windows-supervisor-20261125.ps1": "7de488bc35aee787e55b5a67abffe220f0685928242df78f7048ab3beca60fe2",
+    "packet.json": "cf82361dc99280c94e2d9bbd5e40256392f25fdc49cdcee5b89adc90d944e0f2",
+    "reviewed-build-helper.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "static-checks.json": "555ff5cad4bf8ebb316fae473e6fd105914c461e3612ecfbf45103bab9d83580",
+    "supervisor-deadline.patch": "0c54c4389c342aa89621ae17e4484a1ba7ee3ef06cde2aa9aef0963014346484",
+    "v5-actual-review.json": "a8723240c459de32077ac6aa0e658e41a0484884879bd37ca71d351f0b3f849f"
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "complete_files_inspected": true,
+      "findings": [],
+      "checks": [
+        "Read every line of the new probe, fixture definitions, input contract, full workflow, supervisor and driver integration.",
+        "Verified initial exact owned baseline, same reviewed MSVC/linker/Rust environment, two serial one-job fixture compilations, immutable fixture inputs and no product source/app/test execution.",
+        "Read all capture/observation/termination paths: non-inheritable held process handles, complete caller-Job queries, PID/birth, image hash/session/Toolhelp parent and bounded records.",
+        "Every cleanup kill rechecks held identity and membership, excludes the baseline, and must reach its exact baseline before the next command. No production guard is changed."
+      ]
+    },
+    {
+      "pass": 2,
+      "complete_files_inspected": true,
+      "findings": [],
+      "checks": [
+        "Re-read complete probe including timeout, failed capture, failed compiler, late descendant, stream bounds, receipt emission and final outer-Job requirements.",
+        "Verified the complete imported v5 helper and driver reproduce their accepted hashes; supervisor reverse substitution restores accepted74980acb exactly.",
+        "Verified reserve18seconds, full five-second post-exit observation, bounded cleanup and180/210-second phase limits; any uncertain identity/cleanup remains failed.",
+        "Recomputed all fixture/helper/input/packet/workflow hashes and AST-parsed both Python sources. No fixture compiler, native binary, app, product test or PC action was executed during preparation.",
+        "Actual v5 failure is retained and independently reconciled; printed release hash alone is explicitly insufficient because output bytes were not retained."
+      ]
+    }
+  ],
+  "runtime_observation": "pending separately reviewed hosted activation",
+  "product_builds": 0,
+  "product_tests": 0,
+  "pc_actions": 0
+}
