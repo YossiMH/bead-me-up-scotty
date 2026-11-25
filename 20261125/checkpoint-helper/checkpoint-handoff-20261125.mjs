@@ -265,13 +265,13 @@ function storedList(row) {
 }
 const inventoryMap = values => Object.fromEntries(values.map(row=>[row.id,storedList(row)]));
 function verifyPlan(list,plan,mapping,baseline,closed=false) {
-  assert.equal(plan.tasks.length,31,'Revision-5 task count');const total=954+plan.tasks.length;
+  const total=954+plan.tasks.length;
   assert.equal(list.length,total);const all=new Map(list.map(row=>[row.id,row]));assert.equal(all.size,total);
   assert.equal(baseline.length,954);assert.equal(new Set(baseline.map(row=>row.id)).size,954);
   for(const row of baseline) equal(storedList(all.get(row.id)),storedList(row),'Original issue changed: '+row.id);
   assert.equal(Object.keys(mapping.tasks).length,plan.tasks.length);assert.equal(new Set(Object.values(mapping.tasks)).size,plan.tasks.length);
   const ids=new Set(Object.values(mapping.tasks)),edges=[];
-  assert.equal(new Set(plan.tasks.map(task=>task.key)).size,31);
+  assert.equal(new Set(plan.tasks.map(task=>task.key)).size,plan.tasks.length);
   assert.deepEqual(Object.keys(mapping.tasks).sort(),plan.tasks.map(task=>task.key).sort());
   for(const row of baseline) assert.ok(!ids.has(row.id),'Continuation ID overlaps an original issue');
   for(const task of plan.tasks) {
@@ -321,8 +321,13 @@ async function main() {
   assert.equal(path.resolve(mappingFile),path.resolve(PIN.isolated,'materialization-result-v5.json'));
   assert.match(request.plan.sha256,HASH);assert.match(request.materialization.sha256,HASH);
   assert.equal(hashFile(planFile),request.plan.sha256);assert.equal(hashFile(mappingFile),request.materialization.sha256);
-  const plan=readJSON(planFile),mapping=readJSON(mappingFile),issueCount=954+plan.tasks.length;
-  assert.equal(plan.tasks.length,31);assert.equal(issueCount,985);assert.equal(plan.blocking_edges.length,49);
+  const plan=readJSON(planFile),mapping=readJSON(mappingFile);
+  assert.ok(Array.isArray(plan.tasks) && plan.tasks.length>0 && plan.tasks.length<=1000,'Invalid accepted task array');
+  assert.ok(Array.isArray(plan.blocking_edges) && plan.blocking_edges.length<=10000,'Invalid accepted edge array');
+  const issueCount=954+plan.tasks.length;
+  const taskKeys=new Set();for(const task of plan.tasks){assert.match(task.key,/^[a-z][a-z0-9-]*$/);assert.ok(!taskKeys.has(task.key));taskKeys.add(task.key);assert.equal(typeof task.title,'string');assert.equal(typeof task.description,'string');}
+  assert.ok(taskKeys.has('preserve-and-clean'));const edgeKeys=new Set();
+  for(const edge of plan.blocking_edges){assert.ok(taskKeys.has(edge.blocked) && taskKeys.has(edge.blocker));assert.notEqual(edge.blocked,edge.blocker);const key=canonical([edge.blocked,edge.blocker]);assert.ok(!edgeKeys.has(key));edgeKeys.add(key);}
   assert.equal(mapping.status,'passed');assert.equal(mapping.original_inventory_unchanged,true);assert.equal(mapping.total_issues,issueCount);
   assert.equal(mapping.plan_sha256,request.plan.sha256);assert.equal(mapping.blocking_edges,plan.blocking_edges.length);
   const baselineFile=path.join(PIN.isolated,'inventory-before-node-v3.json'),baseline=readJSON(baselineFile);
@@ -470,10 +475,12 @@ async function main() {
     const source=freezeCheck(),frozenDB=kept('freeze','database-after.json');
     equal(await databaseSnapshot(isolatedDB),frozenDB,'Frozen source database changed');
     if(phase==='source-restore') {
+      const originalTree=digest(tree(originalCheckpoint));
       const before={database:hashFile(originalDB),config:hashFile(originalConfig),pointer:hashFile(path.join(originalCheckpoint,'current.json'))};
       write('original-before.json',before);
       const restored=await verifyFreshRestore(sourcePath,source,kept('freeze','inventory.json'),frozenDB,'source-restore-check');
       equal({database:hashFile(originalDB),config:hashFile(originalConfig),pointer:hashFile(path.join(originalCheckpoint,'current.json'))},before,'Source restore preflight changed original');
+      assert.equal(digest(tree(originalCheckpoint)),originalTree,'Source restore preflight changed original checkpoint tree');
       freezeCheck();equal(await databaseSnapshot(isolatedDB),frozenDB,'Source restore preflight changed isolated authority');
       finish({verified_generation:source.pointer.generation_id,verified_root_sha256:source.pointer.active_root.sha256,binary_sha256:runtime.sha256,disposable_target:restored.target,original_native_opened:false});return;
     }
@@ -557,6 +564,7 @@ async function main() {
       equal(await databaseSnapshot(originalDB),publishedDB,'Original changed before restore verification');
       const restored=await verifyFreshRestore(published.checkpoint_path,cp,kept(publication,'inventory.json'),publishedDB,phase==='restore'?'restore-check':'final-restore-check');
       equal(await databaseSnapshot(originalDB),publishedDB,'Verification restore changed original');
+      assert.equal(digest(tree(originalCheckpoint)),published.checkpoint_manifest_sha256,'Verification restore changed original checkpoint tree');
       assert.equal(digest(tree(published.checkpoint_path)),published.checkpoint_manifest_sha256);freezeCheck();
       finish({authority:PIN.original,verified_generation:cp.pointer.generation_id,verified_root_sha256:cp.pointer.active_root.sha256,
         continuation_tasks:plan.tasks.length,total_issues:issueCount,cleanup_closed:phase==='final-restore',disposable_target:restored.target,
