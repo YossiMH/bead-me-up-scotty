@@ -1,0 +1,432 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "task_id": "beadrs-b1038d26",
+  "task_unique_ref": "bead-edit-20261124:checkpoint-tests-review",
+  "scope": "Final independent acceptance of the complete permanent checkpoint regression design and actual intended Red failures for the exact tests-only source.",
+  "plan_sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+  "materialization_result_sha256": "6a46c9ddef4c847a0c8a5cf63c58bdec2e237a8bd04f4f4940467af8171f7d85",
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "tree": "c9707f7b58dd76826244719af018bf4c02a3e5fc",
+    "parent": "986f2a332aca9dd567eee41ce835917d56e29468",
+    "changed_files": {
+      "src/service/checkpoint/set_v2.rs": "220eac6cf03c67833071c8b921d54f1e5e5a93cde1e661c491c487dd3f59e84f",
+      "tests/attempt_receipt_checkpoint_integrity.rs": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+      "tests/checkpoint_set_v2_conformance.rs": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+      "tests/checkpoint_tail_generation_integrity.rs": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705"
+    },
+    "unchanged_baseline_blobs": 647,
+    "production_prefix_sha256": "310974bfae112134b290f4c8040b7f68994e009d207ff2a1a470af22145be538",
+    "production_repair_included": false
+  },
+  "prior_complete_static_review": {
+    "sha256": "7cf293ae3747eb405ae81d05f7e499dbe3ca9491032529dd3db43bf65ed9ffd3",
+    "proposal_commit": "bb0638535172dead8f648b4a4944dddc6175f832"
+  },
+  "compile": {
+    "id": 45537110469,
+    "job_id": 138946295563,
+    "build_receipt_sha256": "1e3291003588d67271c0f9813514b26fed8ec34f1be714a8a96b725b45669e71",
+    "outer_receipt_sha256": "cb1c7dc7d7fd32e920094b4f43fabf42ef982a7d5a735a17cf4c25a210bfeb90",
+    "status": "accepted"
+  },
+  "red": {
+    "id": 45538872739,
+    "attempt": 1,
+    "job_id": 138952174706,
+    "workflow_commit": "5b930b7d0ff152eb2a0f80e24e278033399f46cd",
+    "result_sha256": "53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168",
+    "status": "passed_expected_failures",
+    "duration_seconds": 6.934,
+    "failed": 6,
+    "passed": 0,
+    "ignored": 0,
+    "commands": [
+      {
+        "args": [
+          "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/target/debug/build/bead-rs/b0e4373cffa1e878/out/bead_rs-b0e4373cffa1e878",
+          "service::checkpoint::set_v2::tests::set_v2_staging_",
+          "--test-threads=1",
+          "--nocapture"
+        ],
+        "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+        "error": "harness-lib exited 101",
+        "exit_code": 101,
+        "finished": "2026-11-25T03:17:10.725733+00:00",
+        "label": "harness-lib",
+        "pgid": 2469,
+        "pid": 2469,
+        "started": "2026-11-25T03:17:10.715642+00:00",
+        "stderr": "logs/harness-lib.stderr",
+        "stdout": "logs/harness-lib.stdout"
+      },
+      {
+        "args": [
+          "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/target/debug/build/bead-rs/2354cbbf17db3a5a/out/attempt_receipt_checkpoint_integrity-2354cbbf17db3a5a",
+          "verified_restore_preserves_all_attempt_outcomes_from_set_v2",
+          "--exact",
+          "--test-threads=1",
+          "--nocapture"
+        ],
+        "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+        "error": "harness-attempt_receipt_checkpoint_integrity exited 101",
+        "exit_code": 101,
+        "finished": "2026-11-25T03:17:10.906729+00:00",
+        "label": "harness-attempt_receipt_checkpoint_integrity",
+        "pgid": 2473,
+        "pid": 2473,
+        "started": "2026-11-25T03:17:10.741022+00:00",
+        "stderr": "logs/harness-attempt_receipt_checkpoint_integrity.stderr",
+        "stdout": "logs/harness-attempt_receipt_checkpoint_integrity.stdout"
+      },
+      {
+        "args": [
+          "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/target/debug/build/bead-rs/ec998085bdfc0936/out/checkpoint_tail_generation_integrity-ec998085bdfc0936",
+          "--test-threads=1",
+          "--nocapture"
+        ],
+        "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+        "error": "harness-checkpoint_tail_generation_integrity exited 101",
+        "exit_code": 101,
+        "finished": "2026-11-25T03:17:11.386235+00:00",
+        "label": "harness-checkpoint_tail_generation_integrity",
+        "pgid": 2487,
+        "pid": 2487,
+        "started": "2026-11-25T03:17:10.918336+00:00",
+        "stderr": "logs/harness-checkpoint_tail_generation_integrity.stderr",
+        "stdout": "logs/harness-checkpoint_tail_generation_integrity.stdout"
+      }
+    ],
+    "owned_groups": [
+      {
+        "label": "harness-lib",
+        "pgid": 2469,
+        "remaining": false,
+        "signals": []
+      },
+      {
+        "label": "harness-attempt_receipt_checkpoint_integrity",
+        "pgid": 2473,
+        "remaining": false,
+        "signals": []
+      },
+      {
+        "label": "harness-checkpoint_tail_generation_integrity",
+        "pgid": 2487,
+        "remaining": false,
+        "signals": []
+      }
+    ],
+    "harnesses": [
+      {
+        "args": [
+          "service::checkpoint::set_v2::tests::set_v2_staging_",
+          "--test-threads=1",
+          "--nocapture"
+        ],
+        "duration_seconds": 0.011,
+        "exit_code": 101,
+        "failed": 3,
+        "ignored": 0,
+        "name": "lib",
+        "observations": [
+          {
+            "defect": "count",
+            "line": 1365,
+            "panic_sha256": "8981beebbc67aed47d7814fe97295fb9fd76a34374c2652ba2f8c24eece86920",
+            "source": "src/service/checkpoint/set_v2.rs",
+            "test": "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards"
+          },
+          {
+            "defect": "duplicate",
+            "line": 1392,
+            "panic_sha256": "c19f071b6936e4768ba882c2102885e6a14e42876addaa7972deff54014dcb0a",
+            "source": "src/service/checkpoint/set_v2.rs",
+            "test": "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards"
+          },
+          {
+            "defect": "duplicate",
+            "line": 1378,
+            "panic_sha256": "fdc3bed63452c8b357ebc32dc4b0e05f842dbfa49edcc3fba9121cfb8d853e59",
+            "source": "src/service/checkpoint/set_v2.rs",
+            "test": "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard"
+          }
+        ],
+        "passed": 0,
+        "status": "matched_expected_failures",
+        "stderr": {
+          "bytes": 4555,
+          "mode": 420,
+          "path": "logs/harness-lib.stderr",
+          "sha256": "8ce61987fa0cd7b9778c06f62f9b288eb69eb28cef55716c0a0c5a9e17ef130b"
+        },
+        "stdout": {
+          "bytes": 749,
+          "mode": 420,
+          "path": "logs/harness-lib.stdout",
+          "sha256": "33dc706efa8e1ce9bb5c484ef904809735fd4e7091c7f2a95d29fa8a765796a6"
+        }
+      },
+      {
+        "args": [
+          "verified_restore_preserves_all_attempt_outcomes_from_set_v2",
+          "--exact",
+          "--test-threads=1",
+          "--nocapture"
+        ],
+        "duration_seconds": 0.166,
+        "exit_code": 101,
+        "failed": 1,
+        "ignored": 0,
+        "name": "attempt_receipt_checkpoint_integrity",
+        "observations": [
+          {
+            "defect": "restore",
+            "line": 276,
+            "panic_sha256": "3baf7d3e26102d1d3a99fd072b62391ef927649d8db42cd8abf95984e30be686",
+            "source": "tests/attempt_receipt_checkpoint_integrity.rs",
+            "test": "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+          }
+        ],
+        "passed": 0,
+        "status": "matched_expected_failures",
+        "stderr": {
+          "bytes": 405,
+          "mode": 420,
+          "path": "logs/harness-attempt_receipt_checkpoint_integrity.stderr",
+          "sha256": "cde39cefa6145edf4209a82ed704170dac3ce1b60081a814e99be60c0a747925"
+        },
+        "stdout": {
+          "bytes": 278,
+          "mode": 420,
+          "path": "logs/harness-attempt_receipt_checkpoint_integrity.stdout",
+          "sha256": "05b75c08e1d7729568ca56b2b1e8e4612583948c9d0cb79023e864a58c8049c5"
+        }
+      },
+      {
+        "args": [
+          "--test-threads=1",
+          "--nocapture"
+        ],
+        "duration_seconds": 0.469,
+        "exit_code": 101,
+        "failed": 2,
+        "ignored": 0,
+        "name": "checkpoint_tail_generation_integrity",
+        "observations": [
+          {
+            "defect": "tail",
+            "line": 126,
+            "panic_sha256": "86b4a3b8dbc4a09868062a8c4b053210a53bcde708f5cc2a285f59014f9b2eab",
+            "source": "tests/checkpoint_tail_generation_integrity.rs",
+            "test": "legacy_fixed_tail_generation_remains_restorable_after_upgrade"
+          },
+          {
+            "defect": "tail",
+            "line": 126,
+            "panic_sha256": "2ffda271044f474280499410e8dc61f84a8d8703f4ce7cc9dd0f02bf41087af9",
+            "source": "tests/checkpoint_tail_generation_integrity.rs",
+            "test": "selected_set_v2_generation_remains_restorable_after_tail_append"
+          }
+        ],
+        "passed": 0,
+        "status": "matched_expected_failures",
+        "stderr": {
+          "bytes": 10761,
+          "mode": 420,
+          "path": "logs/harness-checkpoint_tail_generation_integrity.stderr",
+          "sha256": "8aebb357d23bcfe33c4f6f24cb4995c74f379cf1ac2e2915666e3125e0c162c3"
+        },
+        "stdout": {
+          "bytes": 431,
+          "mode": 420,
+          "path": "logs/harness-checkpoint_tail_generation_integrity.stdout",
+          "sha256": "e78f2c858d45f98e35be7eb3de50aab477b4ea066bf67daab705f6029fc969c1"
+        }
+      }
+    ],
+    "workflow_sha256": "99547804b6e3b4ff53ea24659b4cab0d094b451316c477295f25181a81b89765",
+    "full_job_log_sha256": "14605e62c877c3b679ca32986eb0fa28a36f074b750b20c02c765e2557207a31"
+  },
+  "raw_output": {
+    "read_all_14_files": true,
+    "read_all_six_streams": true,
+    "original_artifact": {
+      "id": 14988212379,
+      "name": "checkpoint-red-check-45538872739-1",
+      "size_in_bytes": 9580,
+      "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/14988212379",
+      "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/14988212379/zip",
+      "expired": false,
+      "created_at": "2026-11-25T03:17:13Z",
+      "expires_at": "2026-12-02T03:17:12Z",
+      "updated_at": "2026-11-25T03:17:13Z",
+      "digest": "sha256:56273f81cf738c31b9b8fca5c51aab2c6869df6b98d8516ede6f871049ac8cca",
+      "workflow_run": {
+        "id": 45538872739,
+        "repository_id": 1430517452,
+        "head_repository_id": 1430517452,
+        "head_branch": "task/checkpoint-red-check-20261125",
+        "head_sha": "5b930b7d0ff152eb2a0f80e24e278033399f46cd"
+      }
+    },
+    "read_only_extraction": {
+      "run_id": 45539450373,
+      "attempt": 1,
+      "job_id": 138954079792,
+      "workflow_commit": "1a5096a6cfe91096497aa02c3d1dbd56abed3f1e",
+      "receipt_sha256": "922781c0af2819e7804adfab62c0302ec3423fe5487ff2d337e58b5080be5318",
+      "workflow_sha256": "e260bb5010e6d4971b71e428ade89ecd3b8ec3bd269c0034235139dc8daed629",
+      "retained_artifact": {
+        "id": 14989020734,
+        "name": "checkpoint-red-complete-output-45539450373-1",
+        "size_in_bytes": 20667,
+        "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/14989020734",
+        "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/14989020734/zip",
+        "expired": false,
+        "created_at": "2026-11-25T03:22:05Z",
+        "expires_at": "2026-12-02T03:22:04Z",
+        "updated_at": "2026-11-25T03:22:05Z",
+        "digest": "sha256:5044dea7ac9bc6b4ae37a09f3a692d9279ea498b37f7aa89d91fc5e6c87fde9d",
+        "workflow_run": {
+          "id": 45539450373,
+          "repository_id": 1430517452,
+          "head_repository_id": 1430517452,
+          "head_branch": "task/checkpoint-red-streams-20261125",
+          "head_sha": "1a5096a6cfe91096497aa02c3d1dbd56abed3f1e"
+        }
+      },
+      "tests_repeated": false
+    },
+    "files": {
+      "attempt-started.json": {
+        "bytes": 1216,
+        "sha256": "e17b5b8e726b1b679088f8af2fd219a64d65d5abfb020a4a6229bf31e764a3fe"
+      },
+      "logs/harness-attempt_receipt_checkpoint_integrity.exit.json": {
+        "bytes": 823,
+        "sha256": "15a2d9691d75d34e120f604531cbc090ad3c508077da44aea845583348ba7968"
+      },
+      "logs/harness-attempt_receipt_checkpoint_integrity.started.json": {
+        "bytes": 652,
+        "sha256": "554255d637f31433af9dd3ed6c7c3847c0a500963b14d2ea272e998f238baac7"
+      },
+      "logs/harness-attempt_receipt_checkpoint_integrity.stderr": {
+        "bytes": 405,
+        "sha256": "cde39cefa6145edf4209a82ed704170dac3ce1b60081a814e99be60c0a747925"
+      },
+      "logs/harness-attempt_receipt_checkpoint_integrity.stdout": {
+        "bytes": 278,
+        "sha256": "05b75c08e1d7729568ca56b2b1e8e4612583948c9d0cb79023e864a58c8049c5"
+      },
+      "logs/harness-checkpoint_tail_generation_integrity.exit.json": {
+        "bytes": 741,
+        "sha256": "ea8662cc5683e080822471a83361f84c4462e92ea81af931588fb8aec50b20bc"
+      },
+      "logs/harness-checkpoint_tail_generation_integrity.started.json": {
+        "bytes": 570,
+        "sha256": "0d65d51efcf34db2e4d8b5adafc9077d9be7dc26941f0e0eaaf97663d343cd92"
+      },
+      "logs/harness-checkpoint_tail_generation_integrity.stderr": {
+        "bytes": 10761,
+        "sha256": "8aebb357d23bcfe33c4f6f24cb4995c74f379cf1ac2e2915666e3125e0c162c3"
+      },
+      "logs/harness-checkpoint_tail_generation_integrity.stdout": {
+        "bytes": 431,
+        "sha256": "e78f2c858d45f98e35be7eb3de50aab477b4ea066bf67daab705f6029fc969c1"
+      },
+      "logs/harness-lib.exit.json": {
+        "bytes": 639,
+        "sha256": "25a9b96997e0d786cd08becac93fd7b8989dd4a0515f207944ad618e3eec6878"
+      },
+      "logs/harness-lib.started.json": {
+        "bytes": 501,
+        "sha256": "f9a6376a9753015e80589f2f84b53086ed9ccc6f31c43193cb81b23c5538d16d"
+      },
+      "logs/harness-lib.stderr": {
+        "bytes": 4555,
+        "sha256": "8ce61987fa0cd7b9778c06f62f9b288eb69eb28cef55716c0a0c5a9e17ef130b"
+      },
+      "logs/harness-lib.stdout": {
+        "bytes": 749,
+        "sha256": "33dc706efa8e1ce9bb5c484ef904809735fd4e7091c7f2a95d29fa8a765796a6"
+      },
+      "result.json": {
+        "bytes": 8630,
+        "sha256": "53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168"
+      }
+    }
+  },
+  "semantic_results": [
+    {
+      "case": "Distinct attempt outcomes across shards",
+      "observed": "The actual staging-count assertion at set_v2.rs:1365 reports0 rather than2.",
+      "accepted": true
+    },
+    {
+      "case": "Duplicate attempt identity within one shard",
+      "observed": "unwrap_err at set_v2.rs:1378 receives Ok with both full duplicate attempt records.",
+      "accepted": true
+    },
+    {
+      "case": "Duplicate attempt identity across shards",
+      "observed": "unwrap_err at set_v2.rs:1392 receives Ok with both full duplicate attempt records.",
+      "accepted": true
+    },
+    {
+      "case": "First-class selected set-v2 restore",
+      "observed": "The real native restore reports pointer/staged mismatch only for outcomes2 versus0; issues1,events1,receipts0 andredactions0 agree. The test fails at attempt_receipt_checkpoint_integrity.rs:276.",
+      "accepted": true
+    },
+    {
+      "test": "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+      "original_tail_records": 1,
+      "overwritten_tail_records": 2,
+      "original_bytes": 380,
+      "overwritten_bytes": 757,
+      "original_tail_is_exact_prefix": true,
+      "added_title": "later issue",
+      "observed": "The exact selected-tail byte equality at checkpoint_tail_generation_integrity.rs:126 fails after the later publication. Earlier pointer/manifest and, for legacy input, real pre-append restore/inventory/source-byte assertions succeeded.",
+      "accepted": true
+    },
+    {
+      "test": "selected_set_v2_generation_remains_restorable_after_tail_append",
+      "original_tail_records": 1,
+      "overwritten_tail_records": 2,
+      "original_bytes": 380,
+      "overwritten_bytes": 757,
+      "original_tail_is_exact_prefix": true,
+      "added_title": "later issue",
+      "observed": "The exact selected-tail byte equality at checkpoint_tail_generation_integrity.rs:126 fails after the later publication. Earlier pointer/manifest and, for legacy input, real pre-append restore/inventory/source-byte assertions succeeded.",
+      "accepted": true
+    }
+  ],
+  "full_review": [
+    "Read the complete tests-only diff and all final four files against the original request, confirmed defects, established readers/publisher, first-class restore entry point and specification. Exact actual source matches the independently accepted corrected proposal.",
+    "Distinct and duplicate identity cases use real JSON parsing and filesystem inputs with complete attempt payloads; first-class restore checks both original receipt rows. Tail cases retain the selected pointer, manifest and bytes and later restore that exact generation.",
+    "The legacy fixed-tail fixture performs a real fresh restore and complete inventory comparison before mutation. Existing conformance checks retain their requirements while naming the new content-addressed layout.",
+    "No production repair is part of the Red source. All647 other baseline blobs and the original production prefix are unchanged.",
+    "Read complete successful compilation receipts and actual GitHub job output, then read all14 original Red files including every complete stdout/stderr and command started/exit record. Recomputed every byte length and SHA-256 from exact decoded files.",
+    "All three real harness commands exit101 normally; their complete libtest summaries account for exactly3+1+2 failures, zero passes and zero ignored/measured cases, at the intended six source locations. The retained process-group records contain no signal or residue.",
+    "The original failed first compile and its read-only path diagnostic remain retained. The corrected compile and actual Red run are separate successful qualification steps; expected failed tests are not described as passing tests."
+  ],
+  "findings": [],
+  "decision": "The permanent tests and all six intended Red failures are accepted. The planned narrow production repair may now proceed from this exact source under root coordination.",
+  "next_action": "Apply the separately reviewed repair-only change for beadrs-b72dc0dc, preserve these tests, and obtain the required Linux/Windows builds, execution results and complete default Rust suite before final repair acceptance.",
+  "git_result": {
+    "tests_commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "exact_source_and_tree_readback_verified": true,
+    "review_report_publication": "Root-reserved transfer publication follows this acceptance; reviewer changes no product files."
+  },
+  "reviewer_execution": {
+    "product_tests": false,
+    "builds": false,
+    "pc_actions": false,
+    "canonical_task_writes": false
+  },
+  "cleanup": "Retain the exact source/results and all failed runs. Root or future agents must reconcile uncertain operations and clean only owned temporary branches/worktrees after durable retention and delivery."
+}

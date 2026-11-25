@@ -1,0 +1,34 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "scope": "Complete independent static review of the read-only extraction of already retained checkpoint Red outputs.",
+  "candidate_commit": "e6eef961c7de7bb81031ffa413607cc14dde9b32",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "files": {
+    "20261125/checkpoint-linux-red/complete-output/red-streams.workflow.yml": "e260bb5010e6d4971b71e428ade89ecd3b8ec3bd269c0034235139dc8daed629",
+    "20261125/checkpoint-linux-red/complete-output/author-audits.json": "12bdf49b5add9c34f0e894075a6f4a180b31b28a89fa2d6ec1d54459ac16fadb",
+    "20261125/checkpoint-linux-red/complete-output/red-result.json": "53f2398337802986c7b9471f2da2903fb94473928e8c58f2e68a891b074aa168"
+  },
+  "embedded_python_sha256": "908ff8ffc60251f99caeff447aea6484d127cfb9813d0e6fa306540b2e9cb42d",
+  "source_run": 45538872739,
+  "artifact_id": 14988212379,
+  "checks": [
+    "Read the entire workflow and embedded Python and both complete author inspections. The retained result is byte-identical to the actual result independently decoded from run45538872739.",
+    "Fixed producing run/head, artifact ID, result hash and six exact stdout/stderr lengths and hashes agree with the independently read Red receipt.",
+    "Fourteen exact text files are accepted: result, attempt marker, six raw streams and six command started/exit records derived from the fixed result. Symlinks, special entries, unexpected inventory and non-UTF-8 payloads fail.",
+    "Fresh owned output and256KiB per-file/512KiB aggregate/768KiB report bounds keep the read bounded. The encoded report retains exact raw bytes in Base64 and supplies its SHA-256.",
+    "Fresh exact branch push, standard ubuntu24.04 runner, official pinned download/upload actions and read-only contents/actions permissions. Five-minute job, two-minute read step and seven-day output retention remain bounded.",
+    "The workflow reads existing output only and does not compile or execute product tests; actual test results remain the original run. No changes to source, tests, native state or PC resource policy occur."
+  ],
+  "findings": [],
+  "decision": "Accepted for the root-authorized bounded existing-output read. Final test acceptance remains pending independent reading and hash verification of its actual returned raw streams.",
+  "cleanup": "Root or future agents reconcile and remove only task/checkpoint-red-streams-20261125 after durable result retention and handoff.",
+  "reviewer_execution": {
+    "tests": false,
+    "builds": false,
+    "pc_actions": false,
+    "canonical_state_writes": false
+  }
+}
