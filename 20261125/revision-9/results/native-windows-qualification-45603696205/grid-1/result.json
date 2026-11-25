@@ -1,0 +1,549 @@
+{
+  "artifact_id": 15016870072,
+  "build_result_sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+  "build_run": {
+    "attempt": "1",
+    "id": "45600413942",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d"
+  },
+  "commands": [
+    {
+      "args": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "-m",
+        "py_compile",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-9\\native-windows-check\\checkpoint-windows-check-20261125.py",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-9\\native-windows-check\\checkpoint-windows-build-20261125.py",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-9\\native-windows-check\\checkpoint-release-corpus-20261125.py"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:22:25.033000+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "parse-check-helpers",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 3828,
+      "started": "2026-11-25T11:22:24.671005+00:00",
+      "stderr": "logs/parse-check-helpers.stderr",
+      "stdout": "logs/parse-check-helpers.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45603696205-1\\release\\bead-checkpoint-2d801ba455b7.exe",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:22:29.384206+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "release-version",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 2780,
+      "started": "2026-11-25T11:22:29.310322+00:00",
+      "stderr": "logs/release-version.stderr",
+      "stdout": "logs/release-version.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45603696205-1\\release\\bead-checkpoint-2d801ba455b7.exe",
+        "capabilities"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:22:29.452679+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "release-capabilities",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 4048,
+      "started": "2026-11-25T11:22:29.384798+00:00",
+      "stderr": "logs/release-capabilities.stderr",
+      "stdout": "logs/release-capabilities.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45603696205-1\\release\\bead-checkpoint-2d801ba455b7.exe",
+        "update",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:22:29.521137+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "release-update-help",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 1048,
+      "started": "2026-11-25T11:22:29.453234+00:00",
+      "stderr": "logs/release-update-help.stderr",
+      "stdout": "logs/release-update-help.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:22:29.600596+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "checkpoint_set_v2_conformance-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 7096,
+      "started": "2026-11-25T11:22:29.525693+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-list.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_green_scenarios_under_out_of_band_change",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:24:15.820950+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "checkpoint_set_v2_conformance-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 9176,
+      "started": "2026-11-25T11:22:29.602602+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-0.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_green_scenarios_under_out_of_band_change",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:29:02.404895+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "checkpoint_set_v2_conformance-case-1",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 8916,
+      "started": "2026-11-25T11:24:15.824994+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-1.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-1.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_green_scenarios_under_out_of_band_change",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:29:17.071691+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "checkpoint_set_v2_conformance-case-2",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 3504,
+      "started": "2026-11-25T11:29:02.408469+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-2.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-2.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\81e1f39c11865c42\\out\\checkpoint_set_v2_conformance-81e1f39c11865c42.exe",
+        "set_v2_green_scenarios_under_out_of_band_change",
+        "--exact",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45600413942-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T11:29:31.770405+00:00",
+      "job_pids_after": [
+        7996,
+        8228,
+        8892
+      ],
+      "label": "checkpoint_set_v2_conformance-case-3",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        7996,
+        8228,
+        8892
+      ],
+      "pid": 6880,
+      "started": "2026-11-25T11:29:17.075193+00:00",
+      "stderr": "logs/checkpoint_set_v2_conformance-case-3.stderr",
+      "stdout": "logs/checkpoint_set_v2_conformance-case-3.stdout"
+    }
+  ],
+  "duration_seconds": 428.047,
+  "finished": "2026-11-25T11:29:32.717469+00:00",
+  "finished_epoch": 1795606172.717469,
+  "grid_results": [
+    {
+      "classification": "RED",
+      "failure_text": "publication 0 added 1789455 new blob bytes, budget is 262144",
+      "fixture": "store-deletion",
+      "scenario": "set-v2-budget-single-issue-update"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-budget-single-issue-update"
+    },
+    {
+      "classification": "RED",
+      "failure_text": "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400",
+      "fixture": "store-deletion",
+      "scenario": "set-v2-shard-split-on-update-storm"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-shard-split-on-update-storm"
+    }
+  ],
+  "helper_sha256": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc",
+  "input_sha256": "ca91b8bbb7e8b9d31c96abd4f0b4c35d6edaf50578721a0627f7e3a62660f558",
+  "inputs_and_source_unchanged": true,
+  "job_query_retries": [],
+  "listings": {
+    "checkpoint_set_v2_conformance": {
+      "file": {
+        "bytes": 517,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-list.stdout",
+        "sha256": "30e10480cb93e947f61ba76e023ac32aeb61948b8cd008e25e2fe016c3565557"
+      },
+      "tests": [
+        "set_v2_budget_single_issue_update",
+        "set_v2_concurrent_publication",
+        "set_v2_crash_ordering",
+        "set_v2_dual_layout_reader_equivalence",
+        "set_v2_forced_monolith_limits",
+        "set_v2_forensic_frozen",
+        "set_v2_green_scenarios_under_out_of_band_change",
+        "set_v2_migration_full_rewrite",
+        "set_v2_oversize_record_once_cost",
+        "set_v2_pointer_boundedness",
+        "set_v2_shard_merge_on_deletion",
+        "set_v2_shard_split_on_update_storm",
+        "set_v2_tail_seal_and_immutability"
+      ]
+    }
+  },
+  "logs_retention_days_required": 7,
+  "operation": "checkpoint-windows-checks",
+  "outer_windows_job_verification_required": true,
+  "owned_children_quiescent": true,
+  "owned_job_baseline": {
+    "pids": [
+      7996,
+      8228,
+      8892
+    ],
+    "policy": "supervisor, Python, and at most its one verified System32 console host",
+    "processes": [
+      {
+        "creation_filetime": "134400793427679170",
+        "image_name": "python.exe",
+        "image_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "parent_pid": 8228,
+        "pid": 7996,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400793343739374",
+        "image_name": "powershell.exe",
+        "image_path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "parent_pid": 5496,
+        "pid": 8228,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400793427721549",
+        "image_name": "conhost.exe",
+        "image_path": "C:\\Windows\\System32\\conhost.exe",
+        "parent_pid": 7996,
+        "pid": 8892,
+        "query_and_synchronization_handle_retained": true
+      }
+    ],
+    "schema_version": 1,
+    "validated_at": "2026-11-25T11:22:24.660500+00:00"
+  },
+  "partition": "grid-1",
+  "release_under_test": {
+    "executable": {
+      "bytes": 12243456,
+      "mode": 511,
+      "path": "release-under-test/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "metadata": {
+      "bytes": 2058,
+      "mode": 438,
+      "path": "release-under-test/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    }
+  },
+  "run": {
+    "attempt": "1",
+    "id": "45603696205",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+    "workflow_ref": "YossiMH/bead-me-up-scotty/.github/workflows/native-final-windows-v9-20261125.yml@refs/heads/task/checkpoint-windows-v9-check-20261125"
+  },
+  "schema_version": 1,
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "started": "2026-11-25T11:22:24.660500+00:00",
+  "status": "passed",
+  "target": "x86_64-pc-windows-msvc",
+  "test_results": [
+    {
+      "case": "set-v2-budget-single-issue-update-store-deletion",
+      "duration_seconds": 106.219,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "RED",
+        "failure_text": "publication 0 added 1789455 new blob bytes, budget is 262144",
+        "fixture": "store-deletion",
+        "scenario": "set-v2-budget-single-issue-update"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-0",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "store-deletion",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-budget-single-issue-update"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 542,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stderr",
+        "sha256": "c79574e06d792589d84267704f0f34d9dad45253e1ba2059c9d43434dc86b5f9"
+      },
+      "stdout": {
+        "bytes": 175,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-0.stdout",
+        "sha256": "201fe8153321707c2b3b9b6dd33daa8c2b97a88a4be30619a3ec6fa62e7e9b41"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1\\tmp\\checkpoint_set_v2_conformance-case-0",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-budget-single-issue-update-orphan-set-files",
+      "duration_seconds": 286.562,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-budget-single-issue-update"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-1",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "orphan-set-files",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-budget-single-issue-update"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 197,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stderr",
+        "sha256": "1c354505087ab953610aa20ebbb3cb76c51b8f4aca6bdd1ab5c0f1a49bf47078"
+      },
+      "stdout": {
+        "bytes": 175,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-1.stdout",
+        "sha256": "c38d10428dd3aedc9525287aa456dc2cf5b5ebe24405ce7fee2e86e44d34c04b"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1\\tmp\\checkpoint_set_v2_conformance-case-1",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-shard-split-on-update-storm-store-deletion",
+      "duration_seconds": 14.656,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "RED",
+        "failure_text": "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400",
+        "fixture": "store-deletion",
+        "scenario": "set-v2-shard-split-on-update-storm"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-2",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "store-deletion",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-shard-split-on-update-storm"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 594,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stderr",
+        "sha256": "ef9f7101bc0ba5e0052daf3607afcc65f474ea911109cd5939daa53bc4967552"
+      },
+      "stdout": {
+        "bytes": 216,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-2.stdout",
+        "sha256": "daf9dd9b5a9de98e776c0e9a9980301ee3bfe0c346acf61f5d3b67145391e3e2"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1\\tmp\\checkpoint_set_v2_conformance-case-2",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    },
+    {
+      "case": "set-v2-shard-split-on-update-storm-orphan-set-files",
+      "duration_seconds": 14.703,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 12,
+      "grid_cell": {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-shard-split-on-update-storm"
+      },
+      "ignored": 0,
+      "label": "checkpoint_set_v2_conformance-case-3",
+      "measured": 0,
+      "passed": 1,
+      "selectors": {
+        "SET_V2_OOB_PROBE_FIXTURES": "orphan-set-files",
+        "SET_V2_OOB_PROBE_SCENARIOS": "set-v2-shard-split-on-update-storm"
+      },
+      "status": "passed",
+      "stderr": {
+        "bytes": 199,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stderr",
+        "sha256": "8d476b86bb25a35e03c621425ed509f1064c0012781525601c7d2c1dc190eb1a"
+      },
+      "stdout": {
+        "bytes": 216,
+        "mode": 438,
+        "path": "logs/checkpoint_set_v2_conformance-case-3.stdout",
+        "sha256": "f1ce2a419c1687e4073558c8b4cea5574c2dc0d26718d6480fdeb538aee30bd5"
+      },
+      "target": "checkpoint_set_v2_conformance",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1\\tmp\\checkpoint_set_v2_conformance-case-3",
+      "tests": [
+        "set_v2_green_scenarios_under_out_of_band_change"
+      ]
+    }
+  ],
+  "window_deadline_epoch": 1795614101,
+  "window_start_epoch": 1795605701
+}

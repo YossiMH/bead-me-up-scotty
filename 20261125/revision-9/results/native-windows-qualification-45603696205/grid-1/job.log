@@ -1,0 +1,656 @@
+﻿2026-11-25T11:21:48.8327317Z Current runner version: '2.338.2'
+2026-11-25T11:21:48.8348379Z ##[group]Runner Image Provisioner
+2026-11-25T11:21:48.8348921Z Hosted Compute Agent
+2026-11-25T11:21:48.8349314Z Version: 20261111.635
+2026-11-25T11:21:48.8349671Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-25T11:21:48.8350067Z Build Date: 2026-11-11T01:49:01Z
+2026-11-25T11:21:48.8350493Z Worker ID: {c5f9a6c2-a610-4bc0-84ab-8c6c9d028844}
+2026-11-25T11:21:48.8350889Z Region: westus3
+2026-11-25T11:21:48.8351204Z Cloud: Azure
+2026-11-25T11:21:48.8351513Z ##[endgroup]
+2026-11-25T11:21:48.8352781Z ##[group]Operating System
+2026-11-25T11:21:48.8353162Z Microsoft Windows Server 2025
+2026-11-25T11:21:48.8353525Z 10.0.26100
+2026-11-25T11:21:48.8353822Z Datacenter
+2026-11-25T11:21:48.8354131Z ##[endgroup]
+2026-11-25T11:21:48.8354441Z ##[group]Runner Image
+2026-11-25T11:21:48.8354863Z Image: windows-2025-vs2026
+2026-11-25T11:21:48.8355234Z Version: 20261116.315.1
+2026-11-25T11:21:48.8356304Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261116.315/images/windows/Windows2025-VS2026-Readme.md
+2026-11-25T11:21:48.8357205Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261116.315
+2026-11-25T11:21:48.8357764Z ##[endgroup]
+2026-11-25T11:21:48.8358457Z ##[group]GITHUB_TOKEN Permissions
+2026-11-25T11:21:48.8359749Z Actions: read
+2026-11-25T11:21:48.8360081Z Contents: read
+2026-11-25T11:21:48.8360434Z Metadata: read
+2026-11-25T11:21:48.8360784Z ##[endgroup]
+2026-11-25T11:21:48.8362349Z Secret source: Actions
+2026-11-25T11:21:48.8362873Z Cache mode: write
+2026-11-25T11:21:48.8363293Z Prepare workflow directory
+2026-11-25T11:21:48.8752297Z Prepare all required actions
+2026-11-25T11:21:48.8798798Z Getting action download info
+2026-11-25T11:21:49.2101954Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-25T11:21:49.4593551Z Download action repository 'actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-11-25T11:21:50.1085315Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-25T11:21:50.3732378Z Complete job name: Windows grid-1
+2026-11-25T11:21:50.5551196Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-25T11:21:50.5553124Z with:
+2026-11-25T11:21:50.5553384Z   ref: 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:21:50.5553686Z   path: ci
+2026-11-25T11:21:50.5553907Z   persist-credentials: false
+2026-11-25T11:21:50.5554258Z   sparse-checkout: 20261125/revision-9/native-windows-check
+
+2026-11-25T11:21:50.5554634Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:21:50.5557072Z   token: ***
+2026-11-25T11:21:50.5557295Z   ssh-strict: true
+2026-11-25T11:21:50.5557518Z   ssh-user: git
+2026-11-25T11:21:50.5557734Z   clean: true
+2026-11-25T11:21:50.5558056Z   sparse-checkout-cone-mode: true
+2026-11-25T11:21:50.5558405Z   fetch-depth: 1
+2026-11-25T11:21:50.5558626Z   fetch-tags: false
+2026-11-25T11:21:50.5558853Z   show-progress: true
+2026-11-25T11:21:50.5559086Z   lfs: false
+2026-11-25T11:21:50.5559294Z   submodules: false
+2026-11-25T11:21:50.5559527Z   set-safe-directory: true
+2026-11-25T11:21:50.5559828Z   allow-unsafe-pr-checkout: false
+2026-11-25T11:21:50.5560235Z env:
+2026-11-25T11:21:50.5560596Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:21:50.5561193Z   SCOTTY_WINDOWS_PARTITION: grid-1
+2026-11-25T11:21:50.5561474Z   SCOTTY_WINDOWS_START_EPOCH: 1795605701
+2026-11-25T11:21:50.5561770Z   SCOTTY_WINDOWS_DEADLINE_EPOCH: 1795614101
+2026-11-25T11:21:50.5562057Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:21:50.5562298Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:21:50.5562563Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:21:50.5562819Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:21:50.5563074Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:21:50.5564786Z ##[endgroup]
+2026-11-25T11:21:50.6852564Z Syncing repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:21:50.6853874Z ##[group]Getting Git version info
+2026-11-25T11:21:50.6854286Z Working directory is 'D:\a\bead-me-up-scotty\bead-me-up-scotty\ci'
+2026-11-25T11:21:50.7973333Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T11:21:51.3175821Z git version 2.56.1.windows.1
+2026-11-25T11:21:51.3225656Z ##[endgroup]
+2026-11-25T11:21:51.3242272Z Temporarily overriding HOME='D:\a\_temp\53ed1a51-11ed-4ff3-afc9-aaaa3b1dfbd7' before making global git config changes
+2026-11-25T11:21:51.3243513Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:21:51.3251788Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T11:21:51.4099102Z ##[group]Determining repository object format
+2026-11-25T11:21:51.4101299Z ##[endgroup]
+2026-11-25T11:21:51.4101777Z ##[group]Initializing the repository
+2026-11-25T11:21:51.4109768Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T11:21:51.5665031Z Initialized empty Git repository in D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/
+2026-11-25T11:21:51.5716787Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:21:51.6757472Z ##[endgroup]
+2026-11-25T11:21:51.6758418Z ##[group]Disabling automatic garbage collection
+2026-11-25T11:21:51.6766855Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-25T11:21:51.7090869Z ##[endgroup]
+2026-11-25T11:21:51.7091822Z ##[group]Setting up auth
+2026-11-25T11:21:51.7092482Z Removing SSH command configuration
+2026-11-25T11:21:51.7099309Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:21:51.7422042Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:21:53.1383501Z Removing HTTP extra header
+2026-11-25T11:21:53.1394577Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:21:53.1708515Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:21:53.7010804Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:21:53.7021120Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:21:53.7371741Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:21:54.2947557Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-25T11:21:54.3347634Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:54.3699709Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:54.4026631Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:54.4373403Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:54.4724778Z ##[endgroup]
+2026-11-25T11:21:54.4725723Z ##[group]Fetching the repository
+2026-11-25T11:21:54.4738791Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:21:55.5695876Z From https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:21:55.5696617Z  * branch            07ea5205bd8d11d753ada8c29ba2b483c7c8de0b -> FETCH_HEAD
+2026-11-25T11:21:55.5736825Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse --verify --quiet 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b^{object}
+2026-11-25T11:21:55.6010195Z 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:21:55.6046455Z ##[endgroup]
+2026-11-25T11:21:55.6046800Z ##[group]Determining the checkout info
+2026-11-25T11:21:55.6047862Z ##[endgroup]
+2026-11-25T11:21:55.6048111Z ##[group]Setting up sparse checkout
+2026-11-25T11:21:55.6055732Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout set 20261125/revision-9/native-windows-check
+2026-11-25T11:21:55.6377640Z ##[endgroup]
+2026-11-25T11:21:55.6378161Z ##[group]Checking out the ref
+2026-11-25T11:21:55.6387372Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:21:56.6731569Z Updating files:  25% (15/58)
+2026-11-25T11:21:56.6734422Z Updating files:  27% (16/58)
+2026-11-25T11:21:56.6736824Z Updating files:  29% (17/58)
+2026-11-25T11:21:56.6738762Z Updating files:  31% (18/58)
+2026-11-25T11:21:56.6741127Z Updating files:  32% (19/58)
+2026-11-25T11:21:56.6743056Z Updating files:  34% (20/58)
+2026-11-25T11:21:56.6744884Z Updating files:  36% (21/58)
+2026-11-25T11:21:56.6747376Z Updating files:  37% (22/58)
+2026-11-25T11:21:56.6751215Z Updating files:  39% (23/58)
+2026-11-25T11:21:56.6754032Z Updating files:  41% (24/58)
+2026-11-25T11:21:56.6756604Z Updating files:  43% (25/58)
+2026-11-25T11:21:56.6760267Z Updating files:  44% (26/58)
+2026-11-25T11:21:56.6764392Z Updating files:  46% (27/58)
+2026-11-25T11:21:56.6767077Z Updating files:  48% (28/58)
+2026-11-25T11:21:56.6772189Z Updating files:  50% (29/58)
+2026-11-25T11:21:56.6774220Z Updating files:  51% (30/58)
+2026-11-25T11:21:56.6778359Z Updating files:  53% (31/58)
+2026-11-25T11:21:56.6787230Z Updating files:  55% (32/58)
+2026-11-25T11:21:56.6797556Z Updating files:  56% (33/58)
+2026-11-25T11:21:56.6805809Z Updating files:  58% (34/58)
+2026-11-25T11:21:56.6814871Z Updating files:  60% (35/58)
+2026-11-25T11:21:56.6823847Z Updating files:  62% (36/58)
+2026-11-25T11:21:56.6831656Z Updating files:  63% (37/58)
+2026-11-25T11:21:56.6839795Z Updating files:  65% (38/58)
+2026-11-25T11:21:56.6847331Z Updating files:  67% (39/58)
+2026-11-25T11:21:56.6855532Z Updating files:  68% (40/58)
+2026-11-25T11:21:56.6869942Z Updating files:  70% (41/58)
+2026-11-25T11:21:56.6885976Z Updating files:  72% (42/58)
+2026-11-25T11:21:56.6888346Z Updating files:  74% (43/58)
+2026-11-25T11:21:56.6890261Z Updating files:  75% (44/58)
+2026-11-25T11:21:56.6893251Z Updating files:  77% (45/58)
+2026-11-25T11:21:56.6906345Z Updating files:  79% (46/58)
+2026-11-25T11:21:56.6916041Z Updating files:  81% (47/58)
+2026-11-25T11:21:56.6924244Z Updating files:  82% (48/58)
+2026-11-25T11:21:56.6934994Z Updating files:  84% (49/58)
+2026-11-25T11:21:56.6939952Z Updating files:  86% (50/58)
+2026-11-25T11:21:56.6943264Z Updating files:  87% (51/58)
+2026-11-25T11:21:56.6946260Z Updating files:  89% (52/58)
+2026-11-25T11:21:56.6949041Z Updating files:  91% (53/58)
+2026-11-25T11:21:56.6951477Z Updating files:  93% (54/58)
+2026-11-25T11:21:56.6953340Z Updating files:  94% (55/58)
+2026-11-25T11:21:56.6955003Z Updating files:  96% (56/58)
+2026-11-25T11:21:56.6956769Z Updating files:  98% (57/58)
+2026-11-25T11:21:56.6957483Z Updating files: 100% (58/58)
+2026-11-25T11:21:56.6958135Z Updating files: 100% (58/58), done.
+2026-11-25T11:21:56.7029267Z Note: switching to '07ea5205bd8d11d753ada8c29ba2b483c7c8de0b'.
+2026-11-25T11:21:56.7029587Z 
+2026-11-25T11:21:56.7029752Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T11:21:56.7030166Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T11:21:56.7030553Z state without impacting any branches by switching back to a branch.
+2026-11-25T11:21:56.7030767Z 
+2026-11-25T11:21:56.7030921Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T11:21:56.7031254Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T11:21:56.7031453Z 
+2026-11-25T11:21:56.7031605Z   git switch -c <new-branch-name>
+2026-11-25T11:21:56.7031733Z 
+2026-11-25T11:21:56.7031805Z Or undo this operation with:
+2026-11-25T11:21:56.7031908Z 
+2026-11-25T11:21:56.7031964Z   git switch -
+2026-11-25T11:21:56.7032053Z 
+2026-11-25T11:21:56.7032194Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T11:21:56.7032402Z 
+2026-11-25T11:21:56.7032646Z HEAD is now at 07ea520 Bind revision 9 Windows qualification to verified final native outputs
+2026-11-25T11:21:56.7093926Z ##[endgroup]
+2026-11-25T11:21:56.7405479Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-25T11:21:56.7666429Z 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:21:56.7707963Z ##[group]Removing auth
+2026-11-25T11:21:56.7708256Z Removing SSH command configuration
+2026-11-25T11:21:56.7715569Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:21:56.8016863Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:21:57.3025672Z Removing HTTP extra header
+2026-11-25T11:21:57.3041873Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:21:57.3371879Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:21:57.9347419Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:21:57.9352620Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:21:57.9712898Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:21:57.9713446Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:21:57.9713816Z includeif.gitdir:/github/workspace/ci/.git.path
+2026-11-25T11:21:57.9714115Z includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path
+2026-11-25T11:21:57.9760249Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:21:58.0149704Z D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:58.0204901Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:58.0772722Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:21:58.1056243Z D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:58.1100163Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:58.1470340Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/ci/.git.path
+2026-11-25T11:21:58.1754013Z /github/runner_temp/git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:58.1795538Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:58.2112731Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path
+2026-11-25T11:21:58.2385781Z /github/runner_temp/git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:58.2425863Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:21:58.2737434Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:21:58.7552910Z Removing credentials config 'D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config'
+2026-11-25T11:21:58.7563594Z ##[endgroup]
+2026-11-25T11:21:58.7905470Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-25T11:21:58.7905728Z with:
+2026-11-25T11:21:58.7905859Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:21:58.7906039Z   ref: 6d40aacb49eba309f1f925e106cfbb9026cce744
+2026-11-25T11:21:58.7906198Z   path: job
+2026-11-25T11:21:58.7906316Z   persist-credentials: false
+2026-11-25T11:21:58.7906462Z   sparse-checkout-cone-mode: false
+2026-11-25T11:21:58.7906620Z   sparse-checkout: windows-task-job.ps1
+2026-11-25T11:21:58.7908243Z   token: ***
+2026-11-25T11:21:58.7908355Z   ssh-strict: true
+2026-11-25T11:21:58.7908464Z   ssh-user: git
+2026-11-25T11:21:58.7908581Z   clean: true
+2026-11-25T11:21:58.7908686Z   fetch-depth: 1
+2026-11-25T11:21:58.7908796Z   fetch-tags: false
+2026-11-25T11:21:58.7908908Z   show-progress: true
+2026-11-25T11:21:58.7909016Z   lfs: false
+2026-11-25T11:21:58.7909115Z   submodules: false
+2026-11-25T11:21:58.7909227Z   set-safe-directory: true
+2026-11-25T11:21:58.7909397Z   allow-unsafe-pr-checkout: false
+2026-11-25T11:21:58.7909538Z env:
+2026-11-25T11:21:58.7909745Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:21:58.7909988Z   SCOTTY_WINDOWS_PARTITION: grid-1
+2026-11-25T11:21:58.7910130Z   SCOTTY_WINDOWS_START_EPOCH: 1795605701
+2026-11-25T11:21:58.7910283Z   SCOTTY_WINDOWS_DEADLINE_EPOCH: 1795614101
+2026-11-25T11:21:58.7910432Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:21:58.7910553Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:21:58.7910703Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:21:58.7910835Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:21:58.7910964Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:21:58.7911087Z ##[endgroup]
+2026-11-25T11:21:58.8728493Z Syncing repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:21:58.8732674Z ##[group]Getting Git version info
+2026-11-25T11:21:58.8733093Z Working directory is 'D:\a\bead-me-up-scotty\bead-me-up-scotty\job'
+2026-11-25T11:21:58.9113841Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T11:21:58.9392821Z git version 2.56.1.windows.1
+2026-11-25T11:21:58.9434869Z ##[endgroup]
+2026-11-25T11:21:58.9447793Z Temporarily overriding HOME='D:\a\_temp\38113214-f3dd-4ddc-b6d4-f55d095c3361' before making global git config changes
+2026-11-25T11:21:58.9448199Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:21:58.9455185Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\job
+2026-11-25T11:21:58.9758592Z ##[group]Determining repository object format
+2026-11-25T11:21:58.9760937Z ##[endgroup]
+2026-11-25T11:21:58.9762247Z ##[group]Initializing the repository
+2026-11-25T11:21:58.9786546Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\bead-me-up-scotty\bead-me-up-scotty\job
+2026-11-25T11:21:59.0162309Z Initialized empty Git repository in D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git/
+2026-11-25T11:21:59.0215511Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:21:59.0554129Z ##[endgroup]
+2026-11-25T11:21:59.0554467Z ##[group]Disabling automatic garbage collection
+2026-11-25T11:21:59.0562689Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-25T11:21:59.0896461Z ##[endgroup]
+2026-11-25T11:21:59.0896721Z ##[group]Setting up auth
+2026-11-25T11:21:59.0898130Z Removing SSH command configuration
+2026-11-25T11:21:59.0908277Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:21:59.1218957Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:21:59.5907945Z Removing HTTP extra header
+2026-11-25T11:21:59.5918080Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:21:59.6227340Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:22:00.0987925Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:22:00.0997301Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:22:00.1312800Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:22:00.5898962Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-25T11:22:00.6216089Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git.path D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:00.6512946Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git/worktrees/*.path D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:00.6814948Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/job/.git.path /github/runner_temp/git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:00.7116136Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/job/.git/worktrees/*.path /github/runner_temp/git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:00.7418519Z ##[endgroup]
+2026-11-25T11:22:00.7418764Z ##[group]Fetching the repository
+2026-11-25T11:22:00.7430266Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin 6d40aacb49eba309f1f925e106cfbb9026cce744
+2026-11-25T11:22:01.2310354Z From https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:22:01.2310673Z  * branch            6d40aacb49eba309f1f925e106cfbb9026cce744 -> FETCH_HEAD
+2026-11-25T11:22:01.2350322Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse --verify --quiet 6d40aacb49eba309f1f925e106cfbb9026cce744^{object}
+2026-11-25T11:22:01.2615213Z 6d40aacb49eba309f1f925e106cfbb9026cce744
+2026-11-25T11:22:01.2649694Z ##[endgroup]
+2026-11-25T11:22:01.2650010Z ##[group]Determining the checkout info
+2026-11-25T11:22:01.2651424Z ##[endgroup]
+2026-11-25T11:22:01.2651915Z ##[group]Setting up sparse checkout
+2026-11-25T11:22:01.2659618Z [command]"C:\Program Files\Git\bin\git.exe" config core.sparseCheckout true
+2026-11-25T11:22:01.2959930Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse --git-path info/sparse-checkout
+2026-11-25T11:22:01.3216660Z .git/info/sparse-checkout
+2026-11-25T11:22:01.3255204Z ##[endgroup]
+2026-11-25T11:22:01.3255453Z ##[group]Checking out the ref
+2026-11-25T11:22:01.3262082Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force 6d40aacb49eba309f1f925e106cfbb9026cce744
+2026-11-25T11:22:01.7515635Z Note: switching to '6d40aacb49eba309f1f925e106cfbb9026cce744'.
+2026-11-25T11:22:01.7515985Z 
+2026-11-25T11:22:01.7516169Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T11:22:01.7516597Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T11:22:01.7517043Z state without impacting any branches by switching back to a branch.
+2026-11-25T11:22:01.7517344Z 
+2026-11-25T11:22:01.7517527Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T11:22:01.7517918Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T11:22:01.7518297Z 
+2026-11-25T11:22:01.7519181Z   git switch -c <new-branch-name>
+2026-11-25T11:22:01.7519389Z 
+2026-11-25T11:22:01.7519472Z Or undo this operation with:
+2026-11-25T11:22:01.7519611Z 
+2026-11-25T11:22:01.7519685Z   git switch -
+2026-11-25T11:22:01.7519786Z 
+2026-11-25T11:22:01.7519975Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T11:22:01.7520245Z 
+2026-11-25T11:22:01.7520459Z HEAD is now at 6d40aac Accept provisional cloud work with native reconciliation pending
+2026-11-25T11:22:01.7562078Z ##[endgroup]
+2026-11-25T11:22:01.7891780Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-25T11:22:01.8152907Z 6d40aacb49eba309f1f925e106cfbb9026cce744
+2026-11-25T11:22:01.8191790Z ##[group]Removing auth
+2026-11-25T11:22:01.8192027Z Removing SSH command configuration
+2026-11-25T11:22:01.8199192Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:22:01.8489245Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:22:02.2745642Z Removing HTTP extra header
+2026-11-25T11:22:02.2753715Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:22:02.3054189Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:22:02.7639259Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:22:02.7645812Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:22:02.7897950Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git.path
+2026-11-25T11:22:02.7898397Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git/worktrees/*.path
+2026-11-25T11:22:02.7898698Z includeif.gitdir:/github/workspace/job/.git.path
+2026-11-25T11:22:02.7898920Z includeif.gitdir:/github/workspace/job/.git/worktrees/*.path
+2026-11-25T11:22:02.7940213Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git.path
+2026-11-25T11:22:02.8202823Z D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:02.8247325Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git.path D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:02.8554775Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git/worktrees/*.path
+2026-11-25T11:22:02.8816227Z D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:02.8861229Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git/worktrees/*.path D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:02.9169768Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/job/.git.path
+2026-11-25T11:22:02.9437609Z /github/runner_temp/git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:02.9480483Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/job/.git.path /github/runner_temp/git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:02.9799029Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/job/.git/worktrees/*.path
+2026-11-25T11:22:03.0069021Z /github/runner_temp/git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:03.0110863Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/job/.git/worktrees/*.path /github/runner_temp/git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:22:03.0420441Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:22:03.4744909Z Removing credentials config 'D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config'
+2026-11-25T11:22:03.4754947Z ##[endgroup]
+2026-11-25T11:22:03.5057008Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-25T11:22:03.5057269Z with:
+2026-11-25T11:22:03.5057414Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:22:03.5057578Z   ref: a532a268df26cb719bf0411a9c36668e0c9f0b04
+2026-11-25T11:22:03.5057725Z   path: smoke
+2026-11-25T11:22:03.5057841Z   persist-credentials: false
+2026-11-25T11:22:03.5057984Z   sparse-checkout-cone-mode: false
+2026-11-25T11:22:03.5058139Z   sparse-checkout: windows-native-smoke.ps1
+2026-11-25T11:22:03.5059766Z   token: ***
+2026-11-25T11:22:03.5059877Z   ssh-strict: true
+2026-11-25T11:22:03.5059988Z   ssh-user: git
+2026-11-25T11:22:03.5060093Z   clean: true
+2026-11-25T11:22:03.5060197Z   fetch-depth: 1
+2026-11-25T11:22:03.5060304Z   fetch-tags: false
+2026-11-25T11:22:03.5060420Z   show-progress: true
+2026-11-25T11:22:03.5060531Z   lfs: false
+2026-11-25T11:22:03.5060627Z   submodules: false
+2026-11-25T11:22:03.5060741Z   set-safe-directory: true
+2026-11-25T11:22:03.5060919Z   allow-unsafe-pr-checkout: false
+2026-11-25T11:22:03.5061053Z env:
+2026-11-25T11:22:03.5061251Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:22:03.5061496Z   SCOTTY_WINDOWS_PARTITION: grid-1
+2026-11-25T11:22:03.5061642Z   SCOTTY_WINDOWS_START_EPOCH: 1795605701
+2026-11-25T11:22:03.5061799Z   SCOTTY_WINDOWS_DEADLINE_EPOCH: 1795614101
+2026-11-25T11:22:03.5061948Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:22:03.5062067Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:22:03.5062206Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:22:03.5062344Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:22:03.5062467Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:22:03.5062587Z ##[endgroup]
+2026-11-25T11:22:03.5869371Z Syncing repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:22:03.5873985Z ##[group]Getting Git version info
+2026-11-25T11:22:03.5874326Z Working directory is 'D:\a\bead-me-up-scotty\bead-me-up-scotty\smoke'
+2026-11-25T11:22:03.6222075Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T11:22:03.6509103Z git version 2.56.1.windows.1
+2026-11-25T11:22:03.6552235Z ##[endgroup]
+2026-11-25T11:22:03.6565522Z Temporarily overriding HOME='D:\a\_temp\666f27ad-2093-4a9d-895b-02e4bc8a17d7' before making global git config changes
+2026-11-25T11:22:03.6565985Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:22:03.6573517Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\smoke
+2026-11-25T11:22:03.6878465Z ##[group]Determining repository object format
+2026-11-25T11:22:03.6881141Z ##[endgroup]
+2026-11-25T11:22:03.6881515Z ##[group]Initializing the repository
+2026-11-25T11:22:03.6889918Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\bead-me-up-scotty\bead-me-up-scotty\smoke
+2026-11-25T11:22:03.7217325Z Initialized empty Git repository in D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git/
+2026-11-25T11:22:03.7264735Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:22:03.7588442Z ##[endgroup]
+2026-11-25T11:22:03.7588714Z ##[group]Disabling automatic garbage collection
+2026-11-25T11:22:03.7597030Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-25T11:22:03.7904887Z ##[endgroup]
+2026-11-25T11:22:03.7905152Z ##[group]Setting up auth
+2026-11-25T11:22:03.7906512Z Removing SSH command configuration
+2026-11-25T11:22:03.7915725Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:22:03.8219043Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:22:04.3446911Z Removing HTTP extra header
+2026-11-25T11:22:04.3458282Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:22:04.3751211Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:22:04.9279194Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:22:04.9288218Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:22:04.9583814Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:22:05.4035138Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-25T11:22:05.4353353Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git.path D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:05.4652599Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git/worktrees/*.path D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:05.4966096Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/smoke/.git.path /github/runner_temp/git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:05.5289393Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/smoke/.git/worktrees/*.path /github/runner_temp/git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:05.5593625Z ##[endgroup]
+2026-11-25T11:22:05.5593866Z ##[group]Fetching the repository
+2026-11-25T11:22:05.5605742Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin a532a268df26cb719bf0411a9c36668e0c9f0b04
+2026-11-25T11:22:05.9957780Z From https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:22:05.9958112Z  * branch            a532a268df26cb719bf0411a9c36668e0c9f0b04 -> FETCH_HEAD
+2026-11-25T11:22:05.9994883Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse --verify --quiet a532a268df26cb719bf0411a9c36668e0c9f0b04^{object}
+2026-11-25T11:22:06.0263343Z a532a268df26cb719bf0411a9c36668e0c9f0b04
+2026-11-25T11:22:06.0296293Z ##[endgroup]
+2026-11-25T11:22:06.0297863Z ##[group]Determining the checkout info
+2026-11-25T11:22:06.0298162Z ##[endgroup]
+2026-11-25T11:22:06.0298434Z ##[group]Setting up sparse checkout
+2026-11-25T11:22:06.0305359Z [command]"C:\Program Files\Git\bin\git.exe" config core.sparseCheckout true
+2026-11-25T11:22:06.0613237Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse --git-path info/sparse-checkout
+2026-11-25T11:22:06.0871833Z .git/info/sparse-checkout
+2026-11-25T11:22:06.0910956Z ##[endgroup]
+2026-11-25T11:22:06.0911224Z ##[group]Checking out the ref
+2026-11-25T11:22:06.0917811Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force a532a268df26cb719bf0411a9c36668e0c9f0b04
+2026-11-25T11:22:06.5631322Z Note: switching to 'a532a268df26cb719bf0411a9c36668e0c9f0b04'.
+2026-11-25T11:22:06.5631576Z 
+2026-11-25T11:22:06.5631712Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T11:22:06.5631996Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T11:22:06.5632270Z state without impacting any branches by switching back to a branch.
+2026-11-25T11:22:06.5632434Z 
+2026-11-25T11:22:06.5632537Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T11:22:06.5632791Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T11:22:06.5632947Z 
+2026-11-25T11:22:06.5633759Z   git switch -c <new-branch-name>
+2026-11-25T11:22:06.5633860Z 
+2026-11-25T11:22:06.5633920Z Or undo this operation with:
+2026-11-25T11:22:06.5634017Z 
+2026-11-25T11:22:06.5634067Z   git switch -
+2026-11-25T11:22:06.5634132Z 
+2026-11-25T11:22:06.5634255Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T11:22:06.5634435Z 
+2026-11-25T11:22:06.5634587Z HEAD is now at a532a26 Retain exact process identity diagnostics for Windows tray qualification
+2026-11-25T11:22:06.5677324Z ##[endgroup]
+2026-11-25T11:22:06.6002822Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-25T11:22:06.6265681Z a532a268df26cb719bf0411a9c36668e0c9f0b04
+2026-11-25T11:22:06.6305441Z ##[group]Removing auth
+2026-11-25T11:22:06.6305663Z Removing SSH command configuration
+2026-11-25T11:22:06.6312992Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:22:06.6627258Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:22:07.1404650Z Removing HTTP extra header
+2026-11-25T11:22:07.1413006Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:22:07.1721878Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:22:07.6438921Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:22:07.6446076Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:22:07.6720422Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git.path
+2026-11-25T11:22:07.6721199Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git/worktrees/*.path
+2026-11-25T11:22:07.6721752Z includeif.gitdir:/github/workspace/smoke/.git.path
+2026-11-25T11:22:07.6721967Z includeif.gitdir:/github/workspace/smoke/.git/worktrees/*.path
+2026-11-25T11:22:07.6766894Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git.path
+2026-11-25T11:22:07.7031740Z D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:07.7077317Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git.path D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:07.7390080Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git/worktrees/*.path
+2026-11-25T11:22:07.7657735Z D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:07.7701887Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git/worktrees/*.path D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:07.8026650Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/smoke/.git.path
+2026-11-25T11:22:07.8284661Z /github/runner_temp/git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:07.8325411Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/smoke/.git.path /github/runner_temp/git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:07.8635704Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/smoke/.git/worktrees/*.path
+2026-11-25T11:22:07.8896351Z /github/runner_temp/git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:07.8937736Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/smoke/.git/worktrees/*.path /github/runner_temp/git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:22:07.9246139Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:22:08.3991871Z Removing credentials config 'D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config'
+2026-11-25T11:22:08.4001322Z ##[endgroup]
+2026-11-25T11:22:08.4267794Z ##[group]Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+2026-11-25T11:22:08.4268075Z with:
+2026-11-25T11:22:08.4268203Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:22:08.4268348Z   run-id: 45600413942
+2026-11-25T11:22:08.4268463Z   artifact-ids: 15016870072
+2026-11-25T11:22:08.4268590Z   merge-multiple: true
+2026-11-25T11:22:08.4270147Z   github-token: ***
+2026-11-25T11:22:08.4270319Z   path: D:\a\_temp/checkpoint-windows-download-45603696205-1
+2026-11-25T11:22:08.4270522Z env:
+2026-11-25T11:22:08.4270722Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:22:08.4270962Z   SCOTTY_WINDOWS_PARTITION: grid-1
+2026-11-25T11:22:08.4271109Z   SCOTTY_WINDOWS_START_EPOCH: 1795605701
+2026-11-25T11:22:08.4271262Z   SCOTTY_WINDOWS_DEADLINE_EPOCH: 1795614101
+2026-11-25T11:22:08.4271454Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:22:08.4271632Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:22:08.4271860Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:22:08.4271992Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:22:08.4272113Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:22:08.4272227Z ##[endgroup]
+2026-11-25T11:22:08.5531568Z Downloading artifacts by ID
+2026-11-25T11:22:08.5535104Z Fetching artifact list for workflow run 45600413942 in repository YossiMH/bead-me-up-scotty
+2026-11-25T11:22:08.5595810Z (node:8224) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T11:22:08.5596669Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T11:22:08.5953749Z (node:8224) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-25T11:22:09.0198522Z Found 3 artifact(s)
+2026-11-25T11:22:09.0199096Z Preparing to download the following artifacts:
+2026-11-25T11:22:09.0199806Z - checkpoint-windows-native-45600413942-1 (ID: 15016870072, Size: 135629755, Expected Digest: sha256:2cbc3e874464fe2703cb2c74e8d714ae15769f1156492823240026cff01888b7)
+2026-11-25T11:22:09.0228103Z Downloading artifact '15016870072' from 'YossiMH/bead-me-up-scotty'
+2026-11-25T11:22:09.4930509Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/41f481ee-14f8-821a-9ff9-d3a06dd736dc/workflow-job-run-a7bfc6a2-649f-5e68-9afd-163b67dda84e/artifacts/c7df4ea8fa0be6f8b236b9e700e171bab64271d5a8c0d78c3f791229708f0e65.zip
+2026-11-25T11:22:09.4931324Z Starting download of artifact to: D:\a\_temp\checkpoint-windows-download-45603696205-1
+2026-11-25T11:22:09.8053866Z (node:8224) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-25T11:22:13.7810567Z SHA256 digest of downloaded artifact is 2cbc3e874464fe2703cb2c74e8d714ae15769f1156492823240026cff01888b7
+2026-11-25T11:22:13.7811046Z Artifact download completed successfully.
+2026-11-25T11:22:13.7811227Z Total of 1 artifact(s) downloaded
+2026-11-25T11:22:13.7820640Z Download artifact has finished successfully
+2026-11-25T11:22:13.8088113Z ##[group]Run $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-windows-check'
+2026-11-25T11:22:13.8088609Z [36;1m$packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-windows-check'[0m
+2026-11-25T11:22:13.8088963Z [36;1m$driver = Join-Path $packet 'checkpoint-windows-driver-20261125.ps1'[0m
+2026-11-25T11:22:13.8089497Z [36;1mif ((Get-FileHash -LiteralPath $driver -Algorithm SHA256).Hash.ToLowerInvariant() -cne '706acc980a6b70f1136fe8ea1b7367f1d8e7e1fbe5dcd4907a89c9b005cfac9f') { throw 'Driver bytes differ.' }[0m
+2026-11-25T11:22:13.8090113Z [36;1m$download = Join-Path $env:RUNNER_TEMP "checkpoint-windows-download-$($env:GITHUB_RUN_ID)-$($env:GITHUB_RUN_ATTEMPT)"[0m
+2026-11-25T11:22:13.8091012Z [36;1m& $driver -Phase check -Partition $env:SCOTTY_WINDOWS_PARTITION -PacketDirectory $packet -PacketSha256 $env:CHECK_PACKET_SHA256 -JobHelper (Join-Path $env:GITHUB_WORKSPACE 'job/windows-task-job.ps1') -ArtifactDirectory $download -SmokeHelper (Join-Path $env:GITHUB_WORKSPACE 'smoke/windows-native-smoke.ps1')[0m
+2026-11-25T11:22:13.8091715Z [36;1mif ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }[0m
+2026-11-25T11:22:13.8706594Z shell: C:\Program Files\PowerShell\7\pwsh.EXE -command ". '{0}'"
+2026-11-25T11:22:13.8706837Z env:
+2026-11-25T11:22:13.8707050Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:22:13.8707305Z   SCOTTY_WINDOWS_PARTITION: grid-1
+2026-11-25T11:22:13.8707455Z   SCOTTY_WINDOWS_START_EPOCH: 1795605701
+2026-11-25T11:22:13.8707613Z   SCOTTY_WINDOWS_DEADLINE_EPOCH: 1795614101
+2026-11-25T11:22:13.8707766Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:22:13.8707893Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:22:13.8708034Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:22:13.8708160Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:22:13.8708288Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:22:13.8708411Z ##[endgroup]
+2026-11-25T11:29:32.7954015Z CHECKPOINT_WINDOWS_SUPERVISOR_SHA256 ba9e9479d3d1b8694d34d18f91484da0da62d095bc428488e3627eef62d4a395
+2026-11-25T11:29:32.8008032Z CHECKPOINT_WINDOWS_SUPERVISOR_BASE64 ew0KICAgICJzY2hlbWFfdmVyc2lvbiI6ICAxLA0KICAgICJzdGF0dXMiOiAgInBhc3NlZCIsDQogICAgInBoYXNlIjogICJjaGVjayIsDQogICAgInN1cGVydmlzb3JfcGlkIjogIDgyMjgsDQogICAgInN1cGVydmlzb3Jfc3RhcnRlZF91dGMiOiAgIjIwMjYtMTEtMjVUMTE6MjI6MTQuMzczOTM3NFoiLA0KICAgICJzdGFydGVkX3V0YyI6ICAiMjAyNi0xMS0yNVQxMToyMjoyMC45ODUxMTExWiIsDQogICAgImRlYWRsaW5lX3NlY29uZHMiOiAgODMzMiwNCiAgICAic3VwZXJ2aXNvcl9zaGEyNTYiOiAgImFiYTFiZDYwNTNiZGVkM2EzNTBkOTZmZjkyZjU2ZWVkMmNlN2U5NzcyMmQzYjcwYTA2OTk5ZTViOWM5N2JhOWIiLA0KICAgICJoZWxwZXJfc2hhMjU2IjogICI4NGU0ODI2NzhkMTM0NjUyYTY0NjQ5Y2RmOGYwY2IzMDlhNmE5MjlkNDdlNGM3OTExZTk4MDU0YmE0M2Y4YmJjIiwNCiAgICAiaW5wdXRzX3NoYTI1NiI6ICAiY2E5MWI4YmJiN2U4YjlkMzFjOTZhYmQ0ZjBiNGMzNWQ2ZWRhZjUwNTc4NzIxYTA2MjdmN2UzYTYyNjYwZjU1OCIsDQogICAgImpvYl9oZWxwZXJfc2hhMjU2IjogICIyNzU4YTZmZjk0YzBlZWNkZmEzNjAzNjM0NjkwNjlkZmE4NDcwZWZjMWY5MTIyODgxMjE0NjkxOWE5Nzg5MjFmIiwNCiAgICAicHl0aG9uIjogICJDOlxcaG9zdGVkdG9vbGNhY2hlXFx3aW5kb3dzXFxQeXRob25cXDMuMTIuMTBcXHg2NFxccHl0aG9uLmV4ZSIsDQogICAgInB5dGhvbl9zaGEyNTYiOiAgIjRkNmY1ZjgxYTRiY2ExMTE5MWM0YzdjNmI0MzYzMjY5NGQwYTRjZTc0ZTA2ODYxOWQ4ZmRjMTYxZDQ2OTg1OWEiLA0KICAgICJvdXRwdXRfZGlyZWN0b3J5IjogICJEOlxcYVxcX3RlbXBcXGJlYWQtY2hlY2twb2ludC13aW5kb3dzLXN1cGVydmlzb3ItY2hlY2stNDU2MDM2OTYyMDUtMSIsDQogICAgIm93bmVkX2NoaWxkcmVuX3JlbWFpbmluZyI6ICAwLA0KICAgICJvdXRlcl9qb2JfY2xvc2VkX29uX3N1cGVydmlzb3JfZXhpdCI6ICB0cnVlLA0KICAgICJ3aW5kb3dfc3RhcnRfZXBvY2giOiAgMTc5NTYwNTcwMSwNCiAgICAid2luZG93X2RlYWRsaW5lX2Vwb2NoIjogIDE3OTU2MTQxMDEsDQogICAgInBvd2Vyc2hlbGxfdmVyc2lvbiI6ICAiNS4xLjI2MTAwLjMzODIyIiwNCiAgICAicGFyc2VkX3NjcmlwdHMiOiAgWw0KICAgICAgICAgICAgICAgICAgICAgICAgICAgIkQ6XFxhXFxiZWFkLW1lLXVwLXNjb3R0eVxcYmVhZC1tZS11cC1zY290dHlcXGNpXFwyMDI2MTEyNVxccmV2aXNpb24tOVxcbmF0aXZlLXdpbmRvd3MtY2hlY2tcXGNoZWNrcG9pbnQtd2luZG93cy1zdXBlcnZpc29yLTIwMjYxMTI1LnBzMSIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcam9iXFx3aW5kb3dzLXRhc2stam9iLnBzMSIsDQogICAgICAgICAgICAgICAgICAgICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcc21va2VcXHdpbmRvd3MtbmF0aXZlLXNtb2tlLnBzMSINCiAgICAgICAgICAgICAgICAgICAgICAgXSwNCiAgICAiaGVscGVyX3BpZCI6ICA3OTk2LA0KICAgICJoZWxwZXJfZXhpdF9jb2RlIjogIDAsDQogICAgIm93bmVkX2NoaWxkX3BpZHNfYWZ0ZXIiOiAgWw0KDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgXSwNCiAgICAib3duZWRfY2hpbGRyZW5fZW1wdHlfYmVmb3JlX291dGVyX2V4aXQiOiAgdHJ1ZSwNCiAgICAiZmluaXNoZWRfdXRjIjogICIyMDI2LTExLTI1VDExOjI5OjMyLjc4NDk5NDJaIiwNCiAgICAiZWxhcHNlZF9zZWNvbmRzIjogIDQzMC4wNA0KfQo=
+2026-11-25T11:29:35.3109596Z CHECKPOINT_WINDOWS_COMPLETION_SHA256 0819383376cacbe72f450280537eeba31f3abffc339faa0edee2b66938f2e304
+2026-11-25T11:29:35.3736511Z CHECKPOINT_WINDOWS_COMPLETION_BASE64 ew0KICAic2NoZW1hX3ZlcnNpb24iOiAxLA0KICAic3RhdHVzIjogInBhc3NlZCIsDQogICJwaGFzZSI6ICJjaGVjayIsDQogICJwYWNrZXRfc2hhMjU2IjogIjk0Nzk0YTllYzhjMTk2MTNjOGFlMGM0ZDQ5YzQ5NDAxOWU3ZjljMGUzYTk5N2MyODUxMjJlMTBhMGE2OGZkOWYiLA0KICAicnVuX2lkIjogIjQ1NjAzNjk2MjA1IiwNCiAgInJ1bl9hdHRlbXB0IjogIjEiLA0KICAid29ya2Zsb3dfY29tbWl0IjogIjA3ZWE1MjA1YmQ4ZDExZDc1M2FkYThjMjliYTJiNDgzYzdjOGRlMGIiLA0KICAicGFydGl0aW9uIjogImdyaWQtMSIsDQogICJzdXBlcnZpc29yX3Byb2Nlc3NfZXhpdGVkIjogdHJ1ZSwNCiAgIm93bmVkX2pvYl9lbXB0eV9hZnRlcl9zdXBlcnZpc29yX2V4aXQiOiB0cnVlLA0KICAic3VwZXJ2aXNvcl9leGl0X2NvZGUiOiAwLA0KICAic3VwZXJ2aXNvcl9yZXN1bHRfc2hhMjU2IjogImJhOWU5NDc5ZDNkMWI4Njk0ZDM0ZDE4ZjkxNDg0ZGEwZGE2MmQwOTViYzQyODQ4OGUzNjI3ZWVmNjJkNGEzOTUiLA0KICAic3VwZXJ2aXNvcl9waWQiOiA4MjI4LA0KICAicmV0YWluZWRfZmlsZXMiOiBbDQogICAgew0KICAgICAgInBhdGgiOiAicmVzdWx0Lmpzb24iLA0KICAgICAgImJ5dGVzIjogMTg2NTcsDQogICAgICAic2hhMjU2IjogIjYwYmI5MWQ0MGUzMDJlMWMwYTI4OTA4NjdiYTU2ZGNlNzQ0MTJhYTI0YjkyYzY5NDM5YmJjZmYzYTUyZDQ1ZGYiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJhdHRlbXB0LXN0YXJ0ZWQuanNvbiIsDQogICAgICAiYnl0ZXMiOiAyNTA0LA0KICAgICAgInNoYTI1NiI6ICI0YmNiOTBkMGQyODAyZGNiYjA2ZTZiZjI4ZTY4YjFiYWY5NmQ3YzAyMTMyMzRmNDQyMTQwMDNiMjcwMzBhZWEzIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTAuZXhpdC5qc29uIiwNCiAgICAgICJieXRlcyI6IDg2MSwNCiAgICAgICJzaGEyNTYiOiAiMGNiMjM5ZjBiNThlOWYyZmQzYzk1YWQwNmZlNzJkY2U5ZjUyYzc1MzFiMTQzZTM4MzdhOWVkNzgxYjc2MzZmMCINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0wLnN0YXJ0ZWQuanNvbiIsDQogICAgICAiYnl0ZXMiOiA3MDUsDQogICAgICAic2hhMjU2IjogImQ5NTI0YjhlYjAwMzA2NTJjMWJkYzc1NDE5OGQ3Mjk1Y2M4ZTllZWY0MDk4NTIyYTFmMzc3NjVlMWI5MDljODQiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMC5zdGRlcnIiLA0KICAgICAgImJ5dGVzIjogNTQyLA0KICAgICAgInNoYTI1NiI6ICJjNzk1NzRlMDZkNzkyNTg5ZDg0MjY3NzA0ZjBmMzRkOWRhZDQ1MjUzZTFiYTIwNTljOWQ0MzQzNGRjODZiNWY5Ig0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTAuc3Rkb3V0IiwNCiAgICAgICJieXRlcyI6IDE3NSwNCiAgICAgICJzaGEyNTYiOiAiMjAxZmU4MTUzMzIxNzA3YzJiM2I5YjZkZDMzZGFhOGMyYjk3YTg4YTRiZTMwNjE5YTNlYzZmYTYyZTdlOWI0MSINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0xLmV4aXQuanNvbiIsDQogICAgICAiYnl0ZXMiOiA4NjEsDQogICAgICAic2hhMjU2IjogImEzMzFhOTU2YmVkYzM2NzI1MThkYzIyY2JkNDk3ZmQxZGEyOWE3ZTVkODFiYTc1NTEyMTcxNDhmZmM1NTJmZmQiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMS5zdGFydGVkLmpzb24iLA0KICAgICAgImJ5dGVzIjogNzA1LA0KICAgICAgInNoYTI1NiI6ICIyZDZkM2U4NTlmNzBiZGI3NjBhYmE0NTJmYjE0ZGZjMWMyYWMwNWNlMjAyZmJmYjUwMTk1Njk3OTJlYmRiZDNlIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTEuc3RkZXJyIiwNCiAgICAgICJieXRlcyI6IDE5NywNCiAgICAgICJzaGEyNTYiOiAiMWMzNTQ1MDUwODdhYjk1MzYxMGFhMjBlYmJiM2NiNzZjNTFiOGY0YWNhNmJkZDFhYjVjMGYxYTQ5YmY0NzA3OCINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0xLnN0ZG91dCIsDQogICAgICAiYnl0ZXMiOiAxNzUsDQogICAgICAic2hhMjU2IjogImMzOGQxMDQyOGRkM2FlZGM5NTI1Mjg3YWE0NTZkYzJjZjViNWViZTI0NDA1Y2U3ZmVlMmU4NmU0NGQzNGMwNGIiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMi5leGl0Lmpzb24iLA0KICAgICAgImJ5dGVzIjogODYxLA0KICAgICAgInNoYTI1NiI6ICI5YTE5YTVmZDhkZjQ0ZTU5ZTQyMTMxYmY3YTEyYjBjM2Q0NmU4MzIwYzI0ZDFmZmIxYmFhOGJmOWY4MDk4YTlhIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTIuc3RhcnRlZC5qc29uIiwNCiAgICAgICJieXRlcyI6IDcwNSwNCiAgICAgICJzaGEyNTYiOiAiN2MzMGZkZmVlYzkwYjAxOWRiM2Y5ZGI5YjFkOTNlYTNhMGQ1OGIzODA2YWE5Y2RmMzRiZmY0YjUyNzgzMGI3MSINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0yLnN0ZGVyciIsDQogICAgICAiYnl0ZXMiOiA1OTQsDQogICAgICAic2hhMjU2IjogImVmOWY3MTAxYmMwYmE1ZTAwNTJkYWYzNjA3YWZjYzY1ZjQ3NGVhOTExMTA5Y2Q1OTM5ZGFhNTNiYzQ5Njc1NTIiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMi5zdGRvdXQiLA0KICAgICAgImJ5dGVzIjogMjE2LA0KICAgICAgInNoYTI1NiI6ICJkYWY5ZGQ5YjVhOWRlOThlNzc2YzBlOWE5OTgwMzAxZWUzYmZlMGMzNDZhY2Y2MWY1ZDNiNjcxNDUzOTFlM2UyIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTMuZXhpdC5qc29uIiwNCiAgICAgICJieXRlcyI6IDg2MSwNCiAgICAgICJzaGEyNTYiOiAiYzViM2VkYWQ4NTAyY2U5M2E3N2Q5MDM4ZGQ0OTg4YjkxNzY5MTg1YTk2MWRlNDQ4YmE5MDhlM2VmOGQ3NGVlNyINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0zLnN0YXJ0ZWQuanNvbiIsDQogICAgICAiYnl0ZXMiOiA3MDUsDQogICAgICAic2hhMjU2IjogIjI5NmNjNzhjY2E4Zjc5YmVhNGVhZWQwNTQ5OTMzMDI5NTc3N2EyM2EwZTRhNDg0MWIxY2FiZTA0MWVlNDJhYjUiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMy5zdGRlcnIiLA0KICAgICAgImJ5dGVzIjogMTk5LA0KICAgICAgInNoYTI1NiI6ICI4ZDQ3NmI4NmJiMjVhMzVlMDNjNjIxNDI1ZWQ1MDlmMTA2NGMwMDEyNzgxNTI1NjAxYzdkMmMxZGMxOTBlYjFhIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTMuc3Rkb3V0IiwNCiAgICAgICJieXRlcyI6IDIxNiwNCiAgICAgICJzaGEyNTYiOiAiZjFjZTJhNDE5YzE2ODdlNDA3MzU1OGM4YjRjZWE1NTc0YzJkYzBkMjY3MThkNjQ4MGZkZWI1MzhhZWUzMGJkNSINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtbGlzdC5leGl0Lmpzb24iLA0KICAgICAgImJ5dGVzIjogNzU1LA0KICAgICAgInNoYTI1NiI6ICI0N2RmMDcwODk5MGYxZGI2MDcxNTU3Mzg0M2EyNjdmYWNkODlhM2IyMDUzYjRjZmIzM2UxMzY5YzZlYzk4NGVlIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1saXN0LnN0YXJ0ZWQuanNvbiIsDQogICAgICAiYnl0ZXMiOiA1OTksDQogICAgICAic2hhMjU2IjogImRjZWRiNWRiY2I0NjNjOWM3MjcwMTRjYjhlOGYyNjQ1YmFhODE4MzMyNzExMzFlNGY0NGNmMzI4NzI4NzdkNTQiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWxpc3Quc3RkZXJyIiwNCiAgICAgICJieXRlcyI6IDAsDQogICAgICAic2hhMjU2IjogImUzYjBjNDQyOThmYzFjMTQ5YWZiZjRjODk5NmZiOTI0MjdhZTQxZTQ2NDliOTM0Y2E0OTU5OTFiNzg1MmI4NTUiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWxpc3Quc3Rkb3V0IiwNCiAgICAgICJieXRlcyI6IDUxNywNCiAgICAgICJzaGEyNTYiOiAiMzBlMTA0ODBjYjkzZTk0N2Y2MWJhNzZlMDIzYWMzMmFlYjYxOTQ4YjhjZDAwOGUyNWUyZmUwMTZjMzU2NTU1NyINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvcGFyc2UtY2hlY2staGVscGVycy5leGl0Lmpzb24iLA0KICAgICAgImJ5dGVzIjogMTAxMywNCiAgICAgICJzaGEyNTYiOiAiNGM3YWNlZTZhYThhZjU0MjQ1ODFlZjI0ZjM4MDMyY2M0MzI3NTIxMWI1Y2JiZjI4NjJjYjFjMjE3MWUyYTU4OCINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvcGFyc2UtY2hlY2staGVscGVycy5zdGFydGVkLmpzb24iLA0KICAgICAgImJ5dGVzIjogODU3LA0KICAgICAgInNoYTI1NiI6ICIzMWUxZjkwY2FjODZkMmNmNmFjNmQ4OWQ1OTk4ZDU0NGI3YWExZWNiMTI3ZjAzM2E5ZGVmYjQ1ZjM4MWQ3MzZlIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9wYXJzZS1jaGVjay1oZWxwZXJzLnN0ZGVyciIsDQogICAgICAiYnl0ZXMiOiAwLA0KICAgICAgInNoYTI1NiI6ICJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1Ig0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9wYXJzZS1jaGVjay1oZWxwZXJzLnN0ZG91dCIsDQogICAgICAiYnl0ZXMiOiAwLA0KICAgICAgInNoYTI1NiI6ICJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1Ig0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9yZWxlYXNlLWNhcGFiaWxpdGllcy5leGl0Lmpzb24iLA0KICAgICAgImJ5dGVzIjogNjMyLA0KICAgICAgInNoYTI1NiI6ICJlYWZhZTI5MGJkNzQ5MDVkNzFjODY3MzBkMWIwNzI0YWNjMTM5OGU1OGE5NGYxY2YyZTI1MGQ4MjRjOTdjZTQ1Ig0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9yZWxlYXNlLWNhcGFiaWxpdGllcy5zdGFydGVkLmpzb24iLA0KICAgICAgImJ5dGVzIjogNDc2LA0KICAgICAgInNoYTI1NiI6ICJjODFjMGQ3YmJjMWUwNmE0ZmMyYzY3OWUxNmQzOGE1ZjNjMTAxZTQyMDIzNTkyOGE5YWM3OWFlMDI5MWU2MjZjIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9yZWxlYXNlLWNhcGFiaWxpdGllcy5zdGRlcnIiLA0KICAgICAgImJ5dGVzIjogMCwNCiAgICAgICJzaGEyNTYiOiAiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvcmVsZWFzZS1jYXBhYmlsaXRpZXMuc3Rkb3V0IiwNCiAgICAgICJieXRlcyI6IDg1NTksDQogICAgICAic2hhMjU2IjogIjViMDVlZmQ5NDkwNDM4MzI2NmJmMjdkMmQ0NjE3ZmJmNzE1ZmZlMDhkN2JkODBkNDg1ZmRmMDkyZmMwZWU4NGYiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL3JlbGVhc2UtdXBkYXRlLWhlbHAuZXhpdC5qc29uIiwNCiAgICAgICJieXRlcyI6IDYzNywNCiAgICAgICJzaGEyNTYiOiAiYmQ3ZGUxNzg3NjhhYzg2MzhhMzI3NjdkZTA1NzEwNTYwNjk1NzczN2ZjMmI0MDdjZjVjNmRiZmZhNGUyZWQwOSINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvcmVsZWFzZS11cGRhdGUtaGVscC5zdGFydGVkLmpzb24iLA0KICAgICAgImJ5dGVzIjogNDgxLA0KICAgICAgInNoYTI1NiI6ICI4MzU1MzFhNmUwZGViYzRhNzA1ODhmZWZjYjJlYWI5NjA4ZjMxNjUzODE5YzUzNDc0YTgzZmUzMTg0Mzg1NWFhIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9yZWxlYXNlLXVwZGF0ZS1oZWxwLnN0ZGVyciIsDQogICAgICAiYnl0ZXMiOiAwLA0KICAgICAgInNoYTI1NiI6ICJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1Ig0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9yZWxlYXNlLXVwZGF0ZS1oZWxwLnN0ZG91dCIsDQogICAgICAiYnl0ZXMiOiA1NTUxLA0KICAgICAgInNoYTI1NiI6ICIwZjczY2M1ZjMwYTk2ZmQ3ZGYzMDcxODg4NDZiMzRhZjM3YTQ2NDBmYjc1OWVkN2IzYjQ3YmNkZTFmNDM2ODVlIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAibG9ncy9yZWxlYXNlLXZlcnNpb24uZXhpdC5qc29uIiwNCiAgICAgICJieXRlcyI6IDYxNCwNCiAgICAgICJzaGEyNTYiOiAiYWQ2NWJlZmZmZDE0OTQ2ZWY4ZWUwMjU0ZDIzOTBlMDEzNGQzZGMwYzhlZjk3NjI0MDllOTc0ZWJjODhhMDlmYiINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvcmVsZWFzZS12ZXJzaW9uLnN0YXJ0ZWQuanNvbiIsDQogICAgICAiYnl0ZXMiOiA0NTgsDQogICAgICAic2hhMjU2IjogIjk4MzU0MGQwYzBmNmRmNjc4ZmJmMTZmOGIwNjAwMTU4MjgyM2Y4MTM4NjYyZGJjZTg2YjIzZWI1OTg5YTBiMzIiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJsb2dzL3JlbGVhc2UtdmVyc2lvbi5zdGRlcnIiLA0KICAgICAgImJ5dGVzIjogMCwNCiAgICAgICJzaGEyNTYiOiAiZTNiMGM0NDI5OGZjMWMxNDlhZmJmNGM4OTk2ZmI5MjQyN2FlNDFlNDY0OWI5MzRjYTQ5NTk5MWI3ODUyYjg1NSINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogImxvZ3MvcmVsZWFzZS12ZXJzaW9uLnN0ZG91dCIsDQogICAgICAiYnl0ZXMiOiA0MiwNCiAgICAgICJzaGEyNTYiOiAiYmZmNDFlZTJjMjk1MWU4ZDUzOTMzNmUzM2ViY2QyNWRlMjdlMGUyNTU5MWMwZjQwNDQ5NDY3OGMxYmM2OWIyMSINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInJlbGVhc2UtdW5kZXItdGVzdC9iZWFkLWNoZWNrcG9pbnQtMmQ4MDFiYTQ1NWI3LmV4ZSIsDQogICAgICAiYnl0ZXMiOiAxMjI0MzQ1NiwNCiAgICAgICJzaGEyNTYiOiAiMDQzMWE4MjhiZjk1MDM4NjQxYTBjNTViNGNmMTFjNTgwMGI1Mjg4MTk0MGExM2JkMmY1NmIwMmYwYjI3MTc3YSINCiAgICB9LA0KICAgIHsNCiAgICAgICJwYXRoIjogInJlbGVhc2UtdW5kZXItdGVzdC9iZWFkLWNoZWNrcG9pbnQtMmQ4MDFiYTQ1NWI3LmV4ZS5tZXRhZGF0YS5qc29uIiwNCiAgICAgICJieXRlcyI6IDIwNTgsDQogICAgICAic2hhMjU2IjogIjIxY2E5MGUyOWZjNDU4OGQyM2IzMTIxMGNkNWZmZTY4MzhjMTM2Y2U3MGI3NjQ1OGI3MTM3MGJlZWVmZjE4ZjUiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJzdXBlcnZpc29yLXJlc3VsdC5qc29uIiwNCiAgICAgICJieXRlcyI6IDE4MTcsDQogICAgICAic2hhMjU2IjogImJhOWU5NDc5ZDNkMWI4Njk0ZDM0ZDE4ZjkxNDg0ZGEwZGE2MmQwOTViYzQyODQ4OGUzNjI3ZWVmNjJkNGEzOTUiDQogICAgfSwNCiAgICB7DQogICAgICAicGF0aCI6ICJoZWxwZXIuc3Rkb3V0IiwNCiAgICAgICJieXRlcyI6IDUyMjc3LA0KICAgICAgInNoYTI1NiI6ICJmNWFlZDdjZjNlNWIzYWJiMTJhOWUyNmE2MWQyNGM2MTE4OTVmY2I0OWRmMzViMjUzOGU2YzZhNWI0MjIwN2JmIg0KICAgIH0sDQogICAgew0KICAgICAgInBhdGgiOiAiaGVscGVyLnN0ZGVyciIsDQogICAgICAiYnl0ZXMiOiAwLA0KICAgICAgInNoYTI1NiI6ICJlM2IwYzQ0Mjk4ZmMxYzE0OWFmYmY0Yzg5OTZmYjkyNDI3YWU0MWU0NjQ5YjkzNGNhNDk1OTkxYjc4NTJiODU1Ig0KICAgIH0NCiAgXSwNCiAgImZpbmlzaGVkX3V0YyI6ICIyMDI2LTExLTI1VDExOjI5OjM1LjI3NDk3MDRaIg0KfQo=
+2026-11-25T11:29:35.4290639Z CHECKPOINT_WINDOWS_CHECK_RESULT_SHA256 60bb91d40e302e1c0a2890867ba56dce74412aa24b92c69439bbcff3a52d45df
+2026-11-25T11:29:35.7081752Z CHECKPOINT_WINDOWS_CHECK_RESULT_BASE64 ewogICJhcnRpZmFjdF9pZCI6IDE1MDE2ODcwMDcyLAogICJidWlsZF9yZXN1bHRfc2hhMjU2IjogIjFiYWY1MmU4ODk2MmRkZTc2YTUzNjEwMmMxMGU0MGMyYTkxNWFkYzE1ZGFkZDlhMTNmMjMzYTc2NzdmOTRjOWMiLAogICJidWlsZF9ydW4iOiB7CiAgICAiYXR0ZW1wdCI6ICIxIiwKICAgICJpZCI6ICI0NTYwMDQxMzk0MiIsCiAgICAicmVwb3NpdG9yeSI6ICJZb3NzaU1IL2JlYWQtbWUtdXAtc2NvdHR5IiwKICAgICJ3b3JrZmxvd19jb21taXQiOiAiOTc1ZDIxY2NhNDcwZGJjYTYxYTkyMjEzOTFiOThlZWViY2JhOWQxZCIKICB9LAogICJjb21tYW5kcyI6IFsKICAgIHsKICAgICAgImFyZ3MiOiBbCiAgICAgICAgIkM6XFxob3N0ZWR0b29sY2FjaGVcXHdpbmRvd3NcXFB5dGhvblxcMy4xMi4xMFxceDY0XFxweXRob24uZXhlIiwKICAgICAgICAiLW0iLAogICAgICAgICJweV9jb21waWxlIiwKICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcY2lcXDIwMjYxMTI1XFxyZXZpc2lvbi05XFxuYXRpdmUtd2luZG93cy1jaGVja1xcY2hlY2twb2ludC13aW5kb3dzLWNoZWNrLTIwMjYxMTI1LnB5IiwKICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcY2lcXDIwMjYxMTI1XFxyZXZpc2lvbi05XFxuYXRpdmUtd2luZG93cy1jaGVja1xcY2hlY2twb2ludC13aW5kb3dzLWJ1aWxkLTIwMjYxMTI1LnB5IiwKICAgICAgICAiRDpcXGFcXGJlYWQtbWUtdXAtc2NvdHR5XFxiZWFkLW1lLXVwLXNjb3R0eVxcY2lcXDIwMjYxMTI1XFxyZXZpc2lvbi05XFxuYXRpdmUtd2luZG93cy1jaGVja1xcY2hlY2twb2ludC1yZWxlYXNlLWNvcnB1cy0yMDI2MTEyNS5weSIKICAgICAgXSwKICAgICAgImN3ZCI6ICJEOlxcYVxcX3RlbXBcXGJlYWQtY2hlY2twb2ludC13aW5kb3dzLWNoZWNrLTQ1NjAzNjk2MjA1LTEiLAogICAgICAiZXJyb3IiOiBudWxsLAogICAgICAiZXhpdF9jb2RlIjogMCwKICAgICAgImZpbmlzaGVkIjogIjIwMjYtMTEtMjVUMTE6MjI6MjUuMDMzMDAwKzAwOjAwIiwKICAgICAgImpvYl9waWRzX2FmdGVyIjogWwogICAgICAgIDc5OTYsCiAgICAgICAgODIyOCwKICAgICAgICA4ODkyCiAgICAgIF0sCiAgICAgICJsYWJlbCI6ICJwYXJzZS1jaGVjay1oZWxwZXJzIiwKICAgICAgImxpbWl0X3NlY29uZHMiOiA2MC4wLAogICAgICAib3V0ZXJfam9iX3BpZHMiOiBbCiAgICAgICAgNzk5NiwKICAgICAgICA4MjI4LAogICAgICAgIDg4OTIKICAgICAgXSwKICAgICAgInBpZCI6IDM4MjgsCiAgICAgICJzdGFydGVkIjogIjIwMjYtMTEtMjVUMTE6MjI6MjQuNjcxMDA1KzAwOjAwIiwKICAgICAgInN0ZGVyciI6ICJsb2dzL3BhcnNlLWNoZWNrLWhlbHBlcnMuc3RkZXJyIiwKICAgICAgInN0ZG91dCI6ICJsb2dzL3BhcnNlLWNoZWNrLWhlbHBlcnMuc3Rkb3V0IgogICAgfSwKICAgIHsKICAgICAgImFyZ3MiOiBbCiAgICAgICAgIkQ6XFxhXFxfdGVtcFxcY2hlY2twb2ludC13aW5kb3dzLWRvd25sb2FkLTQ1NjAzNjk2MjA1LTFcXHJlbGVhc2VcXGJlYWQtY2hlY2twb2ludC0yZDgwMWJhNDU1YjcuZXhlIiwKICAgICAgICAiLS12ZXJzaW9uIgogICAgICBdLAogICAgICAiY3dkIjogIkQ6XFxhXFxfdGVtcFxcYmVhZC1jaGVja3BvaW50LXdpbmRvd3MtY2hlY2stNDU2MDM2OTYyMDUtMSIsCiAgICAgICJlcnJvciI6IG51bGwsCiAgICAgICJleGl0X2NvZGUiOiAwLAogICAgICAiZmluaXNoZWQiOiAiMjAyNi0xMS0yNVQxMToyMjoyOS4zODQyMDYrMDA6MDAiLAogICAgICAiam9iX3BpZHNfYWZ0ZXIiOiBbCiAgICAgICAgNzk5NiwKICAgICAgICA4MjI4LAogICAgICAgIDg4OTIKICAgICAgXSwKICAgICAgImxhYmVsIjogInJlbGVhc2UtdmVyc2lvbiIsCiAgICAgICJsaW1pdF9zZWNvbmRzIjogMzAuMCwKICAgICAgIm91dGVyX2pvYl9waWRzIjogWwogICAgICAgIDc5OTYsCiAgICAgICAgODIyOCwKICAgICAgICA4ODkyCiAgICAgIF0sCiAgICAgICJwaWQiOiAyNzgwLAogICAgICAic3RhcnRlZCI6ICIyMDI2LTExLTI1VDExOjIyOjI5LjMxMDMyMiswMDowMCIsCiAgICAgICJzdGRlcnIiOiAibG9ncy9yZWxlYXNlLXZlcnNpb24uc3RkZXJyIiwKICAgICAgInN0ZG91dCI6ICJsb2dzL3JlbGVhc2UtdmVyc2lvbi5zdGRvdXQiCiAgICB9LAogICAgewogICAgICAiYXJncyI6IFsKICAgICAgICAiRDpcXGFcXF90ZW1wXFxjaGVja3BvaW50LXdpbmRvd3MtZG93bmxvYWQtNDU2MDM2OTYyMDUtMVxccmVsZWFzZVxcYmVhZC1jaGVja3BvaW50LTJkODAxYmE0NTViNy5leGUiLAogICAgICAgICJjYXBhYmlsaXRpZXMiCiAgICAgIF0sCiAgICAgICJjd2QiOiAiRDpcXGFcXF90ZW1wXFxiZWFkLWNoZWNrcG9pbnQtd2luZG93cy1jaGVjay00NTYwMzY5NjIwNS0xIiwKICAgICAgImVycm9yIjogbnVsbCwKICAgICAgImV4aXRfY29kZSI6IDAsCiAgICAgICJmaW5pc2hlZCI6ICIyMDI2LTExLTI1VDExOjIyOjI5LjQ1MjY3OSswMDowMCIsCiAgICAgICJqb2JfcGlkc19hZnRlciI6IFsKICAgICAgICA3OTk2LAogICAgICAgIDgyMjgsCiAgICAgICAgODg5MgogICAgICBdLAogICAgICAibGFiZWwiOiAicmVsZWFzZS1jYXBhYmlsaXRpZXMiLAogICAgICAibGltaXRfc2Vjb25kcyI6IDMwLjAsCiAgICAgICJvdXRlcl9qb2JfcGlkcyI6IFsKICAgICAgICA3OTk2LAogICAgICAgIDgyMjgsCiAgICAgICAgODg5MgogICAgICBdLAogICAgICAicGlkIjogNDA0OCwKICAgICAgInN0YXJ0ZWQiOiAiMjAyNi0xMS0yNVQxMToyMjoyOS4zODQ3OTgrMDA6MDAiLAogICAgICAic3RkZXJyIjogImxvZ3MvcmVsZWFzZS1jYXBhYmlsaXRpZXMuc3RkZXJyIiwKICAgICAgInN0ZG91dCI6ICJsb2dzL3JlbGVhc2UtY2FwYWJpbGl0aWVzLnN0ZG91dCIKICAgIH0sCiAgICB7CiAgICAgICJhcmdzIjogWwogICAgICAgICJEOlxcYVxcX3RlbXBcXGNoZWNrcG9pbnQtd2luZG93cy1kb3dubG9hZC00NTYwMzY5NjIwNS0xXFxyZWxlYXNlXFxiZWFkLWNoZWNrcG9pbnQtMmQ4MDFiYTQ1NWI3LmV4ZSIsCiAgICAgICAgInVwZGF0ZSIsCiAgICAgICAgIi0taGVscCIKICAgICAgXSwKICAgICAgImN3ZCI6ICJEOlxcYVxcX3RlbXBcXGJlYWQtY2hlY2twb2ludC13aW5kb3dzLWNoZWNrLTQ1NjAzNjk2MjA1LTEiLAogICAgICAiZXJyb3IiOiBudWxsLAogICAgICAiZXhpdF9jb2RlIjogMCwKICAgICAgImZpbmlzaGVkIjogIjIwMjYtMTEtMjVUMTE6MjI6MjkuNTIxMTM3KzAwOjAwIiwKICAgICAgImpvYl9waWRzX2FmdGVyIjogWwogICAgICAgIDc5OTYsCiAgICAgICAgODIyOCwKICAgICAgICA4ODkyCiAgICAgIF0sCiAgICAgICJsYWJlbCI6ICJyZWxlYXNlLXVwZGF0ZS1oZWxwIiwKICAgICAgImxpbWl0X3NlY29uZHMiOiAzMC4wLAogICAgICAib3V0ZXJfam9iX3BpZHMiOiBbCiAgICAgICAgNzk5NiwKICAgICAgICA4MjI4LAogICAgICAgIDg4OTIKICAgICAgXSwKICAgICAgInBpZCI6IDEwNDgsCiAgICAgICJzdGFydGVkIjogIjIwMjYtMTEtMjVUMTE6MjI6MjkuNDUzMjM0KzAwOjAwIiwKICAgICAgInN0ZGVyciI6ICJsb2dzL3JlbGVhc2UtdXBkYXRlLWhlbHAuc3RkZXJyIiwKICAgICAgInN0ZG91dCI6ICJsb2dzL3JlbGVhc2UtdXBkYXRlLWhlbHAuc3Rkb3V0IgogICAgfSwKICAgIHsKICAgICAgImFyZ3MiOiBbCiAgICAgICAgIkQ6XFxhXFxfdGVtcFxcYmVhZC13aW5kb3dzLW5hdGl2ZS00NTYwMDQxMzk0Mi0xLXdvcmtcXHRhcmdldFxceDg2XzY0LXBjLXdpbmRvd3MtbXN2Y1xcZGVidWdcXGJ1aWxkXFxiZWFkLXJzXFw4MWUxZjM5YzExODY1YzQyXFxvdXRcXGNoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLTgxZTFmMzljMTE4NjVjNDIuZXhlIiwKICAgICAgICAiLS1saXN0IgogICAgICBdLAogICAgICAiY3dkIjogIkQ6XFxhXFxfdGVtcFxcYmVhZC13aW5kb3dzLW5hdGl2ZS00NTYwMDQxMzk0Mi0xLXdvcmtcXHNvdXJjZSIsCiAgICAgICJlcnJvciI6IG51bGwsCiAgICAgICJleGl0X2NvZGUiOiAwLAogICAgICAiZmluaXNoZWQiOiAiMjAyNi0xMS0yNVQxMToyMjoyOS42MDA1OTYrMDA6MDAiLAogICAgICAiam9iX3BpZHNfYWZ0ZXIiOiBbCiAgICAgICAgNzk5NiwKICAgICAgICA4MjI4LAogICAgICAgIDg4OTIKICAgICAgXSwKICAgICAgImxhYmVsIjogImNoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWxpc3QiLAogICAgICAibGltaXRfc2Vjb25kcyI6IDMwLjAsCiAgICAgICJvdXRlcl9qb2JfcGlkcyI6IFsKICAgICAgICA3OTk2LAogICAgICAgIDgyMjgsCiAgICAgICAgODg5MgogICAgICBdLAogICAgICAicGlkIjogNzA5NiwKICAgICAgInN0YXJ0ZWQiOiAiMjAyNi0xMS0yNVQxMToyMjoyOS41MjU2OTMrMDA6MDAiLAogICAgICAic3RkZXJyIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtbGlzdC5zdGRlcnIiLAogICAgICAic3Rkb3V0IjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtbGlzdC5zdGRvdXQiCiAgICB9LAogICAgewogICAgICAiYXJncyI6IFsKICAgICAgICAiRDpcXGFcXF90ZW1wXFxiZWFkLXdpbmRvd3MtbmF0aXZlLTQ1NjAwNDEzOTQyLTEtd29ya1xcdGFyZ2V0XFx4ODZfNjQtcGMtd2luZG93cy1tc3ZjXFxkZWJ1Z1xcYnVpbGRcXGJlYWQtcnNcXDgxZTFmMzljMTE4NjVjNDJcXG91dFxcY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtODFlMWYzOWMxMTg2NWM0Mi5leGUiLAogICAgICAgICJzZXRfdjJfZ3JlZW5fc2NlbmFyaW9zX3VuZGVyX291dF9vZl9iYW5kX2NoYW5nZSIsCiAgICAgICAgIi0tZXhhY3QiLAogICAgICAgICItLXRlc3QtdGhyZWFkcz0xIiwKICAgICAgICAiLS1ub2NhcHR1cmUiCiAgICAgIF0sCiAgICAgICJjd2QiOiAiRDpcXGFcXF90ZW1wXFxiZWFkLXdpbmRvd3MtbmF0aXZlLTQ1NjAwNDEzOTQyLTEtd29ya1xcc291cmNlIiwKICAgICAgImVycm9yIjogbnVsbCwKICAgICAgImV4aXRfY29kZSI6IDAsCiAgICAgICJmaW5pc2hlZCI6ICIyMDI2LTExLTI1VDExOjI0OjE1LjgyMDk1MCswMDowMCIsCiAgICAgICJqb2JfcGlkc19hZnRlciI6IFsKICAgICAgICA3OTk2LAogICAgICAgIDgyMjgsCiAgICAgICAgODg5MgogICAgICBdLAogICAgICAibGFiZWwiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0wIiwKICAgICAgImxpbWl0X3NlY29uZHMiOiA4OTUuMCwKICAgICAgIm91dGVyX2pvYl9waWRzIjogWwogICAgICAgIDc5OTYsCiAgICAgICAgODIyOCwKICAgICAgICA4ODkyCiAgICAgIF0sCiAgICAgICJwaWQiOiA5MTc2LAogICAgICAic3RhcnRlZCI6ICIyMDI2LTExLTI1VDExOjIyOjI5LjYwMjYwMiswMDowMCIsCiAgICAgICJzdGRlcnIiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTAuc3RkZXJyIiwKICAgICAgInN0ZG91dCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMC5zdGRvdXQiCiAgICB9LAogICAgewogICAgICAiYXJncyI6IFsKICAgICAgICAiRDpcXGFcXF90ZW1wXFxiZWFkLXdpbmRvd3MtbmF0aXZlLTQ1NjAwNDEzOTQyLTEtd29ya1xcdGFyZ2V0XFx4ODZfNjQtcGMtd2luZG93cy1tc3ZjXFxkZWJ1Z1xcYnVpbGRcXGJlYWQtcnNcXDgxZTFmMzljMTE4NjVjNDJcXG91dFxcY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtODFlMWYzOWMxMTg2NWM0Mi5leGUiLAogICAgICAgICJzZXRfdjJfZ3JlZW5fc2NlbmFyaW9zX3VuZGVyX291dF9vZl9iYW5kX2NoYW5nZSIsCiAgICAgICAgIi0tZXhhY3QiLAogICAgICAgICItLXRlc3QtdGhyZWFkcz0xIiwKICAgICAgICAiLS1ub2NhcHR1cmUiCiAgICAgIF0sCiAgICAgICJjd2QiOiAiRDpcXGFcXF90ZW1wXFxiZWFkLXdpbmRvd3MtbmF0aXZlLTQ1NjAwNDEzOTQyLTEtd29ya1xcc291cmNlIiwKICAgICAgImVycm9yIjogbnVsbCwKICAgICAgImV4aXRfY29kZSI6IDAsCiAgICAgICJmaW5pc2hlZCI6ICIyMDI2LTExLTI1VDExOjI5OjAyLjQwNDg5NSswMDowMCIsCiAgICAgICJqb2JfcGlkc19hZnRlciI6IFsKICAgICAgICA3OTk2LAogICAgICAgIDgyMjgsCiAgICAgICAgODg5MgogICAgICBdLAogICAgICAibGFiZWwiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0xIiwKICAgICAgImxpbWl0X3NlY29uZHMiOiA4OTUuMCwKICAgICAgIm91dGVyX2pvYl9waWRzIjogWwogICAgICAgIDc5OTYsCiAgICAgICAgODIyOCwKICAgICAgICA4ODkyCiAgICAgIF0sCiAgICAgICJwaWQiOiA4OTE2LAogICAgICAic3RhcnRlZCI6ICIyMDI2LTExLTI1VDExOjI0OjE1LjgyNDk5NCswMDowMCIsCiAgICAgICJzdGRlcnIiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTEuc3RkZXJyIiwKICAgICAgInN0ZG91dCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMS5zdGRvdXQiCiAgICB9LAogICAgewogICAgICAiYXJncyI6IFsKICAgICAgICAiRDpcXGFcXF90ZW1wXFxiZWFkLXdpbmRvd3MtbmF0aXZlLTQ1NjAwNDEzOTQyLTEtd29ya1xcdGFyZ2V0XFx4ODZfNjQtcGMtd2luZG93cy1tc3ZjXFxkZWJ1Z1xcYnVpbGRcXGJlYWQtcnNcXDgxZTFmMzljMTE4NjVjNDJcXG91dFxcY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtODFlMWYzOWMxMTg2NWM0Mi5leGUiLAogICAgICAgICJzZXRfdjJfZ3JlZW5fc2NlbmFyaW9zX3VuZGVyX291dF9vZl9iYW5kX2NoYW5nZSIsCiAgICAgICAgIi0tZXhhY3QiLAogICAgICAgICItLXRlc3QtdGhyZWFkcz0xIiwKICAgICAgICAiLS1ub2NhcHR1cmUiCiAgICAgIF0sCiAgICAgICJjd2QiOiAiRDpcXGFcXF90ZW1wXFxiZWFkLXdpbmRvd3MtbmF0aXZlLTQ1NjAwNDEzOTQyLTEtd29ya1xcc291cmNlIiwKICAgICAgImVycm9yIjogbnVsbCwKICAgICAgImV4aXRfY29kZSI6IDAsCiAgICAgICJmaW5pc2hlZCI6ICIyMDI2LTExLTI1VDExOjI5OjE3LjA3MTY5MSswMDowMCIsCiAgICAgICJqb2JfcGlkc19hZnRlciI6IFsKICAgICAgICA3OTk2LAogICAgICAgIDgyMjgsCiAgICAgICAgODg5MgogICAgICBdLAogICAgICAibGFiZWwiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0yIiwKICAgICAgImxpbWl0X3NlY29uZHMiOiA4OTUuMCwKICAgICAgIm91dGVyX2pvYl9waWRzIjogWwogICAgICAgIDc5OTYsCiAgICAgICAgODIyOCwKICAgICAgICA4ODkyCiAgICAgIF0sCiAgICAgICJwaWQiOiAzNTA0LAogICAgICAic3RhcnRlZCI6ICIyMDI2LTExLTI1VDExOjI5OjAyLjQwODQ2OSswMDowMCIsCiAgICAgICJzdGRlcnIiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTIuc3RkZXJyIiwKICAgICAgInN0ZG91dCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMi5zdGRvdXQiCiAgICB9LAogICAgewogICAgICAiYXJncyI6IFsKICAgICAgICAiRDpcXGFcXF90ZW1wXFxiZWFkLXdpbmRvd3MtbmF0aXZlLTQ1NjAwNDEzOTQyLTEtd29ya1xcdGFyZ2V0XFx4ODZfNjQtcGMtd2luZG93cy1tc3ZjXFxkZWJ1Z1xcYnVpbGRcXGJlYWQtcnNcXDgxZTFmMzljMTE4NjVjNDJcXG91dFxcY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtODFlMWYzOWMxMTg2NWM0Mi5leGUiLAogICAgICAgICJzZXRfdjJfZ3JlZW5fc2NlbmFyaW9zX3VuZGVyX291dF9vZl9iYW5kX2NoYW5nZSIsCiAgICAgICAgIi0tZXhhY3QiLAogICAgICAgICItLXRlc3QtdGhyZWFkcz0xIiwKICAgICAgICAiLS1ub2NhcHR1cmUiCiAgICAgIF0sCiAgICAgICJjd2QiOiAiRDpcXGFcXF90ZW1wXFxiZWFkLXdpbmRvd3MtbmF0aXZlLTQ1NjAwNDEzOTQyLTEtd29ya1xcc291cmNlIiwKICAgICAgImVycm9yIjogbnVsbCwKICAgICAgImV4aXRfY29kZSI6IDAsCiAgICAgICJmaW5pc2hlZCI6ICIyMDI2LTExLTI1VDExOjI5OjMxLjc3MDQwNSswMDowMCIsCiAgICAgICJqb2JfcGlkc19hZnRlciI6IFsKICAgICAgICA3OTk2LAogICAgICAgIDgyMjgsCiAgICAgICAgODg5MgogICAgICBdLAogICAgICAibGFiZWwiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0zIiwKICAgICAgImxpbWl0X3NlY29uZHMiOiA4OTUuMCwKICAgICAgIm91dGVyX2pvYl9waWRzIjogWwogICAgICAgIDc5OTYsCiAgICAgICAgODIyOCwKICAgICAgICA4ODkyCiAgICAgIF0sCiAgICAgICJwaWQiOiA2ODgwLAogICAgICAic3RhcnRlZCI6ICIyMDI2LTExLTI1VDExOjI5OjE3LjA3NTE5MyswMDowMCIsCiAgICAgICJzdGRlcnIiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTMuc3RkZXJyIiwKICAgICAgInN0ZG91dCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMy5zdGRvdXQiCiAgICB9CiAgXSwKICAiZHVyYXRpb25fc2Vjb25kcyI6IDQyOC4wNDcsCiAgImZpbmlzaGVkIjogIjIwMjYtMTEtMjVUMTE6Mjk6MzIuNzE3NDY5KzAwOjAwIiwKICAiZmluaXNoZWRfZXBvY2giOiAxNzk1NjA2MTcyLjcxNzQ2OSwKICAiZ3JpZF9yZXN1bHRzIjogWwogICAgewogICAgICAiY2xhc3NpZmljYXRpb24iOiAiUkVEIiwKICAgICAgImZhaWx1cmVfdGV4dCI6ICJwdWJsaWNhdGlvbiAwIGFkZGVkIDE3ODk0NTUgbmV3IGJsb2IgYnl0ZXMsIGJ1ZGdldCBpcyAyNjIxNDQiLAogICAgICAiZml4dHVyZSI6ICJzdG9yZS1kZWxldGlvbiIsCiAgICAgICJzY2VuYXJpbyI6ICJzZXQtdjItYnVkZ2V0LXNpbmdsZS1pc3N1ZS11cGRhdGUiCiAgICB9LAogICAgewogICAgICAiY2xhc3NpZmljYXRpb24iOiAiR1JFRU4iLAogICAgICAiZmFpbHVyZV90ZXh0IjogbnVsbCwKICAgICAgImZpeHR1cmUiOiAib3JwaGFuLXNldC1maWxlcyIsCiAgICAgICJzY2VuYXJpbyI6ICJzZXQtdjItYnVkZ2V0LXNpbmdsZS1pc3N1ZS11cGRhdGUiCiAgICB9LAogICAgewogICAgICAiY2xhc3NpZmljYXRpb24iOiAiUkVEIiwKICAgICAgImZhaWx1cmVfdGV4dCI6ICJhc3NlcnRpb24gYGxlZnQgPT0gcmlnaHRgIGZhaWxlZDogc2hhcmQgY292ZXJhZ2UgbG9zdCByZWNvcmRzXG4gIGxlZnQ6IDM5MlxuIHJpZ2h0OiA0MDAiLAogICAgICAiZml4dHVyZSI6ICJzdG9yZS1kZWxldGlvbiIsCiAgICAgICJzY2VuYXJpbyI6ICJzZXQtdjItc2hhcmQtc3BsaXQtb24tdXBkYXRlLXN0b3JtIgogICAgfSwKICAgIHsKICAgICAgImNsYXNzaWZpY2F0aW9uIjogIkdSRUVOIiwKICAgICAgImZhaWx1cmVfdGV4dCI6IG51bGwsCiAgICAgICJmaXh0dXJlIjogIm9ycGhhbi1zZXQtZmlsZXMiLAogICAgICAic2NlbmFyaW8iOiAic2V0LXYyLXNoYXJkLXNwbGl0LW9uLXVwZGF0ZS1zdG9ybSIKICAgIH0KICBdLAogICJoZWxwZXJfc2hhMjU2IjogIjg0ZTQ4MjY3OGQxMzQ2NTJhNjQ2NDljZGY4ZjBjYjMwOWE2YTkyOWQ0N2U0Yzc5MTFlOTgwNTRiYTQzZjhiYmMiLAogICJpbnB1dF9zaGEyNTYiOiAiY2E5MWI4YmJiN2U4YjlkMzFjOTZhYmQ0ZjBiNGMzNWQ2ZWRhZjUwNTc4NzIxYTA2MjdmN2UzYTYyNjYwZjU1OCIsCiAgImlucHV0c19hbmRfc291cmNlX3VuY2hhbmdlZCI6IHRydWUsCiAgImpvYl9xdWVyeV9yZXRyaWVzIjogW10sCiAgImxpc3RpbmdzIjogewogICAgImNoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlIjogewogICAgICAiZmlsZSI6IHsKICAgICAgICAiYnl0ZXMiOiA1MTcsCiAgICAgICAgIm1vZGUiOiA0MzgsCiAgICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1saXN0LnN0ZG91dCIsCiAgICAgICAgInNoYTI1NiI6ICIzMGUxMDQ4MGNiOTNlOTQ3ZjYxYmE3NmUwMjNhYzMyYWViNjE5NDhiOGNkMDA4ZTI1ZTJmZTAxNmMzNTY1NTU3IgogICAgICB9LAogICAgICAidGVzdHMiOiBbCiAgICAgICAgInNldF92Ml9idWRnZXRfc2luZ2xlX2lzc3VlX3VwZGF0ZSIsCiAgICAgICAgInNldF92Ml9jb25jdXJyZW50X3B1YmxpY2F0aW9uIiwKICAgICAgICAic2V0X3YyX2NyYXNoX29yZGVyaW5nIiwKICAgICAgICAic2V0X3YyX2R1YWxfbGF5b3V0X3JlYWRlcl9lcXVpdmFsZW5jZSIsCiAgICAgICAgInNldF92Ml9mb3JjZWRfbW9ub2xpdGhfbGltaXRzIiwKICAgICAgICAic2V0X3YyX2ZvcmVuc2ljX2Zyb3plbiIsCiAgICAgICAgInNldF92Ml9ncmVlbl9zY2VuYXJpb3NfdW5kZXJfb3V0X29mX2JhbmRfY2hhbmdlIiwKICAgICAgICAic2V0X3YyX21pZ3JhdGlvbl9mdWxsX3Jld3JpdGUiLAogICAgICAgICJzZXRfdjJfb3ZlcnNpemVfcmVjb3JkX29uY2VfY29zdCIsCiAgICAgICAgInNldF92Ml9wb2ludGVyX2JvdW5kZWRuZXNzIiwKICAgICAgICAic2V0X3YyX3NoYXJkX21lcmdlX29uX2RlbGV0aW9uIiwKICAgICAgICAic2V0X3YyX3NoYXJkX3NwbGl0X29uX3VwZGF0ZV9zdG9ybSIsCiAgICAgICAgInNldF92Ml90YWlsX3NlYWxfYW5kX2ltbXV0YWJpbGl0eSIKICAgICAgXQogICAgfQogIH0sCiAgImxvZ3NfcmV0ZW50aW9uX2RheXNfcmVxdWlyZWQiOiA3LAogICJvcGVyYXRpb24iOiAiY2hlY2twb2ludC13aW5kb3dzLWNoZWNrcyIsCiAgIm91dGVyX3dpbmRvd3Nfam9iX3ZlcmlmaWNhdGlvbl9yZXF1aXJlZCI6IHRydWUsCiAgIm93bmVkX2NoaWxkcmVuX3F1aWVzY2VudCI6IHRydWUsCiAgIm93bmVkX2pvYl9iYXNlbGluZSI6IHsKICAgICJwaWRzIjogWwogICAgICA3OTk2LAogICAgICA4MjI4LAogICAgICA4ODkyCiAgICBdLAogICAgInBvbGljeSI6ICJzdXBlcnZpc29yLCBQeXRob24sIGFuZCBhdCBtb3N0IGl0cyBvbmUgdmVyaWZpZWQgU3lzdGVtMzIgY29uc29sZSBob3N0IiwKICAgICJwcm9jZXNzZXMiOiBbCiAgICAgIHsKICAgICAgICAiY3JlYXRpb25fZmlsZXRpbWUiOiAiMTM0NDAwNzkzNDI3Njc5MTcwIiwKICAgICAgICAiaW1hZ2VfbmFtZSI6ICJweXRob24uZXhlIiwKICAgICAgICAiaW1hZ2VfcGF0aCI6ICJDOlxcaG9zdGVkdG9vbGNhY2hlXFx3aW5kb3dzXFxQeXRob25cXDMuMTIuMTBcXHg2NFxccHl0aG9uLmV4ZSIsCiAgICAgICAgInBhcmVudF9waWQiOiA4MjI4LAogICAgICAgICJwaWQiOiA3OTk2LAogICAgICAgICJxdWVyeV9hbmRfc3luY2hyb25pemF0aW9uX2hhbmRsZV9yZXRhaW5lZCI6IHRydWUKICAgICAgfSwKICAgICAgewogICAgICAgICJjcmVhdGlvbl9maWxldGltZSI6ICIxMzQ0MDA3OTMzNDM3MzkzNzQiLAogICAgICAgICJpbWFnZV9uYW1lIjogInBvd2Vyc2hlbGwuZXhlIiwKICAgICAgICAiaW1hZ2VfcGF0aCI6ICJDOlxcV2luZG93c1xcU3lzdGVtMzJcXFdpbmRvd3NQb3dlclNoZWxsXFx2MS4wXFxwb3dlcnNoZWxsLmV4ZSIsCiAgICAgICAgInBhcmVudF9waWQiOiA1NDk2LAogICAgICAgICJwaWQiOiA4MjI4LAogICAgICAgICJxdWVyeV9hbmRfc3luY2hyb25pemF0aW9uX2hhbmRsZV9yZXRhaW5lZCI6IHRydWUKICAgICAgfSwKICAgICAgewogICAgICAgICJjcmVhdGlvbl9maWxldGltZSI6ICIxMzQ0MDA3OTM0Mjc3MjE1NDkiLAogICAgICAgICJpbWFnZV9uYW1lIjogImNvbmhvc3QuZXhlIiwKICAgICAgICAiaW1hZ2VfcGF0aCI6ICJDOlxcV2luZG93c1xcU3lzdGVtMzJcXGNvbmhvc3QuZXhlIiwKICAgICAgICAicGFyZW50X3BpZCI6IDc5OTYsCiAgICAgICAgInBpZCI6IDg4OTIsCiAgICAgICAgInF1ZXJ5X2FuZF9zeW5jaHJvbml6YXRpb25faGFuZGxlX3JldGFpbmVkIjogdHJ1ZQogICAgICB9CiAgICBdLAogICAgInNjaGVtYV92ZXJzaW9uIjogMSwKICAgICJ2YWxpZGF0ZWRfYXQiOiAiMjAyNi0xMS0yNVQxMToyMjoyNC42NjA1MDArMDA6MDAiCiAgfSwKICAicGFydGl0aW9uIjogImdyaWQtMSIsCiAgInJlbGVhc2VfdW5kZXJfdGVzdCI6IHsKICAgICJleGVjdXRhYmxlIjogewogICAgICAiYnl0ZXMiOiAxMjI0MzQ1NiwKICAgICAgIm1vZGUiOiA1MTEsCiAgICAgICJwYXRoIjogInJlbGVhc2UtdW5kZXItdGVzdC9iZWFkLWNoZWNrcG9pbnQtMmQ4MDFiYTQ1NWI3LmV4ZSIsCiAgICAgICJzaGEyNTYiOiAiMDQzMWE4MjhiZjk1MDM4NjQxYTBjNTViNGNmMTFjNTgwMGI1Mjg4MTk0MGExM2JkMmY1NmIwMmYwYjI3MTc3YSIKICAgIH0sCiAgICAibWV0YWRhdGEiOiB7CiAgICAgICJieXRlcyI6IDIwNTgsCiAgICAgICJtb2RlIjogNDM4LAogICAgICAicGF0aCI6ICJyZWxlYXNlLXVuZGVyLXRlc3QvYmVhZC1jaGVja3BvaW50LTJkODAxYmE0NTViNy5leGUubWV0YWRhdGEuanNvbiIsCiAgICAgICJzaGEyNTYiOiAiMjFjYTkwZTI5ZmM0NTg4ZDIzYjMxMjEwY2Q1ZmZlNjgzOGMxMzZjZTcwYjc2NDU4YjcxMzcwYmVlZWZmMThmNSIKICAgIH0KICB9LAogICJydW4iOiB7CiAgICAiYXR0ZW1wdCI6ICIxIiwKICAgICJpZCI6ICI0NTYwMzY5NjIwNSIsCiAgICAicmVwb3NpdG9yeSI6ICJZb3NzaU1IL2JlYWQtbWUtdXAtc2NvdHR5IiwKICAgICJ3b3JrZmxvd19jb21taXQiOiAiMDdlYTUyMDViZDhkMTFkNzUzYWRhOGMyOWJhMmI0ODNjN2M4ZGUwYiIsCiAgICAid29ya2Zsb3dfcmVmIjogIllvc3NpTUgvYmVhZC1tZS11cC1zY290dHkvLmdpdGh1Yi93b3JrZmxvd3MvbmF0aXZlLWZpbmFsLXdpbmRvd3MtdjktMjAyNjExMjUueW1sQHJlZnMvaGVhZHMvdGFzay9jaGVja3BvaW50LXdpbmRvd3MtdjktY2hlY2stMjAyNjExMjUiCiAgfSwKICAic2NoZW1hX3ZlcnNpb24iOiAxLAogICJzb3VyY2VfY29tbWl0IjogIjJkODAxYmE0NTViN2E3MjJkYWY2NDRhNzYxNTQ0NTExN2Q1N2U4ZTkiLAogICJzb3VyY2VfdHJlZSI6ICI1MDlkNjIyMjMwMGI4NGIxNjA0MWE4MzY2YThiNmFlNGMyOGNjYzk4IiwKICAic3RhcnRlZCI6ICIyMDI2LTExLTI1VDExOjIyOjI0LjY2MDUwMCswMDowMCIsCiAgInN0YXR1cyI6ICJwYXNzZWQiLAogICJ0YXJnZXQiOiAieDg2XzY0LXBjLXdpbmRvd3MtbXN2YyIsCiAgInRlc3RfcmVzdWx0cyI6IFsKICAgIHsKICAgICAgImNhc2UiOiAic2V0LXYyLWJ1ZGdldC1zaW5nbGUtaXNzdWUtdXBkYXRlLXN0b3JlLWRlbGV0aW9uIiwKICAgICAgImR1cmF0aW9uX3NlY29uZHMiOiAxMDYuMjE5LAogICAgICAiZXhpdF9jb2RlIjogMCwKICAgICAgImZhaWxlZCI6IDAsCiAgICAgICJmaWx0ZXJlZCI6IDEyLAogICAgICAiZ3JpZF9jZWxsIjogewogICAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJSRUQiLAogICAgICAgICJmYWlsdXJlX3RleHQiOiAicHVibGljYXRpb24gMCBhZGRlZCAxNzg5NDU1IG5ldyBibG9iIGJ5dGVzLCBidWRnZXQgaXMgMjYyMTQ0IiwKICAgICAgICAiZml4dHVyZSI6ICJzdG9yZS1kZWxldGlvbiIsCiAgICAgICAgInNjZW5hcmlvIjogInNldC12Mi1idWRnZXQtc2luZ2xlLWlzc3VlLXVwZGF0ZSIKICAgICAgfSwKICAgICAgImlnbm9yZWQiOiAwLAogICAgICAibGFiZWwiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0wIiwKICAgICAgIm1lYXN1cmVkIjogMCwKICAgICAgInBhc3NlZCI6IDEsCiAgICAgICJzZWxlY3RvcnMiOiB7CiAgICAgICAgIlNFVF9WMl9PT0JfUFJPQkVfRklYVFVSRVMiOiAic3RvcmUtZGVsZXRpb24iLAogICAgICAgICJTRVRfVjJfT09CX1BST0JFX1NDRU5BUklPUyI6ICJzZXQtdjItYnVkZ2V0LXNpbmdsZS1pc3N1ZS11cGRhdGUiCiAgICAgIH0sCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgInN0ZGVyciI6IHsKICAgICAgICAiYnl0ZXMiOiA1NDIsCiAgICAgICAgIm1vZGUiOiA0MzgsCiAgICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTAuc3RkZXJyIiwKICAgICAgICAic2hhMjU2IjogImM3OTU3NGUwNmQ3OTI1ODlkODQyNjc3MDRmMGYzNGQ5ZGFkNDUyNTNlMWJhMjA1OWM5ZDQzNDM0ZGM4NmI1ZjkiCiAgICAgIH0sCiAgICAgICJzdGRvdXQiOiB7CiAgICAgICAgImJ5dGVzIjogMTc1LAogICAgICAgICJtb2RlIjogNDM4LAogICAgICAgICJwYXRoIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0wLnN0ZG91dCIsCiAgICAgICAgInNoYTI1NiI6ICIyMDFmZTgxNTMzMjE3MDdjMmIzYjliNmRkMzNkYWE4YzJiOTdhODhhNGJlMzA2MTlhM2VjNmZhNjJlN2U5YjQxIgogICAgICB9LAogICAgICAidGFyZ2V0IjogImNoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlIiwKICAgICAgInRlbXBvcmFyeV9kaXJlY3RvcnkiOiAiRDpcXGFcXF90ZW1wXFxiZWFkLWNoZWNrcG9pbnQtd2luZG93cy1jaGVjay00NTYwMzY5NjIwNS0xXFx0bXBcXGNoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMCIsCiAgICAgICJ0ZXN0cyI6IFsKICAgICAgICAic2V0X3YyX2dyZWVuX3NjZW5hcmlvc191bmRlcl9vdXRfb2ZfYmFuZF9jaGFuZ2UiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJjYXNlIjogInNldC12Mi1idWRnZXQtc2luZ2xlLWlzc3VlLXVwZGF0ZS1vcnBoYW4tc2V0LWZpbGVzIiwKICAgICAgImR1cmF0aW9uX3NlY29uZHMiOiAyODYuNTYyLAogICAgICAiZXhpdF9jb2RlIjogMCwKICAgICAgImZhaWxlZCI6IDAsCiAgICAgICJmaWx0ZXJlZCI6IDEyLAogICAgICAiZ3JpZF9jZWxsIjogewogICAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJHUkVFTiIsCiAgICAgICAgImZhaWx1cmVfdGV4dCI6IG51bGwsCiAgICAgICAgImZpeHR1cmUiOiAib3JwaGFuLXNldC1maWxlcyIsCiAgICAgICAgInNjZW5hcmlvIjogInNldC12Mi1idWRnZXQtc2luZ2xlLWlzc3VlLXVwZGF0ZSIKICAgICAgfSwKICAgICAgImlnbm9yZWQiOiAwLAogICAgICAibGFiZWwiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0xIiwKICAgICAgIm1lYXN1cmVkIjogMCwKICAgICAgInBhc3NlZCI6IDEsCiAgICAgICJzZWxlY3RvcnMiOiB7CiAgICAgICAgIlNFVF9WMl9PT0JfUFJPQkVfRklYVFVSRVMiOiAib3JwaGFuLXNldC1maWxlcyIsCiAgICAgICAgIlNFVF9WMl9PT0JfUFJPQkVfU0NFTkFSSU9TIjogInNldC12Mi1idWRnZXQtc2luZ2xlLWlzc3VlLXVwZGF0ZSIKICAgICAgfSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAic3RkZXJyIjogewogICAgICAgICJieXRlcyI6IDE5NywKICAgICAgICAibW9kZSI6IDQzOCwKICAgICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMS5zdGRlcnIiLAogICAgICAgICJzaGEyNTYiOiAiMWMzNTQ1MDUwODdhYjk1MzYxMGFhMjBlYmJiM2NiNzZjNTFiOGY0YWNhNmJkZDFhYjVjMGYxYTQ5YmY0NzA3OCIKICAgICAgfSwKICAgICAgInN0ZG91dCI6IHsKICAgICAgICAiYnl0ZXMiOiAxNzUsCiAgICAgICAgIm1vZGUiOiA0MzgsCiAgICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTEuc3Rkb3V0IiwKICAgICAgICAic2hhMjU2IjogImMzOGQxMDQyOGRkM2FlZGM5NTI1Mjg3YWE0NTZkYzJjZjViNWViZTI0NDA1Y2U3ZmVlMmU4NmU0NGQzNGMwNGIiCiAgICAgIH0sCiAgICAgICJ0YXJnZXQiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UiLAogICAgICAidGVtcG9yYXJ5X2RpcmVjdG9yeSI6ICJEOlxcYVxcX3RlbXBcXGJlYWQtY2hlY2twb2ludC13aW5kb3dzLWNoZWNrLTQ1NjAzNjk2MjA1LTFcXHRtcFxcY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0xIiwKICAgICAgInRlc3RzIjogWwogICAgICAgICJzZXRfdjJfZ3JlZW5fc2NlbmFyaW9zX3VuZGVyX291dF9vZl9iYW5kX2NoYW5nZSIKICAgICAgXQogICAgfSwKICAgIHsKICAgICAgImNhc2UiOiAic2V0LXYyLXNoYXJkLXNwbGl0LW9uLXVwZGF0ZS1zdG9ybS1zdG9yZS1kZWxldGlvbiIsCiAgICAgICJkdXJhdGlvbl9zZWNvbmRzIjogMTQuNjU2LAogICAgICAiZXhpdF9jb2RlIjogMCwKICAgICAgImZhaWxlZCI6IDAsCiAgICAgICJmaWx0ZXJlZCI6IDEyLAogICAgICAiZ3JpZF9jZWxsIjogewogICAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJSRUQiLAogICAgICAgICJmYWlsdXJlX3RleHQiOiAiYXNzZXJ0aW9uIGBsZWZ0ID09IHJpZ2h0YCBmYWlsZWQ6IHNoYXJkIGNvdmVyYWdlIGxvc3QgcmVjb3Jkc1xuICBsZWZ0OiAzOTJcbiByaWdodDogNDAwIiwKICAgICAgICAiZml4dHVyZSI6ICJzdG9yZS1kZWxldGlvbiIsCiAgICAgICAgInNjZW5hcmlvIjogInNldC12Mi1zaGFyZC1zcGxpdC1vbi11cGRhdGUtc3Rvcm0iCiAgICAgIH0sCiAgICAgICJpZ25vcmVkIjogMCwKICAgICAgImxhYmVsIjogImNoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMiIsCiAgICAgICJtZWFzdXJlZCI6IDAsCiAgICAgICJwYXNzZWQiOiAxLAogICAgICAic2VsZWN0b3JzIjogewogICAgICAgICJTRVRfVjJfT09CX1BST0JFX0ZJWFRVUkVTIjogInN0b3JlLWRlbGV0aW9uIiwKICAgICAgICAiU0VUX1YyX09PQl9QUk9CRV9TQ0VOQVJJT1MiOiAic2V0LXYyLXNoYXJkLXNwbGl0LW9uLXVwZGF0ZS1zdG9ybSIKICAgICAgfSwKICAgICAgInN0YXR1cyI6ICJwYXNzZWQiLAogICAgICAic3RkZXJyIjogewogICAgICAgICJieXRlcyI6IDU5NCwKICAgICAgICAibW9kZSI6IDQzOCwKICAgICAgICAicGF0aCI6ICJsb2dzL2NoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMi5zdGRlcnIiLAogICAgICAgICJzaGEyNTYiOiAiZWY5ZjcxMDFiYzBiYTVlMDA1MmRhZjM2MDdhZmNjNjVmNDc0ZWE5MTExMDljZDU5MzlkYWE1M2JjNDk2NzU1MiIKICAgICAgfSwKICAgICAgInN0ZG91dCI6IHsKICAgICAgICAiYnl0ZXMiOiAyMTYsCiAgICAgICAgIm1vZGUiOiA0MzgsCiAgICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTIuc3Rkb3V0IiwKICAgICAgICAic2hhMjU2IjogImRhZjlkZDliNWE5ZGU5OGU3NzZjMGU5YTk5ODAzMDFlZTNiZmUwYzM0NmFjZjYxZjVkM2I2NzE0NTM5MWUzZTIiCiAgICAgIH0sCiAgICAgICJ0YXJnZXQiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UiLAogICAgICAidGVtcG9yYXJ5X2RpcmVjdG9yeSI6ICJEOlxcYVxcX3RlbXBcXGJlYWQtY2hlY2twb2ludC13aW5kb3dzLWNoZWNrLTQ1NjAzNjk2MjA1LTFcXHRtcFxcY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0yIiwKICAgICAgInRlc3RzIjogWwogICAgICAgICJzZXRfdjJfZ3JlZW5fc2NlbmFyaW9zX3VuZGVyX291dF9vZl9iYW5kX2NoYW5nZSIKICAgICAgXQogICAgfSwKICAgIHsKICAgICAgImNhc2UiOiAic2V0LXYyLXNoYXJkLXNwbGl0LW9uLXVwZGF0ZS1zdG9ybS1vcnBoYW4tc2V0LWZpbGVzIiwKICAgICAgImR1cmF0aW9uX3NlY29uZHMiOiAxNC43MDMsCiAgICAgICJleGl0X2NvZGUiOiAwLAogICAgICAiZmFpbGVkIjogMCwKICAgICAgImZpbHRlcmVkIjogMTIsCiAgICAgICJncmlkX2NlbGwiOiB7CiAgICAgICAgImNsYXNzaWZpY2F0aW9uIjogIkdSRUVOIiwKICAgICAgICAiZmFpbHVyZV90ZXh0IjogbnVsbCwKICAgICAgICAiZml4dHVyZSI6ICJvcnBoYW4tc2V0LWZpbGVzIiwKICAgICAgICAic2NlbmFyaW8iOiAic2V0LXYyLXNoYXJkLXNwbGl0LW9uLXVwZGF0ZS1zdG9ybSIKICAgICAgfSwKICAgICAgImlnbm9yZWQiOiAwLAogICAgICAibGFiZWwiOiAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0zIiwKICAgICAgIm1lYXN1cmVkIjogMCwKICAgICAgInBhc3NlZCI6IDEsCiAgICAgICJzZWxlY3RvcnMiOiB7CiAgICAgICAgIlNFVF9WMl9PT0JfUFJPQkVfRklYVFVSRVMiOiAib3JwaGFuLXNldC1maWxlcyIsCiAgICAgICAgIlNFVF9WMl9PT0JfUFJPQkVfU0NFTkFSSU9TIjogInNldC12Mi1zaGFyZC1zcGxpdC1vbi11cGRhdGUtc3Rvcm0iCiAgICAgIH0sCiAgICAgICJzdGF0dXMiOiAicGFzc2VkIiwKICAgICAgInN0ZGVyciI6IHsKICAgICAgICAiYnl0ZXMiOiAxOTksCiAgICAgICAgIm1vZGUiOiA0MzgsCiAgICAgICAgInBhdGgiOiAibG9ncy9jaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS1jYXNlLTMuc3RkZXJyIiwKICAgICAgICAic2hhMjU2IjogIjhkNDc2Yjg2YmIyNWEzNWUwM2M2MjE0MjVlZDUwOWYxMDY0YzAwMTI3ODE1MjU2MDFjN2QyYzFkYzE5MGViMWEiCiAgICAgIH0sCiAgICAgICJzdGRvdXQiOiB7CiAgICAgICAgImJ5dGVzIjogMjE2LAogICAgICAgICJtb2RlIjogNDM4LAogICAgICAgICJwYXRoIjogImxvZ3MvY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UtY2FzZS0zLnN0ZG91dCIsCiAgICAgICAgInNoYTI1NiI6ICJmMWNlMmE0MTljMTY4N2U0MDczNTU4YzhiNGNlYTU1NzRjMmRjMGQyNjcxOGQ2NDgwZmRlYjUzOGFlZTMwYmQ1IgogICAgICB9LAogICAgICAidGFyZ2V0IjogImNoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlIiwKICAgICAgInRlbXBvcmFyeV9kaXJlY3RvcnkiOiAiRDpcXGFcXF90ZW1wXFxiZWFkLWNoZWNrcG9pbnQtd2luZG93cy1jaGVjay00NTYwMzY5NjIwNS0xXFx0bXBcXGNoZWNrcG9pbnRfc2V0X3YyX2NvbmZvcm1hbmNlLWNhc2UtMyIsCiAgICAgICJ0ZXN0cyI6IFsKICAgICAgICAic2V0X3YyX2dyZWVuX3NjZW5hcmlvc191bmRlcl9vdXRfb2ZfYmFuZF9jaGFuZ2UiCiAgICAgIF0KICAgIH0KICBdLAogICJ3aW5kb3dfZGVhZGxpbmVfZXBvY2giOiAxNzk1NjE0MTAxLAogICJ3aW5kb3dfc3RhcnRfZXBvY2giOiAxNzk1NjA1NzAxCn0K
+2026-11-25T11:29:35.9884138Z CHECKPOINT_WINDOWS_LOG {"base64": "T09CLVBST0JFIHN0YXJ0OiBzZXQtdjItYnVkZ2V0LXNpbmdsZS1pc3N1ZS11cGRhdGUgdW5kZXIgc3RvcmUtZGVsZXRpb24KCnRocmVhZCAnc2V0X3YyX2dyZWVuX3NjZW5hcmlvc191bmRlcl9vdXRfb2ZfYmFuZF9jaGFuZ2UnICgxNTY0KSBwYW5pY2tlZCBhdCB0ZXN0c1xjaGVja3BvaW50X3NldF92Ml9jb25mb3JtYW5jZS5yczo0NTk6OToKcHVibGljYXRpb24gMCBhZGRlZCAxNzg5NDU1IG5ldyBibG9iIGJ5dGVzLCBidWRnZXQgaXMgMjYyMTQ0Cm5vdGU6IHJ1biB3aXRoIGBSVVNUX0JBQ0tUUkFDRT0xYCBlbnZpcm9ubWVudCB2YXJpYWJsZSB0byBkaXNwbGF5IGEgYmFja3RyYWNlCk9PQi1QUk9CRSBSRUQ6IHNldC12Mi1idWRnZXQtc2luZ2xlLWlzc3VlLXVwZGF0ZSB1bmRlciBzdG9yZS1kZWxldGlvbgpPT0ItUFJPQkUgUkVEIGZhaWx1cmUgdGV4dDogcHVibGljYXRpb24gMCBhZGRlZCAxNzg5NDU1IG5ldyBibG9iIGJ5dGVzLCBidWRnZXQgaXMgMjYyMTQ0Ck9PQi1QUk9CRSBzdW1tYXJ5OiAwLzEgY29tYmluYXRpb25zIHN0YXllZCBncmVlbgo=", "bytes": 542, "filename": "logs/checkpoint_set_v2_conformance-case-0.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "c79574e06d792589d84267704f0f34d9dad45253e1ba2059c9d43434dc86b5f9"}
+2026-11-25T11:29:35.9889854Z CHECKPOINT_WINDOWS_LOG {"base64": "CnJ1bm5pbmcgMSB0ZXN0CnRlc3Qgc2V0X3YyX2dyZWVuX3NjZW5hcmlvc191bmRlcl9vdXRfb2ZfYmFuZF9jaGFuZ2UgLi4uIG9rCgp0ZXN0IHJlc3VsdDogb2suIDEgcGFzc2VkOyAwIGZhaWxlZDsgMCBpZ25vcmVkOyAwIG1lYXN1cmVkOyAxMiBmaWx0ZXJlZCBvdXQ7IGZpbmlzaGVkIGluIDEwNi4yMHMKCg==", "bytes": 175, "filename": "logs/checkpoint_set_v2_conformance-case-0.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "201fe8153321707c2b3b9b6dd33daa8c2b97a88a4be30619a3ec6fa62e7e9b41"}
+2026-11-25T11:29:35.9892631Z CHECKPOINT_WINDOWS_LOG {"base64": "T09CLVBST0JFIHN0YXJ0OiBzZXQtdjItYnVkZ2V0LXNpbmdsZS1pc3N1ZS11cGRhdGUgdW5kZXIgb3JwaGFuLXNldC1maWxlcwpPT0ItUFJPQkUgR1JFRU46IHNldC12Mi1idWRnZXQtc2luZ2xlLWlzc3VlLXVwZGF0ZSB1bmRlciBvcnBoYW4tc2V0LWZpbGVzCk9PQi1QUk9CRSBzdW1tYXJ5OiAxLzEgY29tYmluYXRpb25zIHN0YXllZCBncmVlbgo=", "bytes": 197, "filename": "logs/checkpoint_set_v2_conformance-case-1.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "1c354505087ab953610aa20ebbb3cb76c51b8f4aca6bdd1ab5c0f1a49bf47078"}
+2026-11-25T11:29:35.9895493Z CHECKPOINT_WINDOWS_LOG {"base64": "CnJ1bm5pbmcgMSB0ZXN0CnRlc3Qgc2V0X3YyX2dyZWVuX3NjZW5hcmlvc191bmRlcl9vdXRfb2ZfYmFuZF9jaGFuZ2UgLi4uIG9rCgp0ZXN0IHJlc3VsdDogb2suIDEgcGFzc2VkOyAwIGZhaWxlZDsgMCBpZ25vcmVkOyAwIG1lYXN1cmVkOyAxMiBmaWx0ZXJlZCBvdXQ7IGZpbmlzaGVkIGluIDI4Ni41MXMKCg==", "bytes": 175, "filename": "logs/checkpoint_set_v2_conformance-case-1.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "c38d10428dd3aedc9525287aa456dc2cf5b5ebe24405ce7fee2e86e44d34c04b"}
+2026-11-25T11:29:35.9902231Z CHECKPOINT_WINDOWS_LOG {"base64": "T09CLVBST0JFIHN0YXJ0OiBzZXQtdjItc2hhcmQtc3BsaXQtb24tdXBkYXRlLXN0b3JtIHVuZGVyIHN0b3JlLWRlbGV0aW9uCgp0aHJlYWQgJ3NldF92Ml9ncmVlbl9zY2VuYXJpb3NfdW5kZXJfb3V0X29mX2JhbmRfY2hhbmdlJyAoMjE0MCkgcGFuaWNrZWQgYXQgdGVzdHNcY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UucnM6NTI2OjU6CmFzc2VydGlvbiBgbGVmdCA9PSByaWdodGAgZmFpbGVkOiBzaGFyZCBjb3ZlcmFnZSBsb3N0IHJlY29yZHMKICBsZWZ0OiAzOTIKIHJpZ2h0OiA0MDAKbm90ZTogcnVuIHdpdGggYFJVU1RfQkFDS1RSQUNFPTFgIGVudmlyb25tZW50IHZhcmlhYmxlIHRvIGRpc3BsYXkgYSBiYWNrdHJhY2UKT09CLVBST0JFIFJFRDogc2V0LXYyLXNoYXJkLXNwbGl0LW9uLXVwZGF0ZS1zdG9ybSB1bmRlciBzdG9yZS1kZWxldGlvbgpPT0ItUFJPQkUgUkVEIGZhaWx1cmUgdGV4dDogYXNzZXJ0aW9uIGBsZWZ0ID09IHJpZ2h0YCBmYWlsZWQ6IHNoYXJkIGNvdmVyYWdlIGxvc3QgcmVjb3JkcwogIGxlZnQ6IDM5MgogcmlnaHQ6IDQwMApPT0ItUFJPQkUgc3VtbWFyeTogMC8xIGNvbWJpbmF0aW9ucyBzdGF5ZWQgZ3JlZW4K", "bytes": 594, "filename": "logs/checkpoint_set_v2_conformance-case-2.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "ef9f7101bc0ba5e0052daf3607afcc65f474ea911109cd5939daa53bc4967552"}
+2026-11-25T11:29:35.9909185Z CHECKPOINT_WINDOWS_LOG {"base64": "CnJ1bm5pbmcgMSB0ZXN0CnRlc3Qgc2V0X3YyX2dyZWVuX3NjZW5hcmlvc191bmRlcl9vdXRfb2ZfYmFuZF9jaGFuZ2UgLi4uIGJlYWQtNjJhMjI3NjUKYmVhZC02YmZjYjhmZQpiZWFkLTYyZDQ1NDQ1Cm9rCgp0ZXN0IHJlc3VsdDogb2suIDEgcGFzc2VkOyAwIGZhaWxlZDsgMCBpZ25vcmVkOyAwIG1lYXN1cmVkOyAxMiBmaWx0ZXJlZCBvdXQ7IGZpbmlzaGVkIGluIDE0LjYwcwoK", "bytes": 216, "filename": "logs/checkpoint_set_v2_conformance-case-2.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "daf9dd9b5a9de98e776c0e9a9980301ee3bfe0c346acf61f5d3b67145391e3e2"}
+2026-11-25T11:29:35.9912195Z CHECKPOINT_WINDOWS_LOG {"base64": "T09CLVBST0JFIHN0YXJ0OiBzZXQtdjItc2hhcmQtc3BsaXQtb24tdXBkYXRlLXN0b3JtIHVuZGVyIG9ycGhhbi1zZXQtZmlsZXMKT09CLVBST0JFIEdSRUVOOiBzZXQtdjItc2hhcmQtc3BsaXQtb24tdXBkYXRlLXN0b3JtIHVuZGVyIG9ycGhhbi1zZXQtZmlsZXMKT09CLVBST0JFIHN1bW1hcnk6IDEvMSBjb21iaW5hdGlvbnMgc3RheWVkIGdyZWVuCg==", "bytes": 199, "filename": "logs/checkpoint_set_v2_conformance-case-3.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "8d476b86bb25a35e03c621425ed509f1064c0012781525601c7d2c1dc190eb1a"}
+2026-11-25T11:29:35.9915205Z CHECKPOINT_WINDOWS_LOG {"base64": "CnJ1bm5pbmcgMSB0ZXN0CnRlc3Qgc2V0X3YyX2dyZWVuX3NjZW5hcmlvc191bmRlcl9vdXRfb2ZfYmFuZF9jaGFuZ2UgLi4uIGJlYWQtYzNhN2E4MDIKYmVhZC1jMzBjZDUxYwpiZWFkLWNlZmI0NjljCm9rCgp0ZXN0IHJlc3VsdDogb2suIDEgcGFzc2VkOyAwIGZhaWxlZDsgMCBpZ25vcmVkOyAwIG1lYXN1cmVkOyAxMiBmaWx0ZXJlZCBvdXQ7IGZpbmlzaGVkIGluIDE0LjYzcwoK", "bytes": 216, "filename": "logs/checkpoint_set_v2_conformance-case-3.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "f1ce2a419c1687e4073558c8b4cea5574c2dc0d26718d6480fdeb538aee30bd5"}
+2026-11-25T11:29:35.9917382Z CHECKPOINT_WINDOWS_LOG {"base64": "", "bytes": 0, "filename": "logs/checkpoint_set_v2_conformance-list.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+2026-11-25T11:29:35.9921941Z CHECKPOINT_WINDOWS_LOG {"base64": "c2V0X3YyX2J1ZGdldF9zaW5nbGVfaXNzdWVfdXBkYXRlOiB0ZXN0CnNldF92Ml9jb25jdXJyZW50X3B1YmxpY2F0aW9uOiB0ZXN0CnNldF92Ml9jcmFzaF9vcmRlcmluZzogdGVzdApzZXRfdjJfZHVhbF9sYXlvdXRfcmVhZGVyX2VxdWl2YWxlbmNlOiB0ZXN0CnNldF92Ml9mb3JjZWRfbW9ub2xpdGhfbGltaXRzOiB0ZXN0CnNldF92Ml9mb3JlbnNpY19mcm96ZW46IHRlc3QKc2V0X3YyX2dyZWVuX3NjZW5hcmlvc191bmRlcl9vdXRfb2ZfYmFuZF9jaGFuZ2U6IHRlc3QKc2V0X3YyX21pZ3JhdGlvbl9mdWxsX3Jld3JpdGU6IHRlc3QKc2V0X3YyX292ZXJzaXplX3JlY29yZF9vbmNlX2Nvc3Q6IHRlc3QKc2V0X3YyX3BvaW50ZXJfYm91bmRlZG5lc3M6IHRlc3QKc2V0X3YyX3NoYXJkX21lcmdlX29uX2RlbGV0aW9uOiB0ZXN0CnNldF92Ml9zaGFyZF9zcGxpdF9vbl91cGRhdGVfc3Rvcm06IHRlc3QKc2V0X3YyX3RhaWxfc2VhbF9hbmRfaW1tdXRhYmlsaXR5OiB0ZXN0CgoxMyB0ZXN0cywgMCBiZW5jaG1hcmtzCg==", "bytes": 517, "filename": "logs/checkpoint_set_v2_conformance-list.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "30e10480cb93e947f61ba76e023ac32aeb61948b8cd008e25e2fe016c3565557"}
+2026-11-25T11:29:35.9926588Z CHECKPOINT_WINDOWS_LOG {"base64": "", "bytes": 0, "filename": "logs/parse-check-helpers.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+2026-11-25T11:29:35.9927568Z CHECKPOINT_WINDOWS_LOG {"base64": "", "bytes": 0, "filename": "logs/parse-check-helpers.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+2026-11-25T11:29:35.9928577Z CHECKPOINT_WINDOWS_LOG {"base64": "", "bytes": 0, "filename": "logs/release-capabilities.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+2026-11-25T11:29:36.0522432Z CHECKPOINT_WINDOWS_LOG {"base64": "ewogICJjb250cmFjdCI6ICJuYXRpdmUtdjEiLAogICJpbXBsZW1lbnRhdGlvbiI6ICJiZWFkLXJzIiwKICAidmVyc2lvbiI6ICIwLjMuMCIsCiAgInN0b3JlX2xheW91dCI6IDEsCiAgImF0b21pY19jbGFpbSI6IHRydWUsCiAgInByaW9yaXR5X2NoYW5nZSI6IHRydWUsCiAgImlzc3VlX2VkaXRpbmciOiB7CiAgICAidmVyc2lvbiI6IDEsCiAgICAiZmllbGRzIjogWwogICAgICAidGl0bGUiLAogICAgICAiZGVzY3JpcHRpb24iLAogICAgICAicHJpb3JpdHkiLAogICAgICAiaXNzdWVfdHlwZSIsCiAgICAgICJub3RlcyIsCiAgICAgICJzdGF0dXMiLAogICAgICAiYXNzaWduZWUiCiAgICBdLAogICAgImNsZWFyX2Rlc2NyaXB0aW9uIjogdHJ1ZSwKICAgICJyZXZpc2lvbl9ndWFyZCI6IHRydWUsCiAgICAicHJpb3JpdHlfcmVhc29uX3JlcXVpcmVkIjogdHJ1ZSwKICAgICJpc3N1ZV90eXBlX2ZpbGUiOiB0cnVlCiAgfSwKICAicHJpb3JpdGllcyI6IHsKICAgICJtaW4iOiAwLAogICAgIm1heCI6IDQsCiAgICAiZGVmYXVsdCI6IDIsCiAgICAicDRfY2xhaW1hYmxlX2J5X2ZpZm8iOiB0cnVlCiAgfSwKICAic3RhdHVzZXMiOiBbCiAgICAiY2xvc2VkIiwKICAgICJkZWZlcnJlZCIsCiAgICAiaW5fcHJvZ3Jlc3MiLAogICAgIm9wZW4iCiAgXSwKICAiZGVwZW5kZW5jeV9raW5kcyI6IFsKICAgICJibG9ja3MiLAogICAgInJlbGF0ZXNfdG8iLAogICAgInZlcmlmaWVzIgogIF0sCiAgImNoZWNrcG9pbnRfbW9kZXMiOiBbCiAgICAibW9ub2xpdGhpYyIsCiAgICAic2hhcmRlZCIKICBdLAogICJjaGVja3BvaW50X2Zvcm1hdHMiOiBbCiAgICAiaXNzdWVzLWpzb25sLXYxIiwKICAgICJjaGVja3BvaW50LXNldC12MSIKICBdLAogICJsb2dpY2FsX3JldmlzaW9uIjogdHJ1ZSwKICAic2NoZW1hX3JlZiI6ICJ1cm46YmVhZC1yczpzY2hlbWE6Y2FwYWJpbGl0aWVzOm5hdGl2ZS12MSIsCiAgInNjaGVtYXMiOiBbCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTphdHRlbXB0LW91dGNvbWU6bmF0aXZlLXYxIiwKICAgICAgImRvY3VtZW50X2tpbmQiOiAiYXR0ZW1wdF9vdXRjb21lIiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbXSwKICAgICAgImVtaXQiOiBbCiAgICAgICAgImNoZWNrcG9pbnQtc2V0LXYxIgogICAgICBdCiAgICB9LAogICAgewogICAgICAic2NoZW1hX3JlZiI6ICJ1cm46YmVhZC1yczpzY2hlbWE6Y2FwYWJpbGl0aWVzOm5hdGl2ZS12MSIsCiAgICAgICJkb2N1bWVudF9raW5kIjogImNhcGFiaWxpdGllcyIsCiAgICAgICJ2YWxpZGF0ZSI6IHRydWUsCiAgICAgICJyZWFkYWJsZSI6IHRydWUsCiAgICAgICJ3cml0YWJsZSI6IHRydWUsCiAgICAgICJsb3NzeSI6IG51bGwsCiAgICAgICJjb25zdW1lIjogW10sCiAgICAgICJlbWl0IjogWwogICAgICAgICJjYXBhYmlsaXRpZXMiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTpjaGVja3BvaW50LW1hbmlmZXN0Om5hdGl2ZS12MSIsCiAgICAgICJkb2N1bWVudF9raW5kIjogImNoZWNrcG9pbnRfbWFuaWZlc3QiLAogICAgICAidmFsaWRhdGUiOiB0cnVlLAogICAgICAicmVhZGFibGUiOiB0cnVlLAogICAgICAid3JpdGFibGUiOiB0cnVlLAogICAgICAibG9zc3kiOiBudWxsLAogICAgICAiY29uc3VtZSI6IFsKICAgICAgICAiY2hlY2twb2ludC1zZXQtdjEiCiAgICAgIF0sCiAgICAgICJlbWl0IjogWwogICAgICAgICJjaGVja3BvaW50LXNldC12MSIKICAgICAgXQogICAgfSwKICAgIHsKICAgICAgInNjaGVtYV9yZWYiOiAidXJuOmJlYWQtcnM6c2NoZW1hOmNoZWNrcG9pbnQtcG9pbnRlcjpuYXRpdmUtdjEiLAogICAgICAiZG9jdW1lbnRfa2luZCI6ICJjaGVja3BvaW50X3BvaW50ZXIiLAogICAgICAidmFsaWRhdGUiOiB0cnVlLAogICAgICAicmVhZGFibGUiOiB0cnVlLAogICAgICAid3JpdGFibGUiOiB0cnVlLAogICAgICAibG9zc3kiOiBudWxsLAogICAgICAiY29uc3VtZSI6IFsKICAgICAgICAiY2hlY2twb2ludC1zZXQtdjEiCiAgICAgIF0sCiAgICAgICJlbWl0IjogWwogICAgICAgICJjaGVja3BvaW50LXNldC12MSIKICAgICAgXQogICAgfSwKICAgIHsKICAgICAgInNjaGVtYV9yZWYiOiAidXJuOmJlYWQtcnM6c2NoZW1hOmV2ZW50Om5hdGl2ZS12MSIsCiAgICAgICJkb2N1bWVudF9raW5kIjogImF1ZGl0X2V2ZW50IiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbXSwKICAgICAgImVtaXQiOiBbCiAgICAgICAgImNoZWNrcG9pbnQtc2V0LXYxIgogICAgICBdCiAgICB9LAogICAgewogICAgICAic2NoZW1hX3JlZiI6ICJ1cm46YmVhZC1yczpzY2hlbWE6ZmllbGQtZ3VpZGU6bmF0aXZlLXYxIiwKICAgICAgImRvY3VtZW50X2tpbmQiOiAiZmllbGRfZ3VpZGUiLAogICAgICAidmFsaWRhdGUiOiB0cnVlLAogICAgICAicmVhZGFibGUiOiB0cnVlLAogICAgICAid3JpdGFibGUiOiB0cnVlLAogICAgICAibG9zc3kiOiBudWxsLAogICAgICAiY29uc3VtZSI6IFtdLAogICAgICAiZW1pdCI6IFsKICAgICAgICAic2NoZW1hLmV4cGxhaW4iCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTppc3N1ZTpuYXRpdmUtdjEiLAogICAgICAiZG9jdW1lbnRfa2luZCI6ICJpc3N1ZSIsCiAgICAgICJ2YWxpZGF0ZSI6IHRydWUsCiAgICAgICJyZWFkYWJsZSI6IHRydWUsCiAgICAgICJ3cml0YWJsZSI6IHRydWUsCiAgICAgICJsb3NzeSI6IG51bGwsCiAgICAgICJjb25zdW1lIjogWwogICAgICAgICJzeW5jLmltcG9ydC1vbmx5IgogICAgICBdLAogICAgICAiZW1pdCI6IFsKICAgICAgICAiY2hlY2twb2ludC1zZXQtdjEiLAogICAgICAgICJzeW5jLmZsdXNoLW9ubHkiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTpwcm92ZW5hbmNlLXJlY2VpcHQ6bmF0aXZlLXYxIiwKICAgICAgImRvY3VtZW50X2tpbmQiOiAicHJvdmVuYW5jZV9yZWNlaXB0IiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbCiAgICAgICAgImNoZWNrcG9pbnQtc2V0LXYxIgogICAgICBdLAogICAgICAiZW1pdCI6IFsKICAgICAgICAiY2hlY2twb2ludC1zZXQtdjEiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTpyZWRhY3Rpb24tYWNrbm93bGVkZ21lbnQ6bmF0aXZlLXYxIiwKICAgICAgImRvY3VtZW50X2tpbmQiOiAicmVkYWN0aW9uX2Fja25vd2xlZGdtZW50IiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbCiAgICAgICAgImNoZWNrcG9pbnQtc2V0LXYxIgogICAgICBdLAogICAgICAiZW1pdCI6IFsKICAgICAgICAiY2hlY2twb2ludC1zZXQtdjEiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTpyZWRhY3Rpb24tZXBvY2g6bmF0aXZlLXYxIiwKICAgICAgImRvY3VtZW50X2tpbmQiOiAicmVkYWN0aW9uX2Vwb2NoIiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbCiAgICAgICAgImNoZWNrcG9pbnQtc2V0LXYxIgogICAgICBdLAogICAgICAiZW1pdCI6IFsKICAgICAgICAiY2hlY2twb2ludC1zZXQtdjEiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTpyZWRhY3Rpb24tZmllbGQtc2VsZWN0b3I6bmF0aXZlLXYxIiwKICAgICAgImRvY3VtZW50X2tpbmQiOiAicmVkYWN0aW9uX2ZpZWxkX3NlbGVjdG9yIiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbXSwKICAgICAgImVtaXQiOiBbXQogICAgfSwKICAgIHsKICAgICAgInNjaGVtYV9yZWYiOiAidXJuOmJlYWQtcnM6c2NoZW1hOnJlZGFjdGlvbi1maW5kaW5nOm5hdGl2ZS12MSIsCiAgICAgICJkb2N1bWVudF9raW5kIjogInJlZGFjdGlvbl9maW5kaW5nIiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbCiAgICAgICAgImNoZWNrcG9pbnQtc2V0LXYxIgogICAgICBdLAogICAgICAiZW1pdCI6IFsKICAgICAgICAiY2hlY2twb2ludC1zZXQtdjEiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTpyZWRhY3Rpb24tcmVjZWlwdDpuYXRpdmUtdjEiLAogICAgICAiZG9jdW1lbnRfa2luZCI6ICJyZWRhY3Rpb25fcmVjZWlwdCIsCiAgICAgICJ2YWxpZGF0ZSI6IHRydWUsCiAgICAgICJyZWFkYWJsZSI6IHRydWUsCiAgICAgICJ3cml0YWJsZSI6IHRydWUsCiAgICAgICJsb3NzeSI6IG51bGwsCiAgICAgICJjb25zdW1lIjogWwogICAgICAgICJjaGVja3BvaW50LXNldC12MSIKICAgICAgXSwKICAgICAgImVtaXQiOiBbCiAgICAgICAgImNoZWNrcG9pbnQtc2V0LXYxIgogICAgICBdCiAgICB9LAogICAgewogICAgICAic2NoZW1hX3JlZiI6ICJ1cm46YmVhZC1yczpzY2hlbWE6cmVkYWN0aW9uLXRvbWJzdG9uZTpuYXRpdmUtdjEiLAogICAgICAiZG9jdW1lbnRfa2luZCI6ICJyZWRhY3Rpb25fdG9tYnN0b25lIiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbCiAgICAgICAgImNoZWNrcG9pbnQtc2V0LXYxIgogICAgICBdLAogICAgICAiZW1pdCI6IFsKICAgICAgICAiY2hlY2twb2ludC1zZXQtdjEiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTpyZXNvbHZlLXJlY2VpcHQ6bmF0aXZlLXYxIiwKICAgICAgImRvY3VtZW50X2tpbmQiOiAicmVzb2x2ZV9yZWNlaXB0IiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbXSwKICAgICAgImVtaXQiOiBbCiAgICAgICAgInJlc29sdmUiCiAgICAgIF0KICAgIH0sCiAgICB7CiAgICAgICJzY2hlbWFfcmVmIjogInVybjpiZWFkLXJzOnNjaGVtYTpyZXNvbHZlLXJlcXVlc3Q6bmF0aXZlLXYxIiwKICAgICAgImRvY3VtZW50X2tpbmQiOiAicmVzb2x2ZV9yZXF1ZXN0IiwKICAgICAgInZhbGlkYXRlIjogdHJ1ZSwKICAgICAgInJlYWRhYmxlIjogdHJ1ZSwKICAgICAgIndyaXRhYmxlIjogdHJ1ZSwKICAgICAgImxvc3N5IjogbnVsbCwKICAgICAgImNvbnN1bWUiOiBbCiAgICAgICAgInJlc29sdmUiCiAgICAgIF0sCiAgICAgICJlbWl0IjogW10KICAgIH0KICBdLAogICJjb21tYW5kcyI6IFsKICAgICJhbmFseXplLWV4Y2x1c2lvbiIsCiAgICAiY2FwYWJpbGl0aWVzIiwKICAgICJjaGFuZ2VzIiwKICAgICJjbGFpbSIsCiAgICAiY2xvc2UiLAogICAgImNvbW1lbnQiLAogICAgImNvbXBhcmUiLAogICAgImNyZWF0ZSIsCiAgICAiZGF0YSIsCiAgICAiZGVwIiwKICAgICJkb2N0b3IiLAogICAgImhlbHAiLAogICAgImluaXQiLAogICAgImxhYmVsIiwKICAgICJsaXN0IiwKICAgICJtYW5pZmVzdCIsCiAgICAicG9saWN5IiwKICAgICJxdWVyeSIsCiAgICAicmVkYWN0IiwKICAgICJyZWN1cnJlbmNlIiwKICAgICJyZWYiLAogICAgInJlbGVhc2UiLAogICAgInJlb3BlbiIsCiAgICAicmVzb2x2ZSIsCiAgICAicmVzdG9yZSIsCiAgICAicmVzb3VyY2UiLAogICAgInNjaGVtYSIsCiAgICAic2hvdyIsCiAgICAic3luYyIsCiAgICAidXBkYXRlIiwKICAgICJ3YXRjaGRvZyIsCiAgICAid2h5IgogIF0sCiAgImFnZW50X2VyZ29ub21pY3MiOiB7CiAgICAidmVyc2lvbiI6IDEsCiAgICAiaXNzdWVfZG9jdW1lbnRzIjogewogICAgICAibGlzdF9qc29uIjogImFycmF5IiwKICAgICAgImxpc3RfanNvbmwiOiAib2JqZWN0LXBlci1saW5lIiwKICAgICAgInNob3dfanNvbiI6ICJvYmplY3QiLAogICAgICAiY3JlYXRlX2pzb24iOiAib2JqZWN0IiwKICAgICAgImhpc3RvcnlfanNvbiI6ICJhcnJheSIsCiAgICAgICJkZXBlbmRlbmN5X2xpc3RfanNvbiI6ICJhcnJheSIsCiAgICAgICJjb3VudF9qc29uIjogIm9iamVjdCIKICAgIH0sCiAgICAianNvbl9zZWxlY3RvcnMiOiBbCiAgICAgICItLWpzb24iLAogICAgICAiLS1mb3JtYXQganNvbiIKICAgIF0sCiAgICAiY2xhaW1fY3JlZGVudGlhbF9lbnZpcm9ubWVudCI6IFsKICAgICAgIk5FRURMRV9CRUFEX0lEIiwKICAgICAgIk5FRURMRV9CRUFEX0ZFTkNJTkdfVE9LRU4iCiAgICBdLAogICAgInRleHRfc291cmNlcyI6IFsKICAgICAgImlubGluZSIsCiAgICAgICJmaWxlIiwKICAgICAgInN0ZGluIgogICAgXSwKICAgICJzaG9ydGN1dHMiOiBbCiAgICAgICJyZWFkeSIsCiAgICAgICJzZWFyY2giLAogICAgICAibGlzdC1hbGwiLAogICAgICAibGlzdC1zZWFyY2giLAogICAgICAibGlzdC1jb3VudCIsCiAgICAgICJkZXBlbmRlbmN5LWxpc3QiLAogICAgICAiYmFyZS1pZCIsCiAgICAgICJoaXN0b3J5IiwKICAgICAgInBvc2l0aW9uYWwtbGFiZWxzIgogICAgXQogIH0sCiAgImF1dG9fZmx1c2giOiB0cnVlLAogICJhdXRvX3N0YWdlIjogdHJ1ZSwKICAiYXR0ZW1wdF9vdXRjb21lIjogewogICAgInN1cHBvcnRlZCI6IHRydWUsCiAgICAib3V0Y29tZXMiOiBbCiAgICAgICJ2ZXJpZmllZF9zdWNjZXNzIiwKICAgICAgIndvcmtfZmFpbHVyZSIsCiAgICAgICJpbmZyYXN0cnVjdHVyZV9mYWlsdXJlIiwKICAgICAgImNhbmNlbGxlZCIsCiAgICAgICJpbmRldGVybWluYXRlIgogICAgXSwKICAgICJhY3Rpb25zIjogWwogICAgICAiY2xvc2UiLAogICAgICAicmVsZWFzZSIsCiAgICAgICJxdWFyYW50aW5lIiwKICAgICAgImJsb2NrIiwKICAgICAgIm5vbmUiCiAgICBdLAogICAgInJlcGxheV9kZXRlY3Rpb24iOiB0cnVlLAogICAgInJldmlzaW9uX2d1YXJkIjogdHJ1ZSwKICAgICJmZW5jaW5nX3Rva2VuIjogdHJ1ZSwKICAgICJldmlkZW5jZV9yZWZzIjogdHJ1ZSwKICAgICJyZXNvbHZlX3JlY2VpcHRfc2NoZW1hIjogInVybjpiZWFkLXJzOnNjaGVtYTpyZXNvbHZlLXJlY2VpcHQ6bmF0aXZlLXYxIiwKICAgICJyZXNvbHZlX3JlcXVlc3Rfc2NoZW1hIjogInVybjpiZWFkLXJzOnNjaGVtYTpyZXNvbHZlLXJlcXVlc3Q6bmF0aXZlLXYxIgogIH0sCiAgImF0dGVtcHRfc3VtbWFyeSI6IHRydWUsCiAgInNlY3JldF9zY2FuIjogewogICAgImNvbnRyYWN0X2lkZW50aXR5IjogInVybjpiZWFkLXJzOnNwZWM6c2VjcmV0LXJlamVjdGlvbjp2MSIsCiAgICAicnVsZXNldF92ZXJzaW9uIjogNCwKICAgICJlZmZlY3RpdmVfbW9kZSI6ICJlbmZvcmNlIiwKICAgICJibG9ja2luZyI6IHRydWUsCiAgICAiYWR2aXNvcnkiOiB0cnVlLAogICAgImV4YWN0X2ZpbmdlcnByaW50X2Fja25vd2xlZGdtZW50IjogdHJ1ZSwKICAgICJydWxlc2V0X2NvbnRyYWN0IjogInVybjpiZWFkLXJzOnNwZWM6c2VjcmV0LXJ1bGVzZXQ6djQiLAogICAgImNvbXBpbGVkX3BvbGljeSI6ICJ3b3Jrc3BhY2UtY29uZmlndXJhYmxlIiwKICAgICJzZXJ2aWNlX3dyaXRlX2dhdGUiOiB0cnVlLAogICAgInJlY292ZXJ5X3F1YXJhbnRpbmUiOiB0cnVlCiAgfSwKICAiaGlzdG9yaWNhbF9yZWRhY3Rpb24iOiB7CiAgICAiY29udHJhY3QiOiAidXJuOmJlYWQtcnM6c3BlYzpoaXN0b3JpY2FsLXJlZGFjdGlvbjp2MSIsCiAgICAiZG9jdG9yX2ZpbmRpbmdzIjogdHJ1ZSwKICAgICJhdG9taWNfcmVkYWN0IjogdHJ1ZSwKICAgICJhbnRpX3Jlc3VycmVjdGlvbiI6IHRydWUsCiAgICAic2FuaXRpemVkX2dlbmVyYXRpb25fc2V0IjogdHJ1ZSwKICAgICJyZXN1bWFibGVfcHVibGljYXRpb24iOiB0cnVlLAogICAgImF0b21pY19iYXRjaCI6IHRydWUsCiAgICAibG9jYWxfc3FsaXRlX2NsZWFudXAiOiB0cnVlLAogICAgIm1ldGFkYXRhX3JlZGFjdGlvbiI6IHRydWUsCiAgICAiaWRlbnRpdHlfa2V5X3JlZGFjdGlvbiI6IHRydWUKICB9Cn0K", "bytes": 8559, "filename": "logs/release-capabilities.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "5b05efd94904383266bf27d2d4617fbf715ffe08d7bd80d485fdf092fc0ee84f"}
+2026-11-25T11:29:36.1137218Z CHECKPOINT_WINDOWS_LOG {"base64": "", "bytes": 0, "filename": "logs/release-update-help.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+2026-11-25T11:29:36.1402450Z CHECKPOINT_WINDOWS_LOG {"base64": "VXBkYXRlIGlzc3VlIGZpZWxkcyBhdG9taWNhbGx5LgoKVXBkYXRlcyBvbmUgb3IgbW9yZSBpc3N1ZSBmaWVsZHMgaW4gYSBzaW5nbGUgYXRvbWljIHRyYW5zYWN0aW9uLgpBbGwgdmFsaWRhdGlvbnMgYW5kIG11dGF0aW9ucyBvY2N1ciB0b2dldGhlcjsgYW55IGZhaWx1cmUgbGVhdmVzIHRoZQppc3N1ZSB1bmNoYW5nZWQuIENoYW5naW5nIHN0YXR1cyB0byAnY2xvc2VkJyByZXF1aXJlcyB0aGUgJ2Nsb3NlJyBjb21tYW5kCmluc3RlYWQuIFVzZSAncmVvcGVuJyB0byB0cmFuc2l0aW9uIGZyb20gY2xvc2VkIHRvIG9wZW4uCgpFWEFNUExFUzoKICBiZWFkIHVwZGF0ZSBJRCAtLXN0YXR1cyBpbl9wcm9ncmVzcyAgICAgICAgICAgICAgICAjIFN0YXJ0IHdvcmtpbmcgb24gYW4gaXNzdWUKICBiZWFkIHVwZGF0ZSBJRCAtLWFzc2lnbmVlIGFsaWNlICAgICAgICAgICAgICAgICAgICAjIEFzc2lnbiB0byBhbGljZQogIGJlYWQgdXBkYXRlIElEIC0tbm90ZXMgIkludmVzdGlnYXRlZCByb290IGNhdXNlIiAgICMgQWRkIGludmVzdGlnYXRpb24gbm90ZXMKICBiZWFkIHVwZGF0ZSBJRCAtLWFwcGVuZC1ub3RlcyAiU2Vjb25kIGludmVzdGlnYXRpb24gcGFzcyIKICBiZWFkIHVwZGF0ZSBJRCAtLW5vdGVzLWZpbGUgaW52ZXN0aWdhdGlvbi50eHQKICBiZWFkIHVwZGF0ZSBJRCAtLXRpdGxlICJSZXZpc2VkIHRhc2siIC0tZGVzY3JpcHRpb24tZmlsZSBkZXRhaWxzLnR4dAogIGJlYWQgdXBkYXRlIElEIC0tcHJpb3JpdHkgMSAtLXJlYXNvbiAiVXJnZW5jeSByZXZpZXdlZCIKICBiZWFkIHVwZGF0ZSBJRCAtLWlzc3VlLXR5cGUgaW52ZXN0aWdhdGlvbiAtLWNsZWFyLWRlc2NyaXB0aW9uCiAgYmVhZCB1cGRhdGUgSUQgLS1pc3N1ZS10eXBlLWZpbGUgY3VzdG9tLXR5cGUudHh0CiAgY2F0IGludmVzdGlnYXRpb24udHh0IHwgYmVhZCB1cGRhdGUgSUQgLS1ub3Rlcy1maWxlIC0KICBiZWFkIHVwZGF0ZSBJRCAtLWNsZWFyLWFzc2lnbmVlICAgICAgICAgICAgICAgICAgICAjIENsZWFyIGFzc2lnbm1lbnQgKG9wZW4gb25seSkKICBiZWFkIHVwZGF0ZSBJRCAtLXN0YXR1cyBpbl9wcm9ncmVzcyAtLWlmLXJldmlzaW9uIDMgIyBXaXRoIHJldmlzaW9uIGd1YXJkCgpTVEFUVVMgVFJBTlNJVElPTlM6CiAgVmFsaWQgdHJhbnNpdGlvbnMgZGVwZW5kIG9uIHRoZSBjdXJyZW50IGJhc2Ugc3RhdHVzOgogIC0gb3BlbiBjYW4gdHJhbnNpdGlvbiB0bzogaW5fcHJvZ3Jlc3MsIGRlZmVycmVkCiAgLSBpbl9wcm9ncmVzcyBjYW4gdHJhbnNpdGlvbiB0bzogb3BlbiwgZGVmZXJyZWQsIGNsb3NlZCAodmlhICdjbG9zZScgY29tbWFuZCkKICAtIGRlZmVycmVkIGNhbiB0cmFuc2l0aW9uIHRvOiBvcGVuLCBjbG9zZWQgKHZpYSAnY2xvc2UnIGNvbW1hbmQpCiAgLSBjbG9zZWQgY2FuIG9ubHkgdHJhbnNpdGlvbiB0bzogb3BlbiAodmlhICdyZW9wZW4nIGNvbW1hbmQpCgpFRElUQUJMRSBGSUVMRFM6CiAgVGl0bGUsIGRlc2NyaXB0aW9uLCBwcmlvcml0eSwgaXNzdWUgdHlwZSwgbm90ZXMsIHN0YXR1cyBhbmQgYXNzaWdubWVudC4KICAtLWRlc2NyaXB0aW9uLCAtLWRlc2NyaXB0aW9uLWZpbGUgYW5kIC0tY2xlYXItZGVzY3JpcHRpb24gYXJlIGV4Y2x1c2l2ZS4KICAtLWlzc3VlLXR5cGUgYW5kIC0taXNzdWUtdHlwZS1maWxlIGFyZSBleGNsdXNpdmUuCiAgT25seSBvbmUgb2YgZGVzY3JpcHRpb24sIG5vdGVzIG9yIGlzc3VlIHR5cGUgbWF5IHJlYWQgc3RkaW4uCiAgRW1wdHkgZGVzY3JpcHRpb24gb3Igbm90ZXMgdmFsdWVzIGNsZWFyIHRoZSBjb3JyZXNwb25kaW5nIHRleHQuCiAgLS1wcmlvcml0eSByZXF1aXJlcyBhIG5vbmJsYW5rIC0tcmVhc29uIGFuZCByZWNvcmRzIHRoZSBhY3RvciBhbmQgb2xkL25ldwogIHByaW9yaXRpZXMuIEFuIHVuY2hhbmdlZCBwcmlvcml0eSBlbWl0cyBubyBwcmlvcml0eSBldmVudC4KICBTY2FsYXIgbWV0YWRhdGEgZWRpdHMgb24gY2xvc2VkIGlzc3VlcyBwcmVzZXJ2ZSB0aGVpciBjbG9zZSByZWNvcmQuCiAgVXNlICdiZWFkIGxhYmVsIGFkZHxyZW1vdmUnIGFuZCAnYmVhZCBkZXAgYWRkfHJlbW92ZScgZm9yIHJlbGF0ZWQgcmVjb3Jkcy4KCkFTU0lHTk1FTlQ6CiAgLS1hc3NpZ25lZSBhbmQgLS1jbGVhci1hc3NpZ25lZSBhcmUgbXV0dWFsbHkgZXhjbHVzaXZlLgogIC0tY2xlYXItYXNzaWduZWUgb25seSB3b3JrcyBmb3Igb3BlbiBhc3NpZ25lZCBpc3N1ZXMuCiAgRm9yIGluX3Byb2dyZXNzIGlzc3VlcywgdXNlICdiZWFkIHJlbGVhc2UnIHRvIHJldHVybiB0byBvcGVuL3VuYXNzaWduZWQuCgpCTE9DS0VEIFNUQVRVUzoKICBTZXR0aW5nIC0tc3RhdHVzIGJsb2NrZWQgc2V0cyBtYW51YWxfYmxvY2tlZD10cnVlIGFuZCByZXRhaW5zIGJhc2Ugc3RhdHVzLgogIFNldHRpbmcgLS1zdGF0dXMgb3BlbiBjbGVhcnMgbWFudWFsIGJsb2NraW5nIGFuZCBzZXRzIGJhc2Ugc3RhdHVzIHRvIG9wZW4uCiAgQ2xvc2VkIGlzc3VlcyBjYW5ub3QgdXNlIC0tc3RhdHVzIG9wZW4gKHVzZSAncmVvcGVuJyBpbnN0ZWFkKS4KClJFVklTSU9OIEdVQVJEUzoKICAtLWlmLXJldmlzaW9uIE4gcHJvdmlkZXMgb3B0aW1pc3RpYyBjb25jdXJyZW5jeSBjb250cm9sLgogIElmIHRoZSBpc3N1ZSdzIGN1cnJlbnQgcmV2aXNpb24gZG9lc24ndCBtYXRjaCBOLCB0aGUgdXBkYXRlIGZhaWxzIHdpdGgKICBleGl0IGNvZGUgNCBhbmQgYSBjb25mbGljdCBtZXNzYWdlLiBUaGlzIHByZXZlbnRzIHNpbGVudCBsb3N0IHVwZGF0ZXMKICB3aGVuIG11bHRpcGxlIGFnZW50cyBvciBodW1hbnMgbW9kaWZ5IHRoZSBzYW1lIGlzc3VlIGNvbmN1cnJlbnRseS4KCkFsbCB1cGRhdGVzIGFyZSBhdG9taWMuIEludmFsaWQgdHJhbnNpdGlvbnMgb3IgY29uZmxpY3RzIGV4aXQgd2l0aCBjb2RlIDQKd2l0aG91dCBjaGFuZ2luZyBhbnkgZmllbGRzIG9yIHRpbWVzdGFtcHMuCgpVc2FnZTogYmVhZC1jaGVja3BvaW50LTJkODAxYmE0NTViNy5leGUgdXBkYXRlIFtPUFRJT05TXSA8SUQ+CgpBcmd1bWVudHM6CiAgPElEPgogICAgICAgICAgSXNzdWUgSUQKCk9wdGlvbnM6CiAgICAgIC0tbm8tYXV0by1mbHVzaAogICAgICAgICAgU3VwcHJlc3MgYXV0b21hdGljIHBvc3QtY29tbWl0IGNoZWNrcG9pbnQgcHVibGljYXRpb24gZm9yIHRoaXMgb25lIGludm9jYXRpb24sIGxlYXZpbmcgdGhlIGNoZWNrcG9pbnQgZGlydHkgZm9yIGEgbGF0ZXIgZXhwbGljaXQgYGJlYWQgc3luYyBmbHVzaC1vbmx5YDsgb3ZlcnJpZGVzIHRoZSBgY2hlY2twb2ludC5hdXRvX2ZsdXNoYCB3b3Jrc3BhY2UgY29uZmlndXJhdGlvbiBrZXkKCiAgICAgIC0tc3RhdHVzIDxTVEFUVVM+CiAgICAgICAgICBOZXcgc3RhdHVzCgogICAgICAtLWFja25vd2xlZGdlLXNlY3JldCA8RklOR0VSUFJJTlQ+CiAgICAgICAgICBBZG1pdCBvbmx5IGZpbmRpbmdzIHdob3NlIGV4YWN0IHNjYW5uZXIgZmluZ2VycHJpbnQgbWF0Y2hlcyB0aGlzIHZhbHVlLiBSZXBlYXQgZm9yIG11bHRpcGxlIGZpbmRpbmdzLiBFdmVyeSBzdWNjZXNzZnVsIG11dGF0aW9uIHVzaW5nIGFuIGFja25vd2xlZGdtZW50IHJlY29yZHMgYSBzYW1lLXRyYW5zYWN0aW9uIGF1ZGl0IGV2ZW50OyB0aGVyZSBpcyBubyBibGFua2V0IGJ5cGFzcyBmbGFnCgogICAgICAtLWFzc2lnbmVlIDxBU1NJR05FRT4KICAgICAgICAgIE5ldyBhc3NpZ25lZQoKICAgICAgLS1jbGVhci1hc3NpZ25lZQogICAgICAgICAgQ2xlYXIgYXNzaWduZWUgKG9ubHkgZm9yIG9wZW4gYXNzaWduZWQgaXNzdWVzKQoKICAgICAgLS1za2lwLWZvcmVpZ24td29ya3NwYWNlCiAgICAgICAgICBMZXQgd29ya3NwYWNlIGRpc2NvdmVyeSBjb250aW51ZSBwYXN0IHRoZSBmaXJzdCBgLmJlYWRzYCBkaXJlY3Rvcnkgd2hlbiBpdCBpcyBub3QgYSBiZWFkLXJzIHdvcmtzcGFjZSAobm8gYC5iZWFkcy9jb25maWcuanNvbmApLCBzbyBhIGJlYWQtcnMgd29ya3NwYWNlIGZhcnRoZXIgdXAgdGhlIHRyZWUgY2FuIGJlIHVzZWQuIERpc2NvdmVyeSBvdGhlcndpc2Ugc3RvcHMgdGhlcmUgYW5kIGZhaWxzIGNsb3NlZDogaXQgbmV2ZXIgc2lsZW50bHkgc2tpcHMgYSBgLmJlYWRzYCBpdCBkb2VzIG5vdCByZWNvZ25pemUgdG8gb3BlcmF0ZSBvbiBhbiB1bnJlbGF0ZWQgcGFyZW50IHdvcmtzcGFjZSwgYW5kIGl0IG5ldmVyIHdyaXRlcyBpbnRvIHRoZSB1bnJlY29nbml6ZWQgZGlyZWN0b3J5IC0tIGluY2x1ZGluZyB1bmRlciB0aGlzIGZsYWcsIHdoaWNoIG9ubHkgd2lkZW5zIHRoZSBzZWFyY2gKCiAgICAgIC0tbm90ZXMgPE5PVEVTPgogICAgICAgICAgTmV3IG5vdGVzCgogICAgICAtLWFwcGVuZC1ub3RlcyA8QVBQRU5EX05PVEVTPgogICAgICAgICAgQXBwZW5kIG5vdGVzIGF0b21pY2FsbHkgdG8gdGhlIGV4aXN0aW5nIG5vdGVzIGZpZWxkCgogICAgICAtLW5vdGVzLWZpbGUgPFBBVEg+CiAgICAgICAgICBSZWFkIG5vdGVzIGZyb20gYSBVVEYtOCBmaWxlLCBvciBzdGRpbiB3aXRoIC0KCiAgICAgIC0taWYtcmV2aXNpb24gPElGX1JFVklTSU9OPgogICAgICAgICAgRXhwZWN0ZWQgcmV2aXNpb24gZm9yIG9wdGltaXN0aWMgY29uY3VycmVuY3kgY29udHJvbAoKICAgICAgLS1mZW5jaW5nLXRva2VuIDxGRU5DSU5HX1RPS0VOPgogICAgICAgICAgRmVuY2luZyB0b2tlbiBmb3IgbGVhc2UgdmFsaWRhdGlvbiAoYWR2YW5jZWQgdXNhZ2UpCgogICAgICAtLWRyeS1ydW4KICAgICAgICAgIERyeSBydW46IHNob3cgd2hhdCB3b3VsZCBoYXBwZW4gd2l0aG91dCBtYWtpbmcgY2hhbmdlcwoKICAgICAgLS10aXRsZSA8VElUTEU+CiAgICAgICAgICBSZXBsYWNlIHRoZSB0aXRsZSAoMS00MDk2IFVURi04IGJ5dGVzKQoKICAgICAgLS1kZXNjcmlwdGlvbiA8REVTQ1JJUFRJT04+CiAgICAgICAgICBSZXBsYWNlIHRoZSBkZXNjcmlwdGlvbjsgYW4gZW1wdHkgdmFsdWUgY2xlYXJzIGl0CgogICAgICAtLWRlc2NyaXB0aW9uLWZpbGUgPFBBVEg+CiAgICAgICAgICBSZWFkIHRoZSBkZXNjcmlwdGlvbiBmcm9tIGEgVVRGLTggZmlsZSwgb3Igc3RkaW4gd2l0aCAtCgogICAgICAtLWNsZWFyLWRlc2NyaXB0aW9uCiAgICAgICAgICBDbGVhciB0aGUgZGVzY3JpcHRpb24gdG8gYW4gZW1wdHkgc3RyaW5nCgogICAgICAtLXByaW9yaXR5IDxQUklPUklUWT4KICAgICAgICAgIFNldCBwcmlvcml0eSBmcm9tIDAgdGhyb3VnaCA0LCB3aXRoIGFuIGF1ZGl0IHJlYXNvbgoKICAgICAgLS1yZWFzb24gPFJFQVNPTj4KICAgICAgICAgIE5vbmJsYW5rIGV4cGxhbmF0aW9uIGZvciB0aGUgc3VwcGxpZWQgcHJpb3JpdHkKCiAgICAgIC0taXNzdWUtdHlwZSA8SVNTVUVfVFlQRT4KICAgICAgICAgIFJlcGxhY2UgdGhlIGlzc3VlIHR5cGUgd2l0aCBhIG5vbmVtcHR5IG5hdGl2ZSB0eXBlIG5hbWUKCiAgICAgIC0taXNzdWUtdHlwZS1maWxlIDxQQVRIPgogICAgICAgICAgUmVhZCB0aGUgaXNzdWUgdHlwZSBmcm9tIGEgVVRGLTggZmlsZSwgb3Igc3RkaW4gd2l0aCAtCgogIC1oLCAtLWhlbHAKICAgICAgICAgIFByaW50IGhlbHAgKHNlZSBhIHN1bW1hcnkgd2l0aCAnLWgnKQoKICAtViwgLS12ZXJzaW9uCiAgICAgICAgICBQcmludCB2ZXJzaW9uCg==", "bytes": 5551, "filename": "logs/release-update-help.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "0f73cc5f30a96fd7df307188846b34af37a4640fb759ed7b3b47bcde1f43685e"}
+2026-11-25T11:29:36.1655528Z CHECKPOINT_WINDOWS_LOG {"base64": "", "bytes": 0, "filename": "logs/release-version.stderr", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"}
+2026-11-25T11:29:36.1656678Z CHECKPOINT_WINDOWS_LOG {"base64": "YmVhZCAwLjMuMCAodW5rbm93biAyMDI2LTExLTI1VDExOjA0OjAyWikK", "bytes": 42, "filename": "logs/release-version.stdout", "root": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1", "sha256": "bff41ee2c2951e8d539336e33ebcd25de27e0e25591c0f404494678c1bc69b21"}
+2026-11-25T11:29:36.1809055Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-25T11:29:36.1809425Z with:
+2026-11-25T11:29:36.1809624Z   name: checkpoint-windows-v9-45603696205-1-part-grid-1
+2026-11-25T11:29:36.1809834Z   retention-days: 7
+2026-11-25T11:29:36.1809995Z   compression-level: 0
+2026-11-25T11:29:36.1810153Z   if-no-files-found: error
+2026-11-25T11:29:36.1810385Z   path: D:\a\_temp/bead-checkpoint-windows-artifact-check-45603696205-1/
+2026-11-25T11:29:36.1810628Z   overwrite: false
+2026-11-25T11:29:36.1810784Z   include-hidden-files: false
+2026-11-25T11:29:36.1810952Z env:
+2026-11-25T11:29:36.1811196Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:29:36.1811476Z   SCOTTY_WINDOWS_PARTITION: grid-1
+2026-11-25T11:29:36.1811660Z   SCOTTY_WINDOWS_START_EPOCH: 1795605701
+2026-11-25T11:29:36.1811851Z   SCOTTY_WINDOWS_DEADLINE_EPOCH: 1795614101
+2026-11-25T11:29:36.1812034Z   GIT_CONFIG_COUNT: 2
+2026-11-25T11:29:36.1812248Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T11:29:36.1812421Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T11:29:36.1812589Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T11:29:36.1812745Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T11:29:36.1812874Z ##[endgroup]
+2026-11-25T11:29:36.3238911Z (node:632) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T11:29:36.3239354Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T11:29:36.3342445Z With the provided path, there will be 44 files uploaded
+2026-11-25T11:29:36.3346408Z Artifact name is valid!
+2026-11-25T11:29:36.3347408Z Root directory input is valid!
+2026-11-25T11:29:36.6926455Z Beginning upload of artifact content to blob storage
+2026-11-25T11:29:36.7553720Z (node:632) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-25T11:29:38.1585118Z Uploaded bytes 8388608
+2026-11-25T11:29:38.4249233Z Uploaded bytes 12366399
+2026-11-25T11:29:38.4994262Z Finished uploading artifact content to blob storage!
+2026-11-25T11:29:38.4995299Z SHA256 digest of uploaded artifact zip is 84eab0fd45cc5de305977de442b05ac20d5ec3ff03c1bd6097b17677b1d31131
+2026-11-25T11:29:38.4997097Z Finalizing artifact upload
+2026-11-25T11:29:38.8953057Z Artifact checkpoint-windows-v9-45603696205-1-part-grid-1.zip successfully finalized. Artifact ID 15017805558
+2026-11-25T11:29:38.8953804Z Artifact checkpoint-windows-v9-45603696205-1-part-grid-1 has been successfully uploaded! Final size is 12366399 bytes. Artifact ID is 15017805558
+2026-11-25T11:29:38.8963029Z Artifact download URL: https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45603696205/artifacts/15017805558
+2026-11-25T11:29:38.9277975Z Post job cleanup.
+2026-11-25T11:29:39.0405492Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T11:29:39.0674375Z git version 2.56.1.windows.1
+2026-11-25T11:29:39.0729711Z Temporarily overriding HOME='D:\a\_temp\0fbdfea8-3d6b-415d-8acc-99e508712a73' before making global git config changes
+2026-11-25T11:29:39.0730435Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:29:39.0738277Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\smoke
+2026-11-25T11:29:39.1088916Z Removing SSH command configuration
+2026-11-25T11:29:39.1099011Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:29:39.1421231Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:29:39.6491770Z Removing HTTP extra header
+2026-11-25T11:29:39.6501037Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:29:39.6804362Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:29:40.2039411Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:29:40.2050939Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:29:40.2326499Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git.path
+2026-11-25T11:29:40.2326917Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git/worktrees/*.path
+2026-11-25T11:29:40.2373751Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git.path
+2026-11-25T11:29:40.2655916Z D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:29:40.2700451Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git.path D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:29:40.3016777Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git/worktrees/*.path
+2026-11-25T11:29:40.3284368Z D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:29:40.3323932Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/smoke/.git/worktrees/*.path D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config
+2026-11-25T11:29:40.3626632Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:29:40.8056887Z Removing credentials config 'D:\a\_temp\git-credentials-79282ead-8af6-4425-b629-986544466796.config'
+2026-11-25T11:29:40.8325394Z Post job cleanup.
+2026-11-25T11:29:40.9464971Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T11:29:40.9741952Z git version 2.56.1.windows.1
+2026-11-25T11:29:40.9797891Z Temporarily overriding HOME='D:\a\_temp\46f18e57-e885-4997-950f-d3502ba02d08' before making global git config changes
+2026-11-25T11:29:40.9798597Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:29:40.9805736Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\job
+2026-11-25T11:29:41.0110711Z Removing SSH command configuration
+2026-11-25T11:29:41.0120897Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:29:41.0433487Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:29:41.5022798Z Removing HTTP extra header
+2026-11-25T11:29:41.5031084Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:29:41.5354218Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:29:42.0068100Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:29:42.0078308Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:29:42.0345598Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git.path
+2026-11-25T11:29:42.0345967Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git/worktrees/*.path
+2026-11-25T11:29:42.0385381Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git.path
+2026-11-25T11:29:42.0661679Z D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:29:42.0703840Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git.path D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:29:42.1008349Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git/worktrees/*.path
+2026-11-25T11:29:42.1270690Z D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:29:42.1310472Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/job/.git/worktrees/*.path D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config
+2026-11-25T11:29:42.1610792Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:29:42.6724771Z Removing credentials config 'D:\a\_temp\git-credentials-d61de2ca-1561-48b7-a2b2-6a91ac604708.config'
+2026-11-25T11:29:42.6992972Z Post job cleanup.
+2026-11-25T11:29:42.8193860Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T11:29:42.8467973Z git version 2.56.1.windows.1
+2026-11-25T11:29:42.8526315Z Temporarily overriding HOME='D:\a\_temp\c179b7eb-d25c-45a2-8a97-5589f7b22553' before making global git config changes
+2026-11-25T11:29:42.8526728Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:29:42.8534369Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T11:29:42.8836137Z Removing SSH command configuration
+2026-11-25T11:29:42.8846061Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:29:42.9148847Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T11:29:43.3673123Z Removing HTTP extra header
+2026-11-25T11:29:43.3681605Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:29:43.3985632Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T11:29:43.8575048Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:29:43.8585273Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:29:43.8877659Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:29:43.8878539Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:29:43.8919091Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:29:43.9187488Z D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:29:43.9229768Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:29:43.9556828Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:29:43.9819826Z D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:29:43.9859584Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config
+2026-11-25T11:29:44.0158461Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T11:29:44.4915618Z Removing credentials config 'D:\a\_temp\git-credentials-6c1c0f2c-5dbd-40e2-b166-69fea4734ad3.config'
+2026-11-25T11:29:44.5091347Z Cleaning up orphan processes
+2026-11-25T11:29:44.5403606Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

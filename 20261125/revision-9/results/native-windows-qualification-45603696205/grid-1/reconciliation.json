@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "partition": "grid-1",
+  "run_id": 45603696205,
+  "attempt": 1,
+  "job_id": 139168987930,
+  "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "result_sha256": "60bb91d40e302e1c0a2890867ba56dce74412aa24b92c69439bbcff3a52d45df",
+  "job_log_sha256": "042e7528d6460f1d7cacfaa3fcbd5f69c85586d4ccca3b85f32e06ba602edd2a",
+  "decoded_streams": 18,
+  "grid_cells": [
+    {
+      "classification": "RED",
+      "failure_text": "publication 0 added 1789455 new blob bytes, budget is 262144",
+      "fixture": "store-deletion",
+      "scenario": "set-v2-budget-single-issue-update"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-budget-single-issue-update"
+    },
+    {
+      "classification": "RED",
+      "failure_text": "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400",
+      "fixture": "store-deletion",
+      "scenario": "set-v2-shard-split-on-update-storm"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-shard-split-on-update-storm"
+    }
+  ],
+  "owned_children_remaining": 0,
+  "inputs_and_source_unchanged": true,
+  "characterization_contract": {
+    "source_path": "tests/checkpoint_set_v2_conformance.rs",
+    "source_sha256": "3d579ebc628546ce2f2dc3e656f7ff0e072b6d8ad17e52e0f7e185c45f46db19",
+    "functions": [
+      "OutOfBandChange::apply",
+      "probe_one",
+      "set_v2_green_scenarios_under_out_of_band_change"
+    ],
+    "fixture": "StoreDeletion { count: 8 } directly deletes eight live issues without events.",
+    "oracle": "The documented characterization grid catches scenario assertions and requires complete classified combinations and exact failure text. The eight-issue deletion explains the observed split coverage 392 versus the pre-change400. No assertion or source was changed.",
+    "remaining": "Ordinary core split/assertions, editing, aggregate and full original-corpus qualification remain separate gates."
+  }
+}
