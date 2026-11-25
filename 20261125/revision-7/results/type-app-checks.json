@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "task_key": "type-app-checks",
+  "status": "passed",
+  "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+  "workflow_commit": "e10f6153fec45ab91e30539495fa5b6567d95229",
+  "workflow_blob": "8ba9c50becdc41df682ddd8b7df4f74326c22fb3",
+  "run_id": 45573503400,
+  "job_id": 139065635890,
+  "actual": {
+    "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "commands": [
+      {
+        "name": "npm-ci",
+        "command": [
+          "npm",
+          "ci",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "exit": 0,
+        "timeout_seconds": 420
+      },
+      {
+        "name": "adapter-tests",
+        "command": [
+          "node",
+          "--test",
+          "--test-reporter=tap",
+          "scripts/test-backend-contract.mjs",
+          "scripts/test-native-editing.mjs",
+          "scripts/test-native-mutations.mjs",
+          "scripts/test-native-mutation-outcomes.mjs",
+          "scripts/test-native-credential-tenures.mjs"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180
+      },
+      {
+        "name": "lint",
+        "command": [
+          "npm",
+          "run",
+          "lint"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180
+      },
+      {
+        "name": "committed-diff-check",
+        "command": [
+          "git",
+          "diff",
+          "--check",
+          "HEAD^",
+          "HEAD"
+        ],
+        "exit": 0,
+        "timeout_seconds": 30
+      },
+      {
+        "name": "diff-check",
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit": 0,
+        "timeout_seconds": 30
+      },
+      {
+        "name": "build",
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "exit": 0,
+        "timeout_seconds": 600
+      },
+      {
+        "name": "type-check",
+        "command": [
+          "node",
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "exit": 0,
+        "timeout_seconds": 120
+      },
+      {
+        "name": "tracked-source-check",
+        "command": [
+          "git",
+          "diff",
+          "--exit-code",
+          "HEAD"
+        ],
+        "exit": 0,
+        "timeout_seconds": 30
+      }
+    ],
+    "node": "v24.22.3",
+    "npm": "11.19.1",
+    "remaining_edit_directories": [],
+    "adapter_tests": {
+      "tests": 115,
+      "pass": 115,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "runtime": {
+      "manifest": "scotty-runtime.json",
+      "manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+      "file_count": 560,
+      "archive": "scotty-runtime.zip",
+      "archive_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+      "archive_bytes": 7137798,
+      "build_id": "YIOHeRJTEdlOszyc4LyHr"
+    },
+    "status": "passed"
+  },
+  "output": {
+    "id": 15003467178,
+    "name": "scotty-type-checks-45573503400-1",
+    "sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+    "bytes": 7056005,
+    "expires_at": "2026-12-09T08:08:16Z"
+  },
+  "retained_packet": "20261125/revision-7/results/type-app-checks-45573503400.json",
+  "retained_packet_commit": "ba6d0697f6d5b16907e4873096990af8b67908c5",
+  "inspected": "Read every test name and result, actual command exits, complete build and lint output, warnings and runtime result. The ten Red failures all pass. No test was skipped or weakened.",
+  "workflow_author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean",
+      "workflow_commit": "e10f6153fec45ab91e30539495fa5b6567d95229",
+      "inspection": "Read the full workflow, pinned checkout/actions, command list and time limits, output capture and ZIP generation."
+    },
+    {
+      "pass": 2,
+      "result": "clean",
+      "workflow_commit": "e10f6153fec45ab91e30539495fa5b6567d95229",
+      "inspection": "Re-read the full exact workflow and checked source/tree assertions, private-file exclusion, measured per-file runtime list, lock identity, no retries and upload after failure."
+    }
+  ],
+  "warnings": [
+    "ESLint reports the existing hooks/use-notifications.ts location.assign warning; zero errors.",
+    "Node 24.22.3 differs from the package's warning-only development preference >=26.4.",
+    "npm retains the Recharts deprecation and unrs-resolver install-script notice.",
+    "Turbopack reports broad tracing in unchanged lib/ai.ts and lib/showcase/generate.ts. The build exited 0."
+  ],
+  "remaining": "Independent review and the real hosted Windows type checks precede installation. The runtime manifest/source JSON will be printed and retained by that same Windows job for remote access; no build repeat is needed."
+}
