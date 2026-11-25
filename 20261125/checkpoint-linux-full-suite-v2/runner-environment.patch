@@ -1,0 +1,207 @@
+--- a/checkpoint-full-suite-20261125.py
++++ b/checkpoint-full-suite-20261125.py
+@@ -10,6 +10,7 @@
+ import re
+ import shutil
+ import signal
++import struct
+ import sys
+ import tarfile
+ import time
+@@ -30,6 +31,21 @@
+     "verified_restore_preserves_all_attempt_outcomes_from_set_v2",
+     "selected_set_v2_generation_remains_restorable_after_tail_append",
+     "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
++}
++
++PIN_INTERPRETER = Path("/nix/store/m07h00fl6538s4gavrp66a20ka4hg7fy-glibc-2.42-67/lib/ld-linux-x86-64.so.2")
++PIN_HASHES = {
++    "bead-pre-feature": "7e0e73defebb75fc987ddf8b6fb959f47c73ccbbcd7e066e2af302a6a43db6b5",
++    "bead-pre-attempt-resolution": "d0da42bbf59b721bc64bc3d55610844efe3f1f06e37c2d9494c0b3dda6e29ac6",
++    "bead-attempt-resolution-f25ab5c": "9a8455f25bacf5bc961bd740442fdc1b30a67fb6e38d304c23c97a57cf57b04e",
++    "bead-attempt-resolution-e115609": "68fe8d534721be4ba4147312364d8f0b216b62f3093e85e7c91f0a0db695a645",
++    "bead-managed-secret-policy-cd4986c": "6a5969ed9c1c5215d3f0f93505aa0603d7375281f6fb3f64ea6101ece149a50f",
++}
++GIT_IDENTITY = {
++    "GIT_AUTHOR_NAME": "Bead checkpoint CI",
++    "GIT_AUTHOR_EMAIL": "bead-checkpoint-ci@example.invalid",
++    "GIT_COMMITTER_NAME": "Bead checkpoint CI",
++    "GIT_COMMITTER_EMAIL": "bead-checkpoint-ci@example.invalid",
+ }
+ 
+ 
+@@ -159,6 +175,125 @@
+             "required_new_tests": sorted(EXPECTED_NEW_TESTS), "required_new_tests_passed": 6,
+             "unfiltered_default_harnesses": sorted(executed), "doctests": docs,
+             "doctest_result_groups": doc_groups}
++
++
++
++def elf_interpreter(path):
++    """Read PT_INTERP without modifying or running a historical binary."""
++    with path.open("rb") as stream:
++        header = stream.read(64)
++        require(len(header) == 64 and header[:6] == b"\x7fELF\x02\x01"
++                and struct.unpack_from("<H", header, 18)[0] == 62, "Expected x86-64 ELF pin")
++        offset = struct.unpack_from("<Q", header, 32)[0]
++        stride, count = struct.unpack_from("<HH", header, 54)
++        require(stride >= 56 and 0 < count <= 128
++                and offset + stride * count <= path.stat().st_size, "Invalid pin program headers")
++        interpreters = []
++        for index in range(count):
++            stream.seek(offset + index * stride)
++            row = stream.read(56)
++            if struct.unpack_from("<I", row)[0] != 3:
++                continue
++            start, size = struct.unpack_from("<Q", row, 8)[0], struct.unpack_from("<Q", row, 32)[0]
++            require(0 < size <= 4096 and start + size <= path.stat().st_size, "Invalid PT_INTERP")
++            stream.seek(start)
++            value = stream.read(size)
++            require(value.endswith(b"\0") and b"\0" not in value[:-1], "Invalid interpreter string")
++            interpreters.append(value[:-1].decode("ascii"))
++    require(len(interpreters) == 1, "Expected one pin interpreter")
++    return interpreters[0]
++
++
++def prepare_test_environment(B, runner, source, build_root, build, correction):
++    """Supply the three measured test-host prerequisites, keeping source bytes exact."""
++    pins = []
++    for name, expected in PIN_HASHES.items():
++        binary = B.safe_existing(source / "pinned-binaries" / name)
++        metadata = B.read_json(source / "pinned-binaries" / (name + ".metadata.json"))
++        require(sha(binary) == metadata["binary_sha256"] == expected, "Historical pin bytes differ: " + name)
++        require(elf_interpreter(binary) == str(PIN_INTERPRETER), "Historical pin interpreter differs")
++        pins.append(B.file_record(binary, source))
++    correction["pins"] = pins
++    loader = B.safe_existing(Path("/lib64/ld-linux-x86-64.so.2").resolve(strict=True))
++    require(loader.parent in (Path("/usr/lib/x86_64-linux-gnu"), Path("/lib/x86_64-linux-gnu"))
++            and os.access(loader, os.X_OK), "Unexpected native Ubuntu loader")
++    version = runner.run([str(loader), "--version"], source, "native-loader-version").read_text()
++    require(re.search(r"\bGLIBC 2\.39(?:[- )]|$)", version) is not None,
++            "Expected the Ubuntu24.04 native GLIBC2.39 loader")
++    correction["native_loader"] = {**B.file_record(loader, Path("/")), "absolute_path": str(loader),
++                                   "version": version.strip()}
++    require(not os.path.lexists(PIN_INTERPRETER), "Pin interpreter path already exists")
++    directories = list(reversed(PIN_INTERPRETER.parent.parents[:-1])) + [PIN_INTERPRETER.parent]
++    require(directories == [Path("/nix"), Path("/nix/store"), PIN_INTERPRETER.parent.parent,
++                            PIN_INTERPRETER.parent], "Unexpected interpreter directory plan")
++    for index, directory in enumerate(directories):
++        if os.path.lexists(directory):
++            B.safe_existing(directory, directory=True)
++            continue
++        correction["created_directories"].append(str(directory))
++        runner.run(["sudo", "-n", "mkdir", "-m", "755", "--", str(directory)], source,
++                   "pin-loader-directory-" + str(index))
++        B.safe_existing(directory, directory=True)
++    correction["loader_alias"] = {"path": str(PIN_INTERPRETER), "target": str(loader)}
++    runner.run(["sudo", "-n", "ln", "-s", "--", str(loader), str(PIN_INTERPRETER)],
++               source, "pin-loader-alias")
++    require(PIN_INTERPRETER.is_symlink() and os.readlink(PIN_INTERPRETER) == str(loader)
++            and PIN_INTERPRETER.resolve(strict=True) == loader, "Interpreter alias differs")
++    for index, record in enumerate(pins):
++        # --list resolves dependencies and versions without calling the pin's main.
++        listed = runner.run([str(loader), "--list", str(source / record["path"])],
++                            source, "pin-loader-dependencies-" + str(index)).read_text()
++        require("not found" not in listed, "An unchanged historical pin dependency is unavailable")
++    harness = B.safe_existing(build_root / build["executables"]["harness:test:r002_leased_claims"]["path"])
++    binary = B.safe_existing(build_root / build["executables"]["binary:bead"]["path"])
++    alias = harness.parent.parent / "bead"
++    require(alias.is_relative_to(build_root / "target") and alias != binary
++            and not os.path.lexists(alias), "Legacy lease-test path is not fresh and owned")
++    correction["lease_binary_alias"] = {"path": str(alias), "target": str(binary)}
++    alias.symlink_to(binary)
++    require(alias.resolve(strict=True) == binary, "Legacy lease-test alias differs")
++    correction["status"] = "prepared"
++
++
++def remove_test_environment(B, runner, source, correction):
++    """Remove only the aliases and empty directories created by this invocation."""
++    failures = []
++    for key in ("lease_binary_alias", "loader_alias"):
++        row = correction.get(key)
++        if not row:
++            continue
++        path = Path(row["path"])
++        try:
++            if os.path.lexists(path):
++                require(path.is_symlink() and os.readlink(path) == row["target"],
++                        "Owned test alias changed; preserving it: " + str(path))
++                if key == "loader_alias":
++                    runner.run(["sudo", "-n", "unlink", "--", str(path)], source, "remove-pin-loader-alias")
++                else:
++                    path.unlink()
++            require(not os.path.lexists(path), "Owned test alias survived cleanup")
++            row["removed"] = True
++        except BaseException as error:
++            failures.append(str(error))
++    for index, name in enumerate(reversed(correction["created_directories"])):
++        directory = Path(name)
++        try:
++            if os.path.lexists(directory):
++                B.safe_existing(directory, directory=True)
++                runner.run(["sudo", "-n", "rmdir", "--", name], source, "remove-loader-directory-" + str(index))
++            require(not os.path.lexists(directory), "Owned loader directory survived cleanup")
++        except BaseException as error:
++            failures.append(str(error))
++    if correction.get("native_loader"):
++        row = correction["native_loader"]
++        try:
++            require(B.file_record(Path(row["absolute_path"]), Path("/")) ==
++                    {key: row[key] for key in ("path", "bytes", "sha256", "mode")}, "Native loader changed")
++        except BaseException as error:
++            failures.append(str(error))
++    correction["cleanup_errors"] = failures
++    correction["cleanup_status"] = "passed" if not failures else "failed"
++    require(not failures, "Test environment cleanup failed: " + "; ".join(failures))
+ 
+ 
+ def main():
+@@ -239,6 +374,8 @@
+     B.write_json(output / "attempt-started.json", result)
+     runner = None
+     source_files = None
++    correction = {"status": "pending", "created_directories": [], "child_git_identity": GIT_IDENTITY}
++    result["environment_corrections"] = correction
+     def stop(_signal, _frame):
+         raise TimeoutError("Full-suite deadline or supervisor stop")
+ 
+@@ -283,6 +420,7 @@
+                 "Retained Cargo executable map differs")
+         env = B.clean_environment(build_root)
+         env.update(G.PROFILES)
++        env.update(GIT_IDENTITY)
+         env["CARGO_TERM_COLOR"] = "never"
+         env["CARGO_BIN_EXE_bead"] = str(build_root / build["executables"]["binary:bead"]["path"])
+         runner = B.Runner(output, env, began + SECONDS - 10)
+@@ -291,6 +429,8 @@
+         require({"rustc": rustc, "cargo": cargo} == build["toolchain"], "Test toolchain differs from compilation")
+         result["toolchain"] = build["toolchain"]
+         result["cargo_bin_exe_bead"] = env["CARGO_BIN_EXE_bead"]
++        prepare_test_environment(B, runner, source, build_root, build, correction)
++        B.write_json(output / "environment-corrections.json", correction)
+         B.write_json(output / "executables-before.json", reproduced)
+         result["executables_before_file"] = B.file_record(output / "executables-before.json", output)
+         suite_failure = None
+@@ -322,6 +462,13 @@
+         signal.setitimer(signal.ITIMER_REAL, 0)
+         signal.signal(signal.SIGALRM, old_alarm)
+         signal.signal(signal.SIGTERM, old_term)
++        if runner is not None:
++            try:
++                runner.deadline = min(began + SECONDS, time.monotonic() + 8)
++                remove_test_environment(B, runner, source, correction)
++            except BaseException as error:
++                result["status"] = "failed"
++                result["environment_cleanup_error"] = str(error)
+         try:
+             if source_files is not None and source.exists():
+                 for name, row in source_files.items():
+@@ -356,7 +503,7 @@
+         result["logs_retention_days_required"] = 7
+         B.write_json(output / "result.json", result)
+         G.emit_text_records(B, output, ["result.json"])
+-        for name in ("complete-target-results.json", "executables-before.json", "executables-after.json"):
++        for name in ("complete-target-results.json", "executables-before.json", "executables-after.json", "environment-corrections.json"):
+             path = output / name
+             if path.is_file():
+                 record = B.file_record(path, output)

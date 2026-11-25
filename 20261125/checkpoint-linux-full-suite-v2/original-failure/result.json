@@ -1,0 +1,155 @@
+{
+  "build_result_sha256": "384000475ed36cf748ed952c9cc2952d3d978928a5433e51c01a1eef6ce389fd",
+  "build_root": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1",
+  "bundle_sha256": "fe0299594c0141f5214ef32cdf421efb1ba3cd893e093f2519836d4f865c880b",
+  "cargo_bin_exe_bead": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/target/debug/bead",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--no-fail-fast",
+    "--",
+    "--test-threads=1"
+  ],
+  "commands": [
+    {
+      "args": [
+        "rustc",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:03:30.229556+00:00",
+      "label": "rustc-version",
+      "pgid": 2294,
+      "pid": 2294,
+      "started": "2026-11-25T04:03:30.208597+00:00",
+      "stderr": "logs/rustc-version.stderr",
+      "stdout": "logs/rustc-version.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T04:03:30.246667+00:00",
+      "label": "cargo-version",
+      "pgid": 2300,
+      "pid": 2300,
+      "started": "2026-11-25T04:03:30.230000+00:00",
+      "stderr": "logs/cargo-version.stderr",
+      "stdout": "logs/cargo-version.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "test",
+        "--locked",
+        "--no-fail-fast",
+        "--",
+        "--test-threads=1"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-linux-build-45542149965-1/source",
+      "error": "cargo-full-suite exited 101",
+      "exit_code": 101,
+      "finished": "2026-11-25T04:23:04.635971+00:00",
+      "label": "cargo-full-suite",
+      "pgid": 2305,
+      "pid": 2305,
+      "started": "2026-11-25T04:03:30.248636+00:00",
+      "stderr": "logs/cargo-full-suite.stderr",
+      "stdout": "logs/cargo-full-suite.stdout"
+    }
+  ],
+  "duration_seconds": 1203.016,
+  "error": "RuntimeError: cargo-full-suite exited 101",
+  "executables_after_file": {
+    "bytes": 39212,
+    "mode": 420,
+    "path": "executables-after.json",
+    "sha256": "28569c537edf4700b811ce7e60efd46c651def5cd7e5dd89b4004d0c7b29f62e"
+  },
+  "executables_before_file": {
+    "bytes": 53385,
+    "mode": 420,
+    "path": "executables-before.json",
+    "sha256": "22d8c8144f4d7b3a5d60da1abfa0b50a5ab25b4a2863be79b1ebe74a211f0a57"
+  },
+  "finished": "2026-11-25T04:23:05.561798+00:00",
+  "helper_sha256": "b18148b8365a2c66bc57af736bac4ba1d7f3079ff5c5691f7154986da328963c",
+  "input_sha256": "bac053be6852025b11f30ac8a9fe8f0f97f7e0b18e22855c1ac5b2ea9895786f",
+  "logs_retention_days_required": 7,
+  "operation": "checkpoint-full-suite",
+  "output": "/home/runner/work/_temp/bead-checkpoint-full-suite-45544035266-1",
+  "process_group_cleanup": [
+    {
+      "label": "rustc-version",
+      "pgid": 2294,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo-version",
+      "pgid": 2300,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo-full-suite",
+      "pgid": 2305,
+      "remaining": false,
+      "signals": []
+    }
+  ],
+  "producing_run": {
+    "attempt": "1",
+    "id": "45542149965",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "5753653247952185fef0b8c2c83ecacb6bbb190a"
+  },
+  "profiles": {
+    "CARGO_INCREMENTAL": "0",
+    "CARGO_PROFILE_DEV_DEBUG": "0",
+    "CARGO_PROFILE_TEST_DEBUG": "0"
+  },
+  "recompiled_executables": [
+    "binary:bead",
+    "binary:generate-man-pages",
+    "harness:bin:bead",
+    "harness:lib:bead_rs",
+    "harness:test:mutating_command_event_contract"
+  ],
+  "run": {
+    "attempt": "1",
+    "id": "45544035266",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "2168ee51f06ea5b498bbbc7b00a833f19581fb26"
+  },
+  "schema_version": 1,
+  "seconds": 5400,
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_files_unchanged": 651,
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "started": "2026-11-25T04:03:03.257094+00:00",
+  "status": "failed",
+  "stderr": {
+    "bytes": 33222,
+    "mode": 420,
+    "path": "logs/cargo-full-suite.stderr",
+    "sha256": "2ee12877ffa526211d516c0cd4b9ac02f2aa2e7aa216f2887bc4636bc0cf7015"
+  },
+  "stdout": {
+    "bytes": 164672,
+    "mode": 420,
+    "path": "logs/cargo-full-suite.stdout",
+    "sha256": "7a800e27d6beeaae14ea6dd62e0476bb05478ce1b27bfbdf4d23d90a93b6f3dc"
+  },
+  "toolchain": {
+    "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)",
+    "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)"
+  }
+}

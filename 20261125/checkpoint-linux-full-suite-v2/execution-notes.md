@@ -1,0 +1,21 @@
+# Full native suite: measured runner prerequisites
+
+This package repeats the required unfiltered default suite against backend commit 515b503b24baf71737ff8fa6c879bd0752ef0fc6, tree b7c196bb6b337bdc7503e28d3a600e860fa3b799. It reuses accepted build run 45542149965 and artifact 14990360952. The product, historical pins, tests, source archive, compiling toolchain and compiled-target bundle stay byte-exact at their existing pins.
+
+The first full run 45544035266/job 138969194030 returned Cargo 101. Its complete output contains 145 harness/doctest summaries: 1847 passed, 55 failed, 8 source-declared ignored and 0 filtered. All six checkpoint regressions passed. Independent diagnosis accounts for every failure: 41 historical-pin cases cannot start because their ELF interpreter path is absent; 12 lease cases derive a legacy Cargo binary location; 2 Git-publication cases need a synthetic author identity. The pin files themselves passed their presence and hash checks. Retain the original failed result unchanged.
+
+The corrected helper adds only the measured prerequisites:
+
+1. It verifies all five unchanged pin hashes against their committed metadata and reads each ELF PT_INTERP. It measures and hashes the ordinary Ubuntu 24.04 loader, requires its GLIBC 2.39 version, and creates a fresh alias at the pins' exact requested interpreter path. Five loader --list calls verify dependency resolution without calling a pin's main. The alias is removed after the suite; only directories newly created for it are removed, with empty-directory operations. Existing paths and unexpected contents are preserved. These operations affect the ephemeral hosted runner. No PC setup or persistent runner settings are changed.
+2. It derives the lease test's requested binary path from the accepted Cargo-reported r002 harness path and creates one symlink to verified target/debug/bead. Cargo may replace that target normally; the alias follows the same path. Its exact link is checked and removed before final preservation reporting.
+3. It sets fixed synthetic Git author and committer values only in the child environment after the existing selector cleanup. No Git configuration files are changed.
+
+The original command remains cargo test --locked --no-fail-fast -- --test-threads=1. Every default harness, library doctest group, source-declared ignored name, and six new regression names is still required by the unchanged result parser. The one-job Cargo setting, source/executable fingerprints, process-group ownership and 90-minute deadline remain. Native release recovery, Red tests and browser checks already have separate accepted evidence and are not run in this workflow.
+
+The new workflow has one job on standard public ubuntu-24.04, a 100-minute outer bound and 92-minute invocation bound, read-only contents/actions permissions and pinned official checkout/download/upload actions. It uses a new task/checkpoint-linux-full-suite-20261125-v2 branch. No workflow dispatch or branch write occurs merely by reviewing this scratch package. After independent acceptance, publish these files and add the reviewed workflow on that branch through a non-force descendant operation. Verify the resulting run/head before monitoring it.
+
+The output retains the preparation receipt, final cleanup status, native loader identity/version, all command streams, full native output, complete target accounting, source/executable preservation and actual process cleanup. Small raw text remains printed as Base64 with byte count and SHA256 for independent review. Artifacts retain these outputs for at least 7 days; durable result publication follows acceptance.
+
+Ordinary Python parsing and YAML parsing passed. A read-only local inspection matched all five pin digests and interpreter strings; no pin or product command was executed during preparation. Actual native-loader selection, alias installation, full tests and cleanup remain measured hosted results.
+
+Cleanup ownership: after the run and durable evidence retention, remove the temporary validation branch and owned cloud output directories. Future agents should complete that cleanup if this process ends early. Preserve the source task branches, accepted artifacts and unrelated work.

@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "helper_sha256": "6160208310ae6764170ec7655b81947048aadc5d0ff702f057a39bf7cb773107",
+  "workflow_sha256": "efdfe4b55ca9b507ff92e3a1eb48a5c12aa14e3b2e79ef305e533d8c2459ed1b",
+  "input_sha256": "bac053be6852025b11f30ac8a9fe8f0f97f7e0b18e22855c1ac5b2ea9895786f",
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Entire corrected helper, unchanged support contracts, complete one-job workflow, exact reused input/build/source identities and every changed hunk. All six existing non-main functions including result parsing are byte-identical to the accepted helper. Three measured prerequisites are separate from product/source behavior."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Entire same revision reinspection: ELF bounds and five pin hashes; measured native loader path/hash/version; fresh alias preconditions; recorded creation intent; per-alias cleanup and empty-directory removal; preserved preexisting paths and loader bytes; exact r002 derivation; child-only Git identity; unchanged full command, result coverage and owned process/deadline checks."
+    }
+  ],
+  "validation": {
+    "python_parse": "passed",
+    "yaml_parse": "passed",
+    "all_five_pinned_elf_hashes_and_interpreters": "matched by read-only local inspection",
+    "tests_executed_during_preparation": false
+  },
+  "authority": "Root dispatched this runner-only correction after independent diagnosis of all 55 observed full-suite failures; activation follows independent package review."
+}
