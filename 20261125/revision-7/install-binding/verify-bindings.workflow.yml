@@ -1,0 +1,71 @@
+name: Revision 7 helper parsing and refusal checks
+on:
+  push:
+    branches: [task/type-binding-checks-20261125]
+permissions:
+  contents: read
+concurrency:
+  group: type-binding-checks-20261125
+  cancel-in-progress: false
+jobs:
+  verify:
+    if: github.repository == 'YossiMH/bead-me-up-scotty'
+    runs-on: windows-2025
+    timeout-minutes: 7
+    env:
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+      NODE_OPTIONS: '--max-old-space-size=128'
+    steps:
+      - name: Read exact preparation files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: 20261125/revision-7/install-binding
+      - name: Select qualified Node
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: '24.22.3'
+          package-manager-cache: false
+      - name: Parse exact helpers and compile declarations only
+        shell: powershell -NoLogo -NoProfile -NonInteractive -Command ". '{0}'"
+        timeout-minutes: 2
+        run: |
+          $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-7/install-binding'
+          $parser=Join-Path $root 'parse-bindings.ps1'
+          if((Get-FileHash -LiteralPath $parser -Algorithm SHA256).Hash.ToLowerInvariant() -cne '41f721f2dafb844b4ad05eced2588ecd3b57ad54dee0a2dd00cac8fa5d818d6a'){throw 'Parser changed.'}
+          & $parser -Directory $root -ManifestSha256 '5ffa14e2cefea47362f0e5ae5663836530b6740a3066923034f8bb6fa41d74d6'
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+      - name: Check synthetic installer refusals
+        shell: powershell -NoLogo -NoProfile -NonInteractive -Command ". '{0}'"
+        timeout-minutes: 2
+        run: |
+          $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-7/install-binding'
+          $helper=Join-Path $root 'check-binding-refusals.ps1'
+          if((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c'){throw 'Refusal helper changed.'}
+          & $helper -Directory $root -ManifestSha256 '5ffa14e2cefea47362f0e5ae5663836530b6740a3066923034f8bb6fa41d74d6'
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+      - name: Check synthetic task mapping refusals
+        shell: powershell -NoLogo -NoProfile -NonInteractive -Command ". '{0}'"
+        timeout-minutes: 1
+        run: |
+          $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-7/install-binding'
+          $helper=Join-Path $root 'check-history-refusals.mjs'
+          if((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne 'bcc28f3cd2c6958594e5a55b80f84366155352619f19a3a35ca22379cc5e99b1'){throw 'History refusal helper changed.'}
+          & node.exe --check $helper
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+          & node.exe $helper $root '5ffa14e2cefea47362f0e5ae5663836530b6740a3066923034f8bb6fa41d74d6'
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+      - name: Retain actual parser and refusal outputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: bead-binding-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-binding-checks-${{ github.run_id }}-${{ github.run_attempt }}/
