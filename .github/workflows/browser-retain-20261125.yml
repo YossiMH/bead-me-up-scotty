@@ -1,0 +1,108 @@
+name: Retain accepted browser evidence
+on:
+  push:
+    branches: [task/browser-retain-20261125]
+    paths: [.github/workflows/browser-retain-20261125.yml]
+permissions:
+  actions: read
+  contents: read
+jobs:
+  retain:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 5
+    steps:
+      - name: Download and verify the original artifact ZIP
+        env:
+          GH_TOKEN: ${{ github.token }}
+        shell: bash
+        run: |
+          python3 - <<'PY'
+          import hashlib
+          import json
+          import os
+          import pathlib
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+
+          artifact_id = 14978387944
+          expected_size = 17262599
+          expected_sha = "0f906203b43420eeddf2fcfe52db7f5886a26f8d35da4b3916b587eb91f8a217"
+          root = pathlib.Path(os.environ["RUNNER_TEMP"]) / "bead-browser-retention-20261125"
+          root.mkdir(exist_ok=False)
+          destination = root / "browser-check-20261125-full.zip"
+          partial = root / "browser-check-20261125-full.zip.partial"
+          deadline = time.monotonic() + 120
+
+          class NoRedirect(urllib.request.HTTPRedirectHandler):
+              def redirect_request(self, req, fp, code, msg, headers, newurl):
+                  return None
+
+          request = urllib.request.Request(
+              f"https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/{artifact_id}/zip",
+              headers={"Accept": "application/vnd.github+json",
+                       "Authorization": "Bearer " + os.environ["GH_TOKEN"],
+                       "X-GitHub-Api-Version": "2022-11-28"})
+          opener = urllib.request.build_opener(NoRedirect())
+          try:
+              response = opener.open(request, timeout=15)
+          except urllib.error.HTTPError as error:
+              if error.code not in (302, 303, 307):
+                  raise
+              location = error.headers.get("Location", "")
+              error.close()
+          else:
+              response.close()
+              raise RuntimeError("Expected one authenticated artifact redirect")
+          parsed = urllib.parse.urlsplit(location)
+          if (parsed.scheme != "https" or
+              not (parsed.hostname or "").endswith(".blob.core.windows.net") or
+              parsed.username is not None or parsed.password is not None):
+              raise RuntimeError("Unexpected artifact download destination")
+
+          digest = hashlib.sha256()
+          size = 0
+          # This request has no GitHub credential and follows no further redirect.
+          download = urllib.request.Request(location)
+          with opener.open(download, timeout=15) as response, partial.open("xb") as output:
+              while True:
+                  if time.monotonic() >= deadline:
+                      raise TimeoutError("Evidence download deadline exceeded")
+                  chunk = response.read(65536)
+                  if not chunk:
+                      break
+                  size += len(chunk)
+                  if size > expected_size:
+                      raise RuntimeError("Evidence exceeds the accepted byte count")
+                  output.write(chunk)
+                  digest.update(chunk)
+          if size != expected_size or digest.hexdigest() != expected_sha:
+              raise RuntimeError("Original browser ZIP identity differs")
+          partial.rename(destination)
+          report = {
+              "status": "passed",
+              "source_run": 45517446104,
+              "source_artifact": artifact_id,
+              "source_zip_sha256": digest.hexdigest(),
+              "source_zip_bytes": size,
+              "original_zip_unchanged": True,
+              "product_or_test_execution": False,
+              "retention_days": 14,
+              "workflow_commit": os.environ["GITHUB_SHA"],
+          }
+          raw = (json.dumps(report, indent=2) + "\n").encode()
+          (root / "retention-result.json").write_bytes(raw)
+          print(json.dumps(report, sort_keys=True))
+          print("RETENTION_RESULT_SHA256=" + hashlib.sha256(raw).hexdigest())
+          PY
+      - name: Retain the unchanged original ZIP and identity receipt
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: browser-check-20261125-retained-original
+          path: |
+            ${{ runner.temp }}/bead-browser-retention-20261125/browser-check-20261125-full.zip
+            ${{ runner.temp }}/bead-browser-retention-20261125/retention-result.json
+          if-no-files-found: error
+          retention-days: 14
+          compression-level: 0
