@@ -1,0 +1,209 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "independent": true,
+  "continuation_revision": 9,
+  "scope": "Actual final-source Linux original-checkpoint recovery result; a completed portion of checkpoint-linux-checks. Full-suite, affected-target, Windows and final combined acceptance remain separate.",
+  "task_key": "checkpoint-linux-checks",
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "path": "20261125/revision-9/plan.json",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "target": "x86_64-unknown-linux-gnu"
+  },
+  "accepted_execution_packet": {
+    "commit": "41a1bcb1442987773d7c9a7391b959711394d9fd",
+    "review_commit": "57d694f711d254fe89cfe712d993c00e2ea16823",
+    "review_path": "20261125/revision-9/results/native-linux-consumer-review.json",
+    "review_sha256": "a8c4e98e89baca0974e11bc9fd780515e509e0f64e9e6d17895d67202f085050",
+    "corpus_helper_sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "input_sha256": "8e1a3cd7c5b3aaf95a62f50d34e0b326d31fab4ced5ce22652fbfc542a817385"
+  },
+  "actual": {
+    "run_id": 45603324487,
+    "attempt": 1,
+    "job_id": 139167619794,
+    "workflow_commit": "41a1bcb1442987773d7c9a7391b959711394d9fd",
+    "status": "passed",
+    "duration_seconds": 30.191,
+    "evidence_commit": "20ec82d214ca59ee2168998d613017d77064623b",
+    "directory": "20261125/revision-9/results/native-linux-corpus-45603324487",
+    "result_sha256": "d469b67903adc4e7f9201de32cae1f1129f96984670112c5d0626c74ceab5536",
+    "result_bytes": 28024,
+    "job_log_sha256": "73419a06ab250f17038d6167817dc8a1819afe5c0e5bfd6f2ce143a4df823186",
+    "job_log_bytes": 586836,
+    "artifact_id": 15016182909,
+    "artifact_zip_bytes": 20849119,
+    "artifact_zip_sha256": "2fd90329b8478dc9df39103af144b4c2655f4e67f2ccfa54485b05dcc7300217"
+  },
+  "release": {
+    "producer_run_id": 45600748319,
+    "producer_workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7",
+    "release_sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c",
+    "metadata_sha256": "866c10c4909ad736c06e0c44c7955033179134165f157be6b054c4a0b55510cf",
+    "actual_build_review_commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40"
+  },
+  "independent_checks": [
+    "Fetched the completed job log independently and compared every UTF-8 byte with the retained job.log.",
+    "Decoded the actual CHECKPOINT_CORPUS_RESULT_BASE64 emission and matched its complete bytes and SHA-256 to retained result.json.",
+    "Decoded all 20 complete native stdout/stderr records; checked every emitted byte count and SHA-256 and matched the result's command-stream identities.",
+    "Matched the final source/tree, helper/input, release/metadata and workflow/run bindings to the independently accepted final producer and consumer.",
+    "Read every one of the six complete-record comparison results; all original members have empty changed and missing lists. Only expected isolated fixture and native restore additions appear.",
+    "Confirmed all ten native commands exited zero, all ten owned process groups have remaining:false, and both original public-source and checkpoint-configuration checks passed.",
+    "Matched the result's four restores and original record index/counts to the original public checkpoint.",
+    "Independently matched the completed corpus artifact API identity, run, workflow, byte count and digest."
+  ],
+  "result": {
+    "verification_restores": 4,
+    "complete_record_comparisons": 6,
+    "comparison_names": [
+      "current_restore_after_append",
+      "isolated_create",
+      "original_restore",
+      "previous_preserved",
+      "previous_restore_after_append",
+      "published_current_restore"
+    ],
+    "original_public_source": {
+      "commit": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11264,
+        "issue": 954,
+        "provenance_receipt": 5
+      },
+      "generation": "gen-a569f746bbb268015d996c8ed4c76f57",
+      "pointer_sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+      "root_bytes": 8569277,
+      "root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    },
+    "original_complete_record_index_sha256": "c3a9498f88fde65eb89842b6e881a59fe404ca4739e0b713dac9afbbc397c9ac",
+    "original_public_input_unchanged": true,
+    "checkpoint_configuration_unchanged": true,
+    "all_original_attempt_outcomes_preserved": 413,
+    "commands": 10,
+    "commands_exit_zero": 10,
+    "owned_process_groups": 10,
+    "owned_process_groups_remaining": 0,
+    "decoded_native_streams": [
+      {
+        "path": "logs/capabilities.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "logs/capabilities.stdout",
+        "bytes": 8559,
+        "sha256": "5b05efd94904383266bf27d2d4617fbf715ffe08d7bd80d485fdf092fc0ee84f"
+      },
+      {
+        "path": "logs/create-fixture.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "logs/create-fixture.stdout",
+        "bytes": 14,
+        "sha256": "80fee756495eec85b972f58dd46c17013d41ad9dda8c23949490ea5ec2af7965"
+      },
+      {
+        "path": "logs/publish-after-create.stderr",
+        "bytes": 548,
+        "sha256": "d65e89a26ded76cc166cdebe3812f2ec9e57d8c2e64d12799f475c02077fb911"
+      },
+      {
+        "path": "logs/publish-after-create.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "logs/publish-restored-original.stderr",
+        "bytes": 120,
+        "sha256": "d623573e0b6d8643438230560bab1499f9e826de12833a28dcb07618280307ee"
+      },
+      {
+        "path": "logs/publish-restored-original.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "logs/restored-original-restore.stderr",
+        "bytes": 48362,
+        "sha256": "4d6852733489708577d144fe5e2da03cbbe16a9f9029be503bf91db27185691d"
+      },
+      {
+        "path": "logs/restored-original-restore.stdout",
+        "bytes": 1233,
+        "sha256": "065e55d517f30a830528a0fa14ed4a9f4f3537a32d6c04e7165797161eaad7db"
+      },
+      {
+        "path": "logs/update-help.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "logs/update-help.stdout",
+        "bytes": 5554,
+        "sha256": "33e385e93c400e27b7f2842288e9e246aeb3d49407241314a880cf8c3f89d6ea"
+      },
+      {
+        "path": "logs/verify-current-after-restore.stderr",
+        "bytes": 126726,
+        "sha256": "5a6c596331e3a7c9a5bde2d69fe8d7cd9590d34dae5f70ddd2357e78821f6e3e"
+      },
+      {
+        "path": "logs/verify-current-after-restore.stdout",
+        "bytes": 1223,
+        "sha256": "6ccb413474acadff317e24729f7d1734195ef3f4368216edce4ec610df56d686"
+      },
+      {
+        "path": "logs/verify-current-before-restore.stderr",
+        "bytes": 63268,
+        "sha256": "e591b27dfac344c061bb99b48485e75d0ea581705bd2ed136f04abf7559b74cf"
+      },
+      {
+        "path": "logs/verify-current-before-restore.stdout",
+        "bytes": 1224,
+        "sha256": "587473360f2cb54e212a02a1e4e5588aeea13be476b18add577d8dbd6462c05f"
+      },
+      {
+        "path": "logs/verify-previous-after-restore.stderr",
+        "bytes": 126726,
+        "sha256": "5a6c596331e3a7c9a5bde2d69fe8d7cd9590d34dae5f70ddd2357e78821f6e3e"
+      },
+      {
+        "path": "logs/verify-previous-after-restore.stdout",
+        "bytes": 1225,
+        "sha256": "967a08475cb790f9717c7abf82aeee098d66ef8db649b6ee92a5bbc7cc34765c"
+      },
+      {
+        "path": "logs/version.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "path": "logs/version.stdout",
+        "bytes": 42,
+        "sha256": "bbf647ead71cebbbf76ab3346e5028a19b456a2816dc54beaa328898f3b00632"
+      }
+    ]
+  },
+  "findings": [],
+  "product_execution_by_reviewer": 0,
+  "pc_actions": 0,
+  "remaining": [
+    "Actual final-source affected and complete native suite result review",
+    "Actual final-source Windows partitions, original corpus, smoke and aggregate result review",
+    "Final author inspections and complete independent native acceptance",
+    "Final app Windows roundtrip and root app review",
+    "Actual revision-9 materialization, installation, PC tray/configured launch, history and cleanup"
+  ]
+}
