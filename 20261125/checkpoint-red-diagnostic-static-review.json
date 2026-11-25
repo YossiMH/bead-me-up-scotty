@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "complete independent static review",
+  "operation": "inspect-retained-compiler-output",
+  "workflow": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "blob": "959a1234c891172036daf52ba6b6ff02d1dc3d2e",
+    "sha256": "56a7ba0c5c5529e5a80ad141fc991ffa7e2c442c9c1aafe5a0fcd724f21b226c",
+    "lines": 99,
+    "bytes": 4994
+  },
+  "author_inspections": {
+    "blob": "ffcd0e286fbfcf5edf4f4c74edc8743f138486ac",
+    "sha256": "cdc6291ace84fb3fcce61de0994e05cfe6a6a6fc2075b886f73e0bf516b0c461"
+  },
+  "source": {
+    "run_id": 45535362756,
+    "job_id": 138940518590,
+    "output_id": 14985844517,
+    "build_report_sha256": "24085cfbd33d3bb942dbb58decc24b0988934a4dfe7ea00cbb13ce53298a5dcb",
+    "outer_report_sha256": "a603191a83d0acac5cedeeb5df6a3d3a75e96456650fe52a15d0d2a1d2d39df1"
+  },
+  "read_complete_workflow": true,
+  "read_complete_embedded_python": true,
+  "findings": [],
+  "checks": [
+    "All workflow and author-report bytes match the declared hashes.",
+    "Both exact original report hashes were independently recovered and verified from the actual failed-run logs before this review.",
+    "Exact repository/run/output identifiers, actual source/workflow identity, original failure and successful Cargo/whitespace commands are verified before reading compiler records.",
+    "The retained Cargo JSON is limited to 16 MiB, parsed without executing its contents, filtered to the exact root package and bounded to four through ten executable records.",
+    "The output reports the complete selected compiler records, exact raw Cargo-log hash and byte count in a fresh owned directory.",
+    "Only official pinned download/upload actions and embedded Python metadata parsing execute; the workflow contains no checkout, compiler, product or test command.",
+    "The sole exact-branch push trigger, hosted Ubuntu runner, read-only actions/contents permissions, five-minute timeout, seven-day result retention and later branch cleanup match the authorized diagnostic."
+  ],
+  "activation": {
+    "accepted": true,
+    "branch": "task/checkpoint-red-diagnose-20261125",
+    "workflow_path": ".github/workflows/checkpoint-red-diagnose-20261125.yml",
+    "condition": "Use the reviewed byte-identical YAML on the fresh owned diagnostic branch; retain and verify actual head/run identity."
+  },
+  "limits": "This accepts only reading retained compiler output. The failed build remains failed, and any output-mapping correction requires its own static inspection and actual complete successful build.",
+  "tests_executed_by_reviewer": false,
+  "product_builds_executed_by_reviewer": false
+}
