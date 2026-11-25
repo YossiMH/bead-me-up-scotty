@@ -1,0 +1,154 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-11-25T09:37:57.618Z",
+  "owner": "/root/backend_reconcile",
+  "status": "final_source_producers_and_consumers_in_progress",
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "branch": "task/type-file-20261125",
+    "commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+    "accepted_tests_commit": "14051553b607bc160fb46f053c52ddeeadf846db",
+    "implementation_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "oracle_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+    "repair": "Only platform-aware publication-lock contention retry and slash-separated relative set artifact paths.",
+    "shared_task_branch": "task/bead-finish-20261124",
+    "shared_task_branch_last_verified_head": "515b503b24baf71737ff8fa6c879bd0752ef0fc6"
+  },
+  "actual_completed": {
+    "linux_producer": {
+      "run_id": 45575999107,
+      "evidence": "6f099e729374c33b2823d3f5929b33361543be5a:20261125/revision-7/results/native-linux-build-45575999107",
+      "build_artifact_id": 15004218651,
+      "release_artifact_id": 15005116461,
+      "release_sha256": "266245fab0e7b8378877083b258131b63036ec4bac5d64447429a839ee9becbf",
+      "download_verification": "Both consumers in45578817248 verified the exact producer artifacts before execution."
+    },
+    "windows_producer": {
+      "run_id": 45576002037,
+      "evidence": "3c1de572b0d8ac4502131d8383ed3348d2ff695a:20261125/revision-7/results/native-windows-build-45576002037",
+      "artifact_id": 15004896560,
+      "download_verification": "Passed in separate job139076008395",
+      "small_release_artifact_id": 15003670786,
+      "small_release_run_id": 45572877188,
+      "release_path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+      "release_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+      "metadata_path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    },
+    "linux_corpus": {
+      "run_id": 45578817248,
+      "status": "passed",
+      "evidence": "debd80cd20b9519077a03d90f4b96fd3a1673bc3:20261125/revision-7/results/native-linux-execution-45578817248",
+      "restores": 4,
+      "complete_comparisons": 6,
+      "original_issue_count": 954,
+      "original_event_count": 11264,
+      "original_receipts": 5,
+      "original_attempt_outcomes": 413
+    },
+    "linux_corrected_baseline": {
+      "run_id": 45581211706,
+      "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+      "test_oracle_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+      "affected_passes": 89,
+      "affected_targets": 8,
+      "full_suite_cargo_exit": 0,
+      "full_suite_passes": 1913,
+      "full_suite_failures": 0,
+      "existing_ignores": 8,
+      "harnesses": 145,
+      "doctest_groups": 1,
+      "wrapper_status": "failed after native command exited zero: two serial case-name lines contain child bead-ID stdout",
+      "independent_reconciliation": "PASS; all names/counts/source and cleanup checked without rerunning native code",
+      "evidence": "4c70b7f6442dfe010ca74429dcc5ae97cda49b7e:20261125/revision-7/results/native-linux-execution-45581211706",
+      "review": "462c2c03ea6c9bd13e3f83faebb60e2166e3c58c:20261125/revision-7/results/native-linux-baseline-result-review.json",
+      "artifact_id": 15007188514
+    }
+  },
+  "active_runs": [
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "run_id": 45586900986,
+      "attempt": 1,
+      "workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+      "native_source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+      "job_id": 139110692736,
+      "tasks": [
+        "checkpoint-windows-build"
+      ],
+      "last_observed": "Build release and compile affected Windows tests in progress; no result yet."
+    }
+  ],
+  "next_actions": [
+    "Reconcile the active Windows producer before any retry; activate the exact Linux producer only after root's independent packet PASS.",
+    "Bind final Linux/Windows consumers to measured successful c90 producer receipts and download-verified artifacts; obtain final packet reviews. Preserve all native Windows ordinary/grid cases through partitioned hosted jobs and aggregate exact coverage.",
+    "Run final-source affected checks, complete Linux suite, original-corpus recovery and partitioned Windows qualification. The final Linux parser includes bounded fixtures from actual interrupted output; do not rerun the completed historical baseline.",
+    "After actual final-source checks, reread maintainer post-process guidance, perform two complete clean final author inspections and obtain independent source acceptance.",
+    "Append native .marathon/progress.md with precise actual outcomes, PC denial, unmaterialized revision 8 state and cleanup. Ordinary-fast-forward the permitted shared task branch only after source acceptance; verify remote ref.",
+    "Root alone materializes accepted revision 8 directly from actual revision 6, preserves all 32 old mappings and creates 20 new IDs once, then reconciles cloud results in dependency order before installation when authorized access/headroom returns."
+  ],
+  "cleanup_required": {
+    "manager": "Riftri",
+    "worktree": "/tmp/beads-55c9/backend-type-edit",
+    "last_observed_head": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "last_observed_status": "clean",
+    "local_auxiliary_branch": "task/type-file-local-tests-20261125",
+    "instruction": "Remove the clean published task worktree through Riftri after the assignment is complete. If this process dies or the session ends early, future agents must finish this cleanup. Preserve any later unrelated edits and recover the exact published source before removal.",
+    "cloud_hosted_checkouts": "Actions runner teardown owns all hosted temporary checkouts and processes.",
+    "local_worktree_note": "Local checkout last observed clean at 9ff; remote task branch advanced through 7adb to c90 via GitHub. Fetch/reconcile exact descendants before Riftri cleanup when cloud execution returns. Cleanup has not been performed."
+  },
+  "limits": [
+    "No PC calls by this executor.",
+    "No PC compilation or GPU use.",
+    "One Cargo job per hosted producer and serialized native tests.",
+    "Main remains unchanged until the root's checked installation."
+  ],
+  "evidence_retention": "All failed Red and first producer attempts remain retained on the transfer branch; later passing attempts do not overwrite them.",
+  "failed_attempts": {
+    "linux_affected": {
+      "run_id": 45578817248,
+      "reason": "New empty-type test/spec incorrectly expected conflict code4; established usage code2 confirmed independently.72tests passed,1failed;R041targets/fullsuite not executed.",
+      "evidence": "debd80cd20b9519077a03d90f4b96fd3a1673bc3:20261125/revision-7/results/native-linux-execution-45578817248"
+    },
+    "windows_qualification": {
+      "run_id": 45577891890,
+      "reason": "Concurrent-publication os33 contention, orphan cleanup and dual-layout tombstone test failures; conformance target incomplete at900seconds. OOB characterization panic is intentionally caught and is not a separate regression.",
+      "evidence": "58f9df0925f4a9943687e9b35fc3f62fff7d084b:20261125/revision-7/results/native-windows-execution-45577891890"
+    }
+  },
+  "pc_gate": {
+    "last_memory_utc": "2026-11-25T07:38:27.0544240Z",
+    "free_mib": 702,
+    "total_mib": 31905,
+    "proposal": "6Tf4AjmM58-pk_qxj6LCoJD5wKqr7rW-ZV8MRLKxHS0",
+    "job": "j1795593147532-37324-2134047166569034316",
+    "status": "not-started",
+    "error": "ADMIN_BROKER_DENIED",
+    "replay_allowed": false,
+    "actions_after_denial": "None",
+    "actual_task_graph": "Revision6:32tasks/51edges,18closed14open,986issues including954originals.",
+    "accepted_task_graph": "Revision 8: 52 tasks / 86 edges. Neither revision 7 nor revision 8 was materialized. The 20 new IDs, full 52-task mapping and 86 actual edges are absent; accepted cloud task-key dispatch is provisional.",
+    "thresholds": "Root-only native mutation requires at least 1 GiB free; full app/tray launch requires at least 3 GiB free with a 512 MiB owned resident cap."
+  },
+  "accepted_plan": {
+    "revision": 8,
+    "commit": "38332d9a3a9e4856291edd11237fc27d5759f4d4",
+    "path": "20261125/revision-8/plan.json",
+    "sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d",
+    "tasks": 52,
+    "edges": 86,
+    "review": "d8118ff886be31bb770e9d6f2192748548c15228",
+    "windows_existing_red_review": "f58e88c7536b381ba535d88d0e34fab66bdc7401:20261125/revision-8/results/windows-checkpoint-tests-review.json",
+    "root_dispatch": "windows-checkpoint-repair after both independent PASS decisions"
+  },
+  "actual_completed_note": "These are historical 9ff product results. Fresh c90 qualification is still required.",
+  "prepared_packets": {
+    "producers": "33931b999a973b266e211c7af531c84f694bf0a6",
+    "windows_producer_review": "41430d7cdf9dc2450390cb4f58802b7f8935daa8:20261125/revision-8/results/native-windows-producer-review.json",
+    "linux_producer_review": "Root independently reviewing; activation pending PASS.",
+    "linux_consumer": "54dda6e4109f9006e2caae303cb549bc81e62ff8:20261125/native-repair-linux-check",
+    "windows_consumer": "38b9c2b4120859d1e9d12effb582663fc4c84f93:20261125/revision-8/native-windows-check",
+    "consumer_status": "Both dormant; exact measured c90 producer bindings and final reviews required before activation."
+  }
+}
