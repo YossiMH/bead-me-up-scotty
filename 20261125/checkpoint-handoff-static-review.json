@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "complete independent static inspection of the corrected checkpoint preservation package",
+  "reviewed_package": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "6f57eee5cf24b65c59dafe49502d3a2b4a6d9d7e",
+    "directory": "20261125/checkpoint-helper",
+    "files_sha256": {
+      "checkpoint-handoff-20261125.mjs": "e290ece0f9785eafb16c4211e751e05f38603755fa0fdcc0fb93c54e2efb9364",
+      "checkpoint-handoff-supervisor-20261125.ps1": "6f94681f6dd23197642eaf0b493bf93877be8a0c3d3ca8531fbbd2bcdc4f972d",
+      "README.md": "98a758eeae82eb478b8e0a0a4dc55cb10dc48c0b3e5445524023cba4b071ef5f",
+      "author-audits.json": "690b3efadf068d79c89511a8120c8737bd87d24c599c1286cf022f04c856ad5b",
+      "manifest.json": "17650784ed0d2149907bc437c10325da48d13149a6d90167b1305a41d085cf56",
+      "request.template.json": "618ac94d51f365a48676e355030540373a4d2b5f5c8b8f988d0eb5eecfd1d542",
+      "static-checks.json": "ebe366b5b759c296533a77f986d7ace43915cc08e00783d73a378cd5c57a6873"
+    }
+  },
+  "read_complete_helper": true,
+  "read_complete_supervisor": true,
+  "read_complete_supporting_files": true,
+  "inspection_method": "Read the complete corrected 716-line Node helper and complete supervisor at predecessor127f34b, then inspected every exact final addition/replacement and verified the remaining text unchanged. Re-read all changed call-site and cleanup context, final metadata, request template and author reports.",
+  "findings": [],
+  "resolved_findings": [
+    {
+      "finding": "Existing plan review uses PASS and accepted true.",
+      "resolution": "The helper validates its exact existing schema, both plan hash fields and task/edge counts derived from the accepted plan."
+    },
+    {
+      "finding": "A newly promoted previous checkpoint must verify.",
+      "resolution": "Both original flush phases verify the current pointer before writing, require its exact bytes at previous.json afterward and compare the entire selected object map, corpus and interchange hash."
+    },
+    {
+      "finding": "The complete original checkpoint tree is 429072095 bytes.",
+      "resolution": "Root's approved Git-backed route retains its exact immutable commit/tree and 53-file raw-object map, verifies remote bindings and clean original state, and copies only the four selected files totaling17063501 bytes."
+    },
+    {
+      "finding": "Git status omits ignored untracked entries.",
+      "resolution": "A separate read-only ignored-file listing refuses everything except the expressly approved optional regular zero-byte publication lock. The supervisor checks actual Windows non-reparse/file/size attributes before, during and after work; all other lookup errors fail."
+    },
+    {
+      "finding": "Flush phases recorded post-operation Git identity without comparison.",
+      "resolution": "The final helper requires HEAD, checkpoint tree, complete tracked entry map and index path/hash to remain identical across each flush, while retaining the intended changed working-file status."
+    }
+  ],
+  "checks": [
+    "Verified all seven final file hashes and both renewed complete author inspections.",
+    "Compared the complete phase sequence and required results with the accepted32-task/51-edge revision5 preserve-and-clean description.",
+    "Independently verified the original public Git checkpoint tree has53 files totaling429072095 bytes; the selected-copy route avoids repeated full-history scans or copies.",
+    "Checked read-only Git commands, immutable local/remote bindings, raw Git blob identity of selected original bytes, exact private index backup, transformation refusal and unchanged index around Git inspection.",
+    "Checked all scoped file paths, full selected current/previous transitive references, oversize-record handling,64 MiB/4096-file selected bounds and1 MiB streamed file hashing.",
+    "Checked complete SQLite schema/table/raw-event preservation, canonical event identities, all413 original outcomes, original receipts and every new task's auxiliary rows.",
+    "Checked qualified replacement-native and exact actual plan/materialization bindings, frozen isolated authority and mandatory real selected-source restore before any native original open.",
+    "Checked prospective same-UUID dry-run, single no-auto-flush merge, exclusive authority transfer, one guarded cleanup close, original-owned publication and fresh verification restores.",
+    "Checked phase-exclusive output directories, before/attempt/started/exit/result records, pinned predecessor outputs and explicit refusal to replay an uncertain mutation.",
+    "Checked the entire Windows supervisor, ordinary execution policy, owned Job/retained handles, child-only cleanup, BelowNormal priority,128 MiB Node heap,512 MiB aggregate cap,3 GiB initial and1 GiB live headroom,30-second child and180-second phase limits.",
+    "Checked root-only Git publication with short directory pathspecs, preservation of unrelated staging, private backup retention, conditional Riftri cleanup and interrupted-session instructions."
+  ],
+  "static_parse": {
+    "status": "passed",
+    "method": "V8 AsyncFunction body parse after removing module import/export/dispatch syntax and replacing import.meta.url solely for parsing; no body invoked.",
+    "ordinary_node_module_parse": "pending",
+    "powershell_parser": "pending"
+  },
+  "acceptance_boundary": "The helper package is accepted statically. This report does not establish runtime qualification, native task materialization, original-store preservation/merge/publication, cleanup or completed delivery.",
+  "pending": [
+    "Root must pass ordinary Node --check and PowerShell ParseFile on the exact staged final bytes.",
+    "Supply the actual independently qualified repaired Windows binary and matching source/SHA/adjacent metadata; the historical539/25a05 runtime remains rejected.",
+    "Supply exact accepted revision5 materialization and completed prerequisite results; provisional stable keys do not replace actual native IDs or states.",
+    "Supply actual local/remote original Git baseline and private index/SQLite backup results without uploading private data.",
+    "Execute each authorized native phase once under the existing resource bounds, reconcile any uncertain result, and verify actual selected-current restore before original merge.",
+    "Complete root-owned checkpoint Git publication, final closure/restore, handoff review and safely removable worktree/temporary-branch cleanup."
+  ],
+  "product_tests_executed_by_reviewer": false,
+  "builds_executed_by_reviewer": false,
+  "pc_actions_by_reviewer": false
+}
