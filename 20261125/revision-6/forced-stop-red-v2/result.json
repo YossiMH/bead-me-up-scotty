@@ -1,0 +1,22 @@
+{
+  "status": "expected_failure",
+  "exit_code": 1,
+  "command": [
+    "node",
+    "--test",
+    "--test-concurrency=1",
+    "--test-name-pattern=^serve: forced tray cleanup reaches the controller result$",
+    "scripts/test-windows-tray.mjs"
+  ],
+  "duration_seconds": 3.0494631949986797,
+  "sources": {
+    "bin/windows-tray.mjs": "5edb02c267f3c812e66bac069e012dd0ffaeda783ef76c5ccfce04610ec18720",
+    "bin/windows-tray-host.mjs": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+    "scripts/test-windows-tray.mjs": "422a40265365c8cc58862a7a6dd47a05f22d0b7a1f648755de936974e88149d8",
+    "scripts/fixtures/tray-helper.mjs": "59e189900441b953e25d40f95d70d9009c181e539942c7f77125d709dea4ec00"
+  },
+  "streams": {
+    "stdout.log": "28d4669375aa4eb14de015053ade788232b68b77a9f5d778376b35064ad1ed89",
+    "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  }
+}

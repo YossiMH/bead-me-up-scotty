@@ -1,0 +1,17 @@
+{
+  "proposal_id": "yMRoVhzw-1a5aM54eNZ7RV-Z030eJWV4jdjpg3DodVg",
+  "replay_allowed": false,
+  "job_id": "j1795581925188-37324-17533061937072459170",
+  "status": "exited",
+  "exit_code": 1,
+  "pid": 82832,
+  "started_ms": 1795581925288,
+  "finished_ms": 1795581926252,
+  "stdout_size": 0,
+  "stderr_size": 362,
+  "stdout_dropped": 0,
+  "stderr_dropped": 0,
+  "stdout": "",
+  "stderr": "Less than 1 GiB available\r\nAt line:1 char:327\r\n+ ... mory*1024;if($free -lt 1GB){throw 'Less than 1 GiB available'};functi ...\r\n+                                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\r\n    + CategoryInfo          : OperationStopped: (Less than 1 GiB available:String) [], RuntimeException\r\n    + FullyQualifiedErrorId : Less than 1 GiB available\r\n \r\n",
+  "interpretation": "Free-memory guard refused before directory creation or writes. No supervisor or native transition ran. Retry only as a fresh reviewed staging request after resource availability."
+}

@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "status": "source_prepared",
+  "task": "tray-repair",
+  "continuation_revision": 6,
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "source_tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+  "parent_commit": "38c21a77b4e875d75e17ee68683846601df33591",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "remote_branch": "task/scotty-finish-20261124",
+  "remote_ref_verified": true,
+  "files": [
+    {
+      "path": "bin/windows-tray.mjs",
+      "sha256": "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+      "bytes": 6214,
+      "git_blob": "329e2379c0dc72b396d9fa12872c7db39700451f"
+    },
+    {
+      "path": "bin/windows-tray-host.mjs",
+      "sha256": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+      "bytes": 3571,
+      "git_blob": "c3a31c8bd8b73f21ab15573080794198b12934dc"
+    },
+    {
+      "path": "scripts/fixtures/tray-process-boundary.mjs",
+      "sha256": "85a0e9339e6f9b9b89ff235de6ac82422babb4fbf705653137e38217470f611e",
+      "bytes": 2383,
+      "git_blob": "44ce6973f4307c5d03285fdfaa700af1078afdec"
+    },
+    {
+      "path": "scripts/fixtures/tray-helper.mjs",
+      "sha256": "59e189900441b953e25d40f95d70d9009c181e539942c7f77125d709dea4ec00",
+      "bytes": 1469,
+      "git_blob": "0980a266807ba2313b4af8704b9802e6bb900816"
+    },
+    {
+      "path": "scripts/test-windows-tray.mjs",
+      "sha256": "422a40265365c8cc58862a7a6dd47a05f22d0b7a1f648755de936974e88149d8",
+      "bytes": 18097,
+      "git_blob": "e070bfe66ce63017f510d06f1c630626ae595a8d"
+    },
+    {
+      "path": "scripts/test-windows-tray-host.mjs",
+      "sha256": "3e021347c1066d7f023d2abfce07d46347f848e5e8eb19bf5190bdf228902726",
+      "bytes": 5318,
+      "git_blob": "cd1499376938bed82ed52da829810f417459ba92"
+    },
+    {
+      "path": "scripts/fixtures/windows-tray-observer.mjs",
+      "sha256": "a46859f6582fd1d248e4548c7a6d1f00673ab9541c77ed045930aa231c5b45de",
+      "bytes": 4686,
+      "git_blob": "7dbb50fffef9f58c863721693d2af5deaff98218"
+    },
+    {
+      "path": "scripts/test-windows-tray-smoke.ps1",
+      "sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+      "bytes": 13515,
+      "git_blob": "cb9db28373ee2a7d68406128e333a7720ba544f0"
+    },
+    {
+      "path": "scripts/test-windows-tray-host-windows.mjs",
+      "sha256": "609fe2e0ae05acd9ddea4e9e8db5a9f349ee86fb5b4bac2443d1c7314434ed5e",
+      "bytes": 19239,
+      "git_blob": "5b0d0a608451f29548d3765242c7c323a7d7770d"
+    }
+  ],
+  "production_powershell_sha256": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+  "author_inspections": [
+    {
+      "pass": 1,
+      "scope": "Complete production host/controller changes and affected fixture/test context; real Windows process ownership, fresh pipes, EOF and parent loss, lifecycle/error propagation, cached helper boundaries.",
+      "resolved_finding": "Controller stop must propagate a nonzero host close rather than accepting the new host forced-stop path."
+    },
+    {
+      "pass": 2,
+      "scope": "Complete final affected source, unchanged production PowerShell helper, added controller regression and real Windows test integration, exact source hashes and package inclusion.",
+      "resolved_finding": "Synthetic ignore-stop fixture must retain its timer after menu Exit to require the real host deadline; first invalid reproduction is preserved separately. No remaining source finding."
+    }
+  ],
+  "windows_test_author_audits": {
+    "schema_version": 1,
+    "file": "scripts/test-windows-tray-host-windows.mjs",
+    "sha256": "609fe2e0ae05acd9ddea4e9e8db5a9f349ee86fb5b4bac2443d1c7314434ed5e",
+    "bytes": 19239,
+    "lines": 335,
+    "inspections": [
+      {
+        "pass": 1,
+        "status": "clean",
+        "scope": "Complete file: actual production API, real PowerShell through observed host, readiness before STOP or original-controller SIGKILL, fresh per-case cache and retained source/stream evidence; inherited observer records exactly verified.",
+        "findings_resolved": "Use a literal LF for the PowerShell journal ending check; flush READY before publishing its marker; track whether controller creation succeeded."
+      },
+      {
+        "pass": 2,
+        "status": "clean",
+        "scope": "Complete frozen file: held process handles, start-time/image ownership, serial bounded waits, independent fallback cleanup per owned child, preservation of an unrelated sentinel, exact process exit and cache deletion, source hashes unchanged, hosted Job final timeout integration.",
+        "findings_resolved": "No remaining author finding on this revision."
+      }
+    ],
+    "validation": {
+      "node_main_syntax": "passed",
+      "node_generated_controller_syntax": "passed",
+      "powershell_parser": "pending hosted Windows qualification",
+      "tests": "pending assembled candidate review and execution",
+      "product_files_changed_by_this_author": [
+        "scripts/test-windows-tray-host-windows.mjs"
+      ],
+      "new_file_whitespace": "git diff --no-index --check /dev/null file emitted no whitespace errors (exit1 for the differing file); final tracked commit diff check remains with assembled validation."
+    },
+    "execution": {
+      "command": [
+        "node",
+        "--test",
+        "--test-concurrency=1",
+        "scripts/test-windows-tray-host-windows.mjs"
+      ],
+      "expected_cases": 2,
+      "case_timeout_ms": 70000,
+      "wrapper": "Existing outer Windows Job supervisor must cover the complete invocation and close all owned descendants on emergency timeout.",
+      "output_parent_env": "SCOTTY_TRAY_HOST_TEST_ROOT",
+      "case_results": "Fresh scotty-real-host-* directories contain result.json, process-result.json, complete controller/supervisor streams, process journal, source pins and disposable scripts."
+    },
+    "limitation": "Hosted process readiness and shutdown do not establish interactive PC menu behavior.",
+    "cleanup": "Preserve evidence through review; clean only these owned temporary directories and the temporary validation branch after durable retention."
+  },
+  "forced_cleanup_red": {
+    "path": "20261125/revision-6/forced-stop-red-v2/result.json",
+    "sha256": "c11c41f5355290b7898abfec11e3e87442240e8bd0fa5fc818b2aff44759450a",
+    "result": {
+      "status": "expected_failure",
+      "exit_code": 1,
+      "command": [
+        "node",
+        "--test",
+        "--test-concurrency=1",
+        "--test-name-pattern=^serve: forced tray cleanup reaches the controller result$",
+        "scripts/test-windows-tray.mjs"
+      ],
+      "duration_seconds": 3.0494631949986797,
+      "sources": {
+        "bin/windows-tray.mjs": "5edb02c267f3c812e66bac069e012dd0ffaeda783ef76c5ccfce04610ec18720",
+        "bin/windows-tray-host.mjs": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+        "scripts/test-windows-tray.mjs": "422a40265365c8cc58862a7a6dd47a05f22d0b7a1f648755de936974e88149d8",
+        "scripts/fixtures/tray-helper.mjs": "59e189900441b953e25d40f95d70d9009c181e539942c7f77125d709dea4ec00"
+      },
+      "streams": {
+        "stdout.log": "28d4669375aa4eb14de015053ade788232b68b77a9f5d778376b35064ad1ed89",
+        "stderr.log": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  },
+  "validation": {
+    "ordinary_node_syntax": {
+      "files": 8,
+      "exit_code": 0,
+      "node_version": "v24.22.3"
+    },
+    "git_diff_check": 0,
+    "expected_linux_cases": 39,
+    "expected_windows_cases": 2,
+    "full_tray_checks": "pending executor",
+    "ordinary_powershell_parser": "pending Windows qualification",
+    "actual_pc_tray": "pending reviewed staging and 3 GiB free/512 MiB aggregate owned RSS check"
+  },
+  "publication": {
+    "local_first_commit": "026f6a68da45e2822455bcba9d17949f6c23ae9f",
+    "direct_push": {
+      "exit_code": 128,
+      "reason": "Cloud Git HTTPS credential helper unavailable; no remote mutation."
+    },
+    "permitted_fallback": "GitHub connector created the same canonical Git tree and a normal child of38; exact remote ref verified; public Git fetch and zero source diff verified.",
+    "clean_worktree_head": "5232c8b94804064ab71af571ee28797667bd72bd",
+    "local_equivalent_branch_to_clean": "task/scotty-local-host-20261125"
+  },
+  "remaining": [
+    "Focused39 Linux and2 real Windows checks plus lint and ordinary parser",
+    "Complete independent source/result review",
+    "Archive stage/helper and installer/check wrapper reviews",
+    "Actual PC tray, installation and configured launch",
+    "Native coordination reconciliation before delivery; no source acceptance closes an unreconciled task"
+  ]
+}
