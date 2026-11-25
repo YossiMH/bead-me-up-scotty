@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "expected_failures_observed",
+  "task_key": "type-app-red",
+  "continuation_revision": 7,
+  "source_commit": "3d3b0f3850e359bfb8d320d530f132a7e0d67469",
+  "source_tree": "794e6f2c694b21399feaa3a42c3dab435ba70113",
+  "workflow_commit": "a0b0a6ae2bc179b4dc40f95ba44890e37e9069b8",
+  "run_id": 45571286830,
+  "job_id": 139058279593,
+  "run_url": "https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45571286830",
+  "workflow_conclusion": "success",
+  "test_exit": 1,
+  "command": "node --test --test-reporter=tap scripts/test-native-editing.mjs",
+  "node": "v24.22.3",
+  "npm": "11.19.1",
+  "results": {
+    "tests": 48,
+    "passed": 38,
+    "failed": 10,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "duration_ms": 3389.534731,
+    "failed_names": [
+      "a long native type edit retains the claim acquired by this store and its revision guard",
+      "long native custom types use exact UTF-8 files and clean up after command failure",
+      "long native custom types use exact UTF-8 files and clean up after readback failure",
+      "long native custom types use exact UTF-8 files and clean up after success",
+      "native text transport counts type description and notes together at 8193 bytes",
+      "native type transport observes the 8193-byte UTF-8 boundary",
+      "type-file grant absent refuses oversized types before any native write",
+      "type-file grant false refuses oversized types before any native write",
+      "type-file grant malformed refuses oversized types before any native write",
+      "unsupported long native type creates no temporary input before refusal"
+    ],
+    "remaining_edit_directories": []
+  },
+  "source_verification": {
+    "production_unchanged": true,
+    "changed_files": [
+      "scripts/fixtures/native-contract.mjs",
+      "scripts/test-local-bead-rs.mjs",
+      "scripts/test-native-editing.mjs",
+      "scripts/test-native-type-roundtrip.mjs"
+    ],
+    "all_four_hashes_match_author_candidate": true,
+    "archived_tap_matches_actual_job_log": true
+  },
+  "interpretation": [
+    "All 32 existing checks and six compatible/new boundary checks passed.",
+    "The ten new failures show absent early refusal or absent type-file transport in the unchanged production adapter.",
+    "The failure list exactly matches the required cases, with no startup, dependency, timeout or skipped-test failure.",
+    "The command failure case observed zero captured text files; the successful guard setup in the claimed case reached the missing-file assertion."
+  ],
+  "output_packet": {
+    "commit": "4e4149693d1ac4448973997b66eac31feeb5dce2",
+    "path": "20261125/revision-7/results/type-app-red-45571286830.json",
+    "local_directory": "/tmp/beads-55c9/results/type-app-red-45571286830",
+    "result_sha256": "a017d27154dea80ef435f7441a4a176933f2762dcdb224bb7a19d91c8bbfd275",
+    "stdout_sha256": "dff39454a2078c8b4ad257b03e132c5208907e7dc6f3450569dd03ee32b01537",
+    "job_log_sha256": "c7261e09536e81b8416709f6edadd71eae8f189bf560257696e90a4d51e8afc4",
+    "archive_sha256": "59d980de78bc1ea7503396e6dbc3e28d04950d06ca8a2256498cf586ef3ac3e9",
+    "artifact_id": 15001754642
+  },
+  "warnings": "npm ci succeeded with the existing warn-only Node devEngines declaration, Recharts deprecation and an uncovered unrs-resolver install-script notice. No dependency or policy was changed.",
+  "changed_files": [],
+  "git_result": {
+    "product_branch": "task/scotty-finish-20261124",
+    "product_commit": "3d3b0f3850e359bfb8d320d530f132a7e0d67469",
+    "runner_branch": "task/type-app-red-20261125",
+    "runner_commit": "a0b0a6ae2bc179b4dc40f95ba44890e37e9069b8",
+    "cleanup": "Final cleanup, including by a future agent after interruption, must remove this exact temporary runner branch after retaining its outputs."
+  },
+  "open_items": [
+    "Independent type-app-tests-review acceptance is required before production correction.",
+    "Real native-store and production HTTP scripts will execute against the corrected Windows executable and fresh production runtime."
+  ]
+}
