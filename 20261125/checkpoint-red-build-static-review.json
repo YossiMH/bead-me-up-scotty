@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "complete independent static review",
+  "operation": "checkpoint-red-compile-only",
+  "unique_ref": "bead-edit-20261124:checkpoint-red-build",
+  "native_id": null,
+  "native_state": "creation and guarded completion remain pending",
+  "reviewed_packet": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "7214002b1e091d658008cb1fea3224ce9b5379ca",
+    "tree": "8fc8c1bbcbcc7f472f5bda202e53551b5d2912b0",
+    "directory": "20261125/checkpoint-linux-red",
+    "files_sha256": {
+      "checkpoint-red-build-20261125.py": "55fc908bfe98c94e85fbd7ed9f205d4fa0a76701fd1b7e737fbe9c5b5f012607",
+      "build-inputs.json": "57d129f2abd63797418f9950a2e20abe72466aafd2584ba203d317c9ee530ba3",
+      "checkpoint-red-build.workflow.yml": "5078742cb20ccc56b18617ba6e0a509ae1809c0fe114bfa5c10362f49c0462dc",
+      "README.md": "59b6efd798c57a772ae22875fe8fbeb1ec88990dba8bf9969c11fd0faedd3607",
+      "checkpoint-tests.json": "203f5ca933324dacda333a7481e4da22f64c33e76d57fdabcdb4265b0b439d17",
+      "manifest.json": "553dab9d622d6a84d1f6a83a0580ad810f6b0691710b25049a3ce03f887c97d5",
+      "author-audits.json": "589e0f8fbb06bf9a58ff8af81f2e09080eb8ea462f3ccd40e48fc571ffd0a608"
+    }
+  },
+  "accepted_plan": {
+    "commit": "f496be34e8a99c9e97a2c714bdeaac66e18d8403",
+    "sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+    "review_commit": "6d40aacb49eba309f1f925e106cfbb9026cce744",
+    "review_sha256": "23a208097a3abd24006d8645666f13bfd40856a07906beefc1ef151aa8ee304e",
+    "tasks": 32,
+    "blocking_edges": 51
+  },
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "tree": "c9707f7b58dd76826244719af018bf4c02a3e5fc",
+    "sole_parent": "986f2a332aca9dd567eee41ce835917d56e29468",
+    "changed_files": 4,
+    "unchanged_baseline_blobs": 647,
+    "production_prefix_sha256": "310974bfae112134b290f4c8040b7f68994e009d207ff2a1a470af22145be538"
+  },
+  "read_complete_files": [
+    "checkpoint-red-build-20261125.py",
+    "build-inputs.json",
+    "checkpoint-red-build.workflow.yml",
+    "README.md",
+    "checkpoint-tests.json",
+    "manifest.json",
+    "author-audits.json"
+  ],
+  "findings": [],
+  "checks": [
+    "Read the complete Python helper, input, workflow, notes, source report, manifest and two-pass author report; all seven hashes match their frozen values.",
+    "Independently reconciled the actual tests-only commit, direct parent, full tree and four exact approved file contents. The complete accepted test proposal remains applicable to these identical bytes.",
+    "Compared all commands and result boundaries with the accepted checkpoint-tests, checkpoint-red-build and checkpoint-red-checks descriptions.",
+    "Verified the two full action commit IDs exist in the official actions/checkout and actions/upload-artifact repositories.",
+    "Checked the sole exact-branch push trigger, standard ubuntu-24.04 runner, contents-read permission, disabled credential persistence, no secrets or deployment, bounded step/job timeouts and seven-day success/failure upload.",
+    "Checked clean checkout, exact source commit/tree/parent/delta, actual git diff --check, unchanged production prefix, streamed git archive validation of every Git blob and file mode, safe extraction without .git, owned target/temp paths and cleared inherited selectors.",
+    "Checked the exact compile-only Cargo command, one compiler job, pinned Rust version, 1790-second work limit within a 1800-second phase, owned process-group cleanup, strict Cargo JSON output mapping, all five executable hashes, post-build source hashes, retained logs and immutable output bundle.",
+    "Checked that compilation success requires both build-result.json and outer result.json plus the actual successful job; a bundling, deadline, setup or cleanup failure cannot be accepted as a test failure.",
+    "Checked separate subsequent execution, actual-run identity binding, no invented native task IDs/claims/closures, and cleanup/recovery instructions."
+  ],
+  "activation_acceptance": {
+    "accepted": true,
+    "temporary_branch": "task/checkpoint-red-build-20261125",
+    "workflow_path": ".github/workflows/checkpoint-red-build-20261125.yml",
+    "condition": "Activate only the exact reviewed packet and byte-identical workflow by ordinary publication to the absent owned temporary branch; record and verify actual head/event/run/attempt before interpreting results."
+  },
+  "pending": [
+    "Hosted Python syntax check and actual git diff --check.",
+    "Actual successful compilation, exact executable/output identities and complete owned-process cleanup.",
+    "Separate execution and classification of all six intended behavioral failures.",
+    "Final independent test acceptance before any production repair.",
+    "Eventual exact native materialization and result-to-ID reconciliation before installation, original-store merge or delivery.",
+    "Root-owned cleanup after outputs and reports are retained."
+  ],
+  "tests_executed_by_reviewer": false,
+  "product_builds_executed_by_reviewer": false,
+  "final_test_acceptance": false,
+  "production_repair_acceptance": false
+}
