@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "helper_sha256": "af5e1a88712e7a6c9fb212fe15b0fa76abdeb6dcb25fbb92c7431818bf55a711",
+  "base_helper_sha256": "048833c21e8288cc84049c61e451a5f69b6b85ff5e2d80b2a75f3236350ad8ed",
+  "author": "/root",
+  "source_contract_commit": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+  "contract_paths": [
+    "src/service/manifest.rs",
+    "src/service/secret_boundary.rs",
+    "src/model/redaction.rs"
+  ],
+  "reason": "Actual dry-run report intentionally redacts projected description text. Native commit was never attempted.",
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "complete_helper_read": true,
+      "checks": [
+        "Exact established marker alternative covers both manifest report modes",
+        "Literal complete stored descriptions remain checked after the atomic commit",
+        "All975-before/986-after counts and954 original records remain verified",
+        "All32 tasks/51edges/37operations and input/source/binary hashes unchanged",
+        "Exact known dry-run failure receipts and absent prior commit markers required"
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "complete_helper_read": true,
+      "checks": [
+        "Fresh attempt output/temp; original failed files retained; final accepted mapping filename unchanged",
+        "Reverse minimal patch reconstructs accepted baseline bytes exactly",
+        "V8 body parse succeeds; ordinary Node --check required before PC use",
+        "180-second total/30-second child/16MiB capture bounds unchanged",
+        "No scanner setting, security control, claim ownership or product source change"
+      ]
+    }
+  ],
+  "execution_status": "Not executed; independent review and ordinary Node parsing required."
+}
