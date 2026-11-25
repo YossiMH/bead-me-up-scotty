@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "prepared_actual_build_bindings_pending",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "files": {
+    "checkpoint-full-suite-20261125.py": {
+      "sha256": "b18148b8365a2c66bc57af736bac4ba1d7f3079ff5c5691f7154986da328963c",
+      "bytes": 22146
+    },
+    "full-suite-inputs.template.json": {
+      "sha256": "78fd5820062580f050e1d1a47add9a0e673ee3190c0070bf53f330fdefba589b",
+      "bytes": 363
+    },
+    "corpus-inputs.template.json": {
+      "sha256": "a9cc1c9019b8940436c539ca315231a16e45536928d346e4ebcfaccaf1d64f39",
+      "bytes": 341
+    },
+    "checkpoint-linux-check.workflow.template.yml": {
+      "sha256": "fe45372ab742b115ad5f5e10718ba93826c27b0d7c7028a16fabc0dfec5f3ea7",
+      "bytes": 11451
+    },
+    "README.md": {
+      "sha256": "f478c2ee6a3ae08338c506b356fd30c5ddb1ff2b5464ff81ea2ebcabdef1d978",
+      "bytes": 6605
+    }
+  },
+  "native_tasks": {
+    "full_suite": "beadrs-0890de3c",
+    "release_corpus": "beadrs-50ff08d3"
+  },
+  "required_actual_bindings": [
+    "build run/head",
+    "successful build and outer receipt SHA256",
+    "qualification bundle SHA256/bytes",
+    "full and release artifact IDs",
+    "qualified release/metadata SHA256/bytes",
+    "rendered input and YAML SHA256"
+  ],
+  "execution": "Not activated; wait accepted build and final bound review."
+}
