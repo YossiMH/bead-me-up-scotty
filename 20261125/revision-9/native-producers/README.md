@@ -14,6 +14,6 @@ The complete build.py and verify.py bytes are identical to accepted 33931b9. The
 
 ## Activation and retention
 
-The packet branch is dormant. Activate each reviewed workflow once on its own exact task ref: task/native-final-linux-build-20261125 and task/native-final-windows-build-20261125. Reconcile absence or prior run status first. Retain the original c90 platform failures, first incomplete maintenance collector attempt and successful six-case maintenance Red. This packet does not represent a successful build or native acceptance until actual outputs are checked.
+The packet branch is dormant. Activate each reviewed workflow once on its own exact task ref: task/native-lock-linux-build-20261125 and task/native-final-windows-build-20261125. Reconcile absence or prior run status first. Retain the original c90 platform failures, first incomplete maintenance collector attempt and successful six-case maintenance Red. This packet does not represent a successful build or native acceptance until actual outputs are checked.
 
 Hosted runners perform all work. The PC remains untouched after its recorded broker denial. The actual native task graph is still revision 6; accepted revision 9 IDs and edges have not been materialized. Final source acceptance, PC installation/tray validation and Riftri cleanup remain separate recorded gates.

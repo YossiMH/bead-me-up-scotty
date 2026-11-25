@@ -3,13 +3,13 @@ name: Compile and build the final native tool for Linux
 on:
   push:
     branches:
-      - task/native-final-linux-build-20261125
+      - task/native-lock-linux-build-20261125
 
 permissions:
   contents: read
 
 concurrency:
-  group: native-final-linux-build-20261125
+  group: native-lock-linux-build-20261125
   cancel-in-progress: false
 
 jobs:

@@ -21,12 +21,12 @@
       "sha256": "fe56cc4aab123d53a6e438586c38adaf5489e35f01a0c75a8abf85eca90ab1e3"
     },
     "20261125/revision-9/native-linux-build/workflow.yml": {
-      "bytes": 5184,
-      "sha256": "6feae386b11948f983de605b695fc9791f815fac3ef576f05f3959490d8cd5ab"
+      "bytes": 5182,
+      "sha256": "ab042c2fe2119a670f065de360e7bc151fe9d232a0e3ae7c06cc05b108cdc2cf"
     },
     ".github/workflows/native-final-linux-build-20261125.yml": {
-      "bytes": 5184,
-      "sha256": "6feae386b11948f983de605b695fc9791f815fac3ef576f05f3959490d8cd5ab"
+      "bytes": 5182,
+      "sha256": "ab042c2fe2119a670f065de360e7bc151fe9d232a0e3ae7c06cc05b108cdc2cf"
     },
     "20261125/revision-9/native-windows-build/build.py": {
       "bytes": 19307,
@@ -49,8 +49,8 @@
       "sha256": "4e8aff6f296183502cb50d2c0e3665f696120d28e0ba8bac1e8761808b448ac4"
     },
     "20261125/revision-9/native-producers/README.md": {
-      "bytes": 2942,
-      "sha256": "10da1082a107e4a841a140a2d276521be1878d181c6e12053d2743b2ec282b62"
+      "bytes": 2941,
+      "sha256": "ea6388c14d54f40b763811982ae8da253ef69d90041e97b88fc8934ab356b83c"
     }
   },
   "inspections": [
@@ -87,5 +87,14 @@
   ],
   "plan_review_commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
   "plan_review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
-  "documentation_correction": "After the two full inspections, both repeated readings of the only changed README sentence and its updated hash confirm the current compatibility-complete review receipt; all code/input/workflow bytes are unchanged."
+  "documentation_correction": "After the two full inspections, both repeated readings of the only changed README sentence and its updated hash confirm the current compatibility-complete review receipt; all code/input/workflow bytes are unchanged.",
+  "activation_ref_correction": {
+    "reason": "The proposed Linux branch already retains completed historical run45573785132 at a divergent revision7 commit. Preserve it and use the verified absent task/native-lock-linux-build-20261125.",
+    "changed_code": "Only the Linux workflow on.push branch and concurrency.group literals; the actual workflow copy is identical.",
+    "inspections": [
+      "Read all exact two-line workflow changes, identical packet copy and README target correction; helper and input hashes remain exact.",
+      "Repeated source/path/activation/hash comparison confirms the new ref cannot activate the old workflow or alter source/compiler/checks; all code outside the two literals is unchanged."
+    ],
+    "windows_activation_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d"
+  }
 }
