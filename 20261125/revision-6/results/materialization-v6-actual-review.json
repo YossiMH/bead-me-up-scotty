@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "independent_actual_transition_reconciliation",
+  "continuation_revision": 6,
+  "evidence_commit": "f8af6af7ddfd19a510da74fb326a3347587795ce",
+  "reviewed_files": {
+    "materialization-result-v6.json": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2",
+    "pc-materialize-v6-direct-proposal.json": "ef4e7d33a27baea812b68e5cbaee90f2a219473d1560370bef2446ab68be8296",
+    "pc-materialize-v6-direct-result.json": "d8c7e6a39255cce27bb17cbe1ccca7e6031505b8f56fa8169d31a1e5b7ab46da",
+    "pc-materialize-v6-read-result.json": "bbdada88925ace4baa5a6435b52e42e2ad8829dac17502f5bf1d37a56350d2bb",
+    "materialize-v6-supervisor-actual.json": "31c5a9b653bbe7e67357f323dd74b96dc020d049e001fc14bbf851689106d777"
+  },
+  "accepted_inputs": {
+    "plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+    "plan_review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+    "helper_sha256": "461ee5a0bec9ce08b881b71a8891a44c2f9716173e9dd1e0437d4dcbb0120902",
+    "helper_review_sha256": "662aff7686213e1128ad3603df4eebf53fcdf731fe4fd5b5a803fad91b77699d",
+    "supervisor_sha256": "0bbd5c8d6bfa93068b98e4c43ebfd519a0f49e5ae7ea8e7e22ca75c144528dea",
+    "supervisor_review_sha256": "31fd5931560b1333ebedbe68d0f21f3a4884555f6decfa8e3ed4d20f7a4182a1",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "actual": {
+    "proposal_id": "zIKAJTabKpceWww3qW_P0bPlHNj7-cbSjQ3AsZ9pFBI",
+    "connector_status": "exited",
+    "connector_exit_code": 0,
+    "connector_stderr_bytes": 0,
+    "driver_exit_code": 0,
+    "native_status": "passed",
+    "native_result_bytes": 8339,
+    "native_base64_readback_exact": true,
+    "original_issues": 954,
+    "total_issues": 986,
+    "tasks": 32,
+    "blocking_edges": 51,
+    "description_updates": 12,
+    "reopens": 4,
+    "new_creates": 0,
+    "dependency_additions": 0,
+    "source_store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "baseline_free_physical_bytes": 7726264320,
+    "sampled_peak_owned_resident_bytes": 318414848,
+    "duration_seconds": 3.581,
+    "retained_process_handles_with_observed_exit_zero": 20,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "reported_remaining_job_members": [],
+    "raw_supervisor_stdout_sha256": "be72dfd5bbaa7f0ad2aa0707e9e6e82cdf89ce97850e144abe59c17f1d2a52f7",
+    "raw_supervisor_stdout_bytes": 11251
+  },
+  "checks": [
+    "Decoded the complete native JSON independently from the read-only connector Base64 and verified exact bytes/SHA against the local8339-byte result and the actual supervisor binding.",
+    "Read the complete native result, direct invocation and connector completion. Exact accepted updater/supervisor/Job/review hashes match; the sole invocation returned0 with no dropped output or stderr.",
+    "All32 actual key/ID mappings match the accepted plan key set and continuation rows. The four intended previously closed tray tasks are now open at revision4; all12 description changes,51 edges and retained original954 records pass the previously independently reviewed updater's literal comparisons.",
+    "The updater reports unchanged unrelated stored fields, previous close history, configuration and checkpoint pointer. Existing foundation/source/Linux-build closures remain closed at revision2. No new tasks, dependencies, claims, final acceptance or original-authority publication are implied.",
+    "All20 held process records report exit0 without supervisor kills; the directly observed supervisor exit closes the unchanged non-inheritable kill-on-close Job. The completed transition is authoritative and must not replay."
+  ],
+  "evidence_precision": [
+    "The normalized supervisor summary was serialized through JavaScript and rounds its20 large StartTime tick integers. Exact original integers remain in pc-materialize-v6-direct-result.json structuredContent.stdout; the raw text hash above is the process-identity evidence. The native result is independently retained byte-exact.",
+    "The completed supervisor used its earlier count-only membership query. Its reported empty list is distinguished from the20 held-process exits and observed supervisor exit. The next closure supervisor replaces that query with complete assigned/listed/byte-length/unique-PID snapshots; the finished mutation is not repeated."
+  ],
+  "remaining_findings": [],
+  "next_action": "Use these actual revisions for separately reviewed accepted-task requests. Preserve all prior failed or unexecuted proposals and retain explicit final checkpoint publication and cleanup work."
+}

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "complete_independent_static_review",
+  "evidence_commit": "f8af6af7ddfd19a510da74fb326a3347587795ce",
+  "read_complete_supervisor": true,
+  "read_complete_diff": true,
+  "read_complete_author_record": true,
+  "read_complete_request": true,
+  "reviewed_files": {
+    "record-accepted-v6-supervisor.ps1": "08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033",
+    "record-accepted-v6-supervisor-author.json": "28b904e5b52d19607d1e9ea1b13f958db295db804b6543cb7ed1d88910d5aae8",
+    "accepted-tray-source-linux-corpus-request.json": "3da807e2579327caad09cafc7e0e674b5796b23fcd317ba69449971af80677d6",
+    "record-accepted-tasks-v6.mjs": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+    "materialization-result-v6.json": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2"
+  },
+  "baseline_supervisor_sha256": "0bbd5c8d6bfa93068b98e4c43ebfd519a0f49e5ae7ea8e7e22ca75c144528dea",
+  "prior_closer_review_sha256": "f7f094038ea0ad136ad0b8c4ee0ec2772857bb61b719e40f7f2f5245a331c8e4",
+  "accepted_request": [
+    {
+      "key": "tray-diagnose",
+      "id": "beadrs-9422c821",
+      "revision": 4,
+      "prerequisite": "plan-review",
+      "evidence_review_sha256": "ae3525dde88146dad9916daf6c0c6cfbabea870150763d7f29872c6c51c0605c"
+    },
+    {
+      "key": "tray-repair",
+      "id": "beadrs-417f998c",
+      "revision": 4,
+      "prerequisite": "tray-diagnose (earlier in this request)",
+      "evidence_review_sha256": "7c9a213d4e121b3db15f69588f9801d66780299656f764e903f244dd69f8b46a"
+    },
+    {
+      "key": "checkpoint-linux-checks",
+      "id": "beadrs-50ff08d3",
+      "revision": 1,
+      "prerequisite": "checkpoint-linux-build",
+      "evidence_review_sha256": "aff7309c16985ea2751b77b5622b57b3bc92b48d563ae626f628a974b2424238"
+    }
+  ],
+  "checks": [
+    "Read all18386 supervisor bytes and its entire diff against the accepted materialization supervisor. Changes bind the fixed previously reviewed597d closer, accepted80b plan/27ee review/838f native result, one exact-hash request and a fresh grammar-constrained output basename within the owned coordination root.",
+    "Read the complete unchanged7066-byte native closer again. It rejects unknown/duplicate tasks, stale revisions, closed/assigned tasks and unfinished prerequisites; verifies full planned title/description, commits exactly one guarded close manifest with no-auto-flush and compares all986 records afterward. Original954 and unrelated stored fields must remain exact.",
+    "The full corrected membership query requires successful complete assigned/listed counts, returned bytes and unique positive PIDs, with bounded same-query retries/resize only. All discovered members retain exact held process handles and same-session Job ownership; memory accounting includes console descendants.",
+    "The same BelowNormal priority, hidden invocation,128MiB Node heap,512MiB aggregate resident cap,1GiB free-memory start check,100ms sampling,168-second work stop,180-second owned-Job hard timer and8MiB per-stream limit remain. Any assisted cleanup, retained live child, stream error, budget excess or timeout fails.",
+    "The wrapper requires the exact successful close result, original/unrelated preservation flags, request hash and matching task names/count. Fresh helper and supervisor directories plus retained commit-started marker prevent replay. Unknown outcomes require reading the existing intent and state.",
+    "The three requested revisions match actual revision6 state. Plan-review and checkpoint-linux-build are already closed; tray-diagnose is ordered before tray-repair. Each reason matches its independently accepted evidence and the corresponding task's completion criteria. Hosted Windows2, full-suite acceptance, desktop checks, installer and final integration remain distinct pending work."
+  ],
+  "remaining_findings": [],
+  "author_clean_inspections": 2,
+  "ordinary_windows_parser": "pending exact staged file",
+  "execution": "Root may stage, natively parse and invoke once with this exact independently accepted request, exact supervisor/helper hashes, fresh output basename and200-second outer Emergency command limit. Reconcile any uncertain completion before further writes.",
+  "future_requests": "The wrapper is reusable only with separately accepted exact-hash requests under this isolated authority; this review authorizes the three named tasks only."
+}
