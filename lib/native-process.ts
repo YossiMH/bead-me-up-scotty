@@ -34,6 +34,8 @@ const editingCapabilitySchema = z.object({
   clear_description: z.literal(true),
   revision_guard: z.literal(true),
   priority_reason_required: z.literal(true),
+  /** Missing or malformed file transport leaves existing field grants intact. */
+  issue_type_file: z.unknown().optional(),
 });
 
 /** Validated fields needed to qualify the native command/document contract. */
@@ -60,7 +62,7 @@ export interface NativeProcess {
   readonly repositoryPath: string;
   run(args: readonly string[], actor?: string): Promise<string>;
   json(args: readonly string[], actor?: string): Promise<unknown>;
-  qualify(): Promise<{ workspace: string; capabilities: BackendCapabilities }>;
+  qualify(): Promise<{ workspace: string; capabilities: BackendCapabilities; supportsIssueTypeFile: boolean }>;
   workspace(): Promise<string>;
 }
 
@@ -109,7 +111,7 @@ export function nativeProcess(repositoryPath: string): NativeProcess {
   }
 
   /** Qualify identity before store use; actual reads also validate workspace identity. */
-  async function qualify(): Promise<{ workspace: string; capabilities: BackendCapabilities }> {
+  async function qualify(): Promise<{ workspace: string; capabilities: BackendCapabilities; supportsIssueTypeFile: boolean }> {
     const result = capabilitySchema.safeParse(await json(capabilitiesArgs));
     if (!result.success || requiredCommands.some((command) => !result.data.commands.includes(command))
       || requiredDependencyKinds.some((kind) => !result.data.dependency_kinds.includes(kind))) {
@@ -123,7 +125,8 @@ export function nativeProcess(repositoryPath: string): NativeProcess {
       editableFields: [...nativeCapabilities.editableFields, ...editingFields.filter((field) =>
         editing.data.fields.includes(field) && (field !== "priority" || result.data.priority_change === true))],
     } : nativeCapabilities;
-    return { workspace: await workspace(), capabilities };
+    return { workspace: await workspace(), capabilities,
+      supportsIssueTypeFile: editing.success && editing.data.issue_type_file === true };
   }
 
   /** Read the public identity before using an issued credential in this workspace. */

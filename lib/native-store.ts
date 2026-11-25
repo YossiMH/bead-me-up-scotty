@@ -35,7 +35,7 @@ function validateTransition(issue: NativeIssue, status: string): void {
 /** One native store owns its command queue and credentials obtained by its own assignments. */
 export async function createNativeStore(repositoryPath: string): Promise<BeadsStore> {
   const process = nativeProcess(repositoryPath);
-  const { workspace, capabilities } = await process.qualify();
+  const { workspace, capabilities, supportsIssueTypeFile } = await process.qualify();
   const credentials = nativeCredentials(repositoryPath, workspace);
   let preceding: Promise<unknown> = Promise.resolve();
 
@@ -143,7 +143,7 @@ export async function createNativeStore(repositoryPath: string): Promise<BeadsSt
       if (patch.status !== undefined) args.push("--status", patch.status);
       if (assignee) args.push(`--assignee=${assignee}`);
       else if (assignee === "") args.push("--clear-assignee");
-      await runNativeEdit(process, args, patch, actor, mutation);
+      await runNativeEdit(process, args, patch, actor, mutation, supportsIssueTypeFile);
       wrote = true;
     }
     if (assignee !== undefined) {

@@ -322,12 +322,20 @@ metadata corrections without changing its completion time or close reason.
 Reopening or releasing together with other scalar changes is rejected before
 any write; use the lifecycle action separately.
 
-Native titles may contain up to 4,096 UTF-8 bytes. Descriptions and notes may
-contain up to 4 MiB each. When their combined text exceeds 8 KiB, Scotty uses
-temporary UTF-8 files and cleans them up after the command. Empty descriptions
-and notes clear those fields. Types can be custom nonempty native strings. IDs, creation and
-completion timestamps, claim metadata, comments and other managed fields are
-not arbitrary PATCH fields.
+Native titles may contain up to 4,096 UTF-8 bytes. Descriptions, notes and custom
+types may each contain up to 4 MiB of UTF-8 text. Types must be nonempty; empty
+descriptions and notes clear those fields. When the combined description, notes
+and type exceed 8 KiB, Scotty uses temporary UTF-8 files and cleans them up after
+the command.
+
+Type files require `issue_editing.issue_type_file: true` in the selected
+executable's capability document. With an older executable, types of at most
+8 KiB stay inline while descriptions and notes can use files. Scotty refuses a
+larger type before creating temporary files or sending the update. An absent,
+false or malformed file capability preserves the other editing controls.
+
+IDs, creation and completion timestamps, claim metadata, comments and other
+managed fields are not arbitrary PATCH fields.
 
 Dependency changes use the separate native dependency actions. The source
 issue depends on the selected target, and an edge is identified by source,
