@@ -86,6 +86,47 @@ def activate_msvc(run, work, env):
             "sdk": values["WindowsSDKVersion"]}
 
 
+def reuse_release(prior, output, inputs):
+    """Verify the retained successful archive release before skipping its compilation."""
+    expected = inputs["prior_release"]
+    manifest_path = prior / "artifact-manifest.json"
+    require(file_hash(manifest_path) == expected["manifest_sha256"], "Prior artifact manifest differs")
+    manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+    require(manifest["source_commit"] == inputs["source_commit"]
+            and manifest["target"] == inputs["target"], "Prior artifact source or target differs")
+    names = set()
+    for row in manifest["files"]:
+        relative = PurePosixPath(row["path"])
+        require(not relative.is_absolute() and ".." not in relative.parts
+                and row["path"] not in names, "Invalid prior artifact path")
+        path = prior.joinpath(*relative.parts).resolve()
+        require(path.is_relative_to(prior) and path.is_file() and not path.is_symlink()
+                and file_record(path, prior) == row, "Prior artifact bytes differ: " + row["path"])
+        names.add(row["path"])
+    require({p.relative_to(prior).as_posix() for p in prior.rglob("*") if p.is_file()}
+            == names | {"artifact-manifest.json"}, "Unexpected prior artifact files")
+    build = json.loads((prior / "build-result.json").read_text(encoding="utf-8"))
+    require(build["source_commit"] == inputs["source_commit"] and build["source_tree"] == inputs["source_tree"]
+            and build["target"] == inputs["target"] and build["run_id"] == expected["run_id"]
+            and build["workflow_commit"] == expected["workflow_commit"]
+            and build["status"] == "failed"
+            and build["error"] == "FileNotFoundError: [WinError 2] The system cannot find the file specified",
+            "Prior release result differs")
+    archive_commands = [c for c in build["commands"] if c["stdout"] == "logs/archive-release.stdout"]
+    require(len(archive_commands) == 1 and archive_commands[0]["exit_code"] == 0
+            and build["commands"][-1]["argv"][0] == "dumpbin.exe"
+            and "exit_code" not in build["commands"][-1], "Prior archive release did not finish successfully")
+    for key in ("executable", "metadata"):
+        row = build["release"][key]
+        require(row["sha256"] == expected[key + "_sha256"] and row["path"] in names,
+                "Prior release identity differs")
+        path = prior / row["path"]
+        shutil.copy2(path, output / "release" / path.name)
+    shutil.copytree(prior, output / "prior-release-evidence")
+    return {"run_id": build["run_id"], "workflow_commit": build["workflow_commit"],
+            "manifest_sha256": expected["manifest_sha256"], "release": build["release"]}
+
+
 def extract_source(archive, source, tracked):
     """Extract only exact regular Git blobs; retain their identities for test reuse."""
     files = {}
@@ -154,6 +195,7 @@ def main():
     parser.add_argument("--checkout", type=Path, required=True)
     parser.add_argument("--inputs", type=Path, required=True)
     parser.add_argument("--output", type=Path, required=True)
+    parser.add_argument("--prior-release", type=Path)
     args = parser.parse_args()
     require(sys.platform == "win32", "This packet requires a hosted Windows runner")
     inputs = json.loads(args.inputs.read_text(encoding="utf-8"))
@@ -243,8 +285,12 @@ def main():
                                        "bash-python", 30).read_text().strip()
         env["BEAD_BUILD_SCRATCH_ROOT"] = paths["scratch"]
         release_name = "bead-checkpoint-" + head[:12] + ".exe"
-        run([str(bash), paths["script"], head, "--target", inputs["target"], "--name", release_name,
-             "--out", paths["release"]], checkout, "archive-release")
+        if args.prior_release is None:
+            require("prior_release" not in inputs, "Frozen prior release must be supplied")
+            run([str(bash), paths["script"], head, "--target", inputs["target"], "--name", release_name,
+                 "--out", paths["release"]], checkout, "archive-release")
+        else:
+            result["reused_release"] = reuse_release(args.prior_release.resolve(), output, inputs)
         del env["BEAD_BUILD_SCRATCH_ROOT"]
         release = output / "release" / release_name
         metadata_path = release.with_name(release.name + ".metadata.json")
@@ -260,7 +306,10 @@ def main():
                 and metadata["embedded_version_string"].startswith("bead "), "Release metadata differs")
         result["release"] = {"executable": file_record(release, output),
                              "metadata": file_record(metadata_path, output)}
-        run(["dumpbin.exe", "/DEPENDENTS", str(release)], work, "release-imports", 30)
+        dumpbin = Path(result["visual_cpp"]["linker"]).with_name("dumpbin.exe")
+        pe_x64(dumpbin)
+        result["visual_cpp"]["dumpbin_sha256"] = file_hash(dumpbin)
+        run([str(dumpbin), "/DEPENDENTS", str(release)], work, "release-imports", 30)
         tracked_log = run(git + ["ls-tree", "-r", "-z", head], checkout, "tracked-files", 60)
         tracked = {}
         for row in tracked_log.read_bytes().split(b"\0"):

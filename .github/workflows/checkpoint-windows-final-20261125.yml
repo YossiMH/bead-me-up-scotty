@@ -3,13 +3,14 @@ name: Build final Windows native artifacts
 on:
   push:
     branches:
-      - task/checkpoint-windows-final-20261125
+      - task/checkpoint-windows-final-resume-20261125
 
 permissions:
   contents: read
+  actions: read
 
 concurrency:
-  group: checkpoint-windows-final-20261125
+  group: checkpoint-windows-final-resume-20261125
   cancel-in-progress: false
 
 env:
@@ -46,7 +47,16 @@ jobs:
           fetch-depth: 1
           persist-credentials: false
 
-      - name: Build release and compile affected Windows tests
+      - name: Download the completed exact archive release
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: '15003670786'
+          run-id: '45572877188'
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/prior-windows-release
+          merge-multiple: true
+
+      - name: Reuse the release and compile affected Windows tests
         id: compile
         shell: pwsh
         timeout-minutes: 41
@@ -56,7 +66,7 @@ jobs:
           $python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source
           & $python -m py_compile (Join-Path $packet 'build.py') (Join-Path $packet 'verify.py')
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
-          & $python (Join-Path $packet 'build.py') --checkout (Join-Path $env:GITHUB_WORKSPACE 'source') --inputs (Join-Path $packet 'build-inputs.json') --output (Join-Path $env:RUNNER_TEMP 'bead-windows-native-${{ github.run_id }}-${{ github.run_attempt }}')
+          & $python (Join-Path $packet 'build.py') --checkout (Join-Path $env:GITHUB_WORKSPACE 'source') --inputs (Join-Path $packet 'build-inputs.json') --output (Join-Path $env:RUNNER_TEMP 'bead-windows-native-${{ github.run_id }}-${{ github.run_attempt }}') --prior-release (Join-Path $env:RUNNER_TEMP 'prior-windows-release')
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
 
       - name: Retain outputs and failure logs
