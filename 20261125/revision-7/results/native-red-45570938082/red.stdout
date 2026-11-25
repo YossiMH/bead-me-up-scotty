@@ -1,0 +1,115 @@
+running 11 tests
+test capability_schema_accepts_the_optional_type_transport ... FAILED
+test dry_run_and_repeated_file_values_preserve_saved_state ... FAILED
+test file_edits_enforce_revision_and_claim_guards_even_for_noops ... FAILED
+test file_type_is_scanned_before_any_scalar_edit ... FAILED
+test help_and_generated_man_page_describe_type_file_input ... FAILED
+test inline_and_file_conflict_before_reading_the_file ... FAILED
+test long_unicode_file_commits_one_guarded_edit_and_preserves_claim ... FAILED
+test missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied ... FAILED
+test only_one_text_field_may_consume_stdin ... FAILED
+test stdin_type_preserves_exact_text ... FAILED
+test stored_issue_and_manifest_keep_literal_type_text ... ok
+
+failures:
+
+---- capability_schema_accepts_the_optional_type_transport stdout ----
+
+thread 'capability_schema_accepts_the_optional_type_transport' (3781) panicked at tests/issue_type_file.rs:296:5:
+assertion `left == right` failed
+  left: Null
+ right: true
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+---- dry_run_and_repeated_file_values_preserve_saved_state stdout ----
+
+thread 'dry_run_and_repeated_file_values_preserve_saved_state' (3785) panicked at tests/issue_type_file.rs:33:5:
+exit Some(2)
+stdout: 
+stderr: error: unexpected argument '--issue-type-file' found
+
+  tip: a similar argument exists: '--issue-type'
+
+Usage: bead update --issue-type <ISSUE_TYPE> <ID>
+
+For more information, try '--help'.
+
+
+---- file_edits_enforce_revision_and_claim_guards_even_for_noops stdout ----
+
+thread 'file_edits_enforce_revision_and_claim_guards_even_for_noops' (3790) panicked at tests/issue_type_file.rs:240:9:
+assertion `left == right` failed: Output { status: ExitStatus(unix_wait_status(512)), stdout: "", stderr: "error: unexpected argument '--issue-type-file' found\n\n  tip: a similar argument exists: '--issue-type'\n\nUsage: bead update --issue-type <ISSUE_TYPE> <ID>\n\nFor more information, try '--help'.\n" }
+  left: Some(2)
+ right: Some(4)
+
+---- file_type_is_scanned_before_any_scalar_edit stdout ----
+
+thread 'file_type_is_scanned_before_any_scalar_edit' (3796) panicked at tests/issue_type_file.rs:283:5:
+assertion failed: String::from_utf8_lossy(&output.stderr).contains("secret_detected")
+
+---- help_and_generated_man_page_describe_type_file_input stdout ----
+
+thread 'help_and_generated_man_page_describe_type_file_input' (3801) panicked at tests/issue_type_file.rs:332:5:
+assertion failed: help.contains("--issue-type-file")
+
+---- inline_and_file_conflict_before_reading_the_file stdout ----
+
+thread 'inline_and_file_conflict_before_reading_the_file' (3805) panicked at tests/issue_type_file.rs:171:5:
+assertion failed: String::from_utf8_lossy(&output.stderr).contains("mutually exclusive")
+
+---- long_unicode_file_commits_one_guarded_edit_and_preserves_claim stdout ----
+
+thread 'long_unicode_file_commits_one_guarded_edit_and_preserves_claim' (3810) panicked at tests/issue_type_file.rs:33:5:
+exit Some(2)
+stdout: 
+stderr: error: unexpected argument '--issue-type-file' found
+
+  tip: a similar argument exists: '--issue-type'
+
+Usage: bead update --issue-type <ISSUE_TYPE> <ID>
+
+For more information, try '--help'.
+
+
+---- missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied stdout ----
+
+thread 'missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied' (3816) panicked at tests/issue_type_file.rs:220:9:
+assertion `left == right` failed: Output { status: ExitStatus(unix_wait_status(512)), stdout: "", stderr: "error: unexpected argument '--issue-type-file' found\n\n  tip: a similar argument exists: '--issue-type'\n\nUsage: bead update --issue-type <ISSUE_TYPE> <ID>\n\nFor more information, try '--help'.\n" }
+  left: Some(2)
+ right: Some(1)
+
+---- only_one_text_field_may_consume_stdin stdout ----
+
+thread 'only_one_text_field_may_consume_stdin' (3821) panicked at tests/issue_type_file.rs:191:9:
+assertion failed: String::from_utf8_lossy(&output.stderr).contains("only one text field may read stdin")
+
+---- stdin_type_preserves_exact_text stdout ----
+
+thread 'stdin_type_preserves_exact_text' (3826) panicked at tests/issue_type_file.rs:33:5:
+exit Some(2)
+stdout: 
+stderr: error: unexpected argument '--issue-type-file' found
+
+  tip: a similar argument exists: '--issue-type'
+
+Usage: bead update --issue-type <ISSUE_TYPE> <ID>
+
+For more information, try '--help'.
+
+
+
+failures:
+    capability_schema_accepts_the_optional_type_transport
+    dry_run_and_repeated_file_values_preserve_saved_state
+    file_edits_enforce_revision_and_claim_guards_even_for_noops
+    file_type_is_scanned_before_any_scalar_edit
+    help_and_generated_man_page_describe_type_file_input
+    inline_and_file_conflict_before_reading_the_file
+    long_unicode_file_commits_one_guarded_edit_and_preserves_claim
+    missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied
+    only_one_text_field_may_consume_stdin
+    stdin_type_preserves_exact_text
+
+test result: FAILED. 1 passed; 10 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.68s
+
+
