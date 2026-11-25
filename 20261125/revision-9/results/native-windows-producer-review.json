@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Exact final-source Windows compile/release producer and independent download verification packet",
+  "packet_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+  "code_packet_commit": "8eae6a09cb2dfd4ca34de729e5269aad47fdf0ef",
+  "packet_directory": "20261125/revision-9/native-windows-build",
+  "activation_branch": "task/native-final-windows-build-20261125",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "source_review": {
+    "commit": "e7fcc03cff93601bfad5cc7ba8427006b020b76f",
+    "sha256": "201816a3e5b247ca0501f03683701ab3cf58d50496c4e340b239f0932747bd89"
+  },
+  "prior_complete_packet": {
+    "commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+    "review_commit": "41430d7cdf9dc2450390cb4f58802b7f8935daa8",
+    "review_sha256": "9761467fed4621d43a78e5aad1033349c5e89de98cd439f83d82262fc3988c53"
+  },
+  "accepted_plan_review": {
+    "commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
+    "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+  },
+  "reviewed_files": {
+    "20261125/revision-9/native-windows-build/build.py": "1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07",
+    "20261125/revision-9/native-windows-build/verify.py": "1bac983f1e3c8b0a5c74d6a8b922e858ae2765c6292bd9d884aada6eafa3aef9",
+    "20261125/revision-9/native-windows-build/build-inputs.json": "56cfbc290b00e0cbd3285a66fc46970ab029a05b3bd290ee1d39ada463213d7d",
+    "20261125/revision-9/native-windows-build/workflow.yml": "4e8aff6f296183502cb50d2c0e3665f696120d28e0ba8bac1e8761808b448ac4",
+    ".github/workflows/native-final-windows-build-20261125.yml": "4e8aff6f296183502cb50d2c0e3665f696120d28e0ba8bac1e8761808b448ac4",
+    "20261125/revision-9/native-producers/README.md": "10da1082a107e4a841a140a2d276521be1878d181c6e12053d2743b2ec282b62",
+    "20261125/revision-9/native-producers/author-inspections.json": "1383c094c903240a71312ccccacfe8e848c30d2f26c0a95fae7407b6b9acdf31"
+  },
+  "test_targets": [
+    "attempt_receipt_checkpoint_integrity",
+    "checkpoint_tail_generation_integrity",
+    "checkpoint_publication_lock",
+    "checkpoint_set_v2_conformance",
+    "attempt_outcome_round_trip",
+    "r036_verified_restore",
+    "cli_editing",
+    "cli_capabilities",
+    "issue_type_file",
+    "redaction_transaction"
+  ],
+  "expected_retained_test_and_support_executables": 12,
+  "release_inventory_separate": true,
+  "complete_clean_author_inspections": 2,
+  "checks": [
+    "Independently retrieved the complete new Windows files, actual workflow, shared README and both author inspections. Both build.py and verify.py equal the completely reviewed and successfully executed 33931b9 versions byte for byte.",
+    "The input changes only the independently inspected final native source/tree and the addition of redaction_transaction to the nine previous integration targets. Reverting those changes reproduces the complete prior input object. Rust 1.100.0, x86_64-pc-windows-msvc and the original archive-builder hash remain unchanged.",
+    "Read the generic compile/collector consumers for the new target. The unchanged collector requires the complete requested ten-integration set plus the lib harness and ordinary debug bead, preserving actual compile-time paths and PE identities. The known automatically built generator is outside the selected output set. The fresh archive release and metadata are separate outputs.",
+    "Compared every workflow change and reversed the exact source, folder, activation and concurrency literals to recover the whole prior workflow. The actual installed workflow equals its packet copy. Ordinary one-job MSVC compilation, 40-minute producer deadline, 41-minute step, 45-minute build job and separate ten-minute download-verification job remain unchanged.",
+    "The producer still verifies immutable checkout/tree and every archived Git blob, source files and toolchain, performs fresh original archive release building, resolves the absolute MSVC inspection tool, runs formatting and compile-only test creation, then checks source bytes again. No test harness executes during production.",
+    "The second job downloads the actual same-run full and small-release artifact IDs and checks each manifest/hash, exact inventory and source identity with the unchanged verifier. Their successful measured outputs must be reconciled before consumers bind them.",
+    "The final commit 975d21cc differs from 8eae6a09 only in the README's compatibility-complete plan-review citation and its author record/hash. All executable helper, input and workflow bytes remain identical. Both repeated readings of that narrow documentation correction are recorded; all Windows/shared author-file hashes match."
+  ],
+  "findings": [],
+  "verdict": "GO for one hosted activation of this exact final Windows producer packet after reconciling absent activation state or any prior run. Preserve every actual outcome and both independent download receipts. This acceptance covers compilation preparation; final native behavior remains pending the separately reviewed execution packet and actual results.",
+  "activation_authorized": true,
+  "linux_packet_review_owner": "root",
+  "final_native_acceptance": false,
+  "pending": [
+    "Actual fresh Windows release/compiler/source-stability output and complete executable inventory",
+    "Successful independent full and small artifact download verification",
+    "Final measured Windows consumer binding and complete bounded qualification",
+    "Final native author inspections/results review and app Windows roundtrip"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
