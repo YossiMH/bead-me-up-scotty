@@ -5,17 +5,17 @@
   "status": "PASS",
   "accepted": true,
   "revision": 5,
-  "source_commit": "bcb5da02d4c9f8a508a2532bc38cfc855da5668a",
-  "plan_sha256": "94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db",
-  "plan_review_sha256": "081e844954ebfed49155c78d65c47cef6133b5b068819880fd860e6deb2bcdea",
-  "author_review_sha256": "5a4a7503e342570d7b83837f072de75fc4739ba8af888e0aef0e3e92915e0a4d",
+  "source_commit": "f496be34e8a99c9e97a2c714bdeaac66e18d8403",
+  "plan_sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+  "plan_review_sha256": "23a208097a3abd24006d8645666f13bfd40856a07906beefc1ef151aa8ee304e",
+  "author_review_sha256": "2809715d1ac66c0047eccabfcfcd5b54b3c15abd6ddfc239bfd62c9dc259036a",
   "blocking_findings": [],
   "product_tests_or_builds": false,
   "pc_actions": false,
   "database_writes": false,
   "helper_path": "20261125/materialize-continuation-v5.mjs",
-  "helper_sha256": "5a3ee630856c2cb6e3512a7ffc8a7eab09075a38ef114a89067480bfed34c4ea",
-  "inspection": "Read the complete corrected helper and both final author inspections. Compared every line with the previously fully inspected version; the 14 changed lines are exact plan/template hashes and revised counts. Reconstructed the complete template from accepted task text/resources and all added edges.",
+  "helper_sha256": "048833c21e8288cc84049c61e451a5f69b6b85ff5e2d80b2a75f3236350ad8ed",
+  "inspection": "Compared the complete corrected helper byte-for-byte with the previously fully read and accepted helper. Exactly one line changes: the bound plan SHA256. Read the complete clarified plan/procedure and final author inspections; all native preflight, mutation, count, timeout, state-preservation and uncertainty protections remain identical.",
   "findings": [
     "Before any native command, the helper verifies the exact corrected plan/template, externally supplied independent review hash, PASS/accepted/revision fields, all 32 descriptions and51 edges read, and accepted revision 4.",
     "Preflight requires 975 distinct records, exact original 954 records, all 21 prior IDs/descriptions/resources, all 34 old edges and unique references. Nine changed tasks must remain open and unassigned; eleven new references must be absent.",
@@ -23,8 +23,9 @@
     "Exclusive output/temp/result paths, commit-started.json and --no-auto-flush preserve uncertain outcomes without replay.",
     "Readback requires 986 distinct records, original 954 unchanged, all 32 descriptions/resources, all 51 edges, actual mappings and preserved prior state/unknown fields. Only intended updated_at and derived status fields are normalized.",
     "Native child commands remain hidden, shell-free, output-bounded and limited to 30 seconds inside a 180-second helper deadline with task-local TEMP/TMP and an exact known executable hash.",
-    "The complete body parses in V8 after removing static imports. Ordinary node --check on the exact transferred module remains required before invocation."
+    "The complete body parses in V8 after removing static imports. Ordinary node --check on the exact transferred module remains required before invocation.",
+    "The dispatch clarification does not execute, bypass or alter this native utility. Actual native operations still require the exact accepted plan, successful preconditions and real current records."
   ],
-  "supersedes_review_sha256": "0e8236ca843b7b11357ee105d9b579500b1ae5d68de772064290bf3bde692ecb",
+  "supersedes_review_sha256": "a6f460ce15339b97d1d3ffb7e1d7777ee1af43a9ccfd0e78755e346f75eed568",
   "limits": "Accepts mechanical materialization of this exact corrected plan only. Root owns invocation, PC conditions, native writes and reconciliation."
 }
