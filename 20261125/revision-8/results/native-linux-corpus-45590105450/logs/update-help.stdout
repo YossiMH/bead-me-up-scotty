@@ -1,0 +1,130 @@
+Update issue fields atomically.
+
+Updates one or more issue fields in a single atomic transaction.
+All validations and mutations occur together; any failure leaves the
+issue unchanged. Changing status to 'closed' requires the 'close' command
+instead. Use 'reopen' to transition from closed to open.
+
+EXAMPLES:
+  bead update ID --status in_progress                # Start working on an issue
+  bead update ID --assignee alice                    # Assign to alice
+  bead update ID --notes "Investigated root cause"   # Add investigation notes
+  bead update ID --append-notes "Second investigation pass"
+  bead update ID --notes-file investigation.txt
+  bead update ID --title "Revised task" --description-file details.txt
+  bead update ID --priority 1 --reason "Urgency reviewed"
+  bead update ID --issue-type investigation --clear-description
+  bead update ID --issue-type-file custom-type.txt
+  cat investigation.txt | bead update ID --notes-file -
+  bead update ID --clear-assignee                    # Clear assignment (open only)
+  bead update ID --status in_progress --if-revision 3 # With revision guard
+
+STATUS TRANSITIONS:
+  Valid transitions depend on the current base status:
+  - open can transition to: in_progress, deferred
+  - in_progress can transition to: open, deferred, closed (via 'close' command)
+  - deferred can transition to: open, closed (via 'close' command)
+  - closed can only transition to: open (via 'reopen' command)
+
+EDITABLE FIELDS:
+  Title, description, priority, issue type, notes, status and assignment.
+  --description, --description-file and --clear-description are exclusive.
+  --issue-type and --issue-type-file are exclusive.
+  Only one of description, notes or issue type may read stdin.
+  Empty description or notes values clear the corresponding text.
+  --priority requires a nonblank --reason and records the actor and old/new
+  priorities. An unchanged priority emits no priority event.
+  Scalar metadata edits on closed issues preserve their close record.
+  Use 'bead label add|remove' and 'bead dep add|remove' for related records.
+
+ASSIGNMENT:
+  --assignee and --clear-assignee are mutually exclusive.
+  --clear-assignee only works for open assigned issues.
+  For in_progress issues, use 'bead release' to return to open/unassigned.
+
+BLOCKED STATUS:
+  Setting --status blocked sets manual_blocked=true and retains base status.
+  Setting --status open clears manual blocking and sets base status to open.
+  Closed issues cannot use --status open (use 'reopen' instead).
+
+REVISION GUARDS:
+  --if-revision N provides optimistic concurrency control.
+  If the issue's current revision doesn't match N, the update fails with
+  exit code 4 and a conflict message. This prevents silent lost updates
+  when multiple agents or humans modify the same issue concurrently.
+
+All updates are atomic. Invalid transitions or conflicts exit with code 4
+without changing any fields or timestamps.
+
+Usage: bead-editing-c90f0cd-linux-20261125 update [OPTIONS] <ID>
+
+Arguments:
+  <ID>
+          Issue ID
+
+Options:
+      --no-auto-flush
+          Suppress automatic post-commit checkpoint publication for this one invocation, leaving the checkpoint dirty for a later explicit `bead sync flush-only`; overrides the `checkpoint.auto_flush` workspace configuration key
+
+      --status <STATUS>
+          New status
+
+      --acknowledge-secret <FINGERPRINT>
+          Admit only findings whose exact scanner fingerprint matches this value. Repeat for multiple findings. Every successful mutation using an acknowledgment records a same-transaction audit event; there is no blanket bypass flag
+
+      --assignee <ASSIGNEE>
+          New assignee
+
+      --clear-assignee
+          Clear assignee (only for open assigned issues)
+
+      --skip-foreign-workspace
+          Let workspace discovery continue past the first `.beads` directory when it is not a bead-rs workspace (no `.beads/config.json`), so a bead-rs workspace farther up the tree can be used. Discovery otherwise stops there and fails closed: it never silently skips a `.beads` it does not recognize to operate on an unrelated parent workspace, and it never writes into the unrecognized directory -- including under this flag, which only widens the search
+
+      --notes <NOTES>
+          New notes
+
+      --append-notes <APPEND_NOTES>
+          Append notes atomically to the existing notes field
+
+      --notes-file <PATH>
+          Read notes from a UTF-8 file, or stdin with -
+
+      --if-revision <IF_REVISION>
+          Expected revision for optimistic concurrency control
+
+      --fencing-token <FENCING_TOKEN>
+          Fencing token for lease validation (advanced usage)
+
+      --dry-run
+          Dry run: show what would happen without making changes
+
+      --title <TITLE>
+          Replace the title (1-4096 UTF-8 bytes)
+
+      --description <DESCRIPTION>
+          Replace the description; an empty value clears it
+
+      --description-file <PATH>
+          Read the description from a UTF-8 file, or stdin with -
+
+      --clear-description
+          Clear the description to an empty string
+
+      --priority <PRIORITY>
+          Set priority from 0 through 4, with an audit reason
+
+      --reason <REASON>
+          Nonblank explanation for the supplied priority
+
+      --issue-type <ISSUE_TYPE>
+          Replace the issue type with a nonempty native type name
+
+      --issue-type-file <PATH>
+          Read the issue type from a UTF-8 file, or stdin with -
+
+  -h, --help
+          Print help (see a summary with '-h')
+
+  -V, --version
+          Print version
