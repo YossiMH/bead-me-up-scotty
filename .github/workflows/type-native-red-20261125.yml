@@ -1,0 +1,140 @@
+name: Native type-file regression before implementation
+
+on:
+  push:
+    branches:
+      - task/type-native-red-20261125
+
+permissions:
+  contents: read
+
+concurrency:
+  group: type-native-red-20261125
+  cancel-in-progress: false
+
+jobs:
+  red:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 50
+    env:
+      CARGO_BUILD_JOBS: '1'
+      CARGO_INCREMENTAL: '0'
+      RUSTUP_TOOLCHAIN: '1.100.0'
+      CARGO_TARGET_DIR: ${{ runner.temp }}/bead-type-red-target
+      RESULTS: ${{ runner.temp }}/bead-type-red-results
+    defaults:
+      run:
+        working-directory: source
+        shell: bash
+    steps:
+      - name: Read the exact tests and unchanged implementation
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-rs
+          ref: 14051553b607bc160fb46f053c52ddeeadf846db
+          fetch-depth: 2
+          path: source
+          persist-credentials: false
+
+      - name: Verify source and tools
+        timeout-minutes: 5
+        run: |
+          mkdir -p "$RESULTS"
+          test "$(git rev-parse HEAD)" = 14051553b607bc160fb46f053c52ddeeadf846db
+          test "$(git rev-parse HEAD^)" = 515b503b24baf71737ff8fa6c879bd0752ef0fc6
+          git diff --check HEAD^ HEAD
+          git diff --name-only HEAD^ HEAD > "$RESULTS/changed-files.txt"
+          python - <<'PY'
+          import os,pathlib
+          results=pathlib.Path(os.environ["RESULTS"])
+          assert set((results/"changed-files.txt").read_text().splitlines())=={"research/specs/issue-editing-v1.md","tests/issue_type_file.rs"}
+          PY
+          rustup toolchain install 1.100.0 --profile minimal --component rustfmt --no-self-update
+          rustc -vV > "$RESULTS/rustc.txt"
+          cargo --version > "$RESULTS/cargo-version.txt"
+          sha256sum tests/issue_type_file.rs research/specs/issue-editing-v1.md > "$RESULTS/source-sha256.txt"
+
+      - name: Compile the exact native tests
+        timeout-minutes: 32
+        run: |
+          set +e
+          timeout --kill-after=30s 30m cargo test --locked --test issue_type_file --no-run --message-format=json > "$RESULTS/cargo.jsonl" 2> "$RESULTS/cargo.stderr"
+          compile_exit=$?
+          printf '%s\n' "$compile_exit" > "$RESULTS/compile-exit.txt"
+          if [ "$compile_exit" -ne 0 ]; then
+            tail -n 100 "$RESULTS/cargo.stderr"
+            exit "$compile_exit"
+          fi
+          set -e
+          python - <<'PY'
+          import hashlib,json,os,pathlib,shutil
+          results=pathlib.Path(os.environ["RESULTS"]); target=pathlib.Path(os.environ["CARGO_TARGET_DIR"]).resolve()
+          records=[json.loads(line) for line in (results/"cargo.jsonl").read_text().splitlines() if line.strip()]
+          assert [r["success"] for r in records if r.get("reason")=="build-finished"]==[True]
+          found={}
+          (results/"binaries").mkdir()
+          for record in records:
+              if record.get("reason")!="compiler-artifact" or not record.get("executable"): continue
+              name=record["target"]["name"]
+              if name=="issue_type_file" and record["profile"]["test"]: key="test"
+              elif name=="bead" and not record["profile"]["test"]: key="bead"
+              else: continue
+              path=pathlib.Path(record["executable"]).resolve()
+              assert key not in found and path.is_relative_to(target) and path.is_file()
+              assert pathlib.Path(record["manifest_path"]).resolve()==pathlib.Path("Cargo.toml").resolve()
+              with path.open("rb") as stream: digest=hashlib.file_digest(stream,"sha256").hexdigest()
+              shutil.copy2(path,results/"binaries"/key)
+              found[key]={"compiled_path":str(path),"bytes":path.stat().st_size,"sha256":digest}
+          assert set(found)=={"test","bead"}
+          report={"status":"passed","source_commit":"14051553b607bc160fb46f053c52ddeeadf846db","source_tree":"475f0e470b4c4a82be2f66f6195a0c044be7978e","source_root":str(pathlib.Path.cwd()),"target_root":str(target),"run_id":os.environ["GITHUB_RUN_ID"],"workflow_commit":os.environ["GITHUB_SHA"],"exit_code":0,"executables":found}
+          (results/"compile.json").write_text(json.dumps(report,indent=2)+"\n")
+          print("TYPE_BACKEND_RED_BUILD "+json.dumps(report))
+          PY
+
+      - name: Run the compiled tests and retain the intended failures
+        timeout-minutes: 16
+        run: |
+          python - <<'PY'
+          import hashlib,json,os,pathlib,re,subprocess
+          results=pathlib.Path(os.environ["RESULTS"])
+          compiled=json.loads((results/"compile.json").read_text())
+          for record in compiled["executables"].values():
+              with open(record["compiled_path"],"rb") as stream: assert hashlib.file_digest(stream,"sha256").hexdigest()==record["sha256"]
+          executable=compiled["executables"]["test"]["compiled_path"]
+          with (results/"red.stdout").open("wb") as stdout,(results/"red.stderr").open("wb") as stderr:
+              process=subprocess.run([executable,"--test-threads=1"],stdin=subprocess.DEVNULL,stdout=stdout,stderr=stderr,timeout=900)
+          output=(results/"red.stdout").read_text()
+          print(output)
+          expected=["long_unicode_file_commits_one_guarded_edit_and_preserves_claim","stdin_type_preserves_exact_text"]
+          failures={}
+          for name in expected:
+              section=output.split("---- "+name+" stdout ----\n",1)
+              body=section[1].split("\n---- ",1)[0] if len(section)==2 else ""
+              failures[name]="unexpected argument '--issue-type-file'" in body
+          summary=re.search(r"test result: FAILED\. (\d+) passed; (\d+) failed; (\d+) ignored;",output)
+          report={"source_commit":compiled["source_commit"],"run_id":compiled["run_id"],"workflow_commit":compiled["workflow_commit"],"exit_code":process.returncode,"roundtrip_failure_causes":failures,"summary":summary.group(0) if summary else None,"executable":compiled["executables"]["test"]}
+          report["status"]="expected_failure" if process.returncode==101 and all(failures.values()) and summary else "unexpected_result"
+          (results/"red.json").write_text(json.dumps(report,indent=2)+"\n")
+          print("TYPE_BACKEND_RED "+json.dumps(report))
+          assert report["status"]=="expected_failure"
+          PY
+
+      - name: Retain formatter output for the implementation edit
+        if: always()
+        run: |
+          rustfmt --edition 2024 --config style_edition=2021 --emit stdout tests/issue_type_file.rs > "$RESULTS/formatted-issue_type_file.rs"
+          python - <<'PY'
+          import base64,os,pathlib
+          path=pathlib.Path(os.environ["RESULTS"])/"formatted-issue_type_file.rs"
+          print("TYPE_FILE_FORMATTED_BASE64 "+base64.b64encode(path.read_bytes()).decode())
+          PY
+
+      - name: Retain compile and execution outputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: type-native-red-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          compression-level: 6
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-type-red-results/
