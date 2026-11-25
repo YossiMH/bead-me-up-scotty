@@ -1,0 +1,71 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "repository": "YossiMH/bead-rs",
+  "branch": "task/bead-finish-20261124",
+  "previous_head": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "head": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "source_branch": "task/type-file-20261125",
+  "method": "Ordinary nonforce expected-SHA ref update",
+  "force": false,
+  "compare": {
+    "status": "ahead",
+    "ahead_by": 6,
+    "behind_by": 0,
+    "commits": [
+      "14051553b607bc160fb46f053c52ddeeadf846db",
+      "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+      "7adb497b6fc27553f5a8d8f272214e3f49200676",
+      "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+      "b492aa51b6f9a6049298d0534674572dc0c5a5e5",
+      "2d801ba455b7a722daf644a7615445117d57e8e9"
+    ],
+    "changed_paths": [
+      "man/man1/bead-update.1",
+      "research/specs/issue-editing-v1.md",
+      "src/cli.rs",
+      "src/cli_checkpoint_guard.rs",
+      "src/main.rs",
+      "src/service/capabilities.rs",
+      "src/service/checkpoint.rs",
+      "src/service/checkpoint/set_v2.rs",
+      "src/service/redaction.rs",
+      "src/service/schema.rs",
+      "tests/checkpoint_publication_lock.rs",
+      "tests/checkpoint_set_v2_conformance.rs",
+      "tests/issue_type_file.rs"
+    ]
+  },
+  "update_result": {
+    "success": true
+  },
+  "remote_readback": {
+    "ref": "refs/heads/task/bead-finish-20261124",
+    "node_id": "REF_kwDOVgyRbdoAJHJlZnMvaGVhZHMvdGFzay9iZWFkLWZpbmlzaC0yMDI2MTEyNA",
+    "url": "https://api.github.com/repos/YossiMH/bead-rs/git/refs/heads/task/bead-finish-20261124",
+    "object": {
+      "sha": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "type": "commit",
+      "url": "https://api.github.com/repos/YossiMH/bead-rs/git/commits/2d801ba455b7a722daf644a7615445117d57e8e9"
+    }
+  },
+  "verified_at": "2026-11-25 12:00:01 UTC",
+  "independent_acceptance": {
+    "commit": "7d30c840514d318a4588d979a90c20bcf07d8734",
+    "path": "20261125/revision-9/results/native-final-review.json",
+    "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+  },
+  "authorization_at_update": {
+    "commit": "e85b086358309b5199884859f0ce9f264445101e",
+    "path": "20261125/revision-9/results/native-final-review.json",
+    "sha256": "75ea78739f5e9c3cb4c7ad46efc422aa83e71868b95857ac300e10a2d3eb5b7a",
+    "successor_note": "The accepted successor changes only the second caught characterization text to exact multiline form; source/runtime acceptance is unchanged."
+  },
+  "production_changes_after_qualification": 0,
+  "documentation_descendant": false,
+  "main_updated": false,
+  "canonical_progress_updated": false,
+  "pc_actions": 0,
+  "remaining": "Actual revision-9 native ID materialization, installation, configured launch/tray, task history/closure and Riftri cleanup remain pending. The final continuation stays a reviewed transfer draft until the live gates allow canonical publication."
+}

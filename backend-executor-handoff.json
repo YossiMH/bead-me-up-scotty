@@ -1,0 +1,588 @@
+{
+  "schema_version": 1,
+  "updated_utc": "2026-11-25 12:00:56 UTC",
+  "owner": "/root/backend_reconcile",
+  "status": "Final native source and hosted qualification independently accepted; shared task branch fast-forwarded to exact 2d801ba4. PC gates and worktree cleanup remain pending.",
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "branch": "task/type-file-20261125",
+    "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "accepted_tests_commit": "14051553b607bc160fb46f053c52ddeeadf846db",
+    "implementation_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "oracle_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+    "repair": "The accepted publication/path, fixture, operation and maintenance repairs are qualified on the exact final source and have combined independent acceptance.",
+    "shared_task_branch": "task/bead-finish-20261124",
+    "shared_task_branch_last_verified_head": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "production_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "fixture_author_receipt": "a257b781f192bb713f1069228f3e7fe68eaad787:20261125/revision-9/results/windows-test-fixtures-author.json",
+    "fixture_commit": "b492aa51b6f9a6049298d0534674572dc0c5a5e5",
+    "checkpoint_repair_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "static_review": "e7fcc03cff93601bfad5cc7ba8427006b020b76f:20261125/revision-9/results/native-lock-repair-source-review.json",
+    "changed_file_sha256": {
+      "src/cli_checkpoint_guard.rs": "4b11cc1d5648d85817317dade0099717c55b6ec2824e93cb96bc92cfc0475a0e",
+      "src/service/redaction.rs": "20c177213fb6c96ef87d1cf30c09f297746fc1b0044f9f22fbead26902ac970d"
+    },
+    "final_author_inspections": {
+      "commit": "90011ce652c09f61efd6ba4ca51e5c4329869574",
+      "path": "20261125/revision-9/results/native-final-author-inspections.json",
+      "sha256": "f680978702a816b3fe86e82e5c993238566b36a34ba54f154cad72c0d61cff23"
+    },
+    "shared_task_branch_verified_at": "2026-11-25 12:00:01 UTC",
+    "integration": {
+      "status": "passed",
+      "previous_head": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+      "head": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "force": false,
+      "docs_descendant": false,
+      "receipt_path": "20261125/revision-9/results/native-source-integration.json"
+    },
+    "final_review": {
+      "commit": "7d30c840514d318a4588d979a90c20bcf07d8734",
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+    }
+  },
+  "actual_completed": {
+    "linux_producer": {
+      "run_id": 45575999107,
+      "evidence": "6f099e729374c33b2823d3f5929b33361543be5a:20261125/revision-7/results/native-linux-build-45575999107",
+      "build_artifact_id": 15004218651,
+      "release_artifact_id": 15005116461,
+      "release_sha256": "266245fab0e7b8378877083b258131b63036ec4bac5d64447429a839ee9becbf",
+      "download_verification": "Both consumers in45578817248 verified the exact producer artifacts before execution.",
+      "historical_scope": "Retained prior-revision evidence. Final release and native qualification identities are in final_builds, final_linux_corpus, final_linux_qualification and final_windows_qualification."
+    },
+    "windows_producer": {
+      "run_id": 45576002037,
+      "evidence": "3c1de572b0d8ac4502131d8383ed3348d2ff695a:20261125/revision-7/results/native-windows-build-45576002037",
+      "artifact_id": 15004896560,
+      "download_verification": "Passed in separate job139076008395",
+      "small_release_artifact_id": 15003670786,
+      "small_release_run_id": 45572877188,
+      "release_path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+      "release_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+      "metadata_path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b",
+      "historical_scope": "Retained prior-revision evidence. Final release and native qualification identities are in final_builds, final_linux_corpus, final_linux_qualification and final_windows_qualification."
+    },
+    "linux_corpus": {
+      "run_id": 45578817248,
+      "status": "passed",
+      "evidence": "debd80cd20b9519077a03d90f4b96fd3a1673bc3:20261125/revision-7/results/native-linux-execution-45578817248",
+      "restores": 4,
+      "complete_comparisons": 6,
+      "original_issue_count": 954,
+      "original_event_count": 11264,
+      "original_receipts": 5,
+      "original_attempt_outcomes": 413,
+      "historical_scope": "Retained prior-revision evidence. Final release and native qualification identities are in final_builds, final_linux_corpus, final_linux_qualification and final_windows_qualification."
+    },
+    "linux_corrected_baseline": {
+      "run_id": 45581211706,
+      "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+      "test_oracle_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+      "affected_passes": 89,
+      "affected_targets": 8,
+      "full_suite_cargo_exit": 0,
+      "full_suite_passes": 1913,
+      "full_suite_failures": 0,
+      "existing_ignores": 8,
+      "harnesses": 145,
+      "doctest_groups": 1,
+      "wrapper_status": "failed after native command exited zero: two serial case-name lines contain child bead-ID stdout",
+      "independent_reconciliation": "PASS; all names/counts/source and cleanup checked without rerunning native code",
+      "evidence": "4c70b7f6442dfe010ca74429dcc5ae97cda49b7e:20261125/revision-7/results/native-linux-execution-45581211706",
+      "review": "462c2c03ea6c9bd13e3f83faebb60e2166e3c58c:20261125/revision-7/results/native-linux-baseline-result-review.json",
+      "artifact_id": 15007188514,
+      "historical_scope": "Retained prior-revision evidence. Final release and native qualification identities are in final_builds, final_linux_corpus, final_linux_qualification and final_windows_qualification."
+    },
+    "c90_linux": {
+      "run_id": 45590105450,
+      "job_id": 139121719042,
+      "status": "passed",
+      "affected_targets": 8,
+      "affected_passes": 89,
+      "full_suite_passes": 1913,
+      "full_suite_failures": 0,
+      "existing_ignores": 8,
+      "harnesses": 145,
+      "doctest_groups": 1,
+      "native_and_wrapper_exit": 0,
+      "evidence": "ddcf96024cdd44b91f52480c6a7a2f8f7288278c:20261125/revision-8/results/native-linux-qualification-45590105450",
+      "source_files_unchanged": 652,
+      "owned_process_groups_clear": true,
+      "review": "f9df919ef494fd101512b8f2bc6fa950a7141bd5:20261125/revision-8/results/native-linux-qualification-review.json",
+      "historical_scope": "Retained prior-revision evidence. Final release and native qualification identities are in final_builds, final_linux_corpus, final_linux_qualification and final_windows_qualification."
+    },
+    "c90_windows": {
+      "run_id": 45590705550,
+      "status": "failed",
+      "evidence": "7f911115b3a5c884e71609d221e1e5b63d5a069f:20261125/revision-8/results/native-windows-qualification-45590705550",
+      "editing_evidence": "4241fb5712d0e5aed7caf5368645a31146714384:20261125/revision-8/results/native-windows-qualification-45590705550/editing",
+      "core_passes": 20,
+      "core_failures": 5,
+      "editing_passes": 65,
+      "editing_failures": 2,
+      "grid_cells": 12,
+      "grid_green": 9,
+      "grid_red": 3,
+      "grid_red_detail": "One out-of-band budget characterization and two OS206 fixture-launch failures. The accepted tests-only candidate restores intended split workloads for final qualification.",
+      "native_smoke_and_windows_corpus": "Not reached after editing target failures.",
+      "owned_children_remaining": 0,
+      "diagnosis": "Operation.lock rejects fs2 Windows contention; test snapshot reads held publish.lock; two40KiB inline notes exceed Windows argv. Maintenance loop has the same omission, subsequently confirmed by the separate accepted six-case Red. Final source repairs both predicates and preserves accepted fixture corrections.",
+      "historical_scope": "Retained prior-revision evidence. Final release and native qualification identities are in final_builds, final_linux_corpus, final_linux_qualification and final_windows_qualification."
+    },
+    "maintenance_red": {
+      "run_id": 45597738356,
+      "attempt": 1,
+      "workflow_commit": "82b96b95947bb5a586364e7fc4664064e204c77d",
+      "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+      "compile_job": 139148186964,
+      "execution_job": 139150521216,
+      "compile_status": "passed",
+      "post_compile_source_check": "passed",
+      "artifact_id": 15013957692,
+      "artifact_sha256": "93cf47b499da1168976590db3425d6f051c5265edb22835c969fd355e4d75159",
+      "manifest_sha256": "f1adc05084ceb589f8232dae8331386d4f86e8ee6033f7231b23941d4ec8ba92",
+      "build_result_sha256": "81be8f25f822293f33154088fc1639df95adfbf5d73d7b97b5da3dcef1e16565",
+      "red_result_sha256": "915bfc1060e1e27cfb0567dbaeb39bb1412952a2026823ef6687932533e0454e",
+      "actual_invocations": 1,
+      "listed_cases": 6,
+      "passed": 5,
+      "failed": 1,
+      "exit_code": 101,
+      "expected_failure": "concurrent_identical_requests_commit_once_and_replay_once: Integrity(could not acquire workspace maintenance lock)",
+      "owned_children_remaining": 0,
+      "evidence": "31c4751e9eb5fec165c01087134958597fe8059a:20261125/revision-9/results/maintenance-red-45597738356",
+      "combined_tests_review": "7f671379297257cdee6497d26f57b00868b3386a:20261125/revision-9/results/windows-checkpoint-tests-review.json",
+      "combined_tests_review_sha256": "c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11",
+      "historical_scope": "Retained prior-revision evidence. Final release and native qualification identities are in final_builds, final_linux_corpus, final_linux_qualification and final_windows_qualification."
+    },
+    "final_builds": {
+      "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+      "evidence_commit": "66d679b5fd3d190025068ad47167352fa5a90669",
+      "review": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40:20261125/revision-9/results/native-final-build-results-review.json",
+      "windows": {
+        "run_id": 45600413942,
+        "attempt": 1,
+        "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+        "build_status": "passed",
+        "both_downloads": "passed",
+        "full_artifact_id": 15016870072,
+        "full_manifest_sha256": "51735e621189c914cdbe88a0a9d36f49c43cd5eb215cec3530e987f2ecdfe0f6",
+        "small_artifact_id": 15014634952,
+        "small_zip_bytes": 4524263,
+        "small_zip_sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+        "small_manifest_sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+        "small_manifest_bytes": 665,
+        "build_result_sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+        "build_result_bytes": 16950,
+        "release": {
+          "executable": {
+            "bytes": 12243456,
+            "path": "release/bead-checkpoint-2d801ba455b7.exe",
+            "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+          },
+          "metadata": {
+            "bytes": 2058,
+            "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+            "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+          }
+        },
+        "test_support_executables": 12,
+        "separate_release_executables": 1
+      },
+      "linux": {
+        "run_id": 45600748319,
+        "attempt": 1,
+        "workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7",
+        "status": "passed",
+        "format_clippy_whitespace_man": "passed",
+        "harnesses": 145,
+        "test_support_executables": 147,
+        "full_artifact_id": 15015039880,
+        "release_artifact_id": 15016141673,
+        "build_result_sha256": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb",
+        "outer_result_sha256": "62fc3533879226a627decab00b2ed196b850782503495c09de18e78df5ff2077",
+        "bundle": {
+          "bytes": 555870647,
+          "mode": 420,
+          "path": "qualification-bundle.tar.gz",
+          "sha256": "70cce1166193b38a5baaa35419e447acf6f6a73cab040dc7c315dc2aed13fb9f"
+        },
+        "release": {
+          "binary": {
+            "bytes": 13618928,
+            "mode": 493,
+            "path": "release/bead-editing-2d801ba-linux-20261125",
+            "sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c"
+          },
+          "metadata": {
+            "bytes": 2085,
+            "mode": 420,
+            "path": "release/bead-editing-2d801ba-linux-20261125.metadata.json",
+            "sha256": "866c10c4909ad736c06e0c44c7955033179134165f157be6b054c4a0b55510cf"
+          },
+          "target": "x86_64-unknown-linux-gnu",
+          "version": "bead 0.3.0 (unknown 2026-11-25T11:07:44Z)"
+        }
+      }
+    },
+    "final_linux_corpus": {
+      "run_id": 45603324487,
+      "job_id": 139167619794,
+      "status": "passed",
+      "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "result_sha256": "d469b67903adc4e7f9201de32cae1f1129f96984670112c5d0626c74ceab5536",
+      "verification_restores": 4,
+      "complete_record_comparisons": 6,
+      "original_counts": {
+        "attempt_outcome": 413,
+        "event": 11264,
+        "issue": 954,
+        "provenance_receipt": 5
+      },
+      "source_and_configuration_unchanged": true,
+      "owned_process_groups_clear": true,
+      "evidence": "20ec82d214ca59ee2168998d613017d77064623b:20261125/revision-9/results/native-linux-corpus-45603324487",
+      "artifact_id": 15016182909,
+      "review": {
+        "commit": "b3222f532f922f7b6a2fb5311425fc5200d493ed",
+        "path": "20261125/revision-9/results/native-linux-corpus-review.json",
+        "sha256": "b9dae2af558fd225fb10d7a966b97828ac838ec60e3fc6ba859d1f1db601f630"
+      }
+    },
+    "final_linux_qualification": {
+      "status": "passed",
+      "evidence_commit": "cca7eb97932a9a141f650b695ebaa92567344f66",
+      "path": "20261125/revision-9/results/native-linux-qualification-45603324487",
+      "run_id": 45603324487,
+      "job_id": 139167619928,
+      "affected_passed": 95,
+      "full_passed": 1913,
+      "full_failed": 0,
+      "existing_ignored": 8,
+      "source_files_unchanged": 652,
+      "remaining_owned_groups": 0,
+      "affected_sha256": "2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f",
+      "result_sha256": "7516c4d9bda3146d19d7b24f7acab5c4bd7ee1cdb2eab5f41ca4b432aaa66dd0",
+      "review": {
+        "commit": "6e70133a8e70e374e6b0b7e1931f8c829b113021",
+        "path": "20261125/revision-9/results/native-linux-qualification-review.json",
+        "sha256": "5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf"
+      }
+    },
+    "final_windows_qualification": {
+      "status": "passed",
+      "evidence_commit": "52bfafd7d9ad108bc54e523b6c3f3dc6b4bdb638",
+      "path": "20261125/revision-9/results/native-windows-qualification-45603696205",
+      "run_id": 45603696205,
+      "aggregate_job": 139176114172,
+      "core_passed": 25,
+      "editing_passed": 73,
+      "grid_invocations": 12,
+      "grid_cells": [
+        {
+          "classification": "RED",
+          "failure_text": "publication 0 added 1789455 new blob bytes, budget is 262144",
+          "fixture": "store-deletion",
+          "scenario": "set-v2-budget-single-issue-update"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-budget-single-issue-update"
+        },
+        {
+          "classification": "RED",
+          "failure_text": "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400",
+          "fixture": "store-deletion",
+          "scenario": "set-v2-shard-split-on-update-storm"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-shard-split-on-update-storm"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "store-deletion",
+          "scenario": "set-v2-tail-seal-and-immutability"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-tail-seal-and-immutability"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "store-deletion",
+          "scenario": "set-v2-oversize-record-once-cost"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-oversize-record-once-cost"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "store-deletion",
+          "scenario": "set-v2-pointer-boundedness"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-pointer-boundedness"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "store-deletion",
+          "scenario": "set-v2-forensic-frozen"
+        },
+        {
+          "classification": "GREEN",
+          "failure_text": null,
+          "fixture": "orphan-set-files",
+          "scenario": "set-v2-forensic-frozen"
+        }
+      ],
+      "smoke_commands": 55,
+      "ordinary_failed": 0,
+      "ordinary_ignored": 0,
+      "remaining_owned_children": 0,
+      "result_sha256": "ac65894f80215aed7ddc03f72935c91095ab9717e0a07a7e66196900129abc1d",
+      "corpus_result_sha256": "791c4616775dfd2da3e83c645428e2a9f55f861078b236a2f177c85fdf6ae57e",
+      "original_corpus_restores": 4,
+      "original_corpus_comparisons": 6,
+      "smoke_original_result_artifact": 15016629803,
+      "smoke_original_result_sha256": "c19040230536a4834c2ac30225317024933515713375e1bfcd6a6a4e1f5d1d98",
+      "review": {
+        "commit": "60df4701ad68eafcf34f3f614087c41e57fa44f8",
+        "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+        "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae"
+      }
+    }
+  },
+  "active_runs": [],
+  "next_actions": [
+    "Root alone materializes accepted revision 9 directly from actual revision 6, preserving the 32 actual IDs and all 954 original records; reconcile retained cloud results in actual dependency order before installation. The 55-task mapping and 23 new IDs are absent.",
+    "Root uses the exact accepted 2d801 Windows release, app runtime and final installation binding after authorized PC access and the existing headroom gates allow the write.",
+    "Complete actual configured launch, system tray/Exit, original task-history persistence and PC cleanup; retain the native canonical continuation as a reviewed transfer draft until those live gates permit its publication.",
+    "Future agents must inspect registration/status and remove the recorded clean, fully published Riftri worktree. Preserve any later unrelated work and record actual cleanup truthfully."
+  ],
+  "cleanup_required": {
+    "manager": "Riftri",
+    "worktree": "/tmp/beads-55c9/backend-type-edit",
+    "last_observed_head": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "last_observed_status": "clean",
+    "local_auxiliary_branch": "task/type-file-local-tests-20261125",
+    "instruction": "Remove the clean published task worktree through Riftri after the assignment is complete. If this process dies or the session ends early, future agents must finish this cleanup. Preserve any later unrelated edits and recover the exact published source before removal.",
+    "cloud_hosted_checkouts": "Actions runner teardown owns all hosted temporary checkouts and processes.",
+    "local_worktree_note": "The local worktree was last observed clean at 9ffefad6. The published native branch now includes 7adb497b, c90f0cdb, b492aa51 and 2d801ba4. Reconcile exact descendants and any later changes before ordinary Riftri removal. Local execution is unavailable and cleanup remains pending.",
+    "parent_clone": "/tmp/beads-55c9/bead-rs",
+    "riftri_executable": "/tmp/beads-55c9/tools/node_modules/.bin/riftri",
+    "riftri_version": "0.7.0",
+    "command_after_reconciliation": "/tmp/beads-55c9/tools/node_modules/.bin/riftri exec -- git -C /tmp/beads-55c9/bead-rs worktree remove /tmp/beads-55c9/backend-type-edit"
+  },
+  "limits": [
+    "No PC calls by this executor.",
+    "No PC compilation or GPU use.",
+    "One Cargo compiler job per hosted producer; each native test harness uses one test thread, with independent Windows partitions on separate hosted runners.",
+    "This executor leaves main unchanged."
+  ],
+  "evidence_retention": "All failed Red and first producer attempts remain retained on the transfer branch; later passing attempts do not overwrite them.",
+  "failed_attempts": {
+    "linux_affected": {
+      "run_id": 45578817248,
+      "reason": "New empty-type test/spec incorrectly expected conflict code4; established usage code2 confirmed independently.72tests passed,1failed;R041targets/fullsuite not executed.",
+      "evidence": "debd80cd20b9519077a03d90f4b96fd3a1673bc3:20261125/revision-7/results/native-linux-execution-45578817248"
+    },
+    "windows_qualification": {
+      "run_id": 45577891890,
+      "reason": "Concurrent-publication os33 contention, orphan cleanup and dual-layout tombstone test failures; conformance target incomplete at900seconds. OOB characterization panic is intentionally caught and is not a separate regression.",
+      "evidence": "58f9df0925f4a9943687e9b35fc3f62fff7d084b:20261125/revision-7/results/native-windows-execution-45577891890"
+    },
+    "maintenance_initial_compile": {
+      "run_id": 45595234517,
+      "job_id": 139139433714,
+      "cargo_exit": 0,
+      "tests_executed": false,
+      "result": "Collector rejected automatically built non-test generate-man-pages; bead output and post-compile source check were never retained. The reviewed narrow collector repair was followed by one fresh complete compile; no test was repeated.",
+      "evidence": "0a8d8ce81ecd552398bd495c343b5be67e981a65:20261125/revision-9/results/maintenance-compile-45595234517"
+    }
+  },
+  "pc_gate": {
+    "last_memory_utc": "2026-11-25T07:38:27.0544240Z",
+    "free_mib": 702,
+    "total_mib": 31905,
+    "proposal": "6Tf4AjmM58-pk_qxj6LCoJD5wKqr7rW-ZV8MRLKxHS0",
+    "job": "j1795593147532-37324-2134047166569034316",
+    "status": "not-started",
+    "error": "ADMIN_BROKER_DENIED",
+    "replay_allowed": false,
+    "actions_after_denial": "None",
+    "actual_task_graph": "Revision 6: 32 continuation tasks, 51 blocking edges, 18 closed and 14 open; 986 total issues including the 954 originals.",
+    "accepted_task_graph": "Revision 9: 55 tasks and 91 edges, accepted but not materialized. Actual revision 6 remains unchanged. The 23 new IDs, complete 55-task mapping and 91 actual edges are absent; stable cloud task-key dispatch is provisional.",
+    "thresholds": "Root-only native mutation requires at least 1 GiB free; full app/tray launch requires at least 3 GiB free with a 512 MiB owned resident cap."
+  },
+  "accepted_plan": {
+    "revision": 9,
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "path": "20261125/revision-9/plan.json",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "tasks": 55,
+    "edges": 91,
+    "review_commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
+    "review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+  },
+  "actual_completed_note": "Final native builds/downloads, all 95 affected tests, the full suite with 1,913 passes and eight existing ignores, all Windows partitions and both original-corpus gates have measured passing results. Independent exact-source acceptance and the ordinary shared-task fast-forward are complete. PC installation, tray/history checks, cleanup and actual new task IDs remain pending.",
+  "prepared_packets": {
+    "windows_producer": "975d21cca470dbca61a9221391b98eeebcba9d1d:20261125/revision-9/native-windows-build",
+    "windows_producer_review": "d7811d5e8658cdd7d2a98fd70926e2bc55509264:20261125/revision-9/results/native-windows-producer-review.json",
+    "linux_producer": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7:20261125/revision-9/native-linux-build",
+    "linux_producer_review": "8ff3283427aadc1ef59835c8ee5655821fc2d886:20261125/revision-9/results/native-linux-producer-review.json",
+    "linux_consumer_draft": "4cb3c18377d9ce73288eb4cd4ec959d087bce403:20261125/revision-9/native-linux-check",
+    "windows_consumer_draft": "b49156a00d1d92385b8e62ea67277272a9caf7ea:20261125/revision-9/native-windows-check",
+    "consumer_status": "Historical preparation identities for the final consumers: both activated once, completed successfully, and have retained actual result reviews. No retry is pending.",
+    "historical_activation_ref_preserved": "task/native-final-linux-build-20261125 remains0e85c201 with completed old45573785132 failure; fresh final Linux activation uses task/native-lock-linux-build-20261125.",
+    "linux_consumer": "41a1bcb1442987773d7c9a7391b959711394d9fd:20261125/revision-9/native-linux-check",
+    "linux_consumer_review": "57d694f711d254fe89cfe712d993c00e2ea16823:20261125/revision-9/results/native-linux-consumer-review.json",
+    "windows_consumer": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b:20261125/revision-9/native-windows-check",
+    "windows_consumer_review": "082a9855fe5bd417ba66ee02c1538d7f5d53e40e:20261125/revision-9/results/native-windows-runner-review.json"
+  },
+  "c90_builds": {
+    "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+    "evidence_commit": "780716d93a61776e8653cfd0b67656b9239094ee",
+    "windows": {
+      "run_id": 45586900986,
+      "build_status": "passed",
+      "download_status": "passed",
+      "artifact_id": 15009252879,
+      "small_release_artifact_id": 15010535371,
+      "full_manifest_sha256": "9431284af8c344956b6c7939950a71427d7d9e87eb26186bc9dce48bc91a43a6",
+      "small_manifest_sha256": "843117f8f9f22da5053d9731610fc729c1e4dc744358d6f91506e843713f5181",
+      "build_result_sha256": "a33ab55da93e2ceeb23fd56a048b5e507a801bcf86a3c189d7156d1463f501f6",
+      "release": {
+        "executable": {
+          "bytes": 12214272,
+          "path": "release/bead-checkpoint-c90f0cdbade9.exe",
+          "sha256": "cdd3b50d65504c52a27a8fd29c6494fe3847d512cbca1510aa74a6cc5da87a06"
+        },
+        "metadata": {
+          "bytes": 2056,
+          "path": "release/bead-checkpoint-c90f0cdbade9.exe.metadata.json",
+          "sha256": "ed74ccf87b21972261434f8c628dea12cfb958a577ba686658d24ae8123dc97a"
+        }
+      },
+      "test_support_executables": 11,
+      "separate_release_executables": 1
+    },
+    "linux": {
+      "run_id": 45587412193,
+      "status": "passed",
+      "build_artifact_id": 15009891712,
+      "release_artifact_id": 15009666984,
+      "build_result_sha256": "2c2d704504d238880e0a4bdef29ffc963f25b7588ec45ce62193eb33886937d2",
+      "release": {
+        "binary": {
+          "bytes": 13643392,
+          "mode": 493,
+          "path": "release/bead-editing-c90f0cd-linux-20261125",
+          "sha256": "ddc29ba25be1684b887bf10954c5ef7643ec57982e934ed633178a44d04a90cc"
+        },
+        "metadata": {
+          "bytes": 2082,
+          "mode": 420,
+          "path": "release/bead-editing-c90f0cd-linux-20261125.metadata.json",
+          "sha256": "f1774c33a33fce6cad1bb58152898cf676323753f9b36201fd02e4079c48d98c"
+        },
+        "target": "x86_64-unknown-linux-gnu",
+        "version": "bead 0.3.0 (unknown 2026-11-25T09:43:40Z)"
+      },
+      "compiled_harnesses": 145,
+      "compiled_executables": 147,
+      "format_and_clippy": "passed",
+      "download_verification": "Historical bound consumers in run 45590105450 completed and independently passed; superseded by final 2d801 qualification."
+    },
+    "status": "Historical c90 build evidence; the final release and qualification use 2d801ba4."
+  },
+  "c90_linux_corpus": {
+    "status": "passed",
+    "run_id": 45590105450,
+    "job_id": 139121719373,
+    "evidence": "5cf449b157c54aaec067634e72faa28d0a96dbec:20261125/revision-8/results/native-linux-corpus-45590105450",
+    "result_sha256": "db18de1ed00eca5022edbdfcee16ab78e599f7de4a5caf49a9b555e4d3f37901",
+    "restores": 4,
+    "full_record_comparisons": 6,
+    "original_issues": 954,
+    "original_events": 11264,
+    "original_receipts": 5,
+    "original_attempt_outcomes": 413,
+    "artifact_id": 15010901460,
+    "review": "cf1af10ba240f041693f6502f6a266a99aa90031:20261125/revision-8/results/checkpoint-linux-corpus-result-review.json"
+  },
+  "historical_prepared_packets": {
+    "producers": "33931b999a973b266e211c7af531c84f694bf0a6",
+    "windows_producer_review": "41430d7cdf9dc2450390cb4f58802b7f8935daa8:20261125/revision-8/results/native-windows-producer-review.json",
+    "linux_producer_review": "b98cd9a2c1871e8af1f6bc36a6327b38e5c2fc45:20261125/revision-8/results/native-linux-producer-review.json",
+    "linux_consumer": "ea2deb25060a3f163550c44ce572e831312b321b:20261125/native-repair-linux-check",
+    "windows_consumer": "ddc93993a810e100bbbd62059cae92d3b6c78a56:20261125/revision-8/native-windows-check",
+    "consumer_status": "Historical preparation status, retained from the c90 attempt; its completed results are recorded under actual_completed.c90_linux and actual_completed.c90_windows. This is not an active run gate.",
+    "linux_consumer_review": "5db78980952af6de3bde88ba3f6dca74de406e20:20261125/revision-8/results/native-linux-consumer-review.json",
+    "windows_consumer_review": "b35847d5c2884434b4aa2300510a5a630c0e663c:20261125/revision-8/results/native-windows-runner-review.json",
+    "maintenance_red": {
+      "commit": "9059c9a0020c25b667d1681b95f1a0fdc687e9bc",
+      "review": "d62e71c501c2d8d1645b69428e08723cc008b3b6:20261125/revision-9/results/maintenance-red-packet-review.json",
+      "activation_branch": "task/native-maintenance-red-20261125",
+      "run_id": 45595234517
+    }
+  },
+  "canonical_append_draft": {
+    "status": "Measured transfer draft for independent review. Canonical .marathon append remains pending actual PC install/history gates.",
+    "path": "20261125/revision-9/native-progress-append.draft.md",
+    "sha256": "7f7d21fd97f69bee0375d003867b2299a22845da316da46e031e327ccb3796c7"
+  },
+  "completed_final_runs": [
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "run_id": 45603324487,
+      "attempt": 1,
+      "workflow_commit": "41a1bcb1442987773d7c9a7391b959711394d9fd",
+      "branch": "task/native-lock-linux-check-20261125",
+      "tasks": [
+        "type-backend-checks",
+        "checkpoint-full-suite"
+      ],
+      "native_source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "last_observed": "Actual affected95/full1913 with8existing ignores/0fail, separate original corpus passed, owned groups clear.",
+      "status": "completed",
+      "conclusion": "success"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "run_id": 45603696205,
+      "attempt": 1,
+      "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+      "branch": "task/checkpoint-windows-v9-check-20261125",
+      "tasks": [
+        "checkpoint-windows-checks"
+      ],
+      "native_source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "last_observed": "All five native partitions and aggregate passed;98ordinary,12grid invocations (10GREEN/2caughtRED),55smoke commands,4original corpus restores; owned children empty.",
+      "status": "completed",
+      "conclusion": "success"
+    }
+  ]
+}

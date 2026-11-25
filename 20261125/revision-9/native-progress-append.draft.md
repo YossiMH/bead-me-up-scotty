@@ -2,20 +2,24 @@
 
 ### Native source and transport
 
-The current production candidate is `2d801ba455b7a722daf644a7615445117d57e8e9`,
+The production source is `2d801ba455b7a722daf644a7615445117d57e8e9`,
 tree `509d6222300b84b16041a8366a8b6ae4c28ccc98`, published on
 `task/type-file-20261125`. It descends from the recovered `515b503b`
 checkpoint implementation through the type-file tests and implementation
 (`14051553`, `9ffefad6`), the test/spec exit-code correction (`7adb497b`),
 the publication/path repair (`c90f0cdb`), the test-only Windows fixture
 corrections (`b492aa51`), and the final operation/maintenance lock predicates.
-The shared `task/bead-finish-20261124` branch was last verified at
-`515b503b24baf71737ff8fa6c879bd0752ef0fc6`; its final fast-forward is pending
-qualification and review.
+The shared publication target is `task/bead-finish-20261124`, at the exact
+qualified production source `2d801ba4`. The separate integration receipt under
+`20261125/revision-9/results/native-source-integration.json` records the
+ordinary fast-forward and verified remote ref. This measured continuation is
+retained as a transfer draft for independent review while the actual PC
+installation and history gates remain pending; it has not been appended to the native
+`.marathon/progress.md`.
 
 `bead update --issue-type-file PATH` and `--issue-type-file -` carry the same
 UTF-8 issue-type value as the inline option without putting large text in the
-Windows command line. The transport shares the existing bounded text reader,
+Windows command line. The transport reuses the existing UTF-8 text reader,
 resolves the supplied text before secret scanning, and reaches the existing
 guarded atomic edit service. Inline/file conflicts and competing stdin inputs
 fail before mutation. Empty issue types retain the established usage exit code
@@ -37,8 +41,15 @@ helper.
 The final static source review and the complete actual Windows tests/Red review
 are retained under `20261125/revision-9/results` in the app transfer branch:
 `native-lock-repair-source-review.json` at `e7fcc03c` and
-`windows-checkpoint-tests-review.json` at `7f671379`. Final native acceptance
-still requires the actual qualification and final author inspections below.
+`windows-checkpoint-tests-review.json` at `7f671379`. The two final post-check
+author inspections are retained at `90011ce6` in
+`native-final-author-inspections.json` (SHA-256
+`f680978702a816b3fe86e82e5c993238566b36a34ba54f154cad72c0d61cff23`).
+Independent final source and hosted qualification acceptance is
+`7d30c840514d318a4588d979a90c20bcf07d8734`,
+`native-final-review.json`, SHA-256
+`2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676`.
+The actual PC gates below remain pending.
 
 ### Exact final builds
 
@@ -99,14 +110,80 @@ The result SHA-256 is
 the complete result and all 20 native streams are retained at `20ec82d2`
 under `20261125/revision-9/results/native-linux-corpus-45603324487`.
 
-The final Linux affected/full-suite job `139167619928` is active. Its required
-affected target set includes all eleven type-file cases and the complete
-six-case `redaction_transaction` target. Final Windows run `45603696205`
-uses reviewed packet `07ea5205`; its core, editing and three grid partitions
-are active. Their complete results, cleanup and aggregate coverage remain
-pending. The final app Windows native-store/HTTP checks are a separate gate
-after the required native build and affected result. These active runs must be
-reconciled before any retry.
+The final Linux affected/full-suite job `139167619928` passed. The affected
+nine-target command passed 95 tests with no failures or ignores, including all
+eleven type-file cases and all six maintenance cases. The complete default
+suite passed 1,913 tests, with zero failures and eight unchanged existing
+ignores, across all 145 default harnesses and one doctest group. Cargo exited
+zero, all 652 source files remained unchanged, and all 20 owned process groups
+were empty after cleanup. Both executable inventories preserve the six outputs
+Cargo refreshed from that unchanged source.
+
+Complete Linux evidence is retained at `cca7eb97` under
+`20261125/revision-9/results/native-linux-qualification-45603324487`.
+The affected receipt SHA-256 is
+`2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f`;
+the full-suite receipt SHA-256 is
+`7516c4d9bda3146d19d7b24f7acab5c4bd7ee1cdb2eab5f41ca4b432aaa66dd0`.
+Independent affected acceptance is `3859355a`, full Linux acceptance is
+`6e70133a`, and original-corpus acceptance is `b3222f53`, respectively
+`type-backend-checks-review.json`, `native-linux-qualification-review.json`
+and `native-linux-corpus-review.json` in the revision-9 results directory.
+
+Final Windows run `45603696205`, reviewed packet `07ea5205`, passed every
+core, editing, grid and aggregate job. Core passed 25 selected assertions;
+editing passed 73, with zero ordinary failures or ignores. The 55-command
+public CLI smoke verified scalar edits, labels and all three dependency kinds,
+Unicode file input, clears, stale refusal, priority audit and checkpoint
+restoration. Its one expected stale edit exited 4; the other 54 commands exited
+zero. The original smoke JSON remains in artifact `15016629803`, with SHA-256
+`c19040230536a4834c2ac30225317024933515713375e1bfcd6a6a4e1f5d1d98`.
+The unchanged helper's saved command logs retain its explicit stdout capture
+bounds; full long-type regression streams are separately retained.
+
+Windows also passed four original-corpus restores and six full-record
+comparisons, preserving the same 954 issues, 11,264 events, five provenance
+receipts and 413 attempt outcomes. Its source/configuration stayed unchanged.
+Every partition preserved its source and input bindings, returned to the owned
+Job baseline, and ended with zero owned children. All parts completed inside
+the shared 140-minute bound.
+
+The destructive characterization grid completed all twelve unique
+scenario/fixture invocations with harness exit zero: ten classifications were
+GREEN and two were caught RED. Both REDs use `StoreDeletion { count: 8 }`,
+which directly removes eight live issue rows without events:
+
+Budget/store-deletion:
+
+```text
+publication 0 added 1789455 new blob bytes, budget is 262144
+```
+
+Split/store-deletion:
+
+```text
+assertion `left == right` failed: shard coverage lost records
+  left: 392
+ right: 400
+```
+
+The grid's existing oracle records every classification and exact assertion
+text; it does not require every destructive scenario to remain GREEN. The
+392-versus-400 count follows the deliberate eight-row deletion. All twelve
+ordinary conformance assertions and both full original-corpus gates pass
+separately. Preserve these findings; do not reinterpret a caught RED as a
+missing test invocation or repeat the completed grid.
+
+Complete Windows evidence is retained at `52bfafd7` under
+`20261125/revision-9/results/native-windows-qualification-45603696205`,
+including the earlier retained grid files. The aggregate receipt SHA-256 is
+`ac65894f80215aed7ddc03f72935c91095ab9717e0a07a7e66196900129abc1d`;
+Windows corpus SHA-256 is
+`791c4616775dfd2da3e83c645428e2a9f55f861078b236a2f177c85fdf6ae57e`.
+Independent Windows acceptance is `60df4701`,
+`native-windows-qualification-review.json`. Scotty's native-store/production
+HTTP qualification and final installation bindings are retained separately in
+the app continuation. No native producer or qualification job remains active.
 
 Earlier outcomes remain evidence for their own source revisions. The c90 Linux
 run passed 89 affected tests and the complete suite with 1,913 passes, no
@@ -119,9 +196,9 @@ bytes, and executed its six cases once: five passed and only
 expected maintenance-lock error. Its complete evidence is `31c4751e` under
 `20261125/revision-9/results/maintenance-red-45597738356`. The prior successful
 Cargo compile with an incomplete collector receipt remains retained separately
-at `0a8d8ce8`; no test ran in that attempt. The intentionally caught
-out-of-band budget panic is a characterization result, not an additional
-unresolved production defect.
+at `0a8d8ce8`; no test ran in that attempt. The earlier intentionally caught
+out-of-band results remain historical characterization evidence. The final
+grid's exact two RED findings are recorded above.
 
 ### Actual native task state and PC access
 
