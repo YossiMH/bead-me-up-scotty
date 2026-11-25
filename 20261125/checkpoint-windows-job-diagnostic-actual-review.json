@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "scope": "Independent reconciliation of the actual hosted Windows owned-Job diagnostic; diagnostic acceptance only",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "run_id": 45547723281,
+  "job_id": 138981245779,
+  "workflow_commit": "3bb89f6a3f47da4cba49a448b7e8ba05cb15981d",
+  "receipts": {
+    "result": {
+      "sha256": "371d309587f3e857d9ba711daf79b0e5191ad02636f118fb6c9f3be659eb11ee",
+      "bytes": 7118
+    },
+    "supervisor": {
+      "sha256": "a45b159ae63a5123e7acc43f7ef03bad8e8e157f1924b28158bc9800e7511668",
+      "bytes": 37192
+    },
+    "completion": {
+      "sha256": "15bb25ad6a15d194692fe76cf29ddcba57b13acf7cf46efa69d12186e70f6fb2",
+      "bytes": 1217
+    },
+    "retrieved_job_log": {
+      "sha256": "a4712025dc7f9c49162e19b2b002f91e874acd774fcde818466d367664d027de",
+      "bytes": 103141
+    }
+  },
+  "inputs": {
+    "helper_sha256": "c74d0ac887b0a43113d83e46e93cfc16557480e6c0c31d3a534d899be047e5eb",
+    "supervisor_sha256": "c9df4e0002d6f31e4f80f588d38140742eca62a228d994dfaa11a62b59b50391",
+    "input_sha256": "57a329dba2ac439a1e447fb89ad68fef1e4cf477853882f5e485c9f172ab6893",
+    "original_build_helper_sha256": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "observed": {
+    "python_observations_read": 5,
+    "parent_observations_read": 16,
+    "supervisor_pid": 3300,
+    "python_pid": 8936,
+    "console_pid": 7504,
+    "console_image": "C:\\Windows\\System32\\conhost.exe",
+    "console_parent_pid": 8936,
+    "console_creation_after_python_filetime_ticks": 45328,
+    "console_creation_after_python_milliseconds": 4.5328,
+    "python_base_executable_matches": true,
+    "initial_and_final_supervisor_job_members": [
+      3300
+    ],
+    "python_exit_code": 0,
+    "supervisor_exit_code": 0,
+    "final_owned_children": 0,
+    "caller_observed_supervisor_exit": true,
+    "no_product_or_compiler_execution": true
+  },
+  "artifact": {
+    "id": 14991763834,
+    "bytes": 55821,
+    "digest": "sha256:69515c1e979c9b8dfcb32708f499e0dfb45d5f347a2750761b0cbcc1aa8a7d81",
+    "expires_at": "2026-12-02T04:35:08Z",
+    "identity_source": "Actual GitHub artifact metadata; the complete small receipts were separately decoded from the job log."
+  },
+  "findings": [],
+  "conclusion": "The unexpected third initial member is the exact system console host created for this Python invocation. Both independent Job-query views agree and the existing outer Job reaches zero children. This supports a narrowly identity-bound baseline correction; arbitrary extra members remain unacceptable.",
+  "build_or_product_acceptance": false,
+  "reviewer_executed_product_or_pc_commands": false
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "scope": "Complete independent static review of the Windows qualification packet revision3",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "commit": "39cc6a8771a44f0fed55180358afd364a5a4b7ce",
+  "tree": "37e5072d8ee11f1a216c8d6fb9d71123d5343218",
+  "directory": "20261125/checkpoint-windows",
+  "reviewed_files": {
+    "checkpoint-windows-build-20261125.py": "41af14335f70f707d85d32fc260be23761557fd2e7014ce3bc5f83a5cf7e0b31",
+    "checkpoint-windows-check-20261125.py": "b3455e6d6fe62c6fedfdcf44c3afb7c4ed03a2d138d54bca17b8e8b8ac91869d",
+    "packet.json": "f9611013f283f04dca3762d376a358bedd7e9603cc4d1f223f9c0aaa7541cafb",
+    "checkpoint-windows-build.workflow.yml": "0fcf37ba94588f45664e846d25693c393a469e6b6436b17f5f65a11fbc68fc20",
+    "author-audits-v3.json": "5ce43a863dba307d0dae944c3427d6ce8705923a15b5bf209502514c5bc69f99",
+    "static-checks-v3.json": "96203701d6054b71f93166d1724b4c76c21a0a9f334d0779599dfc6955a88244"
+  },
+  "read_complete_authored_helpers": true,
+  "independent_audit_file_hashes_matched": 20,
+  "independent_remote_git_blobs_matched": 21,
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "findings": [],
+  "checks": [
+    "Read both complete updated Python helpers, every changed caller and both full patches; independently regenerated each entire patch from the accepted predecessor and current bytes. Predecessors match38772767 and434a9123 exactly.",
+    "Read the fully bound build workflow, packet, author audits, static checks and complete README. The check workflow remains an inert future-result template.",
+    "Independently decoded and reconciled actual diagnostic run45547723281, including all5 Python and16 parent observations, creation times, image/parent identities and final empty-Job/caller completion.",
+    "Verified the new OwnedJobBaseline uses PROCESS_QUERY_LIMITED_INFORMATION and SYNCHRONIZE only, non-inheritable retained handles, bounded Toolhelp enumeration and the Windows x64 ABI layouts.",
+    "Verified the mandatory supervisor/Python identities and parent relationship, and at most one optional conhost from GetSystemDirectoryW with ordinary non-reparse full image, direct Python parent, and creation during the ten-second startup window.",
+    "Verified every initial and subsequent quiescent comparison requires exactly the retained PID set with all retained handles still alive. Exit/replacement, arbitrary extra members and command descendants fail the gate.",
+    "Verified all three initial handles are retained until Python exit and cleaned by atexit. No new process-kill permission, process-name kill, Job assignment or launch-mode change is introduced.",
+    "Verified immutable source515, all four commits/three ancestry edges, five source file pins, existing archive builder, MSVC-first route, one Cargo job, compile-only command, six harnesses and all43 later test expectations remain unchanged.",
+    "Verified supervisor74980acb and driver9bac4a63 remain exact, including ordinary PowerShell parsing, inherited qualified Job, deadlines, zero children after Python and caller-observed supervisor exit.",
+    "Verified the new identity record is embedded in the existing build/check receipts without changing the strict bundle inventory.",
+    "Verified unchanged corpus helper653ff9f3 and native smoke2a29faa7; four complete public restores,413 outcomes and55 native command checks remain required.",
+    "Verified branch-filtered activation, standard hosted Windows runner, read-only token, pinned actions, no credential persistence,45-minute job and7-day bounded artifact retention."
+  ],
+  "author_inspections": 2,
+  "activation": {
+    "build_static_acceptance": true,
+    "branch": "task/checkpoint-windows-build-20261125-v3",
+    "workflow_sha256": "0fcf37ba94588f45664e846d25693c393a469e6b6436b17f5f65a11fbc68fc20",
+    "check_activation_accepted": false
+  },
+  "remaining_gates": [
+    "Actual Windows build and all supervisor/caller receipts must pass.",
+    "The measured build/artifact/release pins must receive a separate binding review before checks execute.",
+    "Actual six-harness, public-corpus and55-command Windows qualification plus independent repair review remain required before selecting a new PC native pin."
+  ],
+  "reviewer_executed_product_or_pc_commands": false
+}
