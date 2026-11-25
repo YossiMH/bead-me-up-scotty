@@ -1,0 +1,57 @@
+{
+  "status": "two_clean_author_audits",
+  "author": "/root/browser_finish",
+  "file": "coordination/materialize-continuation-v4.mjs",
+  "sha256": "53d035c37dafd62da8009e7c6e4c07805eca7bebd3181643dbff3f0331d7b91e",
+  "accepted_plan_sha256": "887b5036b9b1f588baaeb9a0fd9537c030e661b80325bd871b6c8b97bfbae178",
+  "accepted_delta_template_sha256": "6217b3df27ad05f23e370ba1211850d946c254cd6eb97796f1170750e41fd3f1",
+  "whole_plan_review_sha256": "e3b10fa4afbed9000b3977478615c9e0b96b272dfbde2996087352c7f93f7664",
+  "audit_1": {
+    "status": "passed",
+    "focus": "Exact accepted delta, current state, successful six-close reconciliation and preserved records",
+    "checked": [
+      "Read the complete final helper against the accepted plan/template, prior v3 helper, six-close helper and supplied failure output.",
+      "Plan, template, full-plan review, previous manifest and native executable are pinned; old actual IDs agree with the accepted plan and successful v3 result.",
+      "The helper verifies the six successful close operations, reasons, before/after revisions and exact six IDs from saved native outputs; it contains no close or restore command.",
+      "Original 954 records are compared without normalization. Unchanged continuation comparisons remove only effective_status and the two derived dependency fields blocker_status/finished.",
+      "Fresh current readback must match the saved six-close result, all old text/resources, 26 existing edges, 17 exact references and four absent references. All seven changed tasks must remain open and unassigned.",
+      "Only actual current revision numbers replace the accepted template markers. The helper cannot replace descriptions or add operations independently of the pinned template.",
+      "Current native manifest source confirms zero-based result indexes, update/close result fields, creation projection, and no issue-revision increment for dep_add. The precise native result comparisons match those contracts."
+    ],
+    "findings": []
+  },
+  "audit_2": {
+    "status": "passed",
+    "focus": "Transaction boundaries, retained outputs, failure handling, full final comparison and low-cost execution",
+    "checked": [
+      "One dry-run and one commit are present; the 19 expected semantic changes are four creates, seven description updates and eight edge additions. A fresh inventory after dry-run must remain unchanged.",
+      "All files use exclusive creation. Prior v4 output/temp/result or legacy attempt markers cause refusal. commit-started.json is written before the single native mutation; failure never retries it.",
+      "Every native command retains stdout, stderr and actual exit before parsing. Errors, partial output, timeout and publication failure stop with a reconciliation instruction.",
+      "The final 975-record inventory checks exact original records, every existing status and unrelated field, 21 full descriptions, all resources and all 34 edges. Actual new IDs and all 21 fresh reference queries are retained.",
+      "The ready list is bounded and filtered only to the 21 continuation IDs; the report explicitly makes no global completion claim.",
+      "Native commands are sequential, hidden and shell-free, with at most 30 seconds each and a 180-second overall command deadline. Only the child environment receives the owned TEMP/TMP paths.",
+      "--no-auto-flush applies only to the single native commit. No host setting, original checkpoint, source repository or product runtime is changed by the helper.",
+      "Final hash pins match the accepted frozen files. node --check passes on the final bytes; no helper, product test, build or PC command was executed by this author."
+    ],
+    "findings": []
+  },
+  "syntax_check": {
+    "command": "node --check coordination/materialize-continuation-v4.mjs",
+    "exit": 0,
+    "stdout": "",
+    "stderr": "",
+    "helper_executed": false
+  },
+  "pc_inputs": [
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-4/plan.json",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-4/delta-manifest.template.json",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-4/plan-review.json",
+    "Existing manifest-v3.json, materialization-result-v3.json, restore-v3.json and original v3 before/after inventories",
+    "Existing completed-v1/before.json, after.json, manifest.json, commit-started.json, commit.json and commit.exit.json"
+  ],
+  "pc_output_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/materialization-v4",
+  "pc_temporary_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/temp-materialize-v4",
+  "pc_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/materialization-result-v4.json",
+  "independent_review": "Required on these exact helper bytes before root publishes and executes them.",
+  "git_result": "Cloud coordination helper and author report only; root owns permitted publication. No product source commit, PC action or task-store write by this author."
+}
