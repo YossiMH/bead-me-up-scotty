@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "status": "clean",
+  "scope": "Final native source after required hosted verification",
+  "author": "/root/backend_reconcile",
+  "independent_review": false,
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "branch": "task/type-file-20261125",
+    "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "baseline": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "files": [
+      {
+        "path": "man/man1/bead-update.1",
+        "sha256": "04c6e2f94937da51f72a675be615f8981e96a7d9b76699354cdc3753156c73af",
+        "bytes": 5250
+      },
+      {
+        "path": "research/specs/issue-editing-v1.md",
+        "sha256": "b384a2537bd86c91e61d0978c8dd61c1200a9ad99adebe56313fe48d87ed7237",
+        "bytes": 6535
+      },
+      {
+        "path": "src/cli.rs",
+        "sha256": "956abc229044f53d1af66506b5df4810f3037db9558eb38183467aa711eaec83",
+        "bytes": 147942
+      },
+      {
+        "path": "src/main.rs",
+        "sha256": "d4b1ab9d02b186615cfd3f65dbb8d98366fad11d00065bbfe65ce7604612a3e0",
+        "bytes": 233810
+      },
+      {
+        "path": "src/service/capabilities.rs",
+        "sha256": "a99f851d759a3e2095ba28a9adeb4a7694e45dca83134ade2447f8436cb384b1",
+        "bytes": 17423
+      },
+      {
+        "path": "src/service/schema.rs",
+        "sha256": "fe006a48e2636c4956c15afcc2993e5d8e2d8782874dc6064178871ccd371f1b",
+        "bytes": 223592
+      },
+      {
+        "path": "tests/issue_type_file.rs",
+        "sha256": "b0ef90f6cbaf0f957bc6843321f2db373f382221e5de076cd937298ae29bd8ab",
+        "bytes": 15747
+      },
+      {
+        "path": "src/service/checkpoint.rs",
+        "sha256": "f860195328ef19049d87aa3904ef04de518889e9d289b57b00f0fcf4413e366c",
+        "bytes": 467664
+      },
+      {
+        "path": "src/service/checkpoint/set_v2.rs",
+        "sha256": "25f5beab0321444cf8fa29adfdeb14a6c62bf0f80ea515641f9f06ca9b3c8148",
+        "bytes": 53789
+      },
+      {
+        "path": "src/cli_checkpoint_guard.rs",
+        "sha256": "4b11cc1d5648d85817317dade0099717c55b6ec2824e93cb96bc92cfc0475a0e",
+        "bytes": 7902
+      },
+      {
+        "path": "src/service/redaction.rs",
+        "sha256": "20c177213fb6c96ef87d1cf30c09f297746fc1b0044f9f22fbead26902ac970d",
+        "bytes": 71109
+      },
+      {
+        "path": "tests/checkpoint_publication_lock.rs",
+        "sha256": "24a1de6e7de016d392515f33f5f48af8cb517a5e418b1fd89fd8470f2cf8e75f",
+        "bytes": 14252
+      },
+      {
+        "path": "tests/checkpoint_set_v2_conformance.rs",
+        "sha256": "3d579ebc628546ce2f2dc3e656f7ff0e072b6d8ad17e52e0f7e185c45f46db19",
+        "bytes": 75567
+      }
+    ]
+  },
+  "instructions": {
+    "maintainer_postprocess": {
+      "url": "https://github.com/YossiMH/chatgpt-skills/blob/main/software-engineering-standards/MAINTAINER_READY_POSTPROCESS.md",
+      "sha256": "541476316a6252ecd01d72892e8a0fd64ee78a62abb7fe1c0a7db1644aaebb10",
+      "read_after": "The successful final native build and complete Linux/Windows qualification results were available before this final post-process read."
+    },
+    "execution_review_sha256": "18202d1faddeee2ed5cb86cee238cd09ce86ee16711870e0e5d32cc7a9cfd3f5",
+    "repository": [
+      "AGENTS.md",
+      "PROVENANCE.md permitted-input rules",
+      "Cargo.toml configured gates/MSRV",
+      "BUILD_PROCEDURE.md archive pin and metadata rules",
+      ".marathon/instruction.md applicable verification/handoff rules"
+    ],
+    "contribution_file": "CONTRIBUTING.md is absent at the pinned source; the repository instructions above apply."
+  },
+  "local_baseline": {
+    "functions": [
+      "read_text_input and adjacent description/notes/close transports",
+      "operation/publication/maintenance lock owners and guards",
+      "set-v2 path validation, enumeration and verified reads"
+    ],
+    "tests": [
+      "tests/r041_text_inputs.rs existing file/stdin and failure cases",
+      "tests/cli_editing.rs isolated fixture/readback/snapshot helpers",
+      "tests/redaction_transaction.rs direct-service contention and exact receipt assertions",
+      "tests/checkpoint_publication_lock.rs snapshot and blocking mutation contract"
+    ],
+    "comments_errors_docs": "Compared nearby ownership/transport comments, description/notes/source-cardinality errors, update help, generated man text, editing specification and native field guide. Existing commit subjects were checked for the coherent test/fix naming convention."
+  },
+  "audits": [
+    {
+      "completed_at": "2026-11-25 11:48:18 UTC",
+      "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+      "findings": [],
+      "covered": "Complete 13-file cumulative diff and full new 431-line regression target; all changed declarations, branches, comments, spec/man prose; surrounding text resolution/scanner dispatch, three lock owners and guards, component path validation, schema/capability readers; nearby test and error conventions; final source-bound build, Linux, Windows, corpus and public CLI smoke results."
+    },
+    {
+      "completed_at": "2026-11-25 11:50:32 UTC",
+      "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+      "findings": [],
+      "covered": "Fresh second complete review of the same 13-file code/test/prose delta, including the full issue-type regression target and both fixture changes. Re-evaluated code without depending on comments, then checked every changed comment, help/man option and specification claim against implementation and actual behavior. Challenged missing/empty/invalid input, multi-stdin/conflicting input precedence, exact Unicode, claim/revision/no-op behavior, optional capability decoding/closed schema, unchanged manifest shape, all three lock error paths, bounded waits/drop, slash path ownership and literal Unix backslashes. Compared the public Windows edit/audit/refusal/restore command records and both original-corpus results to the stated behavior. No implementation, tests or associated source prose changed between the two passes."
+    }
+  ],
+  "deletion_and_quality_findings": {
+    "new_production_helpers": 0,
+    "new_dependencies": 0,
+    "new_skip_or_ignore_attributes": 0,
+    "new_debug_or_stub_markers": 0,
+    "duplicate_transport_implementation": false,
+    "changed_declaration_documentation": "The added PathBuf option, optional capability Boolean and slash-relative path contract describe actual input and representation. Existing shared UTF-8 reading, scanner preparation and guarded IssueEdit remain authoritative.",
+    "fixture_contract": "Only the empty root publish.lock is represented through checked metadata; every other file keeps full-byte snapshot reads. Both 40-KiB note payloads pass unchanged through the existing stdin transport.",
+    "lock_contract": "The three fs2 acquisition predicates accept the platform's public contention error while preserving each owner’s timeout, poll period, unrelated error mapping, lock order and RAII lifetime."
+  },
+  "actual_verification": {
+    "linux_producer": {
+      "run": 45600748319,
+      "receipt": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb",
+      "fmt": 0,
+      "clippy_all_targets_deny_warnings": 0,
+      "git_diff_check": 0,
+      "original_archive_build": 0,
+      "source_unchanged": true
+    },
+    "windows_producer": {
+      "run": 45600413942,
+      "receipt": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+      "release_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+      "download_verification": "passed"
+    },
+    "affected": {
+      "run": 45603324487,
+      "job": 139167619928,
+      "passed": 95,
+      "failed": 0,
+      "ignored": 0,
+      "targets": 9,
+      "result_sha256": "2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f"
+    },
+    "linux_full": {
+      "passed": 1913,
+      "failed": 0,
+      "existing_ignored": 8,
+      "default_harnesses": 145,
+      "doctest_groups": 1,
+      "result_sha256": "7516c4d9bda3146d19d7b24f7acab5c4bd7ee1cdb2eab5f41ca4b432aaa66dd0",
+      "source_files_unchanged": 652,
+      "owned_groups_remaining": 0
+    },
+    "windows": {
+      "run": 45603696205,
+      "core_passed": 25,
+      "editing_passed": 73,
+      "ordinary_failed": 0,
+      "ordinary_ignored": 0,
+      "grid_invocations": 12,
+      "grid_classifications": {
+        "GREEN": 10,
+        "RED": 2
+      },
+      "aggregate_sha256": "ac65894f80215aed7ddc03f72935c91095ab9717e0a07a7e66196900129abc1d",
+      "native_smoke_commands": 55,
+      "owned_children_remaining": 0
+    },
+    "original_corpus": {
+      "linux_result_sha256": "d469b67903adc4e7f9201de32cae1f1129f96984670112c5d0626c74ceab5536",
+      "windows_result_sha256": "791c4616775dfd2da3e83c645428e2a9f55f861078b236a2f177c85fdf6ae57e",
+      "restores_per_platform": 4,
+      "full_comparisons_per_platform": 6,
+      "original_records_preserved": {
+        "issues": 954,
+        "events": 11264,
+        "provenance": 5,
+        "attempt_outcomes": 413
+      }
+    },
+    "generated_man": {
+      "normalization": "Remove one ASCII space immediately before LF on SYNOPSIS line 7",
+      "normalized_sha256": "04c6e2f94937da51f72a675be615f8981e96a7d9b76699354cdc3753156c73af",
+      "other_bytes_changed": 0,
+      "raw": {
+        "bytes": 5251,
+        "mode": 420,
+        "path": "generated-bead-update.1",
+        "sha256": "f85640962a3f71495c5684d5b950b065b102637b1a180739e2ec628ba79915d4"
+      },
+      "tracked_sha256": "04c6e2f94937da51f72a675be615f8981e96a7d9b76699354cdc3753156c73af"
+    }
+  },
+  "retained_evidence": {
+    "linux": {
+      "commit": "cca7eb97932a9a141f650b695ebaa92567344f66",
+      "path": "20261125/revision-9/results/native-linux-qualification-45603324487"
+    },
+    "windows": {
+      "commit": "52bfafd7d9ad108bc54e523b6c3f3dc6b4bdb638",
+      "path": "20261125/revision-9/results/native-windows-qualification-45603696205"
+    },
+    "prior_red": "The accepted missing-option, operation/publication/path and maintenance Reds and the fixture failures remain retained; no result was replaced or asserted retrospectively."
+  },
+  "remaining_scope": "Independent final acceptance and canonical handoff publication follow this author record. Live PC graph materialization, installation, configured launch/history/tray checks and Riftri worktree cleanup remain blocked or pending with root; this native source record does not claim them.",
+  "created_at": "2026-11-25 11:50:32 UTC"
+}
