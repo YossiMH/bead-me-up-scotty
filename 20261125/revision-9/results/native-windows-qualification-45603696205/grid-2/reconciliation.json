@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "partition": "grid-2",
+  "run_id": 45603696205,
+  "attempt": 1,
+  "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+  "job_id": 139168987984,
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "result_sha256": "678b9a9b754eb7864588d8c70fa3a373249cb2b347dbc77cd2255c97dec2c252",
+  "job_log_sha256": "7f6a2fd8170fa5643167e39c123ee39befc5bf5545b6d8f46ab6df6793c3ec75",
+  "decoded_streams": 18,
+  "grid_cells": [
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-tail-seal-and-immutability"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-tail-seal-and-immutability"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-oversize-record-once-cost"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-oversize-record-once-cost"
+    }
+  ],
+  "owned_children_remaining": 0,
+  "inputs_and_source_unchanged": true,
+  "remaining": "Core/editing/grid-1 and final aggregate are separate active checks."
+}

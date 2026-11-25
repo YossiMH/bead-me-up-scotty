@@ -1,0 +1,43 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "partition": "grid-3",
+  "run_id": 45603696205,
+  "attempt": 1,
+  "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+  "job_id": 139168988096,
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "result_sha256": "a5b6098560dbfb70e1008f4672dc468bbdd8d18f12cd8c4885daf092773bb8a7",
+  "job_log_sha256": "28e9346b58d1e28b18ed2bafd710d3b8e6e548facefb2dc48dd4cba834ee700a",
+  "decoded_streams": 18,
+  "grid_cells": [
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-pointer-boundedness"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-pointer-boundedness"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-forensic-frozen"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-forensic-frozen"
+    }
+  ],
+  "owned_children_remaining": 0,
+  "inputs_and_source_unchanged": true,
+  "remaining": "Core/editing/grid-1 and final aggregate are separate active checks."
+}
