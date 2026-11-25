@@ -1,0 +1,393 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/cloud_readiness",
+  "status": "PASS",
+  "accepted": true,
+  "task_key": "checkpoint-linux-checks",
+  "scope": "Actual final production Linux release qualification against the complete original public corpus and both retained generations",
+  "production_source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "production_source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "release_sha256": "266245fab0e7b8378877083b258131b63036ec4bac5d64447429a839ee9becbf",
+  "metadata_sha256": "eaf5c8d4a87e21082102df5720a276a2bcd122b2ceb7bd58b2163cf94dc16c30",
+  "build_run": "45575999107",
+  "execution_run": "45578817248",
+  "execution_job": 139083373709,
+  "workflow_commit": "1bb64f56ee464587ece7caf55ed3f2da0adb6fd5",
+  "evidence_commit": "debd80cd20b9519077a03d90f4b96fd3a1673bc3",
+  "evidence_directory": "20261125/revision-7/results/native-linux-execution-45578817248",
+  "corpus_result_sha256": "e3b9bc2ffb42aff238dc60a1e79c2681c3fa5d5bc54dc00ab8ca9c5f4aa5cf0f",
+  "actual_job_log_sha256": "1fd410efc20a94ddc777f6304c3307450131dd06347f0a88085fcfbf69e675aa",
+  "result_independently_decoded_from_job_log": true,
+  "result_bytes_exactly_match_retained": true,
+  "complete_native_streams": 20,
+  "complete_native_stream_bytes_and_hashes_verified": true,
+  "helper_sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+  "input_sha256": "b4233e8d2c391cb45463537f5effc420248177e98016b9ff7e83aefdf4912244",
+  "actual_checks": {
+    "all_recovery_steps_success": true,
+    "native_command_count": 10,
+    "all_commands_exit_zero": true,
+    "remaining_owned_processes": false,
+    "verification_restores": 4,
+    "complete_comparisons": 6,
+    "all_comparisons_passed": true,
+    "all_original_records_unchanged": true,
+    "original_public_input_unchanged": true,
+    "checkpoint_configuration_unchanged": true,
+    "all_original_attempt_outcomes_preserved": 413,
+    "duration_seconds": 29.713
+  },
+  "original_public_source": {
+    "commit": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+    "counts": {
+      "attempt_outcome": 413,
+      "event": 11264,
+      "issue": 954,
+      "provenance_receipt": 5
+    },
+    "generation": "gen-a569f746bbb268015d996c8ed4c76f57",
+    "pointer_sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+    "root_bytes": 8569277,
+    "root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+    "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+  },
+  "generations": {
+    "before_append": {
+      "complete_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11265,
+        "issue": 954,
+        "provenance_receipt": 6
+      },
+      "generation_id": "gen-27b2f11fc989c8b396ccb755b2379b69",
+      "imported_record_corpus_sha256": "e09ef21ac836c016a53de620dbfe5d32256d3f4cd1c9a5c1e60e5ef2017b5549",
+      "mode": "set-v2",
+      "pointer_name": "current.json",
+      "pointer_sha256": "474d77f5799ab5010ef9243bc8049dadc1e77ae972644a55dab31b8f64310aea",
+      "root_path": "set/manifest-gen-27b2f11fc989c8b396ccb755b2379b69.json",
+      "root_sha256": "9d36a93d9267427be5f099069fa1dd8e3a4e10196131f45795ff23df03b37661",
+      "snapshot_sequence": 11265,
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    },
+    "current": {
+      "complete_record_index_sha256": "8c6d33f96439e02aced709662028238e4dfe1c6320ad6dec9aef2490b431b803",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11266,
+        "issue": 955,
+        "provenance_receipt": 6
+      },
+      "generation_id": "gen-e11c53e6bf47ab0317b44ac14c9542c1",
+      "imported_record_corpus_sha256": "0ac82794ee1b78a8050c59ec101de3a35a7b6bd101588aaaa44783cd142833a8",
+      "mode": "set-v2",
+      "pointer_name": "current.json",
+      "pointer_sha256": "ad9d976d32e7a5885a5733a8174d840fdb2a3365d1cfbc758ed6cd9344f37b71",
+      "root_path": "set/manifest-gen-e11c53e6bf47ab0317b44ac14c9542c1.json",
+      "root_sha256": "564be9ae0196150482ece6deaf0e10551209de6946c3df466293a90c07600b7b",
+      "snapshot_sequence": 11266,
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    },
+    "original": {
+      "complete_record_index_sha256": "c3a9498f88fde65eb89842b6e881a59fe404ca4739e0b713dac9afbbc397c9ac",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11264,
+        "issue": 954,
+        "provenance_receipt": 5
+      },
+      "generation_id": "gen-a569f746bbb268015d996c8ed4c76f57",
+      "imported_record_corpus_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+      "mode": "monolithic",
+      "pointer_name": "current.json",
+      "pointer_sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+      "root_path": "objects/4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d.jsonl",
+      "root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+      "snapshot_sequence": 29609,
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    },
+    "previous": {
+      "complete_record_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "counts": {
+        "attempt_outcome": 413,
+        "event": 11265,
+        "issue": 954,
+        "provenance_receipt": 6
+      },
+      "generation_id": "gen-27b2f11fc989c8b396ccb755b2379b69",
+      "imported_record_corpus_sha256": "e09ef21ac836c016a53de620dbfe5d32256d3f4cd1c9a5c1e60e5ef2017b5549",
+      "mode": "set-v2",
+      "pointer_name": "previous.json",
+      "pointer_sha256": "474d77f5799ab5010ef9243bc8049dadc1e77ae972644a55dab31b8f64310aea",
+      "root_path": "set/manifest-gen-27b2f11fc989c8b396ccb755b2379b69.json",
+      "root_sha256": "9d36a93d9267427be5f099069fa1dd8e3a4e10196131f45795ff23df03b37661",
+      "snapshot_sequence": 11265,
+      "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+    }
+  },
+  "comparison_summary": {
+    "current_restore_after_append": {
+      "status": "passed",
+      "original_index_sha256": "8c6d33f96439e02aced709662028238e4dfe1c6320ad6dec9aef2490b431b803",
+      "recovered_index_sha256": "bb6c096ddfc3a3d61d1db1bedd8d02157df2bc1e95efd34dce352f3320484c89",
+      "records": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11267"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11266
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 955
+        },
+        "provenance_receipt": {
+          "added_ids": [
+            "restore-18eb3d468b51ea88"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "restore_additions": {
+        "local_and_origin_sequences_compared_as_distinct_fields": true,
+        "reported_local_summary_sequence": 11267,
+        "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11267",
+        "restore_receipt_id": "restore-18eb3d468b51ea88"
+      }
+    },
+    "isolated_create": {
+      "status": "passed",
+      "original_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "recovered_index_sha256": "8c6d33f96439e02aced709662028238e4dfe1c6320ad6dec9aef2490b431b803",
+      "records": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11265
+        },
+        "issue": {
+          "added_ids": [
+            "bead-b32baacc"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "restore_additions": null
+    },
+    "original_restore": {
+      "status": "passed",
+      "original_index_sha256": "c3a9498f88fde65eb89842b6e881a59fe404ca4739e0b713dac9afbbc397c9ac",
+      "recovered_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "records": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11265"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11264
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [
+            "restore-18eb3d423bb20749"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 5
+        }
+      },
+      "restore_additions": {
+        "local_and_origin_sequences_compared_as_distinct_fields": true,
+        "reported_local_summary_sequence": 11265,
+        "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11265",
+        "restore_receipt_id": "restore-18eb3d423bb20749"
+      }
+    },
+    "previous_preserved": {
+      "status": "passed",
+      "original_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "recovered_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "records": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11265
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "restore_additions": null
+    },
+    "previous_restore_after_append": {
+      "status": "passed",
+      "original_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "recovered_index_sha256": "19e9dae57925073f963a8dc5d4773eb0932b982d18245f00a90133be066761b1",
+      "records": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11265
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [
+            "restore-18eb3d47f9f5a00b"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "restore_additions": {
+        "local_and_origin_sequences_compared_as_distinct_fields": true,
+        "reported_local_summary_sequence": 11266,
+        "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266",
+        "restore_receipt_id": "restore-18eb3d47f9f5a00b"
+      }
+    },
+    "published_current_restore": {
+      "status": "passed",
+      "original_index_sha256": "e4a52076c8ac81f0ff727afd764e9538f7a2b5de28dcb100967272037b95e4ae",
+      "recovered_index_sha256": "d90205fd9d8c562bc7fd04c2498243365b6719aba9d1bd2a674fb159a2e8cea0",
+      "records": {
+        "attempt_outcome": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 413
+        },
+        "event": {
+          "added_ids": [
+            "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 11265
+        },
+        "issue": {
+          "added_ids": [],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 954
+        },
+        "provenance_receipt": {
+          "added_ids": [
+            "restore-18eb3d442664c14a"
+          ],
+          "changed": [],
+          "missing": [],
+          "original_members_checked": 6
+        }
+      },
+      "restore_additions": {
+        "local_and_origin_sequences_compared_as_distinct_fields": true,
+        "reported_local_summary_sequence": 11266,
+        "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11266",
+        "restore_receipt_id": "restore-18eb3d442664c14a"
+      }
+    }
+  },
+  "release_surface": {
+    "version": "bead 0.3.0 (unknown 2026-11-25T08:29:14Z)",
+    "issue_editing_version": 1,
+    "issue_type_file": true,
+    "help_contains_issue_type_file": true
+  },
+  "interpretation": [
+    "The release restores all 954 original issues, 11264 event identities, five provenance receipts and 413 attempt outcomes; complete canonical records, including extension fields, are compared.",
+    "New restore events and receipts are separately identified. Creating one fixture adds exactly its issue and creation event, while both selected current and previous generations remain independently recoverable.",
+    "Manifest-root hashes and imported-record corpus hashes are retained as distinct identities. Previous-generation record content and all original outcomes survive later publication.",
+    "All commands used the exact downloaded archive release and completed with no remaining owned process group. The original corpus and checkpoint settings remained unchanged."
+  ],
+  "separate_failed_check_preserved": {
+    "job_id": 139083374261,
+    "status": "failed",
+    "reason": "New empty-file oracle expected exit 4; unchanged established behavior exits 2.",
+    "passing_tests": 72,
+    "failing_tests": 1,
+    "full_suite_started": false,
+    "corrected_test_source": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+    "corrected_checks_still_pending": true
+  },
+  "reuse": "The exact production release and successful corpus evidence remain valid through the independently reviewed two-character test/spec-only correction. Production source and qualification-test source must retain separate identities.",
+  "reviewer_executed_product": false,
+  "installation_accepted": false,
+  "findings": [],
+  "pending": [
+    "Corrected affected tests and complete native suite",
+    "Windows native qualification and final source author/reviewer acceptance",
+    "Actual PC tray, mapping, installation and recorded cleanup"
+  ]
+}
