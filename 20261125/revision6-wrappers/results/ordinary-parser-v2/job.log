@@ -1,0 +1,229 @@
+﻿2026-11-25T05:25:42.7078530Z Current runner version: '2.338.2'
+2026-11-25T05:25:42.7099974Z ##[group]Runner Image Provisioner
+2026-11-25T05:25:42.7100505Z Hosted Compute Agent
+2026-11-25T05:25:42.7100824Z Version: 20261111.635
+2026-11-25T05:25:42.7101180Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-25T05:25:42.7101624Z Build Date: 2026-11-11T01:49:01Z
+2026-11-25T05:25:42.7102034Z Worker ID: {cd186d7e-4f0f-48e9-89eb-581ebae0a470}
+2026-11-25T05:25:42.7102430Z Region: centralus
+2026-11-25T05:25:42.7102734Z Cloud: Azure
+2026-11-25T05:25:42.7103028Z ##[endgroup]
+2026-11-25T05:25:42.7103872Z ##[group]Operating System
+2026-11-25T05:25:42.7104207Z Microsoft Windows Server 2025
+2026-11-25T05:25:42.7104556Z 10.0.26100
+2026-11-25T05:25:42.7104845Z Datacenter
+2026-11-25T05:25:42.7105129Z ##[endgroup]
+2026-11-25T05:25:42.7105439Z ##[group]Runner Image
+2026-11-25T05:25:42.7105785Z Image: windows-2025-vs2026
+2026-11-25T05:25:42.7106122Z Version: 20261116.315.1
+2026-11-25T05:25:42.7107096Z Included Software: https://github.com/actions/runner-images/blob/win25-vs2026/20261116.315/images/windows/Windows2025-VS2026-Readme.md
+2026-11-25T05:25:42.7107997Z Image Release: https://github.com/actions/runner-images/releases/tag/win25-vs2026%2F20261116.315
+2026-11-25T05:25:42.7108531Z ##[endgroup]
+2026-11-25T05:25:42.7109159Z ##[group]GITHUB_TOKEN Permissions
+2026-11-25T05:25:42.7110364Z Contents: read
+2026-11-25T05:25:42.7110690Z Metadata: read
+2026-11-25T05:25:42.7111011Z ##[endgroup]
+2026-11-25T05:25:42.7112827Z Secret source: Actions
+2026-11-25T05:25:42.7113343Z Cache mode: write
+2026-11-25T05:25:42.7113731Z Prepare workflow directory
+2026-11-25T05:25:42.7400867Z Prepare all required actions
+2026-11-25T05:25:42.7441409Z Getting action download info
+2026-11-25T05:25:42.9984402Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-25T05:25:43.0872119Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-25T05:25:43.3118948Z Complete job name: parse
+2026-11-25T05:25:43.4230131Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-25T05:25:43.4230969Z with:
+2026-11-25T05:25:43.4231231Z   ref: f5c055381acc8ef24b2a3c1cfa2c11c950c25060
+2026-11-25T05:25:43.4231545Z   path: ci
+2026-11-25T05:25:43.4231774Z   persist-credentials: false
+2026-11-25T05:25:43.4232248Z   sparse-checkout: 20261125/revision6-wrappers
+2026-11-25T05:25:43.4232586Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T05:25:43.4234886Z   token: ***
+2026-11-25T05:25:43.4235113Z   ssh-strict: true
+2026-11-25T05:25:43.4235342Z   ssh-user: git
+2026-11-25T05:25:43.4235563Z   clean: true
+2026-11-25T05:25:43.4235798Z   sparse-checkout-cone-mode: true
+2026-11-25T05:25:43.4236078Z   fetch-depth: 1
+2026-11-25T05:25:43.4236306Z   fetch-tags: false
+2026-11-25T05:25:43.4236542Z   show-progress: true
+2026-11-25T05:25:43.4236782Z   lfs: false
+2026-11-25T05:25:43.4237026Z   submodules: false
+2026-11-25T05:25:43.4237270Z   set-safe-directory: true
+2026-11-25T05:25:43.4237566Z   allow-unsafe-pr-checkout: false
+2026-11-25T05:25:43.4237942Z env:
+2026-11-25T05:25:43.4238155Z   GIT_CONFIG_COUNT: 2
+2026-11-25T05:25:43.4238407Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T05:25:43.4238686Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T05:25:43.4238950Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T05:25:43.4239207Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T05:25:43.4239452Z ##[endgroup]
+2026-11-25T05:25:43.5320602Z Syncing repository: YossiMH/bead-me-up-scotty
+2026-11-25T05:25:43.5322036Z ##[group]Getting Git version info
+2026-11-25T05:25:43.5322451Z Working directory is 'D:\a\bead-me-up-scotty\bead-me-up-scotty\ci'
+2026-11-25T05:25:43.5762310Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T05:25:43.8829754Z git version 2.56.1.windows.1
+2026-11-25T05:25:43.8874861Z ##[endgroup]
+2026-11-25T05:25:43.8891529Z Temporarily overriding HOME='D:\a\_temp\9b5f3e1a-be2f-4137-ba8c-7a82776994b8' before making global git config changes
+2026-11-25T05:25:43.8895353Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T05:25:43.8901465Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T05:25:43.9499287Z ##[group]Determining repository object format
+2026-11-25T05:25:43.9501719Z ##[endgroup]
+2026-11-25T05:25:43.9502357Z ##[group]Initializing the repository
+2026-11-25T05:25:43.9510069Z [command]"C:\Program Files\Git\bin\git.exe" init D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T05:25:44.0313844Z Initialized empty Git repository in D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/
+2026-11-25T05:25:44.0355816Z [command]"C:\Program Files\Git\bin\git.exe" remote add origin https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T05:25:44.0912788Z ##[endgroup]
+2026-11-25T05:25:44.0913550Z ##[group]Disabling automatic garbage collection
+2026-11-25T05:25:44.0920965Z [command]"C:\Program Files\Git\bin\git.exe" config --local gc.auto 0
+2026-11-25T05:25:44.1218376Z ##[endgroup]
+2026-11-25T05:25:44.1219008Z ##[group]Setting up auth
+2026-11-25T05:25:44.1219516Z Removing SSH command configuration
+2026-11-25T05:25:44.1228288Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T05:25:44.1713144Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T05:25:45.4757146Z Removing HTTP extra header
+2026-11-25T05:25:45.4764661Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T05:25:45.5048666Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T05:25:45.9211634Z Removing includeIf entries pointing to credentials config files
+2026-11-25T05:25:45.9218607Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T05:25:45.9493066Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T05:25:46.4037149Z [command]"C:\Program Files\Git\bin\git.exe" config --file D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config http.https://github.com/.extraheader "AUTHORIZATION: basic ***"
+2026-11-25T05:25:46.4340835Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:46.4624441Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:46.4951060Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:46.5235281Z [command]"C:\Program Files\Git\bin\git.exe" config --local includeIf.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:46.5533090Z ##[endgroup]
+2026-11-25T05:25:46.5533607Z ##[group]Fetching the repository
+2026-11-25T05:25:46.5544896Z [command]"C:\Program Files\Git\bin\git.exe" -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin f5c055381acc8ef24b2a3c1cfa2c11c950c25060
+2026-11-25T05:25:47.5649757Z From https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T05:25:47.5651251Z  * branch            f5c055381acc8ef24b2a3c1cfa2c11c950c25060 -> FETCH_HEAD
+2026-11-25T05:25:47.5689758Z [command]"C:\Program Files\Git\bin\git.exe" rev-parse --verify --quiet f5c055381acc8ef24b2a3c1cfa2c11c950c25060^{object}
+2026-11-25T05:25:47.6031284Z f5c055381acc8ef24b2a3c1cfa2c11c950c25060
+2026-11-25T05:25:47.6061088Z ##[endgroup]
+2026-11-25T05:25:47.6061512Z ##[group]Determining the checkout info
+2026-11-25T05:25:47.6062785Z ##[endgroup]
+2026-11-25T05:25:47.6063053Z ##[group]Setting up sparse checkout
+2026-11-25T05:25:47.6070540Z [command]"C:\Program Files\Git\bin\git.exe" sparse-checkout set 20261125/revision6-wrappers
+2026-11-25T05:25:47.6455354Z ##[endgroup]
+2026-11-25T05:25:47.6455759Z ##[group]Checking out the ref
+2026-11-25T05:25:47.6462755Z [command]"C:\Program Files\Git\bin\git.exe" checkout --progress --force f5c055381acc8ef24b2a3c1cfa2c11c950c25060
+2026-11-25T05:25:48.3789900Z Note: switching to 'f5c055381acc8ef24b2a3c1cfa2c11c950c25060'.
+2026-11-25T05:25:48.3790397Z 
+2026-11-25T05:25:48.3790715Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T05:25:48.3791075Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T05:25:48.3791415Z state without impacting any branches by switching back to a branch.
+2026-11-25T05:25:48.3791640Z 
+2026-11-25T05:25:48.3791762Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T05:25:48.3792022Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T05:25:48.3792164Z 
+2026-11-25T05:25:48.3792290Z   git switch -c <new-branch-name>
+2026-11-25T05:25:48.3792507Z 
+2026-11-25T05:25:48.3792632Z Or undo this operation with:
+2026-11-25T05:25:48.3792754Z 
+2026-11-25T05:25:48.3792803Z   git switch -
+2026-11-25T05:25:48.3792921Z 
+2026-11-25T05:25:48.3793061Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T05:25:48.3793243Z 
+2026-11-25T05:25:48.3793522Z HEAD is now at f5c0553 Parse exact corrected resource-cleanup wrappers in ordinary Windows PowerShell
+2026-11-25T05:25:48.3857318Z ##[endgroup]
+2026-11-25T05:25:48.4257913Z [command]"C:\Program Files\Git\bin\git.exe" log -1 --format=%H
+2026-11-25T05:25:48.4524736Z f5c055381acc8ef24b2a3c1cfa2c11c950c25060
+2026-11-25T05:25:48.4562442Z ##[group]Removing auth
+2026-11-25T05:25:48.4562731Z Removing SSH command configuration
+2026-11-25T05:25:48.4570144Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T05:25:48.4866789Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T05:25:48.9106871Z Removing HTTP extra header
+2026-11-25T05:25:48.9116176Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T05:25:48.9424934Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T05:25:49.3902186Z Removing includeIf entries pointing to credentials config files
+2026-11-25T05:25:49.3912171Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T05:25:49.4169964Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T05:25:49.4170612Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T05:25:49.4171033Z includeif.gitdir:/github/workspace/ci/.git.path
+2026-11-25T05:25:49.4171408Z includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path
+2026-11-25T05:25:49.4206157Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T05:25:49.4455711Z D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:49.4490605Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:49.4802978Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T05:25:49.5060770Z D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:49.5093543Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:49.5375507Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/ci/.git.path
+2026-11-25T05:25:49.5649606Z /github/runner_temp/git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:49.5688417Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:49.5986733Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path
+2026-11-25T05:25:49.6248146Z /github/runner_temp/git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:49.6286934Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:49.6580587Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T05:25:50.0707348Z Removing credentials config 'D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config'
+2026-11-25T05:25:50.0716833Z ##[endgroup]
+2026-11-25T05:25:50.1021340Z ##[group]Run $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision6-wrappers'
+2026-11-25T05:25:50.1021825Z [36;1m$root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision6-wrappers'[0m
+2026-11-25T05:25:50.1022101Z [36;1m$helper=Join-Path $root 'parse-wrappers.ps1'[0m
+2026-11-25T05:25:50.1022596Z [36;1mif((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '778d480bb553c454fcac9c29f3e3eb41db6ea970b4ace23b5c17a7d725451931'){throw 'Parser helper changed.'}[0m
+2026-11-25T05:25:50.1023192Z [36;1m& $helper -Directory $root -ManifestSha256 '8469c8c8626bcd710502b773befc515c9bb4485fe8b7825efbe9c6c5b4235534'[0m
+2026-11-25T05:25:50.1023530Z [36;1mif($LASTEXITCODE -ne 0){exit $LASTEXITCODE}[0m
+2026-11-25T05:25:50.1517849Z shell: C:\Windows\System32\WindowsPowerShell\v1.0\powershell.EXE -NoLogo -NoProfile -NonInteractive -Command ". '{0}'"
+2026-11-25T05:25:50.1518228Z env:
+2026-11-25T05:25:50.1518360Z   GIT_CONFIG_COUNT: 2
+2026-11-25T05:25:50.1518551Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T05:25:50.1518696Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T05:25:50.1518828Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T05:25:50.1518954Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T05:25:50.1519078Z ##[endgroup]
+2026-11-25T05:25:56.7581709Z TRAY_WRAPPER_PARSE_RESULT_BASE64 ew0KICAgICJzY2hlbWFfdmVyc2lvbiI6ICAxLA0KICAgICJzdGF0dXMiOiAgInBhc3NlZCIsDQogICAgIm9wZXJhdGlvbiI6ICAib3JkaW5hcnktcG93ZXJzaGVsbC1wYXJzZSIsDQogICAgInJ1bl9pZCI6ICAiNDU1NTM0OTg5NjkiLA0KICAgICJydW5fYXR0ZW1wdCI6ICAiMSIsDQogICAgIndvcmtmbG93X2NvbW1pdCI6ICAiZjVjMDU1MzgxYWNjOGVmMjRiMmEzYzFjZmEyYzExYzk1MGMyNTA2MCIsDQogICAgInNvdXJjZV9jb21taXQiOiAgIjUyMzJjOGI5NDgwNDA2NGFiNzFhZjU3MWVlMjg3OTc2NjdiZDcyYmQiLA0KICAgICJwb3dlcnNoZWxsX3ZlcnNpb24iOiAgIjUuMS4yNjEwMC4zMzgyMiIsDQogICAgImZpbGVzIjogIFsNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicGF0aCI6ICAid2luZG93cy1pbnN0YWxsLXRyYXktaG9zdC0yMDI2MTEyNS5wczEiLA0KICAgICAgICAgICAgICAgICAgICAgICJzaGEyNTYiOiAgIjNjN2UyYjVjY2JlNWQzMWIzMmEyMzZkOWIzMzZmZWZmYTg2OGZmYzEyYmJmOGVlMmRiMmU5ZDlmM2FkMjE0YzAiLA0KICAgICAgICAgICAgICAgICAgICAgICJlcnJvcnMiOiAgWw0KDQogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICBdLA0KICAgICAgICAgICAgICAgICAgICAgICJwYXJzZXIiOiAgIlBvd2VyU2hlbGwuUGFyc2VyLlBhcnNlRmlsZSIsDQogICAgICAgICAgICAgICAgICAgICAgImVycm9yX2NvdW50IjogIDANCiAgICAgICAgICAgICAgICAgIH0sDQogICAgICAgICAgICAgICAgICB7DQogICAgICAgICAgICAgICAgICAgICAgInBhdGgiOiAgIndpbmRvd3MtdHJheS1zbW9rZS1ob3N0LTIwMjYxMTI1LnBzMSIsDQogICAgICAgICAgICAgICAgICAgICAgInNoYTI1NiI6ICAiYTAzNjE3OThlYTgzMjk5YjEwZWE4ZGE2MTZkMTdhMmVjOWZiNDZlYzU1NjY0M2JlMmYwNTY5OGJiZjA1MWM1ZiIsDQogICAgICAgICAgICAgICAgICAgICAgImVycm9ycyI6ICBbDQoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF0sDQogICAgICAgICAgICAgICAgICAgICAgInBhcnNlciI6ICAiUG93ZXJTaGVsbC5QYXJzZXIuUGFyc2VGaWxlIiwNCiAgICAgICAgICAgICAgICAgICAgICAiZXJyb3JfY291bnQiOiAgMA0KICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicGF0aCI6ICAid2luZG93cy1jb25maWd1cmVkLWxhdW5jaC1ob3N0LTIwMjYxMTI1LnBzMSIsDQogICAgICAgICAgICAgICAgICAgICAgInNoYTI1NiI6ICAiZWQyNTZmOTkyZDgzOThlYjA3ZjAwZDE5OTFiMWVlMjQyNDVjZTUzN2FiMjk3MzIyMmNhNzFlZmJkNGRkYTUxZSIsDQogICAgICAgICAgICAgICAgICAgICAgImVycm9ycyI6ICBbDQoNCiAgICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIF0sDQogICAgICAgICAgICAgICAgICAgICAgInBhcnNlciI6ICAiUG93ZXJTaGVsbC5QYXJzZXIuUGFyc2VGaWxlIiwNCiAgICAgICAgICAgICAgICAgICAgICAiZXJyb3JfY291bnQiOiAgMA0KICAgICAgICAgICAgICAgICAgfSwNCiAgICAgICAgICAgICAgICAgIHsNCiAgICAgICAgICAgICAgICAgICAgICAicGF0aCI6ICAic3RhZ2UtdHJheS1ob3N0LTIwMjYxMTI1Lm1qcyIsDQogICAgICAgICAgICAgICAgICAgICAgInNoYTI1NiI6ICAiZTVhYjE0MmUyODQ0MjM1NWQyMjQ2NDFjNDg4N2ViYjMzYWVjOTY5MTExMTExM2M0ZTRiNjg2NGVmM2E2YWQ4NCIsDQogICAgICAgICAgICAgICAgICAgICAgInBhcnNlciI6ICAibm9kZSAtLWNoZWNrIiwNCiAgICAgICAgICAgICAgICAgICAgICAiZXhpdF9jb2RlIjogIDANCiAgICAgICAgICAgICAgICAgIH0NCiAgICAgICAgICAgICAgXSwNCiAgICAicHJvZHVjdF9leGVjdXRpb24iOiAgZmFsc2UsDQogICAgInBjX2FjdGlvbnMiOiAgMCwNCiAgICAiZW1iZWRkZWRfaW5zcGVjdG9yX2NvbXBpbGVzIjogIHRydWUsDQogICAgImVtYmVkZGVkX2luc3BlY3Rvcl9zaGEyNTYiOiAgImMwZjBmZTljYTg5NmExOTY1MWM0NWMwNDhiMTkwOGYwZmIyMzFlNTQ4YmZmYTU4OTZiYmQ3OGIzNThkOTIzZWEiDQp9Cg==
+2026-11-25T05:25:56.7623654Z TRAY_WRAPPER_PARSE_RESULT_SHA256 007950926ed6160c0995dd9012190a3e74d1045bb0e3c0643c2cf8661c00ea39
+2026-11-25T05:25:56.8282200Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-25T05:25:56.8282494Z with:
+2026-11-25T05:25:56.8282632Z   name: tray-wrapper-parse-45553498969-1
+2026-11-25T05:25:56.8282796Z   retention-days: 7
+2026-11-25T05:25:56.8282916Z   if-no-files-found: error
+2026-11-25T05:25:56.8283083Z   path: D:\a\_temp/scotty-wrapper-parse-45553498969-1/
+2026-11-25T05:25:56.8283258Z   compression-level: 6
+2026-11-25T05:25:56.8283376Z   overwrite: false
+2026-11-25T05:25:56.8283495Z   include-hidden-files: false
+2026-11-25T05:25:56.8283630Z env:
+2026-11-25T05:25:56.8283737Z   GIT_CONFIG_COUNT: 2
+2026-11-25T05:25:56.8283887Z   GIT_CONFIG_KEY_0: core.autocrlf
+2026-11-25T05:25:56.8284027Z   GIT_CONFIG_VALUE_0: false
+2026-11-25T05:25:56.8284158Z   GIT_CONFIG_KEY_1: core.eol
+2026-11-25T05:25:56.8284304Z   GIT_CONFIG_VALUE_1: lf
+2026-11-25T05:25:56.8284429Z ##[endgroup]
+2026-11-25T05:25:56.9635424Z (node:7876) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T05:25:56.9635868Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T05:25:56.9678525Z With the provided path, there will be 1 file uploaded
+2026-11-25T05:25:56.9682139Z Artifact name is valid!
+2026-11-25T05:25:56.9683179Z Root directory input is valid!
+2026-11-25T05:25:57.2349481Z Beginning upload of artifact content to blob storage
+2026-11-25T05:25:57.2470619Z (node:7876) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-25T05:25:57.3916631Z Uploaded bytes 786
+2026-11-25T05:25:57.4348505Z Finished uploading artifact content to blob storage!
+2026-11-25T05:25:57.4349169Z SHA256 digest of uploaded artifact zip is bd713124ab3155e16d6b1cfa90bafbd7777f5a41de2bcb1c629ec80ba2398eff
+2026-11-25T05:25:57.4350557Z Finalizing artifact upload
+2026-11-25T05:25:57.8048944Z Artifact tray-wrapper-parse-45553498969-1.zip successfully finalized. Artifact ID 14994373850
+2026-11-25T05:25:57.8050448Z Artifact tray-wrapper-parse-45553498969-1 has been successfully uploaded! Final size is 786 bytes. Artifact ID is 14994373850
+2026-11-25T05:25:57.8059762Z Artifact download URL: https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45553498969/artifacts/14994373850
+2026-11-25T05:25:57.8366854Z Post job cleanup.
+2026-11-25T05:25:57.9490079Z [command]"C:\Program Files\Git\bin\git.exe" version
+2026-11-25T05:25:57.9751044Z git version 2.56.1.windows.1
+2026-11-25T05:25:57.9821726Z Temporarily overriding HOME='D:\a\_temp\f1fbb706-20fd-4506-a61f-37aba37a2159' before making global git config changes
+2026-11-25T05:25:57.9822422Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T05:25:57.9830609Z [command]"C:\Program Files\Git\bin\git.exe" config --global --add safe.directory D:\a\bead-me-up-scotty\bead-me-up-scotty\ci
+2026-11-25T05:25:58.0145510Z Removing SSH command configuration
+2026-11-25T05:25:58.0159588Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T05:25:58.0484143Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :\""
+2026-11-25T05:25:58.4803068Z Removing HTTP extra header
+2026-11-25T05:25:58.4811551Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T05:25:58.5101796Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "sh -c \"git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :\""
+2026-11-25T05:25:58.9391994Z Removing includeIf entries pointing to credentials config files
+2026-11-25T05:25:58.9402298Z [command]"C:\Program Files\Git\bin\git.exe" config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T05:25:58.9652733Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T05:25:58.9653252Z includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T05:25:58.9690301Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T05:25:58.9942325Z D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:58.9980297Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:59.0267684Z [command]"C:\Program Files\Git\bin\git.exe" config --local --get-all includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T05:25:59.0516394Z D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:59.0552402Z [command]"C:\Program Files\Git\bin\git.exe" config --local --unset includeif.gitdir:D:/a/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config
+2026-11-25T05:25:59.0844968Z [command]"C:\Program Files\Git\bin\git.exe" submodule foreach --recursive "git config --local --show-origin --name-only --get-regexp remote.origin.url"
+2026-11-25T05:25:59.5396056Z Removing credentials config 'D:\a\_temp\git-credentials-6ff64701-7da8-446f-89dc-3f03368c1043.config'
+2026-11-25T05:25:59.5568663Z Cleaning up orphan processes
+2026-11-25T05:25:59.5645911Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

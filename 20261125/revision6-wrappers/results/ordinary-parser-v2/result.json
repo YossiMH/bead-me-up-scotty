@@ -1,0 +1,49 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "operation":  "ordinary-powershell-parse",
+    "run_id":  "45553498969",
+    "run_attempt":  "1",
+    "workflow_commit":  "f5c055381acc8ef24b2a3c1cfa2c11c950c25060",
+    "source_commit":  "5232c8b94804064ab71af571ee28797667bd72bd",
+    "powershell_version":  "5.1.26100.33822",
+    "files":  [
+                  {
+                      "path":  "windows-install-tray-host-20261125.ps1",
+                      "sha256":  "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+                      "errors":  [
+
+                                 ],
+                      "parser":  "PowerShell.Parser.ParseFile",
+                      "error_count":  0
+                  },
+                  {
+                      "path":  "windows-tray-smoke-host-20261125.ps1",
+                      "sha256":  "a0361798ea83299b10ea8da616d17a2ec9fb46ec556643be2f05698bbf051c5f",
+                      "errors":  [
+
+                                 ],
+                      "parser":  "PowerShell.Parser.ParseFile",
+                      "error_count":  0
+                  },
+                  {
+                      "path":  "windows-configured-launch-host-20261125.ps1",
+                      "sha256":  "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+                      "errors":  [
+
+                                 ],
+                      "parser":  "PowerShell.Parser.ParseFile",
+                      "error_count":  0
+                  },
+                  {
+                      "path":  "stage-tray-host-20261125.mjs",
+                      "sha256":  "e5ab142e28442355d224641c4887ebb33aec9691111113c4e4b6864ef3a6ad84",
+                      "parser":  "node --check",
+                      "exit_code":  0
+                  }
+              ],
+    "product_execution":  false,
+    "pc_actions":  0,
+    "embedded_inspector_compiles":  true,
+    "embedded_inspector_sha256":  "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea"
+}
