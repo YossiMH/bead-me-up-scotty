@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Revision 8 helper preparation and cloud-only parser/refusal activation",
+  "final_binding_accepted": false,
+  "installation_authorized_to_execute": false,
+  "reviewer": "/root/cloud_readiness",
+  "continuation_revision": 8,
+  "candidate_commit": "98a2daa3ef411c0f986daee1794c130f025c49cd",
+  "candidate_directory": "20261125/revision-8/install-binding",
+  "reviewed_files": {
+    "README.md": "97e6fd9bdfc781bfb7bb85a49aa8f6a14cbb397496de52994f49615ae6ceba28",
+    "author-inspections.json": "21b5b47c062a1a68a69ffdef70fe85d50040d8248a6d144f395f695d5b4da09f",
+    "binding.json": "da06b59b533aa0862aead6b8491717535132926c9f48963d74ab919c39ba5da1",
+    "check-binding-refusals.ps1": "8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c",
+    "check-history-refusals.mjs": "2203062499453164496be312e57d484b93fc60cbb2f46c7b20e390242bd6cd11",
+    "checkpoint-handoff-20261125.mjs": "6f02508f666b0d0350d24d428c4d972d9f2efa7c22e4669bf6f145fdb2cf97db",
+    "checkpoint-handoff-supervisor-20261125.ps1": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+    "materialize-v8-supervisor.ps1": "ba6becea23b81032d872ce5c67e43cbd390801ceb5545a54f5115071e73a9f1e",
+    "materialize-v8.mjs": "005294db3051d6b8412d3982c2ccac164921e14be3021ac294f6cca96eefa1be",
+    "parse-bindings.ps1": "ec8208f1313c948249260f5e24bf0d061ce135318eebd5c519f3dd2f902fa49b",
+    "parse-inputs.json": "3b45e61b55ecd89533b50cd04290bf838a93e443f37187a5973d3fd8e11df008",
+    "plan-review.json": "cf054dce9cc97509798af30977a3719793b38e8858e73521329283d99c00ac11",
+    "plan.json": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d",
+    "verify-bindings.workflow.yml": "58f8af90bcf7f770b8a6e84cd4d5bbaafe9f248532ad7d334dc7dd52a759dddf",
+    "windows-configured-launch-host-20261125.ps1": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+    "windows-install-tray-host-20261125.ps1": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+    ".github/workflows/type-binding-v8-checks-20261125.yml": "58f8af90bcf7f770b8a6e84cd4d5bbaafe9f248532ad7d334dc7dd52a759dddf"
+  },
+  "prior_complete_review": {
+    "packet_commit": "17c3d498cf9d9970dfa157700216481428448a51",
+    "preparation_review_commit": "64a6cd700843ae20fe8ce84fb49a2806563a3cd4",
+    "actual_checks_review_commit": "e7192fcbdc2e041a75f34f1e755e450ee0c0ba2c",
+    "unchanged_logic_reused_only_after_exact_file_comparison": true
+  },
+  "review_scope": [
+    "Complete revision 8 materializer; all supervisor changes and affected guarded-write context; prior accepted ownership, resource and preservation checks.",
+    "Exact full-file comparisons of history helper, installer, configured launcher, history supervisor and prior mock/parser files.",
+    "All sixteen packet files, activation workflow, input/author hash maps, both final author inspections, and the independent plan and actual-v6 derivation."
+  ],
+  "materialization": {
+    "base_plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+    "accepted_plan_sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d",
+    "accepted_plan_review_sha256": "cf054dce9cc97509798af30977a3719793b38e8858e73521329283d99c00ac11",
+    "actual_base_revision": 6,
+    "existing_tasks": 32,
+    "existing_edges": 51,
+    "existing_issues": 986,
+    "new_creates": 20,
+    "description_updates": 15,
+    "dependency_additions": 35,
+    "atomic_manifest_operations": 70,
+    "guarded_reopens": [
+      "checkpoint-linux-build",
+      "checkpoint-linux-checks",
+      "checkpoint-full-suite"
+    ],
+    "expected_tasks": 52,
+    "expected_edges": 86,
+    "expected_issues": 1006,
+    "original_issues_preserved": 954,
+    "unrequested_existing_task_definition_changes": 0,
+    "revision_7_attempt_refusal_before_any_output_or_native_command": true,
+    "actual_materialization_executed": false
+  },
+  "preservation": {
+    "history_exact_three_literal_reverse_matches_v7": true,
+    "installer_byte_identical": true,
+    "configured_launcher_byte_identical": true,
+    "history_supervisor_byte_identical": true,
+    "existing_ids_original_rows_and_close_history_guarded": true,
+    "config_and_checkpoint_pointer_guarded": true,
+    "existing_no_auto_flush_and_uncertain_result_no_replay_preserved": true,
+    "pc_limits_unchanged": {
+      "materializer_seconds": 180,
+      "free_memory_gib": 1,
+      "node_heap_mib": 128,
+      "owned_resident_mib": 512,
+      "priority": "BelowNormal"
+    },
+    "new_unbuilt_adapter_allowance": false
+  },
+  "hosted_activation": {
+    "authorized_scope": "The dedicated task/type-binding-v8-checks-20261125 branch at the exact accepted preparation candidate.",
+    "workflow_matches_packet_copy": true,
+    "timeout_minutes": 7,
+    "powershell_inputs": 4,
+    "node_inputs": 2,
+    "json_inputs": 2,
+    "embedded_declarations": 4,
+    "installer_synthetic_cases": 9,
+    "history_synthetic_cases": 8,
+    "product_helpers_main_executed": false,
+    "native_commands": 0,
+    "pc_actions": 0,
+    "checks_actually_executed": false
+  },
+  "findings": [],
+  "author_final_clean_inspections": 2,
+  "pending": [
+    "Actual hosted parser/refusal results and independent reconciliation.",
+    "Complete final-source native qualification and measured release/provenance selection; native selection remains null.",
+    "Complete app runtime/source download verification and real Windows roundtrip against the final native executable.",
+    "Permitted PC access and immediate resource checks; the denied request is not replayed or bypassed.",
+    "Actual direct v6-to-v8 mapping and pinned task-closure/history requests, with no invented IDs or closure.",
+    "Actual logged-in-session tray/Exit, installed configured launch, original-history reconciliation and verified Riftri cleanup."
+  ],
+  "reviewer_executed_product": false,
+  "reviewer_accessed_pc": false
+}
