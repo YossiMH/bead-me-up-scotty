@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "task_key": "windows-test-fixtures",
+  "status": "tests-only-candidate-published",
+  "source_repository": "YossiMH/bead-rs",
+  "source_commit": "b492aa51b6f9a6049298d0534674572dc0c5a5e5",
+  "source_tree": "de17d8366f656fc271e52002b2b00822a5b06044",
+  "parent": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "branch": "task/type-file-20261125",
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "review_commit": "d1d9b088f4676c94e2a9afbe80b3eb49602c1283"
+  },
+  "actual_failed_windows": {
+    "run_id": 45590705550,
+    "evidence_commit": "7f911115b3a5c884e71609d221e1e5b63d5a069f",
+    "evidence_path": "20261125/revision-8/results/native-windows-qualification-45590705550",
+    "diagnosis_review": "df5b52ff75e5fd19f223aa0f338a8b33de702935"
+  },
+  "changed_paths": [
+    "tests/checkpoint_publication_lock.rs",
+    "tests/checkpoint_set_v2_conformance.rs"
+  ],
+  "files": {
+    "tests/checkpoint_publication_lock.rs": {
+      "bytes": 14252,
+      "sha256": "24a1de6e7de016d392515f33f5f48af8cb517a5e418b1fd89fd8470f2cf8e75f"
+    },
+    "tests/checkpoint_set_v2_conformance.rs": {
+      "bytes": 75567,
+      "sha256": "3d579ebc628546ce2f2dc3e656f7ff0e072b6d8ad17e52e0f7e185c45f46db19"
+    }
+  },
+  "author_inspections": [
+    {
+      "utc": "2026-11-25 10:28:28 UTC",
+      "status": "clean",
+      "inspection": "Read both complete original fixture files and every final hunk with their callers. The checkpoint walker changes only the exact root publish.lock path, requires its complete byte length to be zero and retains an empty value for the same map key; every other path still reads exact bytes. The lock timing, forged-pointer refusal, sequence and full snapshot equality assertions remain unchanged. Storm and merge use the existing stdin helper with the identical 40 KiB filler; all thresholds, content and grid behavior remain unchanged. Native production and redaction_transaction are untouched.",
+      "checks": {
+        "only_two_test_paths": true,
+        "unchanged_lock_test_body": true,
+        "unchanged_conformance_after_reversing_calls": true,
+        "no_new_tests": true,
+        "all_changed_lines_within_100_columns": true
+      },
+      "files": {
+        "tests/checkpoint_publication_lock.rs": {
+          "bytes": 14252,
+          "sha256": "24a1de6e7de016d392515f33f5f48af8cb517a5e418b1fd89fd8470f2cf8e75f"
+        },
+        "tests/checkpoint_set_v2_conformance.rs": {
+          "bytes": 75567,
+          "sha256": "3d579ebc628546ce2f2dc3e656f7ff0e072b6d8ad17e52e0f7e185c45f46db19"
+        }
+      },
+      "runtime_checks": "Pending exact final-source builds and qualification, as specified by accepted revision 9."
+    },
+    {
+      "utc": "2026-11-25 10:28:28 UTC",
+      "status": "clean",
+      "inspection": "Second complete pass of both finished fixtures and their surrounding helpers/test assertions, independent of comments. Reversed only the three authorized substitutions and recovered the exact baseline file hashes. Verified the root-lock exception retains its map key, proves all bytes are empty, and does not match a nested publish.lock. Rechecked held-lock lifetime, map/sequence assertions, the existing stdin pipe's exact writes and child success assertion, unchanged filler lengths and every conformance scenario/grid selector. No production/test-harness expansion, unused declarations, new dependencies, new ignores or trailing whitespace.",
+      "verification": {
+        "lock_file_reverses_to_baseline": true,
+        "notes_file_reverses_to_baseline": true,
+        "fixture_test_names_unchanged": true,
+        "whitespace_clean": true,
+        "runtime": "Final-source formatting/build/runtime execution remains pending and is not credited."
+      }
+    }
+  ],
+  "production_unchanged": true,
+  "maintenance_test_unchanged": true,
+  "checks_pending": "Compile/format and actual assertions on the final source remain separate required gates. This receipt authorizes no claimed runtime pass.",
+  "root_only_pc_state": "No PC execution or task-state mutation by this executor."
+}
