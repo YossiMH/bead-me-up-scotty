@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "continuation_revision": 8,
+  "status": "prepared_helpers_pending_final_native_qualification_and_actual_mapping",
+  "app": {
+    "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "run_id": 45573503400,
+    "output_id": 15003467178,
+    "output_sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_zip_bytes": 7137798,
+    "manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "file_count": 560,
+    "build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "download_verified": false
+  },
+  "native": null,
+  "native_candidate": {
+    "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+    "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+    "qualification": "Static source review passed; final produced executable and execution qualification pending."
+  },
+  "previous_native": {
+    "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "producer_run_id": 45572877188,
+    "output_id": 15003670786,
+    "binary_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+    "binary_bytes": 12221440,
+    "metadata_sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b",
+    "build_target": "x86_64-pc-windows-msvc",
+    "qualification": "Historical 9ff production. Windows45577891890 exposed lock/path failures and incomplete conformance. Do not select this executable for final installation.",
+    "installed_basename": "bead-fb791327c771.exe",
+    "output_sha256": "50a0e43732431bbcfe637510a9e1f0ce37a7fadb8251947bd2dbda6c8bbc5183",
+    "output_bytes": 4537917,
+    "output_manifest_sha256": "022128bca8006e74da54635bf16cf049a937f0723f134b0830982bda97fbf30e",
+    "binary_archive_path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+    "metadata_archive_path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+    "download_verification_run_id": 45576002037
+  },
+  "plan": {
+    "sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d",
+    "review_sha256": "cf054dce9cc97509798af30977a3719793b38e8858e73521329283d99c00ac11",
+    "tasks": 52,
+    "blocking_edges": 86,
+    "original_issues": 954,
+    "total_issues": 1006,
+    "actual_materialization": null,
+    "actual_state": {
+      "revision": 6,
+      "tasks": 32,
+      "edges": 51,
+      "total_issues": 986
+    }
+  },
+  "preservation": {
+    "baseline_commit": "55f17568be93442abc6e4725d3e159448e0c9ab5",
+    "original_modified_app_files": 15,
+    "installer_sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+    "configured_launcher_sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+    "history_sha256": "6f02508f666b0d0350d24d428c4d972d9f2efa7c22e4669bf6f145fdb2cf97db",
+    "history_supervisor_sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+    "materializer_sha256": "005294db3051d6b8412d3982c2ccac164921e14be3021ac294f6cca96eefa1be",
+    "materializer_supervisor_sha256": "ba6becea23b81032d872ce5c67e43cbd390801ceb5545a54f5115071e73a9f1e",
+    "unbuilt_adapter_path_allowances_added": false
+  },
+  "installation_authorized_to_execute": false,
+  "pending": [
+    "Independent acceptance and hosted syntax/refusal checks of these exact prepared helpers.",
+    "Actual measured final native release, adjacent provenance, complete platform qualification and independent final source acceptance.",
+    "Complete downloaded app runtime/source manifest verification and actual Windows store/HTTP roundtrip with the final native executable.",
+    "Permitted Emergency Maintenance access and the immediate resource gates; no replay of the denied proposal.",
+    "One accepted direct revision6-to8 materialization with all52 actual IDs/86edges, then actual mapping-hash binding of task closure/history requests and dependency-ordered result reconciliation.",
+    "Actual logged-in-PC tray/Exit/restart, final checked installation/configured launch, source/history publication and worktree cleanup."
+  ]
+}
