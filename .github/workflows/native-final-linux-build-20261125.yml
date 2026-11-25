@@ -3,13 +3,13 @@ name: Compile and build the final native tool for Linux
 on:
   push:
     branches:
-      - task/native-final-linux-build-20261125
+      - task/native-final-linux-build-v2-20261125
 
 permissions:
   contents: read
 
 concurrency:
-  group: native-final-linux-build-20261125
+  group: native-final-linux-build-v2-20261125
   cancel-in-progress: false
 
 jobs:
@@ -54,7 +54,16 @@ jobs:
             --support-helper "$GITHUB_WORKSPACE/ci/20261125/native-final-linux/checkpoint-build-support.py" \
             --inputs "$GITHUB_WORKSPACE/ci/20261125/native-final-linux/build-inputs.json" \
             --inputs-sha256 05bdd98fbbd95f7ce39485d8659f13fbeee8f6bc882bf11cf757f65e0723adf4 \
-            --helper-sha256 d2ae451403f2a11140f45337f45c74c407f365f7482bd9d61a7814d645459c26
+            --helper-sha256 11cfb8375b81ca715b78e63db545981cc329cadaa64fe006b3b3a1d32aafb05a
+
+      - name: Preserve compiled output if a later producer step fails
+        if: failure()
+        timeout-minutes: 6
+        run: |
+          root="$RUNNER_TEMP/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}"
+          if [[ -f "$root/source.tar" && -f "$root/source-files.json" && -d "$root/target" ]]; then
+            timeout 300 tar -I 'gzip -1' -cf "$root/retained-compiled-output.tar.gz" -C "$root" source.tar source-files.json target logs build-result.json result.json
+          fi
 
       - name: Retain all compiled targets and complete build streams
         if: always()
@@ -72,6 +81,8 @@ jobs:
             ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/format-check.json
             ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/attempt-started.json
             ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/logs
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/generated-bead-update.1
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/retained-compiled-output.tar.gz
 
       - name: Retain the release and selected original public corpus
         if: success()

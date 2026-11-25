@@ -15,7 +15,7 @@ import sys
 import tarfile
 import time
 
-GREEN_HELPER_SHA256 = "d2ae451403f2a11140f45337f45c74c407f365f7482bd9d61a7814d645459c26"
+GREEN_HELPER_SHA256 = "11cfb8375b81ca715b78e63db545981cc329cadaa64fe006b3b3a1d32aafb05a"
 BUILD_INPUTS_SHA256 = "05bdd98fbbd95f7ce39485d8659f13fbeee8f6bc882bf11cf757f65e0723adf4"
 SOURCE_COMMIT = "9ffefad6bb3b21ac1362f54df245af82ed85ec6e"
 SOURCE_TREE = "31c63a88be4d7f818aa115b8b83b1ef58518ad13"
@@ -385,7 +385,7 @@ def run_type_checks(B, runner, source, build_root, build, output, build_result_h
         report["duration_seconds"] = round(time.monotonic() - began, 3)
         report["commands"] = [row for row in runner.commands if row["label"] == "cargo-type-checks"]
         if report["commands"]:
-            report["exit_code"] = report["commands"][-1]["exit_code"]
+            report["exit_code"] = report["commands"][-1].get("exit_code")
         for suffix in ("stdout", "stderr"):
             path = output / ("logs/cargo-type-checks." + suffix)
             if path.is_file():
@@ -490,13 +490,23 @@ def main():
         targets = B.read_json(target_manifest)
         require(targets["bytes"] == build["target_bytes"], "Target inventory size differs")
         expected_members = {"source.tar", "source-files.json", "target-files.json", "build-inputs.json",
-                            "build-result.json", "attempt-started.json", "repair-whitespace.json", "format-check.json"}
+                            "build-result.json", "attempt-started.json", "repair-whitespace.json", "format-check.json",
+                            "generated-bead-update.1"}
         expected_members.update(targets["files"])
         expected_members.update(row["path"] for row in build["release"].values() if isinstance(row, dict))
         for row in build["commands"]:
             expected_members.update((row["stdout"], row["stderr"], "logs/" + row["label"] + ".started.json",
                                      "logs/" + row["label"] + ".exit.json"))
         require(members == expected_members, "Bundle members exceed the accepted inventory")
+        man = build["generated_update_man"]
+        require(man["raw"]["path"] == "generated-bead-update.1", "Unexpected raw generated page")
+        check_record(B, build_root, man["raw"])
+        require(man["normalized_sha256"] == man["tracked_sha256"]
+                == source_files["man/man1/bead-update.1"]["sha256"]
+                and man["other_bytes_changed"] == 0
+                and man["normalization"]
+                == "Remove one ASCII space immediately before LF on SYNOPSIS line 7",
+                "Generated man comparison differs from the accepted one-byte correction")
         tracked = {name: {"git_blob": row["git_blob"], "git_mode": row["git_mode"]}
                    for name, row in source_files.items()}
         extracted = B.extract_source(source_tar, source, tracked)

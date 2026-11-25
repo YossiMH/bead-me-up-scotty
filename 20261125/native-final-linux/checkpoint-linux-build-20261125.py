@@ -324,9 +324,26 @@ def main():
             **B.file_record(generated_update, root),
             "base64": base64.b64encode(generated_update.read_bytes()).decode("ascii")
         }, sort_keys=True), flush=True)
-        require(generated_update.read_bytes() == (source / "man/man1/bead-update.1").read_bytes(),
-                "Tracked update man page differs from the actual generator")
-        status["generated_update_man_sha256"] = sha(generated_update)
+        raw_man = generated_update.read_bytes()
+        man_lines = raw_man.splitlines(keepends=True)
+        require(len(man_lines) > 7 and man_lines[5] == b".SH SYNOPSIS\n"
+                and man_lines[6].startswith(b"\\fBbead update\\fR ")
+                and man_lines[6].endswith(b"<\\fIID\\fR> \n"),
+                "Unexpected generated synopsis shape")
+        # Tracked man pages trim this generator-added synopsis space.
+        # Preserve every other byte, including the existing .TH trailing space.
+        man_lines[6] = man_lines[6][:-2] + b"\n"
+        normalized_man = b"".join(man_lines)
+        require(len(raw_man) == len(normalized_man) + 1
+                and normalized_man == (source / "man/man1/bead-update.1").read_bytes(),
+                "Tracked update man page differs after the single synopsis-space correction")
+        shutil.copy2(generated_update, root / "generated-bead-update.1")
+        status["generated_update_man"] = {
+            "raw": B.file_record(root / "generated-bead-update.1", root),
+            "tracked_sha256": sha(source / "man/man1/bead-update.1"),
+            "normalized_sha256": hashlib.sha256(normalized_man).hexdigest(),
+            "normalization": "Remove one ASCII space immediately before LF on SYNOPSIS line 7",
+            "other_bytes_changed": 0}
         shutil.rmtree(generated)
         pin_name = "bead-editing-" + SOURCE_COMMIT[:7] + "-linux-20261125"
         runner.run(["bash", "scripts/build-from-archive.sh", SOURCE_COMMIT,
@@ -365,7 +382,8 @@ def main():
         status["duration_seconds"] = round(time.monotonic() - began, 3)
         B.write_json(root / "build-result.json", status)
         names = {"source.tar", "source-files.json", "target-files.json", "build-inputs.json",
-                 "build-result.json", "attempt-started.json", "repair-whitespace.json", "format-check.json"}
+                 "build-result.json", "attempt-started.json", "repair-whitespace.json", "format-check.json",
+                 "generated-bead-update.1"}
         names.update(path.relative_to(root).as_posix() for path in (root / "logs").iterdir())
         names.update(target_files)
         names.update(row["path"] for row in status["release"].values() if isinstance(row, dict))

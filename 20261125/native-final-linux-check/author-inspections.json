@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "author": "/root/backend_reconcile",
+  "task_keys": [
+    "type-backend-checks",
+    "checkpoint-full-suite",
+    "checkpoint-linux-checks"
+  ],
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "producer": {
+    "run_id": "45575999107",
+    "workflow_commit": "e5cea420faa1804c8b13ffeab77d5248e818395f",
+    "build_artifact_id": 15004218651,
+    "release_artifact_id": 15005116461,
+    "evidence_commit": "6f099e729374c33b2823d3f5929b33361543be5a",
+    "build_result_sha256": "3bf3e22f779b28054d0542fcb4702cb8cd69198d5ed849f07dcb78dc3dc50779",
+    "outer_result_sha256": "ea2fe8c287e1312c3b262ded2ef2c2c43b9da0a36b5011844a3544a95cd7b914",
+    "bundle": {
+      "bytes": 555854743,
+      "mode": 420,
+      "path": "qualification-bundle.tar.gz",
+      "sha256": "112752e4049698cd0231b0a9c3886b5458f04463a460f39203b229eef5e9ee64"
+    }
+  },
+  "files": {
+    "20261125/native-final-linux-check/checkpoint-full-suite-20261125.py": "f41956953752cd2b799651ea00dd86e1f405ba9c8a33f4f4b83c7c07c22a9e56",
+    "20261125/native-final-linux-check/checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "20261125/native-final-linux-check/full-suite-inputs.json": "5e663d417fa5c8ddee48b4c755c20c78502046d8a3c6e8ecfd37e4ad90abcae5",
+    "20261125/native-final-linux-check/corpus-inputs.json": "b4233e8d2c391cb45463537f5effc420248177e98016b9ff7e83aefdf4912244",
+    "20261125/native-final-linux-check/workflow.yml": "4c657c365019fef98effb89f3b972c02225f55c647f3868a4220d096246a1ba4",
+    ".github/workflows/native-final-linux-check-20261125.yml": "4c657c365019fef98effb89f3b972c02225f55c647f3868a4220d096246a1ba4",
+    "20261125/native-final-linux/checkpoint-linux-build-20261125.py": "11cfb8375b81ca715b78e63db545981cc329cadaa64fe006b3b3a1d32aafb05a",
+    "20261125/native-final-linux/checkpoint-build-support.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+    "20261125/native-final-linux/build-inputs.json": "05bdd98fbbd95f7ce39485d8659f13fbeee8f6bc882bf11cf757f65e0723adf4",
+    "20261125/native-final-linux/workflow.yml": "c9752c41b5407ac1ab658950157d10aa4f29a0bd36405490ee76dcf27292b18c",
+    ".github/workflows/native-final-linux-build-20261125.yml": "c9752c41b5407ac1ab658950157d10aa4f29a0bd36405490ee76dcf27292b18c"
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Read the complete suite helper, affected-target parser, portable corpus verifier, producer/support contract and final workflow. Trace every restored binary/source identity, all required new tests, default harness/doctest accounting, original corpus maps, deadlines and fixture cleanup."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Read the same final files again with actual producer outputs. Verify all receipt/artifact/helper/input hashes and exact run/source bindings, raw generated-man inventory, one-space comparison record, and separate retained affected/suite/corpus results. Spawn failure now records an unavailable exit code without masking the original error."
+    }
+  ],
+  "execution_status": "Pending actual downloaded-byte verification and execution. Prior producer passed formatting, Clippy, all default harness compilation and archive release build.",
+  "cleanup_handoff": "Remove clean published Riftri task worktrees when the full assignment is complete. A successor must finish cleanup if this session ends, including /tmp/beads-55c9/backend-type-edit."
+}
