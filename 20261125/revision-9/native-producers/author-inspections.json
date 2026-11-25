@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "operation": "final-native-producer-author-inspections",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "previous_packet": "33931b999a973b266e211c7af531c84f694bf0a6",
+  "plan_commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+  "tests_review_commit": "7f671379297257cdee6497d26f57b00868b3386a",
+  "execution_started": false,
+  "files": {
+    "20261125/revision-9/native-linux-build/checkpoint-linux-build-20261125.py": {
+      "bytes": 29875,
+      "sha256": "9842bb88312c15cc9daac8dc58a80d7c2eb7d9d3b52330acd51a020dbdaa4b32"
+    },
+    "20261125/revision-9/native-linux-build/checkpoint-build-support.py": {
+      "bytes": 26661,
+      "sha256": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0"
+    },
+    "20261125/revision-9/native-linux-build/build-inputs.json": {
+      "bytes": 2637,
+      "sha256": "fe56cc4aab123d53a6e438586c38adaf5489e35f01a0c75a8abf85eca90ab1e3"
+    },
+    "20261125/revision-9/native-linux-build/workflow.yml": {
+      "bytes": 5184,
+      "sha256": "6feae386b11948f983de605b695fc9791f815fac3ef576f05f3959490d8cd5ab"
+    },
+    ".github/workflows/native-final-linux-build-20261125.yml": {
+      "bytes": 5184,
+      "sha256": "6feae386b11948f983de605b695fc9791f815fac3ef576f05f3959490d8cd5ab"
+    },
+    "20261125/revision-9/native-windows-build/build.py": {
+      "bytes": 19307,
+      "sha256": "1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07"
+    },
+    "20261125/revision-9/native-windows-build/verify.py": {
+      "bytes": 3584,
+      "sha256": "1bac983f1e3c8b0a5c74d6a8b922e858ae2765c6292bd9d884aada6eafa3aef9"
+    },
+    "20261125/revision-9/native-windows-build/build-inputs.json": {
+      "bytes": 691,
+      "sha256": "56cfbc290b00e0cbd3285a66fc46970ab029a05b3bd290ee1d39ada463213d7d"
+    },
+    "20261125/revision-9/native-windows-build/workflow.yml": {
+      "bytes": 6217,
+      "sha256": "4e8aff6f296183502cb50d2c0e3665f696120d28e0ba8bac1e8761808b448ac4"
+    },
+    ".github/workflows/native-final-windows-build-20261125.yml": {
+      "bytes": 6217,
+      "sha256": "4e8aff6f296183502cb50d2c0e3665f696120d28e0ba8bac1e8761808b448ac4"
+    },
+    "20261125/revision-9/native-producers/README.md": {
+      "bytes": 2860,
+      "sha256": "7b1e69537da4046bc699e42480495eb559defc87bc026df631988da674398f5a"
+    }
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "scope": "Complete bound Linux producer and workflow/input; complete unchanged Windows builder/verifier with bound workflow/input; retained support identity and README.",
+      "findings": [],
+      "checks": [
+        "All 13 cumulative native source identities agree with their accepted commits and exact final two-file predicate change.",
+        "Seven-level fetch includes final, fixture, checkpoint repair, oracle, implementation, tests and baseline; every direct parent and scoped delta is asserted.",
+        "Original archive script, one compiler job, build limits, complete output retention, one-byte man comparison and separate release provenance are preserved.",
+        "Windows generic collector retains all ten selected integrations plus lib and bead; automatic ordinary generator is not a selected output.",
+        "Each actual workflow equals its packet copy; dedicated activation refs leave packet publication dormant."
+      ]
+    },
+    {
+      "pass": 2,
+      "completed_utc": "2026-11-25 10:58:04 UTC",
+      "scope": "Independent second complete review of all final packet bytes, each exact old-to-new delta, pin/hash/path relations and failure/download/cleanup paths.",
+      "findings": [],
+      "checks": [
+        "Remote source ref/commit and both changed full files were read back; hashes match the bound inputs.",
+        "Linux helper changes are restricted to final source/tree and 13-file/ancestry declarations/checks; compile, archive, bundle and process-group code is unchanged.",
+        "Windows build.py and verify.py are byte-identical to previously accepted and successfully executed producers.",
+        "No unbound token, credential, PC action or product assertion change exists; job and step contexts remain valid.",
+        "Build completion is kept distinct from later native test execution and final acceptance."
+      ]
+    }
+  ],
+  "remaining": [
+    "Independent Linux and Windows packet review.",
+    "Actual final-source compilation and artifact verification.",
+    "Affected/native full-suite/corpus/Windows qualification and final author/source review."
+  ]
+}

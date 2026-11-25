@@ -1,0 +1,141 @@
+name: Build final Windows native artifacts
+
+on:
+  push:
+    branches:
+      - task/native-final-windows-build-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-final-windows-build-20261125
+  cancel-in-progress: false
+
+env:
+  GIT_CONFIG_COUNT: '2'
+  GIT_CONFIG_KEY_0: core.autocrlf
+  GIT_CONFIG_VALUE_0: 'false'
+  GIT_CONFIG_KEY_1: core.eol
+  GIT_CONFIG_VALUE_1: lf
+
+jobs:
+  build:
+    runs-on: windows-2025
+    timeout-minutes: 45
+    outputs:
+      manifest_sha256: ${{ steps.compile.outputs.manifest_sha256 }}
+      artifact_id: ${{ steps.upload.outputs.artifact-id }}
+      artifact_digest: ${{ steps.upload.outputs.artifact-digest }}
+      release_artifact_id: ${{ steps.release_upload.outputs.artifact-id }}
+      release_artifact_digest: ${{ steps.release_upload.outputs.artifact-digest }}
+      release_manifest_sha256: ${{ steps.compile.outputs.release_manifest_sha256 }}
+    steps:
+      - name: Read the reviewed build packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/revision-9/native-windows-build
+
+      - name: Read the exact native source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-rs
+          ref: 2d801ba455b7a722daf644a7615445117d57e8e9
+          path: source
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Build the release and compile affected Windows tests
+        id: compile
+        shell: pwsh
+        timeout-minutes: 41
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-windows-build'
+          $python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source
+          & $python -m py_compile (Join-Path $packet 'build.py') (Join-Path $packet 'verify.py')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+          & $python (Join-Path $packet 'build.py') --checkout (Join-Path $env:GITHUB_WORKSPACE 'source') --inputs (Join-Path $packet 'build-inputs.json') --output (Join-Path $env:RUNNER_TEMP 'bead-windows-native-${{ github.run_id }}-${{ github.run_attempt }}')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Retain outputs and failure logs
+        if: always()
+        id: upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-native-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          compression-level: 6
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-windows-native-${{ github.run_id }}-${{ github.run_attempt }}/
+
+      - name: Retain the small release package for staging
+        if: success()
+        id: release_upload
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-release-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          compression-level: 6
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-windows-native-${{ github.run_id }}-${{ github.run_attempt }}-release/
+
+  verify-download:
+    needs: build
+    runs-on: windows-2025
+    timeout-minutes: 10
+    steps:
+      - name: Read the exact reviewed verifier
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/revision-9/native-windows-build
+
+      - name: Download this run's actual Windows outputs
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: ${{ needs.build.outputs.artifact_id }}
+          path: ${{ runner.temp }}/downloaded-windows-build
+          merge-multiple: true
+
+      - name: Verify the downloaded bytes
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source
+          $verifier = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-windows-build/verify.py'
+          & $python $verifier --directory (Join-Path $env:RUNNER_TEMP 'downloaded-windows-build') --manifest-sha256 '${{ needs.build.outputs.manifest_sha256 }}' --source-commit '2d801ba455b7a722daf644a7615445117d57e8e9' --receipt (Join-Path $env:RUNNER_TEMP 'windows-download-receipt/verification.json')
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Download the small release package
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: ${{ needs.build.outputs.release_artifact_id }}
+          path: ${{ runner.temp }}/downloaded-windows-release
+          merge-multiple: true
+
+      - name: Verify the small package independently
+        shell: pwsh
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $python = (Get-Command python.exe -CommandType Application | Select-Object -First 1).Source
+          $verifier = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-windows-build/verify.py'
+          & $python $verifier --directory (Join-Path $env:RUNNER_TEMP 'downloaded-windows-release') --manifest-sha256 '${{ needs.build.outputs.release_manifest_sha256 }}' --source-commit '2d801ba455b7a722daf644a7615445117d57e8e9' --receipt (Join-Path $env:RUNNER_TEMP 'windows-download-receipt/release-verification.json') --release-only
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+
+      - name: Retain download verification
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-download-verification-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          compression-level: 0
+          if-no-files-found: error
+          path: ${{ runner.temp }}/windows-download-receipt/
