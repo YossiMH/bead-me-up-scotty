@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "PASS_STATIC",
+  "accepted": true,
+  "operation": "windows-startup-diagnostic-review",
+  "reviewer": "delivery_review",
+  "packet_repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "0744d32ab922cf7610c7b512ba06861da400afce",
+  "diagnostic_sha256": "27f8dcd3fd25f749f94a6a8879d022de0d84ea31f184a63ff08d84fad1fe9e60",
+  "workflow_sha256": "c966c0ab4f18a3e32b8ce9c75fa7dcfd282347270d1f7bc955233bc6f97c51f9",
+  "original_supervisor_sha256": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+  "author_audits_sha256": "279b705ffd367fd2794833b2dbd23cd9f7194f5614b06022def065af88d711d5",
+  "complete_review": [
+    "Read the entire diagnostic, workflow, README, author audits and retained completion/artifact records; matched the complete retained job log byte-for-byte to the separately fetched actual failed job.",
+    "Mechanically removed only the three new tracing/trap blocks and the terminal diagnostic result: the remainder matches the original supervisor prefix exactly through Python path selection. Path, directory, reparse, hash, run identity and exclusive output guards remain unchanged.",
+    "Typed path values are emitted with Console APIs, preserving function return pipelines. Failure reports retain exception type, exact call site and script stack. The Python discovery trace does not invoke Python.",
+    "Workflow preserves the PowerShell 7 native argument array into ordinary Windows PowerShell 5.1, fixed LF checkout, immutable original/helper/input/Job hashes and the original source path shape in a fresh empty directory.",
+    "The exact unchanged Job helper enters before the only diagnostic child starts. A two-minute step and five-minute hosted job bound execution; no compiler/native product or PC process is invoked.",
+    "Read-only token and immutable Action references, fresh branch and exclusive outputs, bounded complete stdout/stderr Base64 plus seven-day artifact retention are appropriate."
+  ],
+  "actual_failed_run": {
+    "id": 45543077351,
+    "job": 138966023637,
+    "completion_sha256": "e4cc602c76fe4bd5cd824f1b2e6cbeac610f0e3096f2688aca9a98ca360c32a2",
+    "classification": "PowerShell startup path failure before Python/Cargo; not an MSVC compiler failure"
+  },
+  "activation_accepted": true,
+  "qualification_accepted": false,
+  "remaining_findings": [],
+  "pending": "Root-authorized hosted diagnostic may run. Its observed child status and path evidence must be reconciled before choosing any minimal launcher correction or retry."
+}

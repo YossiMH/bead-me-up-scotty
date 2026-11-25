@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "operation": "bound-linux-full-suite-and-recovery-static-review",
+  "reviewer": "delivery_review",
+  "packet_repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "bd84bc93fea6add1a0d0f4a2eecde2e5c0ab6b77",
+  "directory": "20261125/checkpoint-linux-check",
+  "prepared_review_sha256": "9b1c6765620c8904ba10d087d22e7e605236c30154cb1d235fa6099fd2578f41",
+  "actual_build_review_sha256": "8801320e685c2eaf1de2b8a467dfdc0e9e7dbebc7b36f5662dd71bf2c03cc0fa",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "native_tasks": {
+    "full_suite": "beadrs-0890de3c",
+    "linux_checks": "beadrs-50ff08d3"
+  },
+  "workflow_sha256": "ad0212cb35a8762f6149570fbbaadc91a3b68ba67e18e0429cbec9ead4a905b6",
+  "full_suite_inputs_sha256": "bac053be6852025b11f30ac8a9fe8f0f97f7e0b18e22855c1ac5b2ea9895786f",
+  "corpus_inputs_sha256": "07735a2735737bc9e3b6fe3677c0335d9becbc9ffd2cef5b58df30c7fb444c3c",
+  "manifest_sha256": "f7f4495c9e033f83eda1e5e18294fee00995ab6173a90ba6a5b50363c9c20c68",
+  "author_audits_sha256": "0fe6540ce09521d3fed47cf0b85e1ca86eb1da7a5727c6fe71324a5c4fac3166",
+  "complete_review": [
+    "Read the complete final rendered workflow, both concrete input documents, actual binding notes, bound manifest and two author audits. All 21 manifest entries have exact SHA-256 and UTF-8 byte counts.",
+    "Compared all seven prepared files by immutable Git blob identity with the complete earlier review. The full-suite helper remains b18148b8, Green helper 94c4a901, support db9b710e and portable corpus helper 653ff9f3. Their established execution and supervision logic is unchanged.",
+    "Reconstructed the workflow from the reviewed template using exactly its eight declared substitutions and matched the final bytes. Both input documents contain the measured source, producing run, receipt, bundle or release identities; no pending values remain.",
+    "Bound artifact 14990360952 to successful run 45542149965/head 57536532, bundle fe029959/553143568 bytes, and artifact 14990206627 to release af2570cc/13641240 bytes plus metadata 51951497.",
+    "Retained parallel hosted jobs, ordinary parser gates, the unfiltered 90-minute Cargo full suite, 144 target coverage and six new regression checks, complete stream retention, four isolated original-corpus restores, exact executable/source checks and owned process-group cleanup.",
+    "Read-only Actions/content token permissions, fixed public runner, immutable Action pins and fresh task/checkpoint-linux-check-20261125 branch remain unchanged."
+  ],
+  "activation_accepted": true,
+  "actual_checks_accepted": false,
+  "remaining_findings": [],
+  "pending": "Root-authorized activation may proceed on these exact bytes after ordinary hosted parser checks; actual full-suite and corpus results require separate reconciliation.",
+  "interrupted_cleanup": "Retain exact evidence and reconcile uncertain actions before deleting owned temporary workflow branches and clean Riftri worktrees. Native task closure remains root-owned."
+}

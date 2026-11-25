@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "operation": "actual-linux-checkpoint-build-review",
+  "reviewer": "delivery_review",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "native_tasks": {
+    "repair": "beadrs-b72dc0dc",
+    "linux_build": "beadrs-9c6d0088"
+  },
+  "run_id": 45542149965,
+  "job_id": 138962980149,
+  "workflow_commit": "5753653247952185fef0b8c2c83ecacb6bbb190a",
+  "workflow_sha256": "4abffedf89a271dc353adf8a77f622d525851ae56e7d323fffcecc38ea95c9bd",
+  "build_result_sha256": "384000475ed36cf748ed952c9cc2952d3d978928a5433e51c01a1eef6ce389fd",
+  "outer_result_sha256": "883855edfa517188d3864f7bdd91b186131d3c4887f0f6663bc3b97627aafd91",
+  "repair_whitespace_sha256": "58e41bcc75c57907ec3f3e40ae0d340836ae6871e0601326a3cafaa92d254caf",
+  "format_result_sha256": "46dc0f8896e42d62d1add86e340990640e4927721ae02cd721c1b2cfd123f4af",
+  "accepted_evidence": [
+    "Read the complete decoded build and outer receipts, all 22 command arrays and exit/error records, and all 22 process-group cleanup records. Independently decoded and verified inline Base64 byte counts and SHA-256 values.",
+    "Read complete actual formatting, Clippy, no-run compiler stderr, archive release and version streams. The final source diff check and cargo fmt both passed before compilation.",
+    "Confirmed cargo clippy --locked --all-targets -- -D warnings and cargo test --locked --no-run --message-format=json exited zero. Independently derived all 144 default harness names from the complete actual Cargo metadata and matched all 144 executable records, plus two ordinary binaries.",
+    "Reconciled source 515b503b and tree b7c196bb with the separately inspected exact formatting descendant, its three parent edges, and all five final source/test/spec hashes. The original checkout status is empty before and after.",
+    "Fetched the producing run and exact workflow: success at the reviewed YAML hash. Independently fetched both live artifact records and matched them to the frozen packet. Both receipts and all 11 retained small streams in that packet are byte-identical to actual job output."
+  ],
+  "commands_passed": 22,
+  "owned_groups_empty": 22,
+  "default_harnesses": 144,
+  "ordinary_binaries": 2,
+  "cargo_jobs": 1,
+  "release": {
+    "binary": {
+      "bytes": 13641240,
+      "mode": 493,
+      "path": "release/bead-editing-515b503-linux-20261125",
+      "sha256": "af2570ccdd3c34a1278b660a66ac7e780a13a2de96d9f3e91c7265e2efbf85db"
+    },
+    "metadata": {
+      "bytes": 2089,
+      "mode": 420,
+      "path": "release/bead-editing-515b503-linux-20261125.metadata.json",
+      "sha256": "5195149700e36ffa4692258e000a54f8353b6eb879df66df332beb07c8d140b8"
+    },
+    "target": "x86_64-unknown-linux-gnu",
+    "version": "bead 0.3.0 (unknown 2026-11-25T03:49:53Z)"
+  },
+  "bundle": {
+    "bytes": 553143568,
+    "mode": 420,
+    "path": "qualification-bundle.tar.gz",
+    "sha256": "fe0299594c0141f5214ef32cdf421efb1ba3cd893e093f2519836d4f865c880b"
+  },
+  "artifacts": [
+    {
+      "id": 14990360952,
+      "bytes": 553648863,
+      "digest": "sha256:e7aed337b161ec4f8416a321823cb4ee80e287a220b5800394aed86297c12849",
+      "expires_at": "2026-12-02T03:52:56Z"
+    },
+    {
+      "id": 14990206627,
+      "bytes": 22295678,
+      "digest": "sha256:64b636a9398e3c9c05c55e88afcc8d6df1d6e6eff3e5212d230a012ccc7db164",
+      "expires_at": "2026-12-02T03:53:00Z"
+    }
+  ],
+  "limitations": [
+    "The 264673-byte raw Cargo JSON stream, full source/target inventories and executable/bundle bytes remain in the hash-bound artifact. This review reconciled their recorded identities; the separately reviewed execution helper revalidates them before tests.",
+    "The archive release completed with two retained manifest unused-dependency warnings for serial_test and uuid. The all-target Clippy command with -D warnings passed.",
+    "The prior cee3220b build remains failed at cargo fmt. This successful source is the reviewed formatting-only descendant; previous Red evidence remains tied to its original tests-only source.",
+    "Full-suite and release-corpus execution are separate pending task results. This record accepts the source producer preflights and Linux build only."
+  ],
+  "remaining_findings": [],
+  "review_execution": "Static source/result reconciliation; no reviewer product execution."
+}
