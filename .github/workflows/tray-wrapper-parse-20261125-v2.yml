@@ -1,0 +1,43 @@
+name: Temporary ordinary tray wrapper parsing
+on:
+  push:
+    branches: [task/tray-wrapper-parse-20261125-v2]
+permissions:
+  contents: read
+concurrency:
+  group: tray-wrapper-parse-20261125-v2
+  cancel-in-progress: false
+jobs:
+  parse:
+    runs-on: windows-2025
+    timeout-minutes: 5
+    env:
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: 20261125/revision6-wrappers
+      - name: Parse exact final files and compile declarations only
+        shell: powershell -NoLogo -NoProfile -NonInteractive -Command ". '{0}'"
+        timeout-minutes: 3
+        run: |
+          $root=Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision6-wrappers'
+          $helper=Join-Path $root 'parse-wrappers.ps1'
+          if((Get-FileHash -LiteralPath $helper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '778d480bb553c454fcac9c29f3e3eb41db6ea970b4ace23b5c17a7d725451931'){throw 'Parser helper changed.'}
+          & $helper -Directory $root -ManifestSha256 '8469c8c8626bcd710502b773befc515c9bb4485fe8b7825efbe9c6c5b4235534'
+          if($LASTEXITCODE -ne 0){exit $LASTEXITCODE}
+      - name: Retain exact parser result
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tray-wrapper-parse-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: error
+          path: ${{ runner.temp }}/scotty-wrapper-parse-${{ github.run_id }}-${{ github.run_attempt }}/
