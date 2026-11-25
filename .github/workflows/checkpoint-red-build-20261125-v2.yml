@@ -1,0 +1,68 @@
+name: Temporary checkpoint Red compilation
+
+on:
+  push:
+    branches:
+      - task/checkpoint-red-build-20261125-v2
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checkpoint-red-build-20261125
+  cancel-in-progress: false
+
+jobs:
+  compile:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Read exact qualification files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/checkpoint-linux-red
+
+      - name: Read exact tests-only source and parent
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-rs
+          ref: a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8
+          fetch-depth: 2
+          path: source
+          persist-credentials: false
+
+      - name: Install pinned Rust toolchain
+        run: rustup toolchain install 1.100.0 --profile minimal --no-self-update
+
+      - name: Parse the exact compile helper
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/checkpoint-python-cache-${{ github.run_id }}-${{ github.run_attempt }}
+        run: python3 -m py_compile "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/checkpoint-red-build-20261125.py"
+
+      - name: Check whitespace and compile the immutable test archive
+        timeout-minutes: 32
+        run: |
+          python3 "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/checkpoint-red-build-20261125.py" \
+            --checkout "$GITHUB_WORKSPACE/source" \
+            --inputs "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/build-inputs.json" \
+            --inputs-sha256 57d129f2abd63797418f9950a2e20abe72466aafd2584ba203d317c9ee530ba3 \
+            --helper-sha256 db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0
+
+      - name: Retain compilation outputs and complete logs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-red-compile-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/bead-checkpoint-red-build-${{ github.run_id }}-${{ github.run_attempt }}/compile-bundle.tar.gz
+            ${{ runner.temp }}/bead-checkpoint-red-build-${{ github.run_id }}-${{ github.run_attempt }}/result.json
+            ${{ runner.temp }}/bead-checkpoint-red-build-${{ github.run_id }}-${{ github.run_attempt }}/build-result.json
+            ${{ runner.temp }}/bead-checkpoint-red-build-${{ github.run_id }}-${{ github.run_attempt }}/attempt-started.json
+            ${{ runner.temp }}/bead-checkpoint-red-build-${{ github.run_id }}-${{ github.run_attempt }}/logs
