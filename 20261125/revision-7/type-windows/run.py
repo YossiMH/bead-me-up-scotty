@@ -111,7 +111,8 @@ def main():
             shutil.copyfile(args.runtime / name, output / ("linux-" + name))
             retain_text(output / ("linux-" + name), "linux-" + name)
         shutil.copyfile(args.inputs, output / "inputs.json")
-        retain_text(args.native.joinpath(*PurePosixPath(inputs["native_metadata"]["path"]).parts), "native-metadata.json")
+        shutil.copyfile(args.native.joinpath(*PurePosixPath(inputs["native_metadata"]["path"]).parts), output / "native-metadata.json")
+        retain_text(output / "native-metadata.json", "native-metadata.json")
         node = Path(shutil.which("node.exe") or "")
         assert node.is_file()
         npm_cli = node.parent / "node_modules/npm/bin/npm-cli.js"
