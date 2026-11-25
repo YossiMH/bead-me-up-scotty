@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "candidate_ready",
+  "task_key": "type-app-tests",
+  "continuation_revision": 7,
+  "plan_commit": "8115a533b95c7994ffb6441e8d29edee08b5d602",
+  "source_commit": "3d3b0f3850e359bfb8d320d530f132a7e0d67469",
+  "source_tree": "794e6f2c694b21399feaa3a42c3dab435ba70113",
+  "parent_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "changed_files": [
+    {
+      "path": "scripts/fixtures/native-contract.mjs",
+      "sha256": "01b2befaab94c55da0997dbc4a7a15d4320c4eade13a4a8e2fe5ba43050cd526",
+      "bytes": 1872,
+      "blob": "3b5edfb5599945e2f0d5dd887f6e7765933d86fb"
+    },
+    {
+      "path": "scripts/test-native-editing.mjs",
+      "sha256": "adb15736cb60f8c1f09d4cf9a1af7b16f0ce0fbb5d5efc525e755380601f1b33",
+      "bytes": 26585,
+      "blob": "0978fc602316770d459fd7fad8ad423235364392"
+    },
+    {
+      "path": "scripts/test-local-bead-rs.mjs",
+      "sha256": "528449dccecb1acd28caf7d3894540c85f2353c408219db4d2f267aa71f934c7",
+      "bytes": 6117,
+      "blob": "122bca5cf674d64cd22ec64d65ed61e8e9c59350"
+    },
+    {
+      "path": "scripts/test-native-type-roundtrip.mjs",
+      "sha256": "55cd3c76799ef2546b7297c1386a53c99ebfe0ab28a394cd83815fe6e90e64a5",
+      "bytes": 9330,
+      "blob": "524efa3a08b43bab9d23bfa144b0305db0963e37"
+    }
+  ],
+  "checks": [
+    {
+      "command": "node --check scripts/fixtures/native-contract.mjs",
+      "exit": 0
+    },
+    {
+      "command": "node --check scripts/test-native-editing.mjs",
+      "exit": 0
+    },
+    {
+      "command": "node --check scripts/test-local-bead-rs.mjs",
+      "exit": 0
+    },
+    {
+      "command": "node --check scripts/test-native-type-roundtrip.mjs",
+      "exit": 0
+    },
+    {
+      "command": "git diff --check",
+      "exit": 0
+    },
+    {
+      "kind": "remote_comparison",
+      "files": 4,
+      "production_changed": false
+    },
+    {
+      "kind": "remote_tree_matches_inspected_local_tree",
+      "result": true
+    }
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean",
+      "tree": "794e6f2c694b21399feaa3a42c3dab435ba70113",
+      "checks": "Read all four final files and the complete changes. Checked literal-true negotiation cases, old-executable compatibility, exact and combined UTF-8 limits, the 4 MiB allowance, file contents and cleanup, acquired-claim guards, and the new zero-allocation refusal assertion. Existing assertions remain intact."
+    },
+    {
+      "pass": 2,
+      "result": "clean",
+      "tree": "794e6f2c694b21399feaa3a42c3dab435ba70113",
+      "checks": "Read all four final files again with their callers. Checked failure paths, request-file disposal, one scalar update, explicit native source selection, isolated Git/config/temp directories, public query/change-feed readback, actual priority attribution, bounded child commands and observed server/port cleanup. No production behavior was changed."
+    }
+  ],
+  "review_correction": "Added an observed fs/promises call list so allocation before unsupported-type refusal fails even if the error and absence of native writes otherwise look correct.",
+  "expected_red": {
+    "command": "node --test scripts/test-native-editing.mjs",
+    "expected_tests": 48,
+    "expected_failed": 10,
+    "expected_passed": 38,
+    "native_or_http_execution": "Later qualified Windows checks run the permanent real-store and production HTTP scripts."
+  },
+  "git_result": {
+    "published_branch": "task/scotty-finish-20261124",
+    "published_commit": "3d3b0f3850e359bfb8d320d530f132a7e0d67469",
+    "verified_remote_ref": true,
+    "local_commits": [
+      "13ab9ad85285232ff8cd87922ec8148535d16df3",
+      "63e21e1e2911b36d23dbfcb51749f60484f7f432"
+    ],
+    "local_tree": "794e6f2c694b21399feaa3a42c3dab435ba70113",
+    "publication": "GitHub Git-data tools, ordinary descendant with expected previous head; remote tree equals the inspected local tree.",
+    "failed_route": "HTTPS git push exited128 because no username credential was available; no remote update occurred through that route."
+  },
+  "working_location": "/tmp/beads-55c9/app-type-edit",
+  "cleanup": "Keep this Riftri worktree for the app correction. Final cleanup, including by a future agent after interruption, must remove this exact worktree and owned task branches after their contents and results are retained.",
+  "open_items": [
+    "Hosted expected-failure run on this exact tests candidate.",
+    "Independent test review.",
+    "Production correction only after both results pass."
+  ],
+  "recorded_utc": "2026-11-25 07:45:43 UTC"
+}
