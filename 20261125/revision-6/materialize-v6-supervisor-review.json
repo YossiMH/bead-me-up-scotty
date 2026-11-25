@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "review_scope": "Complete independent static review of the revision-6 Windows coordination supervisor",
+  "reviewer": "delivery_review",
+  "reviewed_files": {
+    "materialize-v6-supervisor.ps1": "0bbd5c8d6bfa93068b98e4c43ebfd519a0f49e5ae7ea8e7e22ca75c144528dea"
+  },
+  "bytes": 15827,
+  "lines": 241,
+  "read_complete_file": true,
+  "bindings": {
+    "driver_sha256": "461ee5a0bec9ce08b881b71a8891a44c2f9716173e9dd1e0437d4dcbb0120902",
+    "plan_review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "findings": [],
+  "checks": [
+    "Read all 241 lines and independently measured the exact script bytes and SHA-256.",
+    "Reconciled the accepted materializer result schema: passed status, continuation_revision 6, helper_sha256, and plan_review_sha256.",
+    "Verified fixed repository, driver, Node, and review inputs; ancestor reparse refusal; exact driver/Job-helper/review hashes; exclusive native attempt, temporary, result, and supervisor output paths.",
+    "Verified that the existing qualified helper owns a new kill-on-close Job and initial membership must contain only this supervisor.",
+    "Verified every observed descendant is represented by a retained handle with PID and creation time, actual Job membership and selected session, and BelowNormal priority. Exit races do not permit stopping unrelated reused PIDs.",
+    "Verified aggregate sampling includes the supervisor and every retained live Job member at 100 ms. The run requires 1 GiB free physical RAM initially, caps aggregate measured working set at 512 MiB and Node old-space at 128 MiB, and bounds each driver output stream at 8 MiB.",
+    "Verified the work deadline is 168 seconds and an independent in-process timer terminates only the owned Job at the remaining 180-second whole-run deadline; exit124 is an interrupted failure.",
+    "Verified ordinary direct Node invocation, child-only removal of NODE_OPTIONS and NODE_PATH, quoted argv, explicit working directory, closed stdin, and concurrently drained stdout/stderr.",
+    "Verified successful acceptance requires actual driver exit0, exact native passed result and reviewed helper/review identities, no assisted kill, no cleanup errors, no remaining Job members, and a completed final supervisor receipt.",
+    "Verified failed or interrupted outcomes preserve raw driver streams and exclusive native intents for reconciliation; the supervisor contains no replay or retry path."
+  ],
+  "author_audits": "Root reports two complete clean author inspections on these exact bytes; the author packet will retain them.",
+  "execution_gates": [
+    "Ordinary Windows PowerShell parser must accept the exact published script before use.",
+    "Root performs one invocation only after staged-input hashes and absence of prior attempt paths are reconciled.",
+    "Actual native result, supervisor receipt, exit code and cleanup must be reconciled before accepting the transition."
+  ],
+  "product_or_pc_execution_by_reviewer": false
+}

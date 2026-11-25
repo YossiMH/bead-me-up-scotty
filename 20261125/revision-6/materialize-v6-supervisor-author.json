@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "file": "20261125/revision-6/materialize-v6-supervisor.ps1",
+  "sha256": "0bbd5c8d6bfa93068b98e4c43ebfd519a0f49e5ae7ea8e7e22ca75c144528dea",
+  "bytes": 15827,
+  "lines": 241,
+  "author": "/root",
+  "complete_final_author_inspections": 2,
+  "derived_from": "Reviewed checkpoint-handoff-supervisor-20261125.ps1 owned Job, handle, sampling, deadline and cleanup implementation.",
+  "scope": "One accepted revision-6 native coordination transition; fixed updater461ee5 and plan review27ee4.",
+  "limits": {
+    "minimum_free_gib": 1,
+    "owned_resident_mib": 512,
+    "node_heap_mib": 128,
+    "sample_ms": 100,
+    "work_deadline_seconds": 168,
+    "hard_owned_job_deadline_seconds": 180
+  },
+  "preservation": [
+    "Existing revision5 result and 954 original records remain guarded by updater.",
+    "Four guarded reopens and twelve description-only updates; all 32 tasks and 51 edges retained.",
+    "Every uncertain operation retains intent/raw output and is reconciled without replay."
+  ],
+  "execution": "Pending ordinary PowerShell Parser.ParseFile and one fresh invocation; static review is not execution evidence.",
+  "independent_review_sha256": "31fd5931560b1333ebedbe68d0f21f3a4884555f6decfa8e3ed4d20f7a4182a1"
+}
