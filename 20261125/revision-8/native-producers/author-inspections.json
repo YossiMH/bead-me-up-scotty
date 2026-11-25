@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "status": "ready_for_independent_packet_review",
+  "files": {
+    "20261125/native-repair-linux/checkpoint-linux-build-20261125.py": "6f2f23afa2f85a877020c296e80370e90c851d41cfb846328d3e2d3caac2f1c7",
+    "20261125/native-repair-linux/checkpoint-build-support.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+    "20261125/native-repair-linux/build-inputs.json": "b83cb96d5eaee1d3e838e188579009ff3dbba7439223f9b498f56219ca46c9a5",
+    "20261125/native-repair-linux/workflow.yml": "3d4ab0ea4891dc3e010352c4c8dde701ed1568c4e9be56a09d40dcc48446d266",
+    ".github/workflows/native-repair-linux-build-20261125.yml": "3d4ab0ea4891dc3e010352c4c8dde701ed1568c4e9be56a09d40dcc48446d266",
+    "20261125/native-repair-windows/build.py": "1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07",
+    "20261125/native-repair-windows/verify.py": "1bac983f1e3c8b0a5c74d6a8b922e858ae2765c6292bd9d884aada6eafa3aef9",
+    "20261125/native-repair-windows/build-inputs.json": "8f578a7667ffaed1c5ad139fe0445ccf90292a924bd03d6cafbaa0d126b6eeeb",
+    "20261125/native-repair-windows/workflow.yml": "dbae4748753e3c1dadcfd8d294d9c3a99399c0ad659fa9b0a8b60719ae693d9b",
+    ".github/workflows/native-repair-windows-build-20261125.yml": "dbae4748753e3c1dadcfd8d294d9c3a99399c0ad659fa9b0a8b60719ae693d9b",
+    "20261125/revision-8/native-producers/README.md": "ceedb0b120c4f6844d851f5cb4aab411b1ebbd28c0ce35c2e1d382e35545fd20"
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "coverage": "Complete final producer/workflow/input/verifier delta and preserved original paths read. Linux exact lineage includes tests140, implementation9ff, oracle7adb and repairc90; all nine final hashes match native source. Five-commit checkout includes every required parent. Existing fmt/Clippy/full compile/man/release and failure retention remain."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "coverage": "Complete final packet read again, including README and verifier. Windows original archive build and absolute dumpbin lookup remain; nine complete integration targets plus library compile with one Cargo job. Full and small manifests are separate, both re-downloaded and byte-verified. Source/target/tree/metadata guard, process bounds, uploads and failure behavior match the accepted hosted contract."
+    }
+  ],
+  "execution": "Pending exact packet review and hosted activation. Neither final runtime qualification nor native source acceptance is claimed.",
+  "activation_branches": {
+    "linux": "task/native-repair-linux-build-20261125",
+    "windows": "task/native-repair-windows-build-20261125"
+  },
+  "limits": {
+    "linux_job_minutes": 40,
+    "linux_work_seconds": 1800,
+    "windows_job_minutes": 45,
+    "windows_work_seconds": 2400,
+    "compiler_jobs_per_producer": 1
+  },
+  "native_source_final_author_audits": "Pending final-source automated checks, as required by the accepted repair task."
+}

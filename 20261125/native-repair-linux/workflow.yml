@@ -1,0 +1,99 @@
+name: Compile and build the final native tool for Linux
+
+on:
+  push:
+    branches:
+      - task/native-repair-linux-build-20261125
+
+permissions:
+  contents: read
+
+concurrency:
+  group: native-repair-linux-build-20261125
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Read exact qualification files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/native-repair-linux
+
+      - name: Read the exact implementation and accepted test predecessor
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-rs
+          ref: c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b
+          fetch-depth: 5
+          path: source
+          persist-credentials: false
+
+      - name: Install the pinned compiler and required checks
+        run: rustup toolchain install 1.100.0 --profile minimal --component rustfmt --component clippy --no-self-update
+
+      - name: Parse both exact build helpers
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/checkpoint-green-python-cache-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python3 -m py_compile \
+            "$GITHUB_WORKSPACE/ci/20261125/native-repair-linux/checkpoint-linux-build-20261125.py" \
+            "$GITHUB_WORKSPACE/ci/20261125/native-repair-linux/checkpoint-build-support.py"
+
+      - name: Verify whitespace and compile the immutable source
+        timeout-minutes: 32
+        run: |
+          python3 "$GITHUB_WORKSPACE/ci/20261125/native-repair-linux/checkpoint-linux-build-20261125.py" \
+            --checkout "$GITHUB_WORKSPACE/source" \
+            --support-helper "$GITHUB_WORKSPACE/ci/20261125/native-repair-linux/checkpoint-build-support.py" \
+            --inputs "$GITHUB_WORKSPACE/ci/20261125/native-repair-linux/build-inputs.json" \
+            --inputs-sha256 b83cb96d5eaee1d3e838e188579009ff3dbba7439223f9b498f56219ca46c9a5 \
+            --helper-sha256 6f2f23afa2f85a877020c296e80370e90c851d41cfb846328d3e2d3caac2f1c7
+
+      - name: Preserve compiled output if a later producer step fails
+        if: failure()
+        timeout-minutes: 6
+        run: |
+          root="$RUNNER_TEMP/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}"
+          if [[ -f "$root/source.tar" && -f "$root/source-files.json" && -d "$root/target" ]]; then
+            timeout 300 tar -I 'gzip -1' -cf "$root/retained-compiled-output.tar.gz" -C "$root" source.tar source-files.json target logs build-result.json result.json
+          fi
+
+      - name: Retain all compiled targets and complete build streams
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/qualification-bundle.tar.gz
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/build-result.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/result.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/repair-whitespace.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/format-check.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/attempt-started.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/logs
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/generated-bead-update.1
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/retained-compiled-output.tar.gz
+
+      - name: Retain the release and selected original public corpus
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-linux-release-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/release
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/public-original
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/build-result.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/result.json
