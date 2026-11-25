@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "independent_actual_result_reconciliation",
+  "native_task": "beadrs-50ff08d3",
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "run": {
+    "id": 45544035266,
+    "job_id": 138969193662,
+    "workflow_commit": "2168ee51f06ea5b498bbbc7b00a833f19581fb26",
+    "workflow_sha256": "ad0212cb35a8762f6149570fbbaadc91a3b68ba67e18e0429cbec9ead4a905b6"
+  },
+  "accepted_inputs": {
+    "release_sha256": "af2570ccdd3c34a1278b660a66ac7e780a13a2de96d9f3e91c7265e2efbf85db",
+    "release_metadata_sha256": "5195149700e36ffa4692258e000a54f8353b6eb879df66df332beb07c8d140b8",
+    "helper_sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "input_sha256": "07735a2735737bc9e3b6fe3677c0335d9becbc9ffd2cef5b58df30c7fb444c3c",
+    "bound_execution_review_sha256": "ae72e3fe48799c68715bfc5f9b893fb517719cf29e3f6c79fd38a2e068343c23"
+  },
+  "result": {
+    "sha256": "e24b7b79d9d977327770349e052a14e7e09bcedd79c78cfc7120062c72e9f920",
+    "bytes": 28024,
+    "status": "passed",
+    "duration_seconds": 29.883,
+    "commands_passed": 10,
+    "owned_groups_empty": 10,
+    "verification_restores": 4,
+    "complete_comparisons": 6
+  },
+  "durable_packet": {
+    "commit": "48ef006336be6d34aa23d872b1d74812ad7ebaf6",
+    "path": "20261125/results/linux-corpus-45544035266",
+    "manifest_sha256": "78d7bbf90c7187d23d1337e9a6d5c493f9269d85206d816f4f405643f3867bdf",
+    "author_result_sha256": "b7b22f81d6062a4e885744b5e2bb81be9bcc848bf9de98f24760c00b61648047",
+    "result_exactly_equals_actual_job_output": true,
+    "all_20_stream_blobs_exactly_equal_actual_job_output": true
+  },
+  "read_complete_result": true,
+  "read_all_command_and_cleanup_records": true,
+  "read_all_comparison_maps": true,
+  "read_all_four_restore_reports": true,
+  "complete_raw_streams_verified": 20,
+  "evidence_review": [
+    "Decoded the exact actual result and all 20 complete native stdout/stderr streams from the finalized job log; verified every byte count and SHA-256 against the result and durable packet.",
+    "Read all six full comparison maps and all four generation/restore records. Verified all original 954 issues, 11264 events, five provenance receipts and 413 attempt outcomes, including complete payload identities.",
+    "Reconciled canonical origin sequence 1..11264 separately from the historical SQLite snapshot sequence 29609; measured restore receipts and fixture-only new events are the expected additions.",
+    "Checked the original public input, each source workspace and checkpoint configuration remain unchanged, all native commands exited zero and every owned process group is empty.",
+    "Classified every one of the 1140 nonempty restore stderr lines as an existing advisory scanner confirmation. Read the masked structured-field variants separately; no unclassified failure was hidden. All four reports have local_recovery_succeeded=true, secret_quarantined=false, checkpoint_publication_withheld=false and seven zero displaced counters.",
+    "Compared all 20 published Git log blobs byte-for-byte with the independently decoded actual streams, and reconciled live artifact metadata and the actual workflow hash."
+  ],
+  "original": {
+    "commit": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+    "workspace_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "counts": {
+      "issue": 954,
+      "event": 11264,
+      "provenance_receipt": 5,
+      "attempt_outcome": 413
+    },
+    "generation": "gen-a569f746bbb268015d996c8ed4c76f57",
+    "root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+    "snapshot_sequence": 29609,
+    "maximum_origin_sequence": 11264
+  },
+  "preservation": {
+    "before_append_generation": "gen-ec326dec125f0640bbc08483aae5369d",
+    "after_append_generation": "gen-eed6552171e75c93e41df579ad697429",
+    "previous_pointer_and_closure_match_before_append": true,
+    "previous_complete_record_index_sha256": "20cde66612843892adb2f45f8a17839834f2c97682ec039aa6ba3446811a1265",
+    "current_complete_record_index_sha256": "f054edcbc449d41d662b690387f1acbec66d970207776f0746440f2f54a1120e",
+    "previous_counts": {
+      "issue": 954,
+      "event": 11265,
+      "provenance_receipt": 6,
+      "attempt_outcome": 413
+    },
+    "current_counts": {
+      "issue": 955,
+      "event": 11266,
+      "provenance_receipt": 6,
+      "attempt_outcome": 413
+    },
+    "isolated_fixture_issue": "bead-28ed8095",
+    "original_attempt_outcomes_equal_in_every_comparison": 413
+  },
+  "artifact": {
+    "id": 14990816504,
+    "sha256": "c34df39d3e65376ea7239d3d6f23f5a241e6de57d561aaa84a653d9a0f3b065a",
+    "bytes": 20849136,
+    "uploaded_files": 2496,
+    "expires_at": "2026-12-02T04:04:31Z",
+    "complete_zip_downloaded_by_reviewer": false
+  },
+  "remaining_gates": [
+    "The full default Linux test suite is a separate task.",
+    "Windows archive build, affected native checks, exact-pin editing round trip and Windows corpus checks remain separate tasks.",
+    "Actual original-workspace publication and fresh restore must use the final qualified replacement native pin."
+  ],
+  "conclusion": "Accept the actual Linux checkpoint qualification result for this exact release and task. The two checkpoint defects are covered by complete-corpus preservation and fresh current/previous recovery without changing checkpoint configuration.",
+  "cleanup_if_interrupted": "Retain the immutable source, reviews, original failures and complete actual evidence. Root or a future agent must reconcile exact native task-state receipts and remove only this assignment's clean Riftri worktrees and temporary hosted branches after delivery."
+}

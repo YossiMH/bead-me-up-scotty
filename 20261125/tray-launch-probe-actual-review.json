@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "delivery_review",
+  "review_kind": "independent_actual_process_probe_reconciliation",
+  "native_task": "beadrs-9422c821",
+  "accepted_plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+  "plan_review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+  "static_review_sha256": "dbe6692dfbf75457ec26d2913129be18fb52cfc1dc3a3aa4caa0ba80a630f3a6",
+  "run": {
+    "id": 45544873983,
+    "job_id": 138971960404,
+    "workflow_commit": "107b49cb690ffc1a8bbd591bbec1bc2412b4962c",
+    "workflow_sha256": "942c7b8cba610bc877e9c6364180b9445deb8af28f6c2e11cbdb311266787d7a"
+  },
+  "measured_inputs": {
+    "node": "v25.2.1",
+    "libuv": "1.51.0",
+    "powershell": "5.1.26100.33822",
+    "probe_sha256": "92c49c4c717a2e9deb22b8bc6baa75b1628ef1c2cb7ab51072703107e28ab629",
+    "marker_sha256": "2130a8157c558f7a8a323a40cc078f0fe0478fc7ce61fc75fd884d036118d3a9"
+  },
+  "result_sha256": "6f5a3d614112671edb05deef8d817bf69d214b762b6f1d1fd1cc1f2bab1ea35f",
+  "job_log_sha256": "5a48c83513f43df487289e720cd60b297f5fa8352607a3c767b9a4e5606e4a60",
+  "diagnosis_sha256": "dfcb7faab544f895033a43eef110ee6dd2470f607e2c069cf4496c7bbe435d90",
+  "duration_seconds": 2.554,
+  "read_complete_result": true,
+  "read_complete_actual_job_log": true,
+  "read_complete_root_diagnosis": true,
+  "cases": [
+    {
+      "name": "attached",
+      "accepted": true,
+      "pid": 9400,
+      "detached": false,
+      "ready_observed": true,
+      "entry_and_final_markers": true,
+      "actual_close_code": 7,
+      "elapsed_ms": 1294
+    },
+    {
+      "name": "detached",
+      "accepted": true,
+      "pid": 6320,
+      "detached": true,
+      "stdout": "",
+      "stderr": "",
+      "entry": null,
+      "final": null,
+      "actual_close_code": 0,
+      "elapsed_ms": 95,
+      "meaning": "Reproduces premature exit before marker script body."
+    },
+    {
+      "name": "host",
+      "accepted": true,
+      "host_pid": 2800,
+      "powershell_pid": 852,
+      "host_detached": true,
+      "powershell_detached": false,
+      "ready_observed": true,
+      "entry_and_final_markers": true,
+      "actual_child_close_code": 7,
+      "actual_host_close_code": 7,
+      "elapsed_ms": 514
+    },
+    {
+      "name": "parent-loss",
+      "accepted": true,
+      "controller_pid": 8216,
+      "host_pid": 9252,
+      "powershell_pid": 2144,
+      "controller_observed_signal": "SIGKILL",
+      "original_parent_handle_cached_before_ready": true,
+      "final_marker_parent_lost": true,
+      "final_marker_completed": true,
+      "actual_child_close_code": 0,
+      "host_close_record_written": true,
+      "host_pid_absent": true,
+      "forwarded_complete_stdout_captured": false
+    }
+  ],
+  "conclusions": [
+    "The exact Node25.2.1/libuv1.51.0 hosted comparison confirms the direct detached Windows PowerShell startup failure and supports the prior PC failure diagnosis.",
+    "A detached Node host spawning attached ordinary hidden PowerShell with three fresh pipes executes the script and forwards its actual exit status.",
+    "The original controller is forcibly terminated only after the marker acquires its real process handle and emits a complete READY line. PowerShell subsequently records parentLost and completed, and the host records actual child close0.",
+    "The marker source writes COMPLETE after parent loss and the host tolerates broken output. The result contains final-file and actual child-close evidence; it does not claim that the dead controller captured that final stdout.",
+    "All five recorded host/child/controller PIDs are absent; directly launched attached/detached children have observed close events. The complete probe lasts 2.554 seconds within all static bounds."
+  ],
+  "resource_and_scope": {
+    "ordinary_file_policy": true,
+    "shell": false,
+    "windows_hide": true,
+    "all_stdio_new_pipes": true,
+    "no_next_or_forms": true,
+    "no_pc_access": true,
+    "no_native_database_mutation": true
+  },
+  "artifact": {
+    "id": 14991655500,
+    "sha256": "a02231cc02021ab2a44a865ed1acf3c7d1701ae77d1c5628fdbed6ee9a8a5784",
+    "bytes": 6897,
+    "expires_at": "2026-12-09T04:10:21Z"
+  },
+  "previous_pc_failure": {
+    "source": "38c21a77b4e875d75e17ee68683846601df33591",
+    "result_sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+    "status_remains": "failed",
+    "cleanup_reconciled": true
+  },
+  "permitted_next_action": "Implement the accepted revision6 two-module production host and affected tests/observers. Root remains the sole native-state and PC writer; reconcile the four invalidated task reopens and twelve description updates before final installation.",
+  "remaining_gates": [
+    "Review the complete actual production candidate and its targeted process tests.",
+    "Review the exact updated installer and bounded archive-stage helper.",
+    "Run the actual logged-in Windows tray menu/Exit/parent-loss/restart checks with all resource limits, then the installed default launch."
+  ],
+  "conclusion": "Accept this exact hosted process probe and bounded diagnosis. It supplies the missing causal evidence for the specified production repair; desktop tray behavior remains a separate required acceptance.",
+  "cleanup_if_interrupted": "Retain the failed desktop runs and complete hosted evidence. Root or a future agent must reconcile exact native mutation markers, then remove this task's exact clean Riftri worktrees and temporary branches after delivery."
+}
