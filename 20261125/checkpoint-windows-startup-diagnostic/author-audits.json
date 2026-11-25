@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "passed_static_author_inspection",
+  "scope": "bounded hosted startup diagnostic; no product/helper execution performed",
+  "files": {
+    "startup-diagnostic.ps1": {
+      "sha256": "27f8dcd3fd25f749f94a6a8879d022de0d84ea31f184a63ff08d84fad1fe9e60",
+      "bytes": 5851
+    },
+    "startup-diagnostic.workflow.yml": {
+      "sha256": "c966c0ab4f18a3e32b8ce9c75fa7dcfd282347270d1f7bc955233bc6f97c51f9",
+      "bytes": 5896
+    },
+    "README.md": {
+      "sha256": "c5933bb405566d9f43d9f6f11ea43e395d17507f438a813c335b7370ee77863c",
+      "bytes": 2561
+    },
+    "failed-run-job.log": {
+      "sha256": "5929b4f276f4f56510663db925ada9b71c21d7388279e44169c33cf0db737021",
+      "bytes": 55429
+    },
+    "failed-run-completion.json": {
+      "sha256": "e4cc602c76fe4bd5cd824f1b2e6cbeac610f0e3096f2688aca9a98ca360c32a2",
+      "bytes": 627
+    },
+    "failed-run-artifacts.json": {
+      "sha256": "976e9a83019f28ab9b96762bd8c41319cebf5c854359607c2b4ccba909c783b1",
+      "bytes": 882
+    }
+  },
+  "inspections": [
+    {
+      "id": 1,
+      "complete_files_read": [
+        "startup-diagnostic.ps1",
+        "startup-diagnostic.workflow.yml",
+        "README.md",
+        "failed-run-job.log",
+        "failed-run-completion.json",
+        "failed-run-artifacts.json"
+      ],
+      "conclusions": [
+        "The exact retained failure is precompiler setup; no artifact or test success is inferred.",
+        "All original path/root/reparse/hash checks remain; added traces use Console to avoid contaminating PowerShell return values.",
+        "The diagnostic stops before Python execution; the only child launched by the parent is ordinary PowerShell.",
+        "An empty isolated source directory preserves the checkout string and existing directory-type precondition."
+      ]
+    },
+    {
+      "id": 2,
+      "complete_files_read": [
+        "startup-diagnostic.ps1",
+        "startup-diagnostic.workflow.yml",
+        "README.md",
+        "failed-run-job.log",
+        "failed-run-completion.json",
+        "failed-run-artifacts.json"
+      ],
+      "conclusions": [
+        "The original native @argv launch mechanism and PowerShell versions are preserved.",
+        "The unchanged pinned Job helper owns parent and child before child launch; step/job bounds cap startup.",
+        "No environment dump, token print, source checkout, build or native execution is added; only allowlisted path metadata is exposed.",
+        "The failed run log, completion and artifact identities are retained; diagnosis result cannot satisfy build/check tasks.",
+        "All branches and runner outputs are explicitly owned and cleanup is documented; actual parser/runtime remains the diagnostic's measured output."
+      ]
+    }
+  ]
+}

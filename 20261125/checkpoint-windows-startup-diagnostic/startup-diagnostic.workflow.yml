@@ -1,0 +1,102 @@
+name: Temporary Windows startup path diagnostic
+
+on:
+  push:
+    branches:
+      - task/checkpoint-windows-startup-diagnostic-20261125
+
+permissions:
+  contents: read
+
+jobs:
+  diagnose:
+    runs-on: windows-2025
+    timeout-minutes: 5
+    env:
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+    steps:
+      - name: Read the exact reviewed diagnostic and original packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/checkpoint-windows
+            20261125/checkpoint-windows-startup-diagnostic
+
+      - name: Read the unchanged owned Job helper
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          ref: 6d40aacb49eba309f1f925e106cfbb9026cce744
+          path: job
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: windows-task-job.ps1
+
+      - name: Record exact startup path values without invoking the build
+        shell: pwsh
+        timeout-minutes: 2
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $PSNativeCommandUseErrorActionPreference = $false
+          $utf8 = [Text.UTF8Encoding]::new($false)
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/checkpoint-windows'
+          $diagnostic = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/checkpoint-windows-startup-diagnostic/startup-diagnostic.ps1'
+          $jobHelper = Join-Path $env:GITHUB_WORKSPACE 'job/windows-task-job.ps1'
+          if ((Get-FileHash -LiteralPath $diagnostic -Algorithm SHA256).Hash.ToLowerInvariant() -cne '27f8dcd3fd25f749f94a6a8879d022de0d84ea31f184a63ff08d84fad1fe9e60') { throw 'Diagnostic bytes differ.' }
+          if ((Get-FileHash -LiteralPath $jobHelper -Algorithm SHA256).Hash.ToLowerInvariant() -cne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f') { throw 'Job helper differs.' }
+          $originalSupervisor = Join-Path $packet 'checkpoint-windows-supervisor-20261125.ps1'
+          if ((Get-FileHash -LiteralPath $originalSupervisor -Algorithm SHA256).Hash.ToLowerInvariant() -cne '65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa') { throw 'Original supervisor differs.' }
+          $output = Join-Path $env:RUNNER_TEMP "checkpoint-windows-startup-$($env:GITHUB_RUN_ID)-$($env:GITHUB_RUN_ATTEMPT)"
+          if (Test-Path -LiteralPath $output) { throw 'Diagnostic output exists.' }
+          [void][IO.Directory]::CreateDirectory($output)
+          $checkout = Join-Path $env:GITHUB_WORKSPACE 'source'
+          if (Test-Path -LiteralPath $checkout) { throw 'Diagnostic placeholder exists.' }
+          [void][IO.Directory]::CreateDirectory($checkout)
+          $helper = Join-Path $packet 'checkpoint-windows-build-20261125.py'
+          $inputs = Join-Path $packet 'build-inputs.json'
+          $argv = @('-NoLogo','-NoProfile','-NonInteractive','-File',$diagnostic,'-Phase','build',
+                    '-PythonHelper',$helper,'-HelperSha256','38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d',
+                    '-InputManifest',$inputs,'-InputsSha256','25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a',
+                    '-JobHelper',$jobHelper,'-SupervisorSha256','27f8dcd3fd25f749f94a6a8879d022de0d84ea31f184a63ff08d84fad1fe9e60','-Checkout',$checkout)
+          $powershell = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+          . $jobHelper
+          Enter-ScottyTaskJob
+          $stdout = Join-Path $output 'startup.stdout'
+          $stderr = Join-Path $output 'startup.stderr'
+          & $powershell @argv 1> $stdout 2> $stderr
+          $observedExit = $LASTEXITCODE
+          $records = @()
+          foreach ($path in @($stdout,$stderr)) {
+              $bytes = [IO.File]::ReadAllBytes($path)
+              if ($bytes.Length -gt 256KB) { throw 'Diagnostic stream bound exceeded.' }
+              $records += [ordered]@{ filename=[IO.Path]::GetFileName($path); bytes=$bytes.Length;
+                  sha256=(Get-FileHash -LiteralPath $path -Algorithm SHA256).Hash.ToLowerInvariant();
+                  base64=[Convert]::ToBase64String($bytes) }
+          }
+          $result = [ordered]@{ schema_version=1; status='diagnostic_collected'; child_exit_code=$observedExit;
+              source_supervisor_sha256='65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa';
+              diagnostic_sha256='27f8dcd3fd25f749f94a6a8879d022de0d84ea31f184a63ff08d84fad1fe9e60'; no_product_build_or_execution=$true;
+              run_id=$env:GITHUB_RUN_ID; run_attempt=$env:GITHUB_RUN_ATTEMPT; workflow_commit=$env:GITHUB_SHA;
+              records=$records }
+          $resultPath = Join-Path $output 'result.json'
+          [IO.File]::WriteAllText($resultPath, (ConvertTo-Json -InputObject $result -Depth 12) + [string][char]10, $utf8)
+          Write-Output ('CHECKPOINT_STARTUP_RESULT_SHA256 ' + (Get-FileHash -LiteralPath $resultPath -Algorithm SHA256).Hash.ToLowerInvariant())
+          Write-Output ('CHECKPOINT_STARTUP_RESULT_BASE64 ' + [Convert]::ToBase64String([IO.File]::ReadAllBytes($resultPath)))
+          [Environment]::Exit(0)
+
+      - name: Retain the bounded startup evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-startup-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: ${{ runner.temp }}/checkpoint-windows-startup-${{ github.run_id }}-${{ github.run_attempt }}/
