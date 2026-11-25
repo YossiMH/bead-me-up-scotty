@@ -32,7 +32,7 @@ function Read-Processes([string]$Directory, [switch]$Complete) {
     for ($line = 0; $line -lt $lines.Length - 1; $line++) {
         try {
             $record = $lines[$line] | ConvertFrom-Json -ErrorAction Stop
-            if ($null -eq $record -or $record.pid -lt 1 -or $record.kind -notin @('tray', 'server')) {
+            if ($null -eq $record -or $record.pid -lt 1 -or $record.kind -notin @('tray-host', 'tray', 'server')) {
                 throw 'Missing process identity'
             }
             $records.Add($record)
@@ -116,12 +116,26 @@ try {
             Register-OwnedChildren $run
             if ($run.process.HasExited) { throw 'Controller exited before starting its children; inspect the retained logs' }
             $records = Read-Processes $run.directory
-            @($records | Where-Object { $_.kind -eq 'tray' }).Count -eq 1 -and
+            @($records | Where-Object { $_.kind -eq 'tray-host' }).Count -eq 1 -and
+                @($records | Where-Object { $_.kind -eq 'tray' }).Count -eq 1 -and
                 @($records | Where-Object { $_.kind -eq 'server' }).Count -eq 1
-        } 'Expected one owned server and one tray helper'
+        } 'Expected one owned server, one Node tray host and one PowerShell helper'
         $records = Read-Processes $run.directory
         Register-OwnedChildren $run
         $trayRecord = $records | Where-Object { $_.kind -eq 'tray' }
+        $hostRecord = $records | Where-Object { $_.kind -eq 'tray-host' }
+        if (-not $hostRecord.windowsHide -or -not $hostRecord.detached -or $trayRecord.detached -ne $false) {
+            throw 'Tray host and PowerShell must use their distinct hidden launch modes'
+        }
+        if ($hostRecord.parentPid -ne $run.process.Id -or $trayRecord.parentPid -ne $hostRecord.pid) {
+            throw 'Tray process parent chain differs from the controller and host'
+        }
+        $parentIndex = [Array]::IndexOf([object[]]$trayRecord.args, '-ParentProcessId')
+        if ($parentIndex -lt 0 -or [int]$trayRecord.args[$parentIndex + 1] -ne $run.process.Id) {
+            throw 'PowerShell must watch the original controller'
+        }
+        $hostHash = (Get-FileHash -LiteralPath (Join-Path $RepositoryPath 'bin\windows-tray-host.mjs') -Algorithm SHA256).Hash
+        if ($hostRecord.hostScriptSha256 -ne $hostHash) { throw 'Node tray host source differs' }
         if (-not $trayRecord.windowsHide) { throw 'Tray helper could show a console window' }
         $localRoot = [System.IO.Path]::GetFullPath($env:LOCALAPPDATA).TrimEnd('\') + '\'
         $helperScript = [System.IO.Path]::GetFullPath([string]$trayRecord.helperScript)
@@ -142,10 +156,11 @@ try {
         if (@($trayRecord.args | Where-Object { $_ -match 'Bypass|ExecutionPolicy|EncodedCommand' }).Count -gt 0) {
             throw 'Tray qualification must retain the host execution policy'
         }
+        $hostProcess = $run.children[[string]$hostRecord.pid]
         $trayProcess = $run.children[[string]$trayRecord.pid]
         $serverRecord = $records | Where-Object { $_.kind -eq 'server' }
         $serverProcess = $run.children[[string]$serverRecord.pid]
-        if ($null -eq $trayProcess -or $null -eq $serverProcess) { throw 'An owned child exited during startup' }
+        if ($null -eq $hostProcess -or $null -eq $trayProcess -or $null -eq $serverProcess) { throw 'An owned child exited during startup' }
         Wait-Condition {
             try {
                 (Invoke-WebRequest -UseBasicParsing -Uri "http://127.0.0.1:$Port" -TimeoutSec 2).StatusCode -eq 200
@@ -155,7 +170,7 @@ try {
             [System.IO.File]::WriteAllText((Join-Path $run.directory 'click-exit'), '')
             Wait-Condition { $run.process.HasExited } 'Tray Exit did not stop its controller' 15
             if ($run.process.ExitCode -ne 0) { throw 'Tray Exit failed; inspect the retained logs' }
-            if (-not $serverProcess.HasExited -or -not $trayProcess.HasExited) {
+            if (-not $serverProcess.HasExited -or -not $trayProcess.HasExited -or -not $hostProcess.HasExited) {
                 throw 'Controller exited before its owned server and tray helper'
             }
             $receipt = Get-Content -Raw -LiteralPath (Join-Path $run.directory 'icon-receipt.json') | ConvertFrom-Json
@@ -166,7 +181,7 @@ try {
             # Abruptly kill this controller handle only. The unmodified helper
             # must observe parent loss without a foreground window or UI click.
             $run.process.Kill()
-            Wait-Condition { $trayProcess.HasExited } 'Tray helper survived parent loss' 15
+            Wait-Condition { $trayProcess.HasExited -and $hostProcess.HasExited } 'Tray helper or host survived parent loss' 15
             if (-not $serverProcess.HasExited) {
                 $serverProcess.Kill()
                 if (-not $serverProcess.WaitForExit(5000)) { throw 'Owned server did not exit after cleanup' }
@@ -177,7 +192,7 @@ try {
             -not [System.IO.Directory]::Exists([System.IO.Path]::GetDirectoryName($helperScript)) -and
                 -not [System.IO.Directory]::Exists([System.IO.Path]::GetDirectoryName($executedScript))
         } 'An owned helper or click-fixture session cache survived cleanup' 10
-        $results.Add(@{ action = $action; controllerPid = $run.process.Id; trayPid = $trayProcess.Id; serverPid = $serverProcess.Id
+        $results.Add(@{ action = $action; controllerPid = $run.process.Id; hostPid = $hostProcess.Id; trayPid = $trayProcess.Id; serverPid = $serverProcess.Id
             port = $Port; helperScript = $helperScript; helperScriptSha256 = $bundledHash.ToLowerInvariant(); executedScript = $executedScript
             cachedScriptsRemoved = $true; result = 'pass' })
     }

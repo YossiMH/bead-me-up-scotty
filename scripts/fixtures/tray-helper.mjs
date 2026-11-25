@@ -15,17 +15,24 @@ if (process.env.SCOTTY_TRAY_TEST_HELPER_MODE === 'failure') {
 
 process.stdout.write('READY\n');
 const input = readline.createInterface({ input: process.stdin });
+let disposed = false;
 function dispose() {
+  if (disposed || process.env.SCOTTY_TRAY_TEST_HELPER_MODE === 'ignore-stop') return;
+  disposed = true;
   record('tray_disposed');
-  process.exit(0);
+  if (process.env.SCOTTY_TRAY_TEST_HELPER_MODE === 'write-on-close') {
+    process.stdout.write('DONE\n', () => process.exit(0));
+  } else process.exit(0);
 }
 input.on('line', line => {
   if (line === 'STOP') dispose();
 });
 input.on('close', dispose);
+let clicked = false;
 const timer = setInterval(() => {
-  if (fs.existsSync(path.join(root, 'click-exit'))) {
-    clearInterval(timer);
+  if (!clicked && fs.existsSync(path.join(root, 'click-exit'))) {
+    clicked = true;
+    if (process.env.SCOTTY_TRAY_TEST_HELPER_MODE !== 'ignore-stop') clearInterval(timer);
     record('tray_exit_clicked');
     // Repeated activation must never turn a requested stop into a restart.
     process.stdout.write('EXIT\nEXIT\n');

@@ -38,7 +38,14 @@ function cacheClickFixture() {
 }
 
 childProcess.spawn = (command, args = [], options = {}) => {
-  const kind = /(^|[\\/])(?:powershell|pwsh)(?:\.exe)?$/i.test(command) ? 'tray' : 'server';
+  const hostScript = command === process.execPath
+    ? args.find(arg => /[\\/]windows-tray-host\.mjs$/.test(arg)) : undefined;
+  const kind = hostScript ? 'tray-host'
+    : /(^|[\\/])(?:powershell|pwsh)(?:\.exe)?$/i.test(command) ? 'tray' : 'server';
+  const hostScriptSha256 = hostScript ? digest(hostScript) : undefined;
+  if (hostScript && hostScriptSha256 !== digest(path.resolve(directory, '../../bin/windows-tray-host.mjs'))) {
+    throw new Error('Observed Node tray host differs from the bundled source.');
+  }
   const value = name => {
     const index = args.findIndex(arg => arg.toLowerCase() === name.toLowerCase());
     return index < 0 ? undefined : args[index + 1];
@@ -48,7 +55,8 @@ childProcess.spawn = (command, args = [], options = {}) => {
   if (kind === 'tray' && helperScriptSha256 !== digest(path.resolve(directory, '../../bin/windows-tray.ps1'))) {
     throw new Error('Observed production helper differs from the bundled source.');
   }
-  let actualArgs = args;
+  // The host is a separate Node process; observe its real PowerShell child too.
+  let actualArgs = hostScript ? ['--import', import.meta.url, ...args] : args;
   let fixture;
   if (kind === 'tray' && process.env.SCOTTY_TRAY_SMOKE_ACTION === 'exit') {
     fixture = cacheClickFixture();
@@ -71,7 +79,9 @@ childProcess.spawn = (command, args = [], options = {}) => {
   // Record the PID synchronously, before control returns to a controller that
   // might fail during startup. Failed OS spawns have no PID to own or clean.
   if (child.pid) fs.appendFileSync(path.join(root, 'processes.jsonl'), `${JSON.stringify({
-    kind, pid: child.pid, command, args: actualArgs, windowsHide: options.windowsHide,
+    kind, pid: child.pid, parentPid: process.pid, command, args: actualArgs,
+    windowsHide: options.windowsHide, detached: options.detached, stdio: options.stdio,
+    hostScript, hostScriptSha256,
     helperScript, helperScriptSha256,
     startedAfter, recordedAt: Date.now(),
   })}\n`);

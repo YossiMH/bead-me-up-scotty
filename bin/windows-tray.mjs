@@ -50,14 +50,13 @@ export function createWindowsTray({ url, onExit, onFailure }) {
     if (cleanupError) console.error(cleanupError.message);
   }
   process.on('exit', parentExit);
-  const executable = path.win32.join(process.env.SystemRoot || 'C:\\Windows',
-    'System32', 'WindowsPowerShell', 'v1.0', 'powershell.exe');
+  const executable = process.execPath;
+  const host = fileURLToPath(new URL('./windows-tray-host.mjs', import.meta.url));
   let child;
   try {
-    child = spawn(executable, ['-NoLogo', '-NoProfile', '-NonInteractive',
-      '-STA', '-WindowStyle', 'Hidden', '-File', copy.script,
-      '-ParentProcessId', String(process.pid), '-Url', url, '-CacheDirectory', copy.directory], {
-      // Skip Node's kill-on-close Job so the helper can clean up after parent loss.
+    child = spawn(executable, ['--max-old-space-size=64', host,
+      copy.script, String(process.pid), url, copy.directory], {
+      // The Node host survives controller loss and keeps PowerShell attached.
       detached: true,
       windowsHide: true, shell: false, stdio: ['pipe', 'pipe', 'pipe'],
     });
@@ -70,13 +69,24 @@ export function createWindowsTray({ url, onExit, onFailure }) {
   let output = '';
   let diagnostic = '';
   let stopOperation;
+  let closeOutcome;
   let acceptReady;
   let rejectReady;
   const ready = new Promise((resolve, reject) => {
     acceptReady = resolve;
     rejectReady = reject;
   });
-  const closed = new Promise(resolve => child.once('close', resolve));
+  const closed = new Promise(resolve => child.once('close', (code, signal) => {
+    closeOutcome = { code, signal };
+    resolve(closeOutcome);
+  }));
+
+  function checkTermination() {
+    if (closeOutcome?.code !== 0 || closeOutcome?.signal) {
+      const details = diagnostic.trim() || `exit ${closeOutcome?.code ?? closeOutcome?.signal ?? 'unknown'}`;
+      throw new Error(`Windows tray host failed during cleanup: ${details}`);
+    }
+  }
 
   function fail(error) {
     if (['failed', 'stopping', 'closed', 'exit-requested'].includes(phase)) return;
@@ -136,6 +146,7 @@ export function createWindowsTray({ url, onExit, onFailure }) {
         clearTimeout(startupTimer);
         if (phase === 'closed') {
           if (cleanupError) throw cleanupError;
+          checkTermination();
           return;
         }
         if (phase === 'starting') rejectReady(new Error('Windows tray startup was cancelled'));
@@ -150,6 +161,7 @@ export function createWindowsTray({ url, onExit, onFailure }) {
           await closed;
           if (cleanupError) throw cleanupError;
           if (shutdown === 'forced') throw new Error('Windows tray required forced termination');
+          checkTermination();
         }
         finally { clearTimeout(timer); }
       })();

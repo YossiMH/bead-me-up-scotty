@@ -15,6 +15,16 @@ Object.defineProperty(process, 'platform', {
 });
 
 childProcess.spawn = (command, args = [], options = {}) => {
+  if (command === process.execPath && args.some(arg => /[\\/]windows-tray-host\.mjs$/.test(arg))) {
+    const child = originalSpawn(command, ['--import', import.meta.url, ...args], {
+      ...options, detached: false,
+    });
+    fs.appendFileSync(path.join(root, 'events.jsonl'), JSON.stringify({
+      event: 'tray_host_spawn', pid: child.pid, command, args,
+      detached: options.detached, windowsHide: options.windowsHide, shell: options.shell, stdio: options.stdio,
+    }) + '\n');
+    return child;
+  }
   if (!/(^|[\\/])(?:powershell|pwsh)(?:\.exe)?$/i.test(command)) {
     return originalSpawn(command, args, options);
   }
@@ -23,7 +33,7 @@ childProcess.spawn = (command, args = [], options = {}) => {
     event: 'tray_spawn', command, args,
     scriptSha256: createHash('sha256').update(fs.readFileSync(script)).digest('hex'),
     detached: options.detached,
-    windowsHide: options.windowsHide, shell: options.shell,
+    windowsHide: options.windowsHide, shell: options.shell, stdio: options.stdio,
   })}\n`);
   if (process.env.SCOTTY_TRAY_TEST_HELPER_MODE === 'spawn-error') {
     return originalSpawn(path.join(root, 'missing-powershell'), [], options);
@@ -36,7 +46,9 @@ childProcess.spawn = (command, args = [], options = {}) => {
   });
 };
 syncBuiltinESMExports();
-const explicitExit = setInterval(() => {
-  if (fs.existsSync(path.join(root, 'exit-controller'))) process.exit(73);
-}, 20);
-explicitExit.unref();
+if (!process.argv.some(arg => /[\\/]windows-tray-host\.mjs$/.test(arg))) {
+  const explicitExit = setInterval(() => {
+    if (fs.existsSync(path.join(root, 'exit-controller'))) process.exit(73);
+  }, 20);
+  explicitExit.unref();
+}

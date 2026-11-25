@@ -231,8 +231,16 @@ for (const entry of ['global', 'serve', 'start']) {
     const server = await run.ready();
     const tray = await run.tray();
     const spawnEvent = run.events().find(event => event.event === 'tray_spawn');
-    assert.equal(spawnEvent.detached, true,
-      'the Windows helper must be able to finish cleanup after parent loss');
+    const host = run.events().find(event => event.event === 'tray_host_spawn');
+    assert.ok(host, 'the controller must create its separate Node tray host');
+    assert.equal(host.detached, true);
+    assert.equal(host.windowsHide, true);
+    assert.equal(host.shell, false);
+    assert.deepEqual(host.stdio, ['pipe', 'pipe', 'pipe']);
+    assert.deepEqual(spawnEvent.stdio, ['pipe', 'pipe', 'pipe']);
+    assert.equal(spawnEvent.args[spawnEvent.args.indexOf('-ParentProcessId') + 1], String(run.child.pid));
+    assert.equal(spawnEvent.detached, false,
+      'ordinary PowerShell must retain its hidden console through the Node host');
     assert.equal(spawnEvent.windowsHide, true);
     assert.notEqual(spawnEvent.shell, true);
     assert.ok(spawnEvent.args.includes('-STA'), 'Windows Forms needs a single-threaded apartment');
@@ -240,6 +248,8 @@ for (const entry of ['global', 'serve', 'start']) {
     assert.deepEqual(await run.exited, { code: 0, signal: null }, run.output());
     assert.equal(alive(server.pid), false, 'the actual server child must have exited');
     assert.equal(alive(tray.pid), false, 'the actual tray helper must have exited');
+    assert.equal(alive(host.pid), false, 'the Node tray host must have observed helper termination');
+    assert.equal(run.events().filter(event => event.event === 'tray_host_spawn').length, 1);
     assert.equal(run.events().filter(event => event.event === 'tray_spawn').length, 1);
     assert.equal(run.events().filter(event => event.event === 'server_stop').length, 1);
     assert.ok(run.events().some(event => event.event === 'tray_disposed'));
@@ -249,6 +259,21 @@ for (const entry of ['global', 'serve', 'start']) {
     }
   });
 }
+
+test('serve: forced tray cleanup reaches the controller result', options, async t => {
+  const run = await startController(t, 'serve', { helperMode: 'ignore-stop' });
+  const server = await run.ready();
+  const tray = await run.tray();
+  const host = run.events().find(event => event.event === 'tray_host_spawn');
+  assert.ok(host);
+  const script = helperCopy(run);
+  run.mark('click-exit');
+  assert.deepEqual(await run.exited, { code: 1, signal: null }, run.output());
+  assert.match(run.output(), /PowerShell required forced termination/);
+  for (const child of [server, tray, host]) assert.equal(alive(child.pid), false);
+  assert.equal(run.events().filter(event => event.event === 'server_stop').length, 1);
+  assertCopyRemoved(run, script);
+});
 
 test('serve: code-75 restart retains the original tray and Exit prevents another restart', options, async t => {
   const run = await startController(t, 'serve', { serverMode: 'restart' });
@@ -308,7 +333,9 @@ test('tray process pipe closes when its owning controller disappears', options, 
   const tray = await run.tray();
   run.child.kill('SIGKILL');
   await run.exited;
-  await waitFor(() => !alive(tray.pid), 'tray survived the loss of its parent');
+  const host = run.events().find(event => event.event === 'tray_host_spawn');
+  assert.ok(host);
+  await waitFor(() => !alive(tray.pid) && !alive(host.pid), 'tray or its host survived the loss of the controller');
   assert.ok(run.events().some(event => event.event === 'tray_disposed'));
 });
 
