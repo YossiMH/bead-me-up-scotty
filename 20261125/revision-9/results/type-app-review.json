@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "task_key": "type-app-review",
+  "status": "PENDING",
+  "accepted": false,
+  "reviewer": "/root",
+  "reviewed_utc": "2026-11-25 10:40:16 UTC",
+  "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+  "source_assessment": "PASS",
+  "linux_assessment": "PASS",
+  "findings": [],
+  "reviewed_files": [
+    {
+      "path": "lib/native-process.ts",
+      "git_blob": "59c5801d3410de135b945fa2cac4d5cdde22c78c",
+      "sha256": "615650ce402fbaaaedce8620af9e28d716ac28e58d399718ae74008419d362e7"
+    },
+    {
+      "path": "lib/native-edit.ts",
+      "git_blob": "ec2eeecf02da9c6590d2a4733d87f0fccba2a4f0",
+      "sha256": "302fafff05f899a97091c3f91407f6c998913ab96276a766f797d5781b1e6fde"
+    },
+    {
+      "path": "lib/native-store.ts",
+      "git_blob": "9cb7637cd2674fdcff1754b0c514c483f4edfec4",
+      "sha256": "3f41c455079cda5247a9fdd5c98e716d06e57fc4ad14341d2e4022bcc9b013c5"
+    },
+    {
+      "path": "docs/backend-compatibility.md",
+      "git_blob": "4e6660ff83123db8f738a844085e8fbedbc0c4c4",
+      "sha256": "3564de23de0ca506e2725bf5bcedea19722f0f90a377b4abbe1201d412de94a4"
+    }
+  ],
+  "method": [
+    "Read the complete three adapter modules, complete changed documentation, their exact diff from accepted tests commit 3d3b0f38, and the schema and NativeMutation caller/error contracts.",
+    "Retained the prior independent full test review of the unchanged four-file tests commit. The source commit changes exactly the three adapter modules and the documentation section; no test assertion is weakened.",
+    "Traced qualification to the single guarded update: only literal true grants issue-type file transport; missing, false and malformed values retain other editing grants.",
+    "Checked exact UTF-8 byte counts for type, description and notes in the shared 8192-byte budget, older short-type fallback and refusal of unsupported larger types before allocation or a native mutation.",
+    "Traced acquired credentials, revision checks, lifecycle separation, priority reason, equals-form arguments, request-owned files, cleanup and committed/uncertain error preservation. No manifest substitute or write retry is introduced.",
+    "Read the complete checks workflow, all 115 test names and their results, actual command exits, build and lint warnings, runtime summary and both final author inspections.",
+    "Fetched the complete actual GitHub job log independently and compared it byte-for-byte with the durable log; compared the exact workflow with the retained workflow. The immutable runtime inventory is pending download verification by the Windows job.",
+    "Independently recovered the complete original runtime/source manifest and producer result from actual hosted run 45594231069; exact four-record log reconstruction, immutable durable comparison, all 560 runtime records and all eleven source SHA-256/byte/Git-blob identities passed. See the separate full inventory review."
+  ],
+  "author_inspections": {
+    "count": 2,
+    "report_commit": "63c6f6c672ab1417b9fa4e6394e1abaa638be6b6",
+    "report_sha256": "666433aea86075a48a292ca6891c219e4ea18b4e8f4094f806fe2b5a2f568300"
+  },
+  "checks": {
+    "run_id": 45573503400,
+    "job_id": 139065635890,
+    "workflow_commit": "e10f6153fec45ab91e30539495fa5b6567d95229",
+    "workflow_sha256": "27771ff41e34339d20febb1c4ad3af64680d53926666d95e22993fff5d24e2fc",
+    "job_log_sha256": "f6811190c082c79683cf18c274b25d7f0d752227f3a5f065845609101ec80026",
+    "retained_packet_commit": "ba6d0697f6d5b16907e4873096990af8b67908c5",
+    "retained_packet_sha256": "f1441e34b77b57715ba78fb32d7a914651cf9c8a183a663e143a9749f52ddc5e",
+    "commands": [
+      {
+        "name": "npm-ci",
+        "command": [
+          "npm",
+          "ci",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "exit": 0,
+        "timeout_seconds": 420
+      },
+      {
+        "name": "adapter-tests",
+        "command": [
+          "node",
+          "--test",
+          "--test-reporter=tap",
+          "scripts/test-backend-contract.mjs",
+          "scripts/test-native-editing.mjs",
+          "scripts/test-native-mutations.mjs",
+          "scripts/test-native-mutation-outcomes.mjs",
+          "scripts/test-native-credential-tenures.mjs"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180
+      },
+      {
+        "name": "lint",
+        "command": [
+          "npm",
+          "run",
+          "lint"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180
+      },
+      {
+        "name": "committed-diff-check",
+        "command": [
+          "git",
+          "diff",
+          "--check",
+          "HEAD^",
+          "HEAD"
+        ],
+        "exit": 0,
+        "timeout_seconds": 30
+      },
+      {
+        "name": "diff-check",
+        "command": [
+          "git",
+          "diff",
+          "--check"
+        ],
+        "exit": 0,
+        "timeout_seconds": 30
+      },
+      {
+        "name": "build",
+        "command": [
+          "npm",
+          "run",
+          "build"
+        ],
+        "exit": 0,
+        "timeout_seconds": 600
+      },
+      {
+        "name": "type-check",
+        "command": [
+          "node",
+          "node_modules/typescript/bin/tsc",
+          "--noEmit"
+        ],
+        "exit": 0,
+        "timeout_seconds": 120
+      },
+      {
+        "name": "tracked-source-check",
+        "command": [
+          "git",
+          "diff",
+          "--exit-code",
+          "HEAD"
+        ],
+        "exit": 0,
+        "timeout_seconds": 30
+      }
+    ],
+    "tests": {
+      "tests": 115,
+      "pass": 115,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "remaining_edit_directories": [],
+    "runtime": {
+      "manifest": "scotty-runtime.json",
+      "manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+      "file_count": 560,
+      "archive": "scotty-runtime.zip",
+      "archive_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+      "archive_bytes": 7137798,
+      "build_id": "YIOHeRJTEdlOszyc4LyHr"
+    }
+  },
+  "warnings": [
+    "ESLint reports the existing hooks/use-notifications.ts location.assign warning; zero errors.",
+    "Node 24.22.3 differs from the package's warning-only development preference >=26.4.",
+    "npm retains the Recharts deprecation and unrs-resolver install-script notice.",
+    "Turbopack reports broad tracing in unchanged lib/ai.ts and lib/showcase/generate.ts. The build exited 0."
+  ],
+  "pending": [
+    "Final native source/results review of the additive type-file contract and the operation/maintenance lock correction.",
+    "Actual same-source Windows native-store and production Next HTTP roundtrip with the final qualified executable, source/runtime identity verification and owned cleanup."
+  ],
+  "preserved_results": "Prior actual browser and tray results for unchanged UI and tray modules remain retained; this review does not relabel them as final PC checks.",
+  "pc_acceptance": "Actual logged-in-PC tray, installation, configured launch and installed review remain required.",
+  "native_task_state": "Actual native state remains revision 6 (32 tasks/51 edges); accepted revision 9 has 55 task keys/91 edges for provisional cloud dispatch. The direct materialization and guarded result reconciliation remain pending permitted PC access. No new actual IDs, claims or closures are asserted.",
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "continuation_revision": 9,
+  "runtime_inventory_assessment": "PASS",
+  "runtime_inventory_review": {
+    "commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f",
+    "path": "20261125/revision-9/results/app-runtime-inventory-review.json",
+    "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525",
+    "recovery_run_id": 45594231069,
+    "files": 560,
+    "expanded_bytes": 27426391,
+    "source_records": 11
+  }
+}
