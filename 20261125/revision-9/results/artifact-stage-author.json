@@ -1,0 +1,199 @@
+{
+  "schema_version": 1,
+  "status": "COPY_HELPERS_PREPARED_CHECKS_PASSED",
+  "author": "/root/app_reconcile",
+  "task_key": "type-install-binding",
+  "scope": "Fresh local archive staging helper and focused hosted preparation checks",
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "path": "20261125/revision-9/plan.json",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "candidate_commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+  "directory": "20261125/revision-9/artifact-stage",
+  "files": [
+    {
+      "path": "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1",
+      "sha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+      "bytes": 22746,
+      "git_blob": "482fc7b3c65ef2a519f88e47ae22f5e0cfbf2f94"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/stage-artifacts-supervisor-20261125.ps1",
+      "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+      "bytes": 17486,
+      "git_blob": "87c74cfcf25c9a5b80ff30c5c15a31462b5730bf"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/check-stage-archives.ps1",
+      "sha256": "e31a2ea4f3b89423c2a691d9085883d36fe76fee21b38ab890fc60f381ffdc94",
+      "bytes": 24207,
+      "git_blob": "457760138ba15715782a5f65a732cde7b57608a1"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/download-existing-app.py",
+      "sha256": "40deb91bc7a48712169a7df63a26ed54b9431f5754ec7cdb473f701b21f7220e",
+      "bytes": 4623,
+      "git_blob": "c772d4a71254db4548ac2db2e6cc03389176776f"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/request-template.json",
+      "sha256": "7ef0c76f50edd28a80c38bf42893b4623eba5e8c31bfb6bdb7021791d6f07ab3",
+      "bytes": 1003,
+      "git_blob": "7a8de1a98603349e1789a5c7565a9d9f95842b10"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/check-inputs.json",
+      "sha256": "665642e8fcd61ed6e967f2d117e3a380b025f7d4b6109aa086809d1bec7543a3",
+      "bytes": 746,
+      "git_blob": "9103d2818d8b7d92553f69c61b0c119e42695b9b"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/workflow.yml",
+      "sha256": "a0e0b5901fd9072ec1da8c2017fae173c3b028f3a3416758e1ae35ca71e349ed",
+      "bytes": 2522,
+      "git_blob": "3d67cf55b4e738d51cf035ae3ede91ee2c1216d8"
+    },
+    {
+      "path": "20261125/revision-9/artifact-stage/README.md",
+      "sha256": "3764fb44cb194348414b528d4114eada6914df8623b05b58a4c0adbebfceaa80",
+      "bytes": 4619,
+      "git_blob": "877419ef2bd6f0ed6745cddfa3ba2c7da0058217"
+    },
+    {
+      "path": ".github/workflows/scotty-artifact-stage-checks-20261125.yml",
+      "sha256": "a0e0b5901fd9072ec1da8c2017fae173c3b028f3a3416758e1ae35ca71e349ed",
+      "bytes": 2522,
+      "git_blob": "3d67cf55b4e738d51cf035ae3ede91ee2c1216d8"
+    }
+  ],
+  "prior_controller": {
+    "commit": "98a2daa3ef411c0f986daee1794c130f025c49cd",
+    "path": "20261125/revision-8/install-binding/materialize-v8-supervisor.ps1",
+    "comparison": {
+      "controller": [
+        {
+          "name": "Safe-Path",
+          "sha256": "173951ced03ddb9eab5b0c6fb518c06c56c221290e760b75192413f369fc3e25",
+          "unchanged_after_class_rename": true
+        },
+        {
+          "name": "Quote-Argument",
+          "sha256": "d3298d0d833b51e030532f58b0241841adc7fee8d013a126321d937bf3d904b8",
+          "unchanged_after_class_rename": true
+        },
+        {
+          "name": "Refresh-Owned",
+          "sha256": "d4b61740925ead50e8d6e6bba368ac236a0b8cc915b32f3a770c24ee7efdaa76",
+          "unchanged_after_class_rename": true
+        },
+        {
+          "name": "Stop-Owned",
+          "sha256": "60dcec324742ce5702fc9eab75e272e4316c8c09d26ca0a1f8663d9435b726bd",
+          "unchanged_after_class_rename": true
+        }
+      ],
+      "inspector_sha256": "ba2e8c7284389c5b2d7e40b28b7964291519d9994c5d68e4854cef7495f86e7e",
+      "inspector_unchanged_after_class_rename": true,
+      "runtime_verifier_unchanged_except_deadline": true
+    }
+  },
+  "actual_checks": {
+    "run_id": 45604565295,
+    "run_attempt": 1,
+    "job_id": 139171953088,
+    "status": "passed",
+    "candidate_commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+    "retained_commit": "30ed1c2f7b44b307b023f62a76ad90aabe51e197",
+    "path": "20261125/revision-9/results/artifact-stage-checks-45604565295.json",
+    "sha256": "799ed5002e3a9a3a1c4d9958e227de3d19d9546f4e5be7c03bb3bef7df005a9e",
+    "job_log_sha256": "c0d0e81dbffaec52ecbcc3812df25950b35cfe93bcec65eb3bbdedba31eb0fe5",
+    "original_result_sha256": "21a9a9295c16d47d67cfdb30c6b0e863da96b638943ed514d0657149934a5fa9",
+    "actual_runtime_inventory_sha256": "6741bc56b4d8934edea7578d6d4ce54457c8bd2764d49bb515c3e89411949de2",
+    "cases_passed": 40,
+    "failures": 0,
+    "powershell_parses": 3,
+    "embedded_declarations_compiled": 1,
+    "embedded_methods_invoked": 0,
+    "runtime_files": 560,
+    "expanded_runtime_bytes": 27426391,
+    "app_or_native_execution": false,
+    "pc_actions": 0
+  },
+  "measured_native_inputs": {
+    "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+    "run_id": 45600413942,
+    "artifact_id": 15014634952,
+    "archive": {
+      "sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+      "bytes": 4524263
+    },
+    "manifest": {
+      "path": "artifact-manifest.json",
+      "sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+      "bytes": 665
+    },
+    "executable": {
+      "bytes": 12243456,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "metadata": {
+      "bytes": 2058,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    },
+    "build_result": {
+      "path": "build-result.json",
+      "sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+      "bytes": 16950
+    },
+    "evidence_commit": "66d679b5fd3d190025068ad47167352fa5a90669",
+    "actual_pc_archive_paths_bound": false
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "CLEAN",
+      "findings": [],
+      "focus": "Complete final data validation and actual execution evidence",
+      "checks": [
+        "Read the complete final helper, supervisor, focused check, downloader, template, input manifest, README and both workflow copies. Read back all nine immutable files and matched every actual test-reported source hash/size to the final source.",
+        "Verified the complete existing app archive and source/runtime/result identities against the recovered original records. The fixed binding remains app030, the original outer ZIP15a503c4, inner ZIPa4da62f8, manifest612790bc and BUILD_ID YIOHeRJTEdlOszyc4LyHr.",
+        "Reconstructed the complete actual original result and all39 runtime inventory text parts. Their exact byte counts and SHA-256 match the emitted headers; all560 measured files and27,426,391 bytes match the original accepted manifest. The forty named checks all completed with passed results and the external canary was unchanged.",
+        "Traced exact outer archive identity, safe unique file/directory names, full inner runtime and three native records, source/tree/run/workflow/metadata agreement and BUILD_ID before staging. Read/delete sharing is excluded; 64KiB buffers and exact measured limits keep copying bounded.",
+        "Verified existing-stage/claim refusal and injected partial-copy evidence with unchanged replay refusal. The one product grouping correction and two fixture-only scope fixes remain narrow; the original full failed outputs are preserved and no oracle was weakened."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "CLEAN",
+      "findings": [],
+      "focus": "Complete resource, ownership and installer integration inspection",
+      "checks": [
+        "Recompared the supervisor's retained path validation, Windows argument quoting, Job/PID/birth ownership and owned-stop functions with the accepted baseline. Their bodies and the complete embedded controller declaration remain byte-identical after the class rename; the accepted runtime verifier differs only by a deadline check.",
+        "Rechecked 1GiB initial/live free memory, 512MiB aggregate owned RSS, BelowNormal hidden child execution, 100ms sampling,158-second child/168-second work/180-second hard deadlines and cleanup reserve. The unchanged existing C: Job helper is validated by safe absolute path and exact SHA-256.",
+        "Followed all staged output paths and final installer inputs. The stage is a fresh immediate task-root child, every copied file uses exclusive creation, and partial claims/stage/supervisor evidence remains on failure. No original source repository, private store, old523 tray stage, configuration or rollback file is changed.",
+        "The helper executes no app/native binary and performs no network transfer. The separately bounded hosted downloader handles only the pinned existing app output; redirected requests carry no GitHub authorization header and signed URLs/tokens are not retained.",
+        "Matched the now-measured final native small archive, original metadata and build receipt to both successful actual download records. The checked template intentionally remains unbound; root must bind the concrete local archives and fresh stage nonce and satisfy the existing review/qualification/PC gates before invocation.",
+        "Retained the same production app runtime and optional type interface; staging checks include no new package install or product build. Actual PC tray/install/configured launch, canonical55-ID mapping and Riftri cleanup remain outstanding, and no task state was mutated by this author."
+      ]
+    }
+  ],
+  "final_clean_complete_inspections": 2,
+  "earlier_failed_results_preserved": [
+    45601172516,
+    45602027818,
+    45603033524
+  ],
+  "final_helper_review_pending": true,
+  "pc_invocation": false,
+  "remaining": [
+    "Independent final source/actual result acceptance",
+    "Root concrete native/local archive paths and fresh stage request binding",
+    "Resource-gated permitted PC staging under the existing controller",
+    "Separate final native/app Windows qualification, installer/task mapping/tray/configured checks and cleanup"
+  ]
+}
