@@ -75,11 +75,30 @@
     "Read and verified both complete clean final binding inspections and all three recorded file hashes/blobs. Producer success is explicitly separate from accepted actual final affected-target results and from whole-source/PC completion."
   ],
   "findings": [],
-  "verdict": "PASS for the exact prepared Windows roundtrip packet. Keep activation held until the accepted actual final 2d801 type-backend-checks prerequisite is available; then the app executor may activate this exact candidate once after absence/prior-run reconciliation. Complete native checkpoint qualification and final app/PC acceptance remain separate.",
+  "verdict": "PASS for the exact prepared packet. The accepted actual final-source affected-check prerequisite is satisfied. The appointed executor reconciled absence and prior attempts and activated this candidate once; the completed run succeeded. Independent actual app acceptance is recorded separately.",
   "activation_branch": "task/type-windows-roundtrip-20261125",
-  "activation_authorized": false,
-  "activation_hold": "Accepted actual final-source type-backend-checks result is pending.",
+  "activation_authorized": true,
+  "activation_hold": null,
   "reviewer_product_execution": false,
   "pc_actions": 0,
-  "final_app_acceptance": false
+  "final_app_acceptance": false,
+  "previous_preparation_review": {
+    "commit": "de88c383b5a6dcf66fb6e33651835a186a4937ce",
+    "sha256": "6a3b2faefa5d166436124d508630ac4f718a152884f2c3b1581c335e7b2bdd43"
+  },
+  "accepted_affected_gate": {
+    "commit": "3859355a8f0969af0d69bae894629a6226d134fb",
+    "path": "20261125/revision-9/results/type-backend-checks-review.json",
+    "sha256": "66f8c9b060745de0947cdd92eafbe74aef723fee7e9e56896b616da3589c1f05",
+    "passed": 95,
+    "failed": 0
+  },
+  "activation_observed": {
+    "run_id": 45606372926,
+    "job_id": 139178170464,
+    "attempt": 1,
+    "conclusion": "success",
+    "actual_receipt_commit": "7109ae83d13585513bb46aef9009f24308dfe01a",
+    "actual_receipt_sha256": "3d7621aaae00d5ba0a141ef873ba431656a6ed5066b223c090a3950ed7c78894"
+  }
 }
