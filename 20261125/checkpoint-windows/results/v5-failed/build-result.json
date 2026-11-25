@@ -1,0 +1,1010 @@
+{
+  "build_root": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+  "commands": [
+    {
+      "args": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "-m",
+        "py_compile",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\checkpoint-windows\\checkpoint-windows-build-20261125.py"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.123505+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "parse-build-helper",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 4308,
+      "started": "2026-11-25T05:18:50.722913+00:00",
+      "stderr": "logs/parse-build-helper.stderr",
+      "stdout": "logs/parse-build-helper.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.204129+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-root",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8788,
+      "started": "2026-11-25T05:18:51.125515+00:00",
+      "stderr": "logs/git-root.stderr",
+      "stdout": "logs/git-root.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all",
+        "-z"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.328872+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-status",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 9060,
+      "started": "2026-11-25T05:18:51.204669+00:00",
+      "stderr": "logs/git-status.stderr",
+      "stdout": "logs/git-status.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.408880+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-head",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 1088,
+      "started": "2026-11-25T05:18:51.329213+00:00",
+      "stderr": "logs/git-head.stderr",
+      "stdout": "logs/git-head.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.489310+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-tree",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 5612,
+      "started": "2026-11-25T05:18:51.408880+00:00",
+      "stderr": "logs/git-tree.stderr",
+      "stdout": "logs/git-tree.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-list",
+        "--parents",
+        "-n",
+        "1",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.574206+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-parent-0",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 3724,
+      "started": "2026-11-25T05:18:51.490402+00:00",
+      "stderr": "logs/git-parent-0.stderr",
+      "stdout": "logs/git-parent-0.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-list",
+        "--parents",
+        "-n",
+        "1",
+        "cee3220b5e4b9a414c50379273c84759db645dbf"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.654837+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-parent-1",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 6952,
+      "started": "2026-11-25T05:18:51.574206+00:00",
+      "stderr": "logs/git-parent-1.stderr",
+      "stdout": "logs/git-parent-1.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-list",
+        "--parents",
+        "-n",
+        "1",
+        "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.735734+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-parent-2",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8880,
+      "started": "2026-11-25T05:18:51.655348+00:00",
+      "stderr": "logs/git-parent-2.stderr",
+      "stdout": "logs/git-parent-2.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "cat-file",
+        "-e",
+        "986f2a332aca9dd567eee41ce835917d56e29468^{commit}"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.821407+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-baseline",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 5520,
+      "started": "2026-11-25T05:18:51.736248+00:00",
+      "stderr": "logs/git-baseline.stderr",
+      "stdout": "logs/git-baseline.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "diff",
+        "--name-status",
+        "--no-renames",
+        "-z",
+        "986f2a332aca9dd567eee41ce835917d56e29468",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+        "--"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.907105+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-delta",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 7608,
+      "started": "2026-11-25T05:18:51.821407+00:00",
+      "stderr": "logs/git-delta.stderr",
+      "stdout": "logs/git-delta.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "diff",
+        "--check",
+        "986f2a332aca9dd567eee41ce835917d56e29468",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+        "--"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:51.990499+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-whitespace",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 9080,
+      "started": "2026-11-25T05:18:51.907105+00:00",
+      "stderr": "logs/git-whitespace.stderr",
+      "stdout": "logs/git-whitespace.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "ls-tree",
+        "-r",
+        "-z",
+        "--full-tree",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:52.083722+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-files",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8388,
+      "started": "2026-11-25T05:18:51.990499+00:00",
+      "stderr": "logs/git-files.stderr",
+      "stdout": "logs/git-files.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "show",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6:src/service/checkpoint/set_v2.rs"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:52.172386+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "approved-file-0",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8948,
+      "started": "2026-11-25T05:18:52.093172+00:00",
+      "stderr": "logs/approved-file-0.stderr",
+      "stdout": "logs/approved-file-0.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "show",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6:research/specs/checkpoint-set-v2.md"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:52.252775+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "approved-file-1",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 5516,
+      "started": "2026-11-25T05:18:52.172386+00:00",
+      "stderr": "logs/approved-file-1.stderr",
+      "stdout": "logs/approved-file-1.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "show",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6:tests/attempt_receipt_checkpoint_integrity.rs"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:52.333493+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "approved-file-2",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8480,
+      "started": "2026-11-25T05:18:52.253327+00:00",
+      "stderr": "logs/approved-file-2.stderr",
+      "stdout": "logs/approved-file-2.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "show",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6:tests/checkpoint_set_v2_conformance.rs"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:52.414317+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "approved-file-3",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 1432,
+      "started": "2026-11-25T05:18:52.333493+00:00",
+      "stderr": "logs/approved-file-3.stderr",
+      "stdout": "logs/approved-file-3.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--no-optional-locks",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "show",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6:tests/checkpoint_tail_generation_integrity.rs"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:52.494193+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "approved-file-4",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8352,
+      "started": "2026-11-25T05:18:52.415290+00:00",
+      "stderr": "logs/approved-file-4.stderr",
+      "stdout": "logs/approved-file-4.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "--version"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:52.578859+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-version",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 4336,
+      "started": "2026-11-25T05:18:52.501724+00:00",
+      "stderr": "logs/git-version.stderr",
+      "stdout": "logs/git-version.stdout"
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:52.693631+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "bash-version",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 6996,
+      "started": "2026-11-25T05:18:52.580877+00:00",
+      "stderr": "logs/bash-version.stderr",
+      "stdout": "logs/bash-version.stdout"
+    },
+    {
+      "args": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\vswhere.exe",
+        "-latest",
+        "-products",
+        "*",
+        "-requires",
+        "Microsoft.VisualStudio.Component.VC.Tools.x86.x64",
+        "-property",
+        "installationPath"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:53.047193+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "vswhere",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8408,
+      "started": "2026-11-25T05:18:52.695642+00:00",
+      "stderr": "logs/vswhere.stderr",
+      "stdout": "logs/vswhere.stdout"
+    },
+    {
+      "args": [
+        "C:\\Windows\\System32\\cmd.exe",
+        "/d",
+        "/c",
+        "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1\\activate-msvc.cmd"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:55.405877+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "activate-msvc",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8648,
+      "started": "2026-11-25T05:18:53.072796+00:00",
+      "stderr": "logs/activate-msvc.stderr",
+      "stdout": "logs/activate-msvc.stdout"
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "-c",
+        "python3 --version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:18:55.654325+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "git-bash-python3",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 5448,
+      "started": "2026-11-25T05:18:55.503014+00:00",
+      "stderr": "logs/git-bash-python3.stderr",
+      "stdout": "logs/git-bash-python3.stdout"
+    },
+    {
+      "args": [
+        "rustup",
+        "toolchain",
+        "install",
+        "1.100.0",
+        "--profile",
+        "minimal",
+        "--target",
+        "x86_64-pc-windows-msvc",
+        "--no-self-update"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:19:05.742307+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "rustup",
+      "limit_seconds": 600.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 8704,
+      "started": "2026-11-25T05:18:55.655341+00:00",
+      "stderr": "logs/rustup.stderr",
+      "stdout": "logs/rustup.stdout"
+    },
+    {
+      "args": [
+        "rustc",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:19:06.565447+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "rustc-version",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 6996,
+      "started": "2026-11-25T05:19:05.742307+00:00",
+      "stderr": "logs/rustc-version.stderr",
+      "stdout": "logs/rustc-version.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:19:07.257911+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "cargo-version",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 3904,
+      "started": "2026-11-25T05:19:06.565447+00:00",
+      "stderr": "logs/cargo-version.stderr",
+      "stdout": "logs/cargo-version.stdout"
+    },
+    {
+      "args": [
+        "rustc",
+        "-vV"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:19:07.298442+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "rustc-host",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 3708,
+      "started": "2026-11-25T05:19:07.257911+00:00",
+      "stderr": "logs/rustc-host.stderr",
+      "stdout": "logs/rustc-host.stdout"
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\usr\\bin\\cygpath.exe",
+        "-u",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source\\scripts\\build-from-archive.sh"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:19:07.331083+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "cygpath-script",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 4572,
+      "started": "2026-11-25T05:19:07.299416+00:00",
+      "stderr": "logs/cygpath-script.stderr",
+      "stdout": "logs/cygpath-script.stdout"
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\usr\\bin\\cygpath.exe",
+        "-u",
+        "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1\\release"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:19:07.354996+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "cygpath-out",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 6876,
+      "started": "2026-11-25T05:19:07.333100+00:00",
+      "stderr": "logs/cygpath-out.stderr",
+      "stdout": "logs/cygpath-out.stdout"
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\usr\\bin\\cygpath.exe",
+        "-u",
+        "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1\\archive-build-scratch"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T05:19:07.380665+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668
+      ],
+      "label": "cygpath-scratch",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 4280,
+      "started": "2026-11-25T05:19:07.357009+00:00",
+      "stderr": "logs/cygpath-scratch.stderr",
+      "stdout": "logs/cygpath-scratch.stdout"
+    },
+    {
+      "args": [
+        "C:\\Program Files\\Git\\bin\\bash.exe",
+        "/d/a/bead-me-up-scotty/bead-me-up-scotty/source/scripts/build-from-archive.sh",
+        "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+        "--target",
+        "x86_64-pc-windows-msvc",
+        "--name",
+        "bead-checkpoint-515b503b24ba.exe",
+        "--out",
+        "/d/a/_temp/bead-checkpoint-windows-build-45552623126-1/release"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "error": "Owned descendants remain after archive-release; outer Job cleanup is required",
+      "exit_code": 0,
+      "finished": "2026-11-25T05:25:04.465536+00:00",
+      "job_pids_after": [
+        4548,
+        4852,
+        7668,
+        7944
+      ],
+      "label": "archive-release",
+      "limit_seconds": 2383.235,
+      "outer_job_pids": [
+        4548,
+        4852,
+        7668
+      ],
+      "pid": 5412,
+      "started": "2026-11-25T05:19:07.382678+00:00",
+      "stderr": "logs/archive-release.stderr",
+      "stdout": "logs/archive-release.stdout"
+    }
+  ],
+  "compile_command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--no-run",
+    "--lib",
+    "--test",
+    "attempt_receipt_checkpoint_integrity",
+    "--test",
+    "checkpoint_tail_generation_integrity",
+    "--test",
+    "checkpoint_set_v2_conformance",
+    "--test",
+    "attempt_outcome_round_trip",
+    "--test",
+    "r036_verified_restore",
+    "--target",
+    "x86_64-pc-windows-msvc",
+    "--message-format=json"
+  ],
+  "duration_seconds": 373.843,
+  "error": "RuntimeError: Owned descendants remain after archive-release; outer Job cleanup is required",
+  "finished": "2026-11-25T05:25:04.465536+00:00",
+  "helper_sha256": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+  "input_sha256": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+  "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+  "job_query_retries": [],
+  "operation": "checkpoint-windows-build",
+  "owned_job_baseline": {
+    "pids": [
+      4548,
+      4852,
+      7668
+    ],
+    "policy": "supervisor, Python, and at most its one verified System32 console host",
+    "processes": [
+      {
+        "creation_filetime": "134400575289297694",
+        "image_name": "conhost.exe",
+        "image_path": "C:\\Windows\\System32\\conhost.exe",
+        "parent_pid": 4852,
+        "pid": 4548,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400575289251776",
+        "image_name": "python.exe",
+        "image_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "parent_pid": 7668,
+        "pid": 4852,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400575228671298",
+        "image_name": "powershell.exe",
+        "image_path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "parent_pid": 4056,
+        "pid": 7668,
+        "query_and_synchronization_handle_retained": true
+      }
+    ],
+    "schema_version": 1,
+    "validated_at": "2026-11-25T05:18:50.639741+00:00"
+  },
+  "python": "3.12.10 (tags/v3.12.10:0cc8128, Apr  8 2025, 12:21:36) [MSC v.1943 64 bit (AMD64)]",
+  "python_executable": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+  "run": {
+    "attempt": "1",
+    "id": "45552623126",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "d0d47d868dc46aa2e12f070ca3e59c458c8a1ac4",
+    "workflow_ref": "YossiMH/bead-me-up-scotty/.github/workflows/checkpoint-windows-build-20261125-v5.yml@refs/heads/task/checkpoint-windows-build-20261125-v5"
+  },
+  "runner_image": {
+    "name": "win25-vs2026",
+    "version": "20261116.315.1"
+  },
+  "runner_os": "Windows-2025Server-10.0.26100-SP0",
+  "schema_version": 1,
+  "source_root": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1\\source",
+  "started": "2026-11-25T05:18:50.639741+00:00",
+  "status": "failed",
+  "target": "x86_64-pc-windows-msvc",
+  "target_root": "D:\\a\\_temp\\bead-checkpoint-windows-build-45552623126-1\\target",
+  "tests_executed": false,
+  "toolchain": {
+    "bash": "GNU bash, version 5.3.15(2)-release (x86_64-pc-cygwin)\nCopyright (C) 2025 Free Software Foundation, Inc.\nLicense GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>\n\nThis is free software; you are free to change and redistribute it.\nThere is NO WARRANTY, to the extent permitted by law.",
+    "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)",
+    "git": "git version 2.56.1.windows.1",
+    "git_bash_python3": "Python 3.12.10",
+    "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)",
+    "rustc_host": "x86_64-pc-windows-msvc",
+    "visual_cpp": {
+      "linker": {
+        "bytes": 3592544,
+        "environment_key": "CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_LINKER",
+        "host_and_target": "x86_64-pc-windows-msvc",
+        "path": "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Tools\\MSVC\\14.52.37025\\bin\\Hostx64\\x64\\link.exe",
+        "sha256": "6089fbb8ca5d7beb5a69e625bf614ef23ebe07100a987c8a32b121f906e3fb51"
+      },
+      "sdk_version": "10.0.26100.0\\",
+      "toolset_version": "14.52.37025",
+      "vcvars64": "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Auxiliary\\Build\\vcvars64.bat",
+      "vcvars64_sha256": "6b516d8fcf543c14b2d861e1f45661e0029230fe0dc48e86ce78522801822209",
+      "vswhere": "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\vswhere.exe",
+      "vswhere_sha256": "c54f3b7c9164ea9a0db8641e81ecdda80c2664ef5a47c4191406f848cc07c662"
+    }
+  },
+  "work_seconds": 2400
+}

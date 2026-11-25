@@ -1,0 +1,222 @@
+build-from-archive.sh: extracting 515b503 into /d/a/_temp/bead-checkpoint-windows-build-45552623126-1/archive-build-scratch/bead-archive-515b503-C5YJnH
+build-from-archive.sh: building: cargo build --release --locked --target x86_64-pc-windows-msvc (CARGO_TARGET_DIR=/d/a/_temp/bead-checkpoint-windows-build-45552623126-1/archive-build-scratch/bead-archive-515b503-C5YJnH/target)
+    Updating crates.io index
+ Downloading crates ...
+  Downloaded block-buffer v0.10.4
+  Downloaded clap_lex v1.1.1
+  Downloaded scopeguard v1.2.0
+  Downloaded cpufeatures v0.2.17
+  Downloaded once_cell_polyfill v1.70.2
+  Downloaded fallible-streaming-iterator v0.1.9
+  Downloaded itoa v1.0.18
+  Downloaded strsim v0.11.1
+  Downloaded cfg-if v1.0.5
+  Downloaded colorchoice v1.0.5
+  Downloaded anstream v1.0.0
+  Downloaded clap_mangen v0.3.3
+  Downloaded pin-project-lite v0.2.17
+  Downloaded anyhow v1.0.104
+  Downloaded clap_derive v4.6.7
+  Downloaded hex v0.4.3
+  Downloaded slab v0.4.12
+  Downloaded num-conv v0.1.0
+  Downloaded log v0.4.34
+  Downloaded bitflags v2.13.2
+  Downloaded clap v4.6.7
+  Downloaded digest v0.10.7
+  Downloaded cc v1.4.6
+  Downloaded heck v0.5.0
+  Downloaded tempfile v3.27.0
+  Downloaded ppv-lite86 v0.2.21
+  Downloaded clap_builder v4.6.7
+  Downloaded aho-corasick v1.1.5
+  Downloaded getrandom v0.4.3
+  Downloaded chrono v0.4.45
+  Downloaded zerocopy v0.8.57
+  Downloaded futures-executor v0.3.34
+  Downloaded regex-syntax v0.8.11
+  Downloaded parking_lot_core v0.9.12
+  Downloaded futures-util v0.3.34
+  Downloaded foldhash v0.2.0
+  Downloaded lock_api v0.4.14
+  Downloaded serial_test_derive v3.5.0
+  Downloaded syn v2.0.119
+  Downloaded winapi v0.3.9
+  Downloaded find-msvc-tools v0.1.12
+  Downloaded sha2 v0.10.9
+  Downloaded quote v1.0.47
+  Downloaded version_check v0.9.5
+  Downloaded rand_core v0.6.4
+  Downloaded generic-array v0.14.7
+  Downloaded anstyle-query v1.1.5
+  Downloaded roff v1.1.1
+  Downloaded getrandom v0.2.17
+  Downloaded thiserror v1.0.69
+  Downloaded parking_lot v0.12.5
+  Downloaded proc-macro2 v1.0.107
+  Downloaded unicode-ident v1.0.26
+  Downloaded time-core v0.1.7
+  Downloaded windows-link v0.2.1
+  Downloaded crypto-common v0.1.7
+  Downloaded utf8parse v0.2.2
+  Downloaded rusqlite v0.40.2
+  Downloaded thiserror-impl v1.0.69
+  Downloaded fastrand v2.5.0
+  Downloaded is_terminal_polyfill v1.70.2
+  Downloaded serde_core v1.0.229
+  Downloaded smallvec v1.16.1
+  Downloaded memchr v2.8.3
+  Downloaded fallible-iterator v0.3.0
+  Downloaded uuid v1.26.1
+  Downloaded futures-core v0.3.34
+  Downloaded deranged v0.5.8
+  Downloaded anstyle v1.0.14
+  Downloaded once_cell v1.21.4
+  Downloaded md5 v0.7.0
+  Downloaded powerfmt v0.2.0
+  Downloaded zmij v1.0.23
+  Downloaded fs2 v0.4.3
+  Downloaded rand_chacha v0.3.1
+  Downloaded anstyle-wincon v3.0.11
+  Downloaded time-macros v0.2.25
+  Downloaded futures-task v0.3.34
+  Downloaded serial_test v3.5.0
+  Downloaded shlex v2.0.1
+  Downloaded anstyle-parse v1.0.0
+  Downloaded autocfg v1.5.1
+  Downloaded serde_derive v1.0.229
+  Downloaded num-traits v0.2.19
+  Downloaded pkg-config v0.3.34
+  Downloaded hashlink v0.12.2
+  Downloaded serde v1.0.229
+  Downloaded rand v0.8.8
+  Downloaded hashbrown v0.17.1
+  Downloaded typenum v1.20.1
+  Downloaded serde_json v1.0.151
+  Downloaded regex v1.13.1
+  Downloaded time v0.3.45
+  Downloaded vcpkg v0.2.15
+  Downloaded syn v3.0.6
+  Downloaded regex-automata v0.4.18
+  Downloaded windows-sys v0.61.2
+  Downloaded libsqlite3-sys v0.38.2
+   Compiling proc-macro2 v1.0.107
+   Compiling unicode-ident v1.0.26
+   Compiling quote v1.0.47
+   Compiling windows-link v0.2.1
+   Compiling cfg-if v1.0.5
+   Compiling windows-sys v0.61.2
+   Compiling version_check v0.9.5
+   Compiling generic-array v0.14.7
+   Compiling syn v3.0.6
+   Compiling utf8parse v0.2.2
+   Compiling anstyle v1.0.14
+   Compiling typenum v1.20.1
+   Compiling shlex v2.0.1
+   Compiling once_cell_polyfill v1.70.2
+   Compiling find-msvc-tools v0.1.12
+   Compiling zerocopy v0.8.57
+   Compiling cc v1.4.6
+   Compiling anstyle-wincon v3.0.11
+   Compiling anstyle-parse v1.0.0
+   Compiling anstyle-query v1.1.5
+   Compiling syn v2.0.119
+   Compiling colorchoice v1.0.5
+   Compiling autocfg v1.5.1
+   Compiling getrandom v0.4.3
+   Compiling parking_lot_core v0.9.12
+   Compiling serde_core v1.0.229
+   Compiling smallvec v1.16.1
+   Compiling memchr v2.8.3
+   Compiling pkg-config v0.3.34
+   Compiling vcpkg v0.2.15
+   Compiling is_terminal_polyfill v1.70.2
+   Compiling anstream v1.0.0
+   Compiling libsqlite3-sys v0.38.2
+   Compiling num-traits v0.2.19
+   Compiling getrandom v0.2.17
+   Compiling scopeguard v1.2.0
+   Compiling winapi v0.3.9
+   Compiling futures-core v0.3.34
+   Compiling slab v0.4.12
+   Compiling zmij v1.0.23
+   Compiling heck v0.5.0
+   Compiling pin-project-lite v0.2.17
+   Compiling foldhash v0.2.0
+   Compiling strsim v0.11.1
+   Compiling clap_lex v1.1.1
+   Compiling futures-task v0.3.34
+   Compiling futures-util v0.3.34
+   Compiling clap_builder v4.6.7
+   Compiling hashbrown v0.17.1
+   Compiling clap_derive v4.6.7
+   Compiling lock_api v0.4.14
+   Compiling rand_core v0.6.4
+   Compiling ppv-lite86 v0.2.21
+   Compiling aho-corasick v1.1.5
+   Compiling crypto-common v0.1.7
+   Compiling block-buffer v0.10.4
+   Compiling powerfmt v0.2.0
+   Compiling anyhow v1.0.104
+   Compiling regex-syntax v0.8.11
+   Compiling once_cell v1.21.4
+   Compiling serde v1.0.229
+   Compiling serde_json v1.0.151
+   Compiling thiserror v1.0.69
+   Compiling itoa v1.0.18
+   Compiling regex-automata v0.4.18
+   Compiling deranged v0.5.8
+   Compiling digest v0.10.7
+   Compiling parking_lot v0.12.5
+   Compiling rand_chacha v0.3.1
+   Compiling clap v4.6.7
+   Compiling hashlink v0.12.2
+   Compiling futures-executor v0.3.34
+   Compiling serial_test_derive v3.5.0
+   Compiling thiserror-impl v1.0.69
+   Compiling serde_derive v1.0.229
+   Compiling bitflags v2.13.2
+   Compiling fallible-iterator v0.3.0
+   Compiling roff v1.1.1
+   Compiling cpufeatures v0.2.17
+   Compiling fastrand v2.5.0
+   Compiling bead-rs v0.3.0 (D:\a\_temp\bead-checkpoint-windows-build-45552623126-1\archive-build-scratch\bead-archive-515b503-C5YJnH)
+   Compiling time-core v0.1.7
+   Compiling fallible-streaming-iterator v0.1.9
+   Compiling num-conv v0.1.0
+   Compiling log v0.4.34
+   Compiling serial_test v3.5.0
+   Compiling time v0.3.45
+   Compiling rusqlite v0.40.2
+   Compiling tempfile v3.27.0
+   Compiling sha2 v0.10.9
+   Compiling clap_mangen v0.3.3
+   Compiling fs2 v0.4.3
+   Compiling rand v0.8.8
+   Compiling chrono v0.4.45
+   Compiling regex v1.13.1
+   Compiling uuid v1.26.1
+   Compiling md5 v0.7.0
+   Compiling hex v0.4.3
+warning: unused dependency `serial_test`
+  --> Cargo.toml:38:1
+   |
+38 | serial_test = "3.1"
+   | ^^^^^^^^^^^^^^^^^^^
+   |
+   = note: `cargo::unused_dependencies` is set to `warn` by default
+help: consider removing the dependency on `serial_test`
+warning: unused dependency `uuid`
+  --> Cargo.toml:37:1
+   |
+37 | uuid = { version = "1.24.1", features = ["v4"] }
+   | ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+   |
+help: consider removing the dependency on `uuid`
+warning: `bead-rs` (manifest) generated 2 warnings
+    Finished `release` profile [optimized] target(s) in 5m 47s
+build-from-archive.sh: built: bead 0.3.0 (unknown 2026-11-25T05:21:08Z)
+build-from-archive.sh: pinned /d/a/_temp/bead-checkpoint-windows-build-45552623126-1/release/bead-checkpoint-515b503b24ba.exe
+build-from-archive.sh: metadata /d/a/_temp/bead-checkpoint-windows-build-45552623126-1/release/bead-checkpoint-515b503b24ba.exe.metadata.json
+build-from-archive.sh: sha256 0205d054ab256202da0bb3bea5bc151c68113bbbda5733352a1c6c1988be222d
+build-from-archive.sh: scratch dir removed: /d/a/_temp/bead-checkpoint-windows-build-45552623126-1/archive-build-scratch/bead-archive-515b503-C5YJnH
