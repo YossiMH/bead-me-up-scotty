@@ -16,7 +16,7 @@ assert.equal(created.status, 'passed');
 assert.equal(created.original_inventory_unchanged, true);
 assert.equal(created.total_issues, 986);
 assert.equal(created.blocking_edges, 51);
-assert.equal(hash(path.join(root, 'revision-5/plan.json')), '94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db');
+assert.equal(hash(path.join(root, 'revision-5/plan.json')), 'f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82');
 const expected = new Map(read('revision-5/plan.json').tasks.map(task => [task.key, task]));
 const originals = new Map(read('inventory-before-node-v3.json').map(row => [row.id, row]));
 assert.equal(originals.size, 954);

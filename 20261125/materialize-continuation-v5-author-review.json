@@ -2,8 +2,8 @@
   "schema_version": 1,
   "author": "/root",
   "status": "two_complete_static_inspections_passed",
-  "materializer_sha256": "5a3ee630856c2cb6e3512a7ffc8a7eab09075a38ef114a89067480bfed34c4ea",
-  "closure_sha256": "f96c675c943d6976abd737eaf31e02555d92ab6f4c722394008e05f5881c2819",
+  "materializer_sha256": "048833c21e8288cc84049c61e451a5f69b6b85ff5e2d80b2a75f3236350ad8ed",
+  "closure_sha256": "6c754c9f95f0c7cffd2331eda8d79ae3f9ff3bc330687c1c39c3bd0fc52bb652",
   "inspections": [
     {
       "pass": 1,
@@ -16,5 +16,6 @@
   ],
   "syntax": "V8 body parsing passes; ordinary node --check required before use",
   "database_writes": false,
-  "independent_review_required": true
+  "independent_review_required": true,
+  "dispatch_clarification_binding": "Full helper source is unchanged except the exact plan SHA256. Both complete final bodies re-read and parsed;32/986/51/37 protections remain fixed."
 }

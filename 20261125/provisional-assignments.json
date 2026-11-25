@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "plan_sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+  "canonical_state": "materialization_pending",
+  "native_ids_for_new_tasks": null,
+  "claim_credentials": null,
+  "root_is_sole_state_writer": true,
+  "known_connector_attempts": [
+    {
+      "action": "stage accepted32-task inputs and syntax-check",
+      "proposal_id": "V9ieI31qdjrA9aCDWw74YXst6y18XyJ_vzG6o4drzpE",
+      "status": "exited",
+      "exit_code": 0,
+      "node_checks": [
+        0,
+        0
+      ],
+      "database_written": false
+    },
+    {
+      "action": "prepare native materialization",
+      "status": "two calls timed out before a proposal ID was returned; admin_execute was never called",
+      "database_written": false
+    }
+  ],
+  "assignments": [
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-tests",
+      "worker": "/root/browser_finish",
+      "mode": "provisional accepted candidate work",
+      "native_id": null,
+      "source_candidate": "bb0638535172dead8f648b4a4944dddc6175f832",
+      "review": "7cf293ae3747eb405ae81d05f7e499dbe3ca9491032529dd3db43bf65ed9ffd3",
+      "next_action": "After dispatch clarification review, publish the exact tests-only candidate and return actual source commit."
+    },
+    {
+      "unique_ref": "bead-edit-20261124:checkpoint-tests-review",
+      "worker": "/root/delivery_review",
+      "mode": "provisional independent review",
+      "native_id": null,
+      "status": "static candidate accepted; actual Red results required before final test acceptance"
+    }
+  ],
+  "resource_reservations": {
+    "backend_source_writer": "/root/browser_finish",
+    "canonical_pc_writer": "/root",
+    "linux_build": "not_started",
+    "windows_build": "not_started",
+    "pc_app_check": "not_started;3GiB rule retained"
+  },
+  "cleanup_if_interrupted": "Preserve current Git source/results and reconcile native markers before resuming. Remove exact recorded Riftri worktrees and task-only temporary branches after verified publication, including checkpoint-candidate/helper/browser/build-transfer branches. Never force-remove dirty/unpublished work."
+}

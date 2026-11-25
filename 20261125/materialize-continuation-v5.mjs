@@ -7,7 +7,7 @@ import { spawnSync } from 'node:child_process';
 const root = 'F:/Dev/.bead-edit-20261111/coordination-20261124';
 const bead = 'F:/Dev/.bead-edit-20261111/stage-v6/backend/bead-editing-539cdd0.exe';
 const binaryHash = '25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798';
-const planHash = '94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db';
+const planHash = 'f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82';
 const templateHash = '6e8fce15f4867c7599b1aaa169b61cd7f3b2d7ce9723e89be2c60a81443adf93';
 const basePlanHash = '887b5036b9b1f588baaeb9a0fd9537c030e661b80325bd871b6c8b97bfbae178';
 const storeUuid = '1c4f5d56-dcff-cbc5-ddf9-c536653c45f4';
