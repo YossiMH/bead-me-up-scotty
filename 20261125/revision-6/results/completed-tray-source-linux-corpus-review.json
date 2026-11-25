@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/delivery_review",
+  "reviewed_utc": "2026-11-25",
+  "operation": "actual-three-task-native-closure-reconciliation",
+  "continuation_revision": 6,
+  "proposal_id": "RAGj1imk28X8hVyDvKpc9MxsSADV9PcuD7axxC1jMYk",
+  "store": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+  "helper_sha256": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+  "supervisor_sha256": "08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033",
+  "static_review_sha256": "a09408d0cc8526e8730957a90702bd6e3e4761d9b6161d152c4c14686de83e63",
+  "request_sha256": "3da807e2579327caad09cafc7e0e674b5796b23fcd317ba69449971af80677d6",
+  "native_result_sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c",
+  "raw_supervisor_sha256": "6ea931cf5109fdd8ed904af5514569a6c36056b9b0807e631829967b9db7ebca",
+  "prior_materialization_sha256": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2",
+  "method": [
+    "Read the complete exact request, native result, raw supervisor result and retained connector completion/readback envelopes.",
+    "Matched the connector's original UTF-8 stdout bytes to the standalone raw supervisor file without JSON-number conversion. Parsed identity ticks with Python integers.",
+    "Decoded the separate read-only result's Base64 bytes, verified its SHA-256 and matched them to the native result bound by the supervisor.",
+    "Checked the three requested IDs, preconditions, dependency order and one revision increment each against the prior accepted revision6 materialization and the complete current 32-task state list.",
+    "Used the already reviewed native helper's full stored-row comparison result to confirm original954 and every unrelated stored field remain unchanged. Reconciled actual output only; no native action or mutation was replayed."
+  ],
+  "result": {
+    "native_status": "passed",
+    "connector_status": "exited",
+    "connector_exit": 0,
+    "driver_exit": 0,
+    "connector_output_dropped_bytes": 0,
+    "connector_stderr_bytes": 0,
+    "original_954_unchanged": true,
+    "other_stored_fields_unchanged": true,
+    "total_records": 986,
+    "continuation_tasks": 32,
+    "blocking_edges": 51,
+    "closed": [
+      {
+        "key": "tray-diagnose",
+        "id": "beadrs-9422c821",
+        "before_revision": 4,
+        "after_revision": 5,
+        "status": "closed"
+      },
+      {
+        "key": "tray-repair",
+        "id": "beadrs-417f998c",
+        "before_revision": 4,
+        "after_revision": 5,
+        "status": "closed"
+      },
+      {
+        "key": "checkpoint-linux-checks",
+        "id": "beadrs-50ff08d3",
+        "before_revision": 1,
+        "after_revision": 2,
+        "status": "closed"
+      }
+    ],
+    "unrelated_task_states_and_revisions_unchanged": true,
+    "checkpoint_publication": "Explicit flush and checked publication remain required."
+  },
+  "process_result": {
+    "duration_seconds": 4.986,
+    "baseline_free_physical_bytes": 1845522432,
+    "peak_aggregate_resident_bytes": 242155520,
+    "maximum_resident_mib": 512,
+    "node_heap_mib": 128,
+    "start_free_requirement_gib": 1,
+    "work_stop_seconds": 168,
+    "hard_timeout_seconds": 180,
+    "below_normal": true,
+    "sample_interval_ms": 100,
+    "held_processes": 10,
+    "all_held_processes_exited_zero": true,
+    "forced_termination": false,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "complete_final_job_query": true,
+    "exact_identity_source": "Raw supervisor bytes 6ea931cf\u2026; integer FILETIME values remain exact."
+  },
+  "interpretation": [
+    "The three completed tasks are now authoritative closed records in the existing isolated continuation store.",
+    "The tray-checks, full-suite, installer preparation and combined tray-repair review tasks were not closed by this request. Their separate accepted or pending evidence is preserved.",
+    "Historical539 remains the qualified coordinator executable for these task-state operations. This result does not qualify the replacement native checkpoint executable or complete an actual PC app check.",
+    "The initial poll timeout was resolved by reading the same proposal's completed result; no replay was needed."
+  ],
+  "findings": [],
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "reviewer_database_writes": 0,
+  "evidence_files": {
+    "completed-20261125-tray-source-linux-corpus-result.json": {
+      "sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c",
+      "bytes": 4086
+    },
+    "close-accepted-v6-supervisor-actual-raw.json": {
+      "sha256": "6ea931cf5109fdd8ed904af5514569a6c36056b9b0807e631829967b9db7ebca",
+      "bytes": 7142
+    },
+    "pc-close-accepted-v6-final-result.json": {
+      "sha256": "4aee9c48a592cd8464de002bba8c934da4819823da99f74c5448b5b4c84baa18",
+      "bytes": 17369
+    },
+    "pc-close-accepted-v6-read-result.json": {
+      "sha256": "d23ca89f50cddec3853279133d488c0020fed795a4809d3e6e688b20134a956f",
+      "bytes": 12295
+    }
+  }
+}

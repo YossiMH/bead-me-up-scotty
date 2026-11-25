@@ -1,0 +1,216 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/delivery_review",
+  "reviewed_utc": "2026-11-25",
+  "operation": "complete-revision-6-installer-stage-and-pc-wrapper-review",
+  "task_key": "installer-repair",
+  "task_id": "beadrs-f588ab27",
+  "continuation_revision": 6,
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "source_tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+  "candidate_commit": "524a0433eb41951869b7de70f5305048ccc4d4e4",
+  "candidate_tree": "4353619899dc2fd098498a63ac0e22f998ccdbca",
+  "parser_evidence_commit": "457ae66a702f9515e8255bab0837fa51993acdb4",
+  "candidate_directory": "20261125/revision6-wrappers",
+  "complete_files_inspected": true,
+  "reviewed_all_four_old_and_new_executables": true,
+  "verdict": "Accept the complete four-file preparation and exact final parser evidence. The installer-repair task's preparation requirements are satisfied. The actual PC tray and configured launch checks, installation, and combined tray-repair-review retain their required execution prerequisites.",
+  "method": [
+    "Read the complete old and new installer, archive-stage helper, tray wrapper and configured-launch wrapper, their complete diffs, both production modules, real PowerShell helper, source map, prior stage receipts, final author inspections and parser helper/workflow.",
+    "Compared the final executable changes with retained complete prior reviewer reads. The installer and stage stayed byte-identical through the final cleanup correction. Reversing only the four specified correction replacements recovers the prior fully inspected smoke/configured/common-fragment bytes.",
+    "Computed canonical SHA-256, Git blob SHA-1 and byte length for all 24 authored packet files and compared each with immutable Git tree entries. The later parser-evidence commit preserves every prior packet blob.",
+    "Fetched the actual final parser job log independently, compared all bytes with its retained log, decoded its sole Base64 result and matched it byte-for-byte with the retained result and exact final source hashes."
+  ],
+  "conclusions": {
+    "installer": [
+      "Only bin/windows-tray.mjs and bin/windows-tray-host.mjs receive exact case-sensitive path allowances. Both bind source 5232c8b9 ancestry, canonical Git blobs and untrimmed UTF-8 SHA-256 before source mutation.",
+      "The owner is blob 329e2379c0dc72b396d9fa12872c7db39700451f / SHA-256 4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446; the host is blob c3a31c8bd8b73f21ab15573080794198b12934dc / SHA-256 39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd. The result records both.",
+      "Original main identities, the 15-file dirty baseline, index/private configuration/native pin, source ancestry and other protected paths, 230 runtime files, dependency-lock checks, ordinary publication and partial-install reconciliation remain guarded.",
+      "Replacement native source/executable/metadata remain parameterized and must be independently qualified. Historical 539 evidence does not qualify the new checkpoint repair."
+    ],
+    "archive_stage": [
+      "The helper correctly treats stage-v6 as an f47 source archive plus the recorded source38 three-file patch. Both prior receipts and all exact baseline hashes are checked; it performs no Git operations within the archive.",
+      "Only the nine exact cumulative source523 files may change: six existing files require matching old hashes and three additions must be absent. New bytes come from immutable source and are checked by SHA-256 and Git blob identity.",
+      "Fresh backups of all existing replacements precede mutation. Per-file intent/result records, exclusive additions and atomic replacement preserve unknown-outcome reconciliation; there is no automatic replay or blind rollback.",
+      "All 230 Next runtime files, six UI files, the unchanged real PowerShell helper, dependencies/configuration and original receipts remain protected. The 60-second staging, 128-MiB process and 64-MiB Node heap bounds remain."
+    ],
+    "pc_wrappers": [
+      "Controller, detached Node host, attached ordinary PowerShell helper, server and every other owned Job child are accounted separately. Exact Job membership, PID/birth, retained handles, session/image and parent relationships remain checked; no arbitrary PID or broad process termination is introduced.",
+      "Job enumeration retries only the same query, at most eight reads/500 ms with bounded capacity 32 to 1024. Success requires complete returned bytes, equal positive assigned/returned counts and unique positive PIDs. No product command is replayed.",
+      "Both wrappers measure all owned children including console hosts against the 512-MiB aggregate budget. Hidden BelowNormal execution, immediate 3-GiB physical headroom, bounded Node heaps, 180/120-second hard deadlines and cleanup reserve remain.",
+      "The smoke wrapper retains real NotifyIcon/Exit, server shutdown, original-controller loss, cache removal, code75 restart with one host/icon and sequential servers, no post-Exit restart and final port/process release assertions.",
+      "The configured wrapper retains actual installed batch/default configuration, a fresh private test workspace, native source/pin/cwd/exit receipts, HTTP editing and CLI readback, real Exit and protected user configuration.",
+      "All cleanup kills require owned Job and retained process identity. Natural completion and empty Job are required for PASS; forced cleanup or any cleanup error fails the result."
+    ],
+    "resolved_finding": [
+      "The prior aggregate-budget assertion could throw again on entry to Complete-OwnedJob before held-handle termination. The exact final correction adds only a cleanup sampling switch and records budget_exceeded, failed status and a deduplicated cleanup error.",
+      "Ordinary sampling still throws immediately. Cleanup-only sampling records the breach and continues to the same exact termination/empty-membership path, skipping natural grace on failure. Other identity/API/deadline and zero-member checks remain strict."
+    ]
+  },
+  "author_inspections": {
+    "count": 2,
+    "final_audits_sha256": "764bb10a188833117fde71d842317499d25410a5b7b13ea213345e3cd38b001c",
+    "prior_audits_sha256": "c290079d3b27cffc328a38382e985528549ad7e5b9db74c998b90ece2369a0cf"
+  },
+  "parser": {
+    "run_id": 45553498969,
+    "job_id": 138999940446,
+    "workflow_commit": "f5c055381acc8ef24b2a3c1cfa2c11c950c25060",
+    "workflow_sha256": "bc69e18cfa6b22c14594c4d5be821e7105830f1109c6b0a599f68ac09f866fba",
+    "helper_sha256": "778d480bb553c454fcac9c29f3e3eb41db6ea970b4ace23b5c17a7d725451931",
+    "input_sha256": "8469c8c8626bcd710502b773befc515c9bb4485fe8b7825efbe9c6c5b4235534",
+    "result_sha256": "007950926ed6160c0995dd9012190a3e74d1045bb0e3c0643c2cf8661c00ea39",
+    "raw_job_log_sha256": "ce04a4bb652c9bda0ca949d580deb05794ebb3de57c7fbfb9d7e238d612906a7",
+    "powershell_version": "5.1.26100.33822",
+    "powershell_files": 3,
+    "parse_errors": 0,
+    "stage_node_check_exit": 0,
+    "embedded_inspector_declarations_compile": true,
+    "embedded_inspector_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+    "product_execution": false,
+    "pc_actions": 0,
+    "artifact_id": 14994373850,
+    "artifact_sha256": "bd713124ab3155e16d6b1cfa90bafbd7777f5a41de2bcb1c629ec80ba2398eff",
+    "prior_parser_result_retained": "c60446568402e1de2dd0f9e7ba2870b561f79f64aa0e98a738d918d70471907b",
+    "warnings": "The upload Action emitted Node deprecation notices; the parser itself reported no errors."
+  },
+  "prerequisite_reviews": {
+    "plan": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+    "complete_tray_source": "7c9a213d4e121b3db15f69588f9801d66780299656f764e903f244dd69f8b46a",
+    "linux_39_and_full_lint": "4c8df2a23699d32902c2a7f3fa5e3f1ca3b642fa8db93fc188c16a9218e4df33",
+    "windows_two_real_cases": "9828fb4dffd8b108ba36f7450f83dd0d62f6f71fab6f8f57c25c90aa8d8442d4"
+  },
+  "remaining_required_results": [
+    "Root performs exact guarded archive staging and reads its complete before/after result.",
+    "The actual logged-in-PC full tray cases must pass on source523 before tray-repair-review can close.",
+    "Qualified replacement Windows native bytes, all existing candidate/installation prerequisites, installed configured launch and their independent review remain required."
+  ],
+  "findings": [],
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0,
+  "reviewer_database_writes": 0,
+  "reviewed_files": {
+    "README.md": {
+      "sha256": "a7878184b65aac42228f00f9ce41b2431d738f2d14f77575eca9213c31f455d1",
+      "git_blob": "88d28ec7661c4ff9d746e493d4fceebb465bf701",
+      "bytes": 7256
+    },
+    "author-audits-v1.json": {
+      "sha256": "c290079d3b27cffc328a38382e985528549ad7e5b9db74c998b90ece2369a0cf",
+      "git_blob": "5e6fdea6ddef424b6ecea8d5ca35c40901426d1c",
+      "bytes": 3581
+    },
+    "author-audits.json": {
+      "sha256": "764bb10a188833117fde71d842317499d25410a5b7b13ea213345e3cd38b001c",
+      "git_blob": "743e6fd1e848c3d05ec0af6b7f7190caa4bb27c7",
+      "bytes": 3862
+    },
+    "cleanup-budget-correction.patch": {
+      "sha256": "e962baf04a146336a6b771d0516b649e2efc9ff76099f2f71e82d705b482a2d5",
+      "git_blob": "dec11fd87aefa22fb111d05b9dc0606e53483de0",
+      "bytes": 6315
+    },
+    "cloud-static-checks.json": {
+      "sha256": "c2428be0870044e10b78b0012650582124056949a30d14e58ec694fe46fbdb38",
+      "git_blob": "f139452d7d652340f94022ad7ce2b911e75fe08b",
+      "bytes": 1491
+    },
+    "owned-job-accounting.fragment.ps1": {
+      "sha256": "ba041a3cd9af12bf9c78f274c4b75a7c301520761a7369a7c4ef7c32c1189181",
+      "git_blob": "c22155b55630dffe2274eb16b67dcb69a48e4d90",
+      "bytes": 14726
+    },
+    "parse-inputs.json": {
+      "sha256": "8469c8c8626bcd710502b773befc515c9bb4485fe8b7825efbe9c6c5b4235534",
+      "git_blob": "e9dc14aa362cf7a5f546142763872a5f7d89387f",
+      "bytes": 555
+    },
+    "parse-wrappers.ps1": {
+      "sha256": "778d480bb553c454fcac9c29f3e3eb41db6ea970b4ace23b5c17a7d725451931",
+      "git_blob": "fb45c247a2b8db0570e8e35fa0d27c1cd15be08b",
+      "bytes": 4109
+    },
+    "parse-wrappers.workflow.yml": {
+      "sha256": "bc69e18cfa6b22c14594c4d5be821e7105830f1109c6b0a599f68ac09f866fba",
+      "git_blob": "482d84686ac52dbc143ccabfc1581fd6f3835ec1",
+      "bytes": 1797
+    },
+    "stage-tray-host-20261125.mjs": {
+      "sha256": "e5ab142e28442355d224641c4887ebb33aec9691111113c4e4b6864ef3a6ad84",
+      "git_blob": "945fa4b532826c53ecf46643b955e5d4c1846152",
+      "bytes": 19143
+    },
+    "stage-tray-host-20261125.mjs.patch": {
+      "sha256": "8aadae8d07ee48b9b1fe64d36a17a43813a26b069912e1c07aea94035d400815",
+      "git_blob": "36793b225d6c548d0c4e0ea2b209ad275fbb0937",
+      "bytes": 14311
+    },
+    "stage-tray-repair-20261125.mjs": {
+      "sha256": "3326344b6a5319faf8e5890a210fd5e4d3c3c238579f2cd0384dedf64b172712",
+      "git_blob": "24b4943e13cfe5050b5e02fdd6907f65dab49357",
+      "bytes": 14676
+    },
+    "staging-file-bindings.json": {
+      "sha256": "c67630b48006fe56855a1d9a3d64c08ed0aed33a04c2915a0642c797cd62d780",
+      "git_blob": "f10d9e0b7d73b6fb226e64d30d5c139b94e93d35",
+      "bytes": 3013
+    },
+    "windows-configured-launch-host-20261125.ps1": {
+      "sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+      "git_blob": "98cdf0280601589fbfb211c3be163142c63a26b0",
+      "bytes": 48571
+    },
+    "windows-configured-launch-host-20261125.ps1.patch": {
+      "sha256": "0f413bce70ff69fe90fb04596da1a39cb56b7270f49a6046ca95ca35486ba4a0",
+      "git_blob": "411b2c0420fa6a32ab2b457d0e267d27c0c14015",
+      "bytes": 35435
+    },
+    "windows-configured-launch-host-20261125.ps1.root-draft": {
+      "sha256": "dada9cbbd607e4534814afd5b7abadac33635a71f59c98872f46cdaf1e974c85",
+      "git_blob": "c7c0aafa4755790f1294419efbdff5724dde2736",
+      "bytes": 32153
+    },
+    "windows-configured-launch-smoke.ps1": {
+      "sha256": "2987f21bc4a2e051ca7cf864fbd2644feef504c6e9ca9e70552433b38ee0ebd0",
+      "git_blob": "9ec7cb6da5380687ea28620c7d03b09e73cf2df6",
+      "bytes": 29622
+    },
+    "windows-install-tray-20261124.ps1": {
+      "sha256": "881386faf0ef828ebc68fa0a99e28183ad265b7da8587964934a704089153631",
+      "git_blob": "913186c93bddaa40176cdc9d23e464b010068ac7",
+      "bytes": 34119
+    },
+    "windows-install-tray-host-20261125.ps1": {
+      "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+      "git_blob": "7936a5cb30a551f6ac6eb258920e067262ebf228",
+      "bytes": 34632
+    },
+    "windows-install-tray-host-20261125.ps1.patch": {
+      "sha256": "71924554f5260ca2d15d710a1bc9bbcdc1b06beed3fa580f0d2650327d186b9d",
+      "git_blob": "c70fe19651435df0f75134d1269d1dee3fb7dc60",
+      "bytes": 5772
+    },
+    "windows-tray-smoke-host-20261125.ps1": {
+      "sha256": "a0361798ea83299b10ea8da616d17a2ec9fb46ec556643be2f05698bbf051c5f",
+      "git_blob": "2caacaff75b85f2cc0eb24a0a0c8cc30433d13f0",
+      "bytes": 52753
+    },
+    "windows-tray-smoke-host-20261125.ps1.patch": {
+      "sha256": "f8168a80150bc9725ceed464b79f78abec12411e35e03cef565254f36dfc4cb0",
+      "git_blob": "4907484ab3f7cc7535fd76e6d36d89234b3a0961",
+      "bytes": 39804
+    },
+    "windows-tray-smoke-host-20261125.ps1.root-draft": {
+      "sha256": "ddf1232a9bf603da62f9bd62814cf439ff66bb0b70515ca151fa3aa8bbac3d32",
+      "git_blob": "78c0c896bf88427388b1c2da2c8853d1c9892d59",
+      "bytes": 39761
+    },
+    "windows-tray-smoke-identity-20261125.ps1": {
+      "sha256": "64ed248e8de69ea53f18ee0a4643edc9bb9e7e1f1b18667104b14b6b698491c6",
+      "git_blob": "f600ac4d5081895de4e38ea64622aa994711c5d2",
+      "bytes": 36300
+    }
+  }
+}
