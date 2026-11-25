@@ -57,6 +57,8 @@ export function createWindowsTray({ url, onExit, onFailure }) {
     child = spawn(executable, ['-NoLogo', '-NoProfile', '-NonInteractive',
       '-STA', '-WindowStyle', 'Hidden', '-File', copy.script,
       '-ParentProcessId', String(process.pid), '-Url', url, '-CacheDirectory', copy.directory], {
+      // Skip Node's kill-on-close Job so the helper can clean up after parent loss.
+      detached: true,
       windowsHide: true, shell: false, stdio: ['pipe', 'pipe', 'pipe'],
     });
   } catch (error) {

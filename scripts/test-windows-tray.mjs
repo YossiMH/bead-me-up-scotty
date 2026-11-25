@@ -231,6 +231,8 @@ for (const entry of ['global', 'serve', 'start']) {
     const server = await run.ready();
     const tray = await run.tray();
     const spawnEvent = run.events().find(event => event.event === 'tray_spawn');
+    assert.equal(spawnEvent.detached, true,
+      'the Windows helper must be able to finish cleanup after parent loss');
     assert.equal(spawnEvent.windowsHide, true);
     assert.notEqual(spawnEvent.shell, true);
     assert.ok(spawnEvent.args.includes('-STA'), 'Windows Forms needs a single-threaded apartment');

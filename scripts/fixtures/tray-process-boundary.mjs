@@ -22,6 +22,7 @@ childProcess.spawn = (command, args = [], options = {}) => {
   fs.appendFileSync(path.join(root, 'events.jsonl'), `${JSON.stringify({
     event: 'tray_spawn', command, args,
     scriptSha256: createHash('sha256').update(fs.readFileSync(script)).digest('hex'),
+    detached: options.detached,
     windowsHide: options.windowsHide, shell: options.shell,
   })}\n`);
   if (process.env.SCOTTY_TRAY_TEST_HELPER_MODE === 'spawn-error') {
@@ -29,6 +30,8 @@ childProcess.spawn = (command, args = [], options = {}) => {
   }
   return originalSpawn(process.execPath, [path.join(directory, 'tray-helper.mjs')], {
     ...options,
+    // Keep the POSIX substitute in the controller's process group for cleanup.
+    detached: false,
     env: { ...process.env, ...options.env },
   });
 };
