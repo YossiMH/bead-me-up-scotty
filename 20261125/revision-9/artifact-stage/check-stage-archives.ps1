@@ -18,10 +18,10 @@ Add-Type -AssemblyName System.IO.Compression
 function Fixture-Bytes([object]$Value){return ,$Utf8.GetBytes((ConvertTo-Json -InputObject $Value -Depth 20)+[char]10)}
 function Row([string]$Name,[byte[]]$Bytes){return [pscustomobject]@{path=$Name;sha256=(Hash-Bytes $Bytes);bytes=$Bytes.Length}}
 function Passed([string]$Name){$result.cases+=@{name=$Name;result='passed'};Write-Output ('PASS '+$Name)}
-function Refused([string]$Name,[scriptblock]$Action,[string]$Expected){
+function Refused([string]$Name,[scriptblock]$Action,[string]$ExpectedMessage){
     $message=$null
     try{& $Action|Out-Null}catch{$message=$_.Exception.Message}
-    if($null -eq $message -or $message -notmatch $Expected){throw ('Unexpected refusal for '+$Name+': '+$message)}
+    if($null -eq $message -or $message -notmatch $ExpectedMessage){throw ('Unexpected refusal for '+$Name+': '+$message)}
     $result.cases+=@{name=$Name;result='passed';refusal=$message};Write-Output ('PASS '+$Name)
 }
 function New-FixtureZip([string]$Path,[object[]]$Members){
