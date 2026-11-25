@@ -1,0 +1,4 @@
+
+thread 'simultaneous_empty_target_restores_have_one_winner_and_one_refusal' (1652) panicked at tests\r036_verified_restore.rs:346:5:
+losing restore should observe the committed winner: Output { status: ExitStatus(ExitStatus(1)), stdout: "", stderr: "bead: I/O error: D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\r036_verified_restore-case-0\\.tmpz4C5Dy\\.beads/operation.lock: The process cannot access the file because another process has locked a portion of the file. (os error 33)\n" }
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

@@ -1,0 +1,6 @@
+
+thread 'concurrent_editors_with_one_revision_have_one_complete_winner' (7792) panicked at tests\cli_editing.rs:608:5:
+assertion `left == right` failed: [("first", Output { status: ExitStatus(ExitStatus(1)), stdout: "", stderr: "bead: I/O error: D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\cli_editing-case-0\\.tmpF35hVu\\.beads/operation.lock: The process cannot access the file because another process has locked a portion of the file. (os error 33)\n" }), ("second", Output { status: ExitStatus(ExitStatus(0)), stdout: "edit-7da63da2\n", stderr: "" })]
+  left: 0
+ right: 1
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace

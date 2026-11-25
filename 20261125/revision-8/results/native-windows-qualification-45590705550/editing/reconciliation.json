@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "run_id": 45590705550,
+  "run_attempt": 1,
+  "workflow_commit": "ddc93993a810e100bbbd62059cae92d3b6c78a56",
+  "job_id": 139123992896,
+  "partition": "editing",
+  "result_sha256": "312c531b11fe5d1a7e8dc09578c9881e4f506f45a23a0c2d6551d9210439da07",
+  "job_log_sha256": "af5eda4f53822af9368b573af9f9bdf0c86f78303aea253c7ea4b0660cd4d901",
+  "completed_targets": [
+    {
+      "target": "attempt_outcome_round_trip",
+      "passed": 4,
+      "failed": 0
+    },
+    {
+      "target": "r036_verified_restore",
+      "passed": 16,
+      "failed": 1
+    },
+    {
+      "target": "cli_editing",
+      "passed": 22,
+      "failed": 1
+    },
+    {
+      "target": "cli_capabilities",
+      "passed": 12,
+      "failed": 0
+    },
+    {
+      "target": "issue_type_file",
+      "passed": 11,
+      "failed": 0
+    }
+  ],
+  "total_passed": 65,
+  "total_failed": 2,
+  "failures": [
+    {
+      "test": "simultaneous_empty_target_restores_have_one_winner_and_one_refusal",
+      "file": "tests/r036_verified_restore.rs",
+      "observed": "Losing restore exits1 with raw OS33 at .beads/operation.lock; expected refusal names the committed nonempty target."
+    },
+    {
+      "test": "concurrent_editors_with_one_revision_have_one_complete_winner",
+      "file": "tests/cli_editing.rs",
+      "observed": "One editor succeeds, other exits1 with raw OS33 at .beads/operation.lock; expected stale-revision conflict exit4."
+    }
+  ],
+  "unexecuted": [
+    "original-corpus recovery",
+    "55-command native editing smoke"
+  ],
+  "source_and_inputs_unchanged": true,
+  "cleanup": {
+    "helper_owned_children_quiescent": true,
+    "supervisor_owned_children_remaining": 0,
+    "outer_completion_status": "failed",
+    "outer_job_empty_after_supervisor_exit": false,
+    "note": "Outer combined phase-success flag is false because helper exited1; the helper/supervisor separately observed no remaining owned children."
+  },
+  "full_output_artifact_id": 15010239036,
+  "full_output_zip_sha256": "dc904a7ae600dd3855b0f56ad1f45575519c57024e87cead48554dad45bf65e7",
+  "other_partitions": "Still reconciling; no broad rerun or cancellation.",
+  "proposed_repair": "Review-only: extend src/cli_checkpoint_guard.rs::acquire contention guard with fs2::lock_contended_error raw code, retaining deadline/policy/RAII. No production mutation in this receipt."
+}

@@ -1,0 +1,746 @@
+{
+  "artifact_id": 15009252879,
+  "build_result_sha256": "a33ab55da93e2ceeb23fd56a048b5e507a801bcf86a3c189d7156d1463f501f6",
+  "build_run": {
+    "attempt": "1",
+    "id": "45586900986",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6"
+  },
+  "commands": [
+    {
+      "args": [
+        "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "-m",
+        "py_compile",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-8\\native-windows-check\\checkpoint-windows-check-20261125.py",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-8\\native-windows-check\\checkpoint-windows-build-20261125.py",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\ci\\20261125\\revision-8\\native-windows-check\\checkpoint-release-corpus-20261125.py"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:48.983512+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "parse-check-helpers",
+      "limit_seconds": 60.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 4536,
+      "started": "2026-11-25T10:00:48.559859+00:00",
+      "stderr": "logs/parse-check-helpers.stderr",
+      "stdout": "logs/parse-check-helpers.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45590705550-1\\release\\bead-checkpoint-c90f0cdbade9.exe",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:53.060250+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "release-version",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 8108,
+      "started": "2026-11-25T10:00:52.982030+00:00",
+      "stderr": "logs/release-version.stderr",
+      "stdout": "logs/release-version.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45590705550-1\\release\\bead-checkpoint-c90f0cdbade9.exe",
+        "capabilities"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:53.081847+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "release-capabilities",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 7268,
+      "started": "2026-11-25T10:00:53.061418+00:00",
+      "stderr": "logs/release-capabilities.stderr",
+      "stdout": "logs/release-capabilities.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\checkpoint-windows-download-45590705550-1\\release\\bead-checkpoint-c90f0cdbade9.exe",
+        "update",
+        "--help"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:53.154840+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "release-update-help",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 5292,
+      "started": "2026-11-25T10:00:53.083860+00:00",
+      "stderr": "logs/release-update-help.stderr",
+      "stdout": "logs/release-update-help.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\247133e70061dc39\\out\\attempt_outcome_round_trip-247133e70061dc39.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:53.235594+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "attempt_outcome_round_trip-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 5684,
+      "started": "2026-11-25T10:00:53.158866+00:00",
+      "stderr": "logs/attempt_outcome_round_trip-list.stderr",
+      "stdout": "logs/attempt_outcome_round_trip-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\247133e70061dc39\\out\\attempt_outcome_round_trip-247133e70061dc39.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:54.546141+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "attempt_outcome_round_trip-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 9824,
+      "started": "2026-11-25T10:00:53.238141+00:00",
+      "stderr": "logs/attempt_outcome_round_trip-case-0.stderr",
+      "stdout": "logs/attempt_outcome_round_trip-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\24edee5f8398b828\\out\\r036_verified_restore-24edee5f8398b828.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:54.627176+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "r036_verified_restore-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 7172,
+      "started": "2026-11-25T10:00:54.552671+00:00",
+      "stderr": "logs/r036_verified_restore-list.stderr",
+      "stdout": "logs/r036_verified_restore-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\24edee5f8398b828\\out\\r036_verified_restore-24edee5f8398b828.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 101,
+      "finished": "2026-11-25T10:00:59.080616+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "r036_verified_restore-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 7832,
+      "started": "2026-11-25T10:00:54.629185+00:00",
+      "stderr": "logs/r036_verified_restore-case-0.stderr",
+      "stdout": "logs/r036_verified_restore-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\840e6bf27846ce04\\out\\cli_editing-840e6bf27846ce04.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:00:59.160360+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "cli_editing-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 2668,
+      "started": "2026-11-25T10:00:59.086648+00:00",
+      "stderr": "logs/cli_editing-list.stderr",
+      "stdout": "logs/cli_editing-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\840e6bf27846ce04\\out\\cli_editing-840e6bf27846ce04.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 101,
+      "finished": "2026-11-25T10:01:08.005496+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "cli_editing-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 9692,
+      "started": "2026-11-25T10:00:59.162370+00:00",
+      "stderr": "logs/cli_editing-case-0.stderr",
+      "stdout": "logs/cli_editing-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\00a6312fa7e538cd\\out\\cli_capabilities-00a6312fa7e538cd.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:08.086712+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "cli_capabilities-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 3956,
+      "started": "2026-11-25T10:01:08.013747+00:00",
+      "stderr": "logs/cli_capabilities-list.stderr",
+      "stdout": "logs/cli_capabilities-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\00a6312fa7e538cd\\out\\cli_capabilities-00a6312fa7e538cd.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:08.600163+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "cli_capabilities-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 7340,
+      "started": "2026-11-25T10:01:08.088469+00:00",
+      "stderr": "logs/cli_capabilities-case-0.stderr",
+      "stdout": "logs/cli_capabilities-case-0.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\68c7aca948873f68\\out\\issue_type_file-68c7aca948873f68.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:08.633683+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "issue_type_file-list",
+      "limit_seconds": 30.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 1236,
+      "started": "2026-11-25T10:01:08.607877+00:00",
+      "stderr": "logs/issue_type_file-list.stderr",
+      "stdout": "logs/issue_type_file-list.stdout"
+    },
+    {
+      "args": [
+        "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\68c7aca948873f68\\out\\issue_type_file-68c7aca948873f68.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-windows-native-45586900986-1-work\\source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:01:11.053626+00:00",
+      "job_pids_after": [
+        3700,
+        4524,
+        10128
+      ],
+      "label": "issue_type_file-case-0",
+      "limit_seconds": 895.0,
+      "outer_job_pids": [
+        3700,
+        4524,
+        10128
+      ],
+      "pid": 5548,
+      "started": "2026-11-25T10:01:08.636159+00:00",
+      "stderr": "logs/issue_type_file-case-0.stderr",
+      "stdout": "logs/issue_type_file-case-0.stdout"
+    }
+  ],
+  "duration_seconds": 23.64,
+  "error": "RuntimeError: One or more required Windows cases failed",
+  "finished": "2026-11-25T10:01:12.189708+00:00",
+  "finished_epoch": 1795600872.1897087,
+  "grid_results": [],
+  "helper_sha256": "31ccfe21ec0e703429df1846389cbbf159901a1eddd67316dd09ff1202b83943",
+  "input_sha256": "0a02e738a9a40a4f41b5e26e4199077bef53e1aff211067e2b8fcd57d2f73ec6",
+  "inputs_and_source_unchanged": true,
+  "job_query_retries": [],
+  "listings": {
+    "attempt_outcome_round_trip": {
+      "file": {
+        "bytes": 211,
+        "mode": 438,
+        "path": "logs/attempt_outcome_round_trip-list.stdout",
+        "sha256": "1ccec0e232bc974d235c39f9400a018327563eaa7b079bc84101be615a802ae6"
+      },
+      "tests": [
+        "test_attempt_outcome_conflict_rejection",
+        "test_attempt_outcome_duplicate_detection",
+        "test_attempt_outcome_round_trip_monolithic",
+        "test_attempt_outcome_round_trip_sharded"
+      ]
+    },
+    "cli_capabilities": {
+      "file": {
+        "bytes": 617,
+        "mode": 438,
+        "path": "logs/cli_capabilities-list.stdout",
+        "sha256": "ba805b660dc5d917ac4f9418ac1e70faf2175b417992cad377ee68f24a864e76"
+      },
+      "tests": [
+        "auto_flush_advertisement_ignores_workspace_state",
+        "auto_flush_advertisement_matches_binary_behavior",
+        "auto_flush_field_tracks_the_compiled_default",
+        "capability_library_boundary_cannot_forge_a_managed_downgrade",
+        "secret_scan_capability_reports_effective_workspace_mode",
+        "secret_scan_capability_uses_compiled_default_without_workspace",
+        "test_capabilities_default_profile",
+        "test_capabilities_invalid_profile",
+        "test_capabilities_native_profile",
+        "test_capabilities_needle_profile",
+        "test_capabilities_no_workspace",
+        "test_capabilities_schema_entries"
+      ]
+    },
+    "cli_editing": {
+      "file": {
+        "bytes": 1466,
+        "mode": 438,
+        "path": "logs/cli_editing-list.stdout",
+        "sha256": "9830f209a5e33d32a9f32c329ba54beb0243a12c5c3df35973a1e5dc5347f333"
+      },
+      "tests": [
+        "capabilities_schema_and_help_describe_the_same_editable_fields",
+        "claimed_edits_require_the_issued_credential",
+        "compound_edit_preserves_identity_extensions_and_related_records",
+        "concurrent_editors_with_one_revision_have_one_complete_winner",
+        "conflicting_sources_and_invalid_utf8_do_not_modify_the_issue",
+        "description_file_stdin_and_clear_preserve_exact_text",
+        "dry_run_enforces_revision_claim_and_transition_checks",
+        "dry_run_projects_the_committed_edit_without_writing",
+        "dry_run_redacts_new_text_fields_and_assignment_summary",
+        "dry_run_redacts_stored_closed_metadata_and_preserves_exact_clean_text",
+        "edited_content_and_audit_survive_published_checkpoint_restore",
+        "editing_closed_metadata_preserves_the_close_record",
+        "invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged",
+        "manifest_edits_and_dependency_changes_commit_together",
+        "manifest_edits_cannot_take_over_an_existing_claim",
+        "manifest_later_failure_rolls_back_edits_and_priority_audit",
+        "manifest_output_redacts_scalar_changes_without_masking_stored_values",
+        "new_edit_fields_keep_native_content_checks_and_redacted_errors",
+        "priority_change_records_reason_actor_and_changes_ready_order",
+        "priority_requires_a_reason_and_same_value_has_no_priority_event",
+        "repeated_edits_are_noops_after_revision_and_claim_checks",
+        "stale_revision_rejects_the_whole_edit",
+        "title_limits_count_utf8_bytes"
+      ]
+    },
+    "issue_type_file": {
+      "file": {
+        "bytes": 648,
+        "mode": 438,
+        "path": "logs/issue_type_file-list.stdout",
+        "sha256": "c3b616879c0b4b8d6e1272e6240b3147564fb50b0611ffcef62d495b5d4e27c0"
+      },
+      "tests": [
+        "capability_schema_accepts_the_optional_type_transport",
+        "dry_run_and_repeated_file_values_preserve_saved_state",
+        "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+        "file_type_is_scanned_before_any_scalar_edit",
+        "help_and_generated_man_page_describe_type_file_input",
+        "inline_and_file_conflict_before_reading_the_file",
+        "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+        "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+        "only_one_text_field_may_consume_stdin",
+        "stdin_type_preserves_exact_text",
+        "stored_issue_and_manifest_keep_literal_type_text"
+      ]
+    },
+    "r036_verified_restore": {
+      "file": {
+        "bytes": 1174,
+        "mode": 438,
+        "path": "logs/r036_verified_restore-list.stdout",
+        "sha256": "5f570cc30e0e9f85284f274e4fb0655873807266630a35eb5e451f8a6a80420d"
+      },
+      "tests": [
+        "direct_pointer_source_with_wrong_generation_is_refused",
+        "doctor_recommends_named_restore_but_never_performs_it",
+        "empty_target_is_initialized_verified_restored_and_receipted_by_one_command",
+        "explicit_non_empty_override_replaces_native_state_and_reports_displacement",
+        "input_and_force_aliases_are_live_forms_of_the_canonical_flags",
+        "missing_and_empty_sources_are_refused_before_target_initialization",
+        "missing_generation_is_refused_and_names_the_available_one",
+        "no_auto_flush_restores_without_publishing_the_target",
+        "non_empty_target_is_refused_without_mutation",
+        "r029_archaeology_view_is_explicitly_refused",
+        "restore_help_documents_the_explicit_recovery_contract",
+        "retained_generation_named_native_root_is_hash_verified_and_restored",
+        "set_v2_generation_verifies_its_complete_closure_and_restores",
+        "simultaneous_empty_target_restores_have_one_winner_and_one_refusal",
+        "successful_restore_publishes_a_generation_covering_the_summary_event",
+        "successful_restore_writes_the_audit_event_and_a_digest_pinned_receipt",
+        "unverified_generation_artifact_is_refused_before_target_initialization"
+      ]
+    }
+  },
+  "logs_retention_days_required": 7,
+  "operation": "checkpoint-windows-checks",
+  "outer_windows_job_verification_required": true,
+  "owned_children_quiescent": true,
+  "owned_job_baseline": {
+    "pids": [
+      3700,
+      4524,
+      10128
+    ],
+    "policy": "supervisor, Python, and at most its one verified System32 console host",
+    "processes": [
+      {
+        "creation_filetime": "134400744462387008",
+        "image_name": "conhost.exe",
+        "image_path": "C:\\Windows\\System32\\conhost.exe",
+        "parent_pid": 4524,
+        "pid": 3700,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400744462331434",
+        "image_name": "python.exe",
+        "image_path": "C:\\hostedtoolcache\\windows\\Python\\3.12.10\\x64\\python.exe",
+        "parent_pid": 10128,
+        "pid": 4524,
+        "query_and_synchronization_handle_retained": true
+      },
+      {
+        "creation_filetime": "134400744410499435",
+        "image_name": "powershell.exe",
+        "image_path": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+        "parent_pid": 6460,
+        "pid": 10128,
+        "query_and_synchronization_handle_retained": true
+      }
+    ],
+    "schema_version": 1,
+    "validated_at": "2026-11-25T10:00:48.549812+00:00"
+  },
+  "partition": "editing",
+  "release_under_test": {
+    "executable": {
+      "bytes": 12214272,
+      "mode": 511,
+      "path": "release-under-test/bead-checkpoint-c90f0cdbade9.exe",
+      "sha256": "cdd3b50d65504c52a27a8fd29c6494fe3847d512cbca1510aa74a6cc5da87a06"
+    },
+    "metadata": {
+      "bytes": 2056,
+      "mode": 438,
+      "path": "release-under-test/bead-checkpoint-c90f0cdbade9.exe.metadata.json",
+      "sha256": "ed74ccf87b21972261434f8c628dea12cfb958a577ba686658d24ae8123dc97a"
+    }
+  },
+  "run": {
+    "attempt": "1",
+    "id": "45590705550",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "ddc93993a810e100bbbd62059cae92d3b6c78a56",
+    "workflow_ref": "YossiMH/bead-me-up-scotty/.github/workflows/native-final-windows-v8-20261125.yml@refs/heads/task/checkpoint-windows-v8-check-20261125"
+  },
+  "schema_version": 1,
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "started": "2026-11-25T10:00:48.549812+00:00",
+  "status": "failed",
+  "target": "x86_64-pc-windows-msvc",
+  "test_results": [
+    {
+      "case": "attempt_outcome_round_trip",
+      "duration_seconds": 1.297,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "label": "attempt_outcome_round_trip-case-0",
+      "measured": 0,
+      "passed": 4,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/attempt_outcome_round_trip-case-0.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 325,
+        "mode": 438,
+        "path": "logs/attempt_outcome_round_trip-case-0.stdout",
+        "sha256": "5f27546434267a822bd2d9f77b37825067a9150050e31587e33db6a7669ae423"
+      },
+      "target": "attempt_outcome_round_trip",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\attempt_outcome_round_trip-case-0",
+      "tests": [
+        "test_attempt_outcome_conflict_rejection",
+        "test_attempt_outcome_duplicate_detection",
+        "test_attempt_outcome_round_trip_monolithic",
+        "test_attempt_outcome_round_trip_sharded"
+      ]
+    },
+    {
+      "case": "r036_verified_restore",
+      "duration_seconds": 4.438,
+      "error": "Harness failed",
+      "exit_code": 101,
+      "label": "r036_verified_restore-case-0",
+      "selectors": {},
+      "status": "failed",
+      "stderr": {
+        "bytes": 587,
+        "mode": 438,
+        "path": "logs/r036_verified_restore-case-0.stderr",
+        "sha256": "aff58fe5d243f59db728eefcd0c40f8df2aca275e99f21c173fd61b4651edde8"
+      },
+      "stdout": {
+        "bytes": 1468,
+        "mode": 438,
+        "path": "logs/r036_verified_restore-case-0.stdout",
+        "sha256": "75470469e529ea7005ca01f55991b6c574cbc52240242760ba33668e14bfba72"
+      },
+      "target": "r036_verified_restore",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\r036_verified_restore-case-0"
+    },
+    {
+      "case": "cli_editing",
+      "duration_seconds": 8.843,
+      "error": "Harness failed",
+      "exit_code": 101,
+      "label": "cli_editing-case-0",
+      "selectors": {},
+      "status": "failed",
+      "stderr": {
+        "bytes": 674,
+        "mode": 438,
+        "path": "logs/cli_editing-case-0.stderr",
+        "sha256": "71bb848e98b167228c2f1b70f85826b3be0581f4e2b61d0c7752d3cfbb8bedf7"
+      },
+      "stdout": {
+        "bytes": 1791,
+        "mode": 438,
+        "path": "logs/cli_editing-case-0.stdout",
+        "sha256": "c3551ad18b2479cd41f3787f582d7e55f9c5f2e9e3a9d417a98493da42c699f6"
+      },
+      "target": "cli_editing",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\cli_editing-case-0"
+    },
+    {
+      "case": "cli_capabilities",
+      "duration_seconds": 0.516,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "label": "cli_capabilities-case-0",
+      "measured": 0,
+      "passed": 12,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/cli_capabilities-case-0.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 780,
+        "mode": 438,
+        "path": "logs/cli_capabilities-case-0.stdout",
+        "sha256": "55d930e8d038836db083d3e3cdf0dcf2d24c6bf5b9441ea69cb7c65183593c8e"
+      },
+      "target": "cli_capabilities",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\cli_capabilities-case-0",
+      "tests": [
+        "auto_flush_advertisement_ignores_workspace_state",
+        "auto_flush_advertisement_matches_binary_behavior",
+        "auto_flush_field_tracks_the_compiled_default",
+        "capability_library_boundary_cannot_forge_a_managed_downgrade",
+        "secret_scan_capability_reports_effective_workspace_mode",
+        "secret_scan_capability_uses_compiled_default_without_workspace",
+        "test_capabilities_default_profile",
+        "test_capabilities_invalid_profile",
+        "test_capabilities_native_profile",
+        "test_capabilities_needle_profile",
+        "test_capabilities_no_workspace",
+        "test_capabilities_schema_entries"
+      ]
+    },
+    {
+      "case": "issue_type_file",
+      "duration_seconds": 2.422,
+      "exit_code": 0,
+      "failed": 0,
+      "filtered": 0,
+      "ignored": 0,
+      "label": "issue_type_file-case-0",
+      "measured": 0,
+      "passed": 11,
+      "selectors": {},
+      "status": "passed",
+      "stderr": {
+        "bytes": 0,
+        "mode": 438,
+        "path": "logs/issue_type_file-case-0.stderr",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stdout": {
+        "bytes": 805,
+        "mode": 438,
+        "path": "logs/issue_type_file-case-0.stdout",
+        "sha256": "dda6b729615473aeaa1106ff8ca9f09decc621b5dca020efc2f0dd789246efd9"
+      },
+      "target": "issue_type_file",
+      "temporary_directory": "D:\\a\\_temp\\bead-checkpoint-windows-check-45590705550-1\\tmp\\issue_type_file-case-0",
+      "tests": [
+        "capability_schema_accepts_the_optional_type_transport",
+        "dry_run_and_repeated_file_values_preserve_saved_state",
+        "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+        "file_type_is_scanned_before_any_scalar_edit",
+        "help_and_generated_man_page_describe_type_file_input",
+        "inline_and_file_conflict_before_reading_the_file",
+        "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+        "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+        "only_one_text_field_may_consume_stdin",
+        "stdin_type_preserves_exact_text",
+        "stored_issue_and_manifest_keep_literal_type_text"
+      ]
+    }
+  ],
+  "window_deadline_epoch": 1795609208,
+  "window_start_epoch": 1795600808
+}

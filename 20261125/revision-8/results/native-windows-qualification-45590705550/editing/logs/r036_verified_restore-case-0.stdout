@@ -1,0 +1,27 @@
+
+running 17 tests
+test direct_pointer_source_with_wrong_generation_is_refused ... ok
+test doctor_recommends_named_restore_but_never_performs_it ... ok
+test empty_target_is_initialized_verified_restored_and_receipted_by_one_command ... ok
+test explicit_non_empty_override_replaces_native_state_and_reports_displacement ... ok
+test input_and_force_aliases_are_live_forms_of_the_canonical_flags ... ok
+test missing_and_empty_sources_are_refused_before_target_initialization ... ok
+test missing_generation_is_refused_and_names_the_available_one ... ok
+test no_auto_flush_restores_without_publishing_the_target ... ok
+test non_empty_target_is_refused_without_mutation ... ok
+test r029_archaeology_view_is_explicitly_refused ... ok
+test restore_help_documents_the_explicit_recovery_contract ... ok
+test retained_generation_named_native_root_is_hash_verified_and_restored ... ok
+test set_v2_generation_verifies_its_complete_closure_and_restores ... ok
+test simultaneous_empty_target_restores_have_one_winner_and_one_refusal ... FAILED
+test successful_restore_publishes_a_generation_covering_the_summary_event ... ok
+test successful_restore_writes_the_audit_event_and_a_digest_pinned_receipt ... ok
+test unverified_generation_artifact_is_refused_before_target_initialization ... ok
+
+failures:
+
+failures:
+    simultaneous_empty_target_restores_have_one_winner_and_one_refusal
+
+test result: FAILED. 16 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.43s
+

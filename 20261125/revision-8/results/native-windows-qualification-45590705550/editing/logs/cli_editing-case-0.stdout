@@ -1,0 +1,33 @@
+
+running 23 tests
+test capabilities_schema_and_help_describe_the_same_editable_fields ... ok
+test claimed_edits_require_the_issued_credential ... ok
+test compound_edit_preserves_identity_extensions_and_related_records ... ok
+test concurrent_editors_with_one_revision_have_one_complete_winner ... FAILED
+test conflicting_sources_and_invalid_utf8_do_not_modify_the_issue ... ok
+test description_file_stdin_and_clear_preserve_exact_text ... ok
+test dry_run_enforces_revision_claim_and_transition_checks ... ok
+test dry_run_projects_the_committed_edit_without_writing ... ok
+test dry_run_redacts_new_text_fields_and_assignment_summary ... ok
+test dry_run_redacts_stored_closed_metadata_and_preserves_exact_clean_text ... ok
+test edited_content_and_audit_survive_published_checkpoint_restore ... ok
+test editing_closed_metadata_preserves_the_close_record ... ok
+test invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged ... ok
+test manifest_edits_and_dependency_changes_commit_together ... ok
+test manifest_edits_cannot_take_over_an_existing_claim ... ok
+test manifest_later_failure_rolls_back_edits_and_priority_audit ... ok
+test manifest_output_redacts_scalar_changes_without_masking_stored_values ... ok
+test new_edit_fields_keep_native_content_checks_and_redacted_errors ... ok
+test priority_change_records_reason_actor_and_changes_ready_order ... ok
+test priority_requires_a_reason_and_same_value_has_no_priority_event ... ok
+test repeated_edits_are_noops_after_revision_and_claim_checks ... ok
+test stale_revision_rejects_the_whole_edit ... ok
+test title_limits_count_utf8_bytes ... ok
+
+failures:
+
+failures:
+    concurrent_editors_with_one_revision_have_one_complete_winner
+
+test result: FAILED. 22 passed; 1 failed; 0 ignored; 0 measured; 0 filtered out; finished in 8.83s
+
