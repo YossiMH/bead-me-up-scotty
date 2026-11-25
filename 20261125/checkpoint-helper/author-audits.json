@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "passed",
   "scope": "Two complete static author inspections of the exact retained candidate; execution qualification remains pending.",
-  "helper_sha256": "04cce7b36a8982588d82d5485486939e06cc314b73461004a61c995b3f2f825c",
+  "helper_sha256": "c436bb5542facd97a350606cbb695a6938910eda6697bbfa10a82bf26359ab2c",
   "supervisor_sha256": "396b849ec152da55e75078fa755eef6736b4d2327258aa0b48b60faf4cac2449",
   "audits": [
     {
@@ -12,11 +12,12 @@
       "findings": [],
       "inspected": [
         "All ten phase transitions and one-use output/attempt guards; no mutation replay or original restore/reset.",
-        "Fixed original identity and 954/11264/5/413 preservation; accepted revision5 mapping: 31 tasks / 985 issues / 49 edges; runtime/plan/receipt hash chains.",
+        "Fixed original identity and 954/11264/5/413 preservation; continuation task/issue/edge counts derived from the exact accepted revision5 plan and matching materialization; runtime/plan/receipt hash chains.",
         "Native source-restore gate before original native open; SQLite read-only snapshot and data_version; native wire identity derivation separate from local row sequence.",
         "Native merge dry-run counters and preview receipt+1 distinction; staged-record interchange digest separate from manifest digest.",
         "Complete original raw SQLite retention, scoped new-task rows including auxiliary tables, exact added summary/receipt and final single guarded cleanup close.",
-        "Selected current object closure; independent previous-generation diagnostic; legacy and immutable tail path handling."
+        "Selected current object closure; independent previous-generation diagnostic; legacy and immutable tail path handling.",
+        "Accepted-plan task keys and edges are unique and internally resolved; total issues are 954 plus task count; no pending task-count constants remain."
       ]
     },
     {
@@ -30,7 +31,8 @@
         "Owned Windows Job handle provenance and membership, PID/birth retained handles, BelowNormal, Node 128 MiB heap, aggregate 512 MiB monitor, 3 GiB start / 1 GiB pressure gates.",
         "Native 30 second timeouts, 180 second own-Job deadline, cleanup reserve, output bounds, no broad process termination and no app/browser/GPU/build.",
         "PowerShell quoting, asynchronous stdout/stderr drains, process-exit races, final incomplete-result failure semantics.",
-        "Root-owned Git/index/remote publication and cleanup inputs; private backup/snapshots remain PC-only; future agents must reconcile attempts and clean remaining owned worktrees/branch."
+        "Root-owned Git/index/remote publication and cleanup inputs; private backup/snapshots remain PC-only; future agents must reconcile attempts and clean remaining owned worktrees/branch.",
+        "Complete exact original checkpoint tree compared before/after both source preflight and final verification restores; repaired phase logic re-read after the plan-count update."
       ]
     }
   ],
@@ -49,5 +51,6 @@
     "Qualified repaired runtime and actual revision5 plan/materialization hashes",
     "Successful current-source native restore preflight",
     "Actual PC phases and separate Git/cleanup publication"
-  ]
+  ],
+  "candidate_revision": "Derived-plan-count and full-original-tree restore comparison revision."
 }
