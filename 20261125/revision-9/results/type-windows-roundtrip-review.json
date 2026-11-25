@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root",
+  "independent": true,
+  "continuation_revision": 9,
+  "task_key": "type-windows-roundtrip",
+  "scope": "Complete actual Windows native-store and production HTTP integration with the final source-bound executable",
+  "source": {
+    "app_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "native_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_executable_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+  },
+  "packet": {
+    "commit": "f6679cad66ab1d280edcead8a7dc1f609e304c95",
+    "review_commit": "5ffcc35d8a912637cf6703a699485dbaaada5c31",
+    "review_sha256": "1aa4b51dff137a747a487ed445e65df3222fefb993f71d4f2f8b1553ffb56b1b",
+    "gate_commit": "3859355a8f0969af0d69bae894629a6226d134fb",
+    "gate_sha256": "66f8c9b060745de0947cdd92eafbe74aef723fee7e9e56896b616da3589c1f05"
+  },
+  "actual": {
+    "receipt_commit": "7109ae83d13585513bb46aef9009f24308dfe01a",
+    "receipt_path": "20261125/revision-9/results/type-windows-roundtrip.json",
+    "receipt_sha256": "3d7621aaae00d5ba0a141ef873ba431656a6ed5066b223c090a3950ed7c78894",
+    "run_id": 45606372926,
+    "attempt": 1,
+    "job_id": 139178170464,
+    "conclusion": "success",
+    "job_log_sha256": "b4abfe6c9bf9a375afacb49b9e2f7eec82212e75d45f1a10749f58bf57f23a24",
+    "job_log_bytes": 577164,
+    "artifact": {
+      "id": 15018780172,
+      "name": "scotty-type-windows-45606372926-1",
+      "size_in_bytes": 44986,
+      "url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15018780172",
+      "archive_download_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15018780172/zip",
+      "expired": false,
+      "created_at": "2026-11-25T11:40:04Z",
+      "expires_at": "2026-12-09T11:40:03Z",
+      "updated_at": "2026-11-25T11:40:04Z",
+      "digest": "sha256:cc12bad26b552bf86a33790ac3e06595a643f8cdb6e9390575c64ea88c862ce4",
+      "workflow_run": {
+        "id": 45606372926,
+        "repository_id": 1430517452,
+        "head_repository_id": 1430517452,
+        "head_branch": "task/type-windows-roundtrip-20261125",
+        "head_sha": "f6679cad66ab1d280edcead8a7dc1f609e304c95"
+      }
+    }
+  },
+  "author_inspections": {
+    "complete_clean_passes": 2,
+    "contained_in_actual_receipt": true
+  },
+  "retained_original_records": [
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/linux-source-sha256.json",
+      "bytes": 2308,
+      "sha256": "1e114819d4366e5d33443480ef26d909881559ba3908249ff4811ca22b3de241",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/linux-scotty-runtime.json",
+      "bytes": 110021,
+      "sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/linux-result.json",
+      "bytes": 2414,
+      "sha256": "89d15c6ba9ec3948ca1d5e0f5f04443c5dc6f865a727c337b722aabe946c0049",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/native-metadata.json",
+      "bytes": 2058,
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/npm-ci.stdout",
+      "bytes": 27,
+      "sha256": "148e5939eb0def0fa9da8297f4dad37b36d958c7a7870f47712a2c493ae82162",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/npm-ci.stderr",
+      "bytes": 979,
+      "sha256": "646cab624230c314c0fa2332b2a0de8a4c2457d18a662638b2fd6d24b0d80fb5",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/native-store.stdout",
+      "bytes": 344,
+      "sha256": "f1d7e5f9d8d0cd3e756180a2f6f6dfc7510fb6a5f649818a335195cd579ee5bd",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/native-store.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/production-http.stdout",
+      "bytes": 198,
+      "sha256": "7528feee62e0c9358cdca38fff3d357015ac7c1ec07ca85c7889d3b81dac3b45",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/production-http.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/local-contract-GMkYuN/capabilities.json",
+      "bytes": 8558,
+      "sha256": "a3189a80e04b708e223fd99158574e6f5cc377803b02070a32145df2f3c141ba",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/local-contract-GMkYuN/commands.json",
+      "bytes": 122288,
+      "sha256": "9e82423c23e277599af516541ca829f37987d9f58b531ce8999c8bd901030834",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/local-contract-GMkYuN/git-result.json",
+      "bytes": 1077,
+      "sha256": "cf99f2cd1f17e9f4a3ac25fdc1608d4a05f769d8a0c9531917c9e797b9e28842",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/local-contract-GMkYuN/type-edit.json",
+      "bytes": 517,
+      "sha256": "534968cd774940c5ad22f77a9c5158468ea0cbdf67f330441c4beb8fa8dec22d",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/type-http-9v6iMa/result.json",
+      "bytes": 168571,
+      "sha256": "3ee4e38aa7b4ed2a4f4353afb1633ad3674c7ae19aeb5f01c1b489d024234e12",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/cases/type-http-9v6iMa/server.log",
+      "bytes": 156,
+      "sha256": "1c180ea09da96807348f99062c5afc1951f33f4bf032be609c89de57feeef220",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/emitted/windows-result.json",
+      "bytes": 2841,
+      "sha256": "18a980f18f50130713b42ee21a7f093f5656bcc045928231f59c833f2da2b545",
+      "matches_actual": true
+    },
+    {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-45606372926/job.log",
+      "bytes": 577164,
+      "sha256": "b4abfe6c9bf9a375afacb49b9e2f7eec82212e75d45f1a10749f58bf57f23a24",
+      "matches_actual": true
+    }
+  ],
+  "result": {
+    "commands": [
+      {
+        "name": "npm-ci",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node_modules\\npm\\bin\\npm-cli.js",
+          "ci",
+          "--no-audit",
+          "--no-fund"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      },
+      {
+        "name": "native-store",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "--conditions=react-server",
+          "--import",
+          "./scripts/support/register-source.mjs",
+          "--test",
+          "--test-reporter=tap",
+          "scripts/test-local-bead-rs.mjs"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      },
+      {
+        "name": "production-http",
+        "command": [
+          "C:\\hostedtoolcache\\windows\\node\\24.22.3\\x64\\node.exe",
+          "scripts/test-native-type-roundtrip.mjs"
+        ],
+        "exit": 0,
+        "timeout_seconds": 180,
+        "timed_out": false
+      }
+    ],
+    "native_store_tests": {
+      "tests": 1,
+      "pass": 1,
+      "fail": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0
+    },
+    "remaining_edit_directories": [],
+    "production_http": {
+      "requests": 3,
+      "edits": 1,
+      "type_characters": 40000,
+      "type_utf8_bytes": 50000,
+      "exact_input_api_query_sha256": "46c68e4748c92fcb5a90cd3cc4c1043a2a5c1402278c3adef72d49ab0493364a",
+      "before_revision": 2,
+      "after_revision": 3,
+      "claim_epoch": 1,
+      "priority_event": {
+        "sequence": 4,
+        "issue_id": "typehttp-75799eb2",
+        "kind": "priority_changed",
+        "actor": "scotty-type-http",
+        "time": "2026-11-25T11:40:02.3308939Z",
+        "detail": {
+          "actor": "scotty-type-http",
+          "changed_fields": [
+            "priority"
+          ],
+          "new_priority": 0,
+          "old_priority": 2,
+          "reason": "Priority edited in Scotty",
+          "revision": 3
+        }
+      },
+      "cleanup": {
+        "serverExit": {
+          "code": null,
+          "signal": "SIGTERM"
+        },
+        "portReleased": true
+      }
+    },
+    "native_store": {
+      "before_revision": 4,
+      "after_revision": 5,
+      "claim_epoch": 1,
+      "priority_event": {
+        "sequence": 117,
+        "issue_id": "local-a90d2e0d",
+        "kind": "priority_changed",
+        "actor": "scotty-test",
+        "time": "2026-11-25T11:40:00.0362027Z",
+        "detail": {
+          "actor": "scotty-test",
+          "changed_fields": [
+            "priority"
+          ],
+          "new_priority": 0,
+          "old_priority": 2,
+          "reason": "Priority edited in Scotty",
+          "revision": 5
+        }
+      }
+    },
+    "git_preservation": {
+      "unrelated_marker_unchanged": true,
+      "complete_referenced_checkpoint_closure": true
+    }
+  },
+  "checks": [
+    "Independently fetched the actual Actions run, complete job log, every step and artifact metadata. Candidate f6679cad, its first attempt, pinned inputs and all successful steps agree with the original retained receipt.",
+    "Reconstructed all seventeen original text records from all exact ordered RETAIN_FILE/RETAIN_PART sequences in the actual log. Verified every original UTF-8 byte count and SHA-256, including empty stderr. Fetched every durable emitted record plus the complete 577,164-byte log and compared all eighteen files byte-for-byte.",
+    "Matched original source manifest, 560-file runtime manifest and build result to their independently accepted immutable hashes; matched the native metadata and all exact inputs to the final producer. The production app source and runtime were unchanged.",
+    "Read the complete native TAP, nine native command records, eight HTTP-path CLI records, all three HTTP requests, both Git closure receipts and original server output. Exactly one PATCH round-trips the 40,000-character / 50,000-byte custom type unchanged through the API and native query, with exact title, description, notes and priority.",
+    "Independently checked both before/after native records. The HTTP revision increments 2 to 3; the native-store revision increments 4 to 5. Each retains claim epoch 1 and assignee. Each has exactly one priority event with old/new values, expected actor/reason and final revision.",
+    "Verified the unrelated marker remains unchanged and untracked in both workspaces, and all three referenced checkpoint closure paths are among each eight staged paths. All three bounded commands exit zero, the native TAP has one pass and no failures/skips/cancellations/todos, and no request-owned edit directories remain.",
+    "Verified the production server has an observed SIGTERM exit and the loopback port is released; the existing checked Windows Job owns the bounded command descendants and the hosted job completes cleanup. Read both complete final author inspections and retained all npm/Actions warnings."
+  ],
+  "warnings": {
+    "npm_stderr": "npm warn EBADDEVENGINES The developer of this package has specified the following through devEngines\nnpm warn EBADDEVENGINES Invalid devEngines.runtime\nnpm warn EBADDEVENGINES Invalid semver version \">=26.4\" does not match \"v24.22.3\" for \"runtime\"\nnpm warn EBADDEVENGINES {\nnpm warn EBADDEVENGINES   current: { name: 'node', version: 'v24.22.3' },\nnpm warn EBADDEVENGINES   required: { name: 'node', version: '>=26.4', onFail: 'warn' }\nnpm warn EBADDEVENGINES }\nnpm warn deprecated recharts@2.15.4: 1.x and 2.x branches are no longer active. Bump to Recharts v3 to receive latest features and bugfixes. See https://github.com/recharts/recharts/wiki/3.0-migration-guide\nnpm warn install-scripts 1 package has install scripts not yet covered by allowScripts:\nnpm warn install-scripts   unrs-resolver@1.12.2 (postinstall: node postinstall.js)\nnpm warn install-scripts\nnpm warn install-scripts Run `npm install-scripts ls` to review, or `npm install-scripts approve <pkg>` to allow.\n",
+    "actions": [
+      "2026-11-25T11:40:08.5245815Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/"
+    ]
+  },
+  "findings": [],
+  "verdict": "PASS for the final native-store and production HTTP Windows integration. Full native qualification is accepted separately. Logged-in PC tray behavior, installation/configured launch and actual task mapping/history remain separate pending gates.",
+  "component_accepted": true,
+  "pc_acceptance": false,
+  "reviewer_product_execution": false,
+  "pc_actions": 0
+}
