@@ -1,0 +1,40 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "review_kind": "complete_static_runner_review",
+  "reviewer": "delivery_review",
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "source_tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+  "source_review": {
+    "commit": "8326e3a98c74db8fa3ea95be413f4f8dd7935da4",
+    "path": "20261125/revision-6/tray-host-source-static-review.json",
+    "sha256": "7c9a213d4e121b3db15f69588f9801d66780299656f764e903f244dd69f8b46a"
+  },
+  "reviewed_files": {
+    "run-linux-checks.py": "fc848b236969676a96dadfba9c007044993ca15f9013d17387e59e9cf9738e6b",
+    "linux-author-audits.json": "b6b6c26c75da28b7f60790074b737459769ba518f7062f2da15a843dbc6032c3",
+    "../revision-6/tray-candidate-files.json": "ff4a15e0e87a2799d1b2b55c3f67dce0092a711b142ccaaeeb7eada7689c05ba"
+  },
+  "read_complete_helper_and_audits": true,
+  "assessment": [
+    "The fresh cloud-only output directory and clean accepted Git commit/tree are checked before execution; all nine candidate hashes and final clean status are checked again.",
+    "The exact four test scripts run once, serially, with a 600-second deadline and require 39 passed cases, zero failures, cancellations, skips and todo cases.",
+    "Full npm run lint has a 384 MiB Node heap and 300-second deadline; the existing single documented notification-hook warning is the only tolerated lint warning.",
+    "Child-only environment sanitization and owned process-group termination on exceptional command failure preserve the surrounding workspace; reviewed fixtures retain ownership of their detached test descendants.",
+    "All command streams, exit outcomes, source pins and any failure are retained. Actual execution remains separate from this static acceptance."
+  ],
+  "findings": [],
+  "accepted_command": [
+    "python",
+    "coordination/tray-checks-20261125/run-linux-checks.py"
+  ],
+  "output_directory": "coordination/results/tray-checks-5232c8b-linux",
+  "scope": "One existing cloud Linux launcher/host test phase plus full lint and source preservation. If lint alone needs hosted memory, its failed record is retained and only lint moves; no repeat of a successfully accepted 39-case phase is needed.",
+  "review_actions": {
+    "product_tests": 0,
+    "builds": 0,
+    "pc_calls": 0,
+    "native_writes": 0
+  }
+}

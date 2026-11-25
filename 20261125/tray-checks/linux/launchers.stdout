@@ -1,0 +1,244 @@
+TAP version 13
+# Subtest: binary selection resolves against the invoking folder and retains other options
+ok 1 - binary selection resolves against the invoking folder and retains other options
+  ---
+  duration_ms: 2.412584
+  type: 'test'
+  ...
+# Subtest: missing values and directories fail before server creation
+ok 2 - missing values and directories fail before server creation
+  ---
+  duration_ms: 0.697915
+  type: 'test'
+  ...
+# Subtest: launcher refuses a missing explicitly selected bead binary before starting
+ok 3 - launcher refuses a missing explicitly selected bead binary before starting
+  ---
+  duration_ms: 148.891681
+  type: 'test'
+  ...
+# Subtest: serve preserves a natural child failure status
+ok 4 - serve preserves a natural child failure status
+  ---
+  duration_ms: 271.240789
+  type: 'test'
+  ...
+# Subtest: serve restarts on 75 and preserves the replacement child status
+ok 5 - serve restarts on 75 and preserves the replacement child status
+  ---
+  duration_ms: 319.102836
+  type: 'test'
+  ...
+# Subtest: serve waits for graceful SIGINT shutdown
+ok 6 - serve waits for graceful SIGINT shutdown
+  ---
+  duration_ms: 218.190705
+  type: 'test'
+  ...
+# Subtest: serve kills a child that does not drain after SIGINT
+ok 7 - serve kills a child that does not drain after SIGINT
+  ---
+  duration_ms: 5181.452514
+  type: 'test'
+  ...
+# Subtest: serve waits for graceful SIGTERM shutdown
+ok 8 - serve waits for graceful SIGTERM shutdown
+  ---
+  duration_ms: 175.121029
+  type: 'test'
+  ...
+# Subtest: serve kills a child that does not drain after SIGTERM
+ok 9 - serve kills a child that does not drain after SIGTERM
+  ---
+  duration_ms: 5206.949543
+  type: 'test'
+  ...
+# Subtest: tray host relays readiness and disposes its child on STOP
+ok 10 - tray host relays readiness and disposes its child on STOP
+  ---
+  duration_ms: 253.359251
+  type: 'test'
+  ...
+# Subtest: tray host relays readiness and disposes its child on controller EOF
+ok 11 - tray host relays readiness and disposes its child on controller EOF
+  ---
+  duration_ms: 224.43235
+  type: 'test'
+  ...
+# Subtest: tray host preserves a helper initialization error and exit code
+ok 12 - tray host preserves a helper initialization error and exit code
+  ---
+  duration_ms: 216.108382
+  type: 'test'
+  ...
+# Subtest: tray host reports a failed OS spawn without hanging on its input
+ok 13 - tray host reports a failed OS spawn without hanging on its input
+  ---
+  duration_ms: 136.5205
+  type: 'test'
+  ...
+# Subtest: tray host drains helper cleanup after its controller output pipe breaks
+ok 14 - tray host drains helper cleanup after its controller output pipe breaks
+  ---
+  duration_ms: 221.518171
+  type: 'test'
+  ...
+# Subtest: tray host bounds an unresponsive helper and reports forced termination
+ok 15 - tray host bounds an unresponsive helper and reports forced termination
+  ---
+  duration_ms: 2221.403703
+  type: 'test'
+  ...
+# Subtest: tray cache: exact LocalAppData copy survives until Exit and is then reclaimed
+ok 16 - tray cache: exact LocalAppData copy survives until Exit and is then reclaimed
+  ---
+  duration_ms: 611.166126
+  type: 'test'
+  ...
+# Subtest: tray cache: failure reclaims its owned copy before reporting completion
+ok 17 - tray cache: failure reclaims its owned copy before reporting completion
+  ---
+  duration_ms: 273.401944
+  type: 'test'
+  ...
+# Subtest: tray cache: spawn-error reclaims its owned copy before reporting completion
+ok 18 - tray cache: spawn-error reclaims its owned copy before reporting completion
+  ---
+  duration_ms: 182.540179
+  type: 'test'
+  ...
+# Subtest: tray cache: missing LOCALAPPDATA refuses before child launch
+ok 19 - tray cache: missing LOCALAPPDATA refuses before child launch
+  ---
+  duration_ms: 81.636873
+  type: 'test'
+  ...
+# Subtest: tray cache: relative LOCALAPPDATA refuses before child launch
+ok 20 - tray cache: relative LOCALAPPDATA refuses before child launch
+  ---
+  duration_ms: 96.748911
+  type: 'test'
+  ...
+# Subtest: tray cache: an unusable local cache preserves existing data and refuses child launch
+ok 21 - tray cache: an unusable local cache preserves existing data and refuses child launch
+  ---
+  duration_ms: 110.656727
+  type: 'test'
+  ...
+# Subtest: tray cache: an explicit controller exit reclaims only its own script
+ok 22 - tray cache: an explicit controller exit reclaims only its own script
+  ---
+  duration_ms: 456.168932
+  type: 'test'
+  ...
+# Subtest: tray cache: concurrent controllers never remove another live session copy
+ok 23 - tray cache: concurrent controllers never remove another live session copy
+  ---
+  duration_ms: 1036.829117
+  type: 'test'
+  ...
+# Subtest: global: creates one hidden tray and Exit waits for owned server termination
+ok 24 - global: creates one hidden tray and Exit waits for owned server termination
+  ---
+  duration_ms: 642.76898
+  type: 'test'
+  ...
+# Subtest: serve: creates one hidden tray and Exit waits for owned server termination
+ok 25 - serve: creates one hidden tray and Exit waits for owned server termination
+  ---
+  duration_ms: 594.655387
+  type: 'test'
+  ...
+# Subtest: start: creates one hidden tray and Exit waits for owned server termination
+ok 26 - start: creates one hidden tray and Exit waits for owned server termination
+  ---
+  duration_ms: 534.595465
+  type: 'test'
+  ...
+# Subtest: serve: forced tray cleanup reaches the controller result
+ok 27 - serve: forced tray cleanup reaches the controller result
+  ---
+  duration_ms: 2516.365935
+  type: 'test'
+  ...
+# Subtest: serve: code-75 restart retains the original tray and Exit prevents another restart
+ok 28 - serve: code-75 restart retains the original tray and Exit prevents another restart
+  ---
+  duration_ms: 718.379685
+  type: 'test'
+  ...
+# Subtest: serve: an exit-75 child cannot restart after tray Exit
+ok 29 - serve: an exit-75 child cannot restart after tray Exit
+  ---
+  duration_ms: 640.43491
+  type: 'test'
+  ...
+# Subtest: global: failed tray initialization stops the owned server and reports failure
+ok 30 - global: failed tray initialization stops the owned server and reports failure
+  ---
+  duration_ms: 425.084801
+  type: 'test'
+  ...
+# Subtest: global: natural server failure disposes the tray and retains failure status
+ok 31 - global: natural server failure disposes the tray and retains failure status
+  ---
+  duration_ms: 481.409429
+  type: 'test'
+  ...
+# Subtest: global: unexpected tray loss stops the server and reports failure
+ok 32 - global: unexpected tray loss stops the server and reports failure
+  ---
+  duration_ms: 759.864473
+  type: 'test'
+  ...
+# Subtest: serve: failed tray initialization stops the owned server and reports failure
+ok 33 - serve: failed tray initialization stops the owned server and reports failure
+  ---
+  duration_ms: 339.884064
+  type: 'test'
+  ...
+# Subtest: serve: natural server failure disposes the tray and retains failure status
+ok 34 - serve: natural server failure disposes the tray and retains failure status
+  ---
+  duration_ms: 504.531503
+  type: 'test'
+  ...
+# Subtest: serve: unexpected tray loss stops the server and reports failure
+ok 35 - serve: unexpected tray loss stops the server and reports failure
+  ---
+  duration_ms: 566.11799
+  type: 'test'
+  ...
+# Subtest: tray process pipe closes when its owning controller disappears
+ok 36 - tray process pipe closes when its owning controller disappears
+  ---
+  duration_ms: 481.087995
+  type: 'test'
+  ...
+# Subtest: serve: non-Windows needs no tray process
+ok 37 - serve: non-Windows needs no tray process
+  ---
+  duration_ms: 350.265984
+  type: 'test'
+  ...
+# Subtest: serve: explicit headless mode needs no tray process
+ok 38 - serve: explicit headless mode needs no tray process
+  ---
+  duration_ms: 259.516756
+  type: 'test'
+  ...
+# Subtest: batch launcher uses real lines and the tray-owning global controller
+ok 39 - batch launcher uses real lines and the tray-owning global controller
+  ---
+  duration_ms: 1.101405
+  type: 'test'
+  ...
+1..39
+# tests 39
+# suites 0
+# pass 39
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 28141.261303

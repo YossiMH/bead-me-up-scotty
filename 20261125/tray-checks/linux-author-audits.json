@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "helper_sha256": "fc848b236969676a96dadfba9c007044993ca15f9013d17387e59e9cf9738e6b",
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "source_tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+  "pins_manifest": "coordination/revision-6/tray-candidate-files.json",
+  "pins_sha256": "ff4a15e0e87a2799d1b2b55c3f67dce0092a711b142ccaaeeb7eada7689c05ba",
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Read complete helper and exact candidate boundary. Pre/post clean Git status and all nine SHA256 pins, serial 39-case list, exact unfiltered TAP totals, full npm run lint and existing single warning, distinct fresh logs/results, no production writes."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Read same full helper again against task resource/ownership instructions. Cloud Linux only; command-specific deadlines; owned process group termination only on exceptional command timeout; source fixtures own detached test children; full lint uses384MiB Node heap to avoid exhausting restored sandbox. Any failure stays failed with retained phase result; the passed39 cases are not repeated if lint later needs hosted resources."
+    }
+  ],
+  "validation": {
+    "python_parser": "passed",
+    "execution": "pending independent static acceptance"
+  },
+  "command": [
+    "python",
+    "coordination/tray-checks-20261125/run-linux-checks.py"
+  ],
+  "outputs": "coordination/results/tray-checks-5232c8b-linux",
+  "cleanup": "Preserve evidence through acceptance and durable Git retention; future agents remove only owned temporary output/worktrees after integration."
+}

@@ -1,0 +1,38 @@
+{
+  "schema_version": 1,
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "supervisor_sha256": "b5792316a07fafade0aa2e42a7d90216f87b88df681907f3cc0a9e31101627e1",
+  "workflow_sha256": "9f73fbf5b5e0b0e4a0738d0e6c6d3b443024cea21f95a7c5560e8f9f63cae2f6",
+  "inputs_sha256": "683529f4fe58f17be8846c3b9d640eb1c056a360c4b012b160ecd0941ed20123",
+  "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Complete supervisor, caller/workflow, exact inputs, unchanged Job helper and permanent test interface. Native source pins, ordinary execution paths, Node25.2.1, two unskipped real cases, process/cache observations and full retained evidence match the accepted task."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Complete revised supervisor/workflow/inputs/helper: complete assigned/returned Job snapshot, byte length and unique positive PID validation, bounded same-query resampling/resize, existing kill-on-close ownership, held caller process handle, quiescent Job before/after checks, observed supervisor exit, deadlines, exact source preservation, Action pins and evidence retention."
+    }
+  ],
+  "validation": {
+    "yaml_parser": "passed",
+    "powershell_native_parser": "pending hosted Windows",
+    "windows_execution": "pending independent packet acceptance"
+  },
+  "limits": {
+    "supervisor_seconds": 150,
+    "caller_seconds": 170,
+    "step_minutes": 3,
+    "job_minutes": 5
+  },
+  "phase_status": "prepared",
+  "resolved_findings": [
+    {
+      "finding": "A returned-PID count alone can hide an incomplete Job snapshot.",
+      "resolution": "Require equal assigned/returned counts and complete validated bytes; resample only the same read-only query within eight reads/500ms, cap1024. No command is replayed."
+    }
+  ]
+}

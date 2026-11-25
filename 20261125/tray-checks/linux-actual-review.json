@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "review_kind": "actual_cloud_linux_tray_checks",
+  "reviewer": "delivery_review",
+  "source_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "source_tree": "eadf3e74beb2422186f1b6ffb5ba632d0ad8d7d9",
+  "source_review_sha256": "7c9a213d4e121b3db15f69588f9801d66780299656f764e903f244dd69f8b46a",
+  "runner_review_sha256": "0551019b84a99a44bccd5c557aca47842a3421e5f0acd903b9e840e5ffaa3fab",
+  "result_directory": "coordination/results/tray-checks-5232c8b-linux",
+  "result_sha256": "166f35f0625f88e4f0756cffc8fc5245c892400f344ea31b1a1f24898ea97d80",
+  "runner_sha256": "fc848b236969676a96dadfba9c007044993ca15f9013d17387e59e9cf9738e6b",
+  "pins_manifest_sha256": "ff4a15e0e87a2799d1b2b55c3f67dce0092a711b142ccaaeeb7eada7689c05ba",
+  "read_complete_result_and_all_test_cases": true,
+  "complete_stream_hashes_and_lengths_verified": 18,
+  "command_count": 9,
+  "all_command_exits_zero": true,
+  "node": "24.22.3",
+  "npm": "11.19.1",
+  "tests": {
+    "tests": 39,
+    "pass": 39,
+    "fail": 0,
+    "cancelled": 0,
+    "skipped": 0,
+    "todo": 0,
+    "command_seconds": 28.285,
+    "stdout_sha256": "2338e9c863a32dbc93d81b5001cb994e35e699dc984af9c39cf35f42afcd6bf4",
+    "stderr_bytes": 0,
+    "coverage": "All existing launcher/cache/controller cases, six portable host lifecycle cases, and the forced-helper-cleanup propagation regression passed. The actual first-stage Red remains retained separately."
+  },
+  "lint": {
+    "command": [
+      "npm",
+      "run",
+      "lint"
+    ],
+    "exit_code": 0,
+    "seconds": 16.879,
+    "node_heap_mib": 384,
+    "stdout_sha256": "6010c2d60cadb9979a0b14dcf67349f095e8ccf0a00b41d297645f9f6612e44c",
+    "stderr_sha256": "a9eea84a0595d1ee7f07bf942899b59bddb0db350ee5ad48cd31f9f04ca2408b",
+    "eslint_errors": 0,
+    "eslint_warnings": 1,
+    "existing_warning": "hooks/use-notifications.ts:91:3 @next/next/no-location-assign-relative-destination",
+    "npm_advisories": "The complete retained stderr also contains the http-proxy environment warning, devEngines onFail=warn runtime advisory and npm update notice. These remain visible in the evidence; npm exited successfully."
+  },
+  "preservation": {
+    "accepted_head_and_tree": true,
+    "git_diff_check_zero": true,
+    "all_nine_source_hashes_unchanged": true,
+    "git_status_clean_before_and_after": true
+  },
+  "findings": [],
+  "acceptance_boundary": "The Linux portion of the planned tray checks is accepted. The separately pinned two real-Windows cases and interactive PC tray/configured-launch checks remain pending; this receipt does not close their combined native task.",
+  "review_actions": {
+    "product_tests": 0,
+    "builds": 0,
+    "pc_calls": 0,
+    "native_writes": 0
+  }
+}
