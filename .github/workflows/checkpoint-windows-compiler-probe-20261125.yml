@@ -1,0 +1,53 @@
+name: Temporary owned MSVC compiler lifecycle probe
+on:
+  push:
+    branches: [task/checkpoint-windows-compiler-probe-20261125]
+permissions:
+  contents: read
+concurrency:
+  group: checkpoint-windows-compiler-probe-20261125
+  cancel-in-progress: false
+jobs:
+  probe:
+    runs-on: windows-2025
+    timeout-minutes: 6
+    env:
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+    steps:
+      - name: Read the exact reviewed diagnostic packet
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: 20261125/checkpoint-windows-compiler-probe
+      - name: Read the unchanged owned Job helper
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          ref: 6d40aacb49eba309f1f925e106cfbb9026cce744
+          path: job
+          persist-credentials: false
+          sparse-checkout-cone-mode: false
+          sparse-checkout: windows-task-job.ps1
+      - name: Measure two tiny compiler trees without running app or test harnesses
+        shell: pwsh
+        timeout-minutes: 5
+        run: |
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/checkpoint-windows-compiler-probe'
+          $driver = Join-Path $packet 'checkpoint-windows-driver-20261125.ps1'
+          if ((Get-FileHash -LiteralPath $driver -Algorithm SHA256).Hash.ToLowerInvariant() -cne '9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44') { throw 'Driver bytes differ.' }
+          & $driver -Phase build -PacketDirectory $packet -PacketSha256 'cf82361dc99280c94e2d9bbd5e40256392f25fdc49cdcee5b89adc90d944e0f2' -JobHelper (Join-Path $env:GITHUB_WORKSPACE 'job/windows-task-job.ps1') -Checkout $packet
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Retain complete observed identities and raw streams
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-windows-compiler-probe-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: error
+          path: ${{ runner.temp }}/bead-checkpoint-windows-artifact-build-${{ github.run_id }}-${{ github.run_attempt }}/
