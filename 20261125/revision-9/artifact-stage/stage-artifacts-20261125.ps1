@@ -173,7 +173,7 @@ function Stage-Archives([object]$Request,[object]$App,[string]$RequiredRoot,[str
     try{
         $appZip=Open-Archive $Request.app_archive $RequiredRoot;$opened.Add($appZip)
         $outerPaths=@('workflow-commit.txt',$App.manifest.path,$App.runtime.path,$App.sources.path,$App.result.path)
-        foreach($name in $App.command_names){$outerPaths+=@($name+'.stdout',$name+'.stderr')}
+        foreach($name in $App.command_names){$outerPaths+=@(($name+'.stdout'),($name+'.stderr'))}
         $appFiles=Get-ZipIndex $appZip.archive $outerPaths
         $manifestBytes=Read-EntryBytes $appFiles[$App.manifest.path] $App.manifest 1MB
         $Runtime=$Utf8.GetString($manifestBytes)|ConvertFrom-Json

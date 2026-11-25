@@ -43,14 +43,14 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
           $packet = Join-Path $env:GITHUB_WORKSPACE '20261125/revision-9/artifact-stage'
-          python (Join-Path $packet 'download-existing-app.py') --manifest-sha256 '7bca53de0a46e386c01f3fc615332c4165d52a90943e14912678b84c165fc44f'
+          python (Join-Path $packet 'download-existing-app.py') --manifest-sha256 '8764ee056a188a4477dca3e878f9056ad9e577feda20205516133badc85a34d9'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Parse exact PowerShell and check owned archive fixtures
         timeout-minutes: 4
         run: |
           $ErrorActionPreference = 'Stop'
           $packet = Join-Path $env:GITHUB_WORKSPACE '20261125/revision-9/artifact-stage'
-          & (Join-Path $packet 'check-stage-archives.ps1') -Directory $packet -ManifestSha256 '7bca53de0a46e386c01f3fc615332c4165d52a90943e14912678b84c165fc44f'
+          & (Join-Path $packet 'check-stage-archives.ps1') -Directory $packet -ManifestSha256 '8764ee056a188a4477dca3e878f9056ad9e577feda20205516133badc85a34d9'
           if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
       - name: Retain exact results and synthetic partial-copy evidence
         if: always()
