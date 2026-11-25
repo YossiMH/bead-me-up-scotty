@@ -1,11 +1,11 @@
 {
-  "task_count": 31,
+  "task_count": 32,
   "existing_task_count": 21,
-  "new_task_count": 10,
-  "total_expected_issues": 985,
-  "blocking_edges": 49,
+  "new_task_count": 11,
+  "total_expected_issues": 986,
+  "blocking_edges": 51,
   "retained_edges": 34,
-  "added_edges": 15,
+  "added_edges": 17,
   "changed_existing_task_keys": [
     "candidate-review",
     "installed-review",
@@ -17,7 +17,7 @@
     "configured-launch",
     "preserve-and-clean"
   ],
-  "delta_operations": 34,
+  "delta_operations": 37,
   "acyclic": true,
   "language_violations": [],
   "per_task": [
@@ -88,7 +88,7 @@
     },
     {
       "key": "install",
-      "description_sha256": "b41ed7810b715ec6f5427a57585a89898d26abd32e467f1cac45685a538d18ad",
+      "description_sha256": "b9ef8d3e8fa8e15467ca8bd502c21f0c1234ca21fdc2134d18f45a1540f7326b",
       "language_matches": []
     },
     {
@@ -153,7 +153,7 @@
     },
     {
       "key": "checkpoint-linux-build",
-      "description_sha256": "238ca8ea2c6677dda9cf37edc7fcd5dbb5b2e6811b83f473063335e5d8a4df73",
+      "description_sha256": "89f4222f0a27f26db6457b7f7f37ab7ac040eeb3b149ba290ed98bec09b86e3b",
       "language_matches": []
     },
     {
@@ -163,7 +163,7 @@
     },
     {
       "key": "checkpoint-linux-checks",
-      "description_sha256": "90fb4c1548763eb1cfe0b6548d3fc967494d4c6169c030bb947f42a06adb47cd",
+      "description_sha256": "69bb04edc4350294b4187496c660d797cea02c8a04e60a56c167e1e8aba01081",
       "language_matches": []
     },
     {
@@ -173,14 +173,19 @@
     },
     {
       "key": "checkpoint-repair-review",
-      "description_sha256": "bfa3edc56e1960142a3b9c1f3dadba59cd458dfc4e4cc89492664a1904765af0",
+      "description_sha256": "5f702669beabaf58220b83e83c840f42c4f751e2572a1d34948cfb8624142a03",
+      "language_matches": []
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "description_sha256": "64f55fc51b92baffcb85d3474385e57ab6880a7987aa09600df11f4cb3e954aa",
       "language_matches": []
     }
   ],
   "product_tests_or_database_writes": false,
   "files": {
-    "20261125/revision-5/plan.json": "98d2feefa4786cec2a23d55b597b60c175c3204b3f9ff3a78ae04021d6a27360",
-    "20261125/revision-5/delta-manifest.template.json": "9d360df7049d1d083290ca3c57cf8e096713b4a85b6a78d421db3e5ce9901778",
+    "20261125/revision-5/plan.json": "94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db",
+    "20261125/revision-5/delta-manifest.template.json": "6e8fce15f4867c7599b1aaa169b61cd7f3b2d7ce9723e89be2c60a81443adf93",
     "20261125/revision-5/writing-rules.json": "f3868d4b51635ac291b7af3b9fef48c969e1a344e4cbbb7c3604ddae0af49f68"
   }
 }

@@ -2,35 +2,33 @@
   "schema_version": 1,
   "author": "/root",
   "status": "two_complete_inspections_passed",
-  "plan_sha256": "98d2feefa4786cec2a23d55b597b60c175c3204b3f9ff3a78ae04021d6a27360",
-  "delta_sha256": "9d360df7049d1d083290ca3c57cf8e096713b4a85b6a78d421db3e5ce9901778",
+  "plan_sha256": "94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db",
+  "delta_sha256": "6e8fce15f4867c7599b1aaa169b61cd7f3b2d7ce9723e89be2c60a81443adf93",
   "inspections": [
     {
       "pass": 1,
-      "method": "Read all ten expanded new tasks and every changed pending description against the original request, preserved accepted graph, current failures and execution constraints.",
+      "method": "Read the corrected complete plan against pinned AGENTS.md and the observed recovery failures.",
       "findings_resolved": [
-        "Linux and Windows builds are separately schedulable; each execution depends only on its build.",
-        "Test review begins alongside Red compilation; repair waits for both actual Red and review.",
-        "Permanent test-only candidate is distinct from production correction; only five authorized files may change.",
-        "Corrected total to985 for954 original records plus31 tasks."
+        "Added independently schedulable full default Rust suite.",
+        "Linux build compiles all default targets; release-corpus check uses separate fixtures without repeating suite execution.",
+        "Repair review and installation require the fresh full suite."
       ]
     },
     {
       "pass": 2,
-      "method": "Read the final same-version complete plan and graph, verify all unchanged task objects, new descriptions, delta operation ordering and source/pin resolution.",
+      "method": "Read final32-task descriptions and full51-edge graph; compare retained task objects and37 manifest operations.",
       "findings_resolved": [
-        "Windows check lists all five exact targets in its own description.",
-        "Installation and configured launch bind measured replacement pin instead of obsolete literals.",
-        "Final preservation uses selected-source restore before original merge, one same-UUID merge and a sole authority thereafter.",
-        "Unavailable sandbox has a GitHub/hosted route and concrete deferred cleanup instructions; foreground PC limits remain fixed."
+        "Correct total986 with unchanged21 IDs and34old edges.",
+        "Measured native selection, protected PC limits and sole-authority merge remain intact.",
+        "All revised text passes current wording exclusions."
       ]
     }
   ],
   "complete_plan_review_required": true,
-  "task_count": 31,
-  "total_issues": 985,
-  "blocking_edges": 49,
-  "operations": 34,
+  "task_count": 32,
+  "total_issues": 986,
+  "blocking_edges": 51,
+  "operations": 37,
   "language_violations": [],
   "product_changes_applied": false,
   "database_writes": false

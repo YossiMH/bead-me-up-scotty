@@ -2,26 +2,19 @@
   "schema_version": 1,
   "author": "/root",
   "status": "two_complete_static_inspections_passed",
-  "materializer_sha256": "aa0cb5c790a23058419b3d9c503a3b71dbef01b1fbdd37aa24a6f9ee57919937",
-  "closure_sha256": "54e345f9910e9932740b6d9fa6bbe76dd1e683e2ca2f465fbb24173c79a24ad3",
+  "materializer_sha256": "5a3ee630856c2cb6e3512a7ffc8a7eab09075a38ef114a89067480bfed34c4ea",
+  "closure_sha256": "f96c675c943d6976abd737eaf31e02555d92ab6f4c722394008e05f5881c2819",
   "inspections": [
     {
       "pass": 1,
-      "materializer": "Read full source against accepted-base helper, actual21-ID mapping and proposed exact plan. Verified original954 equality,975 preflight rows,34old edges, ten absent refs, nine open/unassigned/current-revision updates and atomic34-op delta.",
-      "closure": "Read entire reused utility and exact parameter changes. It retains guarded ordered closes and original-record/other-field comparisons; only plan/result/count/temporary-directory bindings change."
+      "description": "Read complete corrected helpers and accepted predecessors; only exact revised hashes/counts change.32tasks/986records/51edges and37operations are consistent at preflight/report/readback."
     },
     {
       "pass": 2,
-      "materializer": "Read final same bytes and check one-shot commit marker, no replay, readback985records/31tasks/49edges, actual ID mapping, unchanged old state/unknown fields, bounded native child commands and preserved outputs.",
-      "closure": "Verified revision5 total985, graph49, accepted plan hash,31max request selection, current revision/closed-prerequisite checks and fresh-output refusal."
+      "description": "Read final same bytes for original954/old21 protection, absent11 references, nine guarded descriptions, one-shot mutation, complete graph/state comparison, bounded hidden children and preserved prior closure ordering."
     }
   ],
-  "syntax": {
-    "method": "V8 parsed complete bodies after stripping only copied static import declarations",
-    "passed": true,
-    "node_module_check": "Required before PC execution"
-  },
-  "product_tests": false,
-  "canonical_database_access": false,
+  "syntax": "V8 body parsing passes; ordinary node --check required before use",
+  "database_writes": false,
   "independent_review_required": true
 }

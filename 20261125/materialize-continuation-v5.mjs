@@ -7,8 +7,8 @@ import { spawnSync } from 'node:child_process';
 const root = 'F:/Dev/.bead-edit-20261111/coordination-20261124';
 const bead = 'F:/Dev/.bead-edit-20261111/stage-v6/backend/bead-editing-539cdd0.exe';
 const binaryHash = '25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798';
-const planHash = '98d2feefa4786cec2a23d55b597b60c175c3204b3f9ff3a78ae04021d6a27360';
-const templateHash = '9d360df7049d1d083290ca3c57cf8e096713b4a85b6a78d421db3e5ce9901778';
+const planHash = '94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db';
+const templateHash = '6e8fce15f4867c7599b1aaa169b61cd7f3b2d7ce9723e89be2c60a81443adf93';
 const basePlanHash = '887b5036b9b1f588baaeb9a0fd9537c030e661b80325bd871b6c8b97bfbae178';
 const storeUuid = '1c4f5d56-dcff-cbc5-ddf9-c536653c45f4';
 const input = path.join(root, 'revision-5');
@@ -77,7 +77,7 @@ function run(args, name) {
 }
 function reportCheck(report, committed, manifest, oldIds, newKeys) {
   assert.equal(report.manifest_version, 1); assert.equal(report.committed, committed); assert.equal(report.dry_run, !committed);
-  assert.equal(report.operations, 34); assert.equal(report.semantic_changes, 34); assert.equal(report.results.length, 34);
+  assert.equal(report.operations, 37); assert.equal(report.semantic_changes, 37); assert.equal(report.results.length, 37);
   const added = {};
   manifest.operations.forEach((op, index) => {
     const row = report.results[index];
@@ -100,7 +100,7 @@ function reportCheck(report, committed, manifest, oldIds, newKeys) {
     }
   });
   assert.deepEqual(Object.keys(added).sort(), [...newKeys].sort());
-  assert.equal(new Set(Object.values(added)).size, 10);
+  assert.equal(new Set(Object.values(added)).size, 11);
   return added;
 }
 try {
@@ -112,7 +112,7 @@ try {
   const template = read(path.join(input, 'delta-manifest.template.json'), templateHash);
   const review = read(path.join(input, 'plan-review.json'), reviewHash);
   assert.equal(review.status, 'PASS'); assert.equal(review.accepted, true); assert.equal(review.continuation_revision, 5);
-  assert.equal(review.read_complete_plan, true); assert.equal(review.expanded_tasks_read, 31); assert.equal(review.blocking_edges_read, 49);
+  assert.equal(review.read_complete_plan, true); assert.equal(review.expanded_tasks_read, 32); assert.equal(review.blocking_edges_read, 51);
   assert.equal(review.reviewed_files['plan.json'], planHash);
   assert.equal(review.reviewed_files['delta-manifest.template.json'], templateHash);
   const base = read(path.join(root, 'revision-4/plan.json'), basePlanHash);
@@ -123,11 +123,11 @@ try {
   const ids = plan.revision_5.base_task_ids;
   assert.deepEqual(ids, previous.tasks); assert.equal(Object.keys(ids).length, 21); assert.equal(new Set(Object.values(ids)).size, 21);
   const newKeys = plan.revision_5.new_task_keys, changed = plan.revision_5.changed_existing_task_keys;
-  assert.equal(newKeys.length, 10); assert.equal(changed.length, 9);
-  assert.equal(plan.tasks.length, 31); assert.equal(plan.blocking_edges.length, 49);
-  assert.equal(template.manifest_version, 1); assert.equal(template.operations.length, 34);
+  assert.equal(newKeys.length, 11); assert.equal(changed.length, 9);
+  assert.equal(plan.tasks.length, 32); assert.equal(plan.blocking_edges.length, 51);
+  assert.equal(template.manifest_version, 1); assert.equal(template.operations.length, 37);
   const planned = new Map(plan.tasks.map(t => [t.key, t])), oldPlanned = new Map(base.tasks.map(t => [t.key, t]));
-  assert.equal(planned.size, 31); assert.equal(oldPlanned.size, 21);
+  assert.equal(planned.size, 32); assert.equal(oldPlanned.size, 21);
   const refer = key => ids[key] || '$' + key;
   const expectedTemplate = { manifest_version: 1, operations: [
     ...newKeys.map(key => ({ op: 'create', local_id: key, unique_ref: 'bead-edit-20261124:' + key,
@@ -175,14 +175,14 @@ try {
   for (const [id, row] of before) assert.deepEqual(precommit.get(id), row, 'State changed during preflight: ' + id);
   unchangedInputs(); assert.equal(hash(manifestFile), manifestHash);
   phase = 'commit';
-  write('commit-started.json', { utc: new Date().toISOString(), operations:34, manifest_sha256: manifestHash, retry_allowed:false });
+  write('commit-started.json', { utc: new Date().toISOString(), operations:37, manifest_sha256: manifestHash, retry_allowed:false });
   commitAttempted = true;
   const newIds = reportCheck(run(['manifest','commit','--input',manifestFile,'--format','json','--no-auto-flush'], 'commit'), true, bound, ids, newKeys);
   const allIds = { ...ids, ...newIds };
   phase = 'readback';
-  const after = rows(run(['list','--all','--json'], 'inventory-after'), 985);
+  const after = rows(run(['list','--all','--json'], 'inventory-after'), 986);
   originalRows(after, originals);
-  assert.deepEqual(edgeRows(after, allIds), expectedEdges(plan, allIds), 'Final complete49-edge graph differs');
+  assert.deepEqual(edgeRows(after, allIds), expectedEdges(plan, allIds), 'Final complete51-edge graph differs');
   for (const [key, id] of Object.entries(allIds)) {
     const row = after.get(id), task = planned.get(key);
     assert.ok(row); assert.equal(row.title, task.title); assert.equal(row.description, task.description);
@@ -205,8 +205,8 @@ try {
   }
   const ready = run(['list','--ready','--json','--limit','1000'], 'ready');
   const keyById = new Map(Object.entries(allIds).map(([key,id]) => [id,key]));
-  const result = { status:'passed',continuation_revision:5,source_store_uuid:storeUuid,original_issues:954,total_issues:985,
-    tasks:allIds,new_tasks:newIds,blocking_edges:49,prior_blocking_edges_retained:34,description_updates:9,new_creates:10,dependency_additions:15,
+  const result = { status:'passed',continuation_revision:5,source_store_uuid:storeUuid,original_issues:954,total_issues:986,
+    tasks:allIds,new_tasks:newIds,blocking_edges:51,prior_blocking_edges_retained:34,description_updates:9,new_creates:11,dependency_additions:17,
     plan_sha256:planHash,template_sha256:templateHash,plan_review_sha256:reviewHash,manifest_sha256:manifestHash,
     binary_sha256:binaryHash,helper_sha256:hash(process.argv[1]),original_inventory_unchanged:true,existing_statuses_preserved:true,
     complete_descriptions_match:true,complete_edges_match:true,restore_replayed:false,closure_replayed:false,

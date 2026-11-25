@@ -14,9 +14,9 @@ const read = name => JSON.parse(fs.readFileSync(path.join(root, name), 'utf8'));
 const created = read('materialization-result-v5.json');
 assert.equal(created.status, 'passed');
 assert.equal(created.original_inventory_unchanged, true);
-assert.equal(created.total_issues, 985);
-assert.equal(created.blocking_edges, 49);
-assert.equal(hash(path.join(root, 'revision-5/plan.json')), '98d2feefa4786cec2a23d55b597b60c175c3204b3f9ff3a78ae04021d6a27360');
+assert.equal(created.total_issues, 986);
+assert.equal(created.blocking_edges, 51);
+assert.equal(hash(path.join(root, 'revision-5/plan.json')), '94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db');
 const expected = new Map(read('revision-5/plan.json').tasks.map(task => [task.key, task]));
 const originals = new Map(read('inventory-before-node-v3.json').map(row => [row.id, row]));
 assert.equal(originals.size, 954);
@@ -28,7 +28,7 @@ assert.ok(fullRequest.startsWith(path.resolve(root) + path.sep), 'Request must s
 assert.equal(hash(fullRequest), requestHash);
 const request = JSON.parse(fs.readFileSync(fullRequest, 'utf8'));
 assert.equal(request.schema_version, 1);
-assert.ok(Array.isArray(request.tasks) && request.tasks.length > 0 && request.tasks.length <= 31);
+assert.ok(Array.isArray(request.tasks) && request.tasks.length > 0 && request.tasks.length <= 32);
 assert.equal(new Set(request.tasks.map(task => task.key)).size, request.tasks.length);
 const output = path.join(root, outputName);
 fs.mkdirSync(output, { recursive: false });
@@ -56,9 +56,9 @@ function stored(row) {
   return value;
 }
 const before = run(['list', '--all', '--json'], 'before');
-assert.equal(before.length, 985);
+assert.equal(before.length, 986);
 const byId = new Map(before.map(row => [row.id, row]));
-assert.equal(byId.size, 985);
+assert.equal(byId.size, 986);
 for (const [id, row] of originals) assert.deepEqual(byId.get(id), row, 'Original record changed: ' + id);
 const satisfied = new Set(before.filter(row => row.status === 'closed').map(row => row.id));
 const operations = request.tasks.map(task => {
@@ -86,8 +86,8 @@ write('commit-started.json', { utc: new Date().toISOString(), manifest_sha256: h
 const commit = run(['manifest', 'commit', '--input', manifest, '--format', 'json', '--no-auto-flush'], 'commit');
 assert.equal(commit.committed, true); assert.equal(commit.operations, operations.length); assert.equal(commit.semantic_changes, operations.length);
 const after = run(['list', '--all', '--json'], 'after');
-assert.equal(after.length, 985);
-assert.equal(new Set(after.map(row => row.id)).size, 985);
+assert.equal(after.length, 986);
+assert.equal(new Set(after.map(row => row.id)).size, 986);
 const closed = new Set(operations.map(op => op.id));
 for (const current of after) {
   if (originals.has(current.id)) assert.deepEqual(current, originals.get(current.id));
