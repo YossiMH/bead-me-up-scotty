@@ -1,0 +1,457 @@
+{
+  "schema_version": 1,
+  "continuation_revision": 9,
+  "status": "cloud_components_accepted_final_binding_ready_for_independent_review_pc_execution_blocked",
+  "author": "/root",
+  "scope": "Measured final artifact request and immutable helper delivery/installation binding",
+  "product_source": {
+    "app": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+      "tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+      "task_branch": "task/scotty-finish-20261124",
+      "shared_task_branch_readback": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219"
+    },
+    "native": {
+      "repository": "YossiMH/bead-rs",
+      "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+      "task_branch": "task/bead-finish-20261124",
+      "shared_task_branch_reconciliation": {
+        "source": "2d801ba455b7a722daf644a7615445117d57e8e9",
+        "root_readback_verified": true,
+        "previous_head": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+        "ordinary_fast_forward": true,
+        "force": false
+      }
+    }
+  },
+  "app_runtime": {
+    "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "run_id": 45573503400,
+    "output_id": 15003467178,
+    "output_sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_zip_bytes": 7137798,
+    "manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "file_count": 560,
+    "build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "download_verified": true,
+    "download_verification_run_id": 45594231069,
+    "source_manifest_sha256": "1e114819d4366e5d33443480ef26d909881559ba3908249ff4811ca22b3de241",
+    "source_manifest_bytes": 2308,
+    "runtime_manifest_bytes": 110021,
+    "expanded_runtime_bytes": 27426391,
+    "maximum_runtime_file_bytes": 7256855,
+    "inventory_review_commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f",
+    "inventory_review_sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525"
+  },
+  "native_release": {
+    "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+    "run_id": 45600413942,
+    "artifact": {
+      "id": 15014634952,
+      "bytes": 4524263,
+      "zip_sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8"
+    },
+    "manifest": {
+      "path": "artifact-manifest.json",
+      "sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+      "bytes": 665
+    },
+    "executable": {
+      "bytes": 12243456,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "metadata": {
+      "bytes": 2058,
+      "path": "release/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    },
+    "build_result": {
+      "path": "build-result.json",
+      "sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+      "bytes": 16950
+    },
+    "installed_basename": "bead-0431a828bf95.exe",
+    "runtime_qualification": "PASS: exact combined source, both builds, full Linux and Windows runtime/corpus reviews accepted.",
+    "build_review_commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40",
+    "build_review_sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5",
+    "build_target": "x86_64-pc-windows-msvc"
+  },
+  "reviews": {
+    "plan": {
+      "commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
+      "path": "20261125/revision-9/plan-review.json",
+      "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+    },
+    "helper_actual_checks": {
+      "commit": "3f62a2acf1e826a0202cf95bf1c0ae5a5a7384bf",
+      "path": "20261125/revision-9/results/type-binding-checks-review.json",
+      "sha256": "5912d14297972d8bcdd21afcb974b862ca987f933ec5bec547a1a5930f89cfa5"
+    },
+    "native_builds": {
+      "commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40",
+      "path": "20261125/revision-9/results/native-final-build-results-review.json",
+      "sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5"
+    },
+    "native_linux": {
+      "commit": "6e70133a8e70e374e6b0b7e1931f8c829b113021",
+      "path": "20261125/revision-9/results/native-linux-qualification-review.json",
+      "sha256": "5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf"
+    },
+    "native_windows": {
+      "commit": "60df4701ad68eafcf34f3f614087c41e57fa44f8",
+      "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+      "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae"
+    },
+    "native_final": {
+      "commit": "7d30c840514d318a4588d979a90c20bcf07d8734",
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+    },
+    "app_inventory": {
+      "commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f",
+      "path": "20261125/revision-9/results/app-runtime-inventory-review.json",
+      "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525"
+    },
+    "app_windows": {
+      "commit": "76a04b979a372b51bcb0d0bbffa52f4105b1a541",
+      "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+      "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b"
+    },
+    "app_final": {
+      "commit": "46785d535d046f044d6dc3c65487da6f3076953c",
+      "path": "20261125/revision-9/results/type-app-review.json",
+      "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e"
+    },
+    "archive_staging": {
+      "commit": "5715e8053dc33a299f89cbe4d048994d57c1e8f2",
+      "path": "20261125/revision-9/results/artifact-stage-review.json",
+      "sha256": "ada3fe4533abafac60fc503bb8ef32cd4479a606781c1ce40e5e1ff853407633"
+    }
+  },
+  "immutable_helpers": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "installation_packet_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+    "installation_packet_directory": "20261125/revision-9/install-binding",
+    "historical_null_binding_unchanged": true,
+    "archive_packet_commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+    "archive_packet_directory": "20261125/revision-9/artifact-stage",
+    "files": [
+      {
+        "path": "materialize-v9.mjs",
+        "sha256": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686",
+        "bytes": 23307
+      },
+      {
+        "path": "materialize-v9-supervisor.ps1",
+        "sha256": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3",
+        "bytes": 16030
+      },
+      {
+        "path": "checkpoint-handoff-20261125.mjs",
+        "sha256": "179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341",
+        "bytes": 65197
+      },
+      {
+        "path": "checkpoint-handoff-supervisor-20261125.ps1",
+        "sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+        "bytes": 18882
+      },
+      {
+        "path": "windows-install-tray-host-20261125.ps1",
+        "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+        "bytes": 34632
+      },
+      {
+        "path": "windows-configured-launch-host-20261125.ps1",
+        "sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+        "bytes": 48571
+      },
+      {
+        "path": "stage-artifacts-20261125.ps1",
+        "sha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+        "bytes": 22746
+      },
+      {
+        "path": "stage-artifacts-supervisor-20261125.ps1",
+        "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+        "bytes": 17486
+      }
+    ]
+  },
+  "delivery": {
+    "directory": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151",
+    "freshness": "Reserved and unexecuted; verify absent before creating. Preserve and reconcile any existing directory or attempt.",
+    "stage_request": {
+      "local_path": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\artifact-stage-request.json",
+      "repository_path": "20261125/revision-9/final-installation/artifact-stage-request.json",
+      "sha256": "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9",
+      "bytes": 1635
+    },
+    "preservation_manifest": {
+      "source_commit": "76a04b979a372b51bcb0d0bbffa52f4105b1a541",
+      "source_path": "20261125/pc-preservation-raw.json",
+      "local_path": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\pc-preservation-raw.json",
+      "sha256": "70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362",
+      "bytes": 5232,
+      "baseline_commit": "55f17568be93442abc6e4725d3e159448e0c9ab5",
+      "original_app_files": 15
+    },
+    "job_helper": {
+      "existing_path": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-host-execution-20261125\\windows-task-job.ps1",
+      "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+      "fresh_sibling_copy": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-task-job.ps1",
+      "copy_precondition": "Verify the existing exact bytes; create the sibling exclusively. Do not replace the original helper."
+    }
+  },
+  "archive_transfer": {
+    "app": {
+      "artifact_id": 15003467178,
+      "run_id": 45573503400,
+      "api_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15003467178/zip",
+      "path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\scotty-15003467178.zip",
+      "sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+      "bytes": 7056005
+    },
+    "native": {
+      "artifact_id": 15014634952,
+      "run_id": 45600413942,
+      "api_url": "https://api.github.com/repos/YossiMH/bead-me-up-scotty/actions/artifacts/15014634952/zip",
+      "path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\bead-15014634952.zip",
+      "sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+      "bytes": 4524263
+    },
+    "total_compressed_bytes": 11580268,
+    "not_downloaded_to_pc": true,
+    "transfer_requirements": [
+      "Use only currently permitted Emergency Maintenance access and a fresh local task-owned download destination.",
+      "Reconcile actual artifact metadata/source/run/digest/size/expiry before obtaining short-lived download URLs. Retain no credential or signed URL.",
+      "Transfer sequentially with bounded streaming and exact byte/hash checks under the PC resource limits; retain partial files on failure and reconcile rather than replay.",
+      "The native full test bundles remain on hosted runners; transfer only the measured small release package."
+    ]
+  },
+  "archive_stage": {
+    "request_sha256": "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9",
+    "stage_directory": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151",
+    "supervisor_path": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\stage-artifacts-supervisor-20261125.ps1",
+    "parameters": {
+      "JobHelperPath": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-host-execution-20261125\\windows-task-job.ps1",
+      "StagerPath": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\stage-artifacts-20261125.ps1",
+      "StagerSha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+      "RequestPath": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\artifact-stage-request.json",
+      "RequestSha256": "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9"
+    },
+    "expected_installer_outputs": {
+      "RuntimeManifest": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\manifests\\scotty-runtime.json",
+      "StageNextDirectory": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\runtime\\.next",
+      "BeadExe": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe",
+      "BeadSha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+      "BeadProvenance": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe.metadata.json"
+    },
+    "execution_status": "not_started"
+  },
+  "installer": {
+    "path": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-install-tray-host-20261125.ps1",
+    "parameters": {
+      "ScottySourceCommit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+      "BackendSourceCommit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "PreservationManifest": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\pc-preservation-raw.json",
+      "OutputDirectory": "F:\\Dev\\.bead-edit-20261111\\install-v9-final-20261125-1151",
+      "ScottyPorts": null
+    },
+    "runtime_parameters_from": "Exact successful archive-stage installer_inputs; compare with expected_installer_outputs first.",
+    "observed_ports_gate": "After permitted access, derive all relevant ports from live configured/source/process state and supply that inventory. No invented or stale inventory is accepted.",
+    "installed_native_path": "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe",
+    "preserve_old_native_path": "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-376537b7917f.exe",
+    "execution_status": "not_started"
+  },
+  "configured_launch": {
+    "path": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-configured-launch-host-20261125.ps1",
+    "parameters": {
+      "BeadExe": "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe",
+      "ExpectedSha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+      "EvidenceDirectory": "F:\\Dev\\.bead-edit-20261111\\configured-v9-final-20261125-1151",
+      "Port": 43972,
+      "TimeoutSeconds": 120,
+      "MaxOwnedResidentMiB": 512
+    },
+    "execution_status": "not_started"
+  },
+  "native_task_state": {
+    "actual_revision": 6,
+    "store": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124",
+    "uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "original_issues": 954,
+    "actual_task_count": 32,
+    "actual_edges": 51,
+    "actual_issue_count": 986,
+    "accepted_plan_commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "accepted_plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "expected_revision": 9,
+    "expected_tasks": 55,
+    "expected_edges": 91,
+    "expected_issue_count": 1009,
+    "manifest_operations": {
+      "creates": 23,
+      "description_updates": 15,
+      "dependencies": 40,
+      "total": 78
+    },
+    "guarded_reopens": 3,
+    "actual_mapping_sha256": null,
+    "closer_binding": null,
+    "materialization_status": "not_started",
+    "history_request_status": "requires_actual_mapping_and_accepted_pc_prerequisites"
+  },
+  "resource_limits": {
+    "all_pc_work": {
+      "priority": "BelowNormal",
+      "sequential": true,
+      "visible_ui_control": false,
+      "pc_builds": false,
+      "gpu_work": false,
+      "aggregate_owned_rss_mib": 512
+    },
+    "coordination": {
+      "minimum_free_mib": 1024,
+      "node_heap_mib": 128,
+      "total_seconds": 180
+    },
+    "copy_staging": {
+      "baseline_and_live_free_mib": 1024,
+      "stream_buffer_bytes": 65536,
+      "total_seconds": 180,
+      "work_seconds": 168,
+      "helper_seconds": 158
+    },
+    "app_and_tray": {
+      "immediate_minimum_free_mib": 3072,
+      "node_heap_mib": 128,
+      "maximum_node_heap_mib": 256,
+      "tray_total_seconds": 180,
+      "configured_total_seconds": 120
+    },
+    "history": {
+      "baseline_free_mib": 3072,
+      "minimum_live_free_mib": 1024,
+      "total_seconds": 180,
+      "node_heap_mib": 128
+    }
+  },
+  "pc_access": {
+    "status": "blocked",
+    "connector": "Emergency Maintenance",
+    "denied_proposal": "6Tf4AjmM58-pk_qxj6LCoJD5wKqr7rW-ZV8MRLKxHS0",
+    "denied_job": "j1795593147532-37324-2134047166569034316",
+    "error": "ADMIN_BROKER_DENIED",
+    "command_status": "not-started",
+    "replay_allowed": false,
+    "denied_action": "BelowNormal memory-only PowerShell query",
+    "required_next_step": "Restore connected-client permission / Approve once for a fresh permitted request; never replay the denied proposal or use another connector to bypass it.",
+    "last_successful_observation": {
+      "utc": "2026-11-25T07:38:27.0544240Z",
+      "free_memory_mib": 702,
+      "total_memory_mib": 31905,
+      "owned_scheduled_tasks_ready": 17,
+      "owned_scheduled_tasks_running": 0
+    },
+    "fresh_observation_required": true
+  },
+  "remaining_pc_order": [
+    "Obtain permitted Emergency Maintenance access and fresh memory/source/index/configuration/process/attempt-state observations.",
+    "Deliver and hash-check exact helper/request/preservation bytes; reconcile existing attempted state and complete the single supported revision 6 to 9 materialization only if absent.",
+    "Verify all 55 returned actual IDs and 91 edges, bind the new closer to the actual mapping hash and live revisions, then reconcile accepted cloud work in dependency order.",
+    "Run the already applied 523 tray stage's logged-in-session Exit, parent-loss and restart checks without replaying staging; enforce its immediate 3 GiB gate.",
+    "Transfer only both measured small archives and run the copy-only stager once under its limits; compare its exact outputs and complete inventory.",
+    "After all installer prerequisites and current port/preservation checks, install exact source/runtime/native bytes, then run configured launch and independent installed review.",
+    "Publish accurate canonical handoffs and perform supported original-store backup/merge/current-previous restore verification and guarded task closure.",
+    "Preserve complete source/evidence/rollback ancestry, reconcile and remove task-owned Riftri worktrees and temporary workflow branches without force."
+  ],
+  "cleanup": {
+    "status": "pending",
+    "latest_cloud_execution_probe": {
+      "time": "2026-11-25 11:50:46 UTC",
+      "result": {
+        "status": "rejected",
+        "reason": "No usable execution environment is available. Wait for an environment to become available before using this tool."
+      },
+      "executed": false
+    },
+    "riftri": "/tmp/beads-55c9/tools/node_modules/.bin/riftri",
+    "worktrees": [
+      {
+        "parent": "/tmp/beads-55c9/bead-rs",
+        "path": "/tmp/beads-55c9/backend-type-edit"
+      },
+      {
+        "parent": "/tmp/beads-55c9/bead-me-up-scotty",
+        "path": "/tmp/beads-55c9/app-type-edit"
+      },
+      {
+        "parent": "/tmp/beads-55c9/bead-me-up-scotty",
+        "path": "/tmp/beads-55c9/coordination-type-edit"
+      }
+    ],
+    "successor_requirement": "Future agents must finish cleanup if this process ends. Reconcile actual current status/registrations, preserve unpublished/uncommitted work, verify published ancestry, then use riftri exec -- git -C PARENT worktree remove EXACT_PATH without force. If paths are absent, reconcile Git/Riftri records. Preserve earlier inaccessible worktree records in both handoffs, other workers' work, private data and rollback copies.",
+    "branch_cleanup": "Retain exact final preparation/activation ancestry before deleting only task-owned temporary branches; no deletion is claimed.",
+    "ancestry_retention": {
+      "commit": "02a22aeb7692ea8d6dc72c78f3f0f2fe45036c43",
+      "first_parent": "90011ce652c09f61efd6ba4ca51e5c4329869574",
+      "tree": "464eed69a0ec94b198d97bbfdd1b6bda8ff83db0",
+      "changed_files": 0,
+      "expected_sha_update_verified": true,
+      "force": false,
+      "branches_deleted": 0
+    }
+  },
+  "actual_pc_writes_for_this_binding": 0,
+  "pc_installation_complete": false,
+  "assignment_complete": false,
+  "qualified_results": {
+    "linux": {
+      "affected_passed": 95,
+      "full_suite_passed": 1913,
+      "full_suite_failed": 0,
+      "existing_ignored": 8,
+      "harnesses": 145,
+      "doctest_groups": 1
+    },
+    "windows": {
+      "ordinary_passed": 98,
+      "ordinary_failed": 0,
+      "conformance_cases": 12,
+      "characterization_invocations": 12,
+      "characterization_green": 10,
+      "characterization_caught_red": 2,
+      "caught_red_texts": [
+        "publication 0 added 1789455 new blob bytes, budget is 262144",
+        "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400"
+      ],
+      "native_smoke_commands": 55
+    },
+    "app": {
+      "linux_tests_passed": 115,
+      "windows_native_store_passed": true,
+      "windows_production_http_passed": true,
+      "exact_type_characters": 40000,
+      "exact_type_utf8_bytes": 50000
+    },
+    "archive_staging": {
+      "passed": 40,
+      "failed": 0
+    },
+    "original_native_corpus_per_platform": {
+      "restores": 4,
+      "full_record_comparisons": 6,
+      "issues": 954,
+      "events": 11264,
+      "provenance_receipts": 5,
+      "attempt_outcomes": 413
+    }
+  }
+}
