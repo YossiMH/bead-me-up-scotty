@@ -2,7 +2,7 @@
   "schema_version": 1,
   "status": "passed",
   "scope": "Two complete static author inspections of the exact retained candidate; execution qualification remains pending.",
-  "helper_sha256": "c436bb5542facd97a350606cbb695a6938910eda6697bbfa10a82bf26359ab2c",
+  "helper_sha256": "b34020ca1a54326af73baadb29c3d7a47da123abf4dac414594ded4a5b25b5ef",
   "supervisor_sha256": "396b849ec152da55e75078fa755eef6736b4d2327258aa0b48b60faf4cac2449",
   "audits": [
     {
@@ -11,13 +11,11 @@
       "date": "2026-11-25",
       "findings": [],
       "inspected": [
-        "All ten phase transitions and one-use output/attempt guards; no mutation replay or original restore/reset.",
-        "Fixed original identity and 954/11264/5/413 preservation; continuation task/issue/edge counts derived from the exact accepted revision5 plan and matching materialization; runtime/plan/receipt hash chains.",
-        "Native source-restore gate before original native open; SQLite read-only snapshot and data_version; native wire identity derivation separate from local row sequence.",
-        "Native merge dry-run counters and preview receipt+1 distinction; staged-record interchange digest separate from manifest digest.",
-        "Complete original raw SQLite retention, scoped new-task rows including auxiliary tables, exact added summary/receipt and final single guarded cleanup close.",
-        "Selected current object closure; independent previous-generation diagnostic; legacy and immutable tail path handling.",
-        "Accepted-plan task keys and edges are unique and internally resolved; total issues are 954 plus task count; no pending task-count constants remain."
+        "Complete helper phase flow and all prior/runtime/plan/materialization/backup guards, including exact PASS/accepted revision5 plan review and derived task/edge counts.",
+        "Original Git HEAD/tree53file429072095byte identity, full path/blob/size map, remote receipt and private index backup, transformation checks before status, no-optional-locks and unchanged index.",
+        "Current/previous original selection4files17063501bytes, raw Git blob identity comparison, complete selected closure and oversize references,1MiB streaming hashes and64MiB selected cap.",
+        "Exact current-source restore preflight before original native open; unchanged selected closures/Git state and all SQLite records, native canonical origins, receipts and auxiliary data.",
+        "Single same-UUID merge, original-owned authority transfer/publication, exact newly promoted previous pointer/object/corpus preservation, guarded single cleanup close and final restore."
       ]
     },
     {
@@ -26,13 +24,12 @@
       "date": "2026-11-25",
       "findings": [],
       "inspected": [
-        "Second complete helper and supervisor reading: path confinement/reparse checks, fresh outputs, pinned input records, source freeze checks and checkpoint tree 64 MiB bound.",
-        "Before/attempt/started/exit/result/failure receipts, native logs directly to files, timeout uncertainty, current original publication and final restore preservation.",
-        "Owned Windows Job handle provenance and membership, PID/birth retained handles, BelowNormal, Node 128 MiB heap, aggregate 512 MiB monitor, 3 GiB start / 1 GiB pressure gates.",
-        "Native 30 second timeouts, 180 second own-Job deadline, cleanup reserve, output bounds, no broad process termination and no app/browser/GPU/build.",
-        "PowerShell quoting, asynchronous stdout/stderr drains, process-exit races, final incomplete-result failure semantics.",
-        "Root-owned Git/index/remote publication and cleanup inputs; private backup/snapshots remain PC-only; future agents must reconcile attempts and clean remaining owned worktrees/branch.",
-        "Complete exact original checkpoint tree compared before/after both source preflight and final verification restores; repaired phase logic re-read after the plan-count update."
+        "Second complete helper and unchanged supervisor reading, with every Git call restricted to read-only operations, pinned Git executable and stripped inherited Git selectors.",
+        "Selected closure collection includes both pointer roots and transitive references, refuses unsafe paths/links/unknown mode/oversize recursion, and separately diagnoses historical previous corruption.",
+        "Before/attempt/started/exit/result/failure durability; immutable input/result hash chains; no replay after uncertain mutation; no Git publication/deletion/original reset.",
+        "Owned Windows Job and retained process handles/membership; BelowNormal, Node128MiB heap, aggregate512MiB,3GiB initial/1GiB live headroom,30second command and180second phase limits.",
+        "Phase Git state comparisons before/after preservation, source restore, dry-run, merge and verification restore; publication commit ancestry/identical checkpoint tree before final close.",
+        "Private database/index backups remain PC-only; root owns Git commits/push/Riftri cleanup; conditional scratch-branch cleanup documented."
       ]
     }
   ],
@@ -52,5 +49,19 @@
     "Successful current-source native restore preflight",
     "Actual PC phases and separate Git/cleanup publication"
   ],
-  "candidate_revision": "Derived-plan-count and full-original-tree restore comparison revision."
+  "candidate_revision": "Actual plan-review schema, promoted-generation retention, and original Git-object preservation route.",
+  "review_corrections": [
+    {
+      "finding": "Plan review uses PASS/accepted schema.",
+      "resolution": "Bind actual schema, both plan hash fields and derived32task/51edge counts without hardcoding pending totals."
+    },
+    {
+      "finding": "Newly promoted previous generation was only diagnosed.",
+      "resolution": "Both original publication phases capture verified prior current and require exact pointer bytes/closure/corpus/interchange hash after promotion."
+    },
+    {
+      "finding": "Whole original checkpoint is409MiB, above initial64MiB aggregate bound.",
+      "resolution": "Root-approved immutable-Git preservation for full53filetree plus17MiB selected copies; no repeated orphan-history reads/copies."
+    }
+  ]
 }
