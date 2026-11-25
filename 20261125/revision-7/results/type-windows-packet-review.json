@@ -1,0 +1,104 @@
+{
+  "schema_version": 1,
+  "task_key": "type-windows-roundtrip",
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "review_kind": "independent exact Windows real-store and production-HTTP packet review",
+  "date": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "aeee174d9f7159dd8fd5da27164ff07fb4bbe26a",
+    "activation_branch": "task/type-windows-roundtrip-20261125"
+  },
+  "reviewed_files": {
+    "20261125/revision-7/type-windows/run.py": "7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112",
+    "20261125/revision-7/type-windows/inputs.json": "ca076a5fa3b38117de44408df3e7781056fcf1c7c5c4134fa1ab901666c5aad7",
+    ".github/workflows/scotty-type-windows-20261125.yml": "4874747af8ea56b4b4616efd4e9885309eb2a18d80efe445f538c1ac53ce4736",
+    "windows-task-job.ps1": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "app_source": {
+    "commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "files": {
+      "scripts/test-local-bead-rs.mjs": "528449dccecb1acd28caf7d3894540c85f2353c408219db4d2f267aa71f934c7",
+      "scripts/test-native-type-roundtrip.mjs": "55cd3c76799ef2546b7297c1386a53c99ebfe0ab28a394cd83815fe6e90e64a5",
+      "scripts/support/register-source.mjs": "b9fa1373f3df197bd7fa5ce7f570c8e0c84442f1d0bd915a1fd850dd4177d0bd",
+      "scripts/support/owned-process.mjs": "2938235eebb369aa2d57e7004cf507bde7b560dc822b9c96429baf20633ae2ec",
+      "scripts/support/git-fixture.mjs": "d2e1a0cf709f0556b93658995744fd7f82c22366c839044864551efd86ebba0d"
+    }
+  },
+  "inputs": {
+    "schema_version": 1,
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "runtime_run_id": 45573503400,
+    "runtime_artifact_id": 15003467178,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "native_source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "native_run_id": 45572877188,
+    "native_artifact_id": 15003670786,
+    "native_manifest_sha256": "022128bca8006e74da54635bf16cf049a937f0723f134b0830982bda97fbf30e",
+    "native_executable": {
+      "path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+      "sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+      "bytes": 12221440
+    },
+    "native_metadata": {
+      "path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    },
+    "task_job_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "native_qualification": "Required before activation; the original producer retained this release before a later dumpbin lookup failure."
+  },
+  "author_record": {
+    "commit": "5c5e99951e235001e0921d954352b1186e797e71",
+    "path": "20261125/revision-7/results/type-windows-packet.json",
+    "sha256": "e1215ade387469f54a200a0437e86c98329ec75085fa83271056a513232fd81d",
+    "complete_clean_final_inspections": 2
+  },
+  "inspected": [
+    "Complete final workflow, Python helper, inputs and unchanged Windows Job helper.",
+    "Both complete prescribed real-store/production-HTTP scripts and their immediate source-loader, Git-fixture and process helpers.",
+    "Exact runtime output metadata from Actions run 45573503400 and native output metadata from run 45572877188.",
+    "Every final retention correction and the final two author inspection records."
+  ],
+  "conclusions": [
+    "The fresh Windows checkout must match the exact app source/tree; source hashes/Git blobs and dependency lock identity are checked before commands.",
+    "The runtime manifest/ZIP, all 560 unique case-folded entries, per-file bytes/SHA-256 and BUILD_ID are verified; traversal and non-.next members are refused.",
+    "The retained native manifest, executable and metadata must match the pinned 9ff source, x64 MSVC target, archive release origin and fb791327 executable hash.",
+    "The 15-minute hosted job uses the unchanged kill-on-close Job before Python/npm/Node/native children; commands have 180-second limits and every Node process inherits a 512 MiB heap limit.",
+    "Real local-store and production Next HTTP checks use fresh owned data/config/temp paths outside the app checkout and the explicit native executable.",
+    "The permanent assertions require exact long Unicode type and all scalar fields, revision+1, retained claim, one scalar edit, priority reason/actor/revision and preserved unrelated checkpoint state.",
+    "The HTTP check requires removed request files, observed owned server exit and released port; any timeout, failed command or incomplete test outcome fails the result.",
+    "The corrected upload retains all successful native-store command outputs, capabilities and Git comparison in addition to type-edit and HTTP results.",
+    "Numbered text parts are reconstructable by path/index; complete byte count and SHA-256 verify the original UTF-8 file. Empty files use zero parts."
+  ],
+  "resolved_findings": [
+    {
+      "finding": "The initial retention list omitted commands.json, capabilities.json and git-result.json from the real local-store check.",
+      "resolution": "All three exact filenames are now copied and printed in the final packet, with two clean final author inspections afterward."
+    }
+  ],
+  "findings": [],
+  "syntax_status": "Hosted Python compilation is the first helper check before real product commands; no local parse execution is claimed while the cloud executor is unavailable.",
+  "product_commands_executed_by_reviewer": false,
+  "activation_ready": false,
+  "activation_prerequisites": [
+    "type-app-checks must be accepted for the exact 03095397 runtime.",
+    "type-backend-checks must pass on native 9ffefad6.",
+    "checkpoint-windows-build must complete and verify its downloaded outputs for the exact retained fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e release."
+  ],
+  "next_action": "After the existing prerequisites pass, activate this exact packet on its named hosted branch and independently inspect the complete actual outputs. This review accepts preparation only.",
+  "remains_pending": [
+    "Actual Windows local-store and production-HTTP execution",
+    "App/native final acceptance",
+    "Actual logged-in-PC tray behavior",
+    "Checked installation and configured launch",
+    "Canonical revision 7 mapping and final history integration"
+  ],
+  "cleanup": "Remove the owned temporary Windows execution branch after retained results. Future agents must reconcile any running job and complete recorded clean-worktree cleanup if the session ends."
+}
