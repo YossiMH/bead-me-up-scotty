@@ -39,7 +39,7 @@ jobs:
           persist-credentials: false
           sparse-checkout: |
             windows-task-job.ps1
-            20261125/revision-8/type-windows
+            20261125/revision-9/type-windows
           sparse-checkout-cone-mode: false
 
       - name: Read the exact app source
@@ -76,8 +76,8 @@ jobs:
       - name: Download the exact retained native release
         uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
         with:
-          artifact-ids: '15010535371'
-          run-id: '45586900986'
+          artifact-ids: '15014634952'
+          run-id: '45600413942'
           github-token: ${{ github.token }}
           path: ${{ env.SCOTTY_WINDOWS_ROOT }}/native
           merge-multiple: true
@@ -86,7 +86,7 @@ jobs:
         timeout-minutes: 11
         run: |
           $ErrorActionPreference = 'Stop'
-          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-8/type-windows'
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/type-windows'
           $jobHelper = Join-Path $env:GITHUB_WORKSPACE 'ci/windows-task-job.ps1'
           $expected = '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'
           if ((Get-FileHash -LiteralPath $jobHelper -Algorithm SHA256).Hash.ToLowerInvariant() -ne $expected) { throw 'Task Job helper differs.' }
