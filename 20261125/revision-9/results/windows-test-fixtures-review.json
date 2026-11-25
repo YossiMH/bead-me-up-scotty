@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "task_key": "windows-test-fixtures",
+  "reviewer": "cloud_readiness",
+  "scope": "Exact tests-only fixture candidate; component acceptance for windows-checkpoint-tests-review",
+  "source_repository": "YossiMH/bead-rs",
+  "source_commit": "b492aa51b6f9a6049298d0534674572dc0c5a5e5",
+  "source_tree": "de17d8366f656fc271e52002b2b00822a5b06044",
+  "parent": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "accepted_plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "review_commit": "d1d9b088f4676c94e2a9afbe80b3eb49602c1283"
+  },
+  "reviewed_files": {
+    "tests/checkpoint_publication_lock.rs": "24a1de6e7de016d392515f33f5f48af8cb517a5e418b1fd89fd8470f2cf8e75f",
+    "tests/checkpoint_set_v2_conformance.rs": "3d579ebc628546ce2f2dc3e656f7ff0e072b6d8ad17e52e0f7e185c45f46db19"
+  },
+  "author_receipt": {
+    "commit": "a257b781f192bb713f1069228f3e7fe68eaad787",
+    "path": "20261125/revision-9/results/windows-test-fixtures-author.json",
+    "sha256": "09f0ec58135bd92fdb531c8473baf473f8d9623edc7d97504d15a9d773116df2",
+    "complete_clean_inspections": 2
+  },
+  "actual_diagnosis_review": {
+    "commit": "df5b52ff75e5fd19f223aa0f338a8b33de702935",
+    "sha256": "c65599fbe94657cea39a60e032fd242ce0691ba5796cdb42417ab1a80ae150bd"
+  },
+  "independent_checks": {
+    "publication_reverse_exact": true,
+    "conformance_reverse_exact": true,
+    "publication_test_names": true,
+    "conformance_test_names": true,
+    "publication_sha256": "24a1de6e7de016d392515f33f5f48af8cb517a5e418b1fd89fd8470f2cf8e75f",
+    "conformance_sha256": "3d579ebc628546ce2f2dc3e656f7ff0e072b6d8ad17e52e0f7e185c45f46db19"
+  },
+  "checks": [
+    "Fetched immutable candidate commit, parent/tree and both complete files. GitHub reports exactly the two authorized test paths; all production files, six maintenance tests and other repository content remain identical to c90.",
+    "Read the exact changed helper and affected fixture/scenario bodies. snapshot_checkpoint matches only prefix.is_empty() && name == publish.lock, asserts metadata length zero, and preserves the same map key with its complete empty bytes. Nested names and every other path continue through fs::read.",
+    "Held-lock lifetime, spawned child, forged pointer, refusal exit codes, empty stdout, unchanged live sequence and complete before/after map equality remain byte-identical.",
+    "The only conformance edits route the storm and merge 40 KiB values through the existing stdin helper. Filler contents, lengths, three update iterations, child success checks, split/merge thresholds, coverage/signature assertions and all OOB selectors remain unchanged.",
+    "Independently reversed only the authorized helper block and two call substitutions; both full files exactly reproduce their c90 baseline bytes and hashes. All test names remain identical.",
+    "Both final clean author inspections bind the exact independently fetched hashes. Actual formatting/compilation/runtime checks remain pending on the final source; none are credited by this static acceptance."
+  ],
+  "findings": [],
+  "production_unchanged": true,
+  "maintenance_test_unchanged": true,
+  "verdict": "Accept this tests-only candidate as the production repair's eventual parent. Overall windows-checkpoint-tests-review remains pending actual maintenance Red acceptance; this component receipt alone does not release the production edit.",
+  "remaining": [
+    "Inspect the exact actual six-case maintenance Red and cleanup",
+    "Publish complete windows-checkpoint-tests-review before either production predicate changes",
+    "Final-source Linux/Windows formatting, compilation and required runtime qualification"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
