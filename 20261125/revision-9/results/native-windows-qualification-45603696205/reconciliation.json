@@ -1,0 +1,232 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Final Windows native release and all accepted qualification partitions",
+  "run_id": 45603696205,
+  "run_attempt": 1,
+  "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "qualified_release": {
+    "executable": {
+      "bytes": 12243456,
+      "mode": 511,
+      "path": "release-under-test/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "metadata": {
+      "bytes": 2058,
+      "mode": 438,
+      "path": "release-under-test/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    }
+  },
+  "ordinary_tests": {
+    "core_passed": 25,
+    "editing_passed": 73,
+    "passed": 98,
+    "failed": 0,
+    "ignored": 0
+  },
+  "grid": {
+    "invocations": 12,
+    "harness_exits": [
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0,
+      0
+    ],
+    "classification_counts": {
+      "GREEN": 10,
+      "RED": 2
+    },
+    "cells": [
+      {
+        "classification": "RED",
+        "failure_text": "publication 0 added 1789455 new blob bytes, budget is 262144",
+        "fixture": "store-deletion",
+        "scenario": "set-v2-budget-single-issue-update"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-budget-single-issue-update"
+      },
+      {
+        "classification": "RED",
+        "failure_text": "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400",
+        "fixture": "store-deletion",
+        "scenario": "set-v2-shard-split-on-update-storm"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-shard-split-on-update-storm"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-tail-seal-and-immutability"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-tail-seal-and-immutability"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-oversize-record-once-cost"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-oversize-record-once-cost"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-pointer-boundedness"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-pointer-boundedness"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "store-deletion",
+        "scenario": "set-v2-forensic-frozen"
+      },
+      {
+        "classification": "GREEN",
+        "failure_text": null,
+        "fixture": "orphan-set-files",
+        "scenario": "set-v2-forensic-frozen"
+      }
+    ],
+    "oracle": "The existing out-of-band characterization records caught assertion text for every scenario/fixture cell; its success requires complete classification. StoreDeletion removes eight live issue rows directly without events. This accounts for the retained 392-versus-400 split characterization. All ordinary conformance cases and both original-corpus recovery runs pass."
+  },
+  "public_corpus": {
+    "status": "passed",
+    "result_sha256": "791c4616775dfd2da3e83c645428e2a9f55f861078b236a2f177c85fdf6ae57e",
+    "verification_restores": 4,
+    "complete_comparisons": 6,
+    "original_issues": 954,
+    "original_events": 11264,
+    "original_provenance": 5,
+    "original_attempt_outcomes": 413,
+    "source_and_configuration_unchanged": true
+  },
+  "native_smoke": {
+    "checks": [
+      "Label add/remove and all three dependency kinds preserve direction.",
+      "One guarded compound edit preserves identity, related records and priority audit.",
+      "Long UTF-8 file edits, empty-string clears and explicit description clear round-trip.",
+      "Stale revision refuses the complete edit, audit and publication.",
+      "Automatic checkpoint publication restores fields, graph, labels and priority history."
+    ],
+    "commands": 55,
+    "result": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1\\smoke-output\\windows-native-smoke-2b84aa570c6848068ff93650d44690a0.json",
+    "sha256": "c19040230536a4834c2ac30225317024933515713375e1bfcd6a6a4e1f5d1d98"
+  },
+  "smoke_original_json": {
+    "artifact_id": 15016629803,
+    "path": "smoke-output/windows-native-smoke-2b84aa570c6848068ff93650d44690a0.json",
+    "bytes": 44069,
+    "sha256": "c19040230536a4834c2ac30225317024933515713375e1bfcd6a6a4e1f5d1d98",
+    "retention": "Original JSON remains in the complete hosted artifact; all 55 complete command logs and its checked identity are retained here."
+  },
+  "partitions": [
+    {
+      "partition": "core",
+      "result_sha256": "e5a207306dd6e8eb1a043f95db28cb477811691356e6ea7cecb4619c9cd9bd71",
+      "inputs_and_source_unchanged": true,
+      "owned_children_quiescent": true,
+      "supervisor_sha256": "0498593bae833f563d6c893e130aac451a8aed615ae9576164e4bfdb2c48de0e",
+      "completion_sha256": "f1fe486780eca05ff32420f773879345b29c749565762febd603cd9cea82b112",
+      "owned_children_remaining": 0,
+      "outer_job_empty_after_exit": true
+    },
+    {
+      "partition": "editing",
+      "result_sha256": "c424786f062ca95d77ff1db4ecfa21ec57f2c1dc4b1f772a9f5d0bdad1dcb860",
+      "inputs_and_source_unchanged": true,
+      "owned_children_quiescent": true,
+      "supervisor_sha256": "6eff6888c3875518f5a3813fc95db5622d216ed83303647b50b5b5da0477c27b",
+      "completion_sha256": "4cb1f40a2247d73f7d71bdd04e6679f8ddbcb44c2130ee7f852b068220337ae3",
+      "owned_children_remaining": 0,
+      "outer_job_empty_after_exit": true
+    },
+    {
+      "partition": "grid-1",
+      "result_sha256": "60bb91d40e302e1c0a2890867ba56dce74412aa24b92c69439bbcff3a52d45df",
+      "inputs_and_source_unchanged": true,
+      "owned_children_quiescent": true,
+      "supervisor_sha256": "ba9e9479d3d1b8694d34d18f91484da0da62d095bc428488e3627eef62d4a395",
+      "completion_sha256": "0819383376cacbe72f450280537eeba31f3abffc339faa0edee2b66938f2e304",
+      "owned_children_remaining": 0,
+      "outer_job_empty_after_exit": true
+    },
+    {
+      "partition": "grid-2",
+      "result_sha256": "678b9a9b754eb7864588d8c70fa3a373249cb2b347dbc77cd2255c97dec2c252",
+      "inputs_and_source_unchanged": true,
+      "owned_children_quiescent": true,
+      "supervisor_sha256": "fa49237554069f88de2bf9101954b019c565b1586b5b4486d75a680f8a68d76b",
+      "completion_sha256": "631734370f5cc6cfe9bcf178c660f1f4321a759c9d073590d3076d01131d8570",
+      "owned_children_remaining": 0,
+      "outer_job_empty_after_exit": true
+    },
+    {
+      "partition": "grid-3",
+      "result_sha256": "a5b6098560dbfb70e1008f4672dc468bbdd8d18f12cd8c4885daf092773bb8a7",
+      "inputs_and_source_unchanged": true,
+      "owned_children_quiescent": true,
+      "supervisor_sha256": "516bd8007743903edba00fde82ea3d16080d978e2db2f520b44ac40dc2d99289",
+      "completion_sha256": "a73f8722f916ef0c72a8e33fef94f58e97e3cee88fba0036dec86bba4e71210a",
+      "owned_children_remaining": 0,
+      "outer_job_empty_after_exit": true
+    }
+  ],
+  "aggregate_sha256": "ac65894f80215aed7ddc03f72935c91095ab9717e0a07a7e66196900129abc1d",
+  "commands": 73,
+  "retained_grid_commits": {
+    "grid_1": "dc76fcc778029955d70e99f19810af9d7a888bbb",
+    "grid_2_and_3": "2dd0ec64a68363147dfced4fb13cc12aa9abb2ac"
+  },
+  "actual_log_identities": [
+    {
+      "partition": "core",
+      "bytes": 277287,
+      "sha256": "2c53cff8ffa0be8861596d2f3857e7bdd41e00fa0acfca6827f6c91377c1b60a"
+    },
+    {
+      "partition": "editing",
+      "bytes": 1722259,
+      "sha256": "f8d69a5f221492dc15ff70d5cd694d806504dc1487fb639b590c61540c5b52cf"
+    },
+    {
+      "partition": "aggregate",
+      "bytes": 48654,
+      "sha256": "f8a64b01a8ac6e630960aef63a0c8538a11840418deabaacfe7877acb7106531"
+    }
+  ]
+}

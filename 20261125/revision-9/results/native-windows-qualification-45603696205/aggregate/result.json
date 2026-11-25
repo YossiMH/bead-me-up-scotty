@@ -1,0 +1,314 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "operation": "checkpoint-windows-partition-aggregate",
+  "run_id": "45603696205",
+  "run_attempt": "1",
+  "workflow_commit": "07ea5205bd8d11d753ada8c29ba2b483c7c8de0b",
+  "window_start_epoch": 1795605701,
+  "window_deadline_epoch": 1795614101,
+  "partitions": {
+    "core": {
+      "result_sha256": "e5a207306dd6e8eb1a043f95db28cb477811691356e6ea7cecb4619c9cd9bd71",
+      "completion_sha256": "f1fe486780eca05ff32420f773879345b29c749565762febd603cd9cea82b112",
+      "test_invocations": 19,
+      "commands": 28,
+      "finished_epoch": 1795606350.111154
+    },
+    "editing": {
+      "result_sha256": "c424786f062ca95d77ff1db4ecfa21ec57f2c1dc4b1f772a9f5d0bdad1dcb860",
+      "completion_sha256": "4cb1f40a2247d73f7d71bdd04e6679f8ddbcb44c2130ee7f852b068220337ae3",
+      "test_invocations": 6,
+      "commands": 18,
+      "finished_epoch": 1795605792.5694675
+    },
+    "grid-1": {
+      "result_sha256": "60bb91d40e302e1c0a2890867ba56dce74412aa24b92c69439bbcff3a52d45df",
+      "completion_sha256": "0819383376cacbe72f450280537eeba31f3abffc339faa0edee2b66938f2e304",
+      "test_invocations": 4,
+      "commands": 9,
+      "finished_epoch": 1795606172.717469
+    },
+    "grid-2": {
+      "result_sha256": "678b9a9b754eb7864588d8c70fa3a373249cb2b347dbc77cd2255c97dec2c252",
+      "completion_sha256": "631734370f5cc6cfe9bcf178c660f1f4321a759c9d073590d3076d01131d8570",
+      "test_invocations": 4,
+      "commands": 9,
+      "finished_epoch": 1795605821.5128303
+    },
+    "grid-3": {
+      "result_sha256": "a5b6098560dbfb70e1008f4672dc468bbdd8d18f12cd8c4885daf092773bb8a7",
+      "completion_sha256": "a73f8722f916ef0c72a8e33fef94f58e97e3cee88fba0036dec86bba4e71210a",
+      "test_invocations": 4,
+      "commands": 9,
+      "finished_epoch": 1795605779.8838375
+    }
+  },
+  "ordinary_cases": [
+    "set_v2_budget_single_issue_update",
+    "set_v2_concurrent_publication",
+    "set_v2_crash_ordering",
+    "set_v2_dual_layout_reader_equivalence",
+    "set_v2_forced_monolith_limits",
+    "set_v2_forensic_frozen",
+    "set_v2_migration_full_rewrite",
+    "set_v2_oversize_record_once_cost",
+    "set_v2_pointer_boundedness",
+    "set_v2_shard_merge_on_deletion",
+    "set_v2_shard_split_on_update_storm",
+    "set_v2_tail_seal_and_immutability"
+  ],
+  "grid_cells": [
+    {
+      "classification": "RED",
+      "failure_text": "publication 0 added 1789455 new blob bytes, budget is 262144",
+      "fixture": "store-deletion",
+      "scenario": "set-v2-budget-single-issue-update"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-budget-single-issue-update"
+    },
+    {
+      "classification": "RED",
+      "failure_text": "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400",
+      "fixture": "store-deletion",
+      "scenario": "set-v2-shard-split-on-update-storm"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-shard-split-on-update-storm"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-tail-seal-and-immutability"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-tail-seal-and-immutability"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-oversize-record-once-cost"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-oversize-record-once-cost"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-pointer-boundedness"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-pointer-boundedness"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "store-deletion",
+      "scenario": "set-v2-forensic-frozen"
+    },
+    {
+      "classification": "GREEN",
+      "failure_text": null,
+      "fixture": "orphan-set-files",
+      "scenario": "set-v2-forensic-frozen"
+    }
+  ],
+  "targets": {
+    "lib": [
+      "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+      "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+      "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard",
+      "service::checkpoint::tests::publication_lock_is_exclusive_across_openers"
+    ],
+    "attempt_receipt_checkpoint_integrity": [
+      "exact_resulting_state_survives_both_checkpoint_layouts",
+      "public_schemas_describe_attempt_state_and_checkpoint_counts",
+      "replacement_restore_removes_displaced_attempt_outcomes",
+      "verified_restore_preserves_all_attempt_outcomes_from_set_v2"
+    ],
+    "checkpoint_tail_generation_integrity": [
+      "legacy_fixed_tail_generation_remains_restorable_after_upgrade",
+      "selected_set_v2_generation_remains_restorable_after_tail_append"
+    ],
+    "checkpoint_publication_lock": [
+      "concurrent_workers_leave_one_intact_covering_generation",
+      "higher_sequence_without_local_publication_proof_cannot_admit_a_mutation",
+      "mutation_waits_for_a_stable_checkpoint_before_committing"
+    ],
+    "checkpoint_set_v2_conformance": [
+      "set_v2_budget_single_issue_update",
+      "set_v2_concurrent_publication",
+      "set_v2_crash_ordering",
+      "set_v2_dual_layout_reader_equivalence",
+      "set_v2_forced_monolith_limits",
+      "set_v2_forensic_frozen",
+      "set_v2_migration_full_rewrite",
+      "set_v2_oversize_record_once_cost",
+      "set_v2_pointer_boundedness",
+      "set_v2_shard_merge_on_deletion",
+      "set_v2_shard_split_on_update_storm",
+      "set_v2_tail_seal_and_immutability"
+    ],
+    "attempt_outcome_round_trip": [
+      "test_attempt_outcome_conflict_rejection",
+      "test_attempt_outcome_duplicate_detection",
+      "test_attempt_outcome_round_trip_monolithic",
+      "test_attempt_outcome_round_trip_sharded"
+    ],
+    "r036_verified_restore": [
+      "direct_pointer_source_with_wrong_generation_is_refused",
+      "doctor_recommends_named_restore_but_never_performs_it",
+      "empty_target_is_initialized_verified_restored_and_receipted_by_one_command",
+      "explicit_non_empty_override_replaces_native_state_and_reports_displacement",
+      "input_and_force_aliases_are_live_forms_of_the_canonical_flags",
+      "missing_and_empty_sources_are_refused_before_target_initialization",
+      "missing_generation_is_refused_and_names_the_available_one",
+      "no_auto_flush_restores_without_publishing_the_target",
+      "non_empty_target_is_refused_without_mutation",
+      "r029_archaeology_view_is_explicitly_refused",
+      "restore_help_documents_the_explicit_recovery_contract",
+      "retained_generation_named_native_root_is_hash_verified_and_restored",
+      "set_v2_generation_verifies_its_complete_closure_and_restores",
+      "simultaneous_empty_target_restores_have_one_winner_and_one_refusal",
+      "successful_restore_publishes_a_generation_covering_the_summary_event",
+      "successful_restore_writes_the_audit_event_and_a_digest_pinned_receipt",
+      "unverified_generation_artifact_is_refused_before_target_initialization"
+    ],
+    "cli_editing": [
+      "capabilities_schema_and_help_describe_the_same_editable_fields",
+      "claimed_edits_require_the_issued_credential",
+      "compound_edit_preserves_identity_extensions_and_related_records",
+      "concurrent_editors_with_one_revision_have_one_complete_winner",
+      "conflicting_sources_and_invalid_utf8_do_not_modify_the_issue",
+      "description_file_stdin_and_clear_preserve_exact_text",
+      "dry_run_enforces_revision_claim_and_transition_checks",
+      "dry_run_projects_the_committed_edit_without_writing",
+      "dry_run_redacts_new_text_fields_and_assignment_summary",
+      "dry_run_redacts_stored_closed_metadata_and_preserves_exact_clean_text",
+      "edited_content_and_audit_survive_published_checkpoint_restore",
+      "editing_closed_metadata_preserves_the_close_record",
+      "invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged",
+      "manifest_edits_and_dependency_changes_commit_together",
+      "manifest_edits_cannot_take_over_an_existing_claim",
+      "manifest_later_failure_rolls_back_edits_and_priority_audit",
+      "manifest_output_redacts_scalar_changes_without_masking_stored_values",
+      "new_edit_fields_keep_native_content_checks_and_redacted_errors",
+      "priority_change_records_reason_actor_and_changes_ready_order",
+      "priority_requires_a_reason_and_same_value_has_no_priority_event",
+      "repeated_edits_are_noops_after_revision_and_claim_checks",
+      "stale_revision_rejects_the_whole_edit",
+      "title_limits_count_utf8_bytes"
+    ],
+    "cli_capabilities": [
+      "auto_flush_advertisement_ignores_workspace_state",
+      "auto_flush_advertisement_matches_binary_behavior",
+      "auto_flush_field_tracks_the_compiled_default",
+      "capability_library_boundary_cannot_forge_a_managed_downgrade",
+      "secret_scan_capability_reports_effective_workspace_mode",
+      "secret_scan_capability_uses_compiled_default_without_workspace",
+      "test_capabilities_default_profile",
+      "test_capabilities_invalid_profile",
+      "test_capabilities_native_profile",
+      "test_capabilities_needle_profile",
+      "test_capabilities_no_workspace",
+      "test_capabilities_schema_entries"
+    ],
+    "issue_type_file": [
+      "capability_schema_accepts_the_optional_type_transport",
+      "dry_run_and_repeated_file_values_preserve_saved_state",
+      "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+      "file_type_is_scanned_before_any_scalar_edit",
+      "help_and_generated_man_page_describe_type_file_input",
+      "inline_and_file_conflict_before_reading_the_file",
+      "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+      "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+      "only_one_text_field_may_consume_stdin",
+      "stdin_type_preserves_exact_text",
+      "stored_issue_and_manifest_keep_literal_type_text"
+    ],
+    "redaction_transaction": [
+      "assignee_metadata_is_redactable_without_deleting_the_issue",
+      "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+      "concurrent_identical_requests_commit_once_and_replay_once",
+      "every_supported_nonissue_record_preserves_identity_and_integrity",
+      "garage_access_key_id_assignment_is_discoverable_and_redactable",
+      "issue_redaction_is_exact_atomic_and_idempotent"
+    ]
+  },
+  "public_corpus": {
+    "original_attempt_outcomes": 413,
+    "output": "D:\\a\\_temp\\bead-checkpoint-windows-corpus-45603696205-1",
+    "result_sha256": "791c4616775dfd2da3e83c645428e2a9f55f861078b236a2f177c85fdf6ae57e",
+    "verification_restores": 4
+  },
+  "native_smoke": {
+    "checks": [
+      "Label add/remove and all three dependency kinds preserve direction.",
+      "One guarded compound edit preserves identity, related records and priority audit.",
+      "Long UTF-8 file edits, empty-string clears and explicit description clear round-trip.",
+      "Stale revision refuses the complete edit, audit and publication.",
+      "Automatic checkpoint publication restores fields, graph, labels and priority history."
+    ],
+    "commands": 55,
+    "result": "D:\\a\\_temp\\bead-checkpoint-windows-check-45603696205-1\\smoke-output\\windows-native-smoke-2b84aa570c6848068ff93650d44690a0.json",
+    "sha256": "c19040230536a4834c2ac30225317024933515713375e1bfcd6a6a4e1f5d1d98"
+  },
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "producer": {
+    "schema_version": 1,
+    "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "target": "x86_64-pc-windows-msvc",
+    "artifact_id": 15016870072,
+    "run": {
+      "id": "45600413942",
+      "attempt": "1",
+      "workflow_commit": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+      "repository": "YossiMH/bead-me-up-scotty"
+    },
+    "build_helper_sha256": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "build_manifest_sha256": "51735e621189c914cdbe88a0a9d36f49c43cd5eb215cec3530e987f2ecdfe0f6",
+    "build_inputs_sha256": "56cfbc290b00e0cbd3285a66fc46970ab029a05b3bd290ee1d39ada463213d7d",
+    "build_result_sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+    "corpus_helper_sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "corpus_inputs_sha256": "28cdf51f510c32a78e99872666f0ffebb47479057002c39fae86115445b37b43",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "smoke_helper_sha256": "2a29faa7df3e9c04dd7543a5f8fd54552dd34c83248c1eda0d427e8f1a215a0b",
+    "status": "bound"
+  },
+  "qualified_release": {
+    "executable": {
+      "bytes": 12243456,
+      "mode": 511,
+      "path": "release-under-test/bead-checkpoint-2d801ba455b7.exe",
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+    },
+    "metadata": {
+      "bytes": 2058,
+      "mode": 438,
+      "path": "release-under-test/bead-checkpoint-2d801ba455b7.exe.metadata.json",
+      "sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+    }
+  },
+  "command_count": 73
+}

@@ -1,0 +1,13 @@
+Command: compound-edit
+Arguments: --no-auto-flush update wsmoke-a84be591 --title=Edited "quoted" title 日本語 --description=First line
+Second line 日本語
+ --priority=0 --reason=Windows smoke priority edit --issue-type=review_check --notes=Notes 日本語
+Another line --if-revision=1
+Exit: 0
+Elapsed ms: 24
+Timed out: False
+STDOUT:
+wsmoke-a84be591
+
+STDERR:
+

@@ -1,0 +1,333 @@
+﻿2026-11-25T11:35:02.3702162Z Current runner version: '2.338.2'
+2026-11-25T11:35:02.3723155Z ##[group]Runner Image Provisioner
+2026-11-25T11:35:02.3723769Z Hosted Compute Agent
+2026-11-25T11:35:02.3724232Z Version: 20261111.635
+2026-11-25T11:35:02.3724708Z Commit: b8a594ea514ff44cadb5342986c68b1eac6e22ed
+2026-11-25T11:35:02.3725208Z Build Date: 2026-11-11T01:49:01Z
+2026-11-25T11:35:02.3725699Z Worker ID: {3498620f-9b2e-42bf-a574-63b557f008cf}
+2026-11-25T11:35:02.3726148Z Region: westus3
+2026-11-25T11:35:02.3726505Z Cloud: Azure
+2026-11-25T11:35:02.3726938Z ##[endgroup]
+2026-11-25T11:35:02.3727804Z ##[group]Operating System
+2026-11-25T11:35:02.3728221Z Ubuntu
+2026-11-25T11:35:02.3728571Z 24.04.5
+2026-11-25T11:35:02.3728914Z LTS
+2026-11-25T11:35:02.3729348Z ##[endgroup]
+2026-11-25T11:35:02.3729710Z ##[group]Runner Image
+2026-11-25T11:35:02.3730119Z Image: ubuntu-24.04
+2026-11-25T11:35:02.3730507Z Version: 20261116.376.1
+2026-11-25T11:35:02.3731910Z Included Software: https://github.com/actions/runner-images/blob/ubuntu24/20261116.376/images/ubuntu/Ubuntu2404-Readme.md
+2026-11-25T11:35:02.3732847Z Image Release: https://github.com/actions/runner-images/releases/tag/ubuntu24%2F20261116.376
+2026-11-25T11:35:02.3733466Z ##[endgroup]
+2026-11-25T11:35:02.3734219Z ##[group]GITHUB_TOKEN Permissions
+2026-11-25T11:35:02.3735906Z Actions: read
+2026-11-25T11:35:02.3736274Z Contents: read
+2026-11-25T11:35:02.3736620Z Metadata: read
+2026-11-25T11:35:02.3737025Z ##[endgroup]
+2026-11-25T11:35:02.3738576Z Secret source: Actions
+2026-11-25T11:35:02.3739257Z Cache mode: write
+2026-11-25T11:35:02.3739863Z Prepare workflow directory
+2026-11-25T11:35:02.4105649Z Prepare all required actions
+2026-11-25T11:35:02.4140591Z Getting action download info
+2026-11-25T11:35:02.7913727Z Download action repository 'actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803' (SHA:d23441a48e516b6c34aea4fa41551a30e30af803)
+2026-11-25T11:35:02.9636156Z Download action repository 'actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093' (SHA:d3f86a106a0bac45b974a628896c90dbdf5c8093)
+2026-11-25T11:35:03.6229191Z Download action repository 'actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02' (SHA:ea165f8d65b6e75b540449e92b4886f43607fa02)
+2026-11-25T11:35:03.8831225Z Complete job name: aggregate
+2026-11-25T11:35:03.9500794Z ##[group]Run actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+2026-11-25T11:35:03.9502051Z with:
+2026-11-25T11:35:03.9502628Z   ref: 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:35:03.9503344Z   path: ci
+2026-11-25T11:35:03.9503866Z   persist-credentials: false
+2026-11-25T11:35:03.9504633Z   sparse-checkout: 20261125/revision-9/native-windows-check
+2026-11-25T11:35:03.9505460Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:35:03.9511072Z   token: ***
+2026-11-25T11:35:03.9511608Z   ssh-strict: true
+2026-11-25T11:35:03.9512266Z   ssh-user: git
+2026-11-25T11:35:03.9512795Z   clean: true
+2026-11-25T11:35:03.9513351Z   sparse-checkout-cone-mode: true
+2026-11-25T11:35:03.9513992Z   fetch-depth: 1
+2026-11-25T11:35:03.9514548Z   fetch-tags: false
+2026-11-25T11:35:03.9515123Z   show-progress: true
+2026-11-25T11:35:03.9515662Z   lfs: false
+2026-11-25T11:35:03.9516171Z   submodules: false
+2026-11-25T11:35:03.9516728Z   set-safe-directory: true
+2026-11-25T11:35:03.9517398Z   allow-unsafe-pr-checkout: false
+2026-11-25T11:35:03.9518117Z env:
+2026-11-25T11:35:03.9518928Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:35:03.9519937Z   WINDOW_START: 1795605701
+2026-11-25T11:35:03.9520528Z   WINDOW_DEADLINE: 1795614101
+2026-11-25T11:35:03.9521122Z ##[endgroup]
+2026-11-25T11:35:04.2470591Z Syncing repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:35:04.2473581Z ##[group]Getting Git version info
+2026-11-25T11:35:04.2475094Z Working directory is '/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci'
+2026-11-25T11:35:04.2477160Z [command]/usr/bin/git version
+2026-11-25T11:35:04.2552575Z git version 2.56.1
+2026-11-25T11:35:04.2574050Z ##[endgroup]
+2026-11-25T11:35:04.2589773Z Temporarily overriding HOME='/home/runner/work/_temp/c7ed64dc-303f-4393-ad4d-136d3e2e3088' before making global git config changes
+2026-11-25T11:35:04.2592872Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:35:04.2595299Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci
+2026-11-25T11:35:04.2643468Z ##[group]Determining repository object format
+2026-11-25T11:35:04.2645620Z ##[endgroup]
+2026-11-25T11:35:04.2646820Z ##[group]Initializing the repository
+2026-11-25T11:35:04.2657112Z [command]/usr/bin/git init /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci
+2026-11-25T11:35:04.2907744Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-11-25T11:35:04.2909171Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-11-25T11:35:04.2910294Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-11-25T11:35:04.2911258Z hint: call:
+2026-11-25T11:35:04.2911971Z hint:
+2026-11-25T11:35:04.2912673Z hint: 	git config --global init.defaultBranch <name>
+2026-11-25T11:35:04.2913419Z hint:
+2026-11-25T11:35:04.2914126Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-11-25T11:35:04.2915233Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-11-25T11:35:04.2916121Z hint:
+2026-11-25T11:35:04.2916618Z hint: 	git branch -m <name>
+2026-11-25T11:35:04.2917180Z hint:
+2026-11-25T11:35:04.2917914Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-11-25T11:35:04.2934039Z Initialized empty Git repository in /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git/
+2026-11-25T11:35:04.2945283Z [command]/usr/bin/git remote add origin https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:35:04.2999238Z ##[endgroup]
+2026-11-25T11:35:04.3000608Z ##[group]Disabling automatic garbage collection
+2026-11-25T11:35:04.3002244Z [command]/usr/bin/git config --local gc.auto 0
+2026-11-25T11:35:04.3034848Z ##[endgroup]
+2026-11-25T11:35:04.3036176Z ##[group]Setting up auth
+2026-11-25T11:35:04.3037669Z Removing SSH command configuration
+2026-11-25T11:35:04.3040817Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:35:04.3075433Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T11:35:04.3455634Z Removing HTTP extra header
+2026-11-25T11:35:04.3462059Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:35:04.3499115Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T11:35:04.3710750Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:35:04.3715314Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:35:04.3747690Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T11:35:04.3963620Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-11-25T11:35:04.4003907Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path /home/runner/work/_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:04.4039205Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:04.4080736Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:04.4115559Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:04.4148258Z ##[endgroup]
+2026-11-25T11:35:04.4149625Z ##[group]Fetching the repository
+2026-11-25T11:35:04.4157156Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --filter=blob:none --depth=1 origin 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:35:04.8644030Z From https://github.com/YossiMH/bead-me-up-scotty
+2026-11-25T11:35:04.8645143Z  * branch            07ea5205bd8d11d753ada8c29ba2b483c7c8de0b -> FETCH_HEAD
+2026-11-25T11:35:04.8654014Z [command]/usr/bin/git rev-parse --verify --quiet 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b^{object}
+2026-11-25T11:35:04.8680899Z 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:35:04.8685500Z ##[endgroup]
+2026-11-25T11:35:04.8686679Z ##[group]Determining the checkout info
+2026-11-25T11:35:04.8687676Z ##[endgroup]
+2026-11-25T11:35:04.8688525Z ##[group]Setting up sparse checkout
+2026-11-25T11:35:04.8690195Z [command]/usr/bin/git sparse-checkout set 20261125/revision-9/native-windows-check
+2026-11-25T11:35:04.8796331Z ##[endgroup]
+2026-11-25T11:35:04.8797424Z ##[group]Checking out the ref
+2026-11-25T11:35:04.8798741Z [command]/usr/bin/git checkout --progress --force 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:35:05.9103148Z Updating files:   1% (1/58)
+2026-11-25T11:35:05.9104381Z Updating files:   3% (2/58)
+2026-11-25T11:35:05.9104647Z Updating files:   5% (3/58)
+2026-11-25T11:35:05.9104897Z Updating files:   6% (4/58)
+2026-11-25T11:35:05.9105150Z Updating files:   8% (5/58)
+2026-11-25T11:35:05.9105410Z Updating files:  10% (6/58)
+2026-11-25T11:35:05.9109002Z Updating files:  12% (7/58)
+2026-11-25T11:35:05.9109316Z Updating files:  13% (8/58)
+2026-11-25T11:35:05.9109634Z Updating files:  15% (9/58)
+2026-11-25T11:35:05.9109875Z Updating files:  17% (10/58)
+2026-11-25T11:35:05.9110117Z Updating files:  18% (11/58)
+2026-11-25T11:35:05.9110376Z Updating files:  20% (12/58)
+2026-11-25T11:35:05.9111223Z Updating files:  22% (13/58)
+2026-11-25T11:35:05.9113636Z Updating files:  24% (14/58)
+2026-11-25T11:35:05.9114222Z Updating files:  25% (15/58)
+2026-11-25T11:35:05.9114698Z Updating files:  27% (16/58)
+2026-11-25T11:35:05.9114967Z Updating files:  29% (17/58)
+2026-11-25T11:35:05.9115200Z Updating files:  31% (18/58)
+2026-11-25T11:35:05.9115439Z Updating files:  32% (19/58)
+2026-11-25T11:35:05.9115674Z Updating files:  34% (20/58)
+2026-11-25T11:35:05.9115908Z Updating files:  36% (21/58)
+2026-11-25T11:35:05.9122689Z Updating files:  37% (22/58)
+2026-11-25T11:35:05.9122928Z Updating files:  39% (23/58)
+2026-11-25T11:35:05.9123226Z Updating files:  41% (24/58)
+2026-11-25T11:35:05.9123393Z Updating files:  43% (25/58)
+2026-11-25T11:35:05.9123544Z Updating files:  44% (26/58)
+2026-11-25T11:35:05.9123719Z Updating files:  46% (27/58)
+2026-11-25T11:35:05.9123933Z Updating files:  48% (28/58)
+2026-11-25T11:35:05.9124090Z Updating files:  50% (29/58)
+2026-11-25T11:35:05.9124308Z Updating files:  51% (30/58)
+2026-11-25T11:35:05.9124594Z Updating files:  53% (31/58)
+2026-11-25T11:35:05.9130921Z Updating files:  55% (32/58)
+2026-11-25T11:35:05.9139062Z Updating files:  56% (33/58)
+2026-11-25T11:35:05.9143304Z Updating files:  58% (34/58)
+2026-11-25T11:35:05.9148316Z Updating files:  60% (35/58)
+2026-11-25T11:35:05.9154182Z Updating files:  62% (36/58)
+2026-11-25T11:35:05.9158891Z Updating files:  63% (37/58)
+2026-11-25T11:35:05.9164042Z Updating files:  65% (38/58)
+2026-11-25T11:35:05.9167769Z Updating files:  67% (39/58)
+2026-11-25T11:35:05.9172940Z Updating files:  68% (40/58)
+2026-11-25T11:35:05.9183998Z Updating files:  70% (41/58)
+2026-11-25T11:35:05.9196572Z Updating files:  72% (42/58)
+2026-11-25T11:35:05.9202733Z Updating files:  74% (43/58)
+2026-11-25T11:35:05.9203239Z Updating files:  75% (44/58)
+2026-11-25T11:35:05.9203409Z Updating files:  77% (45/58)
+2026-11-25T11:35:05.9209394Z Updating files:  79% (46/58)
+2026-11-25T11:35:05.9215707Z Updating files:  81% (47/58)
+2026-11-25T11:35:05.9220652Z Updating files:  82% (48/58)
+2026-11-25T11:35:05.9228358Z Updating files:  84% (49/58)
+2026-11-25T11:35:05.9231178Z Updating files:  86% (50/58)
+2026-11-25T11:35:05.9232941Z Updating files:  87% (51/58)
+2026-11-25T11:35:05.9234105Z Updating files:  89% (52/58)
+2026-11-25T11:35:05.9235436Z Updating files:  91% (53/58)
+2026-11-25T11:35:05.9236432Z Updating files:  93% (54/58)
+2026-11-25T11:35:05.9237002Z Updating files:  94% (55/58)
+2026-11-25T11:35:05.9237639Z Updating files:  96% (56/58)
+2026-11-25T11:35:05.9238078Z Updating files:  98% (57/58)
+2026-11-25T11:35:05.9238303Z Updating files: 100% (58/58)
+2026-11-25T11:35:05.9238536Z Updating files: 100% (58/58), done.
+2026-11-25T11:35:05.9245326Z Note: switching to '07ea5205bd8d11d753ada8c29ba2b483c7c8de0b'.
+2026-11-25T11:35:05.9245600Z 
+2026-11-25T11:35:05.9245800Z You are in 'detached HEAD' state. You can look around, make experimental
+2026-11-25T11:35:05.9246231Z changes and commit them, and you can discard any commits you make in this
+2026-11-25T11:35:05.9246634Z state without impacting any branches by switching back to a branch.
+2026-11-25T11:35:05.9246800Z 
+2026-11-25T11:35:05.9246927Z If you want to create a new branch to retain commits you create, you may
+2026-11-25T11:35:05.9247224Z do so (now or later) by using -c with the switch command. Example:
+2026-11-25T11:35:05.9247449Z 
+2026-11-25T11:35:05.9247577Z   git switch -c <new-branch-name>
+2026-11-25T11:35:05.9247894Z 
+2026-11-25T11:35:05.9247994Z Or undo this operation with:
+2026-11-25T11:35:05.9248148Z 
+2026-11-25T11:35:05.9248236Z   git switch -
+2026-11-25T11:35:05.9248354Z 
+2026-11-25T11:35:05.9248568Z Turn off this advice by setting config variable advice.detachedHead to false
+2026-11-25T11:35:05.9248857Z 
+2026-11-25T11:35:05.9249121Z HEAD is now at 07ea520 Bind revision 9 Windows qualification to verified final native outputs
+2026-11-25T11:35:05.9260171Z ##[endgroup]
+2026-11-25T11:35:05.9302641Z [command]/usr/bin/git log -1 --format=%H
+2026-11-25T11:35:05.9327683Z 07ea5205bd8d11d753ada8c29ba2b483c7c8de0b
+2026-11-25T11:35:05.9337205Z ##[group]Removing auth
+2026-11-25T11:35:05.9337466Z Removing SSH command configuration
+2026-11-25T11:35:05.9341480Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:35:05.9372611Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T11:35:05.9575876Z Removing HTTP extra header
+2026-11-25T11:35:05.9576418Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:35:05.9607309Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T11:35:05.9805825Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:35:05.9807967Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:35:05.9834867Z includeif.gitdir:/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:35:05.9835657Z includeif.gitdir:/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:35:05.9836219Z includeif.gitdir:/github/workspace/ci/.git.path
+2026-11-25T11:35:05.9836624Z includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path
+2026-11-25T11:35:05.9843338Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path
+2026-11-25T11:35:05.9866241Z /home/runner/work/_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:05.9874698Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git.path /home/runner/work/_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:05.9909402Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path
+2026-11-25T11:35:06.0019997Z /home/runner/work/_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:06.0023234Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:06.0024542Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/ci/.git.path
+2026-11-25T11:35:06.0025121Z /github/runner_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:06.0026518Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/ci/.git.path /github/runner_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:06.0057385Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path
+2026-11-25T11:35:06.0083644Z /github/runner_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:06.0090155Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/ci/.git/worktrees/*.path /github/runner_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config
+2026-11-25T11:35:06.0125843Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T11:35:06.0331707Z Removing credentials config '/home/runner/work/_temp/git-credentials-13bff719-2ce7-4beb-bedf-2c164fb5995e.config'
+2026-11-25T11:35:06.0341550Z ##[endgroup]
+2026-11-25T11:35:06.0567642Z ##[group]Run actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+2026-11-25T11:35:06.0567966Z with:
+2026-11-25T11:35:06.0568135Z   pattern: checkpoint-windows-v9-45603696205-1-part-*
+2026-11-25T11:35:06.0568335Z   merge-multiple: false
+2026-11-25T11:35:06.0568487Z   path: partitions
+2026-11-25T11:35:06.0568637Z   repository: YossiMH/bead-me-up-scotty
+2026-11-25T11:35:06.0568806Z   run-id: 45603696205
+2026-11-25T11:35:06.0568932Z env:
+2026-11-25T11:35:06.0569146Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:35:06.0569404Z   WINDOW_START: 1795605701
+2026-11-25T11:35:06.0569558Z   WINDOW_DEADLINE: 1795614101
+2026-11-25T11:35:06.0569711Z ##[endgroup]
+2026-11-25T11:35:06.1915115Z (node:2230) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T11:35:06.4206679Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T11:35:06.4220245Z Found 5 artifact(s)
+2026-11-25T11:35:06.4220760Z Filtering artifacts by pattern 'checkpoint-windows-v9-45603696205-1-part-*'
+2026-11-25T11:35:06.4234597Z Preparing to download the following artifacts:
+2026-11-25T11:35:06.4235328Z - checkpoint-windows-v9-45603696205-1-part-grid-1 (ID: 15017805558, Size: 12366399, Expected Digest: sha256:84eab0fd45cc5de305977de442b05ac20d5ec3ff03c1bd6097b17677b1d31131)
+2026-11-25T11:35:06.4236069Z - checkpoint-windows-v9-45603696205-1-part-core (ID: 15017740844, Size: 12643896, Expected Digest: sha256:3877ab7ff3fe39c3134f93a5928fce7c678d598fedb1b78b86e21e937ec492e3)
+2026-11-25T11:35:06.4236750Z - checkpoint-windows-v9-45603696205-1-part-editing (ID: 15016629803, Size: 97587866, Expected Digest: sha256:6fec7a209e1b57501b71047a2bd06214ce4dcc46df0bf3acf06557f704478b16)
+2026-11-25T11:35:06.4237407Z - checkpoint-windows-v9-45603696205-1-part-grid-2 (ID: 15015908092, Size: 12363801, Expected Digest: sha256:a9a1692f8bf69388c60ecf9e0359645e4d53daa4452fefccdff394c642f1b4d8)
+2026-11-25T11:35:06.4238027Z - checkpoint-windows-v9-45603696205-1-part-grid-3 (ID: 15015799031, Size: 12363171, Expected Digest: sha256:7b324cac929a4f4b6a950636cd03ee723730401ea062c36fca38e411385ee30f)
+2026-11-25T11:35:06.6462292Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/92000962-32a0-893b-bb04-852e6a9b4fc0/workflow-job-run-ada9103e-e181-5721-a905-25adf5f86369/artifacts/77eefaf1c06bbf314703bb44f44e1b5a11ee4c943819809cf3fff4d05a88c117.zip
+2026-11-25T11:35:06.6463804Z Starting download of artifact to: /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/partitions/checkpoint-windows-v9-45603696205-1-part-grid-1
+2026-11-25T11:35:06.7760332Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/92000962-32a0-893b-bb04-852e6a9b4fc0/workflow-job-run-958cb95d-bf7e-5e60-98d5-a1a69623ec55/artifacts/ca145f6c1f88d45bdfd91ea441b128a5eff2a7f5788d69b51743c3fefc65be7c.zip
+2026-11-25T11:35:06.7761976Z Starting download of artifact to: /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/partitions/checkpoint-windows-v9-45603696205-1-part-grid-2
+2026-11-25T11:35:06.7783507Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/92000962-32a0-893b-bb04-852e6a9b4fc0/workflow-job-run-72b96a4f-7403-527c-b2cd-bef0b2f4e729/artifacts/551877d14fb833f6a100f02ab28a8234a97b12875c20cb7f4370ad6564746450.zip
+2026-11-25T11:35:06.7784907Z Starting download of artifact to: /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/partitions/checkpoint-windows-v9-45603696205-1-part-editing
+2026-11-25T11:35:06.7905803Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/92000962-32a0-893b-bb04-852e6a9b4fc0/workflow-job-run-5d59b192-3e87-5dcc-a62d-91669d9bc55b/artifacts/7472885fcdbdb3f8ee01897145eb9015d3ed2beead05158e7ed9109f8b48f2ad.zip
+2026-11-25T11:35:06.7907167Z Starting download of artifact to: /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/partitions/checkpoint-windows-v9-45603696205-1-part-grid-3
+2026-11-25T11:35:06.7953274Z Redirecting to blob download url: https://productionresultssa2.blob.core.windows.net/actions-results/92000962-32a0-893b-bb04-852e6a9b4fc0/workflow-job-run-aab6140e-e3e9-5aa4-8571-c40d1eb5379f/artifacts/de69e256bd9d605f4b10f92c917e9632b04a95e5019efd54f1fd5088e51771e4.zip
+2026-11-25T11:35:06.7954713Z Starting download of artifact to: /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/partitions/checkpoint-windows-v9-45603696205-1-part-core
+2026-11-25T11:35:06.9621151Z (node:2230) [DEP0005] DeprecationWarning: Buffer() is deprecated due to security and usability issues. Please use the Buffer.alloc(), Buffer.allocUnsafe(), or Buffer.from() methods instead.
+2026-11-25T11:35:07.8362686Z SHA256 digest of downloaded artifact is 84eab0fd45cc5de305977de442b05ac20d5ec3ff03c1bd6097b17677b1d31131
+2026-11-25T11:35:07.8363070Z Artifact download completed successfully.
+2026-11-25T11:35:07.9866930Z SHA256 digest of downloaded artifact is 3877ab7ff3fe39c3134f93a5928fce7c678d598fedb1b78b86e21e937ec492e3
+2026-11-25T11:35:07.9867366Z Artifact download completed successfully.
+2026-11-25T11:35:08.0619006Z SHA256 digest of downloaded artifact is 7b324cac929a4f4b6a950636cd03ee723730401ea062c36fca38e411385ee30f
+2026-11-25T11:35:08.0619612Z Artifact download completed successfully.
+2026-11-25T11:35:08.0672951Z SHA256 digest of downloaded artifact is a9a1692f8bf69388c60ecf9e0359645e4d53daa4452fefccdff394c642f1b4d8
+2026-11-25T11:35:08.0673485Z Artifact download completed successfully.
+2026-11-25T11:35:10.3295552Z SHA256 digest of downloaded artifact is 6fec7a209e1b57501b71047a2bd06214ce4dcc46df0bf3acf06557f704478b16
+2026-11-25T11:35:10.3295957Z Artifact download completed successfully.
+2026-11-25T11:35:10.3296160Z Total of 5 artifact(s) downloaded
+2026-11-25T11:35:10.3302629Z Download artifact has finished successfully
+2026-11-25T11:35:10.3553100Z ##[group]Run python3 ci/20261125/revision-9/native-windows-check/aggregate.py \
+2026-11-25T11:35:10.3553561Z [36;1mpython3 ci/20261125/revision-9/native-windows-check/aggregate.py \[0m
+2026-11-25T11:35:10.3554114Z [36;1m  --packet ci/20261125/revision-9/native-windows-check --packet-sha256 "$CHECK_PACKET_SHA256" \[0m
+2026-11-25T11:35:10.3554509Z [36;1m  --outputs partitions --run-id "$GITHUB_RUN_ID" --run-attempt "$GITHUB_RUN_ATTEMPT" \[0m
+2026-11-25T11:35:10.3554900Z [36;1m  --workflow-commit "$GITHUB_SHA" --window-start "$WINDOW_START" --window-deadline "$WINDOW_DEADLINE" \[0m
+2026-11-25T11:35:10.3555218Z [36;1m  --output aggregate/result.json[0m
+2026-11-25T11:35:10.3576048Z shell: /usr/bin/bash --noprofile --norc -e -o pipefail {0}
+2026-11-25T11:35:10.3576275Z env:
+2026-11-25T11:35:10.3576514Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:35:10.3576787Z   WINDOW_START: 1795605701
+2026-11-25T11:35:10.3577004Z   WINDOW_DEADLINE: 1795614101
+2026-11-25T11:35:10.3577168Z ##[endgroup]
+2026-11-25T11:35:10.8435146Z CHECKPOINT_WINDOWS_AGGREGATE_SHA256 ac65894f80215aed7ddc03f72935c91095ab9717e0a07a7e66196900129abc1d
+2026-11-25T11:35:10.9846962Z CHECKPOINT_WINDOWS_AGGREGATE_BASE64 ewogICJzY2hlbWFfdmVyc2lvbiI6IDEsCiAgInN0YXR1cyI6ICJwYXNzZWQiLAogICJvcGVyYXRpb24iOiAiY2hlY2twb2ludC13aW5kb3dzLXBhcnRpdGlvbi1hZ2dyZWdhdGUiLAogICJydW5faWQiOiAiNDU2MDM2OTYyMDUiLAogICJydW5fYXR0ZW1wdCI6ICIxIiwKICAid29ya2Zsb3dfY29tbWl0IjogIjA3ZWE1MjA1YmQ4ZDExZDc1M2FkYThjMjliYTJiNDgzYzdjOGRlMGIiLAogICJ3aW5kb3dfc3RhcnRfZXBvY2giOiAxNzk1NjA1NzAxLAogICJ3aW5kb3dfZGVhZGxpbmVfZXBvY2giOiAxNzk1NjE0MTAxLAogICJwYXJ0aXRpb25zIjogewogICAgImNvcmUiOiB7CiAgICAgICJyZXN1bHRfc2hhMjU2IjogImU1YTIwNzMwNmRkNmU4ZWIxYTA0M2Y5NWRiMjhjYjQ3NzgxMTY5MTM1NmU2ZWE3Y2VjYjQ2MTljOWNkOWJkNzEiLAogICAgICAiY29tcGxldGlvbl9zaGEyNTYiOiAiZjFmZTQ4Njc4MGVjYTA1ZmYzMjQyMGY3NzM4NzkzNDViMjljNzQ5NTY1NzYyZmViZDYwM2NkOWNlYTgyYjExMiIsCiAgICAgICJ0ZXN0X2ludm9jYXRpb25zIjogMTksCiAgICAgICJjb21tYW5kcyI6IDI4LAogICAgICAiZmluaXNoZWRfZXBvY2giOiAxNzk1NjA2MzUwLjExMTE1NAogICAgfSwKICAgICJlZGl0aW5nIjogewogICAgICAicmVzdWx0X3NoYTI1NiI6ICJjNDI0Nzg2ZjA2MmNhOTVkNzdmZjFkYjRlY2ZhMjFlYzU3ZjJjMWRjNGIxZjc3MmE5ZjVkMGJkYWQxZGNiODYwIiwKICAgICAgImNvbXBsZXRpb25fc2hhMjU2IjogIjRjYjFmNDBhMjI0N2Q3M2Y3ZDcxYmRkMDRlNjY3OWY4ZGRiY2I0NGMyMTMwZWU3Zjg1MmIwNjgyMjAzMzdhZTMiLAogICAgICAidGVzdF9pbnZvY2F0aW9ucyI6IDYsCiAgICAgICJjb21tYW5kcyI6IDE4LAogICAgICAiZmluaXNoZWRfZXBvY2giOiAxNzk1NjA1NzkyLjU2OTQ2NzUKICAgIH0sCiAgICAiZ3JpZC0xIjogewogICAgICAicmVzdWx0X3NoYTI1NiI6ICI2MGJiOTFkNDBlMzAyZTFjMGEyODkwODY3YmE1NmRjZTc0NDEyYWEyNGI5MmM2OTQzOWJiY2ZmM2E1MmQ0NWRmIiwKICAgICAgImNvbXBsZXRpb25fc2hhMjU2IjogIjA4MTkzODMzNzZjYWNiZTcyZjQ1MDI4MDUzN2VlYmEzMWYzYWJmZmMzMzlmYWEwZWRlZTJiNjY5MzhmMmUzMDQiLAogICAgICAidGVzdF9pbnZvY2F0aW9ucyI6IDQsCiAgICAgICJjb21tYW5kcyI6IDksCiAgICAgICJmaW5pc2hlZF9lcG9jaCI6IDE3OTU2MDYxNzIuNzE3NDY5CiAgICB9LAogICAgImdyaWQtMiI6IHsKICAgICAgInJlc3VsdF9zaGEyNTYiOiAiNjc4YjlhOWI3NTRlYjc4NjQ1ODhkOGM3MGZhM2EzNzMyNDljYjJiMzQ3ZGJjNzdjZDIyNTVjOTdkZWMyYzI1MiIsCiAgICAgICJjb21wbGV0aW9uX3NoYTI1NiI6ICI2MzE3MzQzNzBmNWNjNmNmZTliY2YxNzhjNjYwZjFmNDMyMWE3NTljOWQwNzM1OTBkMzA3NmQwMTEzMWQ4NTcwIiwKICAgICAgInRlc3RfaW52b2NhdGlvbnMiOiA0LAogICAgICAiY29tbWFuZHMiOiA5LAogICAgICAiZmluaXNoZWRfZXBvY2giOiAxNzk1NjA1ODIxLjUxMjgzMDMKICAgIH0sCiAgICAiZ3JpZC0zIjogewogICAgICAicmVzdWx0X3NoYTI1NiI6ICJhNWI2MDk4NTYwZGJmYjcwZTEwMDhmNDY3MmRjNDY4YmJkZDhkMThmMTJjZDhjNDg4NWRhZjA5Mjc3M2JiOGE3IiwKICAgICAgImNvbXBsZXRpb25fc2hhMjU2IjogImE3M2Y4NzIyZjkxNmVmMGM3MmE4ZTMzZmVmOTRmNThlOTdlM2NlZTg4ZmJhMDAzNmRlYzg2YmJhNGU3MTIxMGEiLAogICAgICAidGVzdF9pbnZvY2F0aW9ucyI6IDQsCiAgICAgICJjb21tYW5kcyI6IDksCiAgICAgICJmaW5pc2hlZF9lcG9jaCI6IDE3OTU2MDU3NzkuODgzODM3NQogICAgfQogIH0sCiAgIm9yZGluYXJ5X2Nhc2VzIjogWwogICAgInNldF92Ml9idWRnZXRfc2luZ2xlX2lzc3VlX3VwZGF0ZSIsCiAgICAic2V0X3YyX2NvbmN1cnJlbnRfcHVibGljYXRpb24iLAogICAgInNldF92Ml9jcmFzaF9vcmRlcmluZyIsCiAgICAic2V0X3YyX2R1YWxfbGF5b3V0X3JlYWRlcl9lcXVpdmFsZW5jZSIsCiAgICAic2V0X3YyX2ZvcmNlZF9tb25vbGl0aF9saW1pdHMiLAogICAgInNldF92Ml9mb3JlbnNpY19mcm96ZW4iLAogICAgInNldF92Ml9taWdyYXRpb25fZnVsbF9yZXdyaXRlIiwKICAgICJzZXRfdjJfb3ZlcnNpemVfcmVjb3JkX29uY2VfY29zdCIsCiAgICAic2V0X3YyX3BvaW50ZXJfYm91bmRlZG5lc3MiLAogICAgInNldF92Ml9zaGFyZF9tZXJnZV9vbl9kZWxldGlvbiIsCiAgICAic2V0X3YyX3NoYXJkX3NwbGl0X29uX3VwZGF0ZV9zdG9ybSIsCiAgICAic2V0X3YyX3RhaWxfc2VhbF9hbmRfaW1tdXRhYmlsaXR5IgogIF0sCiAgImdyaWRfY2VsbHMiOiBbCiAgICB7CiAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJSRUQiLAogICAgICAiZmFpbHVyZV90ZXh0IjogInB1YmxpY2F0aW9uIDAgYWRkZWQgMTc4OTQ1NSBuZXcgYmxvYiBieXRlcywgYnVkZ2V0IGlzIDI2MjE0NCIsCiAgICAgICJmaXh0dXJlIjogInN0b3JlLWRlbGV0aW9uIiwKICAgICAgInNjZW5hcmlvIjogInNldC12Mi1idWRnZXQtc2luZ2xlLWlzc3VlLXVwZGF0ZSIKICAgIH0sCiAgICB7CiAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJHUkVFTiIsCiAgICAgICJmYWlsdXJlX3RleHQiOiBudWxsLAogICAgICAiZml4dHVyZSI6ICJvcnBoYW4tc2V0LWZpbGVzIiwKICAgICAgInNjZW5hcmlvIjogInNldC12Mi1idWRnZXQtc2luZ2xlLWlzc3VlLXVwZGF0ZSIKICAgIH0sCiAgICB7CiAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJSRUQiLAogICAgICAiZmFpbHVyZV90ZXh0IjogImFzc2VydGlvbiBgbGVmdCA9PSByaWdodGAgZmFpbGVkOiBzaGFyZCBjb3ZlcmFnZSBsb3N0IHJlY29yZHNcbiAgbGVmdDogMzkyXG4gcmlnaHQ6IDQwMCIsCiAgICAgICJmaXh0dXJlIjogInN0b3JlLWRlbGV0aW9uIiwKICAgICAgInNjZW5hcmlvIjogInNldC12Mi1zaGFyZC1zcGxpdC1vbi11cGRhdGUtc3Rvcm0iCiAgICB9LAogICAgewogICAgICAiY2xhc3NpZmljYXRpb24iOiAiR1JFRU4iLAogICAgICAiZmFpbHVyZV90ZXh0IjogbnVsbCwKICAgICAgImZpeHR1cmUiOiAib3JwaGFuLXNldC1maWxlcyIsCiAgICAgICJzY2VuYXJpbyI6ICJzZXQtdjItc2hhcmQtc3BsaXQtb24tdXBkYXRlLXN0b3JtIgogICAgfSwKICAgIHsKICAgICAgImNsYXNzaWZpY2F0aW9uIjogIkdSRUVOIiwKICAgICAgImZhaWx1cmVfdGV4dCI6IG51bGwsCiAgICAgICJmaXh0dXJlIjogInN0b3JlLWRlbGV0aW9uIiwKICAgICAgInNjZW5hcmlvIjogInNldC12Mi10YWlsLXNlYWwtYW5kLWltbXV0YWJpbGl0eSIKICAgIH0sCiAgICB7CiAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJHUkVFTiIsCiAgICAgICJmYWlsdXJlX3RleHQiOiBudWxsLAogICAgICAiZml4dHVyZSI6ICJvcnBoYW4tc2V0LWZpbGVzIiwKICAgICAgInNjZW5hcmlvIjogInNldC12Mi10YWlsLXNlYWwtYW5kLWltbXV0YWJpbGl0eSIKICAgIH0sCiAgICB7CiAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJHUkVFTiIsCiAgICAgICJmYWlsdXJlX3RleHQiOiBudWxsLAogICAgICAiZml4dHVyZSI6ICJzdG9yZS1kZWxldGlvbiIsCiAgICAgICJzY2VuYXJpbyI6ICJzZXQtdjItb3ZlcnNpemUtcmVjb3JkLW9uY2UtY29zdCIKICAgIH0sCiAgICB7CiAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJHUkVFTiIsCiAgICAgICJmYWlsdXJlX3RleHQiOiBudWxsLAogICAgICAiZml4dHVyZSI6ICJvcnBoYW4tc2V0LWZpbGVzIiwKICAgICAgInNjZW5hcmlvIjogInNldC12Mi1vdmVyc2l6ZS1yZWNvcmQtb25jZS1jb3N0IgogICAgfSwKICAgIHsKICAgICAgImNsYXNzaWZpY2F0aW9uIjogIkdSRUVOIiwKICAgICAgImZhaWx1cmVfdGV4dCI6IG51bGwsCiAgICAgICJmaXh0dXJlIjogInN0b3JlLWRlbGV0aW9uIiwKICAgICAgInNjZW5hcmlvIjogInNldC12Mi1wb2ludGVyLWJvdW5kZWRuZXNzIgogICAgfSwKICAgIHsKICAgICAgImNsYXNzaWZpY2F0aW9uIjogIkdSRUVOIiwKICAgICAgImZhaWx1cmVfdGV4dCI6IG51bGwsCiAgICAgICJmaXh0dXJlIjogIm9ycGhhbi1zZXQtZmlsZXMiLAogICAgICAic2NlbmFyaW8iOiAic2V0LXYyLXBvaW50ZXItYm91bmRlZG5lc3MiCiAgICB9LAogICAgewogICAgICAiY2xhc3NpZmljYXRpb24iOiAiR1JFRU4iLAogICAgICAiZmFpbHVyZV90ZXh0IjogbnVsbCwKICAgICAgImZpeHR1cmUiOiAic3RvcmUtZGVsZXRpb24iLAogICAgICAic2NlbmFyaW8iOiAic2V0LXYyLWZvcmVuc2ljLWZyb3plbiIKICAgIH0sCiAgICB7CiAgICAgICJjbGFzc2lmaWNhdGlvbiI6ICJHUkVFTiIsCiAgICAgICJmYWlsdXJlX3RleHQiOiBudWxsLAogICAgICAiZml4dHVyZSI6ICJvcnBoYW4tc2V0LWZpbGVzIiwKICAgICAgInNjZW5hcmlvIjogInNldC12Mi1mb3JlbnNpYy1mcm96ZW4iCiAgICB9CiAgXSwKICAidGFyZ2V0cyI6IHsKICAgICJsaWIiOiBbCiAgICAgICJzZXJ2aWNlOjpjaGVja3BvaW50OjpzZXRfdjI6OnRlc3RzOjpzZXRfdjJfc3RhZ2luZ19jb3VudHNfYXR0ZW1wdF9vdXRjb21lc19hY3Jvc3Nfc2hhcmRzIiwKICAgICAgInNlcnZpY2U6OmNoZWNrcG9pbnQ6OnNldF92Mjo6dGVzdHM6OnNldF92Ml9zdGFnaW5nX3JlamVjdHNfZHVwbGljYXRlX2F0dGVtcHRzX2Fjcm9zc19zaGFyZHMiLAogICAgICAic2VydmljZTo6Y2hlY2twb2ludDo6c2V0X3YyOjp0ZXN0czo6c2V0X3YyX3N0YWdpbmdfcmVqZWN0c19kdXBsaWNhdGVfYXR0ZW1wdHNfd2l0aGluX2Ffc2hhcmQiLAogICAgICAic2VydmljZTo6Y2hlY2twb2ludDo6dGVzdHM6OnB1YmxpY2F0aW9uX2xvY2tfaXNfZXhjbHVzaXZlX2Fjcm9zc19vcGVuZXJzIgogICAgXSwKICAgICJhdHRlbXB0X3JlY2VpcHRfY2hlY2twb2ludF9pbnRlZ3JpdHkiOiBbCiAgICAgICJleGFjdF9yZXN1bHRpbmdfc3RhdGVfc3Vydml2ZXNfYm90aF9jaGVja3BvaW50X2xheW91dHMiLAogICAgICAicHVibGljX3NjaGVtYXNfZGVzY3JpYmVfYXR0ZW1wdF9zdGF0ZV9hbmRfY2hlY2twb2ludF9jb3VudHMiLAogICAgICAicmVwbGFjZW1lbnRfcmVzdG9yZV9yZW1vdmVzX2Rpc3BsYWNlZF9hdHRlbXB0X291dGNvbWVzIiwKICAgICAgInZlcmlmaWVkX3Jlc3RvcmVfcHJlc2VydmVzX2FsbF9hdHRlbXB0X291dGNvbWVzX2Zyb21fc2V0X3YyIgogICAgXSwKICAgICJjaGVja3BvaW50X3RhaWxfZ2VuZXJhdGlvbl9pbnRlZ3JpdHkiOiBbCiAgICAgICJsZWdhY3lfZml4ZWRfdGFpbF9nZW5lcmF0aW9uX3JlbWFpbnNfcmVzdG9yYWJsZV9hZnRlcl91cGdyYWRlIiwKICAgICAgInNlbGVjdGVkX3NldF92Ml9nZW5lcmF0aW9uX3JlbWFpbnNfcmVzdG9yYWJsZV9hZnRlcl90YWlsX2FwcGVuZCIKICAgIF0sCiAgICAiY2hlY2twb2ludF9wdWJsaWNhdGlvbl9sb2NrIjogWwogICAgICAiY29uY3VycmVudF93b3JrZXJzX2xlYXZlX29uZV9pbnRhY3RfY292ZXJpbmdfZ2VuZXJhdGlvbiIsCiAgICAgICJoaWdoZXJfc2VxdWVuY2Vfd2l0aG91dF9sb2NhbF9wdWJsaWNhdGlvbl9wcm9vZl9jYW5ub3RfYWRtaXRfYV9tdXRhdGlvbiIsCiAgICAgICJtdXRhdGlvbl93YWl0c19mb3JfYV9zdGFibGVfY2hlY2twb2ludF9iZWZvcmVfY29tbWl0dGluZyIKICAgIF0sCiAgICAiY2hlY2twb2ludF9zZXRfdjJfY29uZm9ybWFuY2UiOiBbCiAgICAgICJzZXRfdjJfYnVkZ2V0X3NpbmdsZV9pc3N1ZV91cGRhdGUiLAogICAgICAic2V0X3YyX2NvbmN1cnJlbnRfcHVibGljYXRpb24iLAogICAgICAic2V0X3YyX2NyYXNoX29yZGVyaW5nIiwKICAgICAgInNldF92Ml9kdWFsX2xheW91dF9yZWFkZXJfZXF1aXZhbGVuY2UiLAogICAgICAic2V0X3YyX2ZvcmNlZF9tb25vbGl0aF9saW1pdHMiLAogICAgICAic2V0X3YyX2ZvcmVuc2ljX2Zyb3plbiIsCiAgICAgICJzZXRfdjJfbWlncmF0aW9uX2Z1bGxfcmV3cml0ZSIsCiAgICAgICJzZXRfdjJfb3ZlcnNpemVfcmVjb3JkX29uY2VfY29zdCIsCiAgICAgICJzZXRfdjJfcG9pbnRlcl9ib3VuZGVkbmVzcyIsCiAgICAgICJzZXRfdjJfc2hhcmRfbWVyZ2Vfb25fZGVsZXRpb24iLAogICAgICAic2V0X3YyX3NoYXJkX3NwbGl0X29uX3VwZGF0ZV9zdG9ybSIsCiAgICAgICJzZXRfdjJfdGFpbF9zZWFsX2FuZF9pbW11dGFiaWxpdHkiCiAgICBdLAogICAgImF0dGVtcHRfb3V0Y29tZV9yb3VuZF90cmlwIjogWwogICAgICAidGVzdF9hdHRlbXB0X291dGNvbWVfY29uZmxpY3RfcmVqZWN0aW9uIiwKICAgICAgInRlc3RfYXR0ZW1wdF9vdXRjb21lX2R1cGxpY2F0ZV9kZXRlY3Rpb24iLAogICAgICAidGVzdF9hdHRlbXB0X291dGNvbWVfcm91bmRfdHJpcF9tb25vbGl0aGljIiwKICAgICAgInRlc3RfYXR0ZW1wdF9vdXRjb21lX3JvdW5kX3RyaXBfc2hhcmRlZCIKICAgIF0sCiAgICAicjAzNl92ZXJpZmllZF9yZXN0b3JlIjogWwogICAgICAiZGlyZWN0X3BvaW50ZXJfc291cmNlX3dpdGhfd3JvbmdfZ2VuZXJhdGlvbl9pc19yZWZ1c2VkIiwKICAgICAgImRvY3Rvcl9yZWNvbW1lbmRzX25hbWVkX3Jlc3RvcmVfYnV0X25ldmVyX3BlcmZvcm1zX2l0IiwKICAgICAgImVtcHR5X3RhcmdldF9pc19pbml0aWFsaXplZF92ZXJpZmllZF9yZXN0b3JlZF9hbmRfcmVjZWlwdGVkX2J5X29uZV9jb21tYW5kIiwKICAgICAgImV4cGxpY2l0X25vbl9lbXB0eV9vdmVycmlkZV9yZXBsYWNlc19uYXRpdmVfc3RhdGVfYW5kX3JlcG9ydHNfZGlzcGxhY2VtZW50IiwKICAgICAgImlucHV0X2FuZF9mb3JjZV9hbGlhc2VzX2FyZV9saXZlX2Zvcm1zX29mX3RoZV9jYW5vbmljYWxfZmxhZ3MiLAogICAgICAibWlzc2luZ19hbmRfZW1wdHlfc291cmNlc19hcmVfcmVmdXNlZF9iZWZvcmVfdGFyZ2V0X2luaXRpYWxpemF0aW9uIiwKICAgICAgIm1pc3NpbmdfZ2VuZXJhdGlvbl9pc19yZWZ1c2VkX2FuZF9uYW1lc190aGVfYXZhaWxhYmxlX29uZSIsCiAgICAgICJub19hdXRvX2ZsdXNoX3Jlc3RvcmVzX3dpdGhvdXRfcHVibGlzaGluZ190aGVfdGFyZ2V0IiwKICAgICAgIm5vbl9lbXB0eV90YXJnZXRfaXNfcmVmdXNlZF93aXRob3V0X211dGF0aW9uIiwKICAgICAgInIwMjlfYXJjaGFlb2xvZ3lfdmlld19pc19leHBsaWNpdGx5X3JlZnVzZWQiLAogICAgICAicmVzdG9yZV9oZWxwX2RvY3VtZW50c190aGVfZXhwbGljaXRfcmVjb3ZlcnlfY29udHJhY3QiLAogICAgICAicmV0YWluZWRfZ2VuZXJhdGlvbl9uYW1lZF9uYXRpdmVfcm9vdF9pc19oYXNoX3ZlcmlmaWVkX2FuZF9yZXN0b3JlZCIsCiAgICAgICJzZXRfdjJfZ2VuZXJhdGlvbl92ZXJpZmllc19pdHNfY29tcGxldGVfY2xvc3VyZV9hbmRfcmVzdG9yZXMiLAogICAgICAic2ltdWx0YW5lb3VzX2VtcHR5X3RhcmdldF9yZXN0b3Jlc19oYXZlX29uZV93aW5uZXJfYW5kX29uZV9yZWZ1c2FsIiwKICAgICAgInN1Y2Nlc3NmdWxfcmVzdG9yZV9wdWJsaXNoZXNfYV9nZW5lcmF0aW9uX2NvdmVyaW5nX3RoZV9zdW1tYXJ5X2V2ZW50IiwKICAgICAgInN1Y2Nlc3NmdWxfcmVzdG9yZV93cml0ZXNfdGhlX2F1ZGl0X2V2ZW50X2FuZF9hX2RpZ2VzdF9waW5uZWRfcmVjZWlwdCIsCiAgICAgICJ1bnZlcmlmaWVkX2dlbmVyYXRpb25fYXJ0aWZhY3RfaXNfcmVmdXNlZF9iZWZvcmVfdGFyZ2V0X2luaXRpYWxpemF0aW9uIgogICAgXSwKICAgICJjbGlfZWRpdGluZyI6IFsKICAgICAgImNhcGFiaWxpdGllc19zY2hlbWFfYW5kX2hlbHBfZGVzY3JpYmVfdGhlX3NhbWVfZWRpdGFibGVfZmllbGRzIiwKICAgICAgImNsYWltZWRfZWRpdHNfcmVxdWlyZV90aGVfaXNzdWVkX2NyZWRlbnRpYWwiLAogICAgICAiY29tcG91bmRfZWRpdF9wcmVzZXJ2ZXNfaWRlbnRpdHlfZXh0ZW5zaW9uc19hbmRfcmVsYXRlZF9yZWNvcmRzIiwKICAgICAgImNvbmN1cnJlbnRfZWRpdG9yc193aXRoX29uZV9yZXZpc2lvbl9oYXZlX29uZV9jb21wbGV0ZV93aW5uZXIiLAogICAgICAiY29uZmxpY3Rpbmdfc291cmNlc19hbmRfaW52YWxpZF91dGY4X2RvX25vdF9tb2RpZnlfdGhlX2lzc3VlIiwKICAgICAgImRlc2NyaXB0aW9uX2ZpbGVfc3RkaW5fYW5kX2NsZWFyX3ByZXNlcnZlX2V4YWN0X3RleHQiLAogICAgICAiZHJ5X3J1bl9lbmZvcmNlc19yZXZpc2lvbl9jbGFpbV9hbmRfdHJhbnNpdGlvbl9jaGVja3MiLAogICAgICAiZHJ5X3J1bl9wcm9qZWN0c190aGVfY29tbWl0dGVkX2VkaXRfd2l0aG91dF93cml0aW5nIiwKICAgICAgImRyeV9ydW5fcmVkYWN0c19uZXdfdGV4dF9maWVsZHNfYW5kX2Fzc2lnbm1lbnRfc3VtbWFyeSIsCiAgICAgICJkcnlfcnVuX3JlZGFjdHNfc3RvcmVkX2Nsb3NlZF9tZXRhZGF0YV9hbmRfcHJlc2VydmVzX2V4YWN0X2NsZWFuX3RleHQiLAogICAgICAiZWRpdGVkX2NvbnRlbnRfYW5kX2F1ZGl0X3N1cnZpdmVfcHVibGlzaGVkX2NoZWNrcG9pbnRfcmVzdG9yZSIsCiAgICAgICJlZGl0aW5nX2Nsb3NlZF9tZXRhZGF0YV9wcmVzZXJ2ZXNfdGhlX2Nsb3NlX3JlY29yZCIsCiAgICAgICJpbnZhbGlkX2NvbXBvdW5kX2VkaXRzX2xlYXZlX2ZpZWxkc19ldmVudHNfYW5kX2NoZWNrcG9pbnRfdW5jaGFuZ2VkIiwKICAgICAgIm1hbmlmZXN0X2VkaXRzX2FuZF9kZXBlbmRlbmN5X2NoYW5nZXNfY29tbWl0X3RvZ2V0aGVyIiwKICAgICAgIm1hbmlmZXN0X2VkaXRzX2Nhbm5vdF90YWtlX292ZXJfYW5fZXhpc3RpbmdfY2xhaW0iLAogICAgICAibWFuaWZlc3RfbGF0ZXJfZmFpbHVyZV9yb2xsc19iYWNrX2VkaXRzX2FuZF9wcmlvcml0eV9hdWRpdCIsCiAgICAgICJtYW5pZmVzdF9vdXRwdXRfcmVkYWN0c19zY2FsYXJfY2hhbmdlc193aXRob3V0X21hc2tpbmdfc3RvcmVkX3ZhbHVlcyIsCiAgICAgICJuZXdfZWRpdF9maWVsZHNfa2VlcF9uYXRpdmVfY29udGVudF9jaGVja3NfYW5kX3JlZGFjdGVkX2Vycm9ycyIsCiAgICAgICJwcmlvcml0eV9jaGFuZ2VfcmVjb3Jkc19yZWFzb25fYWN0b3JfYW5kX2NoYW5nZXNfcmVhZHlfb3JkZXIiLAogICAgICAicHJpb3JpdHlfcmVxdWlyZXNfYV9yZWFzb25fYW5kX3NhbWVfdmFsdWVfaGFzX25vX3ByaW9yaXR5X2V2ZW50IiwKICAgICAgInJlcGVhdGVkX2VkaXRzX2FyZV9ub29wc19hZnRlcl9yZXZpc2lvbl9hbmRfY2xhaW1fY2hlY2tzIiwKICAgICAgInN0YWxlX3JldmlzaW9uX3JlamVjdHNfdGhlX3dob2xlX2VkaXQiLAogICAgICAidGl0bGVfbGltaXRzX2NvdW50X3V0ZjhfYnl0ZXMiCiAgICBdLAogICAgImNsaV9jYXBhYmlsaXRpZXMiOiBbCiAgICAgICJhdXRvX2ZsdXNoX2FkdmVydGlzZW1lbnRfaWdub3Jlc193b3Jrc3BhY2Vfc3RhdGUiLAogICAgICAiYXV0b19mbHVzaF9hZHZlcnRpc2VtZW50X21hdGNoZXNfYmluYXJ5X2JlaGF2aW9yIiwKICAgICAgImF1dG9fZmx1c2hfZmllbGRfdHJhY2tzX3RoZV9jb21waWxlZF9kZWZhdWx0IiwKICAgICAgImNhcGFiaWxpdHlfbGlicmFyeV9ib3VuZGFyeV9jYW5ub3RfZm9yZ2VfYV9tYW5hZ2VkX2Rvd25ncmFkZSIsCiAgICAgICJzZWNyZXRfc2Nhbl9jYXBhYmlsaXR5X3JlcG9ydHNfZWZmZWN0aXZlX3dvcmtzcGFjZV9tb2RlIiwKICAgICAgInNlY3JldF9zY2FuX2NhcGFiaWxpdHlfdXNlc19jb21waWxlZF9kZWZhdWx0X3dpdGhvdXRfd29ya3NwYWNlIiwKICAgICAgInRlc3RfY2FwYWJpbGl0aWVzX2RlZmF1bHRfcHJvZmlsZSIsCiAgICAgICJ0ZXN0X2NhcGFiaWxpdGllc19pbnZhbGlkX3Byb2ZpbGUiLAogICAgICAidGVzdF9jYXBhYmlsaXRpZXNfbmF0aXZlX3Byb2ZpbGUiLAogICAgICAidGVzdF9jYXBhYmlsaXRpZXNfbmVlZGxlX3Byb2ZpbGUiLAogICAgICAidGVzdF9jYXBhYmlsaXRpZXNfbm9fd29ya3NwYWNlIiwKICAgICAgInRlc3RfY2FwYWJpbGl0aWVzX3NjaGVtYV9lbnRyaWVzIgogICAgXSwKICAgICJpc3N1ZV90eXBlX2ZpbGUiOiBbCiAgICAgICJjYXBhYmlsaXR5X3NjaGVtYV9hY2NlcHRzX3RoZV9vcHRpb25hbF90eXBlX3RyYW5zcG9ydCIsCiAgICAgICJkcnlfcnVuX2FuZF9yZXBlYXRlZF9maWxlX3ZhbHVlc19wcmVzZXJ2ZV9zYXZlZF9zdGF0ZSIsCiAgICAgICJmaWxlX2VkaXRzX2VuZm9yY2VfcmV2aXNpb25fYW5kX2NsYWltX2d1YXJkc19ldmVuX2Zvcl9ub29wcyIsCiAgICAgICJmaWxlX3R5cGVfaXNfc2Nhbm5lZF9iZWZvcmVfYW55X3NjYWxhcl9lZGl0IiwKICAgICAgImhlbHBfYW5kX2dlbmVyYXRlZF9tYW5fcGFnZV9kZXNjcmliZV90eXBlX2ZpbGVfaW5wdXQiLAogICAgICAiaW5saW5lX2FuZF9maWxlX2NvbmZsaWN0X2JlZm9yZV9yZWFkaW5nX3RoZV9maWxlIiwKICAgICAgImxvbmdfdW5pY29kZV9maWxlX2NvbW1pdHNfb25lX2d1YXJkZWRfZWRpdF9hbmRfcHJlc2VydmVzX2NsYWltIiwKICAgICAgIm1pc3NpbmdfaW52YWxpZF91dGY4X2FuZF9lbXB0eV9maWxlc19sZWF2ZV90aGVfZWRpdF91bmFwcGxpZWQiLAogICAgICAib25seV9vbmVfdGV4dF9maWVsZF9tYXlfY29uc3VtZV9zdGRpbiIsCiAgICAgICJzdGRpbl90eXBlX3ByZXNlcnZlc19leGFjdF90ZXh0IiwKICAgICAgInN0b3JlZF9pc3N1ZV9hbmRfbWFuaWZlc3Rfa2VlcF9saXRlcmFsX3R5cGVfdGV4dCIKICAgIF0sCiAgICAicmVkYWN0aW9uX3RyYW5zYWN0aW9uIjogWwogICAgICAiYXNzaWduZWVfbWV0YWRhdGFfaXNfcmVkYWN0YWJsZV93aXRob3V0X2RlbGV0aW5nX3RoZV9pc3N1ZSIsCiAgICAgICJhd3Nfc2VjcmV0X2FjY2Vzc19rZXlfYXNzaWdubWVudF9pc19kaXNjb3ZlcmFibGVfYW5kX3JlZGFjdGFibGUiLAogICAgICAiY29uY3VycmVudF9pZGVudGljYWxfcmVxdWVzdHNfY29tbWl0X29uY2VfYW5kX3JlcGxheV9vbmNlIiwKICAgICAgImV2ZXJ5X3N1cHBvcnRlZF9ub25pc3N1ZV9yZWNvcmRfcHJlc2VydmVzX2lkZW50aXR5X2FuZF9pbnRlZ3JpdHkiLAogICAgICAiZ2FyYWdlX2FjY2Vzc19rZXlfaWRfYXNzaWdubWVudF9pc19kaXNjb3ZlcmFibGVfYW5kX3JlZGFjdGFibGUiLAogICAgICAiaXNzdWVfcmVkYWN0aW9uX2lzX2V4YWN0X2F0b21pY19hbmRfaWRlbXBvdGVudCIKICAgIF0KICB9LAogICJwdWJsaWNfY29ycHVzIjogewogICAgIm9yaWdpbmFsX2F0dGVtcHRfb3V0Y29tZXMiOiA0MTMsCiAgICAib3V0cHV0IjogIkQ6XFxhXFxfdGVtcFxcYmVhZC1jaGVja3BvaW50LXdpbmRvd3MtY29ycHVzLTQ1NjAzNjk2MjA1LTEiLAogICAgInJlc3VsdF9zaGEyNTYiOiAiNzkxYzQ2MTY3NzVkZmQyZGEzZTgzYzY0NTQyOGUyYTlmNTVmODYxMDc4YjIzNmEyZjE3N2M4NWZkZjZhZTU3ZSIsCiAgICAidmVyaWZpY2F0aW9uX3Jlc3RvcmVzIjogNAogIH0sCiAgIm5hdGl2ZV9zbW9rZSI6IHsKICAgICJjaGVja3MiOiBbCiAgICAgICJMYWJlbCBhZGQvcmVtb3ZlIGFuZCBhbGwgdGhyZWUgZGVwZW5kZW5jeSBraW5kcyBwcmVzZXJ2ZSBkaXJlY3Rpb24uIiwKICAgICAgIk9uZSBndWFyZGVkIGNvbXBvdW5kIGVkaXQgcHJlc2VydmVzIGlkZW50aXR5LCByZWxhdGVkIHJlY29yZHMgYW5kIHByaW9yaXR5IGF1ZGl0LiIsCiAgICAgICJMb25nIFVURi04IGZpbGUgZWRpdHMsIGVtcHR5LXN0cmluZyBjbGVhcnMgYW5kIGV4cGxpY2l0IGRlc2NyaXB0aW9uIGNsZWFyIHJvdW5kLXRyaXAuIiwKICAgICAgIlN0YWxlIHJldmlzaW9uIHJlZnVzZXMgdGhlIGNvbXBsZXRlIGVkaXQsIGF1ZGl0IGFuZCBwdWJsaWNhdGlvbi4iLAogICAgICAiQXV0b21hdGljIGNoZWNrcG9pbnQgcHVibGljYXRpb24gcmVzdG9yZXMgZmllbGRzLCBncmFwaCwgbGFiZWxzIGFuZCBwcmlvcml0eSBoaXN0b3J5LiIKICAgIF0sCiAgICAiY29tbWFuZHMiOiA1NSwKICAgICJyZXN1bHQiOiAiRDpcXGFcXF90ZW1wXFxiZWFkLWNoZWNrcG9pbnQtd2luZG93cy1jaGVjay00NTYwMzY5NjIwNS0xXFxzbW9rZS1vdXRwdXRcXHdpbmRvd3MtbmF0aXZlLXNtb2tlLTJiODRhYTU3MGM2ODQ4MDY4ZmY5MzY1MGQ0NDY5MGEwLmpzb24iLAogICAgInNoYTI1NiI6ICJjMTkwNDAyMzA1MzZhNDgzNGMyYWMzMDIyNTMxNzAyNDkzMzUxNTcxMzM3NWUxYmZjZDZhNmE0ZTFmNWQxZDk4IgogIH0sCiAgInNvdXJjZV9jb21taXQiOiAiMmQ4MDFiYTQ1NWI3YTcyMmRhZjY0NGE3NjE1NDQ1MTE3ZDU3ZThlOSIsCiAgInNvdXJjZV90cmVlIjogIjUwOWQ2MjIyMzAwYjg0YjE2MDQxYTgzNjZhOGI2YWU0YzI4Y2NjOTgiLAogICJwcm9kdWNlciI6IHsKICAgICJzY2hlbWFfdmVyc2lvbiI6IDEsCiAgICAic291cmNlX2NvbW1pdCI6ICIyZDgwMWJhNDU1YjdhNzIyZGFmNjQ0YTc2MTU0NDUxMTdkNTdlOGU5IiwKICAgICJzb3VyY2VfdHJlZSI6ICI1MDlkNjIyMjMwMGI4NGIxNjA0MWE4MzY2YThiNmFlNGMyOGNjYzk4IiwKICAgICJ0YXJnZXQiOiAieDg2XzY0LXBjLXdpbmRvd3MtbXN2YyIsCiAgICAiYXJ0aWZhY3RfaWQiOiAxNTAxNjg3MDA3MiwKICAgICJydW4iOiB7CiAgICAgICJpZCI6ICI0NTYwMDQxMzk0MiIsCiAgICAgICJhdHRlbXB0IjogIjEiLAogICAgICAid29ya2Zsb3dfY29tbWl0IjogIjk3NWQyMWNjYTQ3MGRiY2E2MWE5MjIxMzkxYjk4ZWVlYmNiYTlkMWQiLAogICAgICAicmVwb3NpdG9yeSI6ICJZb3NzaU1IL2JlYWQtbWUtdXAtc2NvdHR5IgogICAgfSwKICAgICJidWlsZF9oZWxwZXJfc2hhMjU2IjogImVhYmYxOTFlODVjMjY3ZWJlMGVmOGE3NThhMjlmNGZiYzAxODc5NjBlM2U3ZjE4YTM1YmJiM2IwMmQ3N2QxMzYiLAogICAgImJ1aWxkX21hbmlmZXN0X3NoYTI1NiI6ICI1MTczNWU2MjExODljOTE0Y2RiZTg4YTBhOWQzNmY0OWM0M2NkNWViMjE1Y2VjMzUzMGU5ODdmMmVjZGZlMGY2IiwKICAgICJidWlsZF9pbnB1dHNfc2hhMjU2IjogIjU2Y2ZiYzI5MGIwMGUwY2JkMzI4NWE2NmZjNDY5NzBhYjAyOWEwNWIzYmQyOTBlZTFkMzlhZGE0NjMyMTNkN2QiLAogICAgImJ1aWxkX3Jlc3VsdF9zaGEyNTYiOiAiMWJhZjUyZTg4OTYyZGRlNzZhNTM2MTAyYzEwZTQwYzJhOTE1YWRjMTVkYWRkOWExM2YyMzNhNzY3N2Y5NGM5YyIsCiAgICAiY29ycHVzX2hlbHBlcl9zaGEyNTYiOiAiNjUzZmY5ZjM4MmNhMGRkMDY5YmYzMjYxMDZjMGMwODhlNGRiNTc2ZGM0OGVmMGVlODI3NGRkYWMzOWU4MmU1MiIsCiAgICAiY29ycHVzX2lucHV0c19zaGEyNTYiOiAiMjhjZGY1MWY1MTBjMzJhNzhlOTk4NzI2NjZmMGZmZWJiNDc0NzkwNTcwMDJjMzlmYWU4NjExNTQ0NWIzN2I0MyIsCiAgICAiam9iX2hlbHBlcl9zaGEyNTYiOiAiMjc1OGE2ZmY5NGMwZWVjZGZhMzYwMzYzNDY5MDY5ZGZhODQ3MGVmYzFmOTEyMjg4MTIxNDY5MTlhOTc4OTIxZiIsCiAgICAic21va2VfaGVscGVyX3NoYTI1NiI6ICIyYTI5ZmFhN2RmM2U5YzA0ZGQ3NTQzYTVmOGZkNTQ1NTJkZDM0YzgzMjQ4YzFlZGEwZDQyN2U4ZjFhMjE1YTBiIiwKICAgICJzdGF0dXMiOiAiYm91bmQiCiAgfSwKICAicXVhbGlmaWVkX3JlbGVhc2UiOiB7CiAgICAiZXhlY3V0YWJsZSI6IHsKICAgICAgImJ5dGVzIjogMTIyNDM0NTYsCiAgICAgICJtb2RlIjogNTExLAogICAgICAicGF0aCI6ICJyZWxlYXNlLXVuZGVyLXRlc3QvYmVhZC1jaGVja3BvaW50LTJkODAxYmE0NTViNy5leGUiLAogICAgICAic2hhMjU2IjogIjA0MzFhODI4YmY5NTAzODY0MWEwYzU1YjRjZjExYzU4MDBiNTI4ODE5NDBhMTNiZDJmNTZiMDJmMGIyNzE3N2EiCiAgICB9LAogICAgIm1ldGFkYXRhIjogewogICAgICAiYnl0ZXMiOiAyMDU4LAogICAgICAibW9kZSI6IDQzOCwKICAgICAgInBhdGgiOiAicmVsZWFzZS11bmRlci10ZXN0L2JlYWQtY2hlY2twb2ludC0yZDgwMWJhNDU1YjcuZXhlLm1ldGFkYXRhLmpzb24iLAogICAgICAic2hhMjU2IjogIjIxY2E5MGUyOWZjNDU4OGQyM2IzMTIxMGNkNWZmZTY4MzhjMTM2Y2U3MGI3NjQ1OGI3MTM3MGJlZWVmZjE4ZjUiCiAgICB9CiAgfSwKICAiY29tbWFuZF9jb3VudCI6IDczCn0K
+2026-11-25T11:35:11.1219527Z ##[group]Run actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+2026-11-25T11:35:11.1219807Z with:
+2026-11-25T11:35:11.1219984Z   name: checkpoint-windows-v9-45603696205-1-aggregate
+2026-11-25T11:35:11.1220188Z   path: aggregate/
+2026-11-25T11:35:11.1220331Z   retention-days: 7
+2026-11-25T11:35:11.1220477Z   if-no-files-found: error
+2026-11-25T11:35:11.1220638Z   compression-level: 6
+2026-11-25T11:35:11.1220789Z   overwrite: false
+2026-11-25T11:35:11.1220937Z   include-hidden-files: false
+2026-11-25T11:35:11.1221100Z env:
+2026-11-25T11:35:11.1221320Z   CHECK_PACKET_SHA256: 94794a9ec8c19613c8ae0c4d49c494019e7f9c0e3a997c285122e10a0a68fd9f
+2026-11-25T11:35:11.1221584Z   WINDOW_START: 1795605701
+2026-11-25T11:35:11.1221867Z   WINDOW_DEADLINE: 1795614101
+2026-11-25T11:35:11.1222028Z ##[endgroup]
+2026-11-25T11:35:11.2504000Z (node:2244) [DEP0040] DeprecationWarning: The `punycode` module is deprecated. Please use a userland alternative instead.
+2026-11-25T11:35:11.2504691Z (Use `node --trace-deprecation ...` to show where the warning was created)
+2026-11-25T11:35:11.2544172Z With the provided path, there will be 1 file uploaded
+2026-11-25T11:35:11.2547867Z Artifact name is valid!
+2026-11-25T11:35:11.2548234Z Root directory input is valid!
+2026-11-25T11:35:11.6943899Z Beginning upload of artifact content to blob storage
+2026-11-25T11:35:11.7072234Z (node:2244) [DEP0169] DeprecationWarning: `url.parse()` behavior is not standardized and prone to errors that have security implications. Use the WHATWG URL API instead. CVEs are not issued for `url.parse()` vulnerabilities.
+2026-11-25T11:35:11.9777291Z Uploaded bytes 4705
+2026-11-25T11:35:12.0525012Z Finished uploading artifact content to blob storage!
+2026-11-25T11:35:12.0525854Z SHA256 digest of uploaded artifact zip is e86805ea33333eab9d739e2aa23a89ca28c950d6a401cf96c76c0be9fef7b256
+2026-11-25T11:35:12.0526284Z Finalizing artifact upload
+2026-11-25T11:35:12.4401627Z Artifact checkpoint-windows-v9-45603696205-1-aggregate.zip successfully finalized. Artifact ID 15016888490
+2026-11-25T11:35:12.4402781Z Artifact checkpoint-windows-v9-45603696205-1-aggregate has been successfully uploaded! Final size is 4705 bytes. Artifact ID is 15016888490
+2026-11-25T11:35:12.4407529Z Artifact download URL: https://github.com/YossiMH/bead-me-up-scotty/actions/runs/45603696205/artifacts/15016888490
+2026-11-25T11:35:12.4581194Z Post job cleanup.
+2026-11-25T11:35:12.5238569Z [command]/usr/bin/git version
+2026-11-25T11:35:12.5271597Z git version 2.56.1
+2026-11-25T11:35:12.5300852Z Temporarily overriding HOME='/home/runner/work/_temp/4a67e829-d909-4cf5-99ed-fb73bcbc5194' before making global git config changes
+2026-11-25T11:35:12.5301693Z Adding repository directory to the temporary git global config as a safe directory
+2026-11-25T11:35:12.5305811Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/bead-me-up-scotty/bead-me-up-scotty/ci
+2026-11-25T11:35:12.5339398Z Removing SSH command configuration
+2026-11-25T11:35:12.5345633Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-11-25T11:35:12.5382053Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-11-25T11:35:12.5586457Z Removing HTTP extra header
+2026-11-25T11:35:12.5591072Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-11-25T11:35:12.5623961Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-11-25T11:35:12.5825781Z Removing includeIf entries pointing to credentials config files
+2026-11-25T11:35:12.5833154Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-11-25T11:35:12.5865706Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-11-25T11:35:12.6212587Z Cleaning up orphan processes
+2026-11-25T11:35:12.6476802Z ##[warning]Node.js 20 is deprecated. The following actions target Node.js 20 but are being forced to run on Node.js 24: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093, actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02. For more information see: https://github.blog/changelog/2025-09-19-deprecation-of-node-20-on-github-actions-runners/

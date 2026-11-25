@@ -1,0 +1,25 @@
+Command: checkpoint-restore
+Arguments: --no-auto-flush sync import-only --input D:\a\_temp\bead-checkpoint-windows-check-45603696205-1\smoke-fixtures\windows-native-smoke-2b84aa570c6848068ff93650d44690a0\workspace\.beads\checkpoint --restore-into-empty --actor=scotty-windows-restore
+Exit: 0
+Elapsed ms: 30
+Timed out: False
+STDOUT:
+
+STDERR:
+Restored 2 issues, 19 events
+Restore receipt: restore-18eb45f4309185ac
+Forensic import completed:
+  Mode: restore-into-empty
+  Profile: native-v1
+  Input hash: 1b5d325eded284b48db216525ba1379f8e6bae96b06fbb0c9f732af583be55e2
+  Issues: 2 inserted, 0 updated, 0 retained, 0 conflicted
+  Events: 19 imported
+  Receipts: 1 processed
+  Dry run: false
+  Prospective: false
+  Local recovery succeeded: true
+  Secret quarantined: false
+  Checkpoint publication withheld: false
+  Receipt ID: restore-18eb45f4309185ac
+  Receipt hash: 04b01232f7f0f482892b5b4e36901b866942720f1c277c46915f63ee7a24ab7f
+

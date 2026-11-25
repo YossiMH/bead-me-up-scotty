@@ -1,0 +1,23 @@
+Command: compound-metadata
+Arguments: --no-auto-flush query --json {"version":"v1","predicates":[],"sort":[],"projection":{"fields":["id","issue_type","closed_at","close_reason"]}} --output-json
+Exit: 0
+Elapsed ms: 18
+Timed out: False
+STDOUT:
+[
+  {
+    "CloseReason": null,
+    "ClosedAt": null,
+    "Id": "wsmoke-a84be591",
+    "IssueType": "review_check"
+  },
+  {
+    "CloseReason": null,
+    "ClosedAt": null,
+    "Id": "wsmoke-3b8eb599",
+    "IssueType": "task"
+  }
+]
+
+STDERR:
+
