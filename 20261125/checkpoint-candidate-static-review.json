@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/delivery_review",
+  "date": "2026-11-25",
+  "status": "PASS",
+  "accepted": true,
+  "decision": "Static scratch candidate accepted for the separately assigned tests-first task; final test and implementation acceptance remain pending actual results.",
+  "source_repository": "YossiMH/bead-rs",
+  "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
+  "proposal_repository": "YossiMH/bead-me-up-scotty",
+  "proposal_commit": "bb0638535172dead8f648b4a4944dddc6175f832",
+  "proposal_directory": "20261125/checkpoint-repair",
+  "superseded_proposal_commit": "b8f4b577ee98231f5d6642a9f44992a37546310e",
+  "accepted_plan": {
+    "sha256": "94faac564047fa5582af04f0df110abb1640df7248a7402f7f4fed29723c85db",
+    "review_sha256": "081e844954ebfed49155c78d65c47cef6133b5b068819880fd860e6deb2bcdea",
+    "continuation_tasks": 32,
+    "total_issues": 986,
+    "blocking_edges": 51
+  },
+  "reviewed_files": {
+    "candidate-manifest.json": "4088472e86ce728d0b0044b16d0d30bd65fae0ef038257bcb2936461d5ba94dc",
+    "author-audits.json": "758c797fd9ef65d832d397b5bcd035c9ebe2e9eb3d6eb6af37fad7491046f72e",
+    "static-checks.json": "b7b5c81b934dc587c83062a89f3e222bebeda0c4645bb1352ad47eb9a3cb9234",
+    "README.md": "9c5206ede9be6219893314c0fb11f8e88ec1484541726327bfe9cb3e96a4899e",
+    "regression-design.md": "c6d9d5e2998bded13889cc27acc764f00e21693368a444b8977893bde01e2c14",
+    "review-disposition-v2.json": "3a8c96758ebba709bb189ceeedc4dfce1acb2550cdea94ddcafd8928eace4e8f",
+    "tail-path-scan.json": "29ec9c960ff15bf1edf7d8bf79e9f16a559e5c92e526112412ecb16b808e379c",
+    "tests-first.patch": "cb0a4f7d6ce71b8b2f6442f55ac7ca74fe2289f085352002c28be60b873d4e49",
+    "repair-only.patch": "f38adfc5d3e8f29349e9f3df82dc8d226ddc7d6486d5fd5632d9ea71f1c52b60",
+    "candidate.patch": "496db2b9ef681a4e0d86503c3c0a605b601f7b0b9d2cd736e02589aa6aa51c20",
+    "provenance/tail-retention.patch": "9a19e6c724790fdb429ecd702ef02d5795bc5db4b44ea813adce1cdc27c9713a",
+    "candidate/src/service/checkpoint/set_v2.rs": "9227543341a0e7352a2aab1fdf7e9244df21e4c723cd705d537ad34341557642",
+    "tests-first/src/service/checkpoint/set_v2.rs": "220eac6cf03c67833071c8b921d54f1e5e5a93cde1e661c491c487dd3f59e84f",
+    "candidate/tests/attempt_receipt_checkpoint_integrity.rs": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+    "tests-first/tests/attempt_receipt_checkpoint_integrity.rs": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+    "candidate/tests/checkpoint_set_v2_conformance.rs": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+    "tests-first/tests/checkpoint_set_v2_conformance.rs": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+    "candidate/research/specs/checkpoint-set-v2.md": "d06e0e890d84b52e0d22e63d954313e703dc187db635ccc44b93a96610a1b629",
+    "candidate/tests/checkpoint_tail_generation_integrity.rs": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705",
+    "tests-first/tests/checkpoint_tail_generation_integrity.rs": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705"
+  },
+  "inspection": "Read all five complete candidate files and complete staged test changes against exact published baseline, shared checkpoint parsing/staging, selected-generation restore, attempt-outcome and set-v2 contracts, pinned AGENTS.md and engineering/postprocessing instructions. The corrected full tail test and directly related source/specification prose were read again; unchanged complete files retain the earlier full inspection. Read all preparation text, disposition, two renewed author inspections and static-check boundaries. Independently applied every unified hunk in memory against exact baseline strings and reproduced all five files through both patch paths.",
+  "findings": [
+    "The stager now inserts each decoded attempt_id into the existing shared set before extending outcomes. Count uses that set and duplicates receive the established integrity error within or across objects. Payload and unknown-field preservation are unchanged.",
+    "Tail publication uses the existing content-addressed writer and records its actual path/hash. Selected old bytes survive through existing pointer-based retention; readers retain legacy fixed-path compatibility. No checkpoint mode/configuration/schema version, sealing threshold or editing interface changes.",
+    "Six permanent regressions cover two-object count/full payload, duplicate identity within/across objects, real nonempty-outcome restore, retained selected generation after append, and legacy selected-tail compatibility.",
+    "The legacy fixture now completes a real first-class restore into a separate fresh directory before append, checks selected root/generation/count and exact inventory, then rechecks original pointer/manifest/tail bytes. Its later byte-equality assertion has a specific expected-failure message.",
+    "Existing three conformance reads follow manifest.tail.path while retaining digest, sealing, crash-ordering and pointer assertions. Directly related source comments and the Tail definition now match immutable selected bytes.",
+    "The tests-first patch preserves the entire baseline production prefix and specification. Repair-only changes only the production prefix and specification; every test-stage module/helper/assertion stays byte-identical.",
+    "All exact contexts, hunk coordinates/counts and output hashes agree for tests-first plus repair and direct candidate patch. The allowed five-file union holds; no added patch line has trailing whitespace.",
+    "Hosted Windows MSVC first, actual-failure GNU fallback, immutable archive builds, measured replacement runtime identity, required complete native suite and temporary-branch/worktree cleanup are retained."
+  ],
+  "static_checks": {
+    "status": "passed",
+    "commit": "bb0638535172dead8f648b4a4944dddc6175f832",
+    "file_checks": [
+      {
+        "path": "src/service/checkpoint/set_v2.rs",
+        "baseline_sha256": "eae52fc4a02eecb1452bc07f967861e50f86afa9872b88d43080dc86069092a8",
+        "tests_first_sha256": "220eac6cf03c67833071c8b921d54f1e5e5a93cde1e661c491c487dd3f59e84f",
+        "candidate_sha256": "9227543341a0e7352a2aab1fdf7e9244df21e4c723cd705d537ad34341557642",
+        "exact_both_paths": true
+      },
+      {
+        "path": "tests/attempt_receipt_checkpoint_integrity.rs",
+        "baseline_sha256": "76024d1f7f1b525e6b2117fbd6b47a05ccbf5f67a4ba8235c964ddbc1f67d809",
+        "tests_first_sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+        "candidate_sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+        "exact_both_paths": true
+      },
+      {
+        "path": "tests/checkpoint_set_v2_conformance.rs",
+        "baseline_sha256": "3fb6e9b706ed5997c858b073a541b2e74fceda117db052f4e5c3e97831529294",
+        "tests_first_sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+        "candidate_sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+        "exact_both_paths": true
+      },
+      {
+        "path": "research/specs/checkpoint-set-v2.md",
+        "baseline_sha256": "8472ac3de0be99f111b41d5310a6fc543f7a5a02f6cf3508290f642055a1f24a",
+        "tests_first_sha256": "8472ac3de0be99f111b41d5310a6fc543f7a5a02f6cf3508290f642055a1f24a",
+        "candidate_sha256": "d06e0e890d84b52e0d22e63d954313e703dc187db635ccc44b93a96610a1b629",
+        "exact_both_paths": true
+      },
+      {
+        "path": "tests/checkpoint_tail_generation_integrity.rs",
+        "baseline_sha256": null,
+        "tests_first_sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705",
+        "candidate_sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705",
+        "exact_both_paths": true
+      }
+    ],
+    "changed_tests": [
+      "src/service/checkpoint/set_v2.rs",
+      "tests/attempt_receipt_checkpoint_integrity.rs",
+      "tests/checkpoint_set_v2_conformance.rs",
+      "tests/checkpoint_tail_generation_integrity.rs"
+    ],
+    "changed_repair": [
+      "src/service/checkpoint/set_v2.rs",
+      "research/specs/checkpoint-set-v2.md"
+    ],
+    "changed_candidate": [
+      "src/service/checkpoint/set_v2.rs",
+      "tests/attempt_receipt_checkpoint_integrity.rs",
+      "tests/checkpoint_set_v2_conformance.rs",
+      "tests/checkpoint_tail_generation_integrity.rs",
+      "research/specs/checkpoint-set-v2.md"
+    ],
+    "baseline_production_prefix_unchanged_in_tests": true,
+    "all_test_stage_module_bytes_unchanged_in_repair": true,
+    "whitespace": [],
+    "patches": {
+      "tests-first.patch": "cb0a4f7d6ce71b8b2f6442f55ac7ca74fe2289f085352002c28be60b873d4e49",
+      "repair-only.patch": "f38adfc5d3e8f29349e9f3df82dc8d226ddc7d6486d5fd5632d9ea71f1c52b60",
+      "candidate.patch": "496db2b9ef681a4e0d86503c3c0a605b601f7b0b9d2cd736e02589aa6aa51c20"
+    }
+  },
+  "execution_clarification": "The accepted corrected plan controls execution. checkpoint-full-suite supplies complete existing affected-target coverage once; the command examples in regression-design.md do not require duplicate complete target runs in checkpoint-linux-checks. That task uses separate release/corpus fixtures.",
+  "blocking_findings": [],
+  "pending": [
+    "Actual revision-5 materialization and assigned task IDs",
+    "Tests-only Git application, required formatting and exact final tests commit review",
+    "Actual intended Red results for all six regressions before test-review closure or production repair",
+    "Repair-only application against the accepted tests state, final source review, formatting and all-target warnings-denied Clippy",
+    "Actual Green/full default native suite and separate Linux/Windows archive builds/checks",
+    "Qualified replacement Windows source, executable hash and metadata before installation/preservation"
+  ],
+  "final_tests_review_accepted": false,
+  "final_implementation_accepted": false,
+  "product_source_applied": false,
+  "product_tests_or_builds": false,
+  "pc_actions": false,
+  "database_writes": false,
+  "limits": "This is static proposal acceptance only. Baseline failures, compiler results, runtime behavior and replacement bytes must be established by their actual assigned tasks; historical qualified binaries cannot stand in for the new source."
+}
