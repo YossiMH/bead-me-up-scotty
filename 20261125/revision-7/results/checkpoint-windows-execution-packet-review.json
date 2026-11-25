@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-windows-checks",
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "review_kind": "independent bound Windows execution packet and prerequisite build/download review",
+  "date": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "ad41d93182c9dc1a5c30f1e41c837af7c337773e",
+    "directory": "20261125/native-final-windows-check",
+    "activation_branch": "task/checkpoint-windows-final-check-20261125"
+  },
+  "reviewed_files": {
+    "checkpoint-windows-check-20261125.py": "ade52d7538906850c38f12555e45fe731528417b83dedd124532cdee9ceb4195",
+    "checkpoint-windows-build-20261125.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+    "checkpoint-windows-supervisor-20261125.ps1": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "corpus-inputs.json": "b17dac61c10ac045b6d128b51e1f897d2716fb7620e8b2b6f480b4a0588103c1",
+    "packet.json": "52dbaaf6054cc737856f3e18c8ea2d793f7f53b10deb18c6abc29ea0d712dd0c",
+    "check-inputs.json": "4458055bd1de94501deb2b2a77fc5856b81bff17ff685c4ffcf60923761b515f",
+    "workflow.yml": "f8200aef35a06d0af1435ea095bb0888232d61a85241bf6d0f47dfe14462ddbf",
+    "author-inspections.json": "989754d279e3446c97f2b8bc0b0e12f3fb267c57d67d14d13bc6f7b153c8ffa4"
+  },
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "actual_producer_review": {
+    "status": "PASS",
+    "run_id": 45576002037,
+    "workflow_commit": "13dbfb2f11b93d5b9ccf0301428cfe87a6465a5f",
+    "build_job_id": 139073976276,
+    "download_job_id": 139076008395,
+    "artifact_id": 15004896560,
+    "artifact_zip_sha256": "4f6c72ba216df809a0f0e977d20105e78402577ce216e59ef74394ab1feba549",
+    "artifact_manifest_sha256": "43e7bedc2cd62e7eb9040cecff67584144b68189db0ede1290e5e2c823acc996",
+    "build_result_sha256": "d8577ea32add8e06d687419c46e6ccfa04023d55dd038b464fa105622d423941",
+    "download_receipt_sha256": "8b90b4b0925c65ef3fe99788ec84ad678350c3a6f4e8376eba40c2329bd17d80",
+    "verified_files": 88,
+    "verified_bytes": 573955727,
+    "test_support_executables": 10,
+    "release_sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+    "tests_executed": false,
+    "method": [
+      "Fetched both actual GitHub job logs and step outcomes independently; all build/download steps succeeded.",
+      "Compared the complete emitted build and download result objects with the retained reports, including every executable path/hash and successful command exit.",
+      "Independently reformatted the producer's exact JSON tokens using its indent=2 layout, preserving numeric lexemes; the bytes and d8577ea3 hash match the retained build-result file.",
+      "Verified Actions output metadata/digest and the unchanged reused release identity. The consumer also requires the actual downloaded build-result bytes and every manifest file before test execution."
+    ],
+    "retained_at": "3c1de572b0d8ac4502131d8383ed3348d2ff695a:20261125/revision-7/results/native-windows-build-45576002037"
+  },
+  "inspection": {
+    "full_checker_driver_supervisor_read": true,
+    "complete_imported_shared_validation_source_process_functions_read": true,
+    "portable_corpus_complete_read_retained": true,
+    "unchanged_smoke_complete_read": true,
+    "final_inputs_workflow_author_record_read": true,
+    "checker_driver_supervisor_corpus_byte_identical_to_reviewed_draft": true,
+    "author_complete_clean_final_inspections": 2,
+    "product_execution_by_reviewer": false
+  },
+  "conclusions": [
+    "All actual downloaded files, source/tree/run and executable identities are checked before any product command.",
+    "The source and ten exact executables are restored to their recorded compile-time paths; no Rust compilation is invoked.",
+    "The existing owned Job/retained process identity/supervisor chain requires normal completion and empty descendants; phase and each test target remain bounded.",
+    "The three staging unit tests and all eight complete integration targets must pass with zero ignored tests; every one of the eleven type-file cases is explicitly required.",
+    "The exact release advertises type-file support and its version/help, four original-corpus restores, all original records/receipts/outcomes/current/previous generations and unchanged 55-command editing smoke are checked.",
+    "All source/executable/helper identities are checked after execution; failures retain their actual streams and state, and no failed or uncertain action is replayed."
+  ],
+  "findings": [],
+  "activation_ready": true,
+  "next_action": "Activate the exact packet and inspect the complete actual test, corpus, smoke, preservation and supervisor outputs before accepting Windows runtime qualification.",
+  "pending": [
+    "Actual Windows test/corpus/smoke execution",
+    "Native affected-check/source acceptance",
+    "App real-store/HTTP roundtrip",
+    "Actual PC tray, installation and configured launch"
+  ],
+  "cleanup": "After final retained results remove task execution branches and clean published Riftri worktrees. Future agents must reconcile any running job and finish cleanup if the session ends."
+}
