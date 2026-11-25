@@ -1,0 +1,93 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Diagnosis and proposed narrow test-fixture portability correction; no final Windows qualification acceptance",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "source_files": {
+    "tests/checkpoint_publication_lock.rs": "690b83cb726c18e40a02e48a460b55ab674fb04e4d94f85bce4ab10195b34295",
+    "tests/checkpoint_set_v2_conformance.rs": "20fd293a3484c689e70a02f2c162508a3d7a1bda9eecf142fdb8ea2fefc736f2"
+  },
+  "evidence": {
+    "commit": "7f911115b3a5c884e71609d221e1e5b63d5a069f",
+    "directory": "20261125/revision-8/results/native-windows-qualification-45590705550",
+    "run_id": 45590705550,
+    "core_job_id": 139123993085,
+    "core_result_sha256": "d13abdb92abe9a764a87159cea8f741fd71ef31d6ed66a2d8fc495fda151fc8b",
+    "grid_results_sha256": {
+      "grid-1": "7875c513e77648172764b88d853daa1292eb8acb4259ede0df5ec5a756d38c7e",
+      "grid-2": "9c6b783f87eefbda2f19a0bfd164de7f9f82bca5b15d5f7117e334575c97d037",
+      "grid-3": "b419c01b0054a18d691f386120ccc26a588fdb9439db9f8d7f3ea69d9659efb8"
+    },
+    "publication_stderr_sha256": "b2244d9abdbd51bcad2b96943eab90b93557143c59f7036d943e20d621a4ebde",
+    "split_stderr_sha256": "fdea931b6b3a1a41b27124dd963891416686e5dd0a960a68863247fd393605bd",
+    "merge_stderr_sha256": "d4cdd6fc514bf9ad0c2b7558577afba14b076417c133666f3835210c42b13147",
+    "split_grid_stderr_sha256": [
+      "781577fcb4f5f5fae59b234f7f6599b68a8192af7b0c5031b0c0cfd5b5387511",
+      "ff17d21b618f910375af27dd17250ad9bd5c58130f42fb00bffd72df2cec83e3"
+    ]
+  },
+  "findings": [
+    {
+      "case": "higher_sequence_without_local_publication_proof_cannot_admit_a_mutation",
+      "classification": "Windows-invalid test-side read of an intentionally held lock file",
+      "detail": "The complete fixture acquires the publication guard, starts the waiting child, writes a forged higher snapshot_sequence, and calls snapshot_checkpoint before releasing the guard. snapshot_checkpoint reads every file, including root-relative publish.lock. The actual panic is that fs::read unwrap at line 170 with raw OS 33; it occurs before the child's refusal and unchanged-state assertions are reached.",
+      "minimal_repair": "In snapshot_checkpoint only, recognize exactly the root-relative publish.lock entry. Assert its metadata length is zero and record an empty Vec for that map entry; retain the ordinary exact-byte read for every other path. An empty file has precisely those zero bytes, so the entry and byte-preservation invariant remain represented.",
+      "preserve": [
+        "Publication guard lifetime and child ordering",
+        "Forged higher sequence and absence of local publication proof",
+        "Expected child exit 4 or 5 and empty stdout",
+        "Unchanged live sequence",
+        "Complete before/after checkpoint map equality including publish.lock"
+      ]
+    },
+    {
+      "cases": [
+        "set_v2_shard_split_on_update_storm",
+        "set_v2_shard_merge_on_deletion"
+      ],
+      "classification": "Oversized inline test-fixture argument prevents the intended update subprocess from starting on Windows",
+      "detail": "Both 40*1024-byte filler calls use set_notes, which forwards the entire payload through --notes. The actual .output().expect failure at line 87 is OS 206. The existing set_notes_via_stdin writes the identical input bytes through --notes-file -, closes stdin and requires process success.",
+      "minimal_repair": "Change only the two 40 KiB call sites at original lines 507 and 589 from set_notes to the existing set_notes_via_stdin helper. Keep payload generation, byte sizes, loop counts and every shard split/merge/coverage/republication assertion unchanged.",
+      "preserve": [
+        "Exactly the same filler contents and three updates per scenario",
+        "96 KiB shard split and 64 KiB per-record assumptions",
+        "All issue coverage, byte budgets and shard signatures",
+        "Deletion set and merge threshold",
+        "Out-of-band scenario and fixture selection"
+      ]
+    },
+    {
+      "cases": [
+        "set-v2-shard-split-on-update-storm under store-deletion",
+        "set-v2-shard-split-on-update-storm under orphan-set-files"
+      ],
+      "classification": "Caught harness setup failure; intended split workload remains unqualified",
+      "detail": "Both recorded RED classifications contain the same OS 206 process-launch failure. Their wrappers completed successfully because the OOB probe catches scenario panics, but these entries do not exercise the intended oversized update and cannot serve as final product characterization. The same shared call-site correction repairs their transport."
+    }
+  ],
+  "other_actual_outcomes": {
+    "grid_invocations_completed": 12,
+    "green_classifications": 9,
+    "red_classifications": 3,
+    "red_due_to_setup_transport": 2,
+    "budget_characterization": "The remaining RED is the existing store-deletion budget scenario: publication 0 added 1772010 new blob bytes against 262144. Retain its exact result as characterization; do not relabel it Green.",
+    "operation_lock_failures": "The separate publication concurrency and conformance concurrent-publication failures are operation.lock OS 33 product defects already included in the pending two-predicate repair scope."
+  },
+  "verification_performed": [
+    "Read the complete publication integration file and relevant conformance scenario/helper bodies.",
+    "Independently fetched and hashed all five relevant stderr files, the core result and all three grid results; stderr hashes match the actual result records.",
+    "Read all twelve grid classifications and their exact caught failure texts; source identity, unchanged input state and owned-child quiescence are recorded in each retained result.",
+    "Read the complete fs2 audit report and independently validated its three acquisitions against previously read native functions; no additional product refactor is needed."
+  ],
+  "acceptance_limits": [
+    "The revision 9 plan must explicitly authorize these test-only portability edits before implementation.",
+    "The actual operation and maintenance contention oracles remain unchanged; the newly prescribed maintenance Red execution and independent review are still required before production predicate changes.",
+    "Review the exact fixture/source diff and final author inspections, then qualify the fresh final source on Linux and Windows including all twelve ordinary conformance cases and all twelve OOB cells.",
+    "App Windows activation, final native acceptance, PC installation and tray verification remain pending."
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
