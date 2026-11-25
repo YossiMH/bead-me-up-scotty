@@ -1,0 +1,87 @@
+{
+  "schema_version": 1,
+  "status": "passed_static_author_inspections",
+  "files": {
+    "checkpoint-windows-build-20261125.py": {
+      "sha256": "c74d0ac887b0a43113d83e46e93cfc16557480e6c0c31d3a534d899be047e5eb",
+      "bytes": 8258
+    },
+    "checkpoint-windows-supervisor-20261125.ps1": {
+      "sha256": "c9df4e0002d6f31e4f80f588d38140742eca62a228d994dfaa11a62b59b50391",
+      "bytes": 12725
+    },
+    "checkpoint-windows-driver-20261125.ps1": {
+      "sha256": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+      "bytes": 10139
+    },
+    "original-build-helper.py": {
+      "sha256": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+      "bytes": 35619
+    },
+    "build-inputs.json": {
+      "sha256": "57a329dba2ac439a1e447fb89ad68fef1e4cf477853882f5e485c9f172ab6893",
+      "bytes": 180
+    },
+    "packet.json": {
+      "sha256": "31211dd57c947a7946dea1a88861d6caaa8735f552fd360d6006cd04d08858b8",
+      "bytes": 969
+    },
+    "job-diagnostic.workflow.yml": {
+      "sha256": "3f57b11c66fb98326443c3eeb7d66879d9cb4cb037c5bff7412938f59fb3a08e",
+      "bytes": 2650
+    },
+    "failed-build-job.log": {
+      "sha256": "6d290df9ace8fdd724d300a454c95d73071f078ebdbdac71c3b4a5dc12ff7dfe",
+      "bytes": 59203
+    },
+    "failed-build-helper.stderr": {
+      "sha256": "cb83396d3161d0af5c55a2fafb50989dcc00638aee2aa7a7d617cde2cae5d1f6",
+      "bytes": 966
+    },
+    "failed-build-supervisor.json": {
+      "sha256": "0c04264040e1d0281b5715c9524795e501b28768a71481a35c80225e87cdc761",
+      "bytes": 1605
+    },
+    "failed-build-completion.json": {
+      "sha256": "059b50f8e6cfa2e341140f71461a4bb9727912fe90125c1970be503364fdd216",
+      "bytes": 1144
+    },
+    "failed-build-artifacts.json": {
+      "sha256": "623e0d36b18d0d2be51d7573920db9ea34146dabc83c133abb3e287b00473054",
+      "bytes": 886
+    },
+    "README.md": {
+      "sha256": "7e59e429c0b9832bead811b4f38aaa4452c5eb332ef08e4fd988ca6013520120",
+      "bytes": 4151
+    }
+  },
+  "unchanged_actual_build_guard_sha256": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+  "inspections": [
+    {
+      "id": 1,
+      "complete_python_probe_read": true,
+      "complete_instrumented_supervisor_read": true,
+      "complete_workflow_packet_read": true,
+      "conclusions": [
+        "The original build helper is imported only after exact hash verification; its main block does not execute and Runner is never instantiated.",
+        "Both query views record assigned/count/used/PIDs and bounded identities; dynamic consecutive results are retained rather than normalized away.",
+        "All original supervisor path/hash/parser/Job/handle/cleanup behavior remains, with only a shorter30-second budget and observation fields.",
+        "No process-name-based termination, additional Job creation, product executable, compiler or PC call is present."
+      ]
+    },
+    {
+      "id": 2,
+      "complete_python_probe_read": true,
+      "complete_instrumented_supervisor_read": true,
+      "complete_workflow_packet_read": true,
+      "conclusions": [
+        "The x64 ctypes structures match DWORD/DWORD/ULONG_PTR and PROCESSENTRY32W alignment; process handles are closed and identity read failures are recorded.",
+        "The only broad read is a bounded Toolhelp snapshot filtered to explicitly returned/known PIDs; no machine-wide process list or command/environment contents are emitted.",
+        "The original strict membership assertion remains byte-identical in the actual build helper; collected diagnostics cannot satisfy its result schema.",
+        "All metadata inputs and dependencies are pinned, fresh output names prevent replay, and root-owned cleanup is documented.",
+        "The exact failed stderr, supervisor/completion receipts and raw decoded job log are retained for independent comparison."
+      ]
+    }
+  ],
+  "execution": "Prepared only; no diagnostic or build executed from these bytes."
+}

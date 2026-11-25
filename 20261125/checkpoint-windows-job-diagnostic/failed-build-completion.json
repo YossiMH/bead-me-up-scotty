@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "failed",
+  "phase": "build",
+  "packet_sha256": "10db15ed6732c9c8761e06ca164baf1599cefa426f89e5282fdb128c7efc34d7",
+  "run_id": "45544961876",
+  "run_attempt": "1",
+  "workflow_commit": "311b299868b27886ba9002dcd27c66dc252d4505",
+  "supervisor_process_exited": true,
+  "owned_job_empty_after_supervisor_exit": false,
+  "supervisor_exit_code": 1,
+  "supervisor_result_sha256": "0c04264040e1d0281b5715c9524795e501b28768a71481a35c80225e87cdc761",
+  "supervisor_pid": 7520,
+  "error": "The owned phase or its outer Job completion was not successful.",
+  "retained_files": [
+    {
+      "path": "supervisor-result.json",
+      "bytes": 1605,
+      "sha256": "0c04264040e1d0281b5715c9524795e501b28768a71481a35c80225e87cdc761"
+    },
+    {
+      "path": "helper.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "helper.stderr",
+      "bytes": 966,
+      "sha256": "cb83396d3161d0af5c55a2fafb50989dcc00638aee2aa7a7d617cde2cae5d1f6"
+    }
+  ],
+  "finished_utc": "2026-11-25T04:11:08.4518062Z"
+}
