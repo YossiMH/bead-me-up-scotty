@@ -1,0 +1,139 @@
+name: Scotty native type Red 20261125
+
+on:
+  push:
+    branches:
+      - task/type-app-red-20261125
+
+permissions:
+  contents: read
+
+concurrency:
+  group: scotty-type-red-20261125
+  cancel-in-progress: false
+
+jobs:
+  red:
+    if: github.repository == 'YossiMH/bead-me-up-scotty'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 15
+    env:
+      CI: 'true'
+      NODE_OPTIONS: '--max-old-space-size=512'
+      NEXT_TELEMETRY_DISABLED: '1'
+      POSTHOG_KEY: ''
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Create isolated output and test directories
+        timeout-minutes: 1
+        run: |
+          set -euo pipefail
+          red_root="$RUNNER_TEMP/scotty-type-red-$GITHUB_RUN_ID-$GITHUB_RUN_ATTEMPT"
+          test ! -e "$red_root"
+          mkdir -p "$red_root/results" "$red_root/fixtures" "$red_root/temporary"
+          printf 'SCOTTY_RED_ROOT=%s\n' "$red_root" >> "$GITHUB_ENV"
+          printf 'SCOTTY_TEST_ROOT=%s/fixtures\n' "$red_root" >> "$GITHUB_ENV"
+          printf 'TMPDIR=%s/temporary\n' "$red_root" >> "$GITHUB_ENV"
+          printf '%s\n' "$GITHUB_SHA" > "$red_root/results/workflow-commit.txt"
+
+      - name: Read the exact tests candidate
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        timeout-minutes: 3
+        with:
+          ref: 3d3b0f3850e359bfb8d320d530f132a7e0d67469
+          fetch-depth: 2
+          persist-credentials: false
+
+      - name: Select the previously used Node version
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        timeout-minutes: 3
+        with:
+          node-version: '24.22.3'
+          package-manager-cache: false
+
+      - name: Install exact locked dependencies
+        timeout-minutes: 8
+        run: |
+          set -euo pipefail
+          node --version > "$SCOTTY_RED_ROOT/results/node-version.txt"
+          npm --version > "$SCOTTY_RED_ROOT/results/npm-version.txt"
+          git rev-parse HEAD > "$SCOTTY_RED_ROOT/results/source-commit.txt"
+          git rev-parse 'HEAD^{tree}' > "$SCOTTY_RED_ROOT/results/source-tree.txt"
+          git diff --name-only 5232c8b94804064ab71af571ee28797667bd72bd HEAD > "$SCOTTY_RED_ROOT/results/changed-files.txt"
+          sha256sum package-lock.json scripts/fixtures/native-contract.mjs scripts/test-native-editing.mjs \
+            scripts/test-local-bead-rs.mjs scripts/test-native-type-roundtrip.mjs > "$SCOTTY_RED_ROOT/results/source-sha256.txt"
+          timeout --signal=TERM --kill-after=10s 420s npm ci --no-audit --no-fund \
+            > "$SCOTTY_RED_ROOT/results/npm-ci.stdout" 2> "$SCOTTY_RED_ROOT/results/npm-ci.stderr"
+
+      - name: Observe the intended native type failures
+        timeout-minutes: 3
+        run: |
+          set -euo pipefail
+          set +e
+          timeout --signal=TERM --kill-after=5s 120s node --test --test-reporter=tap scripts/test-native-editing.mjs \
+            > "$SCOTTY_RED_ROOT/results/stdout.tap" 2> "$SCOTTY_RED_ROOT/results/stderr.txt"
+          red_exit=$?
+          set -e
+          printf '%s\n' "$red_exit" > "$SCOTTY_RED_ROOT/results/test-exit.txt"
+          cat "$SCOTTY_RED_ROOT/results/stdout.tap"
+          cat "$SCOTTY_RED_ROOT/results/stderr.txt"
+          node --input-type=module - <<'JS'
+          import assert from 'node:assert/strict';
+          import fs from 'node:fs';
+          import path from 'node:path';
+          const root = path.join(process.env.SCOTTY_RED_ROOT, 'results');
+          const read = name => fs.readFileSync(path.join(root, name), 'utf8');
+          const stdout = read('stdout.tap');
+          const expectedFailures = [
+            ...['absent', 'false', 'malformed'].map(label =>
+              'type-file grant ' + label + ' refuses oversized types before any native write'),
+            'unsupported long native type creates no temporary input before refusal',
+            'native type transport observes the 8193-byte UTF-8 boundary',
+            'native text transport counts type description and notes together at 8193 bytes',
+            ...['success', 'command failure', 'readback failure'].map(outcome =>
+              'long native custom types use exact UTF-8 files and clean up after ' + outcome),
+            'a long native type edit retains the claim acquired by this store and its revision guard',
+          ].sort();
+          const failedNames = [...stdout.matchAll(/^not ok \d+ - (.+)$/gm)].map(match => match[1]).sort();
+          const count = field => Number(new RegExp('^# ' + field + ' (\\d+)$', 'm').exec(stdout)?.[1]);
+          const result = {
+            command: 'node --test --test-reporter=tap scripts/test-native-editing.mjs',
+            testExit: Number(read('test-exit.txt').trim()),
+            sourceCommit: read('source-commit.txt').trim(),
+            sourceTree: read('source-tree.txt').trim(),
+            tests: count('tests'), passed: count('pass'), failed: count('fail'),
+            cancelled: count('cancelled'), skipped: count('skipped'), todo: count('todo'),
+            failedNames, expectedFailures,
+            changedFiles: read('changed-files.txt').trim().split(/\r?\n/).sort(),
+            remainingEditDirectories: fs.readdirSync(path.join(process.env.SCOTTY_RED_ROOT, 'temporary'))
+              .filter(name => name.startsWith('scotty-edit-')),
+          };
+          fs.writeFileSync(path.join(root, 'result.json'), JSON.stringify(result, null, 2));
+          assert.equal(result.sourceCommit, '3d3b0f3850e359bfb8d320d530f132a7e0d67469');
+          assert.equal(result.sourceTree, '794e6f2c694b21399feaa3a42c3dab435ba70113');
+          assert.deepEqual(result.changedFiles, [
+            'scripts/fixtures/native-contract.mjs', 'scripts/test-local-bead-rs.mjs',
+            'scripts/test-native-editing.mjs', 'scripts/test-native-type-roundtrip.mjs',
+          ].sort());
+          assert.equal(result.testExit, 1);
+          assert.equal(result.tests, 48);
+          assert.equal(result.passed, 38);
+          assert.equal(result.failed, 10);
+          assert.equal(result.cancelled, 0);
+          assert.equal(result.skipped, 0);
+          assert.equal(result.todo, 0);
+          assert.deepEqual(failedNames, expectedFailures);
+          assert.deepEqual(result.remainingEditDirectories, []);
+          JS
+
+      - name: Retain actual outputs
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        timeout-minutes: 2
+        with:
+          name: scotty-type-red-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/scotty-type-red-${{ github.run_id }}-${{ github.run_attempt }}/results/
+          if-no-files-found: error
+          retention-days: 14
