@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "task_key": "type-backend-tests-review",
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "date": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-rs",
+    "branch": "task/type-file-20261125",
+    "commit": "14051553b607bc160fb46f053c52ddeeadf846db",
+    "tree": "475f0e470b4c4a82be2f66f6195a0c044be7978e",
+    "parent": "515b503b24baf71737ff8fa6c879bd0752ef0fc6"
+  },
+  "read_complete_test_and_spec": true,
+  "production_unchanged": true,
+  "reviewed_files": {
+    "tests/issue_type_file.rs": "0f0505e19216a230527f391e4835e63bdd2452f1e341b6d3111c27770e88980c",
+    "research/specs/issue-editing-v1.md": "aa17bc14898c8591da9fa3fe4b45cc77f3b893b8229b8bf78776c9349d7448d9"
+  },
+  "author_record": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "6d1c41ffb3736e78c61e982dbb0f557c4be8cc9e",
+    "path": "20261125/revision-7/results/type-backend-tests-author.json",
+    "sha256": "fb32b7536509dded85e1e5d6b564a866d1659a4eb6bfa85ba91391da6d07b0e7",
+    "complete_clean_inspections": 2
+  },
+  "findings": [],
+  "design_checks": [
+    "Read every test/helper and the complete specification; independently checked the candidate commit parent/tree and confirmed only these two files changed.",
+    "Exact Unicode type exceeds32768 characters and retains leading hyphens and CRLF/newline bytes. One claimed, revision-guarded edit combines type, description, notes and priority; assertions inspect stored fields, one revision increment, retained claim and attributed priority audit.",
+    "Input tests cover file/stdin, inline/file refusal before a missing-file read, all three pairs of stdin consumers and a conflicting stdin pair with an unreadable additional file.",
+    "Missing files, invalid UTF-8, empty types, missing claim credentials and stale revisions preserve the complete row and public mutation list. Guards apply to unchanged values too; no-op and dry-run retain saved state.",
+    "The synthetic secret test checks scanner refusal before scalar effects and no secret echo. Existing native nonempty custom-type semantics remain explicit without a new length limit.",
+    "The capability test checks true negotiation, a closed Boolean property with unchanged required members, older omission and deserialization, and retained editing grants. Help, generated/tracked man text, literal manifest values and rejection of a manifest file-path member are covered."
+  ],
+  "actual_execution": {
+    "run_id": 45570938082,
+    "job_id": 139057122836,
+    "workflow_commit": "9d9e454d6e9468f83d46a552cc27f197bdb0ddc8",
+    "workflow_sha256": "399e40adf2a189a7288d5f1d264d5fa1aa93dbba74a3296dbe8c8b49fa466e43",
+    "compile_exit": 0,
+    "test_exit": 101,
+    "total_tests": 11,
+    "passed": 1,
+    "failed": 10,
+    "ignored": 0,
+    "expected_failure": true,
+    "executables": {
+      "test": {
+        "compiled_path": "/home/runner/work/bead-me-up-scotty/bead-type-red-target/debug/build/bead-rs/b35fd287be87d449/out/issue_type_file-b35fd287be87d449",
+        "bytes": 30589408,
+        "sha256": "daf883b0de0345d03ffcaa87d06d2b58c5efe1bdcc3966b7242c5224322bf69f"
+      },
+      "bead": {
+        "compiled_path": "/home/runner/work/bead-me-up-scotty/bead-type-red-target/debug/bead",
+        "bytes": 50575184,
+        "sha256": "8440db3777bd0c4a25ea9871eeeb6f40336310c4bcd8d879ae9ac6cc005b3ca0"
+      }
+    },
+    "actual_job_steps_confirmed": true,
+    "retained_receipts_match_actual_job_output": true,
+    "required_failure_cause": "Both the long-file and stdin round-trip cases fail because --issue-type-file is unavailable; every fixture completes initialization and the unchanged literal-manifest test passes.",
+    "other_failures": "The absent capability/help declaration and missing option account for the remaining expected assertions. All10 failure sections and all11 outcomes were read.",
+    "overall_workflow_status": "failed_after_successful_compile_and_expected_red",
+    "later_failure": "upload-artifact rejected '..' in the output path; this did not invalidate the already completed compile or exact-binary execution.",
+    "retention_limit": "Complete Red assertion output, full actual job log, source/test identities and compiled paths/hashes are retained. The old executable bytes and separate Cargo streams were not uploaded. Their continued availability after the observed execution is not required for this test-design decision.",
+    "repeat_required_for_acceptance": false
+  },
+  "retained_results": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "01a3cf5e6306e488a328711d9aa29c3ba14e6501",
+    "directory": "20261125/revision-7/results/native-red-45570938082",
+    "files": {
+      "compile.json": "e87ba44512ca32b96630efbfc4419c73f6c041bd3c707c412700dbb84dd4e5b4",
+      "red.json": "724cfd3cc84e86122e5a7bc4feaa8ea903f0c32456d8f7518c0fa00ca295017b",
+      "red.stdout": "557ae819f90c31c0ea6c9cea0f9edd560bb91488e20e7d76ff2d46d8abab86ab",
+      "status.json": "cedf1679cfb7096eee57ac601f3a43bfb375d4d787d5a2fb85e9cc6d441abbe3"
+    },
+    "full_job_log_sha256": "c124503f53f0ca64a95fd54a76b65105f1c4dddf8d996293008a9bbdfe273d7c"
+  },
+  "workflow_notes": {
+    "first_run_45570662390": "Workflow validation failed before any job because runner context was used in job-level env.",
+    "corrected_retention_workflow": "b52da105df70b9b019bedece85848a9d9817504d uses direct github.workspace subdirectories; SHA-2562e5ff8e30d10531458a945df46aba5bb3881929143a3f9ce4ec79738305d8285. Its exact two-line path correction was reviewed for later runs."
+  },
+  "permitted_next_action": "type-backend-change may implement the accepted additive CLI/capability correction. Apply Rust formatting without weakening tests, retain the exact final candidate and perform the separately required Green checks, source review, final Linux/Windows qualification and author inspections before installation.",
+  "reviewer_product_execution": false
+}
