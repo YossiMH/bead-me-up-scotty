@@ -273,7 +273,7 @@
     "out_of_band_characterization": "StoreDeletion { count: 8 } intentionally removes eight live rows without events. The existing probe_one catches scenario assertions and records exact GREEN/RED text; the grid contract requires all combinations and nonempty failure text, while all 12 ordinary conformance assertions pass separately.",
     "caught_red_texts": [
       "publication 0 added 1789455 new blob bytes, budget is 262144",
-      "shard coverage lost records; left392,right400"
+      "assertion `left == right` failed: shard coverage lost records\n  left: 392\n right: 400"
     ],
     "characterization_conclusion": "Both caught RED results are retained as characterization, not relabeled GREEN or waived ordinary failures. The former OS 206 fixture launch failures are absent and the intended split workload executes.",
     "native_transport_length": "No native UTF-8 reader length bound is claimed; app input policy is separately reviewed."
