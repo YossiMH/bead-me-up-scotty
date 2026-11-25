@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "task_key": "checkpoint-linux-build",
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "review_kind": "independent final hosted Linux build packet review",
+  "date": "2026-11-25",
+  "candidate": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "0e85c201d0a30f1c3de7b9e680be27b76c03cdc3",
+    "tree": "87b187db6866906e1017a60168025ec0e609940f",
+    "directory": "20261125/native-final-linux",
+    "activation_branch": "task/native-final-linux-build-20261125"
+  },
+  "native_source": {
+    "repository": "YossiMH/bead-rs",
+    "baseline_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "tests_commit": "14051553b607bc160fb46f053c52ddeeadf846db",
+    "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13"
+  },
+  "reviewed_files": {
+    "20261125/native-final-linux/checkpoint-linux-build-20261125.py": "d2ae451403f2a11140f45337f45c74c407f365f7482bd9d61a7814d645459c26",
+    "20261125/native-final-linux/build-inputs.json": "05bdd98fbbd95f7ce39485d8659f13fbeee8f6bc882bf11cf757f65e0723adf4",
+    "20261125/native-final-linux/workflow.yml": "8a679acca15fda405e4af81425a03f9d4c3c7e2f45625bca087c7d8fa5081b43",
+    ".github/workflows/native-final-linux-build-20261125.yml": "8a679acca15fda405e4af81425a03f9d4c3c7e2f45625bca087c7d8fa5081b43",
+    "20261125/native-final-linux/author-inspections.json": "4bee440d24c0ee63bc23c064a045c47d1fb8969dc39085db25dfceb80d00bb2f",
+    "20261125/native-final-linux/checkpoint-build-support.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0"
+  },
+  "inspection": {
+    "complete_producer_read": true,
+    "complete_support_read": true,
+    "complete_inputs_and_both_workflow_copies_read": true,
+    "complete_author_record_read": true,
+    "author_final_clean_inspections": 2,
+    "workflow_copies_byte_identical": true,
+    "support_matches_prior_accepted_sha256": true,
+    "product_commands_executed_by_reviewer": false,
+    "syntax_validation": "The exact hosted py_compile step precedes all product commands. The cloud executor was unavailable during this review; no local parse result is claimed."
+  },
+  "findings": [],
+  "checks": [
+    "The input and producer require exact 515 -> 140 -> 9ff ancestry, the two tests/spec predecessor changes, the six implementation changes and all seven cumulative source hashes.",
+    "The source is extracted from git archive into a fresh owned runner-temp root; tracked paths, Git blob identity, source hashes and unchanged post-build contents are checked.",
+    "The cleaned environment selects one compiler job, Rust/Cargo 1.100.0, consistent dev/test debug profiles and owned target/temp directories.",
+    "Formatting, warnings-denied all-target Clippy and all-default test compilation precede release creation; the Cargo metadata and executable map cover every default test target.",
+    "The existing compiled man generator runs once; generated bead-update.1 bytes and SHA-256 are emitted before exact equality with the tracked page is required.",
+    "The pinned source's existing archive release script builds the named immutable Linux release; adjacent metadata, source, target, default features, release SHA-256 and actual --version must agree.",
+    "Owned process groups, a 1790-second work alarm and a 1800-second total limit bound the producer; assisted cleanup or lingering descendants fail the outcome.",
+    "Complete target/source inventories and logs are retained with a qualification bundle; release metadata and the exact selected original public corpus are retained separately for seven days.",
+    "Both workflows have valid step-level runner contexts, fixed action commits, read-only token permissions, distinct owned roots, no artifact parent traversal and failure-output upload.",
+    "The final author record describes two complete inspections of the exact final producer and workflow bytes; prior failures are not replaced by this preparation review."
+  ],
+  "next_action": "Activate the exact reviewed packet on its named hosted branch and inspect the actual formatter, Clippy, compile, generated-man and archive-release results. Verify downloaded bundle and release hashes before recording checkpoint-linux-build complete.",
+  "remains_pending": [
+    "Actual hosted build and complete raw results",
+    "Downloaded bundle/release verification",
+    "Execution of the accepted directly affected native tests",
+    "Final-source full-suite and checkpoint corpus checks",
+    "Final native source review after affected checks and author inspections",
+    "Windows qualification and combined checked installation"
+  ],
+  "cleanup": "After final results are retained, remove the task Linux packet/build branches and clean published Riftri worktrees through the recorded workflow. A future agent must reconcile any running job and complete cleanup if this session ends."
+}
