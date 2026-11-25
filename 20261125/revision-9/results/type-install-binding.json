@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "task_key": "type-install-binding",
+  "status": "PENDING",
+  "author": "/root",
+  "continuation_revision": 9,
+  "candidate_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+  "retention_commit": "ef223820d14d66b50c8e0541bc1694ebd40c05a8",
+  "source_assessment": "PASS",
+  "hosted_helper_checks": "PASS",
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "review_commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
+    "review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+    "tasks": 55,
+    "edges": 91,
+    "total_issues": 1009
+  },
+  "helpers": [
+    {
+      "path": "20261125/revision-9/install-binding/checkpoint-handoff-20261125.mjs",
+      "git_blob": "240e6623cdcaed2e3aafee3bb9b8ec9ee60d34de",
+      "sha256": "179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/checkpoint-handoff-supervisor-20261125.ps1",
+      "git_blob": "fb6dee4e2724589b34649eeb95bb4c1f0427dc7b",
+      "sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/materialize-v9.mjs",
+      "git_blob": "2e1e26a440eb3a3613a1de133864a155638e192d",
+      "sha256": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/materialize-v9-supervisor.ps1",
+      "git_blob": "51989dc95adfcc325f1505ad341955fd55c43afd",
+      "sha256": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/windows-install-tray-host-20261125.ps1",
+      "git_blob": "7936a5cb30a551f6ac6eb258920e067262ebf228",
+      "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/windows-configured-launch-host-20261125.ps1",
+      "git_blob": "98cdf0280601589fbfb211c3be163142c63a26b0",
+      "sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/plan.json",
+      "git_blob": "50bba189c2eb9db77d1517d34e9134bc25cc3ee8",
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/plan-review.json",
+      "git_blob": "794c37b9023a2f4209c5b4e06bd3c540e5ed846b",
+      "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/parse-inputs.json",
+      "git_blob": "8981bc9d66c47e0d07807c8361345a6120c36682",
+      "sha256": "d775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/parse-bindings.ps1",
+      "git_blob": "d371c5736d760426489b9f7c3ddc4944e7e15311",
+      "sha256": "c6ce24dd405de76c60936796424901dc5a2c6ec720c4d2a2342eb036e4c30691"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/check-binding-refusals.ps1",
+      "git_blob": "86eb01c456f8eb43e8421eaa9425dff9dfcbf81b",
+      "sha256": "8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/check-history-refusals.mjs",
+      "git_blob": "e8b57b38f7eacf01b4e8623c7e75bfe94c474330",
+      "sha256": "95152755e97a8ee62d0a9d127c0833f298400dec852361acc2e8caee13038d55"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/verify-bindings.workflow.yml",
+      "git_blob": "4c68cf9a4700aff4ecfa9e55e47b3f87adf00838",
+      "sha256": "890cf053327df055dc1928011b7b2da06394331789ce4d2d2fb212642961beb6"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/binding.json",
+      "git_blob": "187bdece4c1af86a1729c28796f26c0eaada2e51",
+      "sha256": "851877164b7dac2a058e366fc5a9867cee4926eff7b77673c16ead0681eba69a"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/README.md",
+      "git_blob": "305815d15118b92386611c1d6e00e79cc3ad0688",
+      "sha256": "68fc9b2f36cdfe4988b54af9d82df307ef797d0251df6a2ccc8008e0a87671da"
+    },
+    {
+      "path": "20261125/revision-9/install-binding/author-inspections.json",
+      "git_blob": "ec5f1dd5ef6352abf06fc174ec6f94c58d905070",
+      "sha256": "118123f5e4b7598d14cfc660e3b86c5faf3e05097c577375a9b04c3e4ae258ea"
+    },
+    {
+      "path": ".github/workflows/type-binding-v9-checks-20261125.yml",
+      "git_blob": "4c68cf9a4700aff4ecfa9e55e47b3f87adf00838",
+      "sha256": "890cf053327df055dc1928011b7b2da06394331789ce4d2d2fb212642961beb6"
+    }
+  ],
+  "checks": {
+    "run_id": 45596905174,
+    "job_id": 139145263805,
+    "retained_commit": "b7dd3bfa6a09cab9e29b136303fce4e7a7309396",
+    "path": "20261125/revision-9/results/type-binding-checks-45596905174.json",
+    "sha256": "7f7dca61100f812239ce3f286a68aa2a3565091f02bbbfc98f4a174262b2a8a0",
+    "summary": {
+      "powershell_files_parsed": 4,
+      "node_files_syntax_checked": 2,
+      "json_inputs_parsed": 2,
+      "embedded_declarations_compiled": 4,
+      "embedded_methods_invoked": 0,
+      "installer_fixture_cases": 9,
+      "history_fixture_cases": 8,
+      "failures": 0,
+      "native_commands": 0,
+      "pc_actions": 0
+    }
+  },
+  "final_author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "scope": "Read all final helper changes and exact preserved baseline bodies, final corrected plan/review contracts, two-inventory source/runtime inputs, all 17 verified remote file identities, actual workflow/job and every decoded parser/declaration/refusal result. Matched all expected source hashes and complete 9+8 fixture cases."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "scope": "Rechecked direct actual-v6 state preservation, obsolete v7/v8 attempt refusal, live revision guards, original 954/history protection, 23 creates/15 updates/40 edges and complete 55-ID/91-edge readback. Rechecked unchanged budgets/cleanup, source/runtime/rollback protection and exact final input/receipt bindings. No actual native IDs, source selection, closures, PC execution or cleanup are inferred from synthetic checks."
+    }
+  ],
+  "app_runtime_inventory_review": {
+    "commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f",
+    "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525"
+  },
+  "native_selection": null,
+  "actual_materialization": null,
+  "task_closer_bound_to_actual_mapping": false,
+  "pending": [
+    "Actual maintenance Red and independent tests/fixture acceptance, then the final two-predicate native source and exact fresh platform qualification.",
+    "Actual Windows native-store and production HTTP roundtrip against the final measured release; the complete unchanged app runtime inventory is already independently accepted.",
+    "Independent acceptance and hosted checks of the narrow fresh-archive staging helper, with final measured native identities.",
+    "Permitted Emergency Maintenance access and immediate resource/status checks; never replay the denied proposal or obsolete materializers.",
+    "One accepted direct revision 6-to-9 transition with all 55 actual IDs/91 edges, then actual mapping-hash binding of task closure/history requests and dependency-ordered result reconciliation.",
+    "Logged-in-PC tray/Exit/restart, checked installation/configured launch, source/history publication and Riftri cleanup."
+  ],
+  "native_mutations": 0,
+  "pc_actions": 0,
+  "worktree_cleanup": "Pending local execution availability; complete exact Riftri recovery/removal instructions are retained in the packet README. Future agents must finish cleanup if this process ends."
+}
