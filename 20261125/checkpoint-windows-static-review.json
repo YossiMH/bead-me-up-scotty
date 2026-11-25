@@ -1,0 +1,142 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "operation": "checkpoint-windows-qualification-static-review",
+  "reviewer": "delivery_review",
+  "reviewed_at_utc": "2026-11-25",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "f4b010cb070448a5bbc47333034c65894737e192",
+  "packet_directory": "20261125/checkpoint-windows",
+  "packet_sha256": "d292a74341832d15e7871d51aa677c7dabe36a78270e02396ae802200e0af2c2",
+  "read_complete_packet": true,
+  "authored_code_read": {
+    "build_python_lines": 614,
+    "check_python_lines": 393,
+    "supervisor_powershell_lines": 204,
+    "driver_powershell_lines": 175
+  },
+  "files": {
+    "README.md": {
+      "sha256": "f1b8a96f32356112590ee149e1bbcc1387be9b7dbf685d275ebd012bf5cae1b5",
+      "git_blob": "1fc1a80d9b3107559f775bd10601163a5b5a46af",
+      "bytes": 10833
+    },
+    "author-audits.json": {
+      "sha256": "a842709e31c4b4fba96419033a888856f62c03afa7b5cd1f8f86dbc5a2875298",
+      "git_blob": "a0df741af9d86459de8c4b78edebeb0b654ef15e",
+      "bytes": 10076
+    },
+    "build-inputs.json": {
+      "sha256": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+      "git_blob": "f047696f74a7c074cc9821c87d2845718c22913d",
+      "bytes": 1612
+    },
+    "check-inputs.template.json": {
+      "sha256": "451167bf2f37a266fde9e5211517c555543263690fd8de12194223c4a256b0e9",
+      "git_blob": "f1d193c3797af5af246365f1e4c19466e572f7c0",
+      "bytes": 1157
+    },
+    "checkpoint-release-corpus-20261125.py": {
+      "sha256": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+      "git_blob": "6565ca91f2d371e3a6a2e60a1a0a77b18859939e",
+      "bytes": 42736
+    },
+    "checkpoint-windows-build-20261125.py": {
+      "sha256": "38772767cebbe735f996cb15c4c2ba3b7d37b8a4bf342f723e618053a210658d",
+      "git_blob": "4fb5584d01e75bac368db183e879d131d31a1778",
+      "bytes": 35619
+    },
+    "checkpoint-windows-build.workflow.yml": {
+      "sha256": "92a2cc8200f5cbb1d5ca7dd0e011a40c612b615e130cdd1a4de09f2a75640cac",
+      "git_blob": "377814cdfff201d51a669e10df4983316dd1de8a",
+      "bytes": 2787
+    },
+    "checkpoint-windows-check-20261125.py": {
+      "sha256": "434a91231042d710493b9fc4ee09e346a78baab13659115c8158b1f4df3f035d",
+      "git_blob": "e518f8d9a6a996f8febec5d674adece553deec14",
+      "bytes": 25669
+    },
+    "checkpoint-windows-check.workflow.template.yml": {
+      "sha256": "885dce18d0c636571ed0489da6707f75ad480fe00f4de9e8482494ed544cc2dc",
+      "git_blob": "8101f0b9a17b826e3c49c1f255e29ad9c37c937a",
+      "bytes": 3532
+    },
+    "checkpoint-windows-driver-20261125.ps1": {
+      "sha256": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+      "git_blob": "6612117befb1800cb93d75eae7d2dd035c484acf",
+      "bytes": 10139
+    },
+    "checkpoint-windows-supervisor-20261125.ps1": {
+      "sha256": "65e79920e794a11abea82b6fa2393f3f988ed1a9c68af088c57731471809bdaa",
+      "git_blob": "42eff73976bcc1e12ae046d1f462d8387a7d11c2",
+      "bytes": 10833
+    },
+    "corpus-inputs.template.json": {
+      "sha256": "5f823c4b81f58c9f4a97904cbeba184f27d828c91f9b1afd1ca86f2fb7ae6fa7",
+      "git_blob": "94d2a9c79b9a68eb0d18eecc7ba90130f2bd0520",
+      "bytes": 437
+    },
+    "packet.json": {
+      "sha256": "d292a74341832d15e7871d51aa677c7dabe36a78270e02396ae802200e0af2c2",
+      "git_blob": "e486c5235eeccedc0650077ac27debbaecae368b",
+      "bytes": 2562
+    },
+    "static-checks.json": {
+      "sha256": "4bfd45905ba4f0c4b45730155bbd526b00e11cb58f8f3586316777c670f84a57",
+      "git_blob": "68ac7dbbacaf614dc8c650fcd67d0a0699b58941",
+      "bytes": 1412
+    }
+  },
+  "native_tasks": {
+    "build": "beadrs-70721b6a",
+    "checks": "beadrs-cd3f5a63"
+  },
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+    "ancestry": [
+      "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+      "cee3220b5e4b9a414c50379273c84759db645dbf",
+      "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+      "986f2a332aca9dd567eee41ce835917d56e29468"
+    ],
+    "parent_edges": 3,
+    "five_candidate_hashes_match_actual_published_source": true
+  },
+  "checks": [
+    "Read all four authored execution scripts in full, both complete workflows, all actual/template inputs, packet, README, static guards and two author audits. Verified every declared file hash. Copied corpus code is byte-identical to the previously fully reviewed 653ff9f3 verifier.",
+    "Checked source pins against the independently fetched actual formatted commit, authoritative tree and five candidate files. Depth-four checkout supplies all four commits; every declared parent edge and the exact cumulative five-file delta are enforced.",
+    "Fetched and hashed the actual unchanged archive build script, owned Job helper and 55-command smoke. Their bytes match f51d6073, 2758a6ff and 2a29faa7 pins.",
+    "Build starts with the required unchanged immutable-archive MSVC route, one Cargo job, pinned Rust/Cargo 1.100.0 and recorded x64 Visual C++ environment. Actual release source/target/metadata/hash/PE headers and version verification are required; the separate command compiles the library and all five named integration targets without running their tests.",
+    "Only the existing helper creates a Job. Supervisor enters before Python; query-only probes require exactly supervisor plus Python between commands and root-only quiescence after Python exits. Timeout or remaining descendants fails; the driver observes the same supervisor's exit before asserting final empty-Job completion.",
+    "All Python and ordinary Windows PowerShell parse gates occur in the hosted execution path. Strict fresh run directories, source archive Git blobs/modes, case/path/reparse restrictions and bounded serial subprocess execution are preserved.",
+    "Build bundles and check readers agree on exact members, all seven debug outputs, release metadata and four prerequisite receipts. Source and compiler-output paths are reconstructed at the original absolute build root; explicit verified CARGO_BIN_EXE_bead supplies assert_cmd's runtime selector.",
+    "Separate checks run the three staging regressions and all five complete integration targets serially, with complete listings, required regression names, zero failed/ignored integration cases and a 900-second combined listing/execution budget per target.",
+    "The shared verifier is invoked under the actual owned outer Job and must establish four original-corpus restores, all six comparisons, immutable selected previous recovery, unchanged configuration and every original 954/11264/5/413 record count. The exact release then runs the unchanged 55-command editing smoke.",
+    "Source, executable, metadata and helper/input bytes are checked after execution. The release is copied into retained output before tests, preserving failed qualification evidence; final qualified status additionally requires successful postchecks and observed supervisor completion.",
+    "Read-only permissions, exact Actions pins, build/check separation, 45/150-minute hosted job bounds, small exact-stream emission, seven-day artifact retention and owned temporary-branch/worktree cleanup are coherent."
+  ],
+  "findings": [],
+  "acceptance_boundary": {
+    "fully_bound_build_activation_accepted": true,
+    "build_workflow_sha256": "92a2cc8200f5cbb1d5ca7dd0e011a40c612b615e130cdd1a4de09f2a75640cac",
+    "build_inputs_sha256": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+    "check_helper_and_template_static_review": "accepted",
+    "check_activation_accepted": false,
+    "check_actual_input_binding": "pending actual accepted build run, artifact, four receipt hashes, bundle and measured release/corpus pins; rendered input/workflow require independent review",
+    "actual_platform_parse": "pending hosted invocation",
+    "actual_build": "pending",
+    "actual_windows_qualification": "pending",
+    "pc_pin_selection": "pending exact qualified release and full independent repair review",
+    "configuration_workaround_accepted": false,
+    "reviewer_product_execution": false
+  },
+  "related_reviews": {
+    "formatting": "58b141abde4fec0bf519d3d8628ced94d6e2fd3d35bfd3f6058c7fd2c95b665a",
+    "linux_v2": "0866eae319469bbe6067318488ed30206e711e2ebc839245fdf9ba83a786c363",
+    "corpus": "a0c0faaaa023df054ca0b5949c833d238683070f8913f11b201df324d2b97a87"
+  },
+  "cleanup": "Retain failed and accepted receipts before new attempts. Root/future agents reconcile only owned activation branches and clean Riftri worktrees after final publication without forcing user changes."
+}

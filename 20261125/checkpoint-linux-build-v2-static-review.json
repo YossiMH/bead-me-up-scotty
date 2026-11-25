@@ -1,0 +1,97 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "operation": "checkpoint-linux-build-v2-static-review",
+  "reviewer": "delivery_review",
+  "reviewed_at_utc": "2026-11-25",
+  "packet_repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "2a449a607f8c61b5d365e9d3488c1e089eca1aff",
+  "packet_directory": "20261125/checkpoint-linux-green-v2",
+  "native_task": "beadrs-9c6d0088",
+  "read_complete_packet": true,
+  "helper_lines_read": 415,
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+    "tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+    "parent": "cee3220b5e4b9a414c50379273c84759db645dbf",
+    "tests_commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "baseline": "986f2a332aca9dd567eee41ce835917d56e29468",
+    "recursive_tree_truncated": false,
+    "blobs": 651,
+    "unchanged_parent_blobs": 648,
+    "changed_parent_paths": [
+      "tests/attempt_receipt_checkpoint_integrity.rs",
+      "tests/checkpoint_set_v2_conformance.rs",
+      "tests/checkpoint_tail_generation_integrity.rs"
+    ],
+    "all_five_candidate_sha256_matched": true
+  },
+  "files": {
+    "README.md": {
+      "git_blob": "188932255ed79bd72c538c859c141b499a725a69",
+      "sha256": "4edba2c2142aa68148579fa0a5d824d6bc6ca48832ce098483cdd395fecc5107",
+      "bytes": 7347
+    },
+    "author-audits.json": {
+      "git_blob": "7034e7050b33dd28ae121de5a39dd066a1be7656",
+      "sha256": "dc69e8c90b7349722db79ae13988ffc22883fa1d2b9d35781e591350bfa4fe71",
+      "bytes": 1991
+    },
+    "build-inputs.json": {
+      "git_blob": "4eb68db9060f303e6d0e9f5cce7802193f96feed",
+      "sha256": "50af921e6fff03182d2a0c85663c4350150b12e0ffef046e922fa9540ba24bf8",
+      "bytes": 1324
+    },
+    "checkpoint-build-support.py": {
+      "git_blob": "936fb31106759f523f69fa1925d2f176176ec756",
+      "sha256": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+      "bytes": 26661
+    },
+    "checkpoint-linux-build-20261125.py": {
+      "git_blob": "cab4b8d1c612340cd2654324c5fef99cd0b16535",
+      "sha256": "94c4a9012f35326234cd0eb613017b22018f0679be2d4f53fce08c9f1d4af6ad",
+      "bytes": 24298
+    },
+    "checkpoint-linux-build.workflow.yml": {
+      "git_blob": "5a2275ebf0a87495f53a92ea52db319b9154d6d0",
+      "sha256": "4abffedf89a271dc353adf8a77f622d525851ae56e7d323fffcecc38ea95c9bd",
+      "bytes": 4376
+    },
+    "helper-rebind.patch": {
+      "git_blob": "ce0d26657cb22f99f4aad893ba955c6375b3b4df",
+      "sha256": "6a28af494fd1e65b1194096abd4dd344c0206072192feb47edd8743986dceeb0",
+      "bytes": 8218
+    },
+    "manifest.json": {
+      "git_blob": "6db0b19361c05d2ed578f435a0da5bb7f91515eb",
+      "sha256": "800e419fbbf8c8eda234df6ed67394d83adcdc51bc0fd4818a6dee534a4f7cd3",
+      "bytes": 1453
+    }
+  },
+  "checks": [
+    "Read the complete 415-line helper, exact rebind patch, bound inputs, complete YAML, notes, manifest and both author inspections; support bytes match the previously fully inspected db9b710e helper.",
+    "Applied the rebind patch in memory to the accepted v1 helper with strict hunk/context checks; resulting text is exactly the v2 helper.",
+    "Fetched the actual formatted commit, its authoritative recursive tree and all five candidate files. Sole parent is cee3220b; exactly the three reviewed test files differ and all 648 other parent blobs/modes remain unchanged. Each candidate SHA matches the accepted formatting/source reviews.",
+    "Depth-four checkout covers formatted, repair, tests and baseline. Helper enforces formatted-to-repair-to-tests ancestry, exact three formatting paths, two repair paths and five cumulative paths, with full source archive Git-blob verification.",
+    "Actual final-source whitespace receipt is emitted before Cargo; successful formatter receipt is emitted before Clippy. Failures cannot produce successful preflight receipts. Early emission is restricted to the relevant preflight streams.",
+    "Required fmt, all-target Clippy, all-default no-run compilation and unchanged immutable-archive release build remain ordered and bounded to one Cargo job, reviewed profiles and owned paths.",
+    "All Cargo-reported default harnesses and ordinary bead binary are retained with complete source/target modes, mtimes and hashes for the separate full suite. The full-suite and release-corpus tasks remain independent required execution gates.",
+    "Reviewed helper/workflow/input hashes, read-only token, pinned actions and Rust toolchain, fresh v2 activation branch, 1800-second phase deadline, owned process cleanup and seven-day result/artifact retention.",
+    "The actual first Green run remains failed solely at fmt, with its complete formatter output and passed whitespace receipt retained. Accepted Red evidence remains tied to a42d7dad; the exact six formatting hunks do not alter test/fixture semantics."
+  ],
+  "previous_static_review_sha256": "762d127ec914359e981faccd8b3e545b5d6972ff46cd277173618958b5fbfbd4",
+  "formatting_review_sha256": "58b141abde4fec0bf519d3d8628ced94d6e2fd3d35bfd3f6058c7fd2c95b665a",
+  "findings": [],
+  "execution_boundary": {
+    "activation_accepted_after_root_authorization": true,
+    "python_parse": "pending ordinary hosted preflight",
+    "build": "pending actual v2 results",
+    "full_suite": "pending separate accepted task",
+    "release_corpus": "pending separate accepted task",
+    "production_repair_final_acceptance": "pending required Linux/Windows qualification and independent repair review",
+    "reviewer_executed_product_tests": false
+  },
+  "cleanup": "Root and future agents must preserve actual reports and reconcile uncertain runs before cleaning owned temporary qualification branches and Riftri worktrees."
+}
