@@ -60,7 +60,7 @@ function Get-ZipIndex([IO.Compression.ZipArchive]$Archive,[string[]]$Expected){
         $kind=([long]$entry.ExternalAttributes -shr 16) -band 61440
         if($name.EndsWith('/')){
             Assert-ZipPath $name.Substring(0,$name.Length-1)
-            Assert-That ($directories.Contains($name) -and $entry.Length -eq 0 -and $kind -in @(0,16384)) ('Unexpected ZIP directory: '+$name)
+            Assert-That ($directories.Contains($name) -and $entry.Length -eq 0 -and $kind -in @(0,16384) -and ($entry.ExternalAttributes -band 1024) -eq 0) ('Unexpected ZIP directory: '+$name)
             continue
         }
         Assert-ZipPath $name

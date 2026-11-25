@@ -118,7 +118,7 @@ try{
     $Self.PriorityClass='BelowNormal'
     $driver=Task-Path $StagerPath
     $requestFile=Task-Path $RequestPath
-    $jobHelper=Task-Path $JobHelperPath
+    $jobHelper=Safe-Path $JobHelperPath
     $PowerShellPath=Safe-Path (Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe')
     Assert-That ((Hash $driver) -ceq $StagerSha256) 'Accepted archive staging helper changed.'
     Assert-That ((Hash $jobHelper) -ceq '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f') 'Qualified task Job helper differs.'

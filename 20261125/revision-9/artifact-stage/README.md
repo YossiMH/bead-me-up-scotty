@@ -12,7 +12,7 @@ Use a fresh lowercase stage name such as `stage-artifacts-v9-final-<unique-nonce
 
 ## Copy and resource controls
 
-Run `stage-artifacts-supervisor-20261125.ps1` in a fresh hidden Windows PowerShell 5.1 process, with the exact reviewed helper/request SHA-256 values and the existing `windows-task-job.ps1` (SHA-256 2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f). Its parameters are `JobHelperPath`, `StagerPath`, `StagerSha256`, `RequestPath` and `RequestSha256`.
+Run `stage-artifacts-supervisor-20261125.ps1` in a fresh hidden Windows PowerShell 5.1 process, with the exact reviewed helper/request SHA-256 values and the existing `windows-task-job.ps1` (SHA-256 2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f). The recorded helper at `C:\Users\YossiMH\AppData\Local\bead-edit-20261111\tray-host-execution-20261125\windows-task-job.ps1` is accepted by the original absolute-path/reparse checks and its exact hash; no extra copy is required. Its parameters are `JobHelperPath`, `StagerPath`, `StagerSha256`, `RequestPath` and `RequestSha256`.
 
 The supervisor retains the accepted materializer controller's Job membership, PID/birth identity, bounded output, owned cleanup and hard deadline algorithms. It checks at least 1 GiB free physical RAM immediately before copying and every 100 ms while work continues, limits aggregate owned RSS to 512 MiB, and uses BelowNormal priority. Work stops at 168 seconds, the copy helper's deadline is 158 seconds from supervisor start, and the owned Job has a 180-second hard deadline. The later application/tray/configured checks retain their separate 3 GiB gate.
 
@@ -22,7 +22,7 @@ The stage, its exclusive sibling `.claim`, and its sibling `.supervisor` directo
 
 ## Review status
 
-This is a dormant preparation. Focused hosted parsing, archive refusal/copy checks, two final author inspections and independent source/results review are required before PC invocation. This packet does not complete installation or final task-history work.
+This is a dormant preparation. Focused hosted parsing, actual existing app archive copying with a synthetic native package, archive refusal/copy checks, two final author inspections and independent source/results review are required before PC invocation. This packet does not complete installation or final task-history work.
 
 The helper derives from the count-independent `Verify-Runtime` function in the accepted installer at 98a2daa3ef411c0f986daee1794c130f025c49cd. The supervisor is a narrow descendant of that commit's `materialize-v8-supervisor.ps1`. Their original files remain unchanged. The previously applied 523 tray stage must not be replayed.
 

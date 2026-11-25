@@ -1,0 +1,64 @@
+name: Scotty archive staging checks 20261125
+
+on:
+  push:
+    branches:
+      - task/artifact-stage-checks-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: scotty-artifact-stage-checks-20261125
+  cancel-in-progress: false
+
+jobs:
+  checks:
+    if: github.repository == 'YossiMH/bead-me-up-scotty'
+    runs-on: windows-2022
+    timeout-minutes: 8
+    defaults:
+      run:
+        shell: powershell
+    steps:
+      - name: Preserve canonical source line endings
+        timeout-minutes: 1
+        run: |
+          git config --global core.autocrlf false
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Read the reviewed staging packet and retained runtime records
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        timeout-minutes: 2
+        with:
+          ref: ${{ github.sha }}
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/revision-9/artifact-stage
+            20261125/revision-8/results/runtime-manifest-recovery-45594231069
+      - name: Download the existing immutable app output only
+        timeout-minutes: 2
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $packet = Join-Path $env:GITHUB_WORKSPACE '20261125/revision-9/artifact-stage'
+          python (Join-Path $packet 'download-existing-app.py') --manifest-sha256 '7bca53de0a46e386c01f3fc615332c4165d52a90943e14912678b84c165fc44f'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Parse exact PowerShell and check owned archive fixtures
+        timeout-minutes: 4
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $packet = Join-Path $env:GITHUB_WORKSPACE '20261125/revision-9/artifact-stage'
+          & (Join-Path $packet 'check-stage-archives.ps1') -Directory $packet -ManifestSha256 '7bca53de0a46e386c01f3fc615332c4165d52a90943e14912678b84c165fc44f'
+          if ($LASTEXITCODE -ne 0) { exit $LASTEXITCODE }
+      - name: Retain exact results and synthetic partial-copy evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        timeout-minutes: 2
+        with:
+          name: scotty-artifact-stage-checks-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/scotty-stage-checks-${{ github.run_id }}-${{ github.run_attempt }}/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 14
