@@ -6,7 +6,7 @@
   "scope": "Fresh archive staging source and focused hosted check preparation only",
   "task_key": "type-install-binding-review",
   "continuation_revision": 9,
-  "candidate_commit": "02154b5dc7c3bbca62fec12d7aa57499f90d740e",
+  "candidate_commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
   "activation_branch": "task/artifact-stage-checks-20261125",
   "files": {
     "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1": {
@@ -18,20 +18,20 @@
       "git_blob": "87c74cfcf25c9a5b80ff30c5c15a31462b5730bf"
     },
     "20261125/revision-9/artifact-stage/check-inputs.json": {
-      "sha256": "0b5eb3c01620a6fa7a457066dff740a52c30e89b940214449218424747eeb857",
-      "git_blob": "1e57b7124ab1108a290ba0c4669765ec819b872c"
+      "sha256": "665642e8fcd61ed6e967f2d117e3a380b025f7d4b6109aa086809d1bec7543a3",
+      "git_blob": "9103d2818d8b7d92553f69c61b0c119e42695b9b"
     },
     "20261125/revision-9/artifact-stage/check-stage-archives.ps1": {
-      "sha256": "708879be8ed9a2d3a7d3ddfe8262987769c7aa44f8f72c8166481d24a782fe51",
-      "git_blob": "ba3284ee4668e77159473b3c6af92f2f614f537a"
+      "sha256": "e31a2ea4f3b89423c2a691d9085883d36fe76fee21b38ab890fc60f381ffdc94",
+      "git_blob": "457760138ba15715782a5f65a732cde7b57608a1"
     },
     "20261125/revision-9/artifact-stage/download-existing-app.py": {
       "sha256": "40deb91bc7a48712169a7df63a26ed54b9431f5754ec7cdb473f701b21f7220e",
       "git_blob": "c772d4a71254db4548ac2db2e6cc03389176776f"
     },
     "20261125/revision-9/artifact-stage/workflow.yml": {
-      "sha256": "bee03e4929d337aa00867dd6e0ab5df225936776fdb689e40c34c874efbbc60f",
-      "git_blob": "f38ee90963c34ab63109309fc4eaada8305a2c1d"
+      "sha256": "a0e0b5901fd9072ec1da8c2017fae173c3b028f3a3416758e1ae35ca71e349ed",
+      "git_blob": "3d67cf55b4e738d51cf035ae3ede91ee2c1216d8"
     },
     "20261125/revision-9/artifact-stage/README.md": {
       "sha256": "3764fb44cb194348414b528d4114eada6914df8623b05b58a4c0adbebfceaa80",
@@ -42,8 +42,8 @@
       "git_blob": "7a8de1a98603349e1789a5c7565a9d9f95842b10"
     },
     ".github/workflows/scotty-artifact-stage-checks-20261125.yml": {
-      "sha256": "bee03e4929d337aa00867dd6e0ab5df225936776fdb689e40c34c874efbbc60f",
-      "git_blob": "f38ee90963c34ab63109309fc4eaada8305a2c1d"
+      "sha256": "a0e0b5901fd9072ec1da8c2017fae173c3b028f3a3416758e1ae35ca71e349ed",
+      "git_blob": "3d67cf55b4e738d51cf035ae3ede91ee2c1216d8"
     }
   },
   "accepted_runtime_review": {
@@ -73,7 +73,9 @@
     "Independently fetched the first actual failed job log and immutable full receipt. Their raw bytes match. Decoded the sole original base64 result and verified exact bytes/hash: three preliminary checks passed, then the actual archive case rejected adapter-tests.stderr. The downloader had verified the exact original ZIP. The failure is retained without any runtime-copy success claim.",
     "Read the complete four-file correction at 4d363ac4. Reversing the single helper line reproduces all original helper bytes; each stdout/stderr concatenation is now separately parenthesized in the expected-path array. Only its input digest and both workflow manifest-hash bindings also change. Both workflows remain identical, every other check/helper/source remains unchanged, and the existing real-archive case directly exercises the defect.",
     "Independently fetched the second failed job log and compared the complete retained bytes/hash. Reconstructed the sole original base64 result and every ordered inventory chunk. All 560 copied files match the accepted manifest's exact path, hash and size, totaling 27,426,391 bytes with the correct source/build ID. The run remains failed after four cases because the first synthetic success fixture selected the already used stage; no remaining case is counted as passed.",
-    "Read the exact 02154b5d fixture correction. Replacing its three $commandName uses back with $name recovers the entire prior check script byte for byte. The change prevents a case-insensitive collision with New-StageFixture's $Name parameter. All 40 assertions and both production helper bytes stay unchanged. Only this fixture hash and both workflow input-hash literals also change; their exact inverses and complete four-file commit delta agree."
+    "Read the exact 02154b5d fixture correction. Replacing its three $commandName uses back with $name recovers the entire prior check script byte for byte. The change prevents a case-insensitive collision with New-StageFixture's $Name parameter. All 40 assertions and both production helper bytes stay unchanged. Only this fixture hash and both workflow input-hash literals also change; their exact inverses and complete four-file commit delta agree.",
+    "Independently retrieved the third actual job before diagnosis and decoded its original result. The retained complete log/result match exactly. All 39 copied-runtime inventory chunks reconstruct the identical already verified 560-file inventory. Thirty checks pass, including complete real and synthetic copy, installer contract, replay, corrupt identity/content and all eight unsafe paths. The duplicate-ZIP test then receives the wrong refusal; all later cases remain incomplete.",
+    "Read the exact final four-file correction at 83a648b7. Reversing only $ExpectedMessage to $Expected recovers the entire preceding test script. The renamed Refused regex parameter stops shadowing the caller's $expected ZIP-name array when invoking its action scriptblock. Every test action, expected message regex and assertion remains unchanged. Product helpers remain bdf5323e/616db975, and input/workflow digests match their exact inverse-only changes."
   ],
   "resolved_findings": [
     {
@@ -87,18 +89,22 @@
     {
       "finding": "The synthetic fixture constructor overwrote its $Name parameter through a case-insensitive $name loop variable, so later fixtures reused the real-copy stage path.",
       "resolution": "Use $commandName in that one command-log loop. Preserve the valid complete runtime-copy evidence and the failed overall run, then execute the unchanged 40-case checks on the corrected fixture."
+    },
+    {
+      "finding": "The Refused fixture function's $Expected regex parameter shadowed a caller's $expected ZIP-path array inside the invoked scriptblock.",
+      "resolution": "Rename only the parameter and its comparison to $ExpectedMessage. Preserve every refusal oracle and actual prior result, then rerun the same complete focused check on the corrected fixture."
     }
   ],
   "findings": [],
-  "verdict": "PASS for one hosted check execution at exact 02154b5dc7c3bbca62fec12d7aa57499f90d740e after reconciling the completed prior run and activation ref. Final staging acceptance still requires every focused case to complete and two final author inspections. The actual 560-file copy is independently verified partial evidence; final native artifact selection and PC invocation remain pending.",
+  "verdict": "PASS for one hosted check execution at exact 83a648b7cda046c9bcc47e3b79f908933499b866 after reconciling the completed prior failure and activation ref. Final staging acceptance requires all 40 cases plus two final author inspections. Final native artifact binding and PC invocation remain pending.",
   "final_staging_acceptance": false,
   "native_identity_bound": false,
   "reviewer_product_execution": false,
   "pc_actions": 0,
   "previous_preparation_review": {
-    "commit": "b8bc7b390eede792af922e09115249a408365c6a",
-    "sha256": "01b3eb8e35adb2af41c66a97d64543475e66fddf567d192fcad2972dac7d1a29",
-    "candidate_commit": "4d363ac40282b866d9391ab36e6f1374deb95ae8"
+    "commit": "4cc8ace6c56ef1b5b19e5bdf2d9753220e78e269",
+    "sha256": "33dce80e31564518db06b5ec6151b04ee4c3c6265f5f1f2570b587da27c35b01",
+    "candidate_commit": "02154b5dc7c3bbca62fec12d7aa57499f90d740e"
   },
   "actual_prior_failure": {
     "run_id": 45601172516,
@@ -126,5 +132,18 @@
     "expanded_bytes": 27426391,
     "overall_status": "failed",
     "error": "System.Management.Automation.RuntimeException: Existing staging attempt; reconcile before a new request."
+  },
+  "actual_third_attempt": {
+    "run_id": 45603033524,
+    "job_id": 139166585414,
+    "retained_commit": "d9190ef5614d708d8da63af984be956a9ee9f46c",
+    "receipt_sha256": "ca20fa8850566922391d6cde45b8efb53db4f8119c2a236397210d7e45195a80",
+    "actual_job_log_sha256": "381f0d704c3d7b1a04da98ac905e69b9beaed0efc1c683cc188b502beb2ebc5a",
+    "original_result_sha256": "061e62fe94d6b44402e450bcc1a0c08735baa3d5d1428665ee209e864910f9ca",
+    "actual_inventory_sha256": "6741bc56b4d8934edea7578d6d4ce54457c8bd2764d49bb515c3e89411949de2",
+    "case_count": 30,
+    "complete_runtime_copy_verified": true,
+    "overall_status": "failed",
+    "error": "System.Management.Automation.RuntimeException: Unexpected refusal for zip-duplicate: Unexpected ZIP entry: safe.txt"
   }
 }
