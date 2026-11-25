@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/cloud_readiness",
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Actual hosted parser, declaration compilation and synthetic refusal checks for revision 7 installation/history preparation",
+  "candidate_commit": "17c3d498cf9d9970dfa157700216481428448a51",
+  "preparation_review_commit": "64a6cd700843ae20fe8ce84fb49a2806563a3cd4",
+  "actual_results_commit": "8d6d4a1c77b073b2573ee1dc2a29dd297a45d712",
+  "actual_results_path": "20261125/revision-7/results/type-binding-checks-45577402715.json",
+  "actual_results_sha256": "9f97321684fc63059282d8549bc87f0bf98080732870e50ac43b6810d647f8b9",
+  "author_receipt": {
+    "commit": "289263f1a91e455fd49bad602984ce918a9f2303",
+    "path": "20261125/revision-7/results/type-install-binding.json",
+    "sha256": "4877a5a66ba80ed55dddfa8002664a5acd401dcffdf599816af9da1424841421",
+    "complete_final_inspections": 2,
+    "status": "clean"
+  },
+  "actual_execution": {
+    "run_id": 45577402715,
+    "job_id": 139078641316,
+    "workflow_commit": "17c3d498cf9d9970dfa157700216481428448a51",
+    "workflow_sha256": "aff3b35958c603246324f15315dfa762cc4c4bbc05431fc607e6b411ea62c3b2",
+    "all_steps_success": true,
+    "powershell_version": "5.1.26100.33822",
+    "powershell_files": 4,
+    "node_syntax_files": 2,
+    "json_inputs": 2,
+    "embedded_declarations_compiled": 4,
+    "installer_cases_passed": 9,
+    "history_cases_passed": 8,
+    "failed_cases": 0,
+    "raw_job_log_sha256": "e25e3d9aaaee29f78c70873db15538212aa27a31475e3b1b374229e1d090fc75",
+    "raw_job_log_exactly_matches_retained": true,
+    "artifact_id": 15004258920,
+    "artifact_zip_sha256": "cb42ee5186c017fde660cf9e3e58b70ad7f62a39a855afddaf17253458d1fb6a"
+  },
+  "decoded_records": [
+    {
+      "marker": "BINDING_PARSE_RESULT_BASE64",
+      "sha256": "2cf420705e9dc27bd981ac1e2f41b94f9262a65fb425e8f939f8c146e152a677",
+      "decoded_from_actual_job_log": true,
+      "exact_bytes_match_retained": true
+    },
+    {
+      "marker": "BINDING_INSTALLER_REFUSALS_BASE64",
+      "sha256": "b9aa898d0862b8d6f3614eddf30f1933d3827dd34146e2bafdcfd9637b576712",
+      "decoded_from_actual_job_log": true,
+      "exact_bytes_match_retained": true
+    },
+    {
+      "marker": "BINDING_HISTORY_REFUSALS_BASE64",
+      "sha256": "115d4bbb3ce8f3322b81d672f2ccef0a2f9b6d7fbcd06898d4416066f45fb2c0",
+      "decoded_from_actual_job_log": true,
+      "exact_bytes_match_retained": true
+    }
+  ],
+  "reviewed_outcomes": [
+    "Every parsed helper and input hash matches the independently reviewed packet. The four embedded C# declarations compile, and no declaration method is invoked.",
+    "Matching runtime and documentation descendant controls pass. Hash, size, BUILD_ID, traversal, duplicate manifest path, unbuilt adapter source and non-descendant source cases refuse. Runtime and source byte inventories remain unchanged.",
+    "The matching 49-task/78-edge synthetic graph passes. Missing/duplicate mappings, wrong edge count/kind, changed original record, unclosed substantive task and changed task description refuse. Inputs remain unchanged.",
+    "The unchanged accepted installer and configured launcher retain the original 15 modified app file, index, runtime rollback and source/runtime qualification guards. The history helper differs only by its three reviewed revision bindings.",
+    "The author accurately preserves unavailable actual native mapping, pending final runtime/native qualification and the denied PC operation without replay."
+  ],
+  "final_binding_accepted": false,
+  "actual_native_mapping_available": false,
+  "task_closure_authorized": false,
+  "actual_materialization": false,
+  "actual_installer_execution": false,
+  "actual_history_merge": false,
+  "pc_actions": 0,
+  "reviewer_executed_product": false,
+  "pending": [
+    "Complete qualified native execution results and final source acceptance.",
+    "Complete fresh runtime/source verification and actual Windows application roundtrip.",
+    "Actual accepted revision 7 materialization receipt with all 49 task IDs and 78 blocking edges.",
+    "Exact final staged invocation parameters and independent final binding acceptance.",
+    "Permitted PC access and resource gate, logged-in tray/Exit behavior, installation/configured launch, complete history preservation and recorded worktree cleanup."
+  ],
+  "findings": []
+}
