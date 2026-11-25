@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Exact final-source Linux affected/full-suite and original-corpus consumer binding",
+  "packet_commit": "41a1bcb1442987773d7c9a7391b959711394d9fd",
+  "packet_parent": "4cb3c18377d9ce73288eb4cd4ec959d087bce403",
+  "packet_directory": "20261125/revision-9/native-linux-check",
+  "activation_branch": "task/native-lock-linux-check-20261125",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "algorithm_review": {
+    "commit": "e99a5745034c9805deded92e53a2de04f1a0aed5",
+    "path": "20261125/revision-9/results/native-linux-consumer-algorithm-review.json",
+    "sha256": "3ecd36b12f4f2d9e404925f5f1c062c8b0b83814e9d36dc1487077f1c6fd0c26"
+  },
+  "actual_producer_review": {
+    "commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40",
+    "path": "20261125/revision-9/results/native-final-build-results-review.json",
+    "sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5"
+  },
+  "reviewed_files": {
+    "checkpoint-full-suite-20261125.py": "5fe0e762be507fc468ab71b17cd4647fc04e56a0eecbf846e122c597c86c391d",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "serial-output-fixtures.json": "82a8a476f6705b4849e63dc5a89818eca800dc2c6261e79fe8ed9b874af44f15",
+    "check-serial-output-fixtures.py": "202281437b10b677caaafb804dff50f0a97683a3ed9197c4f81558e055179a0d",
+    "full-suite-inputs.json": "7da8c52386b446ebe5156e549bf790d17c528c76c0096fe21e815337331511ea",
+    "corpus-inputs.json": "8e1a3cd7c5b3aaf95a62f50d34e0b326d31fab4ced5ce22652fbfc542a817385",
+    "workflow.yml": "ac12ebde5a6b302244c57e447e4a9c8e73e4ba2585bd6a773e197ddc687bb696",
+    "README.md": "27ebeb8b268dc873366c377022f8ef662468fe8492d3577d4d9ce0c44a80c758",
+    "author-inspections.json": "c9fb108b1ed2fa641e1b8dfb9e6aa6c0a325bee327b7fa3613980543693c716e"
+  },
+  "suite_inputs": {
+    "schema_version": 1,
+    "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "build_run": "45600748319",
+    "build_attempt": "1",
+    "build_workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7",
+    "build_result_sha256": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb",
+    "outer_result_sha256": "62fc3533879226a627decab00b2ed196b850782503495c09de18e78df5ff2077",
+    "bundle_sha256": "70cce1166193b38a5baaa35419e447acf6f6a73cab040dc7c315dc2aed13fb9f",
+    "bundle_bytes": 555870647
+  },
+  "corpus_inputs": {
+    "schema_version": 1,
+    "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "release_sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c",
+    "release_bytes": 13618928,
+    "metadata_sha256": "866c10c4909ad736c06e0c44c7955033179134165f157be6b054c4a0b55510cf",
+    "target": "x86_64-unknown-linux-gnu",
+    "original_public_commit": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+    "windows_job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "artifact_ids": {
+    "full": 15015039880,
+    "release": 15016141673
+  },
+  "actual_workflow_path": ".github/workflows/native-lock-linux-check-20261125.yml",
+  "actual_workflow_equals_packet": true,
+  "complete_clean_final_author_inspections": 2,
+  "checks": [
+    "The immutable final commit directly follows the accepted algorithm draft. Its changed paths contain only the final inputs/workflow/author record and README; every helper, parser fixture and algorithm file remains unchanged.",
+    "Every full-suite input field equals the independently decoded successful final producer and outer receipt, including source/tree, run/attempt, distinct Linux workflow commit, build/outer digests and exact bundle hash/length. Corpus release and metadata inputs likewise equal the successful producer records.",
+    "Filled all eight accepted workflow-template tokens independently from actual API artifact IDs and decoded receipts. The resulting complete workflow is byte-identical to both final workflow.yml and the actual installed workflow. No placeholder remains.",
+    "Read both complete final author inspections and final README. All twelve listed final packet file hashes/lengths match independently read immutable bytes, including unchanged templates, helper algorithms and actual workflow.",
+    "Retained compilation remains separate from runtime. Before any test executes, the unchanged consumer verifies downloaded bundle, source/executable inventories, producer identity and environment; the separate corpus job verifies the exact release and original source. All nine affected targets, six maintenance cases, eleven type-file cases, complete default suite and original-record comparisons remain required.",
+    "The complete prior algorithm review and actual final-source producer reconciliation remain valid. No old c90 binary, old workflow identity or historical qualification result is selected by these inputs."
+  ],
+  "findings": [],
+  "verdict": "GO for one reconciled hosted activation of this exact packet and its two Linux jobs. Preserve all actual outcomes, complete streams, inventories and cleanup results for independent final qualification review.",
+  "activation_authorized": true,
+  "final_native_acceptance": false,
+  "pending": [
+    "Actual download/bundle/source validation and all nine affected-target results",
+    "Complete default Linux harness/doctest inventory, names/counts and process/environment cleanup",
+    "Actual separate final-release original-corpus comparison",
+    "Final native author inspections and independent complete native result review"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
