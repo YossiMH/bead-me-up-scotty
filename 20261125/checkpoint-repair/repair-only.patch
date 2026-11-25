@@ -1,0 +1,105 @@
+--- a/src/service/checkpoint/set_v2.rs
++++ b/src/service/checkpoint/set_v2.rs
+@@ -367,7 +367,7 @@
+     Ok((rel, hash))
+ }
+ 
+-/// Write a `set/` artifact at a fixed path (the tail), or a content-addressed
++/// Write a `set/` artifact at a generation path, or a content-addressed
+ /// one, with the publication temp/rename/fsync discipline.
+ fn write_set_file(
+     checkpoint_dir: &Path,
+@@ -695,20 +695,21 @@
+                 "origin_range": origin_range,
+             }));
+         } else {
+-            // The one open tail; rewritten by every publication that has
+-            // events at all, so its fixed path never content-addresses.
+-            write_set_file(
++            // The logical open tail changes as events append, but a
++            // selected generation must keep its own bytes until retention
++            // releases it. Content-address the tail just like other objects;
++            // legacy set/tail.jsonl remains untouched while a pointer uses it.
++            let (rel, hash) = write_set_object(
+                 checkpoint_dir,
+-                "set/tail.jsonl",
+                 "tail",
++                "tail",
+                 &body,
+                 changed_paths,
+                 scratch_dir,
+             )?;
+-            let hash = format!("{:x}", Sha256::digest(&body));
+-            referenced_paths.push("set/tail.jsonl".to_string());
++            referenced_paths.push(rel.clone());
+             tail_row = Some(serde_json::json!({
+-                "path": "set/tail.jsonl",
++                "path": rel,
+                 "sha256": hash,
+                 "byte_length": body.len(),
+                 "event_count": members.len(),
+@@ -1106,7 +1107,7 @@
+                             seen_issue_ids: &mut std::collections::HashSet<String>,
+                             seen_event_identities: &mut std::collections::HashSet<String>,
+                             seen_receipt_ids: &mut std::collections::HashSet<String>,
+-                            _seen_attempt_ids: &mut std::collections::HashSet<String>|
++                            seen_attempt_ids: &mut std::collections::HashSet<String>|
+      -> Result<()> {
+         // Digest before use (spec 13); the parse then reads the same bytes.
+         read_verified_set_artifact(base, rel, sha, len)?;
+@@ -1124,6 +1125,11 @@
+         labels.extend(data.labels);
+         events.extend(data.events);
+         receipts.extend(data.receipts);
++        for outcome in &data.attempt_outcomes {
++            if !seen_attempt_ids.insert(outcome.attempt_id.clone()) {
++                bail!("Duplicate attempt ID: {}", outcome.attempt_id);
++            }
++        }
+         attempt_outcomes.extend(data.attempt_outcomes);
+         redaction.findings.extend(data.redaction.findings);
+         redaction
+--- a/research/specs/checkpoint-set-v2.md
++++ b/research/specs/checkpoint-set-v2.md
+@@ -94,7 +94,7 @@
+ set/shard/<sha256>.jsonl      keyed-record shards (issues, receipts, outcomes, redactions)
+ set/seg/<sha256>.jsonl        sealed event segments
+ set/rec/<sha256>.jsonl        oversize records, referenced by shards and segments
+-set/tail.jsonl                the one open event segment
++set/tail/<sha256>.jsonl       the generation-selected open event segment
+ ```
+ 
+ The `set/` tree is physically disjoint from the `objects/` and `manifests/`
+@@ -181,11 +181,19 @@
+ |---|---|---|
+ | `SEG_SEAL` | 64 KiB | the tail above this after a publication seals |
+ 
++The logical open tail is also a content-addressed object. Each manifest's
++`tail.path` selects immutable bytes at `set/tail/<sha256>.jsonl`; appending
++writes a new object and leaves every current/previous generation's selected
++bytes intact. Readers continue accepting legacy `set/tail.jsonl` references.
++On the next publication the legacy file is retained unchanged while an
++outgoing pointer still selects it, then removed by ordinary structural
++retention. This does not change segment boundaries or the sealing threshold.
++
+ ### 6.2 Seal rule
+ 
+ A publication appends its new events to the tail. If the tail's post-append
+-byte length exceeds `SEG_SEAL`, the tail **seals**: it is renamed to its
+-content-addressed name `set/seg/<sha256>.jsonl`, recorded in the manifest as
++byte length exceeds `SEG_SEAL`, the tail **seals**: its bytes are published
++at the sealed-segment content address `set/seg/<sha256>.jsonl`, recorded in the manifest as
+ a sealed segment with its sequence ranges, and a new empty tail opens in the
+ same publication. A sealed segment is immutable for the life of the
+ workspace: it is never appended to, rewritten, repacked, or re-split. The
+@@ -264,8 +272,8 @@
+ 3. Write the new `current.json` to a `.tmp` sibling with the old pointer
+    promoted to `previous.json`, fsync, then atomically rename it over
+    `current.json`.
+-4. Apply the structural deletions of section 7.3; remove the sealed tail's
+-   old file.
++4. Apply the structural deletions of section 7.3. Remove an old tail object
++   only after neither retained pointer's manifest selects it.
+ 
+ A crash before step 3 leaves the old generation authoritative; a crash after
+ step 3 leaves the new one authoritative. Publication state is derived from

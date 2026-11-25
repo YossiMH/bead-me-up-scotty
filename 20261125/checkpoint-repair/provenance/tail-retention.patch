@@ -1,0 +1,278 @@
+--- a/src/service/checkpoint/set_v2.rs
++++ b/src/service/checkpoint/set_v2.rs
+@@ -367,7 +367,7 @@
+     Ok((rel, hash))
+ }
+ 
+-/// Write a `set/` artifact at a fixed path (the tail), or a content-addressed
++/// Write a `set/` artifact at a generation path, or a content-addressed
+ /// one, with the publication temp/rename/fsync discipline.
+ fn write_set_file(
+     checkpoint_dir: &Path,
+@@ -695,20 +695,21 @@
+                 "origin_range": origin_range,
+             }));
+         } else {
+-            // The one open tail; rewritten by every publication that has
+-            // events at all, so its fixed path never content-addresses.
+-            write_set_file(
++            // The logical open tail changes as events append, but a
++            // selected generation must keep its own bytes until retention
++            // releases it. Content-address the tail just like other objects;
++            // legacy set/tail.jsonl remains untouched while a pointer uses it.
++            let (rel, hash) = write_set_object(
+                 checkpoint_dir,
+-                "set/tail.jsonl",
++                "tail",
+                 "tail",
+                 &body,
+                 changed_paths,
+                 scratch_dir,
+             )?;
+-            let hash = format!("{:x}", Sha256::digest(&body));
+-            referenced_paths.push("set/tail.jsonl".to_string());
++            referenced_paths.push(rel.clone());
+             tail_row = Some(serde_json::json!({
+-                "path": "set/tail.jsonl",
++                "path": rel,
+                 "sha256": hash,
+                 "byte_length": body.len(),
+                 "event_count": members.len(),
+--- a/research/specs/checkpoint-set-v2.md
++++ b/research/specs/checkpoint-set-v2.md
+@@ -94,7 +94,7 @@
+ set/shard/<sha256>.jsonl      keyed-record shards (issues, receipts, outcomes, redactions)
+ set/seg/<sha256>.jsonl        sealed event segments
+ set/rec/<sha256>.jsonl        oversize records, referenced by shards and segments
+-set/tail.jsonl                the one open event segment
++set/tail/<sha256>.jsonl       the generation-selected open event segment
+ ```
+ 
+ The `set/` tree is physically disjoint from the `objects/` and `manifests/`
+@@ -181,11 +181,19 @@
+ |---|---|---|
+ | `SEG_SEAL` | 64 KiB | the tail above this after a publication seals |
+ 
++The logical open tail is also a content-addressed object. Each manifest's
++`tail.path` selects immutable bytes at `set/tail/<sha256>.jsonl`; appending
++writes a new object and leaves every current/previous generation's selected
++bytes intact. Readers continue accepting legacy `set/tail.jsonl` references.
++On the next publication the legacy file is retained unchanged while an
++outgoing pointer still selects it, then removed by ordinary structural
++retention. This does not change segment boundaries or the sealing threshold.
++
+ ### 6.2 Seal rule
+ 
+ A publication appends its new events to the tail. If the tail's post-append
+-byte length exceeds `SEG_SEAL`, the tail **seals**: it is renamed to its
+-content-addressed name `set/seg/<sha256>.jsonl`, recorded in the manifest as
++byte length exceeds `SEG_SEAL`, the tail **seals**: its bytes are published
++at the sealed-segment content address `set/seg/<sha256>.jsonl`, recorded in the manifest as
+ a sealed segment with its sequence ranges, and a new empty tail opens in the
+ same publication. A sealed segment is immutable for the life of the
+ workspace: it is never appended to, rewritten, repacked, or re-split. The
+@@ -264,8 +272,8 @@
+ 3. Write the new `current.json` to a `.tmp` sibling with the old pointer
+    promoted to `previous.json`, fsync, then atomically rename it over
+    `current.json`.
+-4. Apply the structural deletions of section 7.3; remove the sealed tail's
+-   old file.
++4. Apply the structural deletions of section 7.3. Remove an old tail object
++   only after neither retained pointer's manifest selects it.
+ 
+ A crash before step 3 leaves the old generation authoritative; a crash after
+ step 3 leaves the new one authoritative. Publication state is derived from
+--- a/tests/checkpoint_set_v2_conformance.rs
++++ b/tests/checkpoint_set_v2_conformance.rs
+@@ -1157,7 +1157,7 @@
+         // The tail row verifies against the live tail bytes.
+         let manifest: Value = serde_json::from_slice(&manifest_bytes).unwrap();
+         if let Some(tail) = manifest.get("tail").filter(|t| !t.is_null()) {
+-            let tail_bytes = fs::read(checkpoint_dir.join("set/tail.jsonl")).unwrap();
++            let tail_bytes = fs::read(checkpoint_dir.join(tail["path"].as_str().unwrap())).unwrap();
+             assert_eq!(
+                 format!("{:x}", Sha256::digest(&tail_bytes)),
+                 tail["sha256"].as_str().unwrap(),
+@@ -1177,8 +1177,10 @@
+     // scenario's 240-round budget). Each round captures the outgoing
+     // tail's bytes: the publication that finally crosses SEG_SEAL must
+     // seal exactly those bytes under their content address (spec 6.2
+-    // renames the tail; 7.4 step 4 removes the sealed tail's old file).
+-    let mut old_tail_sha = sha256_file(&checkpoint_dir.join("set/tail.jsonl"));
++    // retains the selected tail until 7.4 step 4 can reap it).
++    let mut old_tail_sha = sha256_file(
++        &checkpoint_dir.join(current_manifest(workspace)["tail"]["path"].as_str().unwrap()),
++    );
+     let mut sealed = false;
+     for round in 0..240 {
+         set_notes(
+@@ -1223,7 +1225,7 @@
+         // The next round's outgoing tail: what its first flush will seal
+         // if this round's appends left it under SEG_SEAL and the next one
+         // crosses.
+-        old_tail_sha = sha256_file(&checkpoint_dir.join("set/tail.jsonl"));
++        old_tail_sha = sha256_file(&checkpoint_dir.join(manifest["tail"]["path"].as_str().unwrap()));
+     }
+     assert!(sealed, "tail never sealed during the idempotency probe");
+ }
+--- /dev/null
++++ b/tests/checkpoint_tail_generation_integrity.rs
+@@ -0,0 +1,158 @@
++//! A selected set-v2 generation remains recoverable across the next publish.
++
++use rusqlite::Connection;
++use serde_json::Value;
++use sha2::{Digest, Sha256};
++use std::fs;
++use std::path::Path;
++use std::process::{Command, Output};
++use tempfile::TempDir;
++
++fn run(workspace: &Path, args: &[&str]) -> Output {
++    let output = Command::new(env!("CARGO_BIN_EXE_bead"))
++        .args(args)
++        .current_dir(workspace)
++        .output()
++        .expect("run bead");
++    assert!(
++        output.status.success(),
++        "bead {args:?}: {}",
++        String::from_utf8_lossy(&output.stderr)
++    );
++    output
++}
++
++fn read_json(file: &Path) -> Value {
++    serde_json::from_slice(&fs::read(file).expect("read JSON")).expect("JSON")
++}
++
++fn selected_generation_survives_append(legacy_fixed_tail: bool) {
++    let source = TempDir::new().expect("source workspace");
++    run(
++        source.path(),
++        &["init", "--prefix", "tail", "--skip-foreign-workspace"],
++    );
++    run(source.path(), &["create", "--title", "retained issue"]);
++    let checkpoint = source.path().join(".beads/checkpoint");
++    let current = checkpoint.join("current.json");
++    let mut selected = read_json(&current);
++    assert_eq!(selected["mode"], "set-v2");
++    let manifest_path = checkpoint.join(selected["active_root"]["path"].as_str().unwrap());
++    let mut manifest = read_json(&manifest_path);
++    let initial_tail = checkpoint.join(manifest["tail"]["path"].as_str().unwrap());
++    let tail_bytes = fs::read(&initial_tail).expect("initial tail");
++    assert!(!tail_bytes.is_empty());
++
++    if legacy_fixed_tail {
++        // Fixture-only recreation of the old writer's exact layout. Keep the
++        // pointer and live bookkeeping consistent; the next real publication
++        // must preserve this selected legacy generation without rewriting it.
++        fs::write(checkpoint.join("set/tail.jsonl"), &tail_bytes).unwrap();
++        manifest["tail"]["path"] = Value::String("set/tail.jsonl".into());
++        let bytes = serde_json::to_vec_pretty(&manifest).unwrap();
++        let sha = format!("{:x}", Sha256::digest(&bytes));
++        fs::write(&manifest_path, bytes).unwrap();
++        selected["active_root"]["sha256"] = Value::String(sha.clone());
++        fs::write(&current, serde_json::to_vec_pretty(&selected).unwrap()).unwrap();
++        let conn = Connection::open(source.path().join(".beads/beads.db")).unwrap();
++        conn.execute(
++            "UPDATE checkpoint_state SET current_root_sha256 = ?1 WHERE id = 1",
++            [&sha],
++        )
++        .unwrap();
++    } else {
++        assert!(manifest["tail"]["path"]
++            .as_str()
++            .unwrap()
++            .starts_with("set/tail/"));
++        assert_eq!(
++            manifest["tail"]["path"],
++            format!(
++                "set/tail/{}.jsonl",
++                manifest["tail"]["sha256"].as_str().unwrap()
++            )
++        );
++    }
++
++    let selected_pointer_bytes = fs::read(&current).unwrap();
++    let selected_manifest_bytes = fs::read(&manifest_path).unwrap();
++    let selected_tail_path = checkpoint.join(manifest["tail"]["path"].as_str().unwrap());
++    let original_config = fs::read(source.path().join(".beads/config.json")).unwrap();
++    let before_inventory = run(source.path(), &["list", "--all", "--json"]).stdout;
++    let generation = selected["generation_id"].as_str().unwrap();
++
++    // A small append changes the open tail without crossing the seal bound.
++    // Old code overwrote set/tail.jsonl here and made this generation unusable.
++    run(
++        source.path(),
++        &["create", "--title", "later issue", "--no-auto-flush"],
++    );
++    run(source.path(), &["sync", "flush-only"]);
++    let advanced = read_json(&current);
++    assert_ne!(advanced["generation_id"], selected["generation_id"]);
++    assert_eq!(
++        advanced["issue_count"],
++        selected["issue_count"].as_u64().unwrap() + 1
++    );
++    assert_eq!(
++        fs::read(checkpoint.join("previous.json")).unwrap(),
++        selected_pointer_bytes,
++        "promotion must retain the exact selected pointer"
++    );
++    assert_eq!(fs::read(&manifest_path).unwrap(), selected_manifest_bytes);
++    assert_eq!(fs::read(&selected_tail_path).unwrap(), tail_bytes);
++    assert_eq!(
++        fs::read(source.path().join(".beads/config.json")).unwrap(),
++        original_config
++    );
++    let new_manifest = read_json(&checkpoint.join(advanced["active_root"]["path"].as_str().unwrap()));
++    assert_ne!(new_manifest["tail"]["path"], manifest["tail"]["path"]);
++    assert_eq!(
++        new_manifest["segments"].as_array().unwrap().len(),
++        manifest["segments"].as_array().unwrap().len(),
++        "a small append must not change the sealing boundary"
++    );
++
++    let restored = TempDir::new().expect("empty recovery target");
++    let report: Value = serde_json::from_slice(
++        &run(
++            restored.path(),
++            &[
++                "restore",
++                "--source",
++                checkpoint.to_str().unwrap(),
++                "--generation",
++                generation,
++                "--actor",
++                "tail-retention-test",
++                "--format",
++                "json",
++            ],
++        )
++        .stdout,
++    )
++    .unwrap();
++    assert_eq!(report["generation_id"], selected["generation_id"]);
++    assert_eq!(report["source_root_sha256"], selected["active_root"]["sha256"]);
++    assert_eq!(report["issues_restored"], selected["issue_count"]);
++    assert_eq!(report["events_restored"], selected["event_count"]);
++    assert_eq!(report["non_empty_override"], false);
++    let recovered_inventory = run(restored.path(), &["list", "--all", "--json"]).stdout;
++    assert_eq!(
++        serde_json::from_slice::<Value>(&recovered_inventory).unwrap(),
++        serde_json::from_slice::<Value>(&before_inventory).unwrap(),
++        "recovery must select the saved generation, excluding the later issue"
++    );
++    assert_eq!(fs::read(&selected_tail_path).unwrap(), tail_bytes);
++    assert_eq!(fs::read(&manifest_path).unwrap(), selected_manifest_bytes);
++}
++
++#[test]
++fn selected_set_v2_generation_remains_restorable_after_tail_append() {
++    selected_generation_survives_append(false);
++}
++
++#[test]
++fn legacy_fixed_tail_generation_remains_restorable_after_upgrade() {
++    selected_generation_survives_append(true);
++}

@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "passed_static_checks_only",
+  "source_baseline": "986f2a332aca9dd567eee41ce835917d56e29468",
+  "manifest_sha256": "b781b5f169326cb0e47b6cb47473ccf73ea4ee4ddab3974f282247d6b9f4e3a9",
+  "checks": [
+    "All four existing file contents were fetched at the exact published baseline and bound by Git blob and SHA-256.",
+    "Recovered 278-line original tail patch matches the author's previously recorded SHA-256.",
+    "All three unified patches parse with exact hunk context, positions and line counts and reconstruct every expected full file.",
+    "Tests-first production prefix is byte-identical to the baseline.",
+    "Repair changes only the production source prefix and the set-v2 specification; every test-stage helper and assertion remains byte-identical.",
+    "The complete candidate has five changed product paths and no new dependencies, build files or workflow files.",
+    "Both tail tests reach selected-byte preservation before their non-legacy layout assertions.",
+    "Changed file text has final LF and no CR; all added patch lines are free of trailing whitespace.",
+    "Three standard SHA-256 known-answer vectors passed.",
+    "The exact scratch parent tree is complete and contains no .github workflows."
+  ],
+  "qualifications_not_yet_run": [
+    "git apply against this newly composed final package",
+    "Rust formatter or parser",
+    "Rust compilation",
+    "red/green regressions",
+    "affected and full test suites",
+    "immutable release builds",
+    "Windows runtime qualification"
+  ],
+  "patch_hashes": {
+    "tests-first.patch": "c96bc48c2d30bf48578d7fd295cfdd5e25559403698ef0a3322912d60edf5806",
+    "repair-only.patch": "2116039d26b3392039ecaccb002f55441b6a23f1589d8c1d69bee12767d74dd2",
+    "candidate.patch": "56f46cefb36485ae4ce635eee2fbd6ed80f0561de31912fc3fa026edc9b7ade8"
+  },
+  "prior_checks": "The separate pre-outage component patches had git apply --check results; this record does not substitute them for a new combined Git apply or compiler result."
+}

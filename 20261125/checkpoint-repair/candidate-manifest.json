@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "status": "Scratch proposal only; application and execution require the accepted, materialized revision-5 task.",
+  "created_utc_date": "2026-11-25",
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
+    "historical_runtime_source": "539cdd0b4c54665c2db01da08fdf9f3871f7148a"
+  },
+  "scratch_publication": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "branch": "task/checkpoint-candidate-20261125",
+    "parent_commit": "a532a268df26cb719bf0411a9c36668e0c9f0b04",
+    "parent_tree": "35e4cb75172c459e1a3d553e4506fcc8b509981c",
+    "directory": "20261125/checkpoint-repair",
+    "cleanup_required": true
+  },
+  "defects": [
+    "Set-v2 staging never inserts attempt IDs into its shared seen_attempt_ids set, so its reported count is zero and duplicate identities are not rejected across artifacts.",
+    "Publication rewrites set/tail.jsonl while retained generation manifests still select its prior bytes."
+  ],
+  "production_changes": [
+    "Insert every staged attempt_id into the existing shared set and refuse duplicates before extending the outcome vector.",
+    "Publish the logical open tail with the existing content-addressed object writer; preserve old selected tail bytes through existing structural retention.",
+    "Describe immutable selected tail objects and legacy fixed-path compatibility in the existing set-v2 specification."
+  ],
+  "unchanged_contracts": [
+    "checkpoint configuration",
+    "public format and schema versions",
+    "sealing thresholds and logical segment boundaries",
+    "published count definitions and verification requirements",
+    "editing APIs and browser assertions"
+  ],
+  "provenance": {
+    "tail_patch_sha256": "9a19e6c724790fdb429ecd702ef02d5795bc5db4b44ea813adce1cdc27c9713a",
+    "tail_test_refinement": "Move non-legacy layout assertions after preserved-byte and successful public-restore assertions so both baseline cases first expose retained-tail corruption.",
+    "attempt_reconstruction": "Recovered from active design context against exact published baseline after the filesystem became unavailable. These hashes supersede the earlier scratch count patch identities."
+  },
+  "file_hashes": [
+    {
+      "path": "src/service/checkpoint/set_v2.rs",
+      "base_git_blob": "7424cd83f181420305163cf570ad05873c623a6c",
+      "base_sha256": "eae52fc4a02eecb1452bc07f967861e50f86afa9872b88d43080dc86069092a8",
+      "tests_first_sha256": "220eac6cf03c67833071c8b921d54f1e5e5a93cde1e661c491c487dd3f59e84f",
+      "candidate_sha256": "4e834a69c73fbb87d80f28704eba4a492411d304ae6a02fce071c2b8424efd4c",
+      "candidate_utf8_bytes": 53371,
+      "changes_in_tests_first": true,
+      "changes_in_repair": true
+    },
+    {
+      "path": "tests/attempt_receipt_checkpoint_integrity.rs",
+      "base_git_blob": "ae1cbfa4b20f20e9f9d68b6d2336ee214ada3301",
+      "base_sha256": "76024d1f7f1b525e6b2117fbd6b47a05ccbf5f67a4ba8235c964ddbc1f67d809",
+      "tests_first_sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+      "candidate_sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+      "candidate_utf8_bytes": 10332,
+      "changes_in_tests_first": true,
+      "changes_in_repair": false
+    },
+    {
+      "path": "tests/checkpoint_set_v2_conformance.rs",
+      "base_git_blob": "6315340890793b7883928dcd9ee7071c29d76321",
+      "base_sha256": "3fb6e9b706ed5997c858b073a541b2e74fceda117db052f4e5c3e97831529294",
+      "tests_first_sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+      "candidate_sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+      "candidate_utf8_bytes": 75478,
+      "changes_in_tests_first": true,
+      "changes_in_repair": false
+    },
+    {
+      "path": "research/specs/checkpoint-set-v2.md",
+      "base_git_blob": "6cad042f3a6e55dae285b4bf7efd6c5aacc78052",
+      "base_sha256": "8472ac3de0be99f111b41d5310a6fc543f7a5a02f6cf3508290f642055a1f24a",
+      "tests_first_sha256": "8472ac3de0be99f111b41d5310a6fc543f7a5a02f6cf3508290f642055a1f24a",
+      "candidate_sha256": "441c4ad11142ebdaf06e0ba40dbf758d63805228c02a9dd4d148e36fa57799a6",
+      "candidate_utf8_bytes": 24891,
+      "changes_in_tests_first": false,
+      "changes_in_repair": true
+    },
+    {
+      "path": "tests/checkpoint_tail_generation_integrity.rs",
+      "base_git_blob": null,
+      "base_sha256": null,
+      "tests_first_sha256": "7d168cba45183e29cd25b553349cf9749c7f4caf65a08accb4baedbd543a4fcc",
+      "candidate_sha256": "7d168cba45183e29cd25b553349cf9749c7f4caf65a08accb4baedbd543a4fcc",
+      "candidate_utf8_bytes": 6299,
+      "changes_in_tests_first": true,
+      "changes_in_repair": false
+    }
+  ],
+  "patches": {
+    "tests-first.patch": {
+      "sha256": "c96bc48c2d30bf48578d7fd295cfdd5e25559403698ef0a3322912d60edf5806",
+      "utf8_bytes": 17083,
+      "lines": 410
+    },
+    "repair-only.patch": {
+      "sha256": "2116039d26b3392039ecaccb002f55441b6a23f1589d8c1d69bee12767d74dd2",
+      "utf8_bytes": 5186,
+      "lines": 105
+    },
+    "candidate.patch": {
+      "sha256": "56f46cefb36485ae4ce635eee2fbd6ed80f0561de31912fc3fa026edc9b7ade8",
+      "utf8_bytes": 22203,
+      "lines": 514
+    }
+  },
+  "new_regressions": [
+    "service::checkpoint::set_v2::tests::set_v2_staging_counts_attempt_outcomes_across_shards",
+    "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_within_a_shard",
+    "service::checkpoint::set_v2::tests::set_v2_staging_rejects_duplicate_attempts_across_shards",
+    "verified_restore_preserves_all_attempt_outcomes_from_set_v2",
+    "selected_set_v2_generation_remains_restorable_after_tail_append",
+    "legacy_fixed_tail_generation_remains_restorable_after_upgrade"
+  ],
+  "gates": {
+    "plan": "pending revision-5 acceptance/materialization",
+    "tests_first_review": "pending independent review",
+    "red_execution": "pending",
+    "repair_application": "pending accepted red results",
+    "format_and_compiler": "pending cloud execution",
+    "green_execution": "pending",
+    "immutable_release_builds": "pending",
+    "replacement_windows_runtime_pin": "pending qualified build and native execution"
+  },
+  "execution_limits": {
+    "cargo_build_jobs": 1,
+    "rust_test_threads": 1,
+    "pc_builds": false,
+    "cloud_only_for_compile_and_tests": true,
+    "windows_application_minimum_free_gib": 3,
+    "windows_owned_aggregate_limit_mib": 512,
+    "windows_existing_limits_remain_unchanged": true
+  }
+}

@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "author": "browser_finish",
+  "status": "two completed clean author inspections; independent review pending",
+  "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
+  "final_binding": {
+    "manifest_sha256": "b781b5f169326cb0e47b6cb47473ccf73ea4ee4ddab3974f282247d6b9f4e3a9",
+    "tests_first_patch_sha256": "c96bc48c2d30bf48578d7fd295cfdd5e25559403698ef0a3322912d60edf5806",
+    "repair_only_patch_sha256": "2116039d26b3392039ecaccb002f55441b6a23f1589d8c1d69bee12767d74dd2",
+    "candidate_patch_sha256": "56f46cefb36485ae4ce635eee2fbd6ed80f0561de31912fc3fa026edc9b7ade8",
+    "readme_sha256": "50a6d7795f021b58caafa5d6355d0c92ef14eee64fb80357015f7e5e3b480fa7",
+    "regression_design_sha256": "19cf614576972c7576c33d6fc8dc96fae1f9b10f556e571197e45afde98a9d6c",
+    "static_checks_sha256": "2de0f33b26d36e192ee552c60452b4127d9158807ff465ce7d7bc80f4b30e7a2"
+  },
+  "passes": [
+    {
+      "number": 1,
+      "scope": "Complete tests-first and repair-only diffs, every new regression/helper, related published staging/parser/restore types, production writer signature and full specification changes.",
+      "statement": "I inspected the shared-set accounting and duplicate refusal against the existing parser responsibility and restore count contract. I traced the content-addressed tail call, retained-path behavior, both legacy and current selected-generation tests, complete fixture outcome rows, public report fields and source-preservation assertions. The final test refinement makes the retained-byte invariant precede layout checks. No remaining author finding.",
+      "result": "clean"
+    },
+    {
+      "number": 2,
+      "scope": "Complete final patch composition, exact stage and baseline hashes, full README, regression design, candidate manifest and static-check record.",
+      "statement": "I rechecked the five-file scope, the production/test boundary, unchanged assertions between tests-first and repaired states, exact patch reconstruction, provenance hash, serial command filters, immutable source/build requirements, pending compiler/runtime gates and temporary-branch cleanup. I confirmed this scratch publication carries no workflows and cannot qualify itself as product execution. No remaining author finding.",
+      "result": "clean"
+    }
+  ],
+  "resolved_before_final_passes": [
+    "During memory reconstruction the new restore test was corrected to compare report.provenance_receipts_restored with the pointer's actual receipt_count field.",
+    "With the tail author's agreement, layout assertions were moved after preservation and public-restore assertions to make baseline failure evidence target the observed defect."
+  ],
+  "verification_boundary": "These are author static inspections. No combined Git apply, Rust parser, formatter, build, red/green run, release artifact or Windows qualification is claimed.",
+  "cleanup": "Root must retain final evidence, verify the actual current head and ownership, and remove task/checkpoint-candidate-20261125 during final cleanup. Future agents must reconcile uncertain operations and clean task-owned branches/worktrees if the process stops early."
+}
