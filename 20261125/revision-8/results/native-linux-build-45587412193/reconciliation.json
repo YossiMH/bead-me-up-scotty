@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "operation": "checkpoint-linux-build",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "run": {
+    "attempt": "1",
+    "id": "45587412193",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6"
+  },
+  "job_id": 139112445996,
+  "source_archive": {
+    "bytes": 487884800,
+    "mode": 420,
+    "path": "source.tar",
+    "sha256": "c4d6a1159b2d0053e5bceb8421506385c73da935ab23122a2098a6398dae407c"
+  },
+  "source_files": {
+    "bytes": 243108,
+    "mode": 420,
+    "path": "source-files.json",
+    "sha256": "816d2d3dcabe5cee5c508aaabcf5b3b6af3266d603c1d76b86c19aea0d453eeb"
+  },
+  "build_result_sha256": "2c2d704504d238880e0a4bdef29ffc963f25b7588ec45ce62193eb33886937d2",
+  "outer_result_sha256": "d36490ff35322f897b1d50e5220f3a1786dfd1c029ab0ce8a33453b016c4aa9c",
+  "bundle": {
+    "bytes": 555917642,
+    "mode": 420,
+    "path": "qualification-bundle.tar.gz",
+    "sha256": "694e9f357f104f98e150b59926d40df3129f2adb6f29b557e3d7cae1b435bd3a"
+  },
+  "release": {
+    "binary": {
+      "bytes": 13643392,
+      "mode": 493,
+      "path": "release/bead-editing-c90f0cd-linux-20261125",
+      "sha256": "ddc29ba25be1684b887bf10954c5ef7643ec57982e934ed633178a44d04a90cc"
+    },
+    "metadata": {
+      "bytes": 2082,
+      "mode": 420,
+      "path": "release/bead-editing-c90f0cd-linux-20261125.metadata.json",
+      "sha256": "f1774c33a33fce6cad1bb58152898cf676323753f9b36201fd02e4079c48d98c"
+    },
+    "target": "x86_64-unknown-linux-gnu",
+    "version": "bead 0.3.0 (unknown 2026-11-25T09:43:40Z)"
+  },
+  "default_harnesses": 145,
+  "compiled_executables": 147,
+  "format": "passed",
+  "clippy": "passed with warnings denied",
+  "generated_update_man": {
+    "normalization": "Remove one ASCII space immediately before LF on SYNOPSIS line 7",
+    "normalized_sha256": "04c6e2f94937da51f72a675be615f8981e96a7d9b76699354cdc3753156c73af",
+    "other_bytes_changed": 0,
+    "raw": {
+      "bytes": 5251,
+      "mode": 420,
+      "path": "generated-bead-update.1",
+      "sha256": "f85640962a3f71495c5684d5b950b065b102637b1a180739e2ec628ba79915d4"
+    },
+    "tracked_sha256": "04c6e2f94937da51f72a675be615f8981e96a7d9b76699354cdc3753156c73af"
+  },
+  "tests_executed": false,
+  "artifact_ids": {
+    "full_build": 15009891712,
+    "release_and_original_corpus": 15009666984
+  },
+  "full_job_log_sha256": "94924d52c6e87def3d64eb589cf609ca5b2095df182791f1b8805ce27f2ab930",
+  "decoded_records": 56,
+  "large_streams_retained_in_artifact": [
+    {
+      "bytes": 265625,
+      "mode": 420,
+      "path": "logs/cargo.stdout.jsonl",
+      "sha256": "ff7e8b405f5f274921ea5406a31eba0ca2f68d97d5d4d7f241636501bb6943f7"
+    }
+  ],
+  "download_verification": "pending separate consumers; the producer records exact bundle and release bytes",
+  "retention_days": 7
+}

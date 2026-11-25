@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "operation": "checkpoint-windows-build",
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "run_id": "45586900986",
+  "run_attempt": "1",
+  "workflow_commit": "33931b999a973b266e211c7af531c84f694bf0a6",
+  "build_job": 139110692736,
+  "download_job": 139117235701,
+  "build_result_sha256": "a33ab55da93e2ceeb23fd56a048b5e507a801bcf86a3c189d7156d1463f501f6",
+  "build_result_reconstruction": "Exact emitted JSON token lexemes, including numeric spelling, reindented with the producer's two-space/sorted-key JSON writer. The small-download receipt independently confirms its exact byte count.",
+  "build_result_bytes": 16381,
+  "build_inputs_sha256": "8f578a7667ffaed1c5ad139fe0445ccf90292a924bd03d6cafbaa0d126b6eeeb",
+  "manifest_sha256": "9431284af8c344956b6c7939950a71427d7d9e87eb26186bc9dce48bc91a43a6",
+  "release_manifest_sha256": "843117f8f9f22da5053d9731610fc729c1e4dc744358d6f91506e843713f5181",
+  "download_verification": {
+    "full_manifest_sha256": "9431284af8c344956b6c7939950a71427d7d9e87eb26186bc9dce48bc91a43a6",
+    "full_verified_files": 55,
+    "full_verified_bytes": 564756120,
+    "release_manifest_sha256": "843117f8f9f22da5053d9731610fc729c1e4dc744358d6f91506e843713f5181",
+    "release_verified_files": 3,
+    "release_verified_bytes": 12232709
+  },
+  "release": {
+    "executable": {
+      "bytes": 12214272,
+      "path": "release/bead-checkpoint-c90f0cdbade9.exe",
+      "sha256": "cdd3b50d65504c52a27a8fd29c6494fe3847d512cbca1510aa74a6cc5da87a06"
+    },
+    "metadata": {
+      "bytes": 2056,
+      "path": "release/bead-checkpoint-c90f0cdbade9.exe.metadata.json",
+      "sha256": "ed74ccf87b21972261434f8c628dea12cfb958a577ba686658d24ae8123dc97a"
+    }
+  },
+  "inventory": {
+    "test_support_executables": 11,
+    "separate_release_executables": 1,
+    "total_executables": 12
+  },
+  "source_archive": {
+    "bytes": 487884800,
+    "path": "source.tar",
+    "sha256": "c4d6a1159b2d0053e5bceb8421506385c73da935ab23122a2098a6398dae407c"
+  },
+  "source_manifest": {
+    "bytes": 205269,
+    "path": "source-files.json",
+    "sha256": "2a5df46f02af6c304a3dd48ee172dd7ad52d0bc1d434c114c104e864f2a651b1"
+  },
+  "artifact_ids": {
+    "full": 15009252879,
+    "small_release": 15010535371,
+    "download_verification": 15009009777
+  },
+  "runtime_qualification": "pending; compilation and download verification only",
+  "retention_days": 14
+}

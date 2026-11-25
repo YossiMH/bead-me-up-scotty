@@ -1,0 +1,123 @@
+.ie \n(.g .ds Aq \(aq
+.el .ds Aq '
+.TH "bead update" 1  "bead update " 
+.SH NAME
+bead update \- Update an issue
+.SH SYNOPSIS
+\fBbead update\fR [\fB\-\-status\fR] [\fB\-\-assignee\fR] [\fB\-\-clear\-assignee\fR] [\fB\-\-notes\fR] [\fB\-\-append\-notes\fR] [\fB\-\-notes\-file\fR] [\fB\-\-if\-revision\fR] [\fB\-\-fencing\-token\fR] [\fB\-\-dry\-run\fR] [\fB\-\-title\fR] [\fB\-\-description\fR] [\fB\-\-description\-file\fR] [\fB\-\-clear\-description\fR] [\fB\-\-priority\fR] [\fB\-\-reason\fR] [\fB\-\-issue\-type\fR] [\fB\-\-issue\-type\-file\fR] [\fB\-h\fR|\fB\-\-help\fR] <\fIID\fR> 
+.SH DESCRIPTION
+Update issue fields atomically.
+.PP
+Updates one or more issue fields in a single atomic transaction.
+All validations and mutations occur together; any failure leaves the
+issue unchanged. Changing status to \*(Aqclosed\*(Aq requires the \*(Aqclose\*(Aq command
+instead. Use \*(Aqreopen\*(Aq to transition from closed to open.
+.PP
+EXAMPLES:
+  bead update ID \-\-status in_progress                # Start working on an issue
+  bead update ID \-\-assignee alice                    # Assign to alice
+  bead update ID \-\-notes "Investigated root cause"   # Add investigation notes
+  bead update ID \-\-append\-notes "Second investigation pass"
+  bead update ID \-\-notes\-file investigation.txt
+  bead update ID \-\-title "Revised task" \-\-description\-file details.txt
+  bead update ID \-\-priority 1 \-\-reason "Urgency reviewed"
+  bead update ID \-\-issue\-type investigation \-\-clear\-description
+  bead update ID \-\-issue\-type\-file custom\-type.txt
+  cat investigation.txt | bead update ID \-\-notes\-file \-
+  bead update ID \-\-clear\-assignee                    # Clear assignment (open only)
+  bead update ID \-\-status in_progress \-\-if\-revision 3 # With revision guard
+.PP
+STATUS TRANSITIONS:
+  Valid transitions depend on the current base status:
+  \- open can transition to: in_progress, deferred
+  \- in_progress can transition to: open, deferred, closed (via \*(Aqclose\*(Aq command)
+  \- deferred can transition to: open, closed (via \*(Aqclose\*(Aq command)
+  \- closed can only transition to: open (via \*(Aqreopen\*(Aq command)
+.PP
+EDITABLE FIELDS:
+  Title, description, priority, issue type, notes, status and assignment.
+  \-\-description, \-\-description\-file and \-\-clear\-description are exclusive.
+  \-\-issue\-type and \-\-issue\-type\-file are exclusive.
+  Only one of description, notes or issue type may read stdin.
+  Empty description or notes values clear the corresponding text.
+  \-\-priority requires a nonblank \-\-reason and records the actor and old/new
+  priorities. An unchanged priority emits no priority event.
+  Scalar metadata edits on closed issues preserve their close record.
+  Use \*(Aqbead label add|remove\*(Aq and \*(Aqbead dep add|remove\*(Aq for related records.
+.PP
+ASSIGNMENT:
+  \-\-assignee and \-\-clear\-assignee are mutually exclusive.
+  \-\-clear\-assignee only works for open assigned issues.
+  For in_progress issues, use \*(Aqbead release\*(Aq to return to open/unassigned.
+.PP
+BLOCKED STATUS:
+  Setting \-\-status blocked sets manual_blocked=true and retains base status.
+  Setting \-\-status open clears manual blocking and sets base status to open.
+  Closed issues cannot use \-\-status open (use \*(Aqreopen\*(Aq instead).
+.PP
+REVISION GUARDS:
+  \-\-if\-revision N provides optimistic concurrency control.
+  If the issue\*(Aqs current revision doesn\*(Aqt match N, the update fails with
+  exit code 4 and a conflict message. This prevents silent lost updates
+  when multiple agents or humans modify the same issue concurrently.
+.PP
+All updates are atomic. Invalid transitions or conflicts exit with code 4
+without changing any fields or timestamps.
+.SH OPTIONS
+.TP
+\fB\-\-status\fR \fI<STATUS>\fR
+New status
+.TP
+\fB\-\-assignee\fR \fI<ASSIGNEE>\fR
+New assignee
+.TP
+\fB\-\-clear\-assignee\fR
+Clear assignee (only for open assigned issues)
+.TP
+\fB\-\-notes\fR \fI<NOTES>\fR
+New notes
+.TP
+\fB\-\-append\-notes\fR \fI<APPEND_NOTES>\fR
+Append notes atomically to the existing notes field
+.TP
+\fB\-\-notes\-file\fR \fI<PATH>\fR
+Read notes from a UTF\-8 file, or stdin with \-
+.TP
+\fB\-\-if\-revision\fR \fI<IF_REVISION>\fR
+Expected revision for optimistic concurrency control
+.TP
+\fB\-\-fencing\-token\fR \fI<FENCING_TOKEN>\fR
+Fencing token for lease validation (advanced usage)
+.TP
+\fB\-\-dry\-run\fR
+Dry run: show what would happen without making changes
+.TP
+\fB\-\-title\fR \fI<TITLE>\fR
+Replace the title (1\-4096 UTF\-8 bytes)
+.TP
+\fB\-\-description\fR \fI<DESCRIPTION>\fR
+Replace the description; an empty value clears it
+.TP
+\fB\-\-description\-file\fR \fI<PATH>\fR
+Read the description from a UTF\-8 file, or stdin with \-
+.TP
+\fB\-\-clear\-description\fR
+Clear the description to an empty string
+.TP
+\fB\-\-priority\fR \fI<PRIORITY>\fR
+Set priority from 0 through 4, with an audit reason
+.TP
+\fB\-\-reason\fR \fI<REASON>\fR
+Nonblank explanation for the supplied priority
+.TP
+\fB\-\-issue\-type\fR \fI<ISSUE_TYPE>\fR
+Replace the issue type with a nonempty native type name
+.TP
+\fB\-\-issue\-type\-file\fR \fI<PATH>\fR
+Read the issue type from a UTF\-8 file, or stdin with \-
+.TP
+\fB\-h\fR, \fB\-\-help\fR
+Print help (see a summary with \*(Aq\-h\*(Aq)
+.TP
+<\fIID\fR>
+Issue ID
