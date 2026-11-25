@@ -1,0 +1,58 @@
+{
+  "status": "passed_affected_checks",
+  "task": "beadrs-22b44782",
+  "source_commit": "38c21a77b4e875d75e17ee68683846601df33591",
+  "node": "v24.22.3",
+  "checks": [
+    {
+      "name": "launchers",
+      "command": [
+        "node",
+        "--test",
+        "--test-concurrency=1",
+        "scripts/test-windows-tray.mjs",
+        "scripts/test-serve.mjs",
+        "scripts/test-bead-binary-option.mjs"
+      ],
+      "exit": 0,
+      "log": "/workspace/scratch/3160e3ba3d24/coordination/results/tray-repair-launchers.log",
+      "passed": 32,
+      "failed": 0,
+      "skipped": 0
+    },
+    {
+      "name": "lint",
+      "command": [
+        "npm",
+        "run",
+        "lint"
+      ],
+      "exit": 137,
+      "log": "/workspace/scratch/3160e3ba3d24/coordination/results/tray-repair-lint.log"
+    },
+    {
+      "name": "affected-lint",
+      "exit": 0,
+      "files": [
+        "bin/windows-tray.mjs",
+        "scripts/fixtures/tray-process-boundary.mjs",
+        "scripts/test-windows-tray.mjs"
+      ],
+      "log": "/workspace/scratch/3160e3ba3d24/coordination/results/tray-repair-lint-affected.log",
+      "node_heap_mib": 192
+    },
+    {
+      "name": "diff",
+      "exit": 0,
+      "log": "/workspace/scratch/3160e3ba3d24/coordination/results/tray-repair-diff.log"
+    }
+  ],
+  "completed_utc": "2026-11-25T00:07:55.692423+00:00",
+  "limits": "Cloud subprocess launcher coverage; real Windows Forms and browser execution remain separate.",
+  "interrupted_full_lint": {
+    "exit": 137,
+    "log": "/workspace/scratch/3160e3ba3d24/coordination/results/tray-repair-lint.log",
+    "detail": "Process reported Killed without a lint diagnostic; retained full-tree lint at f47/f8 remains applicable to unchanged files."
+  },
+  "scope": "All32 launcher tests and lint of exactly3 changed files passed; prior complete lint covers unchanged files. Full rerun exit137 retained separately."
+}

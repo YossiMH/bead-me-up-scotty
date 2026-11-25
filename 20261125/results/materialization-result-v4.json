@@ -1,0 +1,295 @@
+{
+  "status": "passed",
+  "continuation_revision": 4,
+  "original_issues": 954,
+  "total_issues": 975,
+  "tasks": {
+    "plan-review": "beadrs-3f06f163",
+    "reconcile": "beadrs-42379588",
+    "cloud-checks": "beadrs-fa756e78",
+    "browser-prepare": "beadrs-0b3a11f9",
+    "browser-runner-review": "beadrs-37f8c2bb",
+    "browser-check": "beadrs-08532231",
+    "tray-diagnose": "beadrs-9422c821",
+    "windows-tray": "beadrs-ea7bc5dd",
+    "candidate-review": "beadrs-ba8cbd23",
+    "install": "beadrs-0bab2976",
+    "configured-launch": "beadrs-c9526055",
+    "installed-review": "beadrs-47da80ac",
+    "backend-handoff": "beadrs-1371879c",
+    "app-handoff": "beadrs-f0039a6a",
+    "backend-text-review": "beadrs-30f13b5b",
+    "app-text-review": "beadrs-c62c1990",
+    "preserve-and-clean": "beadrs-3ec972f8",
+    "tray-repair": "beadrs-417f998c",
+    "tray-repair-checks": "beadrs-22b44782",
+    "installer-repair": "beadrs-f588ab27",
+    "tray-repair-review": "beadrs-a7df9f15"
+  },
+  "new_tasks": {
+    "tray-repair": "beadrs-417f998c",
+    "tray-repair-checks": "beadrs-22b44782",
+    "installer-repair": "beadrs-f588ab27",
+    "tray-repair-review": "beadrs-a7df9f15"
+  },
+  "blocking_edges": 34,
+  "prior_blocking_edges_retained": 26,
+  "description_updates": 7,
+  "new_creates": 4,
+  "dependency_additions": 8,
+  "source_store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+  "reused_restore_receipt_id": "restore-18eb1c33db203af8",
+  "plan_sha256": "887b5036b9b1f588baaeb9a0fd9537c030e661b80325bd871b6c8b97bfbae178",
+  "template_sha256": "6217b3df27ad05f23e370ba1211850d946c254cd6eb97796f1170750e41fd3f1",
+  "plan_review_sha256": "e3b10fa4afbed9000b3977478615c9e0b96b272dfbde2996087352c7f93f7664",
+  "manifest_sha256": "dcd8a89eca067ccb58e1ea09d660ac05e1b7600ed5305b0402f6d6435b7e2af8",
+  "binary_sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+  "helper_sha256": "53d035c37dafd62da8009e7c6e4c07805eca7bebd3181643dbff3f0331d7b91e",
+  "six_close_reconciliation": {
+    "status": "passed",
+    "committed_closures": {
+      "plan-review": "beadrs-3f06f163",
+      "reconcile": "beadrs-42379588",
+      "cloud-checks": "beadrs-fa756e78",
+      "browser-prepare": "beadrs-0b3a11f9",
+      "browser-runner-review": "beadrs-37f8c2bb",
+      "tray-diagnose": "beadrs-9422c821"
+    },
+    "semantic_changes": 6,
+    "closure_replayed": false,
+    "original_records_unchanged": true,
+    "comparison_normalization": [
+      "effective_status",
+      "dependencies[].blocker_status",
+      "dependencies[].finished"
+    ],
+    "retained_commit_path": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\completed-v1\\commit.json",
+    "retained_manifest_sha256": "8e83bf1687218bd688ffadc1fdb48d4c66b0236ba1f30010d3cf1fc7b6a0feab",
+    "explanation": "The earlier helper stopped during its post-commit comparison of derived dependency status. The six native closes committed successfully and are retained."
+  },
+  "original_inventory_unchanged": true,
+  "existing_statuses_preserved": true,
+  "complete_descriptions_match": true,
+  "complete_edges_match": true,
+  "current_reference_matches": {
+    "plan-review": [
+      "beadrs-3f06f163"
+    ],
+    "reconcile": [
+      "beadrs-42379588"
+    ],
+    "cloud-checks": [
+      "beadrs-fa756e78"
+    ],
+    "browser-prepare": [
+      "beadrs-0b3a11f9"
+    ],
+    "browser-runner-review": [
+      "beadrs-37f8c2bb"
+    ],
+    "browser-check": [
+      "beadrs-08532231"
+    ],
+    "tray-diagnose": [
+      "beadrs-9422c821"
+    ],
+    "windows-tray": [
+      "beadrs-ea7bc5dd"
+    ],
+    "candidate-review": [
+      "beadrs-ba8cbd23"
+    ],
+    "install": [
+      "beadrs-0bab2976"
+    ],
+    "configured-launch": [
+      "beadrs-c9526055"
+    ],
+    "installed-review": [
+      "beadrs-47da80ac"
+    ],
+    "backend-handoff": [
+      "beadrs-1371879c"
+    ],
+    "app-handoff": [
+      "beadrs-f0039a6a"
+    ],
+    "backend-text-review": [
+      "beadrs-30f13b5b"
+    ],
+    "app-text-review": [
+      "beadrs-c62c1990"
+    ],
+    "preserve-and-clean": [
+      "beadrs-3ec972f8"
+    ],
+    "tray-repair": [
+      "beadrs-417f998c"
+    ],
+    "tray-repair-checks": [
+      "beadrs-22b44782"
+    ],
+    "installer-repair": [
+      "beadrs-f588ab27"
+    ],
+    "tray-repair-review": [
+      "beadrs-a7df9f15"
+    ]
+  },
+  "owned_ready": [
+    {
+      "key": "browser-check",
+      "id": "beadrs-08532231",
+      "title": "Check editing through the real browser",
+      "revision": 1
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "title": "Review the recovered implementation and results",
+      "revision": 2
+    },
+    {
+      "key": "tray-repair",
+      "id": "beadrs-417f998c",
+      "title": "Repair Windows tray cleanup after parent exit",
+      "revision": 1
+    }
+  ],
+  "readiness_statement": "The ready list is filtered to these 21 continuation tasks; it is not a global completion claim.",
+  "continuation": [
+    {
+      "key": "plan-review",
+      "id": "beadrs-3f06f163",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "reconcile",
+      "id": "beadrs-42379588",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "cloud-checks",
+      "id": "beadrs-fa756e78",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-prepare",
+      "id": "beadrs-0b3a11f9",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-runner-review",
+      "id": "beadrs-37f8c2bb",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-check",
+      "id": "beadrs-08532231",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "tray-diagnose",
+      "id": "beadrs-9422c821",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "tray-repair",
+      "id": "beadrs-417f998c",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "tray-repair-checks",
+      "id": "beadrs-22b44782",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "installer-repair",
+      "id": "beadrs-f588ab27",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "status": "open",
+      "revision": 1
+    }
+  ],
+  "output_directory": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\materialization-v4",
+  "temporary_directory": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\temp-materialize-v4",
+  "temporary_directory_retained": true,
+  "restore_replayed": false,
+  "closure_replayed": false,
+  "publication": "Only this commit used --no-auto-flush. Explicit checkpoint flush and checked Git publication remain required; host settings were not changed.",
+  "completed_utc": "2026-11-25T00:03:57.332Z"
+}
