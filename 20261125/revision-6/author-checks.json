@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "author_static_pass",
+  "tasks": 32,
+  "edges": 51,
+  "total_issues": 986,
+  "acyclic": true,
+  "same32_keys_ids_and51_edges": true,
+  "unaffected20_task_objects_identical": true,
+  "original954_preserved_by_required_full_readback": true,
+  "reopened_keys": [
+    "tray-diagnose",
+    "tray-repair",
+    "tray-repair-checks",
+    "installer-repair"
+  ],
+  "changed_description_keys": [
+    "tray-diagnose",
+    "tray-repair",
+    "tray-repair-checks",
+    "installer-repair",
+    "tray-repair-review",
+    "windows-tray",
+    "install",
+    "configured-launch",
+    "candidate-review",
+    "app-handoff",
+    "app-text-review",
+    "preserve-and-clean"
+  ],
+  "product_source_changed": false,
+  "product_tests_run": false,
+  "native_database_written": false,
+  "files": {
+    "20261125/revision-6/plan.json": "06b9d4f8166db7ed7bba5444b53b26bd19731fe4445824ea629f8499b77b8a83",
+    "20261125/revision-6/delta-manifest.template.json": "489584fa13196a13718736bda81b3e0250233a5c102f40cb3d74ba5939136fc5",
+    "20261125/revision-6/native-update-protocol.json": "74668403c9737383aa99af6aa13056e5c77a2586193a7ccc15c7b2c6505e3c17",
+    "20261125/revision-6/writing-rules.json": "f3868d4b51635ac291b7af3b9fef48c969e1a344e4cbbb7c3604ddae0af49f68",
+    "20261125/tray-launch-probe/probe.mjs": "44d4a586e7d965220c67284555fdeeb8e598b2c17b62cd15327eba71cfe590fb",
+    "20261125/tray-launch-probe/marker.ps1": "08a8a821c6871289c53f720f5a8136b09e373afb05daabd56453cadd01e32a93",
+    "20261125/tray-launch-probe/workflow.yml": "ff5bd8279afb707f130b61f5c3346a35198db153afe9548c2b32f1e8e04c7ce2"
+  },
+  "probe_checks": [
+    "Ordinary Windows PowerShell with no policy/zone overrides; no Next/Forms/app/PC access",
+    "Exact Node25.2.1 and shell:false/three pipes in all layers; detached PowerShell is negative reproduction",
+    "Original parent handle acquired before READY; parent-loss final stdout exercises broken host output path",
+    "No unref; both pipes retain explicit error handlers; host waits actual child close",
+    "15second launched-process deadlines,12second host bound,8second PS parent watch,120second outer timeout,5minute workflow",
+    "Only direct owned child handles are killed; all recorded descendants must be absent on completion",
+    "Fresh output, exact launch/marker records and full result emitted Base64 with SHA; all output uploaded14days",
+    "JS executable body syntax checked without executing it; actual Node and ordinary PS parse remain in reviewed hosted job"
+  ],
+  "author_inspections": [
+    {
+      "pass": true,
+      "focus": "All12 changed descriptions, graph/ID/resource preservation, exact old failures and scoped new module/check/installer paths; native reopen and guarded delta; unchanged backend continuation."
+    },
+    {
+      "pass": true,
+      "focus": "Complete probe/control/PowerShell/workflow and same final bytes; parent-ready race repaired before review; bounded failure cleanup, ordinary policy and complete logs."
+    }
+  ]
+}
