@@ -1,0 +1,36 @@
+{
+  "schema_version": 1,
+  "status": "prepared_requires_full_helper_review_and_ordinary_node_parse",
+  "authority_root": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+  "input_transfer_commit": "a516dee000d606bad0c0093232d35b8d39dcbbcf",
+  "plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+  "delta_sha256": "06b7a0b5ecd5ca8cbdee4c1fd405c7162a4ccb3a4405d58ad923f34b31afd33c",
+  "protocol_sha256": "74668403c9737383aa99af6aa13056e5c77a2586193a7ccc15c7b2c6505e3c17",
+  "review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+  "baseline_plan_sha256": "f078b507732c19d472ec2526baead24619e2503189888ccb6e4516da392dfb82",
+  "baseline_mapping_sha256": "6a46c9ddef4c847a0c8a5cf63c58bdec2e237a8bd04f4f4940467af8171f7d85",
+  "binary": {
+    "path": "F:/Dev/.bead-edit-20261111/stage-v6/backend/bead-editing-539cdd0.exe",
+    "sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798"
+  },
+  "files": {
+    "materialize-continuation-v6.mjs": {
+      "sha256": "461ee5a0bec9ce08b881b71a8891a44c2f9716173e9dd1e0437d4dcbb0120902",
+      "bytes": 21072
+    },
+    "record-accepted-tasks-v6.mjs": {
+      "sha256": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+      "bytes": 7066
+    }
+  },
+  "required_supervision": {
+    "outer_phase_seconds": 180,
+    "native_call_seconds": 30,
+    "aggregate_mib": 512,
+    "node_heap_mib": 128,
+    "priority": "BelowNormal",
+    "windows_hide": true,
+    "owned_job_required": true
+  },
+  "execution": false
+}

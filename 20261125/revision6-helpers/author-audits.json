@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "passed_static_author_inspections",
+  "files": {
+    "materialize-continuation-v6.mjs": {
+      "sha256": "461ee5a0bec9ce08b881b71a8891a44c2f9716173e9dd1e0437d4dcbb0120902",
+      "bytes": 21072
+    },
+    "record-accepted-tasks-v6.mjs": {
+      "sha256": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+      "bytes": 7066
+    },
+    "input-contract.json": {
+      "sha256": "b17844f446586cb42e7f9cc557c8771c97fb0d306e32b5d6cb62eae9d9a27d25",
+      "bytes": 1544
+    },
+    "README.md": {
+      "sha256": "37df4bed1076ace774a1139bd4f6867d0c65272a4d3ee315a81ecd9726d33a6a",
+      "bytes": 5925
+    }
+  },
+  "accepted_plan_review_sha256": "27ee4c9b84debcd3706332105a055e48e4243930dbe4dde6a5b88c52da5fcbd0",
+  "native_source_inspected": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+  "source_contracts": [
+    "src/main.rs cmd_reopen emits only the target ID and invokes revision-guarded native reopen.",
+    "src/cli.rs --no-auto-flush is global; main's publication probe returns early for this flag.",
+    "src/service/lifecycle.rs reopen changes status, clears close metadata/manual-blocked/assignment, advances one revision and appends reopened history.",
+    "src/cli_history.rs projects commit-ordered events with stable anchored revisions and specific reopened/updated field names.",
+    "src/service/manifest.rs changes descriptions through before/after objects; both report sides may use the known redaction marker."
+  ],
+  "inspections": [
+    {
+      "id": 1,
+      "all_authored_lines_read": true,
+      "files_read": [
+        "materialize-continuation-v6.mjs",
+        "record-accepted-tasks-v6.mjs",
+        "input-contract.json",
+        "README.md"
+      ],
+      "conclusions": [
+        "All exact plan, review, template, protocol, old mapping, native binary and current workspace inputs are bound before writes.",
+        "The current full inventory is authoritative for unrelated task states and revisions, preserving newly completed backend tasks.",
+        "Exactly four reviewed closed revision-2 tasks are reopened with current guards; no restore, create, graph edit, direct SQL mutation or invented claim is present.",
+        "Every mutation has a durable intent, raw stdout/stderr and exit record; complete row/edge and history comparisons precede the next operation.",
+        "The twelve description operations are constructed only from the exact accepted template and current post-reopen revisions, with unchanged dry-run readback."
+      ]
+    },
+    {
+      "id": 2,
+      "all_authored_lines_read": true,
+      "files_read": [
+        "materialize-continuation-v6.mjs",
+        "record-accepted-tasks-v6.mjs",
+        "input-contract.json",
+        "README.md"
+      ],
+      "conclusions": [
+        "Both whole JavaScript bodies parsed without execution after removing import declarations; root still performs ordinary Node parsing.",
+        "Literal descriptions remain mandatory in actual full readback even when report projection text is redacted.",
+        "All 954 original CLI records, unrequested stored continuation fields, config and selected pointer are checked unchanged.",
+        "Native history preserves original close events and appends exactly reopened plus description updated records.",
+        "All raw inventories are written once; the helper uses 180-second total and 30-second native-call bounds, with root-owned 512 MiB Job and 128 MiB Node heap required.",
+        "Existing outputs cause refusal, uncertain mutation cannot be automatically replayed, and final plan result is created only after all checks.",
+        "The closer mechanically reverses byte-for-byte to the tested v5 source after only its four revision-6 binding substitutions."
+      ]
+    }
+  ],
+  "pc_calls": 0,
+  "native_mutations": 0,
+  "ordinary_node_parse": "pending_root",
+  "complete_independent_helper_review": "pending"
+}
