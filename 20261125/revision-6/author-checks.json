@@ -36,9 +36,9 @@
     "20261125/revision-6/delta-manifest.template.json": "489584fa13196a13718736bda81b3e0250233a5c102f40cb3d74ba5939136fc5",
     "20261125/revision-6/native-update-protocol.json": "74668403c9737383aa99af6aa13056e5c77a2586193a7ccc15c7b2c6505e3c17",
     "20261125/revision-6/writing-rules.json": "f3868d4b51635ac291b7af3b9fef48c969e1a344e4cbbb7c3604ddae0af49f68",
-    "20261125/tray-launch-probe/probe.mjs": "44d4a586e7d965220c67284555fdeeb8e598b2c17b62cd15327eba71cfe590fb",
-    "20261125/tray-launch-probe/marker.ps1": "08a8a821c6871289c53f720f5a8136b09e373afb05daabd56453cadd01e32a93",
-    "20261125/tray-launch-probe/workflow.yml": "ff5bd8279afb707f130b61f5c3346a35198db153afe9548c2b32f1e8e04c7ce2"
+    "20261125/tray-launch-probe/probe.mjs": "92c49c4c717a2e9deb22b8bc6baa75b1628ef1c2cb7ab51072703107e28ab629",
+    "20261125/tray-launch-probe/marker.ps1": "2130a8157c558f7a8a323a40cc078f0fe0478fc7ce61fc75fd884d036118d3a9",
+    "20261125/tray-launch-probe/workflow.yml": "942c7b8cba610bc877e9c6364180b9445deb8af28f6c2e11cbdb311266787d7a"
   },
   "probe_checks": [
     "Ordinary Windows PowerShell with no policy/zone overrides; no Next/Forms/app/PC access",
@@ -58,6 +58,15 @@
     {
       "pass": true,
       "focus": "Complete probe/control/PowerShell/workflow and same final bytes; parent-ready race repaired before review; bounded failure cleanup, ordinary policy and complete logs."
+    },
+    {
+      "pass": true,
+      "focus": "Complete revised165-plus-line Node probe,38-line PS marker and47-line workflow reread; the three requested corrections are the only probe changes and all limits/process/error handling remain."
     }
+  ],
+  "probe_review_corrections": [
+    "Acquire actual System.Diagnostics.Process.Handle before READY so original-parent identity persists after exit.",
+    "Parse bounded complete READY lines across arbitrary stdout chunks.",
+    "Set hosted Git core.autocrlf=false/core.eol=lf before checkout; ordinary execution and policy retained."
   ]
 }

@@ -12,7 +12,7 @@ $exitCode = 1
 try {
     [IO.File]::WriteAllText((Join-Path $OutputDirectory 'entry.json'),
         (@{ pid=$PID; parentProcessId=$ParentProcessId; powershell=$PSVersionTable.PSVersion.ToString(); mode=$Mode; utc=[DateTime]::UtcNow.ToString('o') } | ConvertTo-Json -Compress), $utf8)
-    if ($Mode -eq 'ParentLoss') { $parent = [Diagnostics.Process]::GetProcessById($ParentProcessId) }
+    if ($Mode -eq 'ParentLoss') { $parent = [Diagnostics.Process]::GetProcessById($ParentProcessId); [void]$parent.Handle }
     [Console]::Out.WriteLine('READY')
     [Console]::Out.Flush()
     if ($Mode -eq 'Marker') {

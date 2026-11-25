@@ -53,9 +53,20 @@ if (process.argv[2] === '--host') {
   const child = spawn(process.execPath, args, options(true));
   write(path.join(out, 'controller-start.json'), { pid: process.pid, parentPid: process.ppid, childPid: child.pid, command: process.execPath, args, options: options(true) });
   child.stdin.on('error', () => {});
+  let readyBuffer = '';
+  child.stdout.setEncoding('utf8');
   child.stdout.on('data', bytes => {
-    if (bytes.toString().includes('READY') && !fs.existsSync(path.join(out, 'controller-ready.json')))
-      write(path.join(out, 'controller-ready.json'), { ready: true, pid: process.pid });
+    readyBuffer += bytes;
+    if (readyBuffer.length > 4096) {
+      child.stdin.end(); process.exitCode = 1; return;
+    }
+    let end;
+    while ((end = readyBuffer.indexOf('\n')) >= 0) {
+      const line = readyBuffer.slice(0, end).replace(/\r$/, '');
+      readyBuffer = readyBuffer.slice(end + 1);
+      if (line === 'READY' && !fs.existsSync(path.join(out, 'controller-ready.json')))
+        write(path.join(out, 'controller-ready.json'), { ready: true, pid: process.pid });
+    }
   });
   child.stderr.on('data', bytes => process.stderr.write(bytes));
   const timer = setTimeout(() => { if (!child.stdin.destroyed) child.stdin.end(); }, 14000);
