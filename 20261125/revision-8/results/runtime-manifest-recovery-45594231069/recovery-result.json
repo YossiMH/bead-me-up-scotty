@@ -1,0 +1,107 @@
+{
+  "status": "passed",
+  "operation": "existing-runtime-metadata-recovery",
+  "inputs": {
+    "schema_version": 1,
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "producer_run_id": 45573503400,
+    "producer_artifact_id": 15003467178,
+    "producer_workflow_commit": "e10f6153fec45ab91e30539495fa5b6567d95229",
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_zip_bytes": 7137798,
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "retainer_sha256": "7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112"
+  },
+  "source_files": [
+    {
+      "path": "package.json",
+      "sha256": "3299658793499d4da1fff8a2bf1a56c2f12a370c463c32b1586b4024bb11b137",
+      "bytes": 2264,
+      "git_blob": "67da5c82a5afdb4e99a1d37911965ab0bd01ca04"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "545c1dd88f005d1b7337907f311f8bf979bbbd34e3930cfabef1fe5f8d57f050",
+      "bytes": 485627,
+      "git_blob": "e8662b2df0c5172e19ec66b3ef2241ccb5798618"
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "8be4b27befd08072ca0f8179434b4b8de3f4c9f3c6437e977dfc11ebf6af858a",
+      "bytes": 1905,
+      "git_blob": "9eb0cdf9de777ca6a07bf5420e84161d1d21c250"
+    },
+    {
+      "path": "lib/native-process.ts",
+      "sha256": "615650ce402fbaaaedce8620af9e28d716ac28e58d399718ae74008419d362e7",
+      "bytes": 6651,
+      "git_blob": "59c5801d3410de135b945fa2cac4d5cdde22c78c"
+    },
+    {
+      "path": "lib/native-store.ts",
+      "sha256": "3f41c455079cda5247a9fdd5c98e716d06e57fc4ad14341d2e4022bcc9b013c5",
+      "bytes": 14931,
+      "git_blob": "9cb7637cd2674fdcff1754b0c514c483f4edfec4"
+    },
+    {
+      "path": "lib/native-edit.ts",
+      "sha256": "302fafff05f899a97091c3f91407f6c998913ab96276a766f797d5781b1e6fde",
+      "bytes": 2413,
+      "git_blob": "ec2eeecf02da9c6590d2a4733d87f0fccba2a4f0"
+    },
+    {
+      "path": "docs/backend-compatibility.md",
+      "sha256": "3564de23de0ca506e2725bf5bcedea19722f0f90a377b4abbe1201d412de94a4",
+      "bytes": 33294,
+      "git_blob": "4e6660ff83123db8f738a844085e8fbedbc0c4c4"
+    },
+    {
+      "path": "scripts/fixtures/native-contract.mjs",
+      "sha256": "01b2befaab94c55da0997dbc4a7a15d4320c4eade13a4a8e2fe5ba43050cd526",
+      "bytes": 1872,
+      "git_blob": "3b5edfb5599945e2f0d5dd887f6e7765933d86fb"
+    },
+    {
+      "path": "scripts/test-native-editing.mjs",
+      "sha256": "adb15736cb60f8c1f09d4cf9a1af7b16f0ce0fbb5d5efc525e755380601f1b33",
+      "bytes": 26585,
+      "git_blob": "0978fc602316770d459fd7fad8ad423235364392"
+    },
+    {
+      "path": "scripts/test-local-bead-rs.mjs",
+      "sha256": "528449dccecb1acd28caf7d3894540c85f2353c408219db4d2f267aa71f934c7",
+      "bytes": 6117,
+      "git_blob": "122bca5cf674d64cd22ec64d65ed61e8e9c59350"
+    },
+    {
+      "path": "scripts/test-native-type-roundtrip.mjs",
+      "sha256": "55cd3c76799ef2546b7297c1386a53c99ebfe0ab28a394cd83815fe6e90e64a5",
+      "bytes": 9330,
+      "git_blob": "524efa3a08b43bab9d23bfa144b0305db0963e37"
+    }
+  ],
+  "runtime_files": 560,
+  "app_or_native_execution": false,
+  "rebuild": false,
+  "retained": [
+    {
+      "path": "linux-source-sha256.json",
+      "bytes": 2308,
+      "sha256": "1e114819d4366e5d33443480ef26d909881559ba3908249ff4811ca22b3de241"
+    },
+    {
+      "path": "linux-scotty-runtime.json",
+      "bytes": 110021,
+      "sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7"
+    },
+    {
+      "path": "linux-result.json",
+      "bytes": 2414,
+      "sha256": "89d15c6ba9ec3948ca1d5e0f5f04443c5dc6f865a727c337b722aabe946c0049"
+    }
+  ],
+  "duration_seconds": 0.124
+}
