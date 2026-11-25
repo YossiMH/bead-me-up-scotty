@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "author": "checkpoint_finish",
+  "base_complete_review_commit": "e6fd27138076b453680ae80159ace33b56e4dfcf",
+  "files": {
+    "README.md": "ddbf03f55732e5b48be8b0f844785531d2586f69ce4968d6170ae588cb7b305c",
+    "check-inputs.template.json": "bb9aba51a4a2e76ec3aefeaddb0456d903b05fa8a1358d15fa7996f3d4af5382",
+    "checkpoint-windows-build-20261125.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "checkpoint-windows-build-20261125.py.v5.patch": "df6713b2209ddadee73969f42f511a13f02241f113558b17fd509104a36b0a87",
+    "checkpoint-windows-build.workflow.yml": "207ce70e821bc9c47511b2c7f8763d8169c487b67b4ca0915b6c483fdc77ce9d",
+    "packet.json": "109b4311119b2fc555fd906d8069037f70ca1ea7eed4e8cc389fc6f2254ebcac",
+    "static-checks-v5.json": "585aa5ab75c757abb25bb2705e0e6a6bc3eeb45196dde1f5eb33255209a28026",
+    "v4-failed-build-result.json": "3958539a6a46878b88bceb5215a94550f9ecb873c2762606b20f86e10021a6f5",
+    "v4-failed-completion.json": "aa159615b6a16d0a343c26182b2d72d55c3005a142febef7b56dd299dfca3e0e",
+    "v4-failed-job.log": "0c5568e43e04d5e8384c4ad620ba88773a17171986e36abe589023e4db1880e6",
+    "v4-failed-outer-result.json": "815209c90ce242f80ec7a0db8249ced1c9084112e3d0d3182d7c9dad26f03ad7",
+    "v4-failed-streams.json": "64d6ad4bc033d5ab969a5c8b192ad093e358aa9bd8ffc8782123ad33ca15accb",
+    "v4-failed-supervisor.json": "5ada5bd36380b18a971dfd7a0bd4ff58ae5851c7ca8a89fbdabafc140dbd474a"
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "complete_candidate_inspected": true,
+      "findings": [],
+      "checks": [
+        "Read entire current build helper through the prior accepted complete file plus independently regenerated single-function diff.",
+        "Verified safe_existing/PE guards, exact selected Visual Studio root, child-only env assignment and retained measured linker identity.",
+        "Read archive in_archive environment code: it clears only Git selectors and sets owned target; Cargo linker binding is preserved.",
+        "Matched all30 command outcomes and all60 decoded streams to retained hashes; actual linker failure remains failed."
+      ]
+    },
+    {
+      "pass": 2,
+      "complete_candidate_inspected": true,
+      "findings": [],
+      "checks": [
+        "Rechecked complete build/check caller integration: exact host/target proof precedes archive release; later test compilation uses the same child env; check helper is byte-identical.",
+        "Recomputed all packet/template/workflow bindings, exact unchanged source/script/default features/commands/deadlines and ownership code.",
+        "Parsed the complete final Python AST and compiled syntax; every function/class except activate_msvc is structurally identical to the fully reviewed v4.",
+        "Checked all retained actual receipts, full workflow and recovery/cleanup notes; no compilation or product checks executed during preparation."
+      ]
+    }
+  ]
+}

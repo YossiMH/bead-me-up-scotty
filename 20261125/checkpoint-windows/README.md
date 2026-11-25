@@ -104,3 +104,16 @@ Each incomplete sample's assigned/count/capacity/returned-byte/error values is r
 Seven cloud-only cases exercise the exact extracted query function with synthetic API responses: complete list, temporary incomplete list, buffer growth, exhausted attempts, oversized membership, duplicate IDs and unrelated API failure. They run no Windows API or product command. `query-checks-v4.json`, both complete syntax checks and exact reversal to revision3 support the two author inspections. The complete packet still needs independent review before activation on the fresh `task/checkpoint-windows-build-20261125-v4` branch. Future agents must preserve failed runs, reconcile uncertain attempts and remove this owned build/proposal branch along with the earlier temporary branches after handoff.
 
 Primary API reference: https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_process_id_list
+
+
+## Revision 5: explicit Microsoft linker
+
+The first actual MSVC compilation in run45550605353/job138990607071 failed while linking proc-macro2's build script. Its complete compiler stream identifies `C:\Program Files\Git\usr\bin\link.exe`. The verified Visual C++ environment had selected MSVC14.52.37025/x64, but Git Bash's tool search selected its unrelated Unix link utility. All29 preceding commands passed. Job membership remained exact, no query retries were needed, and the final supervisor reports no children; all phase results remain failed.
+
+The sole executable-code change resolves `VCToolsInstallDir/bin/Hostx64/x64/link.exe`, requires a regular non-reparse AMD64 PE32+ inside the selected Visual Studio installation, and sets `CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_LINKER` in the already cleaned child environment. The result records the measured linker path, byte count and SHA-256. The unchanged archive script preserves that Cargo variable, and both the host and requested target are the pinned MSVC tuple. Cargo's documented existing behavior applies the host tuple's linker to build scripts even when `--target` is supplied. No Rust flags or source/archive script bytes change. The later direct test compilation inherits the same explicit linker.
+
+Primary references: https://doc.rust-lang.org/cargo/reference/config.html#targettuplelinker and https://doc.rust-lang.org/cargo/reference/unstable.html#target-applies-to-host (the existing stable behavior description; no unstable switch is enabled).
+
+All four failed receipts, the complete475329-byte job log and all60 exact small raw streams are retained. Failed artifact14992863878 has ZIP SHA-256e4acfdecb9f0e2942287808c98b2363cacdade9a7d6221944c5d96ca80502620. The separate check helper, PowerShell supervisor/driver, all source pins, compiler commands, default features, deadlines, owned-handle checks and final zero-child requirement remain unchanged. Activate only the separately reviewed fresh `task/checkpoint-windows-build-20261125-v5` workflow.
+
+If this process stops early, future agents must retain needed evidence and remove only this task's temporary worktrees/branches after delivery. No new local worktree was created for this helper correction.

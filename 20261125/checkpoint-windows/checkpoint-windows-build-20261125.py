@@ -531,9 +531,21 @@ def activate_msvc(runner, root):
             if old.upper() == key.upper():
                 del runner.env[old]
         runner.env[key] = values[key]
+    # Git Bash prepends its own tools, including an unrelated link.exe. Cargo's
+    # host and target tuples are both this verified MSVC tuple, so an explicit
+    # target linker also covers proc-macro and build-script links.
+    linker = safe_existing(Path(values["VCToolsInstallDir"]) / "bin" / "Hostx64" / "x64" / "link.exe")
+    require(linker.is_relative_to(safe_existing(Path(installation), directory=True)),
+            "MSVC linker leaves the selected Visual Studio installation")
+    pe_x64(linker)
+    linker_key = "CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_LINKER"
+    require(linker_key not in runner.env, "An unexpected Cargo linker override survived environment cleanup")
+    runner.env[linker_key] = str(linker)
     return {"vswhere": str(vswhere), "vswhere_sha256": file_hash(vswhere),
             "vcvars64": str(vcvars), "vcvars64_sha256": file_hash(vcvars),
-            "toolset_version": values["VCToolsVersion"], "sdk_version": values["WindowsSDKVersion"]}
+            "toolset_version": values["VCToolsVersion"], "sdk_version": values["WindowsSDKVersion"],
+            "linker": {"path": str(linker), "sha256": file_hash(linker), "bytes": linker.stat().st_size,
+                       "environment_key": linker_key, "host_and_target": TARGET}}
 
 
 def main():
