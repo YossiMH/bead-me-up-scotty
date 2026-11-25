@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/cloud_readiness",
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Final hosted Linux affected checks, complete default native suite, and original public corpus execution packet",
+  "candidate_commit": "1bb64f56ee464587ece7caf55ed3f2da0adb6fd5",
+  "source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "task_keys": [
+    "type-backend-checks",
+    "checkpoint-full-suite",
+    "checkpoint-linux-checks"
+  ],
+  "reviewed_files": {
+    "20261125/native-final-linux-check/checkpoint-full-suite-20261125.py": "f41956953752cd2b799651ea00dd86e1f405ba9c8a33f4f4b83c7c07c22a9e56",
+    "20261125/native-final-linux-check/checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "20261125/native-final-linux-check/full-suite-inputs.json": "5e663d417fa5c8ddee48b4c755c20c78502046d8a3c6e8ecfd37e4ad90abcae5",
+    "20261125/native-final-linux-check/corpus-inputs.json": "b4233e8d2c391cb45463537f5effc420248177e98016b9ff7e83aefdf4912244",
+    "20261125/native-final-linux-check/workflow.yml": "4c657c365019fef98effb89f3b972c02225f55c647f3868a4220d096246a1ba4",
+    "20261125/native-final-linux-check/author-inspections.json": "d0b9a8d16b858ad4062743e4552530e505bc33913da5063411435696d044c94b",
+    "20261125/native-final-linux/checkpoint-linux-build-20261125.py": "11cfb8375b81ca715b78e63db545981cc329cadaa64fe006b3b3a1d32aafb05a",
+    "20261125/native-final-linux/checkpoint-build-support.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+    ".github/workflows/native-final-linux-check-20261125.yml": "4c657c365019fef98effb89f3b972c02225f55c647f3868a4220d096246a1ba4"
+  },
+  "prior_complete_reads_retained": {
+    "draft_commit": "058dd86b4c0af8acf74f7741215bca63def86113",
+    "full_suite_helper": "Complete 36,801-character draft and its restored source/target, environment, serial affected checks, complete-suite accounting, process-group cleanup and evidence retention paths",
+    "corpus_helper": "Complete 42,736-character portable verifier; exact four restores and six complete corpus comparisons",
+    "producer_support": "Complete accepted producer and support helper reviews retained; final bytes independently rechecked"
+  },
+  "final_delta_review": [
+    "Producer hash changes to the accepted one-space man comparison helper. The exact raw generated page joins the closed bundle inventory; its file hash and comparison record are checked against the tracked page.",
+    "All actual source, run, receipt, bundle, release, metadata and artifact identities replace placeholders; workflow and actual executable inventory agree.",
+    "Affected-run reporting uses get('exit_code') when a command could not start, preserving its original error.",
+    "The corpus verifier and producer/support algorithms remain byte-identical to the completely reviewed predecessors."
+  ],
+  "producer_evidence": {
+    "commit": "6f099e729374c33b2823d3f5929b33361543be5a",
+    "run_id": "45575999107",
+    "job_id": 139073966356,
+    "workflow_commit": "e5cea420faa1804c8b13ffeab77d5248e818395f",
+    "all_required_steps_success": true,
+    "build_result_sha256": "3bf3e22f779b28054d0542fcb4702cb8cd69198d5ed849f07dcb78dc3dc50779",
+    "outer_result_sha256": "ea2fe8c287e1312c3b262ded2ef2c2c43b9da0a36b5011844a3544a95cd7b914",
+    "actual_job_log_receipts_decoded_and_exactly_equal": true,
+    "default_harnesses": 145,
+    "test_support_executables": 147,
+    "cargo_build_jobs": 1,
+    "rustc": "1.100.0",
+    "cargo_fmt_exit_code": 0,
+    "cargo_clippy_exit_code": 0,
+    "all_default_compilation_exit_code": 0,
+    "archive_release_exit_code": 0,
+    "build_artifact_id": 15004218651,
+    "build_artifact_zip_sha256": "df93c29c70b4af9021652f43db968c62df0983d33582dd3daca828a186460662",
+    "release_artifact_id": 15005116461,
+    "release_artifact_zip_sha256": "91bc61ef8b77700bdb31c44a6f401f63129044b448d5f363a1740c74a8fa5ad4",
+    "bundle_sha256": "112752e4049698cd0231b0a9c3886b5458f04463a460f39203b229eef5e9ee64",
+    "bundle_bytes": 555854743,
+    "release_sha256": "266245fab0e7b8378877083b258131b63036ec4bac5d64447429a839ee9becbf",
+    "release_bytes": 13638896,
+    "metadata_sha256": "eaf5c8d4a87e21082102df5720a276a2bcd122b2ceb7bd58b2163cf94dc16c30",
+    "raw_man_sha256": "f85640962a3f71495c5684d5b950b065b102637b1a180739e2ec628ba79915d4",
+    "raw_man_matches_first_observed_generator_bytes": true,
+    "normalized_man_sha256": "04c6e2f94937da51f72a675be615f8981e96a7d9b76699354cdc3753156c73af",
+    "product_tests_executed_by_producer": false
+  },
+  "execution_contract": [
+    "Verify the actually downloaded receipts and all bundle/source/target/release bytes before execution; reconstruct exact original compiled paths and toolchain.",
+    "Run the eight affected integration targets serially, require the exact eleven new type tests, and retain a separate type-backend-checks receipt.",
+    "Run every default native harness and doc test with complete result accounting, then qualify the immutable archive release against all original issue/history/receipt/outcome rows and both retained checkpoint generations.",
+    "Use hosted owned process groups and existing measured environment corrections, retain full streams and exit/status reports, and clean only owned paths.",
+    "Full-suite and recovery jobs are independent; deadlines remain 100 minutes and 25 minutes at the job level."
+  ],
+  "author_inspections": {
+    "count": 2,
+    "status": "clean",
+    "read": true
+  },
+  "authorization": "Activation of task/native-final-linux-check-20261125 is accepted.",
+  "remaining": [
+    "Actual downloaded-byte verification and execution outcomes",
+    "Native final author inspections and final source acceptance",
+    "Actual PC materialization, installation, logged-in tray/Exit behavior and cleanup"
+  ],
+  "reviewer_executed_product": false,
+  "findings": []
+}
