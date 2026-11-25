@@ -1,0 +1,62 @@
+--- accepted/checkpoint-handoff-supervisor-20261125.ps1
++++ revision-6/checkpoint-handoff-supervisor-20261125.ps1
+@@ -156,6 +156,8 @@
+     Assert-That ($Job -ne [IntPtr]::Zero) 'Qualified helper did not retain its owned Job handle.'
+     Add-Type -TypeDefinition @'
+ using System;
++using System.Collections.Generic;
++using System.Diagnostics;
+ using System.ComponentModel;
+ using System.Runtime.InteropServices;
+ public static class Checkpoint20261125Inspector {
+@@ -183,18 +185,30 @@
+         },null,milliseconds,System.Threading.Timeout.Infinite);
+     }
+     public static int[] Members(IntPtr job) {
+-        for(int capacity=32;capacity<=4096;capacity*=2) {
+-            int size=8+IntPtr.Size*capacity;IntPtr buffer=Marshal.AllocHGlobal(size);
++        Stopwatch clock=Stopwatch.StartNew(); int capacity=32;
++        for(int attempt=0;attempt<8 && clock.ElapsedMilliseconds<500;attempt++) {
++            int size=8+IntPtr.Size*capacity; IntPtr buffer=Marshal.AllocHGlobal(size);
+             try {
+-                uint needed;bool ok=QueryInformationJobObject(job,3,buffer,(uint)size,out needed);
+-                if(!ok){int error=Marshal.GetLastWin32Error();if(error==234)continue;throw new Win32Exception(error);}
+-                int count=Marshal.ReadInt32(buffer,4);if(count<0 || count>capacity)throw new InvalidOperationException("Invalid Job member count.");
+-                int[] values=new int[count];
+-                for(int index=0;index<count;index++)values[index]=checked((int)Marshal.ReadIntPtr(buffer,8+index*IntPtr.Size).ToInt64());
+-                return values;
+-            }finally{Marshal.FreeHGlobal(buffer);}
+-        }
+-        throw new InvalidOperationException("Task Job exceeded 4096 members.");
++                Marshal.WriteInt64(buffer,0,0); uint needed;
++                bool ok=QueryInformationJobObject(job,3,buffer,(uint)size,out needed);
++                int error=ok?0:Marshal.GetLastWin32Error();
++                int assigned=Marshal.ReadInt32(buffer,0), count=Marshal.ReadInt32(buffer,4);
++                if(assigned<1 || assigned>1024 || count<0 || count>capacity) throw new InvalidOperationException("Invalid task Job member counts.");
++                if(ok && assigned==count && needed>=(uint)(8+IntPtr.Size*count) && needed<=(uint)size) {
++                    int[] values=new int[count]; HashSet<int> seen=new HashSet<int>();
++                    for(int index=0;index<count;index++) {
++                        int pid=checked((int)Marshal.ReadIntPtr(buffer,8+index*IntPtr.Size).ToInt64());
++                        if(pid<=0 || !seen.Add(pid)) throw new InvalidOperationException("Invalid task Job PID list.");
++                        values[index]=pid;
++                    }
++                    return values;
++                }
++                if(error!=0 && error!=234) throw new Win32Exception(error);
++                if(assigned>capacity || error==234) capacity=Math.Min(1024,Math.Max(capacity*2,assigned));
++            } finally { Marshal.FreeHGlobal(buffer); }
++            if(attempt<7 && clock.ElapsedMilliseconds<480) System.Threading.Thread.Sleep(20);
++        }
++        throw new InvalidOperationException("Task Job membership did not produce a complete bounded snapshot.");
+     }
+ }
+ '@
+@@ -228,7 +242,7 @@
+     $Result['driver_exit_code']=$Child.ExitCode
+     Assert-That ($Child.ExitCode -eq 0) 'Helper failed; reconcile retained phase attempt before any repeated mutation.'
+     $phaseResult=Join-Path $PhaseDirectory 'result.json'
+-    $driverResult=Get-Content -LiteralPath $phaseResult -Raw|ConvertFrom-Json
++    $driverResult=[IO.File]::ReadAllText($phaseResult)|ConvertFrom-Json
+     Assert-That ($driverResult.status -eq 'passed' -and $driverResult.phase -eq $Phase) 'No passed result for this exact phase.'
+     Assert-That ($driverResult.request_sha256 -eq $InputSha256) 'Result belongs to another request.'
+     $Result['publication_lock_final']=Check-PublicationLock

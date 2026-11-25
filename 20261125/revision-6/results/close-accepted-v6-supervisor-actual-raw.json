@@ -1,0 +1,140 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "phase":  "finished",
+    "started_utc":  "2026-11-25T05:22:16.8921833Z",
+    "timeout_seconds":  180,
+    "work_stop_seconds":  168,
+    "max_total_resident_mib":  512,
+    "baseline_free_required_gib":  1,
+    "node_heap_mib":  128,
+    "priority":  "BelowNormal",
+    "sample_interval_ms":  100,
+    "cleanup_errors":  [
+
+                       ],
+    "cleanup_assisted":  false,
+    "owned_processes":  [
+                            {
+                                "peak_resident_bytes":  85368832,
+                                "pid":  66804,
+                                "exit_code":  0,
+                                "start_ticks":  639311809379326647,
+                                "name":  "node",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  7458816,
+                                "pid":  80184,
+                                "exit_code":  0,
+                                "start_ticks":  639311809379393321,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  6967296,
+                                "pid":  63684,
+                                "exit_code":  0,
+                                "start_ticks":  639311809390329118,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  16240640,
+                                "pid":  50856,
+                                "exit_code":  0,
+                                "start_ticks":  639311809390253227,
+                                "name":  "bead-editing-539cdd0",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  28312,
+                                "exit_code":  0,
+                                "start_ticks":  639311809410340539,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  27600,
+                                "exit_code":  0,
+                                "start_ticks":  639311809410283551,
+                                "name":  "bead-editing-539cdd0",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  6971392,
+                                "pid":  78980,
+                                "exit_code":  0,
+                                "start_ticks":  639311809411043523,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  8433664,
+                                "pid":  27312,
+                                "exit_code":  0,
+                                "start_ticks":  639311809410975749,
+                                "name":  "bead-editing-539cdd0",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  6959104,
+                                "pid":  68884,
+                                "exit_code":  0,
+                                "start_ticks":  639311809415703723,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  9400320,
+                                "pid":  72396,
+                                "exit_code":  0,
+                                "start_ticks":  639311809415632970,
+                                "name":  "bead-editing-539cdd0",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            }
+                        ],
+    "replay_allowed":  false,
+    "repository":  "F:\\Dev\\.bead-edit-20261111\\coordination-20261124",
+    "helper_sha256":  "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+    "request_path":  "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\accepted-tray-source-linux-corpus-request.json",
+    "request_sha256":  "3da807e2579327caad09cafc7e0e674b5796b23fcd317ba69449971af80677d6",
+    "output_name":  "completed-20261125-tray-source-linux-corpus",
+    "supervisor_sha256":  "08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033",
+    "job_helper_sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "node":  "C:\\Program Files\\nodejs\\node.exe",
+    "node_sha256":  "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa",
+    "session_id":  0,
+    "baseline_free_physical_bytes":  1845522432,
+    "hard_deadline_exit_code":  124,
+    "driver_pid":  66804,
+    "command":  [
+                    "C:\\Program Files\\nodejs\\node.exe",
+                    "--max-old-space-size=128",
+                    "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\record-accepted-tasks-v6.mjs",
+                    "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\accepted-tray-source-linux-corpus-request.json",
+                    "3da807e2579327caad09cafc7e0e674b5796b23fcd317ba69449971af80677d6",
+                    "completed-20261125-tray-source-linux-corpus"
+                ],
+    "driver_exit_code":  0,
+    "native_result":  "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\completed-20261125-tray-source-linux-corpus\\result.json",
+    "native_result_sha256":  "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c",
+    "remaining_job_members":  [
+
+                              ],
+    "peak_total_resident_bytes":  242155520,
+    "duration_seconds":  4.986,
+    "finished_utc":  "2026-11-25T05:22:21.8802225Z"
+}

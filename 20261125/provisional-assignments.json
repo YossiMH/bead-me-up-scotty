@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
-  "canonical_state": "Revision6 fully materialized and independently read back: same32 actual task IDs/51edges, four guarded reopens and12 description updates; original954 records/history/config/checkpoint pointer preserved. No subsequent revision6 closure has run.",
+  "canonical_state": "Revision6 fully materialized; subsequent accepted closure23e9fc74 closed tray-diagnose/tray-repair atrev5 and checkpoint-linux-checks atrev2. Same32 IDs/51edges/986issues; all954 originals and unrelated stored fields unchanged.",
   "native_ids_for_new_tasks": {
     "checkpoint-tests": "beadrs-940d77c6",
     "checkpoint-red-build": "beadrs-0eaf8a73",
@@ -194,6 +194,43 @@
       "result_sha256": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2",
       "exact_bytes_saved": "coordination/results/materialization-result-v6.json",
       "database_written": false
+    },
+    {
+      "action": "Stage/ordinary parse accepted close supervisor and request",
+      "proposal_id": "kS94IMFbyWeZ9g2wD5UsBiekfb2kpAoQMPL-OvaOs_I",
+      "status": "exited0",
+      "free_physical_bytes": 2998833152,
+      "parse_errors": 0,
+      "request_tasks": 3,
+      "database_written": false
+    },
+    {
+      "action": "Close three accepted revision6 tasks",
+      "proposal_id": "RAGj1imk28X8hVyDvKpc9MxsSADV9PcuD7axxC1jMYk",
+      "job_id": "j1795584136216-37324-180947663746113032",
+      "status": "completed and polled; exited0",
+      "first_poll_timed_out": true,
+      "later_exact_poll_reconciled": true,
+      "result_sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c",
+      "raw_supervisor_sha256": "6ea931cf5109fdd8ed904af5514569a6c36056b9b0807e631829967b9db7ebca",
+      "closed": [
+        "tray-diagnose",
+        "tray-repair",
+        "checkpoint-linux-checks"
+      ],
+      "peak_total_resident_bytes": 242155520,
+      "duration_seconds": 4.986,
+      "free_physical_bytes_before_start": 1845522432,
+      "remaining_job_members": [],
+      "database_written": true,
+      "replay_allowed": false
+    },
+    {
+      "action": "Read exact three-task closure receipt",
+      "proposal_id": "FzPHA21-4g5e6NA6pem9-vV_4MoRNlJV89rz-UbQYzo",
+      "status": "exited0; exact bytes verified",
+      "result_sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c",
+      "database_written": false
     }
   ],
   "assignments": [
@@ -209,7 +246,9 @@
       "status": "accepted output closed in canonical native store",
       "native_status": "closed",
       "native_revision": 2,
-      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9"
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-tests-review",
@@ -220,7 +259,9 @@
       "native_status": "closed",
       "native_revision": 2,
       "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
-      "next_action": "Preserve exact result and history; task complete."
+      "next_action": "Preserve exact result and history; task complete.",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-red-build",
@@ -242,7 +283,9 @@
       "accepted_build_report_sha256": "1e3291003588d67271c0f9813514b26fed8ec34f1be714a8a96b725b45669e71",
       "accepted_outer_report_sha256": "cb1c7dc7d7fd32e920094b4f43fabf42ef982a7d5a735a17cf4c25a210bfeb90",
       "artifact_id": 14986424212,
-      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9"
+      "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-red-checks",
@@ -258,7 +301,9 @@
       "expected_failures": 6,
       "artifact_id": 14988212379,
       "closure_receipt_sha256": "fb4da79185bb8218fa29991f2c392cc45262102e96136f47e839ba5d925e75e9",
-      "next_action": "Preserve exact result and history; task complete."
+      "next_action": "Preserve exact result and history; task complete.",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-repair",
@@ -267,7 +312,9 @@
       "native_status": "closed",
       "native_revision": 2,
       "status": "source515 producer closed in native store",
-      "mode": "accepted work reconciled to actual ID; no claim issued"
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-linux-build",
@@ -276,7 +323,9 @@
       "native_status": "closed",
       "native_revision": 2,
       "status": "Linux515 build closed in native store",
-      "mode": "accepted work reconciled to actual ID; no claim issued"
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-linux-checks",
@@ -285,7 +334,9 @@
       "native_status": "open",
       "native_revision": 1,
       "status": "hosted original-corpus checks passed and independently accepted; native closure pending",
-      "mode": "accepted work reconciled to actual ID; no claim issued"
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 2
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-full-suite",
@@ -294,7 +345,9 @@
       "native_status": "open",
       "native_revision": 1,
       "status": "Initial full run failed55 environment prerequisites, exact failure retained/reviewed; corrected unfiltered suite45549798905 running",
-      "mode": "accepted work reconciled to actual ID; no claim issued"
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "open",
+      "canonical_native_revision": 1
     },
     {
       "unique_ref": "bead-edit-20261124:checkpoint-windows-build",
@@ -303,7 +356,9 @@
       "native_status": "open",
       "native_revision": 1,
       "status": "MSVCv3 stopped precompiler at Job enumeration race after12 commands; exact failure retained, bounded query correction in progress",
-      "mode": "accepted work reconciled to actual ID; no claim issued"
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "open",
+      "canonical_native_revision": 1
     },
     {
       "unique_ref": "bead-edit-20261124:tray-diagnose",
@@ -312,20 +367,23 @@
       "native_status": "closed",
       "native_revision": 2,
       "status": "hosted four-case launch probe passed; new diagnosis retained; guarded native reopen/update/closure pending",
-      "mode": "accepted work reconciled to actual ID; no claim issued"
+      "mode": "accepted work reconciled to actual ID; no claim issued",
+      "canonical_native_status": "closed",
+      "canonical_native_revision": 5
     }
   ],
   "resource_reservations": {
     "backend_source_writer": "/root/browser_finish",
     "canonical_pc_writer": "/root",
-    "linux_build": "Linux build and complete corpus accepted. Full-suite v2 actual Cargo0/all145 summaries ok/1902passed/8existingignored; wrapper name parser failed on multiline stdout. Browser agent owns read-only exact-stream reconciliation and Windows2 tray execution.",
-    "windows_build": "Checkpoint agent owns minimal explicit MSVC-linker environment correction77e52f2e614823147e14eaf2e7ffc03412aa9207 and next hosted build/checks. Prior v4 used Git usr/bin/link.exe; no qualified Windows515 binary yet.",
+    "linux_build": "All Linux qualification accepted. Fullsuite v2 Cargo0,145targets/1902passed/8existingignored; independent exact-stream reconciliation accepted9d4b0bea; original wrapper failure retained.",
+    "windows_build": "Checkpoint agent owns diagnosis of hosted extra compiler child7944 after successful v5 MSVC release compile; exact failed overall result retained, no release artifact survived. No qualified Windows515 binary yet. Source unchanged.",
     "pc_app_check": "No current app; next real tray requires accepted replacement source/checks, reviewed exact patched-archive staging and immediate3GiB/512MiB bounds.",
-    "tray_source_writer": "Exact nine-file candidate5232c8b9 independently accepted7c9a213d. Linux39/full lint passed and independently accepted4c8df2a2; Windows2 checks awaiting activation. No active source edits.",
-    "installer_wrappers": "/root/checkpoint_finish owns only coordination/revision-6/wrappers/ for exact two-module installer, archive-stage helper, and host-aware/all-Job-memory smoke wrappers."
+    "tray_source_writer": "Final5232 source and both execution packets accepted:39Linux +2realWindows; full lint0. Root final desktop tray remains pending reviewed exact archive staging. No source edits active.",
+    "installer_wrappers": "/root/checkpoint_finish owns only coordination/revision-6/wrappers/ for exact two-module installer, archive-stage helper, and host-aware/all-Job-memory smoke wrappers.",
+    "evidence_retention": "Browser agent owns read-only inventory of38app/5backendrefs and compact already-public evidence bundle plus exact browser ZIP. No ref deletions or PC access."
   },
-  "cleanup_if_interrupted": "Canonical native authority is F:/Dev/.bead-edit-20261111/coordination-20261124 until the accepted same-UUID merge. Revision6 is complete with receipt838f89a3; NEVER replay materialization or earlier accepted closures. All PC proposal IDs listed here are reconciled; no current mutation is uncertain. Reconcile any later started proposal by its exact ID before new work. Preserve954 original records,32 tasks/51 edges,15 original modified app files/config/index/old pin and all failures. Cloud filesystem is restored. Future agents MUST finish cleanup if this process ends: verify clean status and durable publication, then use /workspace/scratch/3160e3ba3d24/tools/node_modules/.bin/riftri from the parent clones to remove only /workspace/library-files/beads-build-temporary-3160/worktrees/bead-completion and /workspace/scratch/3160e3ba3d24/worktrees/scotty-completion without force. Remove only their exact compatibility symlink afterward. App worktree task/scotty-recovered-20261124 is canonical5232c8b9; owned local task/scotty-local-host-20261125 retains equivalent026f6a68 because shell push lacked credentials; trees both eadf3e74. Remove that duplicate branch after canonical publication is durable. Retain full browser ZIP throughDec9, all accepted raw logs/results and rollback copies. Reconcile and delete only exact task-owned stopped Windows task definitions/session caches/temporary Git branches at verified heads; preserve unrelated/dirty/unpublished work. Include tray-launch-probe(-draft),revision6-helpers,checkpoint-windows-startup/job-diagnostics, Windowsbuild/packet v2/v3/v4/v5, Linuxbuildv2/check/fullsuitev2, browserretention and finaltraycheck branches. Source38 real tray failure remains failed; actual5232 desktop tray and installed-default launch remain pending. No app is known running. Finish qualification, checked install, final preservation and actual cleanup before claiming completion.",
-  "updated_utc": "2026-11-25T05:14:47.926695+00:00",
+  "cleanup_if_interrupted": "Canonical native authority is F:/Dev/.bead-edit-20261111/coordination-20261124 until the accepted same-UUID merge. Revision6 is complete with receipt838f89a3; three-task closure23e9fc74 is also completed. NEVER replay materialization or any accepted closure. All PC proposal IDs listed here are reconciled; no current mutation is uncertain. Reconcile any later started proposal by its exact ID before new work. Preserve954 original records,32 tasks/51 edges,15 original modified app files/config/index/old pin and all failures. Cloud filesystem is restored. Future agents MUST finish cleanup if this process ends: verify clean status and durable publication, then use /workspace/scratch/3160e3ba3d24/tools/node_modules/.bin/riftri from the parent clones to remove only /workspace/library-files/beads-build-temporary-3160/worktrees/bead-completion and /workspace/scratch/3160e3ba3d24/worktrees/scotty-completion without force. Remove only their exact compatibility symlink afterward. App worktree task/scotty-recovered-20261124 is canonical5232c8b9; owned local task/scotty-local-host-20261125 retains equivalent026f6a68 because shell push lacked credentials; trees both eadf3e74. Remove that duplicate branch after canonical publication is durable. Retain full browser ZIP throughDec9, all accepted raw logs/results and rollback copies. Reconcile and delete only exact task-owned stopped Windows task definitions/session caches/temporary Git branches at verified heads; preserve unrelated/dirty/unpublished work. Include tray-launch-probe(-draft),revision6-helpers,checkpoint-windows-startup/job-diagnostics, Windowsbuild/packet v2/v3/v4/v5, Linuxbuildv2/check/fullsuitev2, browserretention and finaltraycheck branches. Source38 real tray failure remains failed; 39Linux+2hostedWindows checks are accepted; actual5232 desktop tray and installed-default launch remain pending. No app is known running. Finish qualification, checked install, final preservation and actual cleanup before claiming completion.",
+  "updated_utc": "2026-11-25T05:31:43.075137+00:00",
   "preserved_browser_output": {
     "run_id": 45517446104,
     "artifact_id": 14978387944,
@@ -432,8 +490,8 @@
     {
       "key": "tray-diagnose",
       "id": "beadrs-9422c821",
-      "status": "open",
-      "revision": 4
+      "status": "closed",
+      "revision": 5
     },
     {
       "key": "windows-tray",
@@ -498,8 +556,8 @@
     {
       "key": "tray-repair",
       "id": "beadrs-417f998c",
-      "status": "open",
-      "revision": 4
+      "status": "closed",
+      "revision": 5
     },
     {
       "key": "tray-repair-checks",
@@ -564,8 +622,8 @@
     {
       "key": "checkpoint-linux-checks",
       "id": "beadrs-50ff08d3",
-      "status": "open",
-      "revision": 1
+      "status": "closed",
+      "revision": 2
     },
     {
       "key": "checkpoint-windows-checks",
@@ -592,7 +650,7 @@
     "repair_parent": "cee3220b5e4b9a414c50379273c84759db645dbf",
     "tests_parent": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
     "formatting_review_sha256": "58b141abde4fec0bf519d3d8628ced94d6e2fd3d35bfd3f6058c7fd2c95b665a",
-    "state": "Linux build/Clippy/fmt and original corpus accepted. Fullsuite v2 Cargo0/1902passed/8existingignored; exact raw-stream reconciliation pending for wrapper multiline name parser. Windows MSVC build/checks pending explicit linker correction."
+    "state": "Linux release/Clippy/fmt/corpus and complete145targets1902passed suite independently accepted. Windows v5 release compiled but overall ownership guard failed on unclassified extra PID7944; diagnostic pending. No new product defect or source change."
   },
   "tray_actual_failure": {
     "source": "38c21a77b4e875d75e17ee68683846601df33591",
@@ -663,7 +721,8 @@
     "linux_result_sha256": "166f35f0625f88e4f0756cffc8fc5245c892400f344ea31b1a1f24898ea97d80",
     "linux_actual": "39 passed,0 failed/skipped/cancelled; full lint0 with one pre-existing warning",
     "linux_evidence_commit": "82b57e83795754cd076252ff62311402fdd7cb0b",
-    "windows_actual": "pending"
+    "windows_actual": "Two real helper lifecycle cases passed on Node25.2.1; independent actual review9828fb4dffd8b108ba36f7450f83dd0d62f6f71fab6f8f57c25c90aa8d8442d4; run45552507526.",
+    "actual_evidence_commit": "ba6ebdb4c20da1d7b8d0266ef3e5e97f90fcba1d"
   },
   "previous_materialization": {
     "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/materialization-result-v5.json",
@@ -684,6 +743,30 @@
       "checkpoint-linux-checks"
     ],
     "supervisor_sha256": "08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033",
-    "state": "author inspections complete; independent review and ordinaryWindows parse pending; not staged or executed"
+    "state": "completed, exact native result23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c; never replay",
+    "result_sha256": "23e9fc746a98b51e8039641edaf9c1eef10723c6e387cfd742379f4dda71d44c"
+  },
+  "full_suite_actual": {
+    "run_id": 45549798905,
+    "job_id": 138987980821,
+    "cargo_exit": 0,
+    "targets": 145,
+    "passed": 1902,
+    "failed": 0,
+    "ignored_existing": 8,
+    "filtered": 0,
+    "reconciled_result_sha256": "fcc0ffdfcaa6550f41036ddad2fe46bda7b396636bc6df4da4b145c5a645fcf0",
+    "independent_review_sha256": "9d4b0bea21328521285aa426b0c5b1d4772041868dc828dd622c4232078f4347",
+    "original_wrapper_status": "failed on two multiline name records; failure retained unchanged"
+  },
+  "final_preservation_candidate": {
+    "node_path": "coordination/revision-6/checkpoint-handoff-20261125.mjs",
+    "node_sha256": "37365873aab6a5f35db7205a1d9cc90929cddf16bc03b94c4d67aeaf650bc0fa",
+    "supervisor_path": "coordination/revision-6/checkpoint-handoff-supervisor-20261125.ps1",
+    "supervisor_sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+    "author_sha256": "545307a345a1b06d7a5963eec70740eeb74878ff3c30267ec178aa4c1cbf97e9",
+    "status": "narrow revision6 request/path binding and complete Job query; independent review/ordinaryPSparser pending; no request or phase executed",
+    "baseline_commit": "6f57eee5cf24b65c59dafe49502d3a2b4a6d9d7e",
+    "do_not_use": "Older top-level coordination/checkpoint-handoff files are stale; accepted baseline is underrevision-6/preservation-baseline and new candidate underrevision-6."
   }
 }

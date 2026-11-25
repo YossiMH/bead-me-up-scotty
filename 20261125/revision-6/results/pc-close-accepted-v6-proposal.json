@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "proposal": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"approval\": \"Use admin_execute with ChatGPT Allow once. No AI reviewer or remembered approval is used.\", \"command\": \"powershell.exe -NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -Command \\\"$ErrorActionPreference='Stop'; $p='C:/Users/YossiMH/AppData/Local/bead-edit-20261111/closure-execution-v6-20261125/record-accepted-v6-supervisor.ps1'; $h='C:/Users/YossiMH/AppData/Local/bead-edit-20261111/materialize-execution-v6-20261125/windows-task-job.ps1'; if((Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant() -ne '08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033'){throw 'Supervisor hash differs'}; if((Get-FileHash -LiteralPath $h -Algorithm SHA256).Hash.ToLowerInvariant() -ne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'){throw 'Job helper hash differs'}; & $p -JobHelperPath $h -RequestPath 'F:/Dev/.bead-edit-20261111/coordination-20261124/accepted-tray-source-linux-corpus-request.json' -RequestSha256 '3da807e2579327caad09cafc7e0e674b5796b23fcd317ba69449971af80677d6' -OutputName 'completed-20261125-tray-source-linux-corpus'\\\"\", \"cwd\": \"F:\\\\Dev\\\\.bead-edit-20261111\\\\coordination-20261124\", \"expected_effects\": \"Run the exact reviewed08a25f85 owned-Job supervisor once to close only accepted tray-diagnose rev4, tray-repair rev4 and checkpoint-linux-checks rev1 through fixed native revision6 helper. Enforce1GiB free at launch,128MiB Node heap,512MiB aggregate all-owned RSS, BelowNormal and180s hard deadline; preserve954 originals and all unrelated stored fields; retain intents/raw logs/result; no application launch.\", \"expires_at_unix\": 1795584380.928508, \"proposal_id\": \"RAGj1imk28X8hVyDvKpc9MxsSADV9PcuD7axxC1jMYk\", \"request_digest\": \"228944e06c26f0e777d998ef4423c589fd53bc94b4a8ac7b416e9cb338638b96\", \"timeout_ms\": 200000}"
+      }
+    ],
+    "structuredContent": {
+      "proposal_id": "RAGj1imk28X8hVyDvKpc9MxsSADV9PcuD7axxC1jMYk",
+      "expires_at_unix": 1795584380.928508,
+      "command": "powershell.exe -NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -Command \"$ErrorActionPreference='Stop'; $p='C:/Users/YossiMH/AppData/Local/bead-edit-20261111/closure-execution-v6-20261125/record-accepted-v6-supervisor.ps1'; $h='C:/Users/YossiMH/AppData/Local/bead-edit-20261111/materialize-execution-v6-20261125/windows-task-job.ps1'; if((Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant() -ne '08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033'){throw 'Supervisor hash differs'}; if((Get-FileHash -LiteralPath $h -Algorithm SHA256).Hash.ToLowerInvariant() -ne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'){throw 'Job helper hash differs'}; & $p -JobHelperPath $h -RequestPath 'F:/Dev/.bead-edit-20261111/coordination-20261124/accepted-tray-source-linux-corpus-request.json' -RequestSha256 '3da807e2579327caad09cafc7e0e674b5796b23fcd317ba69449971af80677d6' -OutputName 'completed-20261125-tray-source-linux-corpus'\"",
+      "cwd": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124",
+      "expected_effects": "Run the exact reviewed08a25f85 owned-Job supervisor once to close only accepted tray-diagnose rev4, tray-repair rev4 and checkpoint-linux-checks rev1 through fixed native revision6 helper. Enforce1GiB free at launch,128MiB Node heap,512MiB aggregate all-owned RSS, BelowNormal and180s hard deadline; preserve954 originals and all unrelated stored fields; retain intents/raw logs/result; no application launch.",
+      "timeout_ms": 200000,
+      "request_digest": "228944e06c26f0e777d998ef4423c589fd53bc94b4a8ac7b416e9cb338638b96",
+      "approval": "Use admin_execute with ChatGPT Allow once. No AI reviewer or remembered approval is used."
+    },
+    "isError": false
+  },
+  "args": {
+    "command": "powershell.exe -NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -Command \"$ErrorActionPreference='Stop'; $p='C:/Users/YossiMH/AppData/Local/bead-edit-20261111/closure-execution-v6-20261125/record-accepted-v6-supervisor.ps1'; $h='C:/Users/YossiMH/AppData/Local/bead-edit-20261111/materialize-execution-v6-20261125/windows-task-job.ps1'; if((Get-FileHash -LiteralPath $p -Algorithm SHA256).Hash.ToLowerInvariant() -ne '08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033'){throw 'Supervisor hash differs'}; if((Get-FileHash -LiteralPath $h -Algorithm SHA256).Hash.ToLowerInvariant() -ne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'){throw 'Job helper hash differs'}; & $p -JobHelperPath $h -RequestPath 'F:/Dev/.bead-edit-20261111/coordination-20261124/accepted-tray-source-linux-corpus-request.json' -RequestSha256 '3da807e2579327caad09cafc7e0e674b5796b23fcd317ba69449971af80677d6' -OutputName 'completed-20261125-tray-source-linux-corpus'\"",
+    "cwd": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+    "expected_effects": "Run the exact reviewed08a25f85 owned-Job supervisor once to close only accepted tray-diagnose rev4, tray-repair rev4 and checkpoint-linux-checks rev1 through fixed native revision6 helper. Enforce1GiB free at launch,128MiB Node heap,512MiB aggregate all-owned RSS, BelowNormal and180s hard deadline; preserve954 originals and all unrelated stored fields; retain intents/raw logs/result; no application launch.",
+    "timeout_ms": 200000
+  },
+  "instruction": "Execute once; after any started/uncertain response poll only this exact proposal. Native helper retains a commit intent and refuses existing output.",
+  "execute_called": false
+}

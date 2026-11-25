@@ -1,0 +1,22 @@
+--- accepted/checkpoint-handoff-20261125.mjs
++++ revision-6/checkpoint-handoff-20261125.mjs
+@@ -337,8 +337,8 @@
+   assert.ok(request.git && typeof request.git.path==='string');assert.match(request.git.sha256,HASH);assert.equal(hashFile(request.git.path),request.git.sha256);
+   const planFile=request.plan?.path,mappingFile=request.materialization?.path;
+   assert.ok(planFile && mappingFile);
+-  assert.equal(path.resolve(planFile),path.resolve(PIN.isolated,'revision-5/plan.json'));
+-  assert.equal(path.resolve(mappingFile),path.resolve(PIN.isolated,'materialization-result-v5.json'));
++  assert.equal(path.resolve(planFile),path.resolve(PIN.isolated,'revision-6/plan.json'));
++  assert.equal(path.resolve(mappingFile),path.resolve(PIN.isolated,'materialization-result-v6.json'));
+   assert.match(request.plan.sha256,HASH);assert.match(request.materialization.sha256,HASH);
+   assert.equal(hashFile(planFile),request.plan.sha256);assert.equal(hashFile(mappingFile),request.materialization.sha256);
+   const plan=readJSON(planFile),mapping=readJSON(mappingFile);
+@@ -362,7 +362,7 @@
+     const value=pin(runtime[role]);assert.equal(value.status,'passed');assert.equal(value.binary_sha256,runtime.sha256);assert.equal(value.source_commit,runtime.source_commit);
+   }
+   const planReview=pin(request.accepted?.['plan-review']);
+-  assert.equal(planReview.status,'PASS');assert.equal(planReview.accepted,true);assert.equal(planReview.continuation_revision,5);assert.equal(planReview.read_complete_plan,true);
++  assert.equal(planReview.status,'PASS');assert.equal(planReview.accepted,true);assert.equal(planReview.continuation_revision,6);assert.equal(planReview.read_complete_plan,true);
+   assert.equal(planReview.expanded_tasks_read,plan.tasks.length);assert.equal(planReview.blocking_edges_read,plan.blocking_edges.length);
+   assert.equal(planReview.plan_sha256,request.plan.sha256);assert.equal(planReview.reviewed_files?.['plan.json'],request.plan.sha256);
+   const roles=['install','configured-launch','installed-review','backend-text-review','app-text-review','original-git-baseline'];
