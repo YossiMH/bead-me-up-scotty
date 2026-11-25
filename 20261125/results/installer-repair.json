@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "recorded_at": "2026-11-25T00:12:07.125121+00:00",
+  "task_key": "installer-repair",
+  "task_id": "beadrs-f588ab27",
+  "author": "/root/tray_finish",
+  "status": "candidate_authored_parser_and_publication_pending",
+  "source_commits": {
+    "tray_repair": "38c21a77b4e875d75e17ee68683846601df33591",
+    "app_runtime": "fbb09312e43ec8094da6db04f126a16e8c5746f7",
+    "backend_runtime": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+    "backend_current": "986f2a332aca9dd567eee41ce835917d56e29468"
+  },
+  "original_installer_path": "/workspace/scratch/3160e3ba3d24/transfer/windows-install.ps1",
+  "original_installer_sha256": "ce7093f9055d5b91efe1ae720a5741a994c3a374b363799f8654d2b39d3b7f5b",
+  "candidate_installer_path": "/workspace/scratch/3160e3ba3d24/transfer/windows-install-tray-20261124.ps1",
+  "candidate_installer_sha256": "881386faf0ef828ebc68fa0a99e28183ad265b7da8587964934a704089153631",
+  "candidate_file_identity": {
+    "bytes": 34119,
+    "lines": 460,
+    "git_blob": "913186c93bddaa40176cdc9d23e464b010068ac7",
+    "git_blob_status": "Calculated from file bytes; no transfer commit or publication is claimed."
+  },
+  "accepted_module": {
+    "path": "bin/windows-tray.mjs",
+    "source_commit": "38c21a77b4e875d75e17ee68683846601df33591",
+    "git_blob": "f740c9b95370ed632c7f65f8778d034d32f75a51",
+    "sha256": "a947ec77a5d742f3d735288483dcf0f54e5b057ec7d3b64370e656b878fea611"
+  },
+  "behavior": {
+    "fixed_identity": "The candidate binds the exact module path, source commit, Git blob ID and canonical SHA-256 supplied by tray-repair.json. These are fixed constants, not caller-provided hash arguments.",
+    "verification_order": "Before source adoption, the repair source must be an ancestor of the final source. The final source path must resolve to the fixed Git blob; untrimmed cat-file blob output is encoded using the existing strict UTF-8 object and hashed through Hash-Bytes. Either mismatch or a failing Git read aborts before installation changes.",
+    "path_allowance": "Assert-DocumentedDescendant retains both existing regex allowances and source ancestry checks. Its new optional exact path comparison is case-sensitive; only the Scotty call supplies bin/windows-tray.mjs, after both identity checks. The backend call supplies no extra path.",
+    "result_record": "install-result.json receives external_tray_module with path, accepted source commit, verified Git blob and verified canonical SHA-256. requested_source already retains the complete final app source commit."
+  },
+  "unchanged_inputs": {
+    "task_job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "preservation_manifest_sha256": "70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362",
+    "runtime_manifest_sha256": "948194c2eda868f879152111570f52ce6f643dc6f4c4fe79f8f4eef8043a510a",
+    "delivery_manifest_sha256": "596b6696c00afba036c09c6f25e3a30dd6f56cc5193827eccafb59e426e7429d",
+    "runtime_source_commit": "fbb09312e43ec8094da6db04f126a16e8c5746f7",
+    "runtime_files": 230,
+    "runtime_build_id": "Eox2_s2VuIuWWAISvMqKK",
+    "windows_binary_source_commit": "539cdd0b4c54665c2db01da08fdf9f3871f7148a",
+    "windows_binary_sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+    "app_main_before": "459a74537cbbe1dff521c6fc7ad1ce3ec2890683",
+    "backend_main_before": "afac9fa0ce9533a707d745018d16a25e4ccff492",
+    "preserved_app_baseline": "55f17568be93442abc6e4725d3e159448e0c9ab5",
+    "preserved_file_count": 15,
+    "previous_pin_sha256": "376537b7917f18d33383a3e4bd3eb9e0955bb42d1a60b73aef5c81865662af28"
+  },
+  "retained_checks": [
+    "Original main and remote baseline checks",
+    "Exact 15 dirty paths and original raw-byte hashes",
+    "Private index preparation, tree checks and full Windows file identity handling",
+    "Protected state restrictions and original source ancestry checks",
+    "Unchanged 230-file runtime hash/size/count verification and build ID comparison",
+    "Native executable and provenance checks",
+    "Existing pin and runtime backups",
+    "Existing .env.local parsing, higher-precedence checks and atomic replacement guards",
+    "No-running-server and occupied-port checks",
+    "Ordinary fast-forward source adoption and user-fork publication",
+    "Phase records and partial-install reconciliation"
+  ],
+  "checks": [
+    {
+      "name": "frozen original installer hash",
+      "status": "passed",
+      "exit": 0,
+      "sha256": "ce7093f9055d5b91efe1ae720a5741a994c3a374b363799f8654d2b39d3b7f5b"
+    },
+    {
+      "name": "final candidate hash and Git blob calculation",
+      "status": "passed",
+      "exit": 0,
+      "sha256": "881386faf0ef828ebc68fa0a99e28183ad265b7da8587964934a704089153631"
+    },
+    {
+      "name": "complete diff against original",
+      "status": "inspected",
+      "exit": 1,
+      "detail": "git diff --no-index returns 1 for the intended changed file. The complete diff contains only fixed module identity, optional exact-path comparison, canonical module verification and result fields."
+    },
+    {
+      "name": "git diff --no-index --check",
+      "status": "no_whitespace_diagnostics",
+      "exit": 1,
+      "stdout": "",
+      "stderr": "",
+      "detail": "The no-index comparison reports differing files with exit 1; it emitted no whitespace diagnostics."
+    },
+    {
+      "name": "ordinary Windows PowerShell Parser.ParseFile",
+      "status": "pending_root_execution",
+      "exit": null,
+      "errors": null,
+      "transferred_sha256": null
+    },
+    {
+      "name": "transfer publication",
+      "status": "pending_root",
+      "exit": null,
+      "commit": null,
+      "ref": null
+    }
+  ],
+  "parser_result": {
+    "status": "pending_root_execution",
+    "exit": null,
+    "errors": null,
+    "candidate_sha256": "881386faf0ef828ebc68fa0a99e28183ad265b7da8587964934a704089153631",
+    "transferred_sha256": null,
+    "required": "Root must read these exact transferred bytes with ordinary Windows PowerShell Parser.ParseFile and require zero parse errors. This does not invoke the installer."
+  },
+  "author_audits": [
+    {
+      "pass_number": 1,
+      "status": "clean_static_author_inspection",
+      "candidate_sha256": "881386faf0ef828ebc68fa0a99e28183ad265b7da8587964934a704089153631",
+      "original_sha256": "ce7093f9055d5b91efe1ae720a5741a994c3a374b363799f8654d2b39d3b7f5b",
+      "complete_file_and_diff_read": true,
+      "code_and_prose_inspected": true,
+      "inspection": "Read all 460 final lines and the complete comparison with the frozen original. Traced module verification through source adoption, private index publication, runtime and pin replacement, environment replacement, normal push and failure reporting. The fixed object/hash checks occur before source changes and before the one additional case-sensitive path allowance. All original safeguards and input identities remain. Both new comments and error messages describe the actual code.",
+      "findings": []
+    },
+    {
+      "pass_number": 2,
+      "status": "clean_static_author_inspection",
+      "candidate_sha256": "881386faf0ef828ebc68fa0a99e28183ad265b7da8587964934a704089153631",
+      "original_sha256": "ce7093f9055d5b91efe1ae720a5741a994c3a374b363799f8654d2b39d3b7f5b",
+      "complete_file_and_diff_read": true,
+      "code_and_prose_inspected": true,
+      "inspection": "Reread the complete candidate and full diff on unchanged bytes. Checked malformed or missing object reads, differing object IDs, differing canonical content, newline preservation, differently cased or additional bin paths, and the backend call with no extra path. Rechecked the existing Git text reader and strict UTF-8 hash path, source ancestry, result provenance and all unchanged preservation/rollback sections. The two comments carry caller and byte-preservation requirements; no new forwarding helper, fallback, dependency or product execution was added.",
+      "findings": []
+    }
+  ],
+  "required_inputs_read": [
+    "coordination/revision-4/plan.json installer-repair task",
+    "coordination/results/tray-repair.json",
+    "coordination/results/candidate-review-pre-v4.json",
+    "coordination/results/candidate-review.json",
+    "transfer/windows-install.ps1",
+    "transfer/windows-task-job.ps1",
+    "transfer/pc-preservation-raw.json",
+    "transfer/scotty-runtime.json",
+    "transfer/delivery-manifest.json"
+  ],
+  "changed_files": [
+    "transfer/windows-install-tray-20261124.ps1"
+  ],
+  "coordination_output_files": [
+    "coordination/results/installer-repair.json"
+  ],
+  "output_paths": [
+    "/workspace/scratch/3160e3ba3d24/transfer/windows-install-tray-20261124.ps1",
+    "/workspace/scratch/3160e3ba3d24/coordination/results/installer-repair.json"
+  ],
+  "open_items": [
+    "Root must obtain and record the exact transferred candidate hash and zero-error ordinary Windows parser result.",
+    "Root must resolve destination authorization before any transfer publication, then record its actual commit/ref and exact candidate hash.",
+    "The independent reviewer must inspect this exact candidate together with the app repair and supplied test results.",
+    "Installation remains governed by its separate task and all required real Windows and browser results."
+  ],
+  "git_result": {
+    "status": "pending_root_publication",
+    "commit": null,
+    "requested_transfer_branch": "task/build-transfer-20261111",
+    "verified_remote_ref": null,
+    "publication_attempted_by_author": false,
+    "detail": "This assignment permits authoring and static inspection only. Root retains transfer commit/publication and is reconciling the earlier app-source push rejection against existing destination records."
+  },
+  "pc_calls_by_author": 0,
+  "installer_invocations": 0,
+  "product_tests_or_builds_by_author": false,
+  "completion_limit": "The separately named installer is written and both author inspections are clean. Parser execution, transfer publication, independent acceptance and installation are still pending."
+}
