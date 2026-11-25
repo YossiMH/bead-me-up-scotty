@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "task_key": "type-windows-roundtrip",
+  "status": "prepared_pending_independent_review_and_native_qualification",
+  "packet_commit": "aeee174d9f7159dd8fd5da27164ff07fb4bbe26a",
+  "files": [
+    {
+      "path": "20261125/revision-7/type-windows/run.py",
+      "git_blob": "d9e7289f1fa75a1ad7d3c6562598bb6cb5f6629e"
+    },
+    {
+      "path": "20261125/revision-7/type-windows/inputs.json",
+      "git_blob": "d709da72db2547e08106277ea8888f016a05c476"
+    },
+    {
+      "path": ".github/workflows/scotty-type-windows-20261125.yml",
+      "git_blob": "0af2fb207457c5aeb8531e0c3b23f9fcb7ecbb13"
+    }
+  ],
+  "unchanged_task_job": {
+    "path": "windows-task-job.ps1",
+    "git_blob": "58a5275d8ada5db3c7da030a494c6b6bb468aad3",
+    "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "inputs": {
+    "schema_version": 1,
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "runtime_run_id": 45573503400,
+    "runtime_artifact_id": 15003467178,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "native_source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+    "native_run_id": 45572877188,
+    "native_artifact_id": 15003670786,
+    "native_manifest_sha256": "022128bca8006e74da54635bf16cf049a937f0723f134b0830982bda97fbf30e",
+    "native_executable": {
+      "path": "release/bead-checkpoint-9ffefad6bb3b.exe",
+      "sha256": "fb791327c7711af44771cac7dc311fb1697c66bce63726504dbec329eb6d1c0e",
+      "bytes": 12221440
+    },
+    "native_metadata": {
+      "path": "release/bead-checkpoint-9ffefad6bb3b.exe.metadata.json",
+      "sha256": "860c669623cd6cbb96ba14714a8fe53ca97785726df074879c6e3df453b7004b"
+    },
+    "task_job_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "native_qualification": "Required before activation; the original producer retained this release before a later dumpbin lookup failure."
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean",
+      "packet_commit": "aeee174d9f7159dd8fd5da27164ff07fb4bbe26a",
+      "inspection": "Read the full final workflow, helper, input JSON and unchanged Windows Job helper against the accepted task. Confirmed exact app source/tree, both source output IDs, manifest/ZIP and native metadata hashes, complete runtime inventory verification, fresh fixture paths, actual two test commands, 180-second limits and 512 MiB Node heaps."
+    },
+    {
+      "pass": 2,
+      "result": "clean",
+      "packet_commit": "aeee174d9f7159dd8fd5da27164ff07fb4bbe26a",
+      "inspection": "Re-read every final file and tested the design against source/hash mismatch, unsafe ZIP paths, absent capability, nonzero exit, timeout, incomplete output and early failure. The existing Job owns all descendants; failures remain failures. Full command streams, native-store commands/capabilities/Git checks and HTTP results survive upload. Numbered text chunks preserve complete runtime/source/result content for remote reconstruction."
+    }
+  ],
+  "checks": {
+    "published_bytes_match": true,
+    "syntax": "Local execution is unavailable. The hosted job runs Python compilation before the real commands; no syntax execution result is claimed here.",
+    "execution": "The activation branch has not been created. Native qualification and independent packet review remain required."
+  },
+  "retention_protocol": "Each RETAIN_FILE line records path, SHA-256, UTF-8 byte count and parts. Each RETAIN_PART line carries path, zero-based part and up to 4096 characters of content. Reconstruct only after every part appears exactly once; concatenate in numeric order and check the byte count and SHA-256. Empty files have zero parts.",
+  "review_repair": "Added commands.json, capabilities.json and git-result.json to retained case files after the independent reviewer identified their omission; both final author inspections followed that correction.",
+  "remaining": [
+    "Receive independent packet review.",
+    "Receive the required native qualification for the exact retained release.",
+    "Create task/type-windows-roundtrip-20261125 from the accepted packet commit and inspect actual results.",
+    "Keep actual PC tray, installation and configured launch pending their separate checks."
+  ],
+  "cleanup": "Remove only the owned temporary Windows workflow branch after full outputs are retained. Future agents must finish this cleanup if the session ends early."
+}
