@@ -17,6 +17,7 @@ export const PIN = Object.freeze({
   formatUuid: 'f6a8c2e0-6b1d-4b7a-9b3a-2e7a7c5e9a4f',
   originalGeneration: 'gen-a569f746bbb268015d996c8ed4c76f57',
   originalRoot: '4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d',
+  originalCheckpointTree: 'ff0759095a01edb38ca4bb8aa90fbdb84476e0f7',
   cleanup: 'beadrs-3ec972f8',
   actor: 'chatgpt-bead-edit-20261125',
   restoreActor: 'chatgpt-bead-edit-restore-check-20261125',
@@ -42,7 +43,8 @@ function ordinary(file,directory=false) {
   return stat;
 }
 const bytes = file => {ordinary(file);return fs.readFileSync(file);};
-const hashFile = file => digest(bytes(file));
+const HASH_BUFFER=Buffer.alloc(1024*1024);
+function hashFile(file){ordinary(file);const fd=fs.openSync(file,'r'),hash=createHash('sha256');try{let n;while((n=fs.readSync(fd,HASH_BUFFER,0,HASH_BUFFER.length,null))>0)hash.update(HASH_BUFFER.subarray(0,n));return hash.digest('hex');}finally{fs.closeSync(fd);}}
 function save(file,value) {
   const fd=fs.openSync(file,'wx');
   try{fs.writeFileSync(fd,JSON.stringify(value,null,2)+'\n');fs.fsyncSync(fd);}finally{fs.closeSync(fd);}
@@ -142,20 +144,37 @@ export function checkpoint(base,pointerName='current.json') {
   for(const values of Object.values(origins)) values.sort((a,b)=>a-b).forEach((n,i)=>assert.equal(n,i+1,'Noncontiguous event origin'));
   return {pointer,files:sorted(files),corpus,issues,details,interchange_sha256:interchange.digest('hex')};
 }
-function tree(base) {
-  ordinary(base,true);const result={};let totalBytes=0;
-  const walk=(directory,prefix)=>{
-    for(const name of fs.readdirSync(directory).sort()) {
-      const full=path.join(directory,name),relative=prefix+name,stat=fs.lstatSync(full);
-      if(stat.isDirectory()){ordinary(full,true);walk(full,relative+'/');}
-      else {ordinary(full);totalBytes+=stat.size;assert.ok(totalBytes<=MAX_FILE,'Checkpoint tree exceeds 64 MiB');result[relative]={bytes:stat.size,sha256:hashFile(full)};}
-      assert.ok(Object.keys(result).length<=4096,'Checkpoint file-count bound');
+function selectedManifest(base) {
+  ordinary(base,true);const files={};let total=0;
+  const take=relative=>{
+    if(files[relative])return null;
+    const data=bytes(beneath(base,relative));total+=data.length;
+    assert.ok(total<=MAX_FILE,'Selected checkpoint closure exceeds 64 MiB');
+    assert.ok(Object.keys(files).length<4096,'Selected checkpoint file-count bound');
+    files[relative]={sha256:digest(data),bytes:data.length};return data;
+  };
+  const recordFile=(relative,depth=0)=>{
+    const data=take(relative);if(data===null)return;
+    for(const line of new TextDecoder('utf-8',{fatal:true}).decode(data).split(/\r?\n/))if(line.trim()){
+      const value=JSON.parse(line);
+      if(value.ref===true){assert.equal(depth,0);assert.match(value.path,/^set\/rec\/[a-f0-9]{64}\.jsonl$/);recordFile(value.path,depth+1);}
     }
   };
-  walk(base,'');return result;
+  for(const name of ['current.json','previous.json']){
+    if(!fs.existsSync(path.join(base,name))){assert.equal(name,'previous.json');continue;}
+    const pointer=JSON.parse(take(name));assert.match(pointer.active_root.sha256,HASH);
+    if(pointer.mode==='monolithic'){
+      assert.equal(pointer.active_root.path,'objects/'+pointer.active_root.sha256+'.jsonl');recordFile(pointer.active_root.path);
+    }else{
+      assert.equal(pointer.mode,'set-v2');assert.equal(pointer.active_root.path,'set/manifest-'+pointer.generation_id+'.json');
+      const raw=take(pointer.active_root.path),manifest=JSON.parse(raw===null?bytes(beneath(base,pointer.active_root.path)):raw);
+      for(const row of [...manifest.shards,...manifest.segments,...(manifest.tail?[manifest.tail]:[])])recordFile(row.path);
+    }
+  }
+  return sorted(files);
 }
 function retainCheckpoint(source,destination) {
-  const before=tree(source),current=checkpoint(source);
+  const before=selectedManifest(source),current=checkpoint(source);
   let previous=null,previousVerification={status:'absent'};
   if(before['previous.json']) {
     try{previous=checkpoint(source,'previous.json');previousVerification={status:'passed',generation:previous.pointer.generation_id};}
@@ -166,7 +185,7 @@ function retainCheckpoint(source,destination) {
     const target=path.join(destination,...relative.split('/'));fs.mkdirSync(path.dirname(target),{recursive:true});
     copy(beneath(source,relative),target);
   }
-  equal(tree(source),before,'Source changed during retention');equal(tree(destination),before,'Retained checkpoint differs');
+  equal(selectedManifest(source),before,'Source selected closure changed during retention');equal(selectedManifest(destination),before,'Retained selected closure differs');
   equal(checkpoint(destination).files,current.files,'Copied active closure differs');
   if(previous) equal(checkpoint(destination,'previous.json').files,previous.files,'Copied previous closure differs');
   return {checkpoint:current,manifest:before,previous_verification:previousVerification};
@@ -315,6 +334,7 @@ async function main() {
   assert.notEqual(runtime.sha256,PIN.historicalBinarySha,'Historical runtime has known set-v2 recovery defects');
   assert.ok(path.resolve(runtime.path).toLowerCase().startsWith(path.resolve('F:/Dev/.bead-edit-20261111').toLowerCase()+path.sep));
   assert.equal(hashFile(runtime.path),runtime.sha256);
+  assert.ok(request.git && typeof request.git.path==='string');assert.match(request.git.sha256,HASH);assert.equal(hashFile(request.git.path),request.git.sha256);
   const planFile=request.plan?.path,mappingFile=request.materialization?.path;
   assert.ok(planFile && mappingFile);
   assert.equal(path.resolve(planFile),path.resolve(PIN.isolated,'revision-5/plan.json'));
@@ -341,7 +361,10 @@ async function main() {
   for(const role of ['qualification','review']) {
     const value=pin(runtime[role]);assert.equal(value.status,'passed');assert.equal(value.binary_sha256,runtime.sha256);assert.equal(value.source_commit,runtime.source_commit);
   }
-  const planReview=pin(request.accepted?.['plan-review']);assert.equal(planReview.status,'passed');assert.equal(planReview.plan_sha256,request.plan.sha256);
+  const planReview=pin(request.accepted?.['plan-review']);
+  assert.equal(planReview.status,'PASS');assert.equal(planReview.accepted,true);assert.equal(planReview.continuation_revision,5);assert.equal(planReview.read_complete_plan,true);
+  assert.equal(planReview.expanded_tasks_read,plan.tasks.length);assert.equal(planReview.blocking_edges_read,plan.blocking_edges.length);
+  assert.equal(planReview.plan_sha256,request.plan.sha256);assert.equal(planReview.reviewed_files?.['plan.json'],request.plan.sha256);
   const roles=['install','configured-launch','installed-review','backend-text-review','app-text-review','original-git-baseline'];
   if(phase==='close' || phase.startsWith('final-')) roles.push('cleanup-results','cleanup-text-review','checkpoint-publication');
   for(const role of roles) assert.equal(pin(request.accepted?.[role]).status,'passed','Unaccepted prerequisite: '+role);
@@ -363,28 +386,67 @@ async function main() {
   const isolatedCheckpoint=path.join(PIN.isolated,'.beads/checkpoint'),originalDB=path.join(PIN.original,'.beads/beads.db'),isolatedDB=path.join(PIN.isolated,'.beads/beads.db');
   const sourcePath=path.join(PIN.retention,'continuation-source/checkpoint');
   const env={...process.env};
-  for(const key of Object.keys(env)) if(['temp','tmp','beads_repo','bead_workspace_root','node_options','node_path'].includes(key.toLowerCase())) delete env[key];
+  for(const key of Object.keys(env)) if(key.toLowerCase().startsWith('git_') || ['temp','tmp','beads_repo','bead_workspace_root','node_options','node_path'].includes(key.toLowerCase())) delete env[key];
+  env.GIT_OPTIONAL_LOCKS='0';
   env.TEMP=env.TMP=path.join(output,'temp');fs.mkdirSync(env.TEMP);
-  const run=(cwd,args,label,json=true)=>{
-    checkTime();assert.equal(hashFile(runtime.path),runtime.sha256);
+  const run=(cwd,args,label,json=true,options={})=>{
+    const program=options.git?request.git:runtime;
+    checkTime();assert.equal(hashFile(program.path),program.sha256);
     const started=new Date().toISOString();
-    write(label+'.started.json',{started,args,cwd,binary_sha256:runtime.sha256,request_sha256:requestHash});
+    write(label+'.started.json',{started,args,cwd,executable:program.path,binary_sha256:program.sha256,request_sha256:requestHash});
     const stdoutPath=path.join(output,label+'.stdout'),stderrPath=path.join(output,label+'.stderr');
-    const stdout=fs.openSync(stdoutPath,'wx'),stderr=fs.openSync(stderrPath,'wx');let result;
-    try{result=spawnSync(runtime.path,args,{cwd,env,windowsHide:true,shell:false,timeout:Math.min(30000,deadline-Date.now()),stdio:['ignore',stdout,stderr]});}
-    finally{fs.fsyncSync(stdout);fs.fsyncSync(stderr);fs.closeSync(stdout);fs.closeSync(stderr);}
+    const stdout=fs.openSync(stdoutPath,'wx'),stderr=fs.openSync(stderrPath,'wx'),stdin=options.stdin?fs.openSync(options.stdin,'r'):'ignore';let result;
+    try{result=spawnSync(program.path,args,{cwd,env,windowsHide:true,shell:false,timeout:Math.min(30000,deadline-Date.now()),stdio:[stdin,stdout,stderr]});}
+    finally{if(typeof stdin==='number')fs.closeSync(stdin);fs.fsyncSync(stdout);fs.fsyncSync(stderr);fs.closeSync(stdout);fs.closeSync(stderr);}
     write(label+'.exit.json',{started,ended:new Date().toISOString(),args,cwd,status:result.status,signal:result.signal,error:result.error?.message||null});
     assert.equal(result.error,undefined,'Uncertain command: reconcile actual live state; do not replay');
     assert.equal(result.status,0,'Command failed: inspect retained state; do not replay');
     assert.ok(fs.statSync(stdoutPath).size<=16*1024*1024 && fs.statSync(stderrPath).size<=16*1024*1024,'Native log exceeded bounded size');
     checkTime();const text=fs.readFileSync(stdoutPath,'utf8');return json?JSON.parse(text):text;
   };
+  const git=(args,label,stdin)=>run(PIN.original,['--no-optional-locks','-C',PIN.original,...args],label,false,{git:true,stdin});
+  const gitBaseline=pin(request.accepted['original-git-baseline']);
+  assert.match(gitBaseline.head,/^[a-f0-9]{40}$/);assert.equal(gitBaseline.checkpoint_tree,PIN.originalCheckpointTree);
+  assert.equal(gitBaseline.remote_repository,'YossiMH/bead-rs');assert.equal(gitBaseline.remote_commit,gitBaseline.head);
+  assert.equal(gitBaseline.remote_checkpoint_tree,PIN.originalCheckpointTree);assert.equal(gitBaseline.remote_objects_verified,true);
+  assert.match(gitBaseline.index_sha256,HASH);
+  assert.ok(gitBaseline.index_backup && path.resolve(gitBaseline.index_backup.path).toLowerCase().startsWith(path.resolve(PIN.isolated).toLowerCase()+path.sep));
+  assert.equal(gitBaseline.index_backup.sha256,gitBaseline.index_sha256);assert.equal(hashFile(gitBaseline.index_backup.path),gitBaseline.index_sha256);
+  const gitState=(label,original=false)=>{
+    const head=git(['rev-parse','HEAD'],label+'-head').trim();
+    const checkpointTree=git(['rev-parse','HEAD:.beads/checkpoint'],label+'-tree').trim();
+    assert.match(head,/^[a-f0-9]{40}$/);assert.match(checkpointTree,/^[a-f0-9]{40}$/);
+    const indexPath=git(['rev-parse','--path-format=absolute','--git-path','index'],label+'-index-path').trim();
+    const indexBefore=hashFile(indexPath);
+    const raw=git(['ls-tree','-r','-l','-z','HEAD:.beads/checkpoint'],label+'-entries');
+    const entries={};
+    for(const line of raw.split('\0').filter(Boolean)){
+      const match=/^(100644) blob ([a-f0-9]{40}) +([0-9]+)\t(.+)$/.exec(line);assert.ok(match,'Unexpected tracked checkpoint entry');
+      const relative=match[4];assert.ok(!entries[relative]);assert.ok(!relative.includes('\\') && relative.split('/').every(p=>p && p!=='.' && p!=='..'));
+      entries[relative]={mode:match[1],blob:match[2],bytes:Number(match[3])};
+    }
+    assert.ok(Object.keys(entries).length<=4096);
+    if(original){
+      assert.equal(head,gitBaseline.head);assert.equal(checkpointTree,PIN.originalCheckpointTree);
+      assert.equal(indexBefore,gitBaseline.index_sha256);assert.equal(Object.keys(entries).length,53);assert.equal(Object.values(entries).reduce((n,x)=>n+x.bytes,0),429072095);
+      assert.equal(git(['config','--default','false','--get','core.autocrlf'],label+'-autocrlf').trim(),'false','Git normalization could conceal original byte changes');
+      const attributeInput=path.join(output,label+'-attribute-paths.stdin'),fd=fs.openSync(attributeInput,'wx');
+      try{fs.writeFileSync(fd,Object.keys(entries).sort().map(p=>'.beads/checkpoint/'+p+'\0').join(''));fs.fsyncSync(fd);}finally{fs.closeSync(fd);}
+      const attrs=git(['check-attr','--all','-z','--stdin'],label+'-attributes',attributeInput).split('\0');assert.equal(attrs.pop(),'');assert.equal(attrs.length%3,0);
+      for(let i=0;i<attrs.length;i+=3)if(['filter','working-tree-encoding','text','eol','ident'].includes(attrs[i+1]))assert.ok(['unset','unspecified'].includes(attrs[i+2]),'Git transformation prevents raw-object preservation: '+attrs[i+1]);
+    }
+    const status=git(['status','--porcelain=v1','-z','--untracked-files=all','--','.beads/checkpoint'],label+'-status');
+    if(original)assert.equal(status,'','Original checkpoint has tracked or untracked changes');
+    const indexAfter=hashFile(indexPath);assert.equal(indexAfter,indexBefore,'Read-only Git changed the index');
+    const value={head,checkpoint_tree:checkpointTree,index_path:indexPath,index_sha256:indexAfter,status,entries:sorted(entries)};
+    write(label+'.json',value);return value;
+  };
   const list=(cwd,label)=>run(cwd,['list','--all','--json'],label);
   const snapshot=async(db,label)=>{checkTime();const value=await databaseSnapshot(db);write(label+'.json',value);return value;};
   const kept=(name,file)=>{const p=prior(name),full=path.join(PIN.retention,'phases',name,file);assert.equal(hashFile(full),p.outputs[file]);return readJSON(full);};
   const freezeCheck=()=>{
-    const frozen=prior('freeze');assert.equal(digest(tree(sourcePath)),frozen.source_manifest_sha256);
-    assert.equal(digest(tree(isolatedCheckpoint)),frozen.source_manifest_sha256);
+    const frozen=prior('freeze');assert.equal(digest(selectedManifest(sourcePath)),frozen.source_manifest_sha256);
+    assert.equal(digest(selectedManifest(isolatedCheckpoint)),frozen.source_manifest_sha256);
     return checkpoint(sourcePath);
   };
   const backupRecord=()=>{
@@ -438,6 +500,7 @@ async function main() {
 
   try {
     if(phase==='preserve') {
+      const gitBefore=gitState('original-git-before',true);
       const cp=checkpoint(originalCheckpoint);
       assert.equal(cp.pointer.generation_id,PIN.originalGeneration);assert.equal(cp.pointer.snapshot_sequence,29609);assert.equal(cp.pointer.active_root.sha256,PIN.originalRoot);
       assert.deepEqual(Object.fromEntries(Object.entries(cp.corpus).map(([k,v])=>[k,Object.keys(v).length])),{issue:954,event:11264,provenance_receipt:5,attempt_outcome:413});
@@ -446,8 +509,16 @@ async function main() {
       copy(originalConfig,path.join(directory,'config.json'));
       const saved=retainCheckpoint(originalCheckpoint,path.join(directory,'checkpoint'));
       equal({config:hashFile(originalConfig),pointer:hashFile(path.join(originalCheckpoint,'current.json')),database:hashFile(originalDB),mapping:hashFile(mappingFile),baseline:hashFile(baselineFile)},before,'Original changed during preservation');
+      assert.equal(Object.keys(saved.manifest).length,4);assert.equal(Object.values(saved.manifest).reduce((n,x)=>n+x.bytes,0),17063501);
+      for(const [relative,record] of Object.entries(saved.manifest)){
+        const tracked=gitBefore.entries[relative];assert.ok(tracked,'Selected original file is untracked');assert.equal(tracked.bytes,record.bytes);
+        const data=bytes(beneath(directory+'/checkpoint',relative));assert.equal(createHash('sha1').update('blob '+data.length+'\0').update(data).digest('hex'),tracked.blob,'Selected bytes differ from immutable Git object');
+      }
+      equal(gitState('original-git-after',true),gitBefore,'Original Git state changed during preservation');
+      write('original-git-recovery.json',{repository:gitBaseline.remote_repository,commit:gitBefore.head,checkpoint_tree:gitBefore.checkpoint_tree,entries:gitBefore.entries,remote_objects_verified:true,selected_copy_bytes:17063501,
+        recovery:'Retain this commit as a reachable Git ancestor/ref. Recreate each listed path from its exact raw Git blob into a fresh reviewed recovery directory; avoid checkout filters. Original database/index backups remain private on the PC.'});
       write('checkpoint-manifest.json',saved.manifest);write('original-corpus.json',cp.corpus);write('previous-generation-diagnostic.json',saved.previous_verification);
-      finish({original_hashes:before,checkpoint_manifest_sha256:digest(saved.manifest),generation:cp.pointer.generation_id});return;
+      finish({original_hashes:before,checkpoint_manifest_sha256:digest(saved.manifest),generation:cp.pointer.generation_id,original_head:gitBefore.head,original_checkpoint_tree:gitBefore.checkpoint_tree});return;
     }
     const preserved=prior('preserve');
     assert.equal(hashFile(mappingFile),preserved.original_hashes.mapping);assert.equal(hashFile(baselineFile),preserved.original_hashes.baseline);
@@ -475,12 +546,14 @@ async function main() {
     const source=freezeCheck(),frozenDB=kept('freeze','database-after.json');
     equal(await databaseSnapshot(isolatedDB),frozenDB,'Frozen source database changed');
     if(phase==='source-restore') {
-      const originalTree=digest(tree(originalCheckpoint));
+      const gitBefore=gitState('original-git-before',true);
+      const originalTree=digest(selectedManifest(originalCheckpoint));
       const before={database:hashFile(originalDB),config:hashFile(originalConfig),pointer:hashFile(path.join(originalCheckpoint,'current.json'))};
       write('original-before.json',before);
       const restored=await verifyFreshRestore(sourcePath,source,kept('freeze','inventory.json'),frozenDB,'source-restore-check');
       equal({database:hashFile(originalDB),config:hashFile(originalConfig),pointer:hashFile(path.join(originalCheckpoint,'current.json'))},before,'Source restore preflight changed original');
-      assert.equal(digest(tree(originalCheckpoint)),originalTree,'Source restore preflight changed original checkpoint tree');
+      assert.equal(digest(selectedManifest(originalCheckpoint)),originalTree,'Source restore preflight changed original selected closure');
+      equal(gitState('original-git-after',true),gitBefore,'Source restore preflight changed original Git state');
       freezeCheck();equal(await databaseSnapshot(isolatedDB),frozenDB,'Source restore preflight changed isolated authority');
       finish({verified_generation:source.pointer.generation_id,verified_root_sha256:source.pointer.active_root.sha256,binary_sha256:runtime.sha256,disposable_target:restored.target,original_native_opened:false});return;
     }
@@ -491,7 +564,8 @@ async function main() {
     assert.equal(Object.keys(original.events).length,11264);
     const importArgs=['--no-auto-flush','sync','import-only','--input',sourcePath,'--merge','--profile','native-v1','--actor',PIN.actor,'--format','json'];
     if(phase==='dry-run') {
-      assert.equal(digest(tree(originalCheckpoint)),preserved.checkpoint_manifest_sha256,'Original checkpoint changed before dry-run');
+      const gitBefore=gitState('original-git-before',true);
+      assert.equal(digest(selectedManifest(originalCheckpoint)),preserved.checkpoint_manifest_sha256,'Original selected closure changed before dry-run');
       assert.equal(hashFile(path.join(originalCheckpoint,'current.json')),preserved.original_hashes.pointer);assert.equal(hashFile(originalDB),backup.before_hashes.database);
       const before=await snapshot(originalDB,'before');equal(before,original,'Live original differs from preserved backup');
       const inventory=list(PIN.original,'inventory-before');equal(inventoryMap(inventory),inventoryMap(baseline),'Original native inventory differs');
@@ -505,10 +579,12 @@ async function main() {
       assert.equal(preview.counts.issues,issueCount);assert.equal(preview.counts.events,source.pointer.event_count);assert.equal(preview.counts.provenance_receipts,source.pointer.receipt_count+1);
       const after=await snapshot(originalDB,'after');equal(after,before,'Dry-run changed original database');equal(list(PIN.original,'inventory-after'),inventory,'Dry-run changed inventory');
       assert.equal(hashFile(originalConfig),preserved.original_hashes.config);assert.equal(hashFile(path.join(originalCheckpoint,'current.json')),preserved.original_hashes.pointer);
+      equal(gitState('original-git-after',true),gitBefore,'Dry-run changed original Git state');
       freezeCheck();finish({unchanged_database_sha256:digest(after),source_manifest_sha256:prior('freeze').source_manifest_sha256,interchange_sha256:source.interchange_sha256});return;
     }
     if(phase==='merge') {
-      assert.equal(digest(tree(originalCheckpoint)),preserved.checkpoint_manifest_sha256,'Original checkpoint changed before merge');
+      const gitBefore=gitState('original-git-before',true);equal(gitBefore,kept('dry-run','original-git-after.json'),'Original Git state changed after dry-run');
+      assert.equal(digest(selectedManifest(originalCheckpoint)),preserved.checkpoint_manifest_sha256,'Original selected closure changed before merge');
       prior('dry-run');const before=await snapshot(originalDB,'before');equal(before,kept('dry-run','after.json'),'Original changed since accepted dry-run');
       assert.equal(hashFile(path.join(originalCheckpoint,'current.json')),preserved.original_hashes.pointer);
       write('authority-transfer-intended.json',{from:PIN.isolated,to:PIN.original,source_generation:source.pointer.generation_id,source_manifest_sha256:prior('freeze').source_manifest_sha256,interchange_sha256:source.interchange_sha256,replay_allowed:false});
@@ -524,6 +600,7 @@ async function main() {
       const summary=after.eventRows[extra[0]];assert.equal(summary.actor,PIN.actor);assert.equal(summary.kind,'checkpoint_'+source.pointer.mode);assert.equal(summary.detail.source_root_hash,source.interchange_sha256);
       const inventory=list(PIN.original,'inventory');verifyPlan(inventory,plan,mapping,baseline);equal(inventoryMap(inventory),inventoryMap(kept('freeze','inventory.json')),'Merged inventory differs from frozen source');
       assert.equal(hashFile(originalConfig),preserved.original_hashes.config);assert.equal(hashFile(path.join(originalCheckpoint,'current.json')),preserved.original_hashes.pointer);freezeCheck();
+      equal(gitState('original-git-after',true),gitBefore,'Merge unexpectedly changed original Git state');
       write('authority-transfer-complete.json',{authority:PIN.original,isolated:PIN.isolated,isolated_frozen:true,receipt:merged.receipt,local_sequence:after.local_sequence,publication_pending:true});
       finish({authority:PIN.original,merge_receipt:merged.receipt,local_sequence:after.local_sequence,database_sha256:digest(after)});return;
     }
@@ -533,9 +610,22 @@ async function main() {
       if(phase==='final-publish') {
         assert.equal(request.cleanup_revision,previousResult.cleanup_revision-1);assert.equal(request.close_reason,previousResult.close_reason);
       }
+      const gitBefore=gitState('original-git-before');equal(gitBefore,kept(previous,'original-git-after.json'),'Original Git state changed before publication');
       const before=await snapshot(originalDB,'before');equal(before,kept(previous,'after.json'),'Original changed before publication');
-      attempted({operation:'original flush-only',authority:PIN.original});run(PIN.original,['sync','flush-only'],'flush',false);
+      const selectedBefore=checkpoint(originalCheckpoint);
+      write('pre-flush-selected-generation.json',{pointer:selectedBefore.pointer,files:selectedBefore.files,interchange_sha256:selectedBefore.interchange_sha256});
+      attempted({operation:'original flush-only',authority:PIN.original,previous_generation_required:selectedBefore.pointer.generation_id});run(PIN.original,['sync','flush-only'],'flush',false);
       const cp=checkpoint(originalCheckpoint);statusAligned(run(PIN.original,['sync','status','--format','json'],'status'),cp.pointer);
+      assert.notEqual(cp.pointer.generation_id,selectedBefore.pointer.generation_id,'Dirty publication did not advance generation');
+      const promoted=checkpoint(originalCheckpoint,'previous.json');
+      assert.equal(promoted.files['previous.json'].sha256,selectedBefore.files['current.json'].sha256,'Promoted previous pointer bytes differ');
+      equal(promoted.pointer,selectedBefore.pointer,'Promoted previous pointer differs');
+      const priorFiles={...selectedBefore.files};delete priorFiles['current.json'];
+      const promotedFiles={...promoted.files};delete promotedFiles['previous.json'];
+      equal(promotedFiles,priorFiles,'Publication lost or changed selected previous objects');
+      equal(promoted.corpus,selectedBefore.corpus,'Publication changed selected previous records');
+      assert.equal(promoted.interchange_sha256,selectedBefore.interchange_sha256);
+      write('retained-selected-generation.json',{status:'passed',generation:selectedBefore.pointer.generation_id,previous_pointer_sha256:promoted.files['previous.json'].sha256,files:promoted.files});
       assert.ok(cp.pointer.snapshot_sequence>29609,'Original must publish its own advanced local sequence');
       const after=await snapshot(originalDB,'after');compareOriginal(original,after,true);
       for(const table of Object.keys(before.tables)) if(table!=='checkpoint_state') equal(after.tables[table],before.tables[table],'Publication mutated '+table);
@@ -554,28 +644,34 @@ async function main() {
       const retained=retainCheckpoint(originalCheckpoint,path.join(directory,'checkpoint'));
       write('published-corpus.json',cp.corpus);write('published-manifest.json',retained.manifest);write('inventory.json',inventory);write('previous-generation-diagnostic.json',retained.previous_verification);
       assert.equal(hashFile(originalConfig),preserved.original_hashes.config);freezeCheck();
+      gitState('original-git-after');
       finish({authority:PIN.original,generation:cp.pointer.generation_id,root_sha256:cp.pointer.active_root.sha256,checkpoint_path:path.join(directory,'checkpoint'),checkpoint_manifest_sha256:digest(retained.manifest),local_sequence:after.local_sequence,git_publication:'root pending'});return;
     }
     if(phase==='restore' || phase==='final-restore') {
       const publication=phase==='restore'?'publish':'final-publish',published=prior(publication);
-      assert.equal(digest(tree(published.checkpoint_path)),published.checkpoint_manifest_sha256);
-      assert.equal(digest(tree(originalCheckpoint)),published.checkpoint_manifest_sha256,'Original published checkpoint changed');
+      const gitBefore=gitState('original-git-before');equal(gitBefore,kept(publication,'original-git-after.json'),'Original Git state changed before verification restore');
+      assert.equal(digest(selectedManifest(published.checkpoint_path)),published.checkpoint_manifest_sha256);
+      assert.equal(digest(selectedManifest(originalCheckpoint)),published.checkpoint_manifest_sha256,'Original published checkpoint changed');
       const cp=checkpoint(published.checkpoint_path),publishedDB=kept(publication,'after.json');
       equal(await databaseSnapshot(originalDB),publishedDB,'Original changed before restore verification');
       const restored=await verifyFreshRestore(published.checkpoint_path,cp,kept(publication,'inventory.json'),publishedDB,phase==='restore'?'restore-check':'final-restore-check');
       equal(await databaseSnapshot(originalDB),publishedDB,'Verification restore changed original');
-      assert.equal(digest(tree(originalCheckpoint)),published.checkpoint_manifest_sha256,'Verification restore changed original checkpoint tree');
-      assert.equal(digest(tree(published.checkpoint_path)),published.checkpoint_manifest_sha256);freezeCheck();
+      assert.equal(digest(selectedManifest(originalCheckpoint)),published.checkpoint_manifest_sha256,'Verification restore changed original selected closure');
+      equal(gitState('original-git-after'),gitBefore,'Verification restore changed original Git state');
+      assert.equal(digest(selectedManifest(published.checkpoint_path)),published.checkpoint_manifest_sha256);freezeCheck();
       finish({authority:PIN.original,verified_generation:cp.pointer.generation_id,verified_root_sha256:cp.pointer.active_root.sha256,
         continuation_tasks:plan.tasks.length,total_issues:issueCount,cleanup_closed:phase==='final-restore',disposable_target:restored.target,
         cleanup:'Root may remove this exact owned disposable target after retaining receipts',git_publication:'root pending'});return;
     }
     assert.equal(phase,'close');prior('restore');const published=prior('publish');
-    assert.equal(digest(tree(originalCheckpoint)),published.checkpoint_manifest_sha256,'Original checkpoint changed before cleanup close');
+    assert.equal(digest(selectedManifest(originalCheckpoint)),published.checkpoint_manifest_sha256,'Original checkpoint changed before cleanup close');
     assert.equal(request.attestations.cleanup_completed,true);assert.equal(request.attestations.cleanup_handoffs_published,true);
     const publishedGit=pin(request.accepted['checkpoint-publication']);
     assert.equal(publishedGit.generation_id,published.generation);assert.equal(publishedGit.root_sha256,published.root_sha256);
     assert.match(publishedGit.commit,/^[a-f0-9]{40}$/);assert.equal(publishedGit.remote_commit,publishedGit.commit);
+    const gitBefore=gitState('original-git-before');assert.equal(gitBefore.status,'','Published checkpoint has tracked or untracked changes');
+    assert.match(publishedGit.checkpoint_tree,/^[a-f0-9]{40}$/);assert.equal(gitBefore.checkpoint_tree,publishedGit.checkpoint_tree);
+    git(['merge-base','--is-ancestor',publishedGit.commit,gitBefore.head],'published-commit-ancestor');
     assert.ok(Number.isSafeInteger(request.cleanup_revision) && request.cleanup_revision>0);
     assert.equal(typeof request.close_reason,'string');assert.equal(request.close_reason,request.close_reason.trim());assert.ok(request.close_reason.length>=80 && request.close_reason.length<=4096);
     const before=await snapshot(originalDB,'before');equal(before,kept('publish','after.json'),'Original changed since verified publication');
@@ -608,6 +704,7 @@ async function main() {
     assert.equal(event.detail.prior_base_status,'open');assert.equal(event.detail.claim_epoch,null);assert.equal(event.detail.presented_fencing_token,null);
     verifyPlan(list(PIN.original,'after-inventory'),plan,mapping,baseline,true);
     assert.equal(hashFile(originalConfig),preserved.original_hashes.config);freezeCheck();
+    equal(gitState('original-git-after'),gitBefore,'Cleanup close unexpectedly changed original Git state');
     finish({authority:PIN.original,cleanup_id:PIN.cleanup,cleanup_revision:request.cleanup_revision+1,close_reason:request.close_reason,final_publication_required:true});
   } catch(error) {
     write('failure.json',{status:'failed',phase,utc:new Date().toISOString(),error:error.stack,replay_allowed:false,
