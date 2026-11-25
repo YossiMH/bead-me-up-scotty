@@ -1,0 +1,129 @@
+{
+  "cases": [
+    {
+      "name": "assignee_metadata_is_redactable_without_deleting_the_issue",
+      "status": "ok"
+    },
+    {
+      "name": "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+      "status": "ok"
+    },
+    {
+      "name": "concurrent_identical_requests_commit_once_and_replay_once",
+      "status": "FAILED"
+    },
+    {
+      "name": "every_supported_nonissue_record_preserves_identity_and_integrity",
+      "status": "ok"
+    },
+    {
+      "name": "garage_access_key_id_assignment_is_discoverable_and_redactable",
+      "status": "ok"
+    },
+    {
+      "name": "issue_redaction_is_exact_atomic_and_idempotent",
+      "status": "ok"
+    }
+  ],
+  "commands": [
+    {
+      "argv": [
+        "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\a813f5e86ed4d00d\\out\\redaction_transaction-a813f5e86ed4d00d.exe",
+        "--list"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-maintenance-red",
+      "duration_seconds": 0.031,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:48:17.468095+00:00",
+      "limit_seconds": 30,
+      "started": "2026-11-25T10:48:17.428731+00:00",
+      "stderr": "logs/list.stderr",
+      "stdout": "logs/list.stdout"
+    },
+    {
+      "argv": [
+        "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\a813f5e86ed4d00d\\out\\redaction_transaction-a813f5e86ed4d00d.exe",
+        "--test-threads=1",
+        "--nocapture"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-maintenance-red",
+      "duration_seconds": 0.547,
+      "exit_code": 101,
+      "finished": "2026-11-25T10:48:18.007509+00:00",
+      "limit_seconds": 180,
+      "started": "2026-11-25T10:48:17.468095+00:00",
+      "stderr": "logs/red.stderr",
+      "stdout": "logs/red.stdout"
+    }
+  ],
+  "download": {
+    "artifact_id": "15013957692",
+    "build_result_sha256": "81be8f25f822293f33154088fc1639df95adfbf5d73d7b97b5da3dcef1e16565",
+    "executables": {
+      "bead": {
+        "bytes": 18094080,
+        "compiled_path": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\bead.exe",
+        "path": "executables/bead.exe",
+        "sha256": "1eb33e6b2c87da1ac20a8517ed206cfc0e6c4ea6014d4af8ea1011d3cd4c9b7e"
+      },
+      "redaction_transaction": {
+        "bytes": 7774720,
+        "compiled_path": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\a813f5e86ed4d00d\\out\\redaction_transaction-a813f5e86ed4d00d.exe",
+        "path": "executables/redaction_transaction.exe",
+        "sha256": "8128d90f87c4b40f20f4d7863b7a479ac51d7e327dfe69d7018c7238aefc4ed8"
+      }
+    },
+    "manifest_sha256": "f1adc05084ceb589f8232dae8331386d4f86e8ee6033f7231b23941d4ec8ba92",
+    "verified_files": 28
+  },
+  "duration_seconds": 0.672,
+  "expected_failure": "concurrent_identical_requests_commit_once_and_replay_once",
+  "failed": 1,
+  "finished": "2026-11-25T10:48:18.029483+00:00",
+  "harness_exit": 101,
+  "ignored": 0,
+  "observed_cases": [
+    {
+      "name": "assignee_metadata_is_redactable_without_deleting_the_issue",
+      "status": "ok"
+    },
+    {
+      "name": "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+      "status": "ok"
+    },
+    {
+      "name": "concurrent_identical_requests_commit_once_and_replay_once",
+      "status": "FAILED"
+    },
+    {
+      "name": "every_supported_nonissue_record_preserves_identity_and_integrity",
+      "status": "ok"
+    },
+    {
+      "name": "garage_access_key_id_assignment_is_discoverable_and_redactable",
+      "status": "ok"
+    },
+    {
+      "name": "issue_redaction_is_exact_atomic_and_idempotent",
+      "status": "ok"
+    }
+  ],
+  "operation": "windows-maintenance-red",
+  "outer_owned_job_cleanup_required": true,
+  "passed": 5,
+  "run_attempt": "1",
+  "run_id": "45597738356",
+  "rust_toolchain": "1.100.0",
+  "schema_version": 1,
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_hashes": {
+    "src/service/redaction.rs": "d5151ce88ada09a57ed7fcfcd38faacf84e168356c7a56ba640cf4bf34ec4480",
+    "tests/redaction_transaction.rs": "4a88e30fa515bf2b92dc55671dd5ba09e22230c353d50dbb5d1c0d1b96c6cd34"
+  },
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "source_unchanged": true,
+  "started": "2026-11-25T10:48:17.357250+00:00",
+  "status": "expected-red",
+  "target": "x86_64-pc-windows-msvc",
+  "workflow_commit": "82b96b95947bb5a586364e7fc4664064e204c77d"
+}

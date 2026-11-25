@@ -1,0 +1,7 @@
+
+thread '<unnamed>' (3104) panicked at tests\redaction_transaction.rs:571:14:
+called `Result::unwrap()` on an `Err` value: Integrity("could not acquire workspace maintenance lock")
+note: run with `RUST_BACKTRACE=1` environment variable to display a backtrace
+
+thread 'concurrent_identical_requests_commit_once_and_replay_once' (6604) panicked at tests\redaction_transaction.rs:577:37:
+called `Result::unwrap()` on an `Err` value: Any { .. }

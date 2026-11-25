@@ -1,0 +1,279 @@
+{
+  "automatic_support": {
+    "bytes": 3219456,
+    "compiled_path": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\generate-man-pages.exe",
+    "reason": "Cargo automatically builds package binaries for integration tests",
+    "retained": false,
+    "sha256": "096f4c32241424192bd778262e2fd6787c46b1bba678b52532d0d7cfb0748632",
+    "target_name": "generate-man-pages",
+    "test": false
+  },
+  "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)",
+  "commands": [
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.047,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:14.526828+00:00",
+      "limit_seconds": 30,
+      "started": "2026-11-25T10:44:14.480975+00:00",
+      "stderr": "logs/head.stderr",
+      "stdout": "logs/head.stdout"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.047,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:14.572169+00:00",
+      "limit_seconds": 30,
+      "started": "2026-11-25T10:44:14.526828+00:00",
+      "stderr": "logs/tree.stderr",
+      "stdout": "logs/tree.stdout"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.25,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:14.826677+00:00",
+      "limit_seconds": 30,
+      "started": "2026-11-25T10:44:14.572169+00:00",
+      "stderr": "logs/status.stderr",
+      "stdout": "logs/status.stdout"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "ls-tree",
+        "-r",
+        "-z",
+        "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.047,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:14.874202+00:00",
+      "limit_seconds": 60,
+      "started": "2026-11-25T10:44:14.826677+00:00",
+      "stderr": "logs/tracked.stderr",
+      "stdout": "logs/tracked.stdout"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "archive",
+        "--format=tar",
+        "--output=D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\source.tar",
+        "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.828,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:15.700899+00:00",
+      "limit_seconds": 180,
+      "started": "2026-11-25T10:44:14.876223+00:00",
+      "stderr": "logs/archive.stderr",
+      "stdout": "logs/archive.stdout"
+    },
+    {
+      "argv": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Installer\\vswhere.exe",
+        "-latest",
+        "-products",
+        "*",
+        "-requires",
+        "Microsoft.VisualStudio.Component.VC.Tools.x86.x64",
+        "-property",
+        "installationPath"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work",
+      "duration_seconds": 0.906,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:18.818224+00:00",
+      "limit_seconds": 30,
+      "started": "2026-11-25T10:44:17.919797+00:00",
+      "stderr": "logs/vswhere.stderr",
+      "stdout": "logs/vswhere.stdout"
+    },
+    {
+      "argv": [
+        "C:\\Windows\\System32\\cmd.exe",
+        "/d",
+        "/c",
+        "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\activate-msvc.cmd"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work",
+      "duration_seconds": 2.0,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:20.826224+00:00",
+      "limit_seconds": 60,
+      "started": "2026-11-25T10:44:18.818224+00:00",
+      "stderr": "logs/activate-msvc.stderr",
+      "stdout": "logs/activate-msvc.stdout"
+    },
+    {
+      "argv": [
+        "rustup",
+        "toolchain",
+        "install",
+        "1.100.0",
+        "--profile",
+        "minimal",
+        "--target",
+        "x86_64-pc-windows-msvc",
+        "--no-self-update"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work",
+      "duration_seconds": 11.937,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:32.894331+00:00",
+      "limit_seconds": 600,
+      "started": "2026-11-25T10:44:20.969356+00:00",
+      "stderr": "logs/rustup.stderr",
+      "stdout": "logs/rustup.stdout"
+    },
+    {
+      "argv": [
+        "rustc",
+        "-vV"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work",
+      "duration_seconds": 0.594,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:33.500115+00:00",
+      "limit_seconds": 30,
+      "started": "2026-11-25T10:44:32.894331+00:00",
+      "stderr": "logs/rustc.stderr",
+      "stdout": "logs/rustc.stdout"
+    },
+    {
+      "argv": [
+        "cargo",
+        "--version"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work",
+      "duration_seconds": 0.703,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:44:34.191915+00:00",
+      "limit_seconds": 30,
+      "started": "2026-11-25T10:44:33.500115+00:00",
+      "stderr": "logs/cargo.stderr",
+      "stdout": "logs/cargo.stdout"
+    },
+    {
+      "argv": [
+        "cargo",
+        "test",
+        "--locked",
+        "--no-run",
+        "--test",
+        "redaction_transaction",
+        "--target",
+        "x86_64-pc-windows-msvc",
+        "--message-format=json"
+      ],
+      "cwd": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\source",
+      "duration_seconds": 135.109,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:46:49.309842+00:00",
+      "limit_seconds": 1500,
+      "started": "2026-11-25T10:44:34.191915+00:00",
+      "stderr": "logs/cargo-tests.stderr",
+      "stdout": "logs/cargo-tests.stdout"
+    },
+    {
+      "argv": [
+        "git",
+        "-C",
+        "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+        "status",
+        "--porcelain"
+      ],
+      "cwd": "D:\\a\\bead-me-up-scotty\\bead-me-up-scotty\\source",
+      "duration_seconds": 0.047,
+      "exit_code": 0,
+      "finished": "2026-11-25T10:46:49.772390+00:00",
+      "limit_seconds": 30,
+      "started": "2026-11-25T10:46:49.730603+00:00",
+      "stderr": "logs/status-after.stderr",
+      "stdout": "logs/status-after.stdout"
+    }
+  ],
+  "duration_seconds": 155.297,
+  "executables": {
+    "bead": {
+      "bytes": 18094080,
+      "compiled_path": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\bead.exe",
+      "path": "executables/bead.exe",
+      "sha256": "1eb33e6b2c87da1ac20a8517ed206cfc0e6c4ea6014d4af8ea1011d3cd4c9b7e"
+    },
+    "redaction_transaction": {
+      "bytes": 7774720,
+      "compiled_path": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target\\x86_64-pc-windows-msvc\\debug\\build\\bead-rs\\a813f5e86ed4d00d\\out\\redaction_transaction-a813f5e86ed4d00d.exe",
+      "path": "executables/redaction_transaction.exe",
+      "sha256": "8128d90f87c4b40f20f4d7863b7a479ac51d7e327dfe69d7018c7238aefc4ed8"
+    }
+  },
+  "finished": "2026-11-25T10:46:49.772390+00:00",
+  "operation": "windows-maintenance-build",
+  "release_built": false,
+  "run_attempt": "1",
+  "run_id": "45597738356",
+  "rust_toolchain": "1.100.0",
+  "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)\nbinary: rustc\ncommit-hash: 0ef1bc386059596dada8fb65b50425aab2ea637a\ncommit-date: 2026-11-09\nhost: x86_64-pc-windows-msvc\nrelease: 1.100.0\nLLVM version: 23.1.5",
+  "schema_version": 1,
+  "source_archive": {
+    "bytes": 487884800,
+    "sha256": "c4d6a1159b2d0053e5bceb8421506385c73da935ab23122a2098a6398dae407c"
+  },
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_hashes": {
+    "src/service/redaction.rs": "d5151ce88ada09a57ed7fcfcd38faacf84e168356c7a56ba640cf4bf34ec4480",
+    "tests/redaction_transaction.rs": "4a88e30fa515bf2b92dc55671dd5ba09e22230c353d50dbb5d1c0d1b96c6cd34"
+  },
+  "source_manifest": {
+    "bytes": 205269,
+    "path": "source-files.json",
+    "sha256": "2a5df46f02af6c304a3dd48ee172dd7ad52d0bc1d434c114c104e864f2a651b1"
+  },
+  "source_root": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\source",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "source_unchanged": true,
+  "started": "2026-11-25T10:44:14.478959+00:00",
+  "status": "passed",
+  "target": "x86_64-pc-windows-msvc",
+  "target_root": "D:\\a\\_temp\\bead-maintenance-45597738356-1-work\\target",
+  "tests_executed": false,
+  "visual_cpp": {
+    "installation": "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise",
+    "linker": "C:\\Program Files\\Microsoft Visual Studio\\18\\Enterprise\\VC\\Tools\\MSVC\\14.52.37025\\bin\\Hostx64\\x64\\link.exe",
+    "linker_sha256": "6089fbb8ca5d7beb5a69e625bf614ef23ebe07100a987c8a32b121f906e3fb51",
+    "sdk": "10.0.26100.0\\",
+    "toolset": "14.52.37025"
+  },
+  "workflow_commit": "82b96b95947bb5a586364e7fc4664064e204c77d"
+}
