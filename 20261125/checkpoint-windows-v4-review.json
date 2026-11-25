@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "review_kind": "complete_static_packet_and_actual_failure_reconciliation",
+  "reviewer": "delivery_review",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "e6fd27138076b453680ae80159ace33b56e4dfcf",
+  "packet_tree": "f7fc20bb9dd8a35987349da1c8cfd67729ceb23d",
+  "packet_directory": "20261125/checkpoint-windows",
+  "previous_static_review": {
+    "commit": "a21196e3fdbd88170790a266e1cefefe0f5ea3eb",
+    "path": "20261125/checkpoint-windows-v3-review.json",
+    "sha256": "2304f4b0d5d1fe87287d4dfba1d36e917fa54dc5477a2ffb52b099ce6f0097fd"
+  },
+  "reviewed_files": {
+    "checkpoint-windows-build-20261125.py": "e65746cc76a67091dda134ca51b86143d431372520e6639ad1f163f7a92f0b08",
+    "checkpoint-windows-check-20261125.py": "28174403b6cc8f0d9f5493d36f3c1ab271a51e75ca0883eb846926f417db96a1",
+    "packet.json": "d5fe9c3e86a507e20b8de1256ce94d2ba2710c749b4935c1aa968dc92fbf0880",
+    "checkpoint-windows-build.workflow.yml": "6cdce381eb35e3d6449ba212dccfa1dd508cfa6081ff87169c7b0df48c441d31",
+    "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+    "check-inputs.template.json": "2d1d6123c8877f1a9225521d507dddf871fda3d8c5d916f0e0ad96a320afd216",
+    "README.md": "798f3de9bf874be6fe863d82245c2ecc520c413da80eaf53cc9dec70b0d9b5f6",
+    "author-audits-v4.json": "1af4632b6a75aeb0ce5f8a8de7bea5c7148d01d21ad5eb8e3170ff9f8acf51c2",
+    "static-checks-v4.json": "52608c8a702a5936d42539c055731dc2a96e914cf5950ae8c2d820e36ba200e2",
+    "query-checks-v4.json": "464a19e39908da83d79dcc52a93ede03416e65cad5fa71babf084db5ebd521d6",
+    "validate-query-v4.py": "baeb7dab7313a5f54ae015177df621b23e8a1b7a69f05b310036d5996ed981bb",
+    "checkpoint-windows-build-20261125.py.v4.patch": "66e5cf423911409b1dce88a99488d606b09bee7d4025213eb33910f90fd0595a",
+    "checkpoint-windows-check-20261125.py.v4.patch": "cfb71b75764ff82f2b13ed56721d88cf9b1e24e568b22a86b291fa47075fed8b"
+  },
+  "review_scope": {
+    "complete_changed_query_and_callers_read": true,
+    "complete_packet_workflow_notes_and_synthetic_checker_read": true,
+    "both_complete_file_diffs_independently_regenerated": true,
+    "unchanged_remainder_equal_to_prior_complete_review": true,
+    "author_bound_file_hashes_verified": 16,
+    "local_files_matching_immutable_remote_git_blobs": 32
+  },
+  "actual_failed_run": {
+    "run_id": 45549348933,
+    "job_id": 138986515662,
+    "workflow_commit": "3d8a0ff0d6eca4edb8ba9fa2951fd4afbea9a7ad",
+    "job_log_sha256": "189243e6c40cfa9961d5ad4ebd3c3ddec020c534d449233aff7efd36c8f5d76e",
+    "build_result_sha256": "b0932bdcd680bc31c11daa331ca068e8c8c7bceeed4de50f22f36a6c511bdadf",
+    "outer_result_sha256": "4be16c46b50fb941485c61c59444c7d5abd823d8547496df9cacdd442a967f64",
+    "supervisor_result_sha256": "a94e924b30cd31e88cefde8b47114eaf873b96358801bdea89f207aacbb24c1b",
+    "completion_sha256": "b6b7e67ae367efca1d6773cd5a45dd5bfd4705b7eab4e62fcc9f5a0a5242e7e2",
+    "directly_refetched_job_log_matches": true,
+    "all_four_base64_receipts_redecoded_and_verified": true,
+    "complete_raw_streams_rehashed": 26,
+    "status": "failed",
+    "successful_recorded_preflight_commands": 12,
+    "compiler_started": false,
+    "tests_executed": false,
+    "finding": "The next approved-file-0 Git show wrote the exact 53522-byte set_v2 source (9227543341a0e7352a2aab1fdf7e9244df21e4c723cd705d537ad34341557642). Its post-command query raised the incomplete/oversized-list assertion before a command exit receipt was saved.",
+    "observed_baseline_pids": [
+      1436,
+      7036,
+      8860
+    ],
+    "raw_mismatch_counts": "Not recorded; neither specific values nor a precise timing cause are inferred.",
+    "cleanup": "The supervisor reports zero owned children and helper exit 1; the caller observed supervisor exit 1. Its overall completion remains failed and owned_job_empty_after_supervisor_exit is false because the successful-phase criterion was not met. This review does not relabel it as a passed build."
+  },
+  "correction_assessment": [
+    "The same read-only QueryInformationJobObject(NULL, JobObjectBasicProcessIdList) is retried; no child command is replayed.",
+    "The function permits at most eight query attempts within its half-second retry budget, grows 32 entries to at most 1024, and records at most 32 incomplete-query groups per phase.",
+    "Success requires the API to succeed, equal positive assigned/returned counts within capacity, sufficient returned byte length, and distinct nonzero PIDs. Unrelated API errors, oversized responses and persistent incompleteness stop the phase.",
+    "Incomplete responses are eligible for resampling only with error value 0 or 234 and bounded nonzero assigned count. Every complete result still passes the prior exact baseline PID-set and retained-live-handle comparisons.",
+    "Retry samples and eventual complete PIDs are appended to the existing build/check receipt. The checker imports the exact updated helper; both PowerShell files, source515, compiler arguments, deadlines and final zero-child checks are unchanged.",
+    "The seven retained synthetic cases inspect the exact extracted query function. Their recorded success supports the narrow guard change; actual hosted qualification remains pending.",
+    "The new branch-filtered workflow is bound to the complete packet and unchanged source/helper inputs, uses the existing read-only token and public Windows runner, and retains full failed/successful artifacts."
+  ],
+  "primary_api_references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_process_id_list",
+    "https://learn.microsoft.com/en-us/windows/win32/api/jobapi2/nf-jobapi2-queryinformationjobobject"
+  ],
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "findings": [],
+  "accepted_activation": "Fresh task/checkpoint-windows-build-20261125-v4 using the exact reviewed workflow.",
+  "pending": "Actual Windows build acceptance, measured artifact/native pins and a separately bound check-phase review remain required. Existing failed runs stay failed.",
+  "review_actions": {
+    "product_tests": 0,
+    "builds": 0,
+    "pc_calls": 0,
+    "native_writes": 0
+  }
+}
