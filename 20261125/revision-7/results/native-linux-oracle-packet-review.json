@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/cloud_readiness",
+  "status": "PASS",
+  "accepted": true,
+  "scope": "Consumer-only Linux qualification retry after the reviewed two-byte test/spec oracle correction",
+  "candidate_commit": "4855e53de5d74d6d16fbfc934ddcfcfdf8a23f78",
+  "production_source_commit": "9ffefad6bb3b21ac1362f54df245af82ed85ec6e",
+  "production_source_tree": "31c63a88be4d7f818aa115b8b83b1ef58518ad13",
+  "qualification_source_commit": "7adb497b6fc27553f5a8d8f272214e3f49200676",
+  "qualification_source_tree": "eeab8ce79cf4a6950a4b09706fa1595572cd1b78",
+  "reviewed_files": {
+    "20261125/native-final-linux-check/checkpoint-full-suite-20261125.py": "1ee330ceae483afb66e96cde5ea8c1e701bd0aae341d91ee5a07a0e53196407d",
+    "20261125/native-final-linux-check/full-suite-inputs.json": "5e663d417fa5c8ddee48b4c755c20c78502046d8a3c6e8ecfd37e4ad90abcae5",
+    "20261125/native-final-linux-check/workflow.yml": "699c8d2c97b2e71fabef8ff69c7f9626f553ed021d191ad2eb3891bd0fc61824",
+    ".github/workflows/native-final-linux-check-20261125.yml": "699c8d2c97b2e71fabef8ff69c7f9626f553ed021d191ad2eb3891bd0fc61824",
+    "20261125/native-final-linux-check/oracle-correction-author-inspections.json": "e0e05e204ea81850b2f55c3114e30ff08f4e0b53695170ec8cb962d8bd32412f"
+  },
+  "prior_complete_packet_review": "80c0be3384c62c5259aa21abb2f426e8a5e6c9b0",
+  "oracle_review": "f86802df9a363a0e2ffb02baf5ea6b45fea4177b",
+  "delta_review": [
+    "All exact original producer, receipt, source, mode, mtime, target and executable-map validation remains before the correction.",
+    "The new apply_oracle_correction function requires each accepted old hash, exactly one matching byte-sequence occurrence, the accepted final hash, unchanged length and exactly one changed byte per file. Its replacements independently reproduce the reviewed 7adb files.",
+    "Only the two accepted source inventory records are updated; all other production and test files retain their exact accepted records and are checked after execution.",
+    "The result and affected-check receipt explicitly retain production source 9ff and corrected test/spec source 7adb. Before/after compiled executable hashes are retained.",
+    "Rustfmt checks the corrected source, then the original complete eight-target invocation and unfiltered complete default suite run with their existing deadlines, result accounting and owned cleanup.",
+    "The workflow adds the pinned toolchain's rustfmt component, uses a new activation branch and retains the correction report. The separately successful corpus job is omitted, preserving its accepted result."
+  ],
+  "author_inspections": {
+    "count": 2,
+    "status": "clean",
+    "complete_final_delta_read": true
+  },
+  "activation_accepted": "task/native-final-linux-check-v2-20261125",
+  "new_release_build_required": false,
+  "completed_corpus_rerun_required": false,
+  "actual_execution_pending": true,
+  "final_native_acceptance": false,
+  "reviewer_executed_product": false,
+  "findings": [],
+  "separate_windows_gate": "The Windows checkpoint conformance failures and incomplete target remain blocking final Windows qualification and installation; this Linux packet does not alter their status."
+}
