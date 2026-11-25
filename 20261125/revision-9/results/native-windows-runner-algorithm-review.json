@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Revision 9 Windows runner algorithm preparation only",
+  "packet_commit": "b49156a00d1d92385b8e62ea67277272a9caf7ea",
+  "packet_parent": "ddc93993a810e100bbbd62059cae92d3b6c78a56",
+  "packet_directory": "20261125/revision-9/native-windows-check",
+  "prior_complete_review": {
+    "commit": "b35847d5c2884434b4aa2300510a5a630c0e663c",
+    "path": "20261125/revision-8/results/native-windows-runner-review.json",
+    "sha256": "a6f4eb10e70e391a28c004a23321fdf5a8df8751ea1c2ba05a489a4997dec29f"
+  },
+  "reviewed_files": {
+    "README.md": "c35f709e4c1167ee5f12a49c389258b81c84b194461904ba0793bfbbc97a2151",
+    "aggregate.py": "bf2643eb96696d7ce4e5ce69b7451f6cd5bd71e798d2b23dd98ebb4fc3723c6d",
+    "check-inputs.template.json": "3de973507b9de32058e9b6d10d282f4afd66a870e766968b2fa6f81e9327c7c1",
+    "checkpoint-release-corpus-20261125.py": "653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52",
+    "checkpoint-windows-build-20261125.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "checkpoint-windows-check-20261125.py": "84e482678d134652a64649cdf8f0cb309a6a929d47e4c7911e98054ba43f8bbc",
+    "checkpoint-windows-driver-20261125.ps1": "706acc980a6b70f1136fe8ea1b7367f1d8e7e1fbe5dcd4907a89c9b005cfac9f",
+    "checkpoint-windows-supervisor-20261125.ps1": "aba1bd6053bded3a350d96ff92f56eed2ce7e97722d3b70a06999e5b9c97ba9b",
+    "corpus-inputs.json": "2aface2eb2c82a2e436e2d7b2b2dd809c508f45c2297ea34db27ad6c53b0ecdc",
+    "packet.json": "a0fd6852f173a3b75b8647d6c883bbfd05dc4fa0209448729ddf73fcea169197",
+    "workflow.template.yml": "ee997336b1aea30b8836baea3fde9fceba323f1b313e7dd7b217f5c45d902d91"
+  },
+  "checks": [
+    "Compared every helper and template to the fully reviewed ddc93993 baseline. Both PowerShell controllers, the imported build utility and original-corpus verifier are byte-identical. The checker has exactly the new maintenance target, its six exact permanent names and complete-list equality; reversing these additions recovers the complete original checker.",
+    "Read the changed definitions and every relevant executable inventory, listing, selection, whole-target execution, raw-output parsing and aggregate coverage consumer. The producer must supply the maintenance harness in the exact executable set, editing must list exactly its six cases, and the entire target executes without a filter under the existing bounds. Final aggregate requires all six raw passing results, complete target coverage and exact command arguments.",
+    "The six required names exactly match the independently measured maintenance Red inventory. The concurrency case remains one of six required Green cases; it cannot be omitted or converted to an ignored/filtered result.",
+    "Reversing the aggregate output prefix v9 to v8 recovers the complete accepted prior aggregate. The workflow changes only revision names/paths and a deliberately pending packet hash. Five partitions, twelve ordinary conformance cases, twelve distinct grid cells, shared 140-minute window, per-invocation limits, complete streams and owned-process checks remain unchanged.",
+    "All seven algorithm/corpus hashes in pending packet.json match the immutable file bytes. Source/tree, producer, release, manifest and phase bindings remain pending. No activation workflow is introduced by this commit."
+  ],
+  "findings": [],
+  "activation_authorized": false,
+  "required_final_binding_changes": [
+    "Populate the new final native source/tree and measured successful full producer/download identities, including the ten integration targets plus lib and bead.",
+    "Replace the two historical c90/13e8 assertions still present in workflow.template.yml lines 49-50 with the exact independently accepted final source/tree. They are currently inert because the packet is pending and no activation workflow is installed.",
+    "Bind the complete corpus/release metadata, all five identical-except-partition request inputs, packet hash, and actual workflow copy; retain both complete final author inspections.",
+    "Submit the exact immutable bound packet for final independent acceptance before activation."
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
