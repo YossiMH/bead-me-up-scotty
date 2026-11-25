@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "task_key": "type-app-change",
+  "status": "source_published_checks_pending",
+  "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+  "parent_commit": "3d3b0f3850e359bfb8d320d530f132a7e0d67469",
+  "branch": "task/scotty-finish-20261124",
+  "plan_commit": "8115a533b95c7994ffb6441e8d29edee08b5d602",
+  "test_review": "20261125/revision-7/results/type-app-tests-review.json",
+  "red": {
+    "run_id": 45571286830,
+    "job_id": 139058279593,
+    "exit": 1,
+    "tests": 48,
+    "passed": 38,
+    "failed": 10
+  },
+  "changed_files": [
+    {
+      "path": "lib/native-process.ts",
+      "git_blob": "59c5801d3410de135b945fa2cac4d5cdde22c78c",
+      "sha256_pending": "The hosted checks record SHA-256 from the exact checkout."
+    },
+    {
+      "path": "lib/native-edit.ts",
+      "git_blob": "ec2eeecf02da9c6590d2a4733d87f0fccba2a4f0",
+      "sha256_pending": "The hosted checks record SHA-256 from the exact checkout."
+    },
+    {
+      "path": "lib/native-store.ts",
+      "git_blob": "9cb7637cd2674fdcff1754b0c514c483f4edfec4",
+      "sha256_pending": "The hosted checks record SHA-256 from the exact checkout."
+    },
+    {
+      "path": "docs/backend-compatibility.md",
+      "git_blob": "4e6660ff83123db8f738a844085e8fbedbc0c4c4",
+      "sha256_pending": "The hosted checks record SHA-256 from the exact checkout."
+    }
+  ],
+  "changes": [
+    "Read optional issue_type_file as unknown and enable the private adapter value only for literal true, preserving other field grants.",
+    "Include the type in the shared 8 KiB UTF-8 budget. Use --issue-type-file only when supported; older executables retain inline types up to 8 KiB.",
+    "Refuse an unsupported larger type before creating a temporary directory or file and before dispatching the update.",
+    "Retain the single update, revision and acquired claim credential, priority reason, literal option arguments, cleanup and uncertain-result behavior.",
+    "Keep the existing 4 MiB schema limit and describe the new file support and older executable behavior."
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+      "result": "clean",
+      "inspection": "Read all changed modules and prose with the accepted tests and existing store guards. Checked omitted and malformed capability, UTF-8 and combined byte limits, file option mapping and cleanup. All added declarations serve the required transport."
+    },
+    {
+      "pass": 2,
+      "source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+      "result": "clean",
+      "inspection": "Re-read the complete published diff and changed files without relying on the earlier explanation. Checked one native update, the unchanged claim/revision and priority path, empty text, old executable compatibility, error propagation, imports, names and documentation claims."
+    }
+  ],
+  "verification": {
+    "remote_ref": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "parent_and_tree_verified": true,
+    "complete_compare_verified": true,
+    "published_contents_match_author_text": true,
+    "local_commands": "The local execution environment became unavailable before the source read. No local command result is claimed.",
+    "required_commands_pending": [
+      "git diff --check",
+      "adapter tests",
+      "lint",
+      "production build",
+      "TypeScript"
+    ]
+  },
+  "remaining": [
+    "Run type-app-checks from this exact commit and retain the fresh runtime ZIP and complete measured manifest.",
+    "Run the accepted real hosted Windows checks with the new qualified native executable.",
+    "Obtain independent source/results review before installation.",
+    "Actual PC tray and configured installed launch remain separate required checks."
+  ],
+  "cleanup": "Future agents must recover this published commit into /tmp/beads-55c9/app-type-edit when access returns, then remove that clean owned Riftri worktree and its owned local branch after delivery. Remove the owned temporary hosted-check branches after retaining their outputs. Preserve all unrelated worktrees and edits."
+}
