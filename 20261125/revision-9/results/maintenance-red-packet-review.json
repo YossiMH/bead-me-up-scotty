@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Focused unchanged-c90 Windows maintenance compile/download/Red packet activation",
+  "packet_commit": "9059c9a0020c25b667d1681b95f1a0fdc687e9bc",
+  "packet_directory": "20261125/revision-9/native-maintenance-red",
+  "activation_branch": "task/native-maintenance-red-20261125",
+  "accepted_plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "review_commit": "d1d9b088f4676c94e2a9afbe80b3eb49602c1283",
+    "review_sha256": "5e3a51c06322e5ab49f8ee1d832a44a392e1e704b80ddced34c045f159bb8299"
+  },
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "reviewed_files": {
+    "maintenance.py": "eb5fcdf0e3719ca11112ec7bf2f6f437c750e1869b95a885c4e312a9bd9e8a41",
+    "supervise.ps1": "5bdaf4dd3f6e89e8bdd5a2e895df179392ff26c4d71a1caa335a16f7ab0c17e2",
+    "windows-task-job.ps1": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "windows_build_support.py": "1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07",
+    "workflow.yml": "8df5cb67f7431f25c90d78693fe208db53a84ac85a9821a7afa28ae5da36001f",
+    "README.md": "5abb4cc498e13dfc81326fddc532365bccdf9ea0218f4cb434ad489e8bc96324",
+    "author-inspections.json": "a8778c6a0dcfec4e3681551473d74c89653dce7a335483d93958ef64e38ddafa"
+  },
+  "actual_workflow_path": ".github/workflows/native-maintenance-red-20261125.yml",
+  "actual_workflow_equals_packet": true,
+  "complete_clean_author_inspections": 2,
+  "author_file_identities_match": true,
+  "checks": [
+    "Read all 293 lines of maintenance.py, the full PowerShell supervisor, actual workflow, README and both author inspections. The imported Windows build utility and Job helper match their previously accepted 33931b9/2758 identities; imported utility main remains guarded.",
+    "The producer pins c90 HEAD/tree, clean checkout, every archived regular Git blob, the unchanged maintenance source/test hashes, Rust 1.100.0 and x86_64-pc-windows-msvc. It preserves ordinary hosted compilation, sets one Cargo job and compiles only redaction_transaction plus required bead support, with a 30-minute overall producer deadline and 35-minute job.",
+    "Cargo JSON must contain one successful build completion and exactly the redaction test harness and non-test bead executable from the correct package and owned Windows target tree. Both binaries must be AMD64 PE32+, are copied with hashes/paths, and source bytes plus checkout status are rechecked. The receipt explicitly records tests_executed=false and release_built=false.",
+    "The separate job downloads only the actual successful same-run artifact ID. Before any harness execution it verifies the output manifest hash, exact file membership and every file hash/length, compile status/source/toolchain/run/attempt/workflow identity, both source/test hashes and exactly the two expected executables.",
+    "Restoration is limited to the producer's fresh run/attempt-owned target root and recorded Windows executable paths. The complete listing must contain exactly the six permanent names. Fresh disposable fixtures have no ancestor .beads store; inherited Bead/Cargo/Rust selectors are cleared.",
+    "The entire harness executes once with one test thread, --nocapture and a 180-second invocation bound. Acceptance requires exit 101, all six named results, five passes, exactly the direct-service concurrency failure, no ignored/filtered tests and the specific maintenance acquisition Integrity error without operation.lock. Unexpected success, timeout or another failure stops acceptance without race retries.",
+    "The unchanged kill-on-close Job is assigned before runtime children. The supervisor checks its initial ownership and separately records helper exit, duration and zero remaining owned descendants, with bounded cleanup observation. Its failure remains distinct from the harness's expected Red.",
+    "Complete command streams, receipts, source/executable inventories and manifest are retained for fourteen days and emitted with byte hashes. Workflow hash gates precede helper execution; hosted Python and PowerShell syntax gates run before their respective product phases.",
+    "The reviewed file hashes and byte lengths match all final author-inspection entries, and the actual workflow is byte-identical to workflow.yml."
+  ],
+  "findings": [],
+  "verdict": "GO for the exact single hosted focused compile followed by separate verified download and one maintenance Red execution. Retain all actual outcomes, including unexpected pass/failure; production predicates remain unchanged until the independent tests/Red review accepts the measured result and fixture candidate.",
+  "remaining": [
+    "Actual compile, source/toolchain/executable/manifest and artifact receipts",
+    "Actual six-case maintenance Red, full raw output and owned-process cleanup",
+    "Independent actual tests/Red acceptance",
+    "Exact tests-only fixture candidate review",
+    "Final two-predicate production repair and complete new-source qualification"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
