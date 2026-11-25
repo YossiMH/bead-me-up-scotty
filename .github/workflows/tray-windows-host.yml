@@ -1,0 +1,151 @@
+name: Check the real Windows tray host lifecycle
+
+on:
+  push:
+    branches:
+      - task/tray-windows-host-20261125
+
+permissions:
+  contents: read
+
+concurrency:
+  group: tray-windows-host-20261125
+  cancel-in-progress: false
+
+jobs:
+  windows-host:
+    runs-on: windows-2022
+    timeout-minutes: 5
+    env:
+      GIT_CONFIG_COUNT: '2'
+      GIT_CONFIG_KEY_0: core.autocrlf
+      GIT_CONFIG_VALUE_0: 'false'
+      GIT_CONFIG_KEY_1: core.eol
+      GIT_CONFIG_VALUE_1: lf
+    steps:
+      - name: Read the exact assembled tray source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-me-up-scotty
+          ref: 5232c8b94804064ab71af571ee28797667bd72bd
+          path: app
+          fetch-depth: 2
+          persist-credentials: false
+
+      - name: Read the reviewed execution files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: 20261125/tray-checks
+
+      - name: Use the measured Windows Node version
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38
+        with:
+          node-version: 25.2.1
+          architecture: x64
+          package-manager-cache: false
+
+      - name: Run both real host cases in the owned Job
+        timeout-minutes: 3
+        shell: powershell
+        run: |
+          $ErrorActionPreference = 'Stop'
+          $utf8 = [Text.UTF8Encoding]::new($false)
+          $packet = Join-Path $env:GITHUB_WORKSPACE 'ci\20261125\tray-checks'
+          $root = Join-Path $env:RUNNER_TEMP "scotty-host-caller-$($env:GITHUB_RUN_ID)-$($env:GITHUB_RUN_ATTEMPT)"
+          $execution = Join-Path $env:LOCALAPPDATA "bead-tray-host-$($env:GITHUB_RUN_ID)-$($env:GITHUB_RUN_ATTEMPT)"
+          if ((Test-Path -LiteralPath $root) -or (Test-Path -LiteralPath $execution)) { throw 'Fresh invocation paths required' }
+          [void][IO.Directory]::CreateDirectory($root)
+          [void][IO.Directory]::CreateDirectory($execution)
+          $pins = @{
+            'run-windows-host-checks.ps1' = 'b5792316a07fafade0aa2e42a7d90216f87b88df681907f3cc0a9e31101627e1'
+            'windows-task-job.ps1' = '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'
+            'windows-inputs.json' = '683529f4fe58f17be8846c3b9d640eb1c056a360c4b012b160ecd0941ed20123'
+          }
+          $receipt = @{ schema_version=1; status='failed'; source_commit='5232c8b94804064ab71af571ee28797667bd72bd';
+            run_id=$env:GITHUB_RUN_ID; attempt=$env:GITHUB_RUN_ATTEMPT; workflow_commit=$env:GITHUB_SHA;
+            execution_directory=$execution; pins=$pins }
+          $process = $null; $started=$false; $out=$null; $err=$null; $outTask=$null; $errTask=$null
+          try {
+            foreach ($name in $pins.Keys) {
+              $from = Join-Path $packet $name
+              if ((Get-FileHash -LiteralPath $from -Algorithm SHA256).Hash.ToLowerInvariant() -cne $pins[$name]) { throw 'Packet hash differs' }
+              $to = Join-Path $execution $name
+              [IO.File]::Copy($from,$to,$false)
+              if ((Get-FileHash -LiteralPath $to -Algorithm SHA256).Hash.ToLowerInvariant() -cne $pins[$name]) { throw 'Copied execution file differs' }
+            }
+            $arguments = @('-NoLogo','-NoProfile','-NonInteractive','-File',(Join-Path $execution 'run-windows-host-checks.ps1'),
+              '-RepositoryPath',(Join-Path $env:GITHUB_WORKSPACE 'app'),'-InputsPath',(Join-Path $execution 'windows-inputs.json'),
+              '-InputsSha256',$pins['windows-inputs.json'],'-HelperSha256',$pins['run-windows-host-checks.ps1'],
+              '-JobHelper',(Join-Path $execution 'windows-task-job.ps1'))
+            foreach ($value in $arguments) { if ($value.Contains('"') -or $value.EndsWith('\')) { throw 'Unexpected argument quoting' } }
+            $start = [Diagnostics.ProcessStartInfo]::new()
+            $start.FileName = Join-Path $env:SystemRoot 'System32\WindowsPowerShell\v1.0\powershell.exe'
+            $start.Arguments = (($arguments | ForEach-Object { '"' + $_ + '"' }) -join ' ')
+            $start.UseShellExecute=$false; $start.CreateNoWindow=$true
+            $start.RedirectStandardInput=$true; $start.RedirectStandardOutput=$true; $start.RedirectStandardError=$true
+            $start.WorkingDirectory=$execution
+            $out=[IO.File]::Open((Join-Path $root 'supervisor.stdout'),[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::Read)
+            $err=[IO.File]::Open((Join-Path $root 'supervisor.stderr'),[IO.FileMode]::CreateNew,[IO.FileAccess]::Write,[IO.FileShare]::Read)
+            $process=[Diagnostics.Process]::new(); $process.StartInfo=$start
+            if (-not $process.Start()) { throw 'Supervisor did not start' }
+            $started=$true; $receipt.supervisor_pid=$process.Id
+            $process.StandardInput.Close()
+            $outTask=$process.StandardOutput.BaseStream.CopyToAsync($out)
+            $errTask=$process.StandardError.BaseStream.CopyToAsync($err)
+            if (-not $process.WaitForExit(170000)) { throw 'Supervisor exceeded its caller deadline' }
+            $receipt.supervisor_exit_code=$process.ExitCode
+            $receipt.supervisor_exit_observed=$true
+            if (-not [Threading.Tasks.Task]::WaitAll([Threading.Tasks.Task[]]@($outTask,$errTask),5000)) { throw 'Supervisor streams did not close' }
+            $out.Flush($true); $out.Dispose(); $out=$null
+            $err.Flush($true); $err.Dispose(); $err=$null
+            if ($process.ExitCode -ne 0) { throw 'The real Windows host check failed' }
+            $resultPath=Join-Path $env:RUNNER_TEMP "scotty-host-windows-$($env:GITHUB_RUN_ID)-$($env:GITHUB_RUN_ATTEMPT)\result.json"
+            $result=[IO.File]::ReadAllText($resultPath) | ConvertFrom-Json
+            if ($result.status -cne 'passed' -or $result.owned_children_remaining -ne 0 -or -not $result.owned_children_empty_before_supervisor_exit) {
+              throw 'Owned Job completion was not verified'
+            }
+            $receipt.result_sha256=(Get-FileHash -LiteralPath $resultPath -Algorithm SHA256).Hash.ToLowerInvariant()
+            $receipt.job_handle_closed_after_observed_exit=$true
+            $receipt.status='passed'
+          } catch { $receipt.error=$_.Exception.Message }
+          finally {
+            if ($started -and -not $process.HasExited) {
+              $process.Kill()
+              $receipt.supervisor_fallback_exit_observed=$process.WaitForExit(5000)
+            }
+            if ($out -and $outTask -and $outTask.IsCompleted) { $out.Flush($true); $out.Dispose() }
+            if ($err -and $errTask -and $errTask.IsCompleted) { $err.Flush($true); $err.Dispose() }
+            [IO.File]::WriteAllText((Join-Path $root 'result.json'),($receipt | ConvertTo-Json -Depth 20),$utf8)
+          }
+          if ($receipt.status -cne 'passed') { exit 1 }
+
+      - name: Expose complete small case receipts and raw streams
+        if: always()
+        shell: powershell
+        run: |
+          $ErrorActionPreference='Stop'
+          foreach ($prefix in @('scotty-host-caller','scotty-host-windows')) {
+            $root=Join-Path $env:RUNNER_TEMP "$prefix-$($env:GITHUB_RUN_ID)-$($env:GITHUB_RUN_ATTEMPT)"
+            if (-not (Test-Path -LiteralPath $root)) { continue }
+            foreach ($file in Get-ChildItem -LiteralPath $root -Recurse -File) {
+              if ($file.Extension -notin @('.json','.jsonl','.stdout','.stderr')) { continue }
+              $row=@{ directory=$prefix; path=$file.FullName.Substring($root.Length+1); bytes=$file.Length;
+                sha256=(Get-FileHash -LiteralPath $file.FullName -Algorithm SHA256).Hash.ToLowerInvariant() }
+              if ($file.Length -le 256KB) { $row.base64=[Convert]::ToBase64String([IO.File]::ReadAllBytes($file.FullName)) }
+              Write-Output ('SCOTTY_TRAY_EVIDENCE ' + ($row | ConvertTo-Json -Depth 5 -Compress))
+            }
+          }
+
+      - name: Retain both real host cases and owned Job evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: tray-windows-host-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 14
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/scotty-host-caller-${{ github.run_id }}-${{ github.run_attempt }}
+            ${{ runner.temp }}/scotty-host-windows-${{ github.run_id }}-${{ github.run_attempt }}
