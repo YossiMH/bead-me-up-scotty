@@ -1,0 +1,210 @@
+name: Check the qualified Linux checkpoint release and complete native suite
+
+on:
+  push:
+    branches:
+      - task/native-lock-linux-check-20261125
+
+permissions:
+  contents: read
+  actions: read
+
+concurrency:
+  group: native-lock-linux-check-20261125
+  cancel-in-progress: false
+
+jobs:
+  full-suite:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 100
+    steps:
+      - name: Read exact reviewed check helpers
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/revision-9/native-linux-build
+            20261125/revision-9/native-linux-check
+
+      - name: Download the exact accepted full compilation artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: '__BUILD_ARTIFACT_ID__'
+          merge-multiple: true
+          repository: YossiMH/bead-me-up-scotty
+          run-id: '__BUILD_RUN__'
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/checkpoint-linux-accepted-build-__BUILD_RUN__
+
+      - name: Install the exact compiling toolchain
+        run: rustup toolchain install 1.100.0 --profile minimal --no-self-update
+
+      - name: Parse the exact suite and build helpers
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/checkpoint-suite-python-cache-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python3 -m py_compile \
+            "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-check/checkpoint-full-suite-20261125.py" \
+            "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-build/checkpoint-linux-build-20261125.py" \
+            "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-build/checkpoint-build-support.py"
+
+      - name: Verify serial-output parser against retained actual cases
+        run: python3 "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-check/check-serial-output-fixtures.py"
+
+      - name: Run the affected checks and every default native test serially
+        timeout-minutes: 92
+        run: |
+          python3 "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-check/checkpoint-full-suite-20261125.py" \
+            --artifact-directory "$RUNNER_TEMP/checkpoint-linux-accepted-build-__BUILD_RUN__" \
+            --green-helper "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-build/checkpoint-linux-build-20261125.py" \
+            --support-helper "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-build/checkpoint-build-support.py" \
+            --inputs "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-check/full-suite-inputs.json" \
+            --inputs-sha256 __SUITE_INPUTS_SHA256__ \
+            --helper-sha256 5fe0e762be507fc468ab71b17cd4647fc04e56a0eecbf846e122c597c86c391d
+
+      - name: Retain complete target results and native test streams
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/bead-checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}/result.json
+            ${{ runner.temp }}/bead-checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}/attempt-started.json
+            ${{ runner.temp }}/bead-checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}/complete-target-results.json
+            ${{ runner.temp }}/bead-checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}/executables-before.json
+            ${{ runner.temp }}/bead-checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}/executables-after.json
+            ${{ runner.temp }}/bead-checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}/type-backend-checks.json
+            ${{ runner.temp }}/bead-checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}/environment-corrections.json
+            ${{ runner.temp }}/bead-checkpoint-full-suite-${{ github.run_id }}-${{ github.run_attempt }}/logs
+
+  recovery:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Read exact portable recovery check
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/revision-9/native-linux-check
+
+      - name: Download the accepted release and selected original source
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093
+        with:
+          artifact-ids: '__RELEASE_ARTIFACT_ID__'
+          merge-multiple: true
+          repository: YossiMH/bead-me-up-scotty
+          run-id: '__BUILD_RUN__'
+          github-token: ${{ github.token }}
+          path: ${{ runner.temp }}/checkpoint-linux-accepted-release-__BUILD_RUN__
+
+      - name: Verify actual release provenance and restore its executable mode
+        env:
+          ACCEPTED_RELEASE_DIRECTORY: ${{ runner.temp }}/checkpoint-linux-accepted-release-__BUILD_RUN__
+        run: |
+          python3 - <<'PY'
+          import hashlib, json, os, stat
+          from pathlib import Path
+          def require(value, message):
+              if not value:
+                  raise RuntimeError(message)
+          def digest(path):
+              value = hashlib.sha256()
+              with path.open("rb") as stream:
+                  for block in iter(lambda: stream.read(1024 * 1024), b""):
+                      value.update(block)
+              return value.hexdigest()
+          root = Path(os.environ["ACCEPTED_RELEASE_DIRECTORY"])
+          require(root.is_absolute() and root.resolve(strict=True) == root and root.is_dir(), "Unexpected artifact root")
+          build_path, outer_path = root / "build-result.json", root / "result.json"
+          require(digest(build_path) == "__BUILD_RESULT_SHA256__", "Accepted build receipt differs")
+          require(digest(outer_path) == "__OUTER_RESULT_SHA256__", "Accepted outer receipt differs")
+          build, outer = json.loads(build_path.read_text()), json.loads(outer_path.read_text())
+          require(build["status"] == outer["status"] == "passed", "Release predecessor failed")
+          require(outer["build_result_sha256"] == "__BUILD_RESULT_SHA256__", "Outer result binding differs")
+          require(build["source_commit"] == "2d801ba455b7a722daf644a7615445117d57e8e9"
+                  and build["source_tree"] == "509d6222300b84b16041a8366a8b6ae4c28ccc98", "Unexpected source")
+          require(build["helper_sha256"] == "9842bb88312c15cc9daac8dc58a80d7c2eb7d9d3b52330acd51a020dbdaa4b32"
+                  and build["input_sha256"] == "fe56cc4aab123d53a6e438586c38adaf5489e35f01a0c75a8abf85eca90ab1e3", "Build helper/input differs")
+          require(build["run"]["id"] == "__BUILD_RUN__"
+                  and build["run"]["workflow_commit"] == "__BUILD_WORKFLOW_COMMIT__", "Producing run differs")
+          expected = {
+              "binary": "release/bead-editing-2d801ba-linux-20261125",
+              "metadata": "release/bead-editing-2d801ba-linux-20261125.metadata.json",
+          }
+          for kind, relative in expected.items():
+              row = build["release"][kind]
+              require(row["path"] == relative, "Unexpected retained release path")
+              path = root / relative
+              require(path.resolve(strict=True) == path and stat.S_ISREG(path.lstat().st_mode), "Release is not an ordinary file")
+              require(path.stat().st_size == row["bytes"] and digest(path) == row["sha256"], "Release bytes differ")
+              if kind == "binary":
+                  require(row["mode"] == 0o755, "Unexpected qualified executable mode")
+                  os.chmod(path, row["mode"])
+          require(all(row["exit_code"] == 0 and row["error"] is None for row in build["commands"])
+                  and all(not row["signals"] and not row["remaining"] for row in build["process_group_cleanup"]),
+                  "Predecessor commands did not finish cleanly")
+          print(json.dumps({"status": "passed", "operation": "release-artifact-preflight",
+                            "build_result_sha256": "__BUILD_RESULT_SHA256__",
+                            "release": build["release"], "run": build["run"]}, sort_keys=True))
+          PY
+
+      - name: Parse the exact portable verifier
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/checkpoint-corpus-python-cache-${{ github.run_id }}-${{ github.run_attempt }}
+        run: python3 -m py_compile "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-check/checkpoint-release-corpus-20261125.py"
+
+      - name: Verify all original records and both retained generations
+        timeout-minutes: 17
+        run: |
+          python3 "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-check/checkpoint-release-corpus-20261125.py" \
+            --binary "$RUNNER_TEMP/checkpoint-linux-accepted-release-__BUILD_RUN__/release/bead-editing-2d801ba-linux-20261125" \
+            --metadata "$RUNNER_TEMP/checkpoint-linux-accepted-release-__BUILD_RUN__/release/bead-editing-2d801ba-linux-20261125.metadata.json" \
+            --original-checkpoint "$RUNNER_TEMP/checkpoint-linux-accepted-release-__BUILD_RUN__/public-original" \
+            --output "$RUNNER_TEMP/bead-checkpoint-linux-corpus-${{ github.run_id }}-${{ github.run_attempt }}" \
+            --inputs "$GITHUB_WORKSPACE/ci/20261125/revision-9/native-linux-check/corpus-inputs.json" \
+            --inputs-sha256 __CORPUS_INPUTS_SHA256__ \
+            --helper-sha256 653ff9f382ca0dd069bf326106c0c088e4db576dc48ef0ee8274ddac39e82e52 \
+            --supervision owned-process-groups
+
+      - name: Expose complete small native streams for review
+        if: always()
+        env:
+          CORPUS_OUTPUT_DIRECTORY: ${{ runner.temp }}/bead-checkpoint-linux-corpus-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python3 - <<'PY'
+          import base64, hashlib, json, os
+          from pathlib import Path
+          root = Path(os.environ["CORPUS_OUTPUT_DIRECTORY"])
+          if root.is_dir():
+              for path in sorted((root / "logs").glob("*")):
+                  if not path.is_file() or path.suffix not in (".stdout", ".stderr"):
+                      continue
+                  data = path.read_bytes()
+                  record = {"path": path.relative_to(root).as_posix(), "bytes": len(data),
+                            "sha256": hashlib.sha256(data).hexdigest()}
+                  if len(data) <= 256 * 1024:
+                      data.decode("utf-8")
+                      record["base64"] = base64.b64encode(data).decode("ascii")
+                  print("CHECKPOINT_CORPUS_TEXT " + json.dumps(record, sort_keys=True), flush=True)
+          PY
+
+      - name: Retain complete recovery evidence
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-linux-corpus-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/bead-checkpoint-linux-corpus-${{ github.run_id }}-${{ github.run_attempt }}/result.json
+            ${{ runner.temp }}/bead-checkpoint-linux-corpus-${{ github.run_id }}-${{ github.run_attempt }}/attempt-started.json
+            ${{ runner.temp }}/bead-checkpoint-linux-corpus-${{ github.run_id }}-${{ github.run_attempt }}/evidence
+            ${{ runner.temp }}/bead-checkpoint-linux-corpus-${{ github.run_id }}-${{ github.run_attempt }}/reports
+            ${{ runner.temp }}/bead-checkpoint-linux-corpus-${{ github.run_id }}-${{ github.run_attempt }}/logs
