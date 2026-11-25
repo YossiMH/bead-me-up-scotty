@@ -1,0 +1,200 @@
+name: Bead browser checks 20261125
+
+on:
+  push:
+    branches:
+      - task/browser-check-20261125
+
+permissions:
+  contents: read
+
+concurrency:
+  group: bead-browser-20261125
+  cancel-in-progress: false
+
+jobs:
+  browser:
+    if: github.repository == 'YossiMH/bead-me-up-scotty'
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    env:
+      CI: 'true'
+      CARGO_BUILD_JOBS: '1'
+      RUSTUP_TOOLCHAIN: '1.100.0'
+      NEXT_TELEMETRY_DISABLED: '1'
+      POSTHOG_KEY: ''
+      BD_DISABLE_METRICS: '1'
+      BD_DISABLE_EVENT_FLUSH: '1'
+    defaults:
+      run:
+        shell: bash
+    steps:
+      - name: Create disposable result directories
+        timeout-minutes: 1
+        run: |
+          set -euo pipefail
+          ci_root="$RUNNER_TEMP/bead-browser-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          test ! -e "$ci_root"
+          mkdir -p "$ci_root/results" "$ci_root/tools" "$ci_root/fixtures" "$ci_root/archive-build"
+          printf 'SCOTTY_CI_ROOT=%s\n' "$ci_root" >> "$GITHUB_ENV"
+          printf '%s\n' "$GITHUB_SHA" > "$ci_root/results/workflow-commit.txt"
+
+      - name: Read the reviewed CI helpers
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        timeout-minutes: 3
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: .github/scripts/bead-browser-20261125
+
+      - name: Read the exact app candidate
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        timeout-minutes: 3
+        with:
+          ref: 38c21a77b4e875d75e17ee68683846601df33591
+          path: product
+          persist-credentials: false
+
+      - name: Read the exact native source
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+        timeout-minutes: 3
+        with:
+          repository: YossiMH/bead-rs
+          ref: 539cdd0b4c54665c2db01da08fdf9f3871f7148a
+          path: backend
+          persist-credentials: false
+
+      - name: Select Node 24.22.3
+        uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        timeout-minutes: 5
+        with:
+          node-version: '24.22.3'
+          package-manager-cache: false
+
+      - name: Verify helpers and restore the exact Next runtime
+        timeout-minutes: 5
+        run: |
+          set -euo pipefail
+          cd "$GITHUB_WORKSPACE/ci/.github/scripts/bead-browser-20261125"
+          printf '%s\n' \
+            '0d3bed823c0d9c5fe610c80c3677f66e0fc3d56d65e03cf7ee0f0c94b8a1b756  prepare-runtime.py' \
+            'c0d2203defcf7a12d76d7ae46dd462831e10b17c0324ebca237039a4b04792bc  run-cloud-browser.py' \
+            | sha256sum --check
+          timeout --signal=TERM --kill-after=5s 240s python3 prepare-runtime.py \
+            2>&1 | tee "$SCOTTY_CI_ROOT/results/runtime-restore.log"
+
+      - name: Install locked application dependencies
+        timeout-minutes: 10
+        working-directory: product
+        run: |
+          set -euo pipefail
+          node --version > "$SCOTTY_CI_ROOT/results/node-version.txt"
+          npm --version > "$SCOTTY_CI_ROOT/results/npm-version.txt"
+          timeout --signal=TERM --kill-after=10s 540s npm ci --no-audit --no-fund \
+            2>&1 | tee "$SCOTTY_CI_ROOT/results/npm-ci.log"
+
+      - name: Install the pinned Rust toolchain
+        timeout-minutes: 7
+        run: |
+          set -euo pipefail
+          timeout --signal=TERM --kill-after=10s 360s \
+            rustup toolchain install 1.100.0 --profile minimal --no-self-update \
+            2>&1 | tee "$SCOTTY_CI_ROOT/results/rust-toolchain.log"
+          rustc --version > "$SCOTTY_CI_ROOT/results/rustc-version.txt"
+
+      - name: Build the native tool from its pinned archive
+        timeout-minutes: 32
+        working-directory: backend
+        run: |
+          set -euo pipefail
+          export BEAD_BUILD_SCRATCH_ROOT="$SCOTTY_CI_ROOT/archive-build"
+          timeout --signal=TERM --kill-after=15s 1800s \
+            bash scripts/build-from-archive.sh 539cdd0b4c54665c2db01da08fdf9f3871f7148a \
+              --name bead-browser-539cdd0 --out "$SCOTTY_CI_ROOT/tools" \
+            2>&1 | tee "$SCOTTY_CI_ROOT/results/native-build.log"
+          cp "$SCOTTY_CI_ROOT/tools/bead-browser-539cdd0.metadata.json" "$SCOTTY_CI_ROOT/results/"
+          timeout 20s "$SCOTTY_CI_ROOT/tools/bead-browser-539cdd0" --version \
+            > "$SCOTTY_CI_ROOT/results/native-version.txt"
+          timeout 20s "$SCOTTY_CI_ROOT/tools/bead-browser-539cdd0" capabilities \
+            > "$SCOTTY_CI_ROOT/results/native-capabilities.json"
+          timeout 20s "$SCOTTY_CI_ROOT/tools/bead-browser-539cdd0" update --help \
+            > "$SCOTTY_CI_ROOT/results/native-update-help.txt"
+          python3 - <<'PY'
+          import hashlib, json, os
+          from pathlib import Path
+          root = Path(os.environ['SCOTTY_CI_ROOT'])
+          metadata = json.loads((root / 'results/bead-browser-539cdd0.metadata.json').read_text())
+          binary_sha = hashlib.sha256((root / 'tools/bead-browser-539cdd0').read_bytes()).hexdigest()
+          assert metadata['git_commit_sha'] == '539cdd0b4c54665c2db01da08fdf9f3871f7148a'
+          assert metadata['binary_sha256'] == binary_sha and metadata['execution_verification'] == 'executed'
+          capabilities = json.loads((root / 'results/native-capabilities.json').read_text())
+          fields = capabilities['issue_editing']['fields']
+          assert all(field in fields for field in ['title', 'description', 'priority', 'issue_type', 'notes', 'status', 'assignee'])
+          assert capabilities['issue_editing']['revision_guard'] and capabilities['issue_editing']['clear_description']
+          assert capabilities['issue_editing']['priority_reason_required']
+          (root / 'results/native-sha256.txt').write_text(binary_sha + '\n')
+          PY
+
+      - name: Install the normal Playwright Chromium dependencies
+        timeout-minutes: 10
+        working-directory: product
+        run: |
+          set -euo pipefail
+          timeout --signal=TERM --kill-after=10s 540s \
+            npx --no-install playwright install --with-deps chromium \
+            2>&1 | tee "$SCOTTY_CI_ROOT/results/playwright-install.log"
+
+      - name: Run the unchanged browser checks
+        timeout-minutes: 17
+        working-directory: product
+        run: |
+          set -euo pipefail
+          chromium_path=$(node --input-type=module -e "import { chromium } from 'playwright'; console.log(chromium.executablePath());")
+          test -x "$chromium_path"
+          sha256sum "$chromium_path" > "$SCOTTY_CI_ROOT/results/chromium-sha256.txt"
+          timeout 20s "$chromium_path" --version > "$SCOTTY_CI_ROOT/results/chromium-version.txt"
+          timeout --signal=TERM --kill-after=15s 960s \
+            python3 "$GITHUB_WORKSPACE/ci/.github/scripts/bead-browser-20261125/run-cloud-browser.py" \
+              --cwd "$GITHUB_WORKSPACE/product" \
+              --binary "$SCOTTY_CI_ROOT/tools/bead-browser-539cdd0" \
+              --chromium "$chromium_path" \
+              --test-root "$SCOTTY_CI_ROOT/fixtures" --port 3196 \
+              --output "$SCOTTY_CI_ROOT/results/supervisor" --deadline-seconds 900 \
+            2>&1 | tee "$SCOTTY_CI_ROOT/results/browser-supervisor.log"
+
+      - name: Collect test logs and images
+        if: always()
+        timeout-minutes: 2
+        run: |
+          set -euo pipefail
+          python3 - <<'PY'
+          import os, shutil
+          from pathlib import Path
+          root = Path(os.environ['RUNNER_TEMP']) / f"bead-browser-{os.environ['GITHUB_RUN_ID']}-{os.environ['GITHUB_RUN_ATTEMPT']}"
+          results = root / 'results'
+          results.mkdir(parents=True, exist_ok=True)
+          files = ['evidence.json', 'server.log', 'fingerprint-before.json', 'fingerprint-after.json']
+          directories = ['test-native-ui-flows', 'test-native-ui-recovery', 'test-native-priority-recovery']
+          for run in (root / 'fixtures').glob('bead-rs-*'):
+              target = results / run.name
+              target.mkdir()
+              for name in files:
+                  source = run / name
+                  if source.is_file():
+                      shutil.copy2(source, target / name)
+              for name in directories:
+                  source = run / name
+                  if source.is_dir():
+                      shutil.copytree(source, target / name)
+          PY
+
+      - name: Preserve the run results
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        timeout-minutes: 5
+        with:
+          name: bead-browser-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/bead-browser-${{ github.run_id }}-${{ github.run_attempt }}/results/
+          if-no-files-found: error
+          retention-days: 1
