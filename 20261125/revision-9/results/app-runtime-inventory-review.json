@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root",
+  "scope": "Complete existing app runtime/source inventory and actual hosted download verification; final native/app Windows qualification remains pending.",
+  "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+  "producer_run_id": 45573503400,
+  "producer_artifact_id": 15003467178,
+  "recovery_run_id": 45594231069,
+  "recovery_job_id": 139135971457,
+  "recovery_workflow_commit": "a868065b2a5d5c24190f3036e87f4f8e556d1901",
+  "recovery_preparation_review": {
+    "commit": "46f7ffc19a1453d2087cc285323e6f4601dec01a",
+    "sha256": "6b9121e72b0db0e918eea9d2722d417316b83b1b6c0b6c6785a4b523d71351d4"
+  },
+  "retained_commit": "6017082394446acf42722e1c503cc4a1130d2dd8",
+  "retained_directory": "20261125/revision-8/results/runtime-manifest-recovery-45594231069",
+  "actual_job_log_sha256": "8da709d6193616cf31c64ce11d2ea5a37b1d73989cf26d3893f0a3e6e2db53c7",
+  "recovered_records": [
+    {
+      "name": "linux-source-sha256.json",
+      "sha256": "1e114819d4366e5d33443480ef26d909881559ba3908249ff4811ca22b3de241",
+      "bytes": 2308,
+      "parts": 1,
+      "durable_match": true
+    },
+    {
+      "name": "linux-scotty-runtime.json",
+      "sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+      "bytes": 110021,
+      "parts": 27,
+      "durable_match": true
+    },
+    {
+      "name": "linux-result.json",
+      "sha256": "89d15c6ba9ec3948ca1d5e0f5f04443c5dc6f865a727c337b722aabe946c0049",
+      "bytes": 2414,
+      "parts": 1,
+      "durable_match": true
+    },
+    {
+      "name": "recovery-result.json",
+      "sha256": "cc88e8fd97798deebbb3bb74d8c6273c514f84c4bb37efcfab29f46122d80893",
+      "bytes": 3866,
+      "parts": 1,
+      "durable_match": true
+    }
+  ],
+  "source_files": [
+    {
+      "path": "lib/native-process.ts",
+      "sha256": "615650ce402fbaaaedce8620af9e28d716ac28e58d399718ae74008419d362e7",
+      "bytes": 6651,
+      "git_blob": "59c5801d3410de135b945fa2cac4d5cdde22c78c",
+      "independent_source": "previous exact source read"
+    },
+    {
+      "path": "lib/native-store.ts",
+      "sha256": "3f41c455079cda5247a9fdd5c98e716d06e57fc4ad14341d2e4022bcc9b013c5",
+      "bytes": 14931,
+      "git_blob": "9cb7637cd2674fdcff1754b0c514c483f4edfec4",
+      "independent_source": "previous exact source read"
+    },
+    {
+      "path": "lib/native-edit.ts",
+      "sha256": "302fafff05f899a97091c3f91407f6c998913ab96276a766f797d5781b1e6fde",
+      "bytes": 2413,
+      "git_blob": "ec2eeecf02da9c6590d2a4733d87f0fccba2a4f0",
+      "independent_source": "previous exact source read"
+    },
+    {
+      "path": "docs/backend-compatibility.md",
+      "sha256": "3564de23de0ca506e2725bf5bcedea19722f0f90a377b4abbe1201d412de94a4",
+      "bytes": 33294,
+      "git_blob": "4e6660ff83123db8f738a844085e8fbedbc0c4c4",
+      "independent_source": "previous exact source read"
+    },
+    {
+      "path": "package.json",
+      "sha256": "3299658793499d4da1fff8a2bf1a56c2f12a370c463c32b1586b4024bb11b137",
+      "bytes": 2264,
+      "git_blob": "67da5c82a5afdb4e99a1d37911965ab0bd01ca04",
+      "independent_source": "exact commit fetch"
+    },
+    {
+      "path": "package-lock.json",
+      "sha256": "545c1dd88f005d1b7337907f311f8bf979bbbd34e3930cfabef1fe5f8d57f050",
+      "bytes": 485627,
+      "git_blob": "e8662b2df0c5172e19ec66b3ef2241ccb5798618",
+      "independent_source": "exact commit fetch"
+    },
+    {
+      "path": "next.config.ts",
+      "sha256": "8be4b27befd08072ca0f8179434b4b8de3f4c9f3c6437e977dfc11ebf6af858a",
+      "bytes": 1905,
+      "git_blob": "9eb0cdf9de777ca6a07bf5420e84161d1d21c250",
+      "independent_source": "exact commit fetch"
+    },
+    {
+      "path": "scripts/fixtures/native-contract.mjs",
+      "sha256": "01b2befaab94c55da0997dbc4a7a15d4320c4eade13a4a8e2fe5ba43050cd526",
+      "bytes": 1872,
+      "git_blob": "3b5edfb5599945e2f0d5dd887f6e7765933d86fb",
+      "independent_source": "exact commit fetch"
+    },
+    {
+      "path": "scripts/test-native-editing.mjs",
+      "sha256": "adb15736cb60f8c1f09d4cf9a1af7b16f0ce0fbb5d5efc525e755380601f1b33",
+      "bytes": 26585,
+      "git_blob": "0978fc602316770d459fd7fad8ad423235364392",
+      "independent_source": "exact commit fetch"
+    },
+    {
+      "path": "scripts/test-local-bead-rs.mjs",
+      "sha256": "528449dccecb1acd28caf7d3894540c85f2353c408219db4d2f267aa71f934c7",
+      "bytes": 6117,
+      "git_blob": "122bca5cf674d64cd22ec64d65ed61e8e9c59350",
+      "independent_source": "exact commit fetch"
+    },
+    {
+      "path": "scripts/test-native-type-roundtrip.mjs",
+      "sha256": "55cd3c76799ef2546b7297c1386a53c99ebfe0ab28a394cd83815fe6e90e64a5",
+      "bytes": 9330,
+      "git_blob": "524efa3a08b43bab9d23bfa144b0305db0963e37",
+      "independent_source": "exact commit fetch"
+    }
+  ],
+  "runtime": {
+    "files": 560,
+    "bytes": 27426391,
+    "max_file_bytes": 7256855,
+    "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "manifest_bytes": 110021,
+    "archive_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "archive_bytes": 7137798,
+    "dependency_lock_sha256": "545c1dd88f005d1b7337907f311f8bf979bbbd34e3930cfabef1fe5f8d57f050",
+    "dependency_lock_git_blob": "e8662b2df0c5172e19ec66b3ef2241ccb5798618",
+    "longest_member_path_characters": 105
+  },
+  "inspection": [
+    "Read the complete recovery helper and workflow and the independently accepted preparation review. The exact hashes match its execution gates; the imported accepted retainer does not execute its guarded main.",
+    "Fetched the actual completed job and complete raw log independently. Reconstructed all four numbered RETAIN_FILE/RETAIN_PART records, requiring every header/part exactly once, contiguous parts, exact UTF-8 byte count and SHA-256. Compared all recovered raw strings with the immutable durable files.",
+    "Independently matched all eleven source SHA-256, byte counts and Git blobs against source 03095397; reused exact prior reads only where both blob and full byte hash matched, and fetched the remaining seven files at that immutable commit.",
+    "Read the complete 560-row runtime inventory and checked safe .next paths, unique exact and case-folded names, nonnegative integer sizes, complete SHA-256 values, total expanded bytes, maximum member size and BUILD_ID record.",
+    "The actual recovery streamed every member of the existing ZIP through SHA-256 and verified exact ZIP inventory and member length, dependency lock bytes/Git blob, source tree and clean checkout. The original producer result retains eight exit-zero commands, 115/115 adapter tests and no edit-input leftovers.",
+    "No app or native invocation, dependency installation, production rebuild or PC action occurred in this recovery. This accepts the recovered artifact inputs for staging preparation, not final Windows app behavior."
+  ],
+  "findings": [],
+  "remaining": [
+    "Final repaired native source/build/runtime qualification and independent review.",
+    "Actual same-source Windows native-store and production HTTP roundtrip with that final executable.",
+    "Actual native task mapping, logged-in-PC tray, checked installation/configured launch and Riftri cleanup."
+  ],
+  "reviewer_product_execution": false,
+  "reviewer_pc_actions": 0
+}
