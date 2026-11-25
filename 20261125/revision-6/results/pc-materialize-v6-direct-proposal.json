@@ -1,0 +1,15 @@
+{
+  "proposal_id": "zIKAJTabKpceWww3qW_P0bPlHNj7-cbSjQ3AsZ9pFBI",
+  "command": "powershell.exe -NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -Command \"$ErrorActionPreference='Stop';[Diagnostics.Process]::GetCurrentProcess().PriorityClass='BelowNormal';$p='C:/Users/YossiMH/AppData/Local/bead-edit-20261111/materialize-execution-v6-20261125/materialize-v6-supervisor.ps1';$h='C:/Users/YossiMH/AppData/Local/bead-edit-20261111/materialize-execution-v6-20261125/windows-task-job.ps1';if((Get-FileHash -LiteralPath $p).Hash.ToLowerInvariant() -ne '0bbd5c8d6bfa93068b98e4c43ebfd519a0f49e5ae7ea8e7e22ca75c144528dea'){throw 'Supervisor changed'};if((Get-FileHash -LiteralPath $h).Hash.ToLowerInvariant() -ne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f'){throw 'Job helper changed'};& $p -JobHelperPath $h;exit $LASTEXITCODE\"",
+  "cwd": "F:\\Dev\\.bead-edit-20261111",
+  "timeout_ms": 200000,
+  "expected_effects": "Run once the already independently accepted and ordinary-parser-verified revision6 supervisor0bbd with exact Job helper2758. Direct hidden BelowNormal invocation needs no desktop/task registration. Supervisor requires1GiB free, owns its512MiB/128MiBheap Job with180s hard deadline, reopens only4 reviewed continuation tasks and updates12 descriptions, preserving954 original records and32tasks/51edges. Raw intents/results retained, fresh attempt paths enforced. No app/native build, services, foreground UI, unrelated process termination or automatic replay.",
+  "execute_response": {
+    "proposal_id": "zIKAJTabKpceWww3qW_P0bPlHNj7-cbSjQ3AsZ9pFBI",
+    "job_id": "j1795583113330-37324-15279828668082537180",
+    "status": "started",
+    "replay_allowed": false
+  },
+  "replay_allowed": false,
+  "next_action": "Poll this exact proposal; read fixed materialization-v6-supervisor/result.json and materialization-result-v6.json. Do not rerun or issue another mutation until reconciled."
+}

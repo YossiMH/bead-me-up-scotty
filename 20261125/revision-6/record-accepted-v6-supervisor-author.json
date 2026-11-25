@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_review",
+  "supervisor_sha256": "08a25f85d89425f2bd9ebc972393d9ebf1d6113fac44ca1fb11373ef1af42033",
+  "derived_from": {
+    "path": "materialize-v6-supervisor.ps1",
+    "sha256": "0bbd5c8d6bfa93068b98e4c43ebfd519a0f49e5ae7ea8e7e22ca75c144528dea",
+    "accepted_review_sha256": "31fd5931560b1333ebedbe68d0f21f3a4884555f6decfa8e3ed4d20f7a4182a1"
+  },
+  "fixed_helper_sha256": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+  "helper_review_sha256": "f7f094038ea0ad136ad0b8c4ee0ec2772857bb61b719e40f7f2f5245a331c8e4",
+  "accepted_materialization_sha256": "838f89a388d5ea3a962e36b93060d171bfa300da455867c58ab27d9ae2539bd2",
+  "changes": [
+    "Bind only fixed accepted revision-6 close helper, exact plan/review/native result and one explicitly hashed request within owned root.",
+    "Fresh request-specific output and supervisor directory prevent replay; retain all raw streams and result SHA256.",
+    "Use complete assigned/listed/byte-length/unique-PID Job query with bounded resampling; inherit the identical currently reviewed wrapper Members implementation.",
+    "Verify closure result status, both preservation flags, request hash, task count and task names."
+  ],
+  "retained_limits": {
+    "free_physical_bytes_before_node": 1073741824,
+    "max_all_owned_resident_bytes": 536870912,
+    "node_heap_mib": 128,
+    "priority": "BelowNormal",
+    "sample_ms": 100,
+    "work_deadline_seconds": 168,
+    "hard_job_deadline_seconds": 180,
+    "output_stream_max_bytes_each": 8388608
+  },
+  "author_inspections": [
+    {
+      "number": 1,
+      "complete_final_file_read": true,
+      "findings": [],
+      "focus": "All paths, fixed hashes, original authority, request grammar, native helper invocation and actual readback/closed task proof."
+    },
+    {
+      "number": 2,
+      "complete_final_file_read": true,
+      "findings": [],
+      "focus": "Complete final file and exact baseline diff; retained handles, same-session ownership, complete membership snapshots, all-owned RSS, failure/deadline/cleanup/no-replay behavior."
+    }
+  ],
+  "validation": {
+    "ordinary_windows_powershell_parser": "pending exact-file staging; no execution-policy override",
+    "actual_native_execution": "not invoked"
+  },
+  "next_action": "Independent static acceptance, ordinary Windows Parser.ParseFile on exact staged bytes, then one explicitly reviewed request under direct Emergency invocation with200s outer timeout."
+}
