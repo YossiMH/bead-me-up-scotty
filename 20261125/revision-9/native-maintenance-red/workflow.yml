@@ -54,7 +54,7 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
           $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-maintenance-red'
-          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'maintenance.py')).Hash.ToLowerInvariant() -ne 'eb5fcdf0e3719ca11112ec7bf2f6f437c750e1869b95a885c4e312a9bd9e8a41') { throw 'Reviewed maintenance.py differs.' }
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'maintenance.py')).Hash.ToLowerInvariant() -ne '70dfb438925d1053925671d4579d932c4b7424fa3bc870d88eb478a70b068a87') { throw 'Reviewed maintenance.py differs.' }
           if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'windows_build_support.py')).Hash.ToLowerInvariant() -ne '1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07') { throw 'Reviewed windows_build_support.py differs.' }
           if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'windows-task-job.ps1')).Hash.ToLowerInvariant() -ne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f') { throw 'Reviewed windows-task-job.ps1 differs.' }
           if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'supervise.ps1')).Hash.ToLowerInvariant() -ne '5bdaf4dd3f6e89e8bdd5a2e895df179392ff26c4d71a1caa335a16f7ab0c17e2') { throw 'Reviewed supervise.ps1 differs.' }
@@ -102,7 +102,7 @@ jobs:
         run: |
           $ErrorActionPreference = 'Stop'
           $packet = Join-Path $env:GITHUB_WORKSPACE 'ci/20261125/revision-9/native-maintenance-red'
-          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'maintenance.py')).Hash.ToLowerInvariant() -ne 'eb5fcdf0e3719ca11112ec7bf2f6f437c750e1869b95a885c4e312a9bd9e8a41') { throw 'Reviewed maintenance.py differs.' }
+          if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'maintenance.py')).Hash.ToLowerInvariant() -ne '70dfb438925d1053925671d4579d932c4b7424fa3bc870d88eb478a70b068a87') { throw 'Reviewed maintenance.py differs.' }
           if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'windows_build_support.py')).Hash.ToLowerInvariant() -ne '1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07') { throw 'Reviewed windows_build_support.py differs.' }
           if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'windows-task-job.ps1')).Hash.ToLowerInvariant() -ne '2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f') { throw 'Reviewed windows-task-job.ps1 differs.' }
           if ((Get-FileHash -Algorithm SHA256 (Join-Path $packet 'supervise.ps1')).Hash.ToLowerInvariant() -ne '5bdaf4dd3f6e89e8bdd5a2e895df179392ff26c4d71a1caa335a16f7ab0c17e2') { throw 'Reviewed supervise.ps1 differs.' }

@@ -139,12 +139,20 @@ def build(args, output, result):
         info, profile = message["target"], message["profile"]
         key = info["name"]
         B.require((key == "redaction_transaction" and profile["test"] and info["kind"] == ["test"])
-                  or (key == "bead" and not profile["test"] and info["kind"] == ["bin"]),
+                  or (key in {"bead", "generate-man-pages"} and not profile["test"] and info["kind"] == ["bin"]),
                   "Unexpected compiled executable")
         binary = Path(message["executable"]).resolve()
         B.require(key not in found and Path(message["manifest_path"]).resolve() == source / "Cargo.toml"
                   and binary.is_relative_to(target / TARGET), "Unexpected compiler path or package")
         B.pe_x64(binary)
+        if key == "generate-man-pages":
+            B.require("automatic_support" not in result, "Repeated automatic generator output")
+            result["automatic_support"] = {
+                "target_name": key, "compiled_path": str(binary), "bytes": binary.stat().st_size,
+                "sha256": B.file_hash(binary), "test": False, "retained": False,
+                "reason": "Cargo automatically builds package binaries for integration tests",
+            }
+            continue
         retained = output / "executables" / (key + ".exe")
         shutil.copy2(binary, retained)
         found[key] = dict(B.file_record(retained, output), compiled_path=str(binary))
