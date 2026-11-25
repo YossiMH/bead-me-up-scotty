@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "operation": "recover existing app runtime manifests",
+  "status": "author_inspections_passed_pending_independent_review",
+  "author": "app_reconcile",
+  "prepared_at": "2026-11-25T10:13:48.566Z",
+  "authorization": "Root dispatched bounded hosted download-only recovery under app result retention while native qualification is held.",
+  "packet": {
+    "commit": "a868065b2a5d5c24190f3036e87f4f8e556d1901",
+    "tree": "ed60a9072f10a0f239f476c7ccbe38127ae0b8a3",
+    "branch": "task/runtime-manifest-packet-20261125",
+    "activation_branch": "task/runtime-manifest-recovery-20261125",
+    "files": [
+      {
+        "path": "20261125/revision-8/runtime-manifest-recovery/recover.py",
+        "sha256": "65b27a6f92c002a2aec271ee58fb36dac399bc71eeb583972879d6abd1ddd02a",
+        "bytes": 6338
+      },
+      {
+        "path": "20261125/revision-8/runtime-manifest-recovery/inputs.json",
+        "sha256": "bf06c8d8e13d407f9f2bc98c85a1677ee62883c15abe8c67e0eecbd5362f1fe0",
+        "bytes": 686
+      },
+      {
+        "path": ".github/workflows/scotty-runtime-recovery-20261125.yml",
+        "sha256": "f38365b853cf59023ee370729696487ddc8f826d7d26bee1f57fe665090039fd",
+        "bytes": 2877
+      }
+    ]
+  },
+  "inputs": {
+    "schema_version": 1,
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_source_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "producer_run_id": 45573503400,
+    "producer_artifact_id": 15003467178,
+    "producer_workflow_commit": "e10f6153fec45ab91e30539495fa5b6567d95229",
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "runtime_zip_bytes": 7137798,
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "retainer_sha256": "7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "focus": "Exact existing artifact and complete manifest verification",
+      "findings": [],
+      "checks": [
+        "Read the complete final helper, inputs and workflow and checked all three remote readbacks byte-for-byte.",
+        "Artifact 15003467178/run 45573503400, app source 03095397/tree 84bb66cd, manifest/ZIP SHA-256, ZIP size and build ID match the retained actual successful production build.",
+        "The helper compares all eleven exact source records and Git blobs to the immutable app checkout, including the dependency lock; it rejects missing or duplicate records.",
+        "The complete 560-file manifest is hash-pinned. The ZIP requires exactly those case-unique paths, safe .next paths, exact member sizes and SHA-256, and the matching BUILD_ID.",
+        "The original result must contain all 115 passing tests, eight successful commands, no temporary input remnants and the same runtime/source identities. It is preserved as original text rather than reserialized."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "focus": "Bounded read-only execution and durable exact output",
+      "findings": [],
+      "checks": [
+        "Reread the final helper and workflow end to end. The only subprocess operations are bounded Git metadata/status reads; there is no dependency install, build, app launch, native execution or runtime extraction into source.",
+        "The imported retainer is the exact previously reviewed run.py SHA-256 7af8d974311059993bf158e374a6e32dadec49192494d257d2b9d6cbc94de112. Import defines functions without running main; only its checked_file and retain_text helpers are used.",
+        "A fresh run/attempt-owned output path receives exact byte copies of source-sha256.json, scotty-runtime.json and result.json. Copy hashes are checked and every original byte is emitted through the accepted numbered RETAIN_FILE/RETAIN_PART protocol.",
+        "The hosted job is limited to five minutes and the verification step to two minutes. No connector or PC operation is used. The workflow is dormant until its exact dedicated activation branch is created after independent review.",
+        "Failures produce a failed recovery receipt where initialization permits, and the workflow retains available outputs for fourteen days. Recovery success does not satisfy the separate final native or Windows app execution gates."
+      ]
+    }
+  ],
+  "remaining": [
+    "Independent packet review",
+    "Single hosted recovery execution and exact log reconstruction",
+    "Root reconciliation of the complete source/runtime manifests"
+  ],
+  "app_windows_roundtrip": "Held by root pending the native operation/maintenance lock repair; this recovery changes neither the app/runtime nor that execution gate."
+}
