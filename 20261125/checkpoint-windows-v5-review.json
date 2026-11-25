@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "review_kind": "complete_static_packet_and_actual_failure_reconciliation",
+  "reviewer": "delivery_review",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "packet_commit": "77e52f2e614823147e14eaf2e7ffc03412aa9207",
+  "packet_tree": "8787f48780f65be7fc2a0326eb45dd89f6be48e7",
+  "packet_directory": "20261125/checkpoint-windows",
+  "previous_static_review": {
+    "commit": "8326e3a98c74db8fa3ea95be413f4f8dd7935da4",
+    "path": "20261125/checkpoint-windows-v4-review.json",
+    "sha256": "219fbd2b9e7af3da6e1c0ee0090f9149f1d5096d7e7ca39c0a6790d92094ba86"
+  },
+  "reviewed_files": {
+    "checkpoint-windows-build-20261125.py": "eabf191e85c267ebe0ef8a758a29f4fbc0187960e3e7f18a35bbb3b02d77d136",
+    "checkpoint-windows-build-20261125.py.v5.patch": "df6713b2209ddadee73969f42f511a13f02241f113558b17fd509104a36b0a87",
+    "checkpoint-windows-check-20261125.py": "28174403b6cc8f0d9f5493d36f3c1ab271a51e75ca0883eb846926f417db96a1",
+    "checkpoint-windows-supervisor-20261125.ps1": "74980acb2113be7b21c75a85a075b763b89ffceca6516cd3df814a6686cb94c5",
+    "checkpoint-windows-driver-20261125.ps1": "9bac4a63b59d43c5e457b1c2194e7249cac807e2f660dd10f0bee4e54ace4a44",
+    "packet.json": "109b4311119b2fc555fd906d8069037f70ca1ea7eed4e8cc389fc6f2254ebcac",
+    "checkpoint-windows-build.workflow.yml": "207ce70e821bc9c47511b2c7f8763d8169c487b67b4ca0915b6c483fdc77ce9d",
+    "build-inputs.json": "25766c5644066be6d5f18b8eaafec5b96c670c458d7761a2d6ad615dab987a8a",
+    "check-inputs.template.json": "bb9aba51a4a2e76ec3aefeaddb0456d903b05fa8a1358d15fa7996f3d4af5382",
+    "README.md": "ddbf03f55732e5b48be8b0f844785531d2586f69ce4968d6170ae588cb7b305c",
+    "author-audits-v5.json": "c6d0586d355c6d155a172d87284ef64f244de24f1312b6363438fa0c4775f1a4",
+    "static-checks-v5.json": "585aa5ab75c757abb25bb2705e0e6a6bc3eeb45196dde1f5eb33255209a28026"
+  },
+  "scope": {
+    "complete_changed_function_and_callers_read": true,
+    "complete_diff_independently_regenerated": true,
+    "unchanged_remainder_equal_to_previous_complete_review": true,
+    "all_packet_bindings_and_full_workflow_read": true,
+    "author_bound_files_verified": 13,
+    "packet_bound_files_verified": 8,
+    "local_files_matching_immutable_remote_blobs": 41
+  },
+  "actual_failed_run": {
+    "run_id": 45550605353,
+    "job_id": 138990607071,
+    "workflow_commit": "d1bc227388e8c6a162639a45d9b8d52618ff710b",
+    "job_log_sha256": "0c5568e43e04d5e8384c4ad620ba88773a17171986e36abe589023e4db1880e6",
+    "build_result_sha256": "3958539a6a46878b88bceb5215a94550f9ecb873c2762606b20f86e10021a6f5",
+    "outer_result_sha256": "815209c90ce242f80ec7a0db8249ced1c9084112e3d0d3182d7c9dad26f03ad7",
+    "supervisor_result_sha256": "5ada5bd36380b18a971dfd7a0bd4ff58ae5851c7ca8a89fbdabafc140dbd474a",
+    "completion_sha256": "aa159615b6a16d0a343c26182b2d72d55c3005a142febef7b56dd299dfca3e0e",
+    "direct_job_log_and_four_decoded_receipts_match": true,
+    "complete_raw_streams_rehashed": 60,
+    "preflight_commands_exit_zero": 29,
+    "archive_command_exit": 1,
+    "tests_executed": false,
+    "status": "failed",
+    "archive_stdout_sha256": "082c0e7444520d3dbe4f50b31b32a3340e5872ba8eb445863bb4c7465d8d75a3",
+    "archive_stderr_sha256": "323e634af57dd196b2589a48465d37ce6028fdc95b65dbde4269b9d6ec8bbfc5",
+    "finding": "The first proc-macro2 build-script link invoked C:\\Program Files\\Git\\usr\\bin\\link.exe, which rejected Microsoft's linker arguments. Actual Rust/Cargo1.100.0 host and requested target are both x86_64-pc-windows-msvc; vcvars64 had selected MSVC14.52.37025/x64.",
+    "job_query_retries": 0,
+    "cleanup": "Every recorded command returned to the exact retained supervisor/Python/conhost baseline. The supervisor reports zero children and the caller observed exit1. The overall phase and its completion remain failed; no successful release is claimed."
+  },
+  "assessment": [
+    "The sole executable-code change is inside activate_msvc; both complete helpers and all caller integration were compared to the previously accepted packet.",
+    "The selected VCToolsInstallDir/bin/Hostx64/x64/link.exe must pass the existing absolute regular-file and parent-reparse checks, remain within the selected Visual Studio installation, and have an AMD64 PE32+ header.",
+    "The helper sets CARGO_TARGET_X86_64_PC_WINDOWS_MSVC_LINKER only in the cleaned child environment and records the actual linker path, SHA-256, byte count and target tuple.",
+    "The unchanged archive in_archive function clears Git selectors and sets its owned target directory while preserving this Cargo configuration variable. The later direct no-run compilation uses the same environment.",
+    "Cargo's primary documentation describes existing stable --target behavior as retaining the host tuple's linker for build scripts. The pinned rustc host/target equality is checked before the actual archive invocation; no unstable switch or Rust flag is added.",
+    "Source515, five-file source boundary, archive script/default features, compiler commands, six harnesses, deadlines, exact owned Job membership and retained handles, and final zero-child checks remain unchanged.",
+    "The fresh branch-filtered workflow binds the complete new packet, retains read-only permissions and exact action/input pins, and preserves failure artifacts."
+  ],
+  "primary_references": [
+    "https://doc.rust-lang.org/cargo/reference/config.html#targettuplelinker",
+    "https://doc.rust-lang.org/cargo/reference/unstable.html#target-applies-to-host"
+  ],
+  "source_commit": "515b503b24baf71737ff8fa6c879bd0752ef0fc6",
+  "source_tree": "b7c196bb6b337bdc7503e28d3a600e860fa3b799",
+  "findings": [],
+  "accepted_activation": "Fresh task/checkpoint-windows-build-20261125-v5 using exact workflow207ce70e.",
+  "pending": "Actual Windows release/no-run results, measured executable metadata and separately bound Windows check phase remain required before selecting a replacement native pin.",
+  "review_actions": {
+    "product_tests": 0,
+    "builds": 0,
+    "pc_calls": 0,
+    "native_writes": 0
+  }
+}
