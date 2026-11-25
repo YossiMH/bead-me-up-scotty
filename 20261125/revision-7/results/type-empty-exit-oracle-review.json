@@ -51,6 +51,7 @@
   "preserved": [
     "The failed result and its complete outputs remain failures.",
     "The accepted missing-option Red evidence remains applicable; the successful file/stdin regression expectations are unchanged.",
+    "The corrected empty-file expected exit 2 still distinguishes an old unsupported flag: the unchanged assertion requires the specific issue_type cannot be empty message and then the unchanged complete-state snapshot. An unknown-option error cannot satisfy that message. Prior Red outputs remain recorded exactly as observed.",
     "Existing production bytes, successful compilation and separately completed corpus recovery remain valid for their exact recorded source."
   ],
   "next_action": "Review a bounded consumer overlay that proves the exact two-file correction, retains production and test provenance separately, rebuilds the affected harness and runs all required affected targets and the complete suite. Corrected actual runtime results and two final author inspections remain required for final source acceptance.",
