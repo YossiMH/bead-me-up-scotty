@@ -2,7 +2,7 @@
 
 Source: `2d801ba455b7a722daf644a7615445117d57e8e9`, tree `509d6222300b84b16041a8366a8b6ae4c28ccc98`, in YossiMH/bead-rs. The direct b492aa51 fixture predecessor and the c90f0cdb checkpoint repair remain independently accepted. This final source changes exactly the operation and maintenance lock contention predicates after the measured Windows Red.
 
-The complete accepted revision 9 plan is e97773b478bd0b916eb40c5d09bc79368bfd7522, SHA-256 18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582. Its review is d1d9b088f4676c94e2a9afbe80b3eb49602c1283. Combined actual Windows tests/Red acceptance is 7f671379297257cdee6497d26f57b00868b3386a, SHA-256 c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11.
+The complete accepted revision 9 plan is e97773b478bd0b916eb40c5d09bc79368bfd7522, SHA-256 18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582. Its current review is f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4, SHA-256 e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7. Combined actual Windows tests/Red acceptance is 7f671379297257cdee6497d26f57b00868b3386a, SHA-256 c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11.
 
 ## Linux
 
