@@ -1,0 +1,488 @@
+{
+  "build_root": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1",
+  "command": [
+    "cargo",
+    "test",
+    "--locked",
+    "--no-run",
+    "--lib",
+    "--test",
+    "attempt_receipt_checkpoint_integrity",
+    "--test",
+    "checkpoint_tail_generation_integrity",
+    "--test",
+    "checkpoint_set_v2_conformance",
+    "--message-format=json"
+  ],
+  "commands": [
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "rev-parse",
+        "--show-toplevel"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:26.281578+00:00",
+      "label": "git-root",
+      "pgid": 2485,
+      "pid": 2485,
+      "started": "2026-11-25T03:02:26.279314+00:00",
+      "stderr": "logs/git-root.stderr",
+      "stdout": "logs/git-root.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=all",
+        "-z"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.198408+00:00",
+      "label": "git-status",
+      "pgid": 2486,
+      "pid": 2486,
+      "started": "2026-11-25T03:02:26.281913+00:00",
+      "stderr": "logs/git-status.stderr",
+      "stdout": "logs/git-status.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.201599+00:00",
+      "label": "git-head",
+      "pgid": 2487,
+      "pid": 2487,
+      "started": "2026-11-25T03:02:27.199070+00:00",
+      "stderr": "logs/git-head.stderr",
+      "stdout": "logs/git-head.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "rev-parse",
+        "HEAD^{tree}"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.203973+00:00",
+      "label": "git-tree",
+      "pgid": 2488,
+      "pid": 2488,
+      "started": "2026-11-25T03:02:27.201933+00:00",
+      "stderr": "logs/git-tree.stderr",
+      "stdout": "logs/git-tree.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "rev-list",
+        "--parents",
+        "-n",
+        "1",
+        "HEAD"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.206268+00:00",
+      "label": "git-parent",
+      "pgid": 2489,
+      "pid": 2489,
+      "started": "2026-11-25T03:02:27.204298+00:00",
+      "stderr": "logs/git-parent.stderr",
+      "stdout": "logs/git-parent.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "cat-file",
+        "-e",
+        "986f2a332aca9dd567eee41ce835917d56e29468^{commit}"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.208381+00:00",
+      "label": "git-baseline",
+      "pgid": 2490,
+      "pid": 2490,
+      "started": "2026-11-25T03:02:27.206578+00:00",
+      "stderr": "logs/git-baseline.stderr",
+      "stdout": "logs/git-baseline.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "diff",
+        "--name-status",
+        "--no-renames",
+        "-z",
+        "986f2a332aca9dd567eee41ce835917d56e29468",
+        "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+        "--"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.210637+00:00",
+      "label": "git-delta",
+      "pgid": 2491,
+      "pid": 2491,
+      "started": "2026-11-25T03:02:27.208681+00:00",
+      "stderr": "logs/git-delta.stderr",
+      "stdout": "logs/git-delta.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "diff",
+        "--check",
+        "986f2a332aca9dd567eee41ce835917d56e29468",
+        "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+        "--"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.214890+00:00",
+      "label": "git-whitespace",
+      "pgid": 2492,
+      "pid": 2492,
+      "started": "2026-11-25T03:02:27.210972+00:00",
+      "stderr": "logs/git-whitespace.stderr",
+      "stdout": "logs/git-whitespace.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "ls-tree",
+        "-r",
+        "-z",
+        "--full-tree",
+        "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.219318+00:00",
+      "label": "git-files",
+      "pgid": 2493,
+      "pid": 2493,
+      "started": "2026-11-25T03:02:27.215270+00:00",
+      "stderr": "logs/git-files.stderr",
+      "stdout": "logs/git-files.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "show",
+        "986f2a332aca9dd567eee41ce835917d56e29468:src/service/checkpoint/set_v2.rs"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:27.226201+00:00",
+      "label": "baseline-production",
+      "pgid": 2494,
+      "pid": 2494,
+      "started": "2026-11-25T03:02:27.222043+00:00",
+      "stderr": "logs/baseline-production.stderr",
+      "stdout": "logs/baseline-production.stdout"
+    },
+    {
+      "args": [
+        "git",
+        "-C",
+        "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+        "archive",
+        "--format=tar",
+        "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8"
+      ],
+      "cwd": "/home/runner/work/bead-me-up-scotty/bead-me-up-scotty/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:29.663530+00:00",
+      "label": "git-archive",
+      "pgid": 2495,
+      "pid": 2495,
+      "started": "2026-11-25T03:02:27.226658+00:00",
+      "stderr": "logs/git-archive.stderr",
+      "stdout": "source.tar"
+    },
+    {
+      "args": [
+        "rustc",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:32.084608+00:00",
+      "label": "rustc-version",
+      "pgid": 2496,
+      "pid": 2496,
+      "started": "2026-11-25T03:02:32.068206+00:00",
+      "stderr": "logs/rustc-version.stderr",
+      "stdout": "logs/rustc-version.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "--version"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:02:32.093195+00:00",
+      "label": "cargo-version",
+      "pgid": 2502,
+      "pid": 2502,
+      "started": "2026-11-25T03:02:32.084995+00:00",
+      "stderr": "logs/cargo-version.stderr",
+      "stdout": "logs/cargo-version.stdout"
+    },
+    {
+      "args": [
+        "cargo",
+        "test",
+        "--locked",
+        "--no-run",
+        "--lib",
+        "--test",
+        "attempt_receipt_checkpoint_integrity",
+        "--test",
+        "checkpoint_tail_generation_integrity",
+        "--test",
+        "checkpoint_set_v2_conformance",
+        "--message-format=json"
+      ],
+      "cwd": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+      "error": null,
+      "exit_code": 0,
+      "finished": "2026-11-25T03:04:01.019248+00:00",
+      "label": "cargo",
+      "pgid": 2507,
+      "pid": 2507,
+      "started": "2026-11-25T03:02:32.415378+00:00",
+      "stderr": "logs/cargo.stderr",
+      "stdout": "logs/cargo.stdout.jsonl"
+    }
+  ],
+  "deadline_seconds": 1800,
+  "duration_seconds": 95.245,
+  "environment": {
+    "CARGO_BUILD_JOBS": "1",
+    "CARGO_TARGET_DIR": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/target",
+    "RUSTUP_TOOLCHAIN": "1.100.0",
+    "TMPDIR": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/tmp"
+  },
+  "executables": {
+    "attempt_receipt_checkpoint_integrity": {
+      "bytes": 17182504,
+      "mode": 493,
+      "path": "target/debug/build/bead-rs/2354cbbf17db3a5a/out/attempt_receipt_checkpoint_integrity-2354cbbf17db3a5a",
+      "sha256": "855665d4f9c6c799ed53ca59eb5c237973c497291d37c52f7778fe823c6215c1"
+    },
+    "bead": {
+      "bytes": 50576168,
+      "mode": 493,
+      "path": "target/debug/bead",
+      "sha256": "1dcb03cbbddbe516c243816d6f1cd28f1819c36b9c91e433c3f185fea6f0e7c1"
+    },
+    "checkpoint_set_v2_conformance": {
+      "bytes": 14113056,
+      "mode": 493,
+      "path": "target/debug/build/bead-rs/742f573745b6ad5a/out/checkpoint_set_v2_conformance-742f573745b6ad5a",
+      "sha256": "db78265e38073bc776debd80d4d747cbd7e42937e44da8d39ce2214b91895a42"
+    },
+    "checkpoint_tail_generation_integrity": {
+      "bytes": 12777048,
+      "mode": 493,
+      "path": "target/debug/build/bead-rs/ec998085bdfc0936/out/checkpoint_tail_generation_integrity-ec998085bdfc0936",
+      "sha256": "dfc4e67065341d304194b92299983b58f7fd972009966cf0f7597c98474d3a35"
+    },
+    "lib": {
+      "bytes": 45043384,
+      "mode": 493,
+      "path": "target/debug/build/bead-rs/b0e4373cffa1e878/out/bead_rs-b0e4373cffa1e878",
+      "sha256": "5eb58b3e4a67457c75284f3459ab318b1287a71aadd2472ae91a88c02553f6fc"
+    }
+  },
+  "finished": "2026-11-25T03:04:01.522673+00:00",
+  "helper_sha256": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+  "input_sha256": "57d129f2abd63797418f9950a2e20abe72466aafd2584ba203d317c9ee530ba3",
+  "operation": "checkpoint-red-compile-only",
+  "process_group_cleanup": [
+    {
+      "label": "git-root",
+      "pgid": 2485,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-status",
+      "pgid": 2486,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-head",
+      "pgid": 2487,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-tree",
+      "pgid": 2488,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-parent",
+      "pgid": 2489,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-baseline",
+      "pgid": 2490,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-delta",
+      "pgid": 2491,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-whitespace",
+      "pgid": 2492,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-files",
+      "pgid": 2493,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "baseline-production",
+      "pgid": 2494,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "git-archive",
+      "pgid": 2495,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "rustc-version",
+      "pgid": 2496,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo-version",
+      "pgid": 2502,
+      "remaining": false,
+      "signals": []
+    },
+    {
+      "label": "cargo",
+      "pgid": 2507,
+      "remaining": false,
+      "signals": []
+    }
+  ],
+  "product_executed": false,
+  "run": {
+    "attempt": "1",
+    "id": "45537110469",
+    "repository": "YossiMH/bead-me-up-scotty",
+    "workflow_commit": "3847da49b76a8526f3d9621d77be8f7e70d5334b",
+    "workflow_ref": "YossiMH/bead-me-up-scotty/.github/workflows/checkpoint-red-build-20261125-v2.yml@refs/heads/task/checkpoint-red-build-20261125-v2"
+  },
+  "schema_version": 1,
+  "source": {
+    "approved_files": {
+      "src/service/checkpoint/set_v2.rs": {
+        "sha256": "220eac6cf03c67833071c8b921d54f1e5e5a93cde1e661c491c487dd3f59e84f",
+        "status": "M"
+      },
+      "tests/attempt_receipt_checkpoint_integrity.rs": {
+        "sha256": "ec09202140650c34b03bdb978416d2f66835b82157c05a5d1d7088baf35fbce2",
+        "status": "M"
+      },
+      "tests/checkpoint_set_v2_conformance.rs": {
+        "sha256": "68d9865f90cdcfe1505b7ea80bdc26bd5984eacf158ab3787ffc0225b2fd8d58",
+        "status": "M"
+      },
+      "tests/checkpoint_tail_generation_integrity.rs": {
+        "sha256": "6b0f1ffd673f7146d9524d5bc94871a90e744e259070e4b467be3f813d4ce705",
+        "status": "A"
+      }
+    },
+    "archive_bytes": 487864320,
+    "archive_path": "source.tar",
+    "archive_sha256": "ffa29a2e3d89ee68006d534cd66d95a44edf481de7346056633113ce94e6e8d9",
+    "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
+    "commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "files_manifest_path": "source-files.json",
+    "files_manifest_sha256": "c9cf4b22d8fde97c6f05712b0c7a03d447def4a8333cf8ef031e5eb416976af4",
+    "production_prefix": {
+      "baseline_file_sha256": "eae52fc4a02eecb1452bc07f967861e50f86afa9872b88d43080dc86069092a8",
+      "bytes": 47227,
+      "path": "src/service/checkpoint/set_v2.rs",
+      "sha256": "310974bfae112134b290f4c8040b7f68994e009d207ff2a1a470af22145be538"
+    },
+    "repository": "YossiMH/bead-rs",
+    "tree": "c9707f7b58dd76826244719af018bf4c02a3e5fc"
+  },
+  "source_root": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/source",
+  "started": "2026-11-25T03:02:26.278169+00:00",
+  "status": "passed",
+  "target_root": "/home/runner/work/_temp/bead-checkpoint-red-build-45537110469-1/target",
+  "tests_executed": false,
+  "toolchain": {
+    "cargo": "cargo 1.100.0 (3acc79c0c 2026-11-05)",
+    "rustc": "rustc 1.100.0 (0ef1bc386 2026-11-09)"
+  },
+  "work_seconds": 1790
+}

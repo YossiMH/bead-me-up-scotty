@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "frozen_for_independent_review",
+  "operation": "checkpoint-red-check",
+  "prerequisite": {
+    "run_id": 45537110469,
+    "job_id": 138946295563,
+    "artifact_id": 14986424212,
+    "workflow_commit": "3847da49b76a8526f3d9621d77be8f7e70d5334b",
+    "root_acceptance": "received before checker activation"
+  },
+  "source": {
+    "commit": "a42d7dad5c3e2b31336c12c7c0f69a83db9a53b8",
+    "tree": "c9707f7b58dd76826244719af018bf4c02a3e5fc",
+    "baseline": "986f2a332aca9dd567eee41ce835917d56e29468"
+  },
+  "files": {
+    "checkpoint-red-check-20261125.py": "f23d8dba421ae09b28f9b54bcc0cffbcdddb6b475596d347d6f3534a15b62314",
+    "check-inputs.json": "100bef573d636eae9d1ba4c165f4c26e05e80dbd93d79d23018346dc8463f673",
+    "checkpoint-red-check.workflow.yml": "99547804b6e3b4ff53ea24659b4cab0d094b451316c477295f25181a81b89765",
+    "README.md": "fec2a986202ab5a07a02efae4b42f61400072af9203312cf226cee80feb9d66e",
+    "accepted-build-result.json": "1e3291003588d67271c0f9813514b26fed8ec34f1be714a8a96b725b45669e71",
+    "accepted-outer-result.json": "cb1c7dc7d7fd32e920094b4f43fabf42ef982a7d5a735a17cf4c25a210bfeb90",
+    "helper-author-audits.json": "dac0cb78b0b0a0f50ca784e93d9e3ab2183709fbc2c3c15744283fe75c1e8223"
+  },
+  "imported_compile_helper_sha256": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
+  "activation": {
+    "branch": "task/checkpoint-red-check-20261125",
+    "workflow_path": ".github/workflows/checkpoint-red-check-20261125.yml",
+    "event": "push",
+    "runner": "ubuntu-24.04",
+    "permissions": {
+      "contents": "read",
+      "actions": "read"
+    },
+    "retention_days": 7
+  },
+  "expected": {
+    "harnesses": 3,
+    "failures": 6,
+    "passed": 0,
+    "ignored": 0,
+    "per_harness_seconds": 300,
+    "overall_seconds": 1200,
+    "production_changes": 0
+  }
+}
