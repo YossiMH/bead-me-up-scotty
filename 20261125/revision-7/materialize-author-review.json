@@ -1,0 +1,36 @@
+{
+  "status": "passed",
+  "plan_sha256": "16e0e0f465ab1f906f2faa6b29aa198ef6b8a42409e1f1bbf0856342ac2ec3d7",
+  "review_sha256": "9d0673d5f7c5d151bf4fdf250295b7ec60ad3326df7e313fa06be06216e27ce1",
+  "files": {
+    "materialize-v7.mjs": "04267e53eb65c32d676f3d7c274f654e7a0353d8d6b5de31bfe855f04cd83d58",
+    "materialize-v7-supervisor.ps1": "cf70b0a6a9c77a73a46058a456e3cc1b8b4da2d0972721b8db19120bc6a998da",
+    "materialization.md": "3b5cef7e2c2a2d8ba0d638e5dee1a37c211220b245eaa9b24e32f02247680b2a"
+  },
+  "checks": {
+    "node_parse": {
+      "command": "node --check 20261125/revision-7/materialize-v7.mjs",
+      "exit": 0
+    },
+    "supervisor_comparison": "Only reviewed revision-6 literal path, revision and SHA-256 bindings changed; process accounting and embedded C# unchanged.",
+    "live_execution": "pending PC memory window and independent static review",
+    "diff_check": {
+      "command": "git diff --cached --check",
+      "exit": 0
+    }
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "clean": true,
+      "read": "Complete changed Node script, complete retained supervisor plus every literal change, and documentation. Checked exact accepted task/edge counts, report decoding, current revisions, reference absence, one transaction and prior history preservation. Both scripts have one final newline; supervisor hash binds the exact final Node bytes."
+    },
+    {
+      "pass": 2,
+      "clean": true,
+      "read": "Repeated complete code/prose inspection on the same final bytes, concentrating on uncertain writes, unchanged original rows/config/checkpoint pointer, manifest dependency events and task-owned cleanup. No remaining finding."
+    }
+  ],
+  "worktree": "/tmp/beads-55c9/coordination-type-edit",
+  "cleanup": "Future agents must remove this clean published Riftri worktree after preserving the accepted outputs; retain all uncertain native attempt files."
+}
