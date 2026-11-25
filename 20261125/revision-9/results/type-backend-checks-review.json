@@ -1,0 +1,322 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/cloud_readiness",
+  "independent": true,
+  "continuation_revision": 9,
+  "task_key": "type-backend-checks",
+  "scope": "Actual final-source directly affected native checks, including formatting and Clippy from the accepted exact producer. This satisfies the affected-result prerequisite for the prepared app Windows roundtrip.",
+  "source": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98"
+  },
+  "plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "producer": {
+    "run_id": 45600748319,
+    "workflow_commit": "b9ae02da940d7891f8b976e0403d3c408eb6ebe7",
+    "build_result_sha256": "b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb",
+    "actual_build_review_commit": "2cd5ba1a4209d507e76ed7d1bb0a45419fe50c40",
+    "actual_build_review_sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5",
+    "fmt_check": "passed",
+    "clippy_all_targets_warnings_denied": "passed",
+    "source_stability": "passed"
+  },
+  "execution": {
+    "run_id": 45603324487,
+    "attempt": 1,
+    "job_id": 139167619928,
+    "workflow_commit": "41a1bcb1442987773d7c9a7391b959711394d9fd",
+    "accepted_packet_review": "57d694f711d254fe89cfe712d993c00e2ea16823",
+    "actual_job_log_sha256": "b65db5da1fb5ea1e5dff77583287036dc8df92bcdbd5d6f665521f03f9bbea1f",
+    "actual_job_log_bytes": 759397,
+    "artifact_id": 15017138549,
+    "artifact_zip_bytes": 119637,
+    "artifact_zip_sha256": "bb398fcbaebf234b308f92fcabcd9eb397fa2d5946e4f226595db117c9c52125",
+    "affected_result_sha256": "2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f",
+    "affected_result_bytes": 11192,
+    "command": [
+      "cargo",
+      "test",
+      "--locked",
+      "--test",
+      "issue_type_file",
+      "--test",
+      "cli_editing",
+      "--test",
+      "r041_text_inputs",
+      "--test",
+      "r041_issue_json_documents",
+      "--test",
+      "cli_capabilities",
+      "--test",
+      "cli_schema",
+      "--test",
+      "capability_framework",
+      "--test",
+      "capability_variant_matrix",
+      "--test",
+      "redaction_transaction",
+      "--",
+      "--test-threads=1"
+    ],
+    "exit_code": 0,
+    "duration_seconds": 32.288,
+    "timeout_seconds": 900
+  },
+  "result": {
+    "targets": [
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 5,
+        "passed_tests": [
+          "tests::test_command_exists",
+          "tests::test_get_capabilities",
+          "tests::test_harness_creation",
+          "tests::test_has_capability_field",
+          "tests::test_workspace_init"
+        ],
+        "target": "capability_framework"
+      },
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 11,
+        "passed_tests": [
+          "capability_absence_degrades_gracefully",
+          "capability_detection_matches_each_variant",
+          "capability_framework::tests::test_command_exists",
+          "capability_framework::tests::test_get_capabilities",
+          "capability_framework::tests::test_harness_creation",
+          "capability_framework::tests::test_has_capability_field",
+          "capability_framework::tests::test_workspace_init",
+          "capability_presence_exposes_full_surface",
+          "feature_flag_handling_is_decoupled_from_capability",
+          "variant_pair_resolves_as_distinct_verified_binaries",
+          "variants_share_the_core_contract"
+        ],
+        "target": "capability_variant_matrix"
+      },
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 12,
+        "passed_tests": [
+          "auto_flush_advertisement_ignores_workspace_state",
+          "auto_flush_advertisement_matches_binary_behavior",
+          "auto_flush_field_tracks_the_compiled_default",
+          "capability_library_boundary_cannot_forge_a_managed_downgrade",
+          "secret_scan_capability_reports_effective_workspace_mode",
+          "secret_scan_capability_uses_compiled_default_without_workspace",
+          "test_capabilities_default_profile",
+          "test_capabilities_invalid_profile",
+          "test_capabilities_native_profile",
+          "test_capabilities_needle_profile",
+          "test_capabilities_no_workspace",
+          "test_capabilities_schema_entries"
+        ],
+        "target": "cli_capabilities"
+      },
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 23,
+        "passed_tests": [
+          "capabilities_schema_and_help_describe_the_same_editable_fields",
+          "claimed_edits_require_the_issued_credential",
+          "compound_edit_preserves_identity_extensions_and_related_records",
+          "concurrent_editors_with_one_revision_have_one_complete_winner",
+          "conflicting_sources_and_invalid_utf8_do_not_modify_the_issue",
+          "description_file_stdin_and_clear_preserve_exact_text",
+          "dry_run_enforces_revision_claim_and_transition_checks",
+          "dry_run_projects_the_committed_edit_without_writing",
+          "dry_run_redacts_new_text_fields_and_assignment_summary",
+          "dry_run_redacts_stored_closed_metadata_and_preserves_exact_clean_text",
+          "edited_content_and_audit_survive_published_checkpoint_restore",
+          "editing_closed_metadata_preserves_the_close_record",
+          "invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged",
+          "manifest_edits_and_dependency_changes_commit_together",
+          "manifest_edits_cannot_take_over_an_existing_claim",
+          "manifest_later_failure_rolls_back_edits_and_priority_audit",
+          "manifest_output_redacts_scalar_changes_without_masking_stored_values",
+          "new_edit_fields_keep_native_content_checks_and_redacted_errors",
+          "priority_change_records_reason_actor_and_changes_ready_order",
+          "priority_requires_a_reason_and_same_value_has_no_priority_event",
+          "repeated_edits_are_noops_after_revision_and_claim_checks",
+          "stale_revision_rejects_the_whole_edit",
+          "title_limits_count_utf8_bytes"
+        ],
+        "target": "cli_editing"
+      },
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 11,
+        "passed_tests": [
+          "schema_explain_concise_path_fits_published_schema",
+          "schema_explain_guide_fits_its_published_schema",
+          "schema_explain_json_and_markdown_are_deterministic",
+          "schema_explain_json_and_markdown_represent_the_same_typed_source",
+          "schema_explain_output_is_byte_identical_across_runs",
+          "schema_list_is_workspace_independent_and_deterministic",
+          "schema_list_matches_capabilities_catalog",
+          "schema_list_rejects_unsupported_format_as_usage_error",
+          "schema_show_and_explain_reject_malformed_identities",
+          "schema_show_and_explain_reject_unknown_identity",
+          "schema_show_resolves_every_catalog_identity"
+        ],
+        "target": "cli_schema"
+      },
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 11,
+        "passed_tests": [
+          "capability_schema_accepts_the_optional_type_transport",
+          "dry_run_and_repeated_file_values_preserve_saved_state",
+          "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+          "file_type_is_scanned_before_any_scalar_edit",
+          "help_and_generated_man_page_describe_type_file_input",
+          "inline_and_file_conflict_before_reading_the_file",
+          "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+          "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+          "only_one_text_field_may_consume_stdin",
+          "stdin_type_preserves_exact_text",
+          "stored_issue_and_manifest_keep_literal_type_text"
+        ],
+        "target": "issue_type_file"
+      },
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 10,
+        "passed_tests": [
+          "capabilities_advertise_issue_document_shapes",
+          "create_and_claim_format_aliases_match_existing_json_bytes",
+          "format_based_commands_show_json_in_leaf_help",
+          "format_commands_advertise_json_and_preserve_other_renderings",
+          "help_describes_the_issue_json_shapes",
+          "list_json_and_jsonl_conflict_with_usage_exit_code",
+          "list_json_is_one_array_for_empty_one_and_many_results",
+          "output_selector_aliases_are_byte_identical_and_query_keeps_its_json_input",
+          "show_json_is_the_complete_issue_object",
+          "unsupported_and_conflicting_output_selectors_have_stable_usage_errors"
+        ],
+        "target": "r041_issue_json_documents"
+      },
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 6,
+        "passed_tests": [
+          "append_and_hyphen_leading_values_are_stored_verbatim",
+          "append_honors_revision_and_claim_credentials",
+          "blocked_secret_in_append_leaves_the_issue_unchanged",
+          "file_and_stdin_sources_match_inline_values",
+          "multiple_text_sources_are_usage_errors",
+          "two_connections_append_without_losing_either_value"
+        ],
+        "target": "r041_text_inputs"
+      },
+      {
+        "failed": 0,
+        "ignored": 0,
+        "ignored_tests": [],
+        "passed": 6,
+        "passed_tests": [
+          "assignee_metadata_is_redactable_without_deleting_the_issue",
+          "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+          "concurrent_identical_requests_commit_once_and_replay_once",
+          "every_supported_nonissue_record_preserves_identity_and_integrity",
+          "garage_access_key_id_assignment_is_discoverable_and_redactable",
+          "issue_redaction_is_exact_atomic_and_idempotent"
+        ],
+        "target": "redaction_transaction"
+      }
+    ],
+    "passed": 95,
+    "failed": 0,
+    "ignored": 0,
+    "filtered": 0,
+    "required_type_tests": [
+      "capability_schema_accepts_the_optional_type_transport",
+      "dry_run_and_repeated_file_values_preserve_saved_state",
+      "file_edits_enforce_revision_and_claim_guards_even_for_noops",
+      "file_type_is_scanned_before_any_scalar_edit",
+      "help_and_generated_man_page_describe_type_file_input",
+      "inline_and_file_conflict_before_reading_the_file",
+      "long_unicode_file_commits_one_guarded_edit_and_preserves_claim",
+      "missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied",
+      "only_one_text_field_may_consume_stdin",
+      "stdin_type_preserves_exact_text",
+      "stored_issue_and_manifest_keep_literal_type_text"
+    ],
+    "required_maintenance_tests": [
+      "assignee_metadata_is_redactable_without_deleting_the_issue",
+      "aws_secret_access_key_assignment_is_discoverable_and_redactable",
+      "concurrent_identical_requests_commit_once_and_replay_once",
+      "every_supported_nonissue_record_preserves_identity_and_integrity",
+      "garage_access_key_id_assignment_is_discoverable_and_redactable",
+      "issue_redaction_is_exact_atomic_and_idempotent"
+    ],
+    "source_files_unchanged": 652,
+    "owned_process_groups_checked": 20,
+    "owned_process_groups_remaining": 0
+  },
+  "independent_checks": [
+    "Read the complete original affected stdout and stderr decoded directly from the completed actual job.",
+    "Independently counted nine unfiltered successful harness groups and 95 individual passing case lines; every reported test name matches the original output with its multiplicity.",
+    "All eleven permanent type-file regression names and all six maintenance names occur and pass, with no ignored or filtered affected regression.",
+    "Matched source/tree, full producer result, consumer helper/input and run/workflow to the already accepted exact final-source build and execution packet.",
+    "Matched repeated result/stdout/stderr emissions byte-for-byte and checked every recorded SHA-256 and byte length.",
+    "Read the completed enclosing result's unchanged 652-source-file check, exit-zero affected command and all 20 empty owned process-group cleanup records.",
+    "Verified successful job status and the independently retrieved artifact API identity/digest. Full default-suite and Windows interpretation continue as separate scoped reviews."
+  ],
+  "retained_actual_affected_text": {
+    "type-backend-checks.json": {
+      "sha256": "2b04eca466288c46d2351c021f6cedfe3ecd6ff8b97b1aa4e90bc6159c03a40f",
+      "bytes": 11192,
+      "text": "{\n  \"build_result_sha256\": \"b463ff7a689dd7d43257b183db29772f86dc314c7f384edcdb424c9d2f6cc0bb\",\n  \"command\": [\n    \"cargo\",\n    \"test\",\n    \"--locked\",\n    \"--test\",\n    \"issue_type_file\",\n    \"--test\",\n    \"cli_editing\",\n    \"--test\",\n    \"r041_text_inputs\",\n    \"--test\",\n    \"r041_issue_json_documents\",\n    \"--test\",\n    \"cli_capabilities\",\n    \"--test\",\n    \"cli_schema\",\n    \"--test\",\n    \"capability_framework\",\n    \"--test\",\n    \"capability_variant_matrix\",\n    \"--test\",\n    \"redaction_transaction\",\n    \"--\",\n    \"--test-threads=1\"\n  ],\n  \"commands\": [\n    {\n      \"args\": [\n        \"cargo\",\n        \"test\",\n        \"--locked\",\n        \"--test\",\n        \"issue_type_file\",\n        \"--test\",\n        \"cli_editing\",\n        \"--test\",\n        \"r041_text_inputs\",\n        \"--test\",\n        \"r041_issue_json_documents\",\n        \"--test\",\n        \"cli_capabilities\",\n        \"--test\",\n        \"cli_schema\",\n        \"--test\",\n        \"capability_framework\",\n        \"--test\",\n        \"capability_variant_matrix\",\n        \"--test\",\n        \"redaction_transaction\",\n        \"--\",\n        \"--test-threads=1\"\n      ],\n      \"cwd\": \"/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source\",\n      \"error\": null,\n      \"exit_code\": 0,\n      \"finished\": \"2026-11-25T11:20:35.291983+00:00\",\n      \"label\": \"cargo-type-checks\",\n      \"pgid\": 2307,\n      \"pid\": 2307,\n      \"started\": \"2026-11-25T11:20:03.005551+00:00\",\n      \"stderr\": \"logs/cargo-type-checks.stderr\",\n      \"stdout\": \"logs/cargo-type-checks.stdout\"\n    }\n  ],\n  \"duration_seconds\": 32.288,\n  \"exit_code\": 0,\n  \"format_and_clippy\": \"Passed in the exact source producer receipt\",\n  \"ignored_test_count\": 0,\n  \"passed_test_count\": 95,\n  \"producing_run\": {\n    \"attempt\": \"1\",\n    \"id\": \"45600748319\",\n    \"repository\": \"YossiMH/bead-me-up-scotty\",\n    \"workflow_commit\": \"b9ae02da940d7891f8b976e0403d3c408eb6ebe7\"\n  },\n  \"required_maintenance_tests\": [\n    \"assignee_metadata_is_redactable_without_deleting_the_issue\",\n    \"aws_secret_access_key_assignment_is_discoverable_and_redactable\",\n    \"concurrent_identical_requests_commit_once_and_replay_once\",\n    \"every_supported_nonissue_record_preserves_identity_and_integrity\",\n    \"garage_access_key_id_assignment_is_discoverable_and_redactable\",\n    \"issue_redaction_is_exact_atomic_and_idempotent\"\n  ],\n  \"required_targets\": [\n    \"issue_type_file\",\n    \"cli_editing\",\n    \"r041_text_inputs\",\n    \"r041_issue_json_documents\",\n    \"cli_capabilities\",\n    \"cli_schema\",\n    \"capability_framework\",\n    \"capability_variant_matrix\",\n    \"redaction_transaction\"\n  ],\n  \"required_type_tests\": [\n    \"capability_schema_accepts_the_optional_type_transport\",\n    \"dry_run_and_repeated_file_values_preserve_saved_state\",\n    \"file_edits_enforce_revision_and_claim_guards_even_for_noops\",\n    \"file_type_is_scanned_before_any_scalar_edit\",\n    \"help_and_generated_man_page_describe_type_file_input\",\n    \"inline_and_file_conflict_before_reading_the_file\",\n    \"long_unicode_file_commits_one_guarded_edit_and_preserves_claim\",\n    \"missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied\",\n    \"only_one_text_field_may_consume_stdin\",\n    \"stdin_type_preserves_exact_text\",\n    \"stored_issue_and_manifest_keep_literal_type_text\"\n  ],\n  \"schema_version\": 1,\n  \"source_commit\": \"2d801ba455b7a722daf644a7615445117d57e8e9\",\n  \"source_tree\": \"509d6222300b84b16041a8366a8b6ae4c28ccc98\",\n  \"status\": \"passed\",\n  \"stderr\": {\n    \"bytes\": 5317,\n    \"mode\": 420,\n    \"path\": \"logs/cargo-type-checks.stderr\",\n    \"sha256\": \"adb8a163790052a8a8a89e320d80e751cdbbb98b1238d90b8d34597da436e73e\"\n  },\n  \"stdout\": {\n    \"bytes\": 6941,\n    \"mode\": 420,\n    \"path\": \"logs/cargo-type-checks.stdout\",\n    \"sha256\": \"254634ca875240daee48bde6129a28b13badf0075f836a8ca6ebcc44c25c1ba4\"\n  },\n  \"targets\": [\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 5,\n      \"passed_tests\": [\n        \"tests::test_command_exists\",\n        \"tests::test_get_capabilities\",\n        \"tests::test_harness_creation\",\n        \"tests::test_has_capability_field\",\n        \"tests::test_workspace_init\"\n      ],\n      \"target\": \"capability_framework\"\n    },\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 11,\n      \"passed_tests\": [\n        \"capability_absence_degrades_gracefully\",\n        \"capability_detection_matches_each_variant\",\n        \"capability_framework::tests::test_command_exists\",\n        \"capability_framework::tests::test_get_capabilities\",\n        \"capability_framework::tests::test_harness_creation\",\n        \"capability_framework::tests::test_has_capability_field\",\n        \"capability_framework::tests::test_workspace_init\",\n        \"capability_presence_exposes_full_surface\",\n        \"feature_flag_handling_is_decoupled_from_capability\",\n        \"variant_pair_resolves_as_distinct_verified_binaries\",\n        \"variants_share_the_core_contract\"\n      ],\n      \"target\": \"capability_variant_matrix\"\n    },\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 12,\n      \"passed_tests\": [\n        \"auto_flush_advertisement_ignores_workspace_state\",\n        \"auto_flush_advertisement_matches_binary_behavior\",\n        \"auto_flush_field_tracks_the_compiled_default\",\n        \"capability_library_boundary_cannot_forge_a_managed_downgrade\",\n        \"secret_scan_capability_reports_effective_workspace_mode\",\n        \"secret_scan_capability_uses_compiled_default_without_workspace\",\n        \"test_capabilities_default_profile\",\n        \"test_capabilities_invalid_profile\",\n        \"test_capabilities_native_profile\",\n        \"test_capabilities_needle_profile\",\n        \"test_capabilities_no_workspace\",\n        \"test_capabilities_schema_entries\"\n      ],\n      \"target\": \"cli_capabilities\"\n    },\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 23,\n      \"passed_tests\": [\n        \"capabilities_schema_and_help_describe_the_same_editable_fields\",\n        \"claimed_edits_require_the_issued_credential\",\n        \"compound_edit_preserves_identity_extensions_and_related_records\",\n        \"concurrent_editors_with_one_revision_have_one_complete_winner\",\n        \"conflicting_sources_and_invalid_utf8_do_not_modify_the_issue\",\n        \"description_file_stdin_and_clear_preserve_exact_text\",\n        \"dry_run_enforces_revision_claim_and_transition_checks\",\n        \"dry_run_projects_the_committed_edit_without_writing\",\n        \"dry_run_redacts_new_text_fields_and_assignment_summary\",\n        \"dry_run_redacts_stored_closed_metadata_and_preserves_exact_clean_text\",\n        \"edited_content_and_audit_survive_published_checkpoint_restore\",\n        \"editing_closed_metadata_preserves_the_close_record\",\n        \"invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged\",\n        \"manifest_edits_and_dependency_changes_commit_together\",\n        \"manifest_edits_cannot_take_over_an_existing_claim\",\n        \"manifest_later_failure_rolls_back_edits_and_priority_audit\",\n        \"manifest_output_redacts_scalar_changes_without_masking_stored_values\",\n        \"new_edit_fields_keep_native_content_checks_and_redacted_errors\",\n        \"priority_change_records_reason_actor_and_changes_ready_order\",\n        \"priority_requires_a_reason_and_same_value_has_no_priority_event\",\n        \"repeated_edits_are_noops_after_revision_and_claim_checks\",\n        \"stale_revision_rejects_the_whole_edit\",\n        \"title_limits_count_utf8_bytes\"\n      ],\n      \"target\": \"cli_editing\"\n    },\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 11,\n      \"passed_tests\": [\n        \"schema_explain_concise_path_fits_published_schema\",\n        \"schema_explain_guide_fits_its_published_schema\",\n        \"schema_explain_json_and_markdown_are_deterministic\",\n        \"schema_explain_json_and_markdown_represent_the_same_typed_source\",\n        \"schema_explain_output_is_byte_identical_across_runs\",\n        \"schema_list_is_workspace_independent_and_deterministic\",\n        \"schema_list_matches_capabilities_catalog\",\n        \"schema_list_rejects_unsupported_format_as_usage_error\",\n        \"schema_show_and_explain_reject_malformed_identities\",\n        \"schema_show_and_explain_reject_unknown_identity\",\n        \"schema_show_resolves_every_catalog_identity\"\n      ],\n      \"target\": \"cli_schema\"\n    },\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 11,\n      \"passed_tests\": [\n        \"capability_schema_accepts_the_optional_type_transport\",\n        \"dry_run_and_repeated_file_values_preserve_saved_state\",\n        \"file_edits_enforce_revision_and_claim_guards_even_for_noops\",\n        \"file_type_is_scanned_before_any_scalar_edit\",\n        \"help_and_generated_man_page_describe_type_file_input\",\n        \"inline_and_file_conflict_before_reading_the_file\",\n        \"long_unicode_file_commits_one_guarded_edit_and_preserves_claim\",\n        \"missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied\",\n        \"only_one_text_field_may_consume_stdin\",\n        \"stdin_type_preserves_exact_text\",\n        \"stored_issue_and_manifest_keep_literal_type_text\"\n      ],\n      \"target\": \"issue_type_file\"\n    },\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 10,\n      \"passed_tests\": [\n        \"capabilities_advertise_issue_document_shapes\",\n        \"create_and_claim_format_aliases_match_existing_json_bytes\",\n        \"format_based_commands_show_json_in_leaf_help\",\n        \"format_commands_advertise_json_and_preserve_other_renderings\",\n        \"help_describes_the_issue_json_shapes\",\n        \"list_json_and_jsonl_conflict_with_usage_exit_code\",\n        \"list_json_is_one_array_for_empty_one_and_many_results\",\n        \"output_selector_aliases_are_byte_identical_and_query_keeps_its_json_input\",\n        \"show_json_is_the_complete_issue_object\",\n        \"unsupported_and_conflicting_output_selectors_have_stable_usage_errors\"\n      ],\n      \"target\": \"r041_issue_json_documents\"\n    },\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 6,\n      \"passed_tests\": [\n        \"append_and_hyphen_leading_values_are_stored_verbatim\",\n        \"append_honors_revision_and_claim_credentials\",\n        \"blocked_secret_in_append_leaves_the_issue_unchanged\",\n        \"file_and_stdin_sources_match_inline_values\",\n        \"multiple_text_sources_are_usage_errors\",\n        \"two_connections_append_without_losing_either_value\"\n      ],\n      \"target\": \"r041_text_inputs\"\n    },\n    {\n      \"failed\": 0,\n      \"ignored\": 0,\n      \"ignored_tests\": [],\n      \"passed\": 6,\n      \"passed_tests\": [\n        \"assignee_metadata_is_redactable_without_deleting_the_issue\",\n        \"aws_secret_access_key_assignment_is_discoverable_and_redactable\",\n        \"concurrent_identical_requests_commit_once_and_replay_once\",\n        \"every_supported_nonissue_record_preserves_identity_and_integrity\",\n        \"garage_access_key_id_assignment_is_discoverable_and_redactable\",\n        \"issue_redaction_is_exact_atomic_and_idempotent\"\n      ],\n      \"target\": \"redaction_transaction\"\n    }\n  ],\n  \"task_key\": \"type-backend-checks\",\n  \"timeout_seconds\": 900\n}\n"
+    },
+    "logs/cargo-type-checks.stdout": {
+      "sha256": "254634ca875240daee48bde6129a28b13badf0075f836a8ca6ebcc44c25c1ba4",
+      "bytes": 6941,
+      "text": "\nrunning 5 tests\ntest tests::test_command_exists ... ok\ntest tests::test_get_capabilities ... ok\ntest tests::test_harness_creation ... ok\ntest tests::test_has_capability_field ... ok\ntest tests::test_workspace_init ... ok\n\ntest result: ok. 5 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.08s\n\n\nrunning 11 tests\ntest capability_absence_degrades_gracefully ... ok\ntest capability_detection_matches_each_variant ... ok\ntest capability_framework::tests::test_command_exists ... ok\ntest capability_framework::tests::test_get_capabilities ... ok\ntest capability_framework::tests::test_harness_creation ... ok\ntest capability_framework::tests::test_has_capability_field ... ok\ntest capability_framework::tests::test_workspace_init ... ok\ntest capability_presence_exposes_full_surface ... ok\ntest feature_flag_handling_is_decoupled_from_capability ... ok\ntest variant_pair_resolves_as_distinct_verified_binaries ... ok\ntest variants_share_the_core_contract ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.93s\n\n\nrunning 12 tests\ntest auto_flush_advertisement_ignores_workspace_state ... ok\ntest auto_flush_advertisement_matches_binary_behavior ... ok\ntest auto_flush_field_tracks_the_compiled_default ... ok\ntest capability_library_boundary_cannot_forge_a_managed_downgrade ... ok\ntest secret_scan_capability_reports_effective_workspace_mode ... ok\ntest secret_scan_capability_uses_compiled_default_without_workspace ... ok\ntest test_capabilities_default_profile ... ok\ntest test_capabilities_invalid_profile ... ok\ntest test_capabilities_native_profile ... ok\ntest test_capabilities_needle_profile ... ok\ntest test_capabilities_no_workspace ... ok\ntest test_capabilities_schema_entries ... ok\n\ntest result: ok. 12 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.18s\n\n\nrunning 23 tests\ntest capabilities_schema_and_help_describe_the_same_editable_fields ... ok\ntest claimed_edits_require_the_issued_credential ... ok\ntest compound_edit_preserves_identity_extensions_and_related_records ... ok\ntest concurrent_editors_with_one_revision_have_one_complete_winner ... ok\ntest conflicting_sources_and_invalid_utf8_do_not_modify_the_issue ... ok\ntest description_file_stdin_and_clear_preserve_exact_text ... ok\ntest dry_run_enforces_revision_claim_and_transition_checks ... ok\ntest dry_run_projects_the_committed_edit_without_writing ... ok\ntest dry_run_redacts_new_text_fields_and_assignment_summary ... ok\ntest dry_run_redacts_stored_closed_metadata_and_preserves_exact_clean_text ... ok\ntest edited_content_and_audit_survive_published_checkpoint_restore ... ok\ntest editing_closed_metadata_preserves_the_close_record ... ok\ntest invalid_compound_edits_leave_fields_events_and_checkpoint_unchanged ... ok\ntest manifest_edits_and_dependency_changes_commit_together ... ok\ntest manifest_edits_cannot_take_over_an_existing_claim ... ok\ntest manifest_later_failure_rolls_back_edits_and_priority_audit ... ok\ntest manifest_output_redacts_scalar_changes_without_masking_stored_values ... ok\ntest new_edit_fields_keep_native_content_checks_and_redacted_errors ... ok\ntest priority_change_records_reason_actor_and_changes_ready_order ... ok\ntest priority_requires_a_reason_and_same_value_has_no_priority_event ... ok\ntest repeated_edits_are_noops_after_revision_and_claim_checks ... ok\ntest stale_revision_rejects_the_whole_edit ... ok\ntest title_limits_count_utf8_bytes ... ok\n\ntest result: ok. 23 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 4.20s\n\n\nrunning 11 tests\ntest schema_explain_concise_path_fits_published_schema ... ok\ntest schema_explain_guide_fits_its_published_schema ... ok\ntest schema_explain_json_and_markdown_are_deterministic ... ok\ntest schema_explain_json_and_markdown_represent_the_same_typed_source ... ok\ntest schema_explain_output_is_byte_identical_across_runs ... ok\ntest schema_list_is_workspace_independent_and_deterministic ... ok\ntest schema_list_matches_capabilities_catalog ... ok\ntest schema_list_rejects_unsupported_format_as_usage_error ... ok\ntest schema_show_and_explain_reject_malformed_identities ... ok\ntest schema_show_and_explain_reject_unknown_identity ... ok\ntest schema_show_resolves_every_catalog_identity ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.19s\n\n\nrunning 11 tests\ntest capability_schema_accepts_the_optional_type_transport ... ok\ntest dry_run_and_repeated_file_values_preserve_saved_state ... ok\ntest file_edits_enforce_revision_and_claim_guards_even_for_noops ... ok\ntest file_type_is_scanned_before_any_scalar_edit ... ok\ntest help_and_generated_man_page_describe_type_file_input ... ok\ntest inline_and_file_conflict_before_reading_the_file ... ok\ntest long_unicode_file_commits_one_guarded_edit_and_preserves_claim ... ok\ntest missing_invalid_utf8_and_empty_files_leave_the_edit_unapplied ... ok\ntest only_one_text_field_may_consume_stdin ... ok\ntest stdin_type_preserves_exact_text ... ok\ntest stored_issue_and_manifest_keep_literal_type_text ... ok\n\ntest result: ok. 11 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.98s\n\n\nrunning 10 tests\ntest capabilities_advertise_issue_document_shapes ... ok\ntest create_and_claim_format_aliases_match_existing_json_bytes ... ok\ntest format_based_commands_show_json_in_leaf_help ... ok\ntest format_commands_advertise_json_and_preserve_other_renderings ... ok\ntest help_describes_the_issue_json_shapes ... ok\ntest list_json_and_jsonl_conflict_with_usage_exit_code ... ok\ntest list_json_is_one_array_for_empty_one_and_many_results ... ok\ntest output_selector_aliases_are_byte_identical_and_query_keeps_its_json_input ... ok\ntest show_json_is_the_complete_issue_object ... ok\ntest unsupported_and_conflicting_output_selectors_have_stable_usage_errors ... ok\n\ntest result: ok. 10 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 1.03s\n\n\nrunning 6 tests\ntest append_and_hyphen_leading_values_are_stored_verbatim ... ok\ntest append_honors_revision_and_claim_credentials ... ok\ntest blocked_secret_in_append_leaves_the_issue_unchanged ... ok\ntest file_and_stdin_sources_match_inline_values ... ok\ntest multiple_text_sources_are_usage_errors ... ok\ntest two_connections_append_without_losing_either_value ... ok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.66s\n\n\nrunning 6 tests\ntest assignee_metadata_is_redactable_without_deleting_the_issue ... ok\ntest aws_secret_access_key_assignment_is_discoverable_and_redactable ... ok\ntest concurrent_identical_requests_commit_once_and_replay_once ... ok\ntest every_supported_nonissue_record_preserves_identity_and_integrity ... ok\ntest garage_access_key_id_assignment_is_discoverable_and_redactable ... ok\ntest issue_redaction_is_exact_atomic_and_idempotent ... ok\n\ntest result: ok. 6 passed; 0 failed; 0 ignored; 0 measured; 0 filtered out; finished in 0.29s\n\n"
+    },
+    "logs/cargo-type-checks.stderr": {
+      "sha256": "adb8a163790052a8a8a89e320d80e751cdbbb98b1238d90b8d34597da436e73e",
+      "bytes": 5317,
+      "text": "    Updating crates.io index\n Downloading crates ...\n  Downloaded anstyle-query v1.1.5\n  Downloaded anstyle-parse v1.0.0\n  Downloaded anstream v1.0.0\n  Downloaded block-buffer v0.10.4\n  Downloaded cfg-if v1.0.5\n  Downloaded version_check v0.9.5\n  Downloaded clap_lex v1.1.1\n  Downloaded heck v0.5.0\n  Downloaded predicates-core v1.0.10\n  Downloaded assert_cmd v2.2.2\n  Downloaded autocfg v1.5.1\n  Downloaded utf8parse v0.2.2\n  Downloaded wait-timeout v0.2.1\n  Downloaded fallible-streaming-iterator v0.1.9\n  Downloaded futures-core v0.3.34\n  Downloaded colorchoice v1.0.5\n  Downloaded cpufeatures v0.2.17\n  Downloaded futures-task v0.3.34\n  Downloaded roff v1.1.1\n  Downloaded predicates-tree v1.0.13\n  Downloaded serial_test v3.5.0\n  Downloaded strsim v0.11.1\n  Downloaded difflib v0.4.0\n  Downloaded itoa v1.0.18\n  Downloaded clap_mangen v0.3.3\n  Downloaded fastrand v2.5.0\n  Downloaded anstyle v1.0.14\n  Downloaded futures-executor v0.3.34\n  Downloaded zmij v1.0.23\n  Downloaded generic-array v0.14.7\n  Downloaded fs2 v0.4.3\n  Downloaded time-core v0.1.7\n  Downloaded float-cmp v0.10.0\n  Downloaded hex v0.4.3\n  Downloaded md5 v0.7.0\n  Downloaded errno v0.3.14\n  Downloaded num-conv v0.1.0\n  Downloaded normalize-line-endings v0.3.0\n  Downloaded termtree v0.5.1\n  Downloaded crypto-common v0.1.7\n  Downloaded scopeguard v1.2.0\n  Downloaded num_cpus v1.17.0\n  Downloaded powerfmt v0.2.0\n  Downloaded rand_chacha v0.3.1\n  Downloaded lock_api v0.4.14\n  Downloaded smallvec v1.16.1\n  Downloaded fallible-iterator v0.3.0\n  Downloaded pin-project-lite v0.2.17\n  Downloaded clap_derive v4.6.7\n  Downloaded quote v1.0.47\n  Downloaded time-macros v0.2.25\n  Downloaded anyhow v1.0.104\n  Downloaded bitflags v2.13.2\n  Downloaded rand_core v0.6.4\n  Downloaded is_terminal_polyfill v1.70.2\n  Downloaded digest v0.10.7\n  Downloaded foldhash v0.2.0\n  Downloaded predicates v3.1.4\n  Downloaded sha2 v0.10.9\n  Downloaded slab v0.4.12\n  Downloaded serial_test_derive v3.5.0\n  Downloaded thiserror-impl v1.0.69\n  Downloaded pkg-config v0.3.34\n  Downloaded ppv-lite86 v0.2.21\n  Downloaded shlex v2.0.1\n  Downloaded find-msvc-tools v0.1.12\n  Downloaded parking_lot_core v0.9.12\n  Downloaded hashlink v0.12.2\n  Downloaded iana-time-zone v0.1.65\n  Downloaded parking_lot v0.12.5\n  Downloaded once_cell v1.21.4\n  Downloaded uuid v1.26.1\n  Downloaded deranged v0.5.8\n  Downloaded unicode-ident v1.0.26\n  Downloaded tempfile v3.27.0\n  Downloaded thiserror v1.0.69\n  Downloaded serde_derive v1.0.229\n  Downloaded getrandom v0.2.17\n  Downloaded clap v4.6.7\n  Downloaded getrandom v0.4.3\n  Downloaded num-traits v0.2.19\n  Downloaded log v0.4.34\n  Downloaded proc-macro2 v1.0.107\n  Downloaded serde_core v1.0.229\n  Downloaded cc v1.4.6\n  Downloaded typenum v1.20.1\n  Downloaded serde v1.0.229\n  Downloaded rand v0.8.8\n  Downloaded memchr v2.8.3\n  Downloaded aho-corasick v1.1.5\n  Downloaded hashbrown v0.17.1\n  Downloaded serde_json v1.0.151\n  Downloaded zerocopy v0.8.57\n  Downloaded vcpkg v0.2.15\n  Downloaded rusqlite v0.40.2\n  Downloaded regex v1.13.1\n  Downloaded clap_builder v4.6.7\n  Downloaded futures-util v0.3.34\n  Downloaded time v0.3.45\n  Downloaded chrono v0.4.45\n  Downloaded syn v2.0.119\n  Downloaded syn v3.0.6\n  Downloaded bstr v1.13.1\n  Downloaded regex-syntax v0.8.11\n  Downloaded rustix v1.1.5\n  Downloaded regex-automata v0.4.18\n  Downloaded libc v0.2.189\n  Downloaded linux-raw-sys v0.12.1\n  Downloaded libsqlite3-sys v0.38.2\n   Compiling bead-rs v0.3.0 (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/source)\n    Finished `test` profile [unoptimized] target(s) in 23.64s\n     Running tests/capability_framework.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/c834cfbf118c41dc/out/capability_framework-c834cfbf118c41dc)\n     Running tests/capability_variant_matrix.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/f82843f87c473bff/out/capability_variant_matrix-f82843f87c473bff)\n     Running tests/cli_capabilities.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/d45194426e47dc19/out/cli_capabilities-d45194426e47dc19)\n     Running tests/cli_editing.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/be470661e9743820/out/cli_editing-be470661e9743820)\n     Running tests/cli_schema.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/525fed9add95b2ff/out/cli_schema-525fed9add95b2ff)\n     Running tests/issue_type_file.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/c7dbd439679a153c/out/issue_type_file-c7dbd439679a153c)\n     Running tests/r041_issue_json_documents.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/88751d87951fab74/out/r041_issue_json_documents-88751d87951fab74)\n     Running tests/r041_text_inputs.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/136cfe42eb21f3e1/out/r041_text_inputs-136cfe42eb21f3e1)\n     Running tests/redaction_transaction.rs (/home/runner/work/_temp/bead-checkpoint-linux-build-45600748319-1/target/debug/build/bead-rs/35e8d4842dc22eb3/out/redaction_transaction-35e8d4842dc22eb3)\n"
+    }
+  },
+  "findings": [],
+  "app_roundtrip_prerequisite_satisfied": true,
+  "app_packet": {
+    "commit": "f6679cad66ab1d280edcead8a7dc1f609e304c95",
+    "review_commit": "de88c383b5a6dcf66fb6e33651835a186a4937ce",
+    "review_sha256": "6a3b2faefa5d166436124d508630ac4f718a152884f2c3b1581c335e7b2bdd43",
+    "activation": "The appointed app executor may now reconcile absence/prior attempts and activate this exact already accepted packet once."
+  },
+  "final_native_acceptance": false,
+  "remaining": [
+    "Independent complete default-suite and Windows qualification reconciliation",
+    "Two complete final native author inspections and final native review",
+    "Actual app Windows store/HTTP checks and root app acceptance",
+    "Actual PC mapping, installation, tray/configured launch, history and cleanup"
+  ],
+  "reviewer_product_execution": 0,
+  "pc_actions": 0
+}
