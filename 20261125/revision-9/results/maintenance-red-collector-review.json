@@ -1,0 +1,63 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "cloud_readiness",
+  "scope": "Exact collector repair and one fresh focused Windows maintenance compile followed by the first six-case Red execution",
+  "packet_commit": "82b96b95947bb5a586364e7fc4664064e204c77d",
+  "packet_parent": "9059c9a0020c25b667d1681b95f1a0fdc687e9bc",
+  "packet_directory": "20261125/revision-9/native-maintenance-red",
+  "activation_branch": "task/native-maintenance-red-20261125",
+  "prior_complete_packet_review": {
+    "commit": "d62e71c501c2d8d1645b69428e08723cc008b3b6",
+    "path": "20261125/revision-9/results/maintenance-red-packet-review.json",
+    "sha256": "97808d188e575a40a16a3779e88b982af56fbc1e0c243e1eb7f6a12f67dff870"
+  },
+  "accepted_plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "review_commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
+    "review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+  },
+  "source_commit": "c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b",
+  "source_tree": "13e8f57a4de57819dfe3f13cc71f6078ac27bba7",
+  "reviewed_files": {
+    "maintenance.py": "70dfb438925d1053925671d4579d932c4b7424fa3bc870d88eb478a70b068a87",
+    "supervise.ps1": "5bdaf4dd3f6e89e8bdd5a2e895df179392ff26c4d71a1caa335a16f7ab0c17e2",
+    "windows-task-job.ps1": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "windows_build_support.py": "1c6cfa0b0c60c891c77a922823d1f3c0f4e14ba80b30d4260aee873105093b07",
+    "workflow.yml": "8b368a144ddf4e7e6d3ae20e84ccc91263ac16ba4c54edfeb1371dd374bb89dd",
+    "README.md": "1ead4e47656d2868ed8607828eb7602f35d8fffbe7e5de88b7fc2297729e2b07",
+    "author-inspections.json": "77b08a126626f1c24c6681010cdd1b51279fc9a3cbd8130e5c9b66ec03bdfcb0"
+  },
+  "actual_workflow_path": ".github/workflows/native-maintenance-red-20261125.yml",
+  "actual_workflow_equals_packet": true,
+  "complete_clean_author_inspections": 2,
+  "checks": [
+    "The immutable commit is a direct child of the completely reviewed original packet and changes only the helper collector, its two workflow hash bindings, README and author record.",
+    "Independently reversed the exact additional generator case and eight-line recording branch; the complete helper then equals the previously reviewed helper byte for byte. Reversing only the two helper hashes recovers the complete prior workflow.",
+    "The added executable is accepted only when its target is exactly generate-man-pages, non-test, kind bin, from the pinned package Cargo.toml, inside the owned Windows target directory and an AMD64 PE image. A second generator output is rejected. Its hash and size are recorded separately; it is neither retained nor executed.",
+    "The selected executable set remains exactly bead and redaction_transaction. The unchanged post-compile all-source rehash and checkout-status checks remain mandatory before status passed. The original source/toolchain pins, single-job compile command, download inventory validation, six-case single execution, expected Red assertions, Windows Job supervision and all timeout limits are unchanged.",
+    "Read the full changed collector and immediate compile/source-stability consumer, full README and both final author inspections. The retained first attempt honestly records compile exit zero but collector failure, absent bead identity and unobserved post-compile source check. Its six-case race did not execute.",
+    "All changed file hashes match the author record; immutable commit metadata confirms the supervisor and both support helpers are unchanged. Actual workflow bytes equal the packet copy."
+  ],
+  "findings": [],
+  "prior_attempt": {
+    "run_id": 45595234517,
+    "evidence_commit": "0a8d8ce81ecd552398bd495c343b5be67e981a65",
+    "path": "20261125/revision-9/results/maintenance-compile-45595234517",
+    "cargo_exit_code": 0,
+    "compile_packet_pass": false,
+    "post_compile_source_stability_measured": false,
+    "red_executed": false
+  },
+  "verdict": "GO for one fresh focused compile using this exact corrected packet, then its separate verified artifact download and first complete six-case Red invocation. Retain the prior incomplete attempt and every actual new result. Production predicate edits remain gated on independent acceptance of actual Red plus the accepted tests-only fixture candidate.",
+  "remaining": [
+    "Successful complete focused compile with post-source check, bead and harness identities and verified artifact",
+    "First actual six-case maintenance Red with complete raw output and zero owned descendants",
+    "Complete independent Windows tests/Red review before the two remaining production predicates",
+    "Final-source Linux and Windows qualification"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
