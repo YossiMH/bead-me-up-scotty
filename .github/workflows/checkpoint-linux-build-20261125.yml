@@ -1,0 +1,88 @@
+name: Compile and build the corrected checkpoint tool for Linux
+
+on:
+  push:
+    branches:
+      - task/checkpoint-linux-build-20261125-v2
+
+permissions:
+  contents: read
+
+concurrency:
+  group: checkpoint-linux-build-20261125
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Read exact qualification files
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          ref: ${{ github.sha }}
+          path: ci
+          persist-credentials: false
+          sparse-checkout: |
+            20261125/checkpoint-linux-green-v2
+
+      - name: Read exact formatted repair and all three source parents
+        uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803
+        with:
+          repository: YossiMH/bead-rs
+          ref: 515b503b24baf71737ff8fa6c879bd0752ef0fc6
+          fetch-depth: 4
+          path: source
+          persist-credentials: false
+
+      - name: Install the pinned compiler and required checks
+        run: rustup toolchain install 1.100.0 --profile minimal --component rustfmt --component clippy --no-self-update
+
+      - name: Parse both exact build helpers
+        env:
+          PYTHONPYCACHEPREFIX: ${{ runner.temp }}/checkpoint-green-python-cache-${{ github.run_id }}-${{ github.run_attempt }}
+        run: |
+          python3 -m py_compile \
+            "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-green-v2/checkpoint-linux-build-20261125.py" \
+            "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-green-v2/checkpoint-build-support.py"
+
+      - name: Verify whitespace and compile the immutable source
+        timeout-minutes: 32
+        run: |
+          python3 "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-green-v2/checkpoint-linux-build-20261125.py" \
+            --checkout "$GITHUB_WORKSPACE/source" \
+            --support-helper "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-green-v2/checkpoint-build-support.py" \
+            --inputs "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-green-v2/build-inputs.json" \
+            --inputs-sha256 50af921e6fff03182d2a0c85663c4350150b12e0ffef046e922fa9540ba24bf8 \
+            --helper-sha256 94c4a9012f35326234cd0eb613017b22018f0679be2d4f53fce08c9f1d4af6ad
+
+      - name: Retain all compiled targets and complete build streams
+        if: always()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/qualification-bundle.tar.gz
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/build-result.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/result.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/repair-whitespace.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/format-check.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/attempt-started.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/logs
+
+      - name: Retain the release and selected original public corpus
+        if: success()
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02
+        with:
+          name: checkpoint-linux-release-${{ github.run_id }}-${{ github.run_attempt }}
+          retention-days: 7
+          compression-level: 0
+          if-no-files-found: error
+          path: |
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/release
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/public-original
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/build-result.json
+            ${{ runner.temp }}/bead-checkpoint-linux-build-${{ github.run_id }}-${{ github.run_attempt }}/result.json
