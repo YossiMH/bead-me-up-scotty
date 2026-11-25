@@ -1,0 +1,84 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "continuation_revision": 9,
+  "reviewer": "cloud_readiness",
+  "scope": "Revision 9 binding preparation and one cloud-only parser/refusal activation",
+  "candidate_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+  "candidate_parent": "c3e14fef54c3bf2045306e4cd38d60f8fce730c4",
+  "packet_directory": "20261125/revision-9/install-binding",
+  "activation_branch": "task/type-binding-v9-checks-20261125",
+  "reviewed_files": {
+    "README.md": "68fc9b2f36cdfe4988b54af9d82df307ef797d0251df6a2ccc8008e0a87671da",
+    "author-inspections.json": "118123f5e4b7598d14cfc660e3b86c5faf3e05097c577375a9b04c3e4ae258ea",
+    "binding.json": "851877164b7dac2a058e366fc5a9867cee4926eff7b77673c16ead0681eba69a",
+    "check-binding-refusals.ps1": "8a4e50c74f6f60485ada94a405ba934d396c578ebed8bd02f7027ff170dfcf3c",
+    "check-history-refusals.mjs": "95152755e97a8ee62d0a9d127c0833f298400dec852361acc2e8caee13038d55",
+    "checkpoint-handoff-20261125.mjs": "179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341",
+    "checkpoint-handoff-supervisor-20261125.ps1": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+    "materialize-v9-supervisor.ps1": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3",
+    "materialize-v9.mjs": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686",
+    "parse-bindings.ps1": "c6ce24dd405de76c60936796424901dc5a2c6ec720c4d2a2342eb036e4c30691",
+    "parse-inputs.json": "d775d117eb9e89b9d53d6a5e6eb23a598c34a8eb60919928fbd92cba0755039c",
+    "plan-review.json": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+    "plan.json": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "verify-bindings.workflow.yml": "890cf053327df055dc1928011b7b2da06394331789ce4d2d2fb212642961beb6",
+    "windows-configured-launch-host-20261125.ps1": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+    "windows-install-tray-host-20261125.ps1": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0"
+  },
+  "workflow_sha256": "890cf053327df055dc1928011b7b2da06394331789ce4d2d2fb212642961beb6",
+  "accepted_plan": {
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "review_commit": "f5bd44970f4cbf5d76204aac3183fb8fcf3f5ea4",
+    "review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+    "tasks": 55,
+    "blocking_edges": 91
+  },
+  "baseline": {
+    "candidate_commit": "98a2daa3ef411c0f986daee1794c130f025c49cd",
+    "preparation_review": "a410b976e028022316fb1e9e1d956ea1c606d5b8",
+    "actual_checks_review": "b6bd9f060fedba0b180850b377a0494b49cb6227"
+  },
+  "independent_checks": {
+    "materializer_25_line_inverse_recovers_complete_accepted_v8": true,
+    "supervisor_10_line_inverse_recovers_complete_accepted_v8": true,
+    "history_exact_three_literal_inverse": true,
+    "unchanged_installer_configured_history_supervisor_installer_fixture": true,
+    "corrected_receipt_has_required_plan_sha256": true,
+    "all_parser_author_bindings_match": true,
+    "actual_workflow_equals_packet": true,
+    "complete_clean_final_author_inspections": 2,
+    "actual_native_mapping": null,
+    "final_native_selection": null
+  },
+  "findings_resolved": [
+    {
+      "finding": "The independently issued plan review omitted the duplicate plan_sha256 field required by the unchanged history acceptance contract.",
+      "resolution": "Corrected review f5bd4497 adds that exact plan identity without changing the accepted plan or verdict. This candidate copies the corrected receipt and rebinds every dependent supervisor/parser/workflow/README/author identity."
+    }
+  ],
+  "inspection": [
+    "Retained the previous full helper and actual-result reviews, read every final changed line and affected functions, both complete author inspections, binding metadata, current instructions and worktree recovery handoff. Independently compared all sixteen packet files and the actual workflow, using immutable ancestry for unchanged final bytes.",
+    "The materializer derives the exact actual-v6 delta from the accepted plan: preserve 954 original records/history, all 32 actual IDs and 51 edges, perform the same three supported guarded reopens, then commit 23 absent-key creates, 15 exact old-description updates and 40 new edges atomically. Expected manifest/readback counts are 78 operations, 55 tasks, 91 edges and 1009 issues.",
+    "Only version/path/hash/count literals and the added obsolete-v8-attempt refusal differ from the accepted v8 materializer. Both obsolete-v7/v8 checks precede output creation and native commands. Current-attempt markers, exact prior inventory/revision/claim guards, uncertain-write handling, original-record comparison and retained close history remain intact.",
+    "The supervisor changes only bindings and corresponding old-attempt refusal. Its owned Job, 1 GiB-free prerequisite, 512 MiB aggregate RSS, 128 MiB Node heap, BelowNormal priority, 180-second deadline and cleanup reserve remain unchanged.",
+    "The history helper changes only plan path, materialization-result path and review revision. Its complete body otherwise matches the accepted baseline, including actual mapping, all prerequisite receipts, original full-record/history preservation, selected current/previous checkpoints, source/index identity, same-UUID merge and guarded final closure.",
+    "The installer, configured launcher, history supervisor and nine-case installer fixture remain byte-identical. Native release selection and actual materialization are null/pending. App runtime identities refer to the separately independently accepted complete 560-file original build inventory; no new production path allowance is introduced.",
+    "The hosted workflow only parses four PowerShell files, syntax-checks two Node modules, parses two JSON inputs, compiles four embedded declarations without method invocation, and runs the existing nine installer plus eight graph control/refusal cases on synthetic data. The graph fixture changes only counts to 55/91 and its matching-case label.",
+    "All eight parser bindings and every final author file hash/length match independently measured bytes. The final corrected plan receipt includes both plan identity fields required by downstream helpers. The workflow's actual file equals its packet copy.",
+    "The README accurately keeps final native/staging qualification, actual mapping, Emergency access, installed tray/configured launch and cleanup pending. Exact Riftri worktree paths, parents, non-force removal requirements and successor cleanup instructions are retained."
+  ],
+  "verdict": "GO for one hosted preparation-check activation at this exact candidate. This accepts prepared helper source and checks only; it does not authorize or claim actual PC materialization, installation, native task closure or final runtime selection.",
+  "remaining": [
+    "Actual hosted parser/refusal output and independent reconciliation",
+    "Separate fresh-archive staging helper and measured final native bindings",
+    "Actual maintenance Red, fixture/source review and final Linux/Windows qualification",
+    "Actual Windows app store/HTTP roundtrip",
+    "Permitted PC access/resource gates, actual revision 9 mapping and guarded canonical result reconciliation",
+    "Actual logged-in tray/Exit, installation/configured launch, final history and Riftri cleanup"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
