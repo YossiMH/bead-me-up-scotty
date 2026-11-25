@@ -6,16 +6,20 @@
   "source_tree": "c9707f7b58dd76826244719af018bf4c02a3e5fc",
   "baseline_commit": "986f2a332aca9dd567eee41ce835917d56e29468",
   "files": {
-    "checkpoint-red-build-20261125.py": "55fc908bfe98c94e85fbd7ed9f205d4fa0a76701fd1b7e737fbe9c5b5f012607",
+    "checkpoint-red-build-20261125.py": "db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0",
     "build-inputs.json": "57d129f2abd63797418f9950a2e20abe72466aafd2584ba203d317c9ee530ba3",
-    "checkpoint-red-build.workflow.yml": "5078742cb20ccc56b18617ba6e0a509ae1809c0fe114bfa5c10362f49c0462dc",
-    "README.md": "59b6efd798c57a772ae22875fe8fbeb1ec88990dba8bf9969c11fd0faedd3607",
-    "checkpoint-tests.json": "203f5ca933324dacda333a7481e4da22f64c33e76d57fdabcdb4265b0b439d17"
+    "checkpoint-red-build.workflow.yml": "d75c44f7341caf9d8fede01ecf0158d8ebde911102e689b98748ca9caa3b5aa6",
+    "README.md": "4f9184a0d9785c1729f13128725e2499cab4ab720b3a32e65c32c5e23251cb34",
+    "checkpoint-tests.json": "203f5ca933324dacda333a7481e4da22f64c33e76d57fdabcdb4265b0b439d17",
+    "failed-build-result.json": "24085cfbd33d3bb942dbb58decc24b0988934a4dfe7ea00cbb13ce53298a5dcb",
+    "failed-outer-result.json": "a603191a83d0acac5cedeeb5df6a3d3a75e96456650fe52a15d0d2a1d2d39df1",
+    "compiler-path-diagnostic.json": "4baa0e3fe4abc5fbc013b2cedb09fdf1796dc282446dbcc1a6169cf969a7b4a7",
+    "helper-v2.patch": "568942608520df20b6a21a8f0f86ba8937dc55c21f4e8d7095d7b563ea24a9a2"
   },
   "activation": {
     "repository": "YossiMH/bead-me-up-scotty",
-    "temporary_branch": "task/checkpoint-red-build-20261125",
-    "workflow_path": ".github/workflows/checkpoint-red-build-20261125.yml",
+    "temporary_branch": "task/checkpoint-red-build-20261125-v2",
+    "workflow_path": ".github/workflows/checkpoint-red-build-20261125-v2.yml",
     "event": "push",
     "permissions": {
       "contents": "read"
@@ -24,12 +28,15 @@
     "artifact_retention_days": 7
   },
   "checks": {
-    "source_identity": "verified via complete Git tree and file readback",
+    "source_identity": "unchanged exact accepted tests-only commit",
     "helper_digest": "verified from exact author's Git blob and both predecessor transformations",
     "workflow_source": "complete static inspection",
-    "python_parse": "pending ordinary hosted py_compile preflight",
-    "git_whitespace": "pending actual hosted git diff --check preflight",
-    "compilation": "pending separate authorized run",
-    "tests_executed": false
-  }
+    "python_parse": "first helper parsed successfully; revised seven-line predicate awaits ordinary hosted py_compile",
+    "git_whitespace": "actual first-run git diff --check exit0; repeated preflight remains required in v2",
+    "compilation": "first Cargo command exit0; outer mapping/bundle failed and the task remains pending the corrected complete output",
+    "tests_executed": false,
+    "corrected_path_predicate": "matches all four actual retained Cargo1.100 executable records"
+  },
+  "packet_revision": 2,
+  "supersedes_packet_commit": "7214002b1e091d658008cb1fea3224ce9b5379ca"
 }

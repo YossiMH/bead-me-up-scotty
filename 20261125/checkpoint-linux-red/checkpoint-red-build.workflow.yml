@@ -3,7 +3,7 @@ name: Temporary checkpoint Red compilation
 on:
   push:
     branches:
-      - task/checkpoint-red-build-20261125
+      - task/checkpoint-red-build-20261125-v2
 
 permissions:
   contents: read
@@ -50,7 +50,7 @@ jobs:
             --checkout "$GITHUB_WORKSPACE/source" \
             --inputs "$GITHUB_WORKSPACE/ci/20261125/checkpoint-linux-red/build-inputs.json" \
             --inputs-sha256 57d129f2abd63797418f9950a2e20abe72466aafd2584ba203d317c9ee530ba3 \
-            --helper-sha256 55fc908bfe98c94e85fbd7ed9f205d4fa0a76701fd1b7e737fbe9c5b5f012607
+            --helper-sha256 db9b710e0b181a348d3a84602d37c1e4bad2f373a46940d0d40863c93b0081f0
 
       - name: Retain compilation outputs and complete logs
         if: always()

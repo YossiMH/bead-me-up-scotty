@@ -30,9 +30,9 @@ ordinary coordination data and does not activate GitHub Actions. Independent
 review must accept this whole packet before activation.
 
 To activate the accepted packet, create a fresh temporary branch
-task/checkpoint-red-build-20261125 in YossiMH/bead-me-up-scotty with the exact
+task/checkpoint-red-build-20261125-v2 in YossiMH/bead-me-up-scotty with the exact
 reviewed packet and an identical copy of the workflow at
-.github/workflows/checkpoint-red-build-20261125.yml. First check that this branch
+.github/workflows/checkpoint-red-build-20261125-v2.yml. First check that this branch
 is absent. Create it from the actual reviewed scratch commit by ordinary,
 non-force ref creation. Do not change main or either product candidate branch.
 
@@ -125,3 +125,42 @@ If the process stops early, a future agent must first reconcile any uncertain
 publication or run, preserve its result, and clean the owned temporary branches
 and worktrees when the assignment is complete. Do not replay an uncertain action
 or infer a native task closure from a hosted result.
+
+## Retained first-run result and mapping correction
+
+The first compile job was run45535362756/job138940518590 at workflow commit
+1b2f9a2da3d5f4a64d71e58bc159b0ae22f27f6d. Every source guard and actual
+git diff --check returned zero, and the exact Cargo no-run command returned
+zero. The helper then failed with Unexpected test executable path while
+validating the compiled output. That run remains failed because it did not
+produce an accepted executable map or successful bundle.
+
+The failed build/outer receipts and compiler-path diagnostic are retained in
+this packet with their original hashes. A separate five-minute hosted job,
+run45536239392/job138943405404 at e86bd323a010fd3b7825472306d6f80c954b5764,
+read the exact failed-run artifact14985844517, verified both receipts, and
+reported the original compiler-artifact records. Its own artifact is14987277839.
+That diagnostic executed no compiler, test or product command.
+
+Cargo1.100 emitted each test harness below
+target/debug/build/bead-rs/<16-hex-build-unit>/out/<target-name>-<same-build-unit>.
+The native bead executable remains target/debug/bead. The helper previously
+required target/debug/deps. The correction replaces only that stale harness
+parent assertion with the exact observed Cargo1.100 structure and expected
+target name. All existing package, manifest, owned-target containment,
+regular-file, executable-mode, uniqueness and SHA-256 checks remain.
+
+The source, test assertions, Cargo invocation, compiler version, job count,
+deadlines and bundle schema are unchanged. The new branch has its own fresh
+run/root and retains the first failed run. Successful compilation acceptance
+still requires the complete new executable mapping and bundle, followed by
+the separately authorized expected-failure checks.
+
+Primary Cargo documentation:
+https://doc.rust-lang.org/cargo/reference/build-cache.html
+https://doc.rust-lang.org/stable/nightly-rustc/cargo/compiler/layout/index.html
+https://blog.rust-lang.org/2026/03/13/call-for-testing-build-dir-layout-v2/
+
+Keep task/checkpoint-red-build-20261125 and
+task/checkpoint-red-diagnose-20261125 on the final owned-branch cleanup list
+alongside this v2 branch. Preserve their accepted evidence before deletion.

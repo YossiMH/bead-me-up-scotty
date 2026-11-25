@@ -1,0 +1,18 @@
+--- a/checkpoint-red-build-20261125.py
++++ b/checkpoint-red-build-20261125.py
+@@ -300,7 +300,14 @@
+             if key == "bead":
+                 require(binary == target / "debug" / "bead", "Unexpected bead binary path")
+             else:
+-                require(binary.parent == target / "debug" / "deps", "Unexpected test executable path")
++                # Cargo1.100 reports build-unit paths through its executable JSON field.
++                parts = binary.relative_to(target).parts
++                expected_name = "bead_rs" if key == "lib" else key
++                require(target_info["name"] == expected_name, "Unexpected test target name")
++                require(len(parts) == 6 and parts[:3] == ("debug", "build", "bead-rs")
++                        and re.fullmatch(r"[a-f0-9]{16}", parts[3]) and parts[4] == "out"
++                        and parts[5] == expected_name + "-" + parts[3],
++                        "Unexpected Cargo1.100 test executable path: " + str(binary.relative_to(target)))
+             require(os.access(binary, os.X_OK) and binary.stat().st_size > 0,
+                     "Compiled executable is empty or not executable")
+             found[key] = file_record(binary, root)
