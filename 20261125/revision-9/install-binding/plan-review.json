@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "continuation_revision": 9,
+  "reviewer": "cloud_readiness",
+  "plan_commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522",
+  "plan_path": "20261125/revision-9/plan.json",
+  "read_complete_plan": true,
+  "expanded_tasks_read": 55,
+  "blocking_edges_read": 91,
+  "reviewed_files": {
+    "plan.json": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "plan_bytes": 419134,
+  "prior_complete_review": {
+    "plan_commit": "38332d9a3a9e4856291edd11237fc27d5759f4d4",
+    "plan_sha256": "508e6a34d6446f3d73ecb1737e5f27c7df8d1338700e390a01ed3370172e9d7d",
+    "review_commit": "d8118ff886be31bb770e9d6f2192748548c15228",
+    "read_expanded_tasks": 52,
+    "read_blocking_edges": 86
+  },
+  "reading_method": "Retained the valid complete revision 8 inspection, verified all 28 wholly unchanged task definitions byte-for-byte, and read all revised instruction sections, rewritten tasks and three new full task definitions against that complete plan. Reviewed every final prerequisite, resource declaration, current materialization instruction, coverage mapping and revision 9 source/delivery contract.",
+  "graph_verification": {
+    "task_count": 55,
+    "unique_keys": 55,
+    "edge_count": 91,
+    "unique_edges": 91,
+    "derived_edge_count": 91,
+    "derived_matches": true,
+    "invalid_edges": [],
+    "acyclic": true,
+    "topological_count": 55,
+    "resources_all_arrays": true,
+    "new_task_count": 23,
+    "new_keys": [
+      "type-plan-review",
+      "type-backend-tests",
+      "type-backend-red-build",
+      "type-backend-red",
+      "type-backend-tests-review",
+      "type-backend-change",
+      "type-backend-checks",
+      "type-backend-review",
+      "type-app-tests",
+      "type-app-red",
+      "type-app-tests-review",
+      "type-app-change",
+      "type-app-checks",
+      "type-app-review",
+      "type-windows-roundtrip",
+      "type-install-binding",
+      "type-install-binding-review",
+      "windows-plan-review",
+      "windows-checkpoint-tests-review",
+      "windows-checkpoint-repair",
+      "windows-maintenance-red-build",
+      "windows-maintenance-red",
+      "windows-test-fixtures"
+    ],
+    "changed_existing_description_count": 15,
+    "changed_existing_fields": [
+      {
+        "key": "candidate-review",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "install",
+        "fields": [
+          "description",
+          "prerequisites"
+        ]
+      },
+      {
+        "key": "configured-launch",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "installed-review",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "backend-handoff",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "app-handoff",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "backend-text-review",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "app-text-review",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "preserve-and-clean",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "checkpoint-linux-build",
+        "fields": [
+          "prerequisites",
+          "description"
+        ]
+      },
+      {
+        "key": "checkpoint-windows-build",
+        "fields": [
+          "prerequisites",
+          "description"
+        ]
+      },
+      {
+        "key": "checkpoint-linux-checks",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "checkpoint-windows-checks",
+        "fields": [
+          "description"
+        ]
+      },
+      {
+        "key": "checkpoint-repair-review",
+        "fields": [
+          "prerequisites",
+          "description"
+        ]
+      },
+      {
+        "key": "checkpoint-full-suite",
+        "fields": [
+          "description"
+        ]
+      }
+    ],
+    "added_edges": 40,
+    "removed_base_edges": [],
+    "materialization_operations": 78,
+    "expected_total_issues": 1009
+  },
+  "evidence_reviewed": {
+    "operation_red_review": "3831a547328e7a29a0723bcb7d5e58b00238dccc",
+    "operation_red_evidence": "4241fb5712d0e5aed7caf5368645a31146714384",
+    "full_fs2_audit": {
+      "commit": "584eb91e41ef82d3ebf992478777ee4755a4c09b",
+      "sha256": "3d7b1d710c14b7d6c50e8f42587e341fd4bbfb3a48d7980f0a826107d0eaa7bf",
+      "inventory_count": 73
+    },
+    "core_grid_evidence": "7f911115b3a5c884e71609d221e1e5b63d5a069f",
+    "test_fixture_diagnosis_review": {
+      "commit": "df5b52ff75e5fd19f223aa0f338a8b33de702935",
+      "sha256": "c65599fbe94657cea39a60e032fd242ce0691ba5796cdb42417ab1a80ae150bd"
+    },
+    "maintenance_test_sha256": "4a88e30fa515bf2b92dc55671dd5ba09e22230c353d50dbb5d1c0d1b96c6cd34",
+    "maintenance_source_sha256": "d5151ce88ada09a57ed7fcfcd38faacf84e168356c7a56ba640cf4bf34ec4480"
+  },
+  "findings": [],
+  "acceptance_reasoning": [
+    "The complete plan preserves the requested native editing, Scotty editing integration and actual Windows tray/Exit outcome, including final installation, configured launch, source preservation, independent documentation review and Riftri cleanup. Historical passes remain bound to their measured inputs; c90 is not selectable as the final native source.",
+    "The source scope follows concrete Windows failures and the complete acquisition-site audit. Only operation and maintenance contention predicates change in production, retaining the already repaired publication/path behavior, all 30-second/10-ms bounds, unrelated errors, ordering and RAII.",
+    "Existing operation concurrency tests and actual Red remain unchanged and accepted. The new isolated maintenance compile and one six-case Windows execution establish the missing direct-service Red before production changes, with a precise failure contract and no repeated race or weakened oracle.",
+    "A separate tests-only author task can proceed while maintenance Red compiles. Its exact-root empty publish.lock representation and two existing stdin-helper substitutions preserve all product assertions and payloads. The independent tests review blocks production until both that exact candidate and actual maintenance evidence pass.",
+    "Fresh final Linux and Windows builds, affected checks including all six redaction_transaction cases, the complete default Linux suite, original-corpus recovery and all twelve ordinary/twelve grid Windows cases remain required. Standalone Windows build/check and type-backend-check command lists now explicitly include redaction_transaction.",
+    "Final native producers can start from the published production candidate while static review proceeds; author post-process inspections and final acceptance still depend on actual results. The unchanged app source and 560-file runtime are reused, with actual Windows app checks bound to the newly measured native release.",
+    "Actual canonical state remains revision 6. The separately reviewed direct update must preserve original 954 records/history, 32 actual task IDs and 51 edges, execute only the same three guarded reopens, then atomically apply 23 creates, 15 exact description updates and 40 added edges. Computed totals are 55 tasks, 91 edges and 1009 issues; all dependencies and graph counts reconcile independently.",
+    "Provisional cloud dispatch uses stable keys without invented native IDs, credentials or closure. Obsolete revision 7/8 attempts or uncertain writes require reconciliation before mutation. Installer/history binding, complete native mapping and actual PC acceptance remain required before installation or delivery.",
+    "The narrow fresh-runtime archive staging gap is assigned within type-install-binding and requires separate exact helper review while preserving the accepted installer, runtime manifests, private/dirty state and rollback controls. Existing PC limits and Emergency denial boundaries remain intact.",
+    "Task decomposition and changed instruction language identify concrete inputs, outputs, exact scope, owners/resources, dependencies, author/reviewer separation and failure handling; no additional task or source scope is needed for the known defects."
+  ],
+  "authorized_next_steps": [
+    "Dispatch windows-test-fixtures under its stable key and existing source resource.",
+    "Independently review the prepared focused maintenance packet, then allow its exact hosted compile/download/one Red execution.",
+    "Continue independent unchanged app metadata recovery and staging preparation.",
+    "Prepare the separate exact revision 9 materializer/history binding candidate for review; actual PC execution remains subject to its existing access and resource constraints."
+  ],
+  "not_yet_accepted": [
+    "Actual maintenance Red result",
+    "Exact tests-only fixture candidate",
+    "Two-predicate production candidate and final runtime qualification",
+    "Final artifact staging helper and revision 9 binding checks",
+    "Actual revision 9 task materialization, PC installation/configured tray acceptance and cleanup"
+  ],
+  "reviewer_product_execution": false,
+  "pc_access": false
+}
