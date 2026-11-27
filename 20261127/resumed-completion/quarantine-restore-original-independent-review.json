@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "status": "passed_independent_recovery_source_review",
+  "reviewer": "/root/review_scotty",
+  "operation": "retain-interrupted-restore-original-20261127-v1",
+  "findings": [],
+  "accepted_files": [
+    {
+      "name": "quarantine-restore-original-20261127.cjs",
+      "bytes": 21615,
+      "sha256": "92bfd912e3c4a9b174c77eb08cab6bdff6df43f99fbdfc0866b2eb7dfe23bd63"
+    },
+    {
+      "name": "quarantine-restore-original.request.prepared.json",
+      "bytes": 2470,
+      "sha256": "465f3dac3f0bebffd9bf0c6a044aa837b791426717c9129668ac0ce3e2829ff5"
+    },
+    {
+      "name": "quarantine-restore-original-invocation.prepared.json",
+      "bytes": 1460,
+      "sha256": "09fccf8b6e381d3cb19af52e95cb6fa1d4a99f18caffe873663a38b118342000"
+    },
+    {
+      "name": "quarantine-restore-original-author-inspections.json",
+      "bytes": 7002,
+      "sha256": "d3ec6135c3635fde4e39996b5d6952eaf4e38e8715bfe92c369ca0727c6874a7"
+    }
+  ],
+  "reviewed_evidence": {
+    "private_interruption_probe_sha256": "4c33891e3dd09432c19b6c02d70ebaa372a130cc54c79ceae1cf24be044694a9",
+    "checkpoint_inventory_sha256": "fa06fa988b03dc24781a7bdd061326a86ac7e79a9220927233914953602d798f",
+    "independently_recomputed_inventory_rows_sha256": "1d29aa194ee0979d887240c8fd625b902ce93e2668f249b2ce0da642b8e1c371",
+    "raw_git_before_and_after_init": {
+      "bytes_each": 102337,
+      "sha256": "9a10be2f5be17561e3bfe1df14c12fd81cd696101aa8516191cb5be64e060cc7",
+      "byte_identical": true,
+      "head": "025ebc6a38013402b1936e932c104348aec06fd4",
+      "checkpoint_tree": "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+      "index_sha256": "f3137ef0e0e450241aa7e5559915838ec25e5d153731639301b46615726c369f",
+      "status": "",
+      "checkpoint_entries": 53
+    },
+    "database_metadata": "Each of three exact size/mtime pairs matches the private read-only probe.",
+    "protected_files": "All six exact byte-length and SHA-256 pins match the private read-only probe.",
+    "checkpoint_inventory": "All 53 baseline files present; one directory; only extra file is ordinary zero-byte publish.lock; exact row digest independently matches the embedded pin.",
+    "preceding_phase_pins": "Exact preserve/freeze/source-restore hashes match their accepted earlier results. Runtime identity remains 0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a.",
+    "privacy": "Only selected identities and metadata enter this review; private probe/config bytes and database content are not copied into it."
+  },
+  "source_checks": [
+    "Read the complete helper and invocation. Embedded PIN, standalone pins and request targets are exactly consistent. The fixed invocation checks the helper SHA before require and passes the fixed request path plus exact request hash.",
+    "Preflight binds nine retained evidence files by exact size/hash and checks empty init, started interrupted restore, failed supervisor with empty owned Job, accepted source qualification and absence of completion/publication evidence.",
+    "Mutation scope is exactly five same-volume renames: DB/WAL/SHM totaling 8946056 bytes, then whole failed phase and supervisor directories. Destinations lie under one fixed fresh retained package.",
+    "All source files are streamed before mutation with handle/path stability checks; the source metadata is rechecked at each rename. Retained DB files are rehashed and checked for same device/inode/mtime. Retained directories preserve exact bounded entry metadata and root identity.",
+    "A create-new fsynced before receipt precedes every rename. Each rename has separate create-new fsynced intent and done receipts. Existing retention root refuses immediately; failures expose completed targets and prohibit automatic replay/resume.",
+    "Checkpoint files, original pointer/config/index files and ordinary zero-byte locks are untouched. Final checks require absent original DB/sidecars and old output directories, unchanged six protected identities/hashes and exact checkpoint inventory.",
+    "The helper has no SQL/native execution, subprocess creation, file deletion, overwrite, arbitrary target, checkpoint rollback/publication or history-task mutation path."
+  ],
+  "resources": {
+    "single_process": true,
+    "priority": "BelowNormal",
+    "node_heap_mib": 64,
+    "own_rss_limit_bytes": 134217728,
+    "free_physical_floor_bytes": 1073741824,
+    "sample_interval_ms": 100,
+    "internal_and_broker_limit_ms": 15000,
+    "hash_chunk_bytes": 65536,
+    "metadata_entry_limit": 256,
+    "maximum_entry_depth": 8,
+    "receipt_limit_bytes": 1048576,
+    "stdout_limit_bytes": 65000
+  },
+  "root_controlled_boundary": {
+    "attestations": [
+      "exclusive_native_writer_window",
+      "old_job_terminated",
+      "no_new_original_writes_since_probe",
+      "retention_reset_approved"
+    ],
+    "basis": "Root serializes PC commands and all original-store writes; the recorded failed Job has no members, and the subsequent work is read-only reconciliation and staging. This reviewed fixed preserving recovery is the concrete approved action.",
+    "after_execution": "Review the one actual outcome and retained receipts before using the separately reviewed v2 restore request. Any failed or uncertain reset is reconciled from its immutable intent/done records and source/destination identities; no blind replay."
+  },
+  "activity": {
+    "pc_actions": 0,
+    "ref_writes": 0,
+    "helper_body_execution": 0,
+    "product_tests": 0,
+    "builds": 0
+  },
+  "conclusion": "Accepted exact source/request/invocation for the root-owned one-time preserving recovery. No additional optional source, syntax or product gate is required. Actual reset success remains pending execution and the already-requested actual-result review."
+}

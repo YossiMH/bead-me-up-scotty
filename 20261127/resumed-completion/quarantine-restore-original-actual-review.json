@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "passed_independent_actual_recovery_review",
+  "reviewer": "/root/review_scotty",
+  "findings": [],
+  "source_review_sha256": "b1f9ae5662e7a42bf153a24f1d3443708b1ff579349a893bcf41e7626d2ccdc8",
+  "execution": {
+    "file": "quarantine-restore-original-execution.json",
+    "bytes": 7310,
+    "sha256": "625e3c229d88085cb8d264a52455a89d21f8eed8eda167feaabc5d1c7785457c",
+    "proposal_id": "67vtFWJ_qXhtSjG1zEOoXz4IKSLXoOEPG40nT4jVJ8o",
+    "job_id": "j1795798148405-31932-9754562539391336448",
+    "status": "exited",
+    "exit_code": 0,
+    "stderr_bytes": 0,
+    "stdout_dropped": 0,
+    "stderr_dropped": 0,
+    "replay_allowed": false
+  },
+  "actual_stdout": {
+    "file": "quarantine-restore-original-actual-stdout.json",
+    "bytes": 2818,
+    "sha256": "ba5eaafe5a9af19522855e667b7019609dfa20845e850ffa9f084333f51b334c",
+    "byte_identical_to_execution_stdout": true
+  },
+  "accepted_result": {
+    "schema_version": 1,
+    "status": "passed",
+    "operation": "retain-interrupted-restore-original-20261127-v1",
+    "request_sha256": "465f3dac3f0bebffd9bf0c6a044aa837b791426717c9129668ac0ce3e2829ff5",
+    "helper_sha256": "92bfd912e3c4a9b174c77eb08cab6bdff6df43f99fbdfc0866b2eb7dfe23bd63",
+    "old_proposal_id": "knsh2-kApqYm73E4rQkd_OxZOuoYyr75cFPQ1O_ArRw",
+    "quarantine": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752",
+    "completed_targets": [
+      {
+        "sequence": 1,
+        "name": "beads.db",
+        "source": "F:/Dev/bead-rs/.beads/beads.db",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/original-db/beads.db",
+        "kind": "file",
+        "bytes": "413696",
+        "sha256": "0fc0dd4f2ef8da77a6fe0aa0d902d962f39cb08e3304f2aa710d01e35a31cce3"
+      },
+      {
+        "sequence": 2,
+        "name": "beads.db-wal",
+        "source": "F:/Dev/bead-rs/.beads/beads.db-wal",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/original-db/beads.db-wal",
+        "kind": "file",
+        "bytes": "8499592",
+        "sha256": "987ccf0a33832a7bed5c8b48aac5e2824ad7d306f18bd06d844f6a5d7d32951e"
+      },
+      {
+        "sequence": 3,
+        "name": "beads.db-shm",
+        "source": "F:/Dev/bead-rs/.beads/beads.db-shm",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/original-db/beads.db-shm",
+        "kind": "file",
+        "bytes": "32768",
+        "sha256": "20ac58ca0aa47f79b46d099c93870b0030c3e6d827479336c4905fcbde0395f6"
+      },
+      {
+        "sequence": 4,
+        "name": "failed-phase",
+        "source": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/failed-phase",
+        "kind": "directory",
+        "entries": 96,
+        "rows_sha256": "599eb45968b5e68c3a02a39912e9522f5c2ac2e2e8a98db7f8979d47306ac822"
+      },
+      {
+        "sequence": 5,
+        "name": "failed-supervisor",
+        "source": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/failed-supervisor",
+        "kind": "directory",
+        "entries": 4,
+        "rows_sha256": "b477456606f317897ef9d7ee2fed6d5ae497b9a397d307357ec831a8e3d9aeb6"
+      }
+    ],
+    "original_database_and_sidecars_absent": true,
+    "original_checkpoint_config_and_index_unchanged": true,
+    "zero_byte_operation_and_publication_locks_retained": true,
+    "failed_phase_and_supervisor_retained": true,
+    "retained_database_bytes": 8946056,
+    "checkpoint_rows_sha256": "1d29aa194ee0979d887240c8fd625b902ce93e2668f249b2ce0da642b8e1c371",
+    "no_sql_or_native_execution": true,
+    "priority": "BelowNormal",
+    "node_heap_mib": 64,
+    "elapsed_ms": 207,
+    "peak_rss_bytes": 55259136,
+    "minimum_free_bytes": 8836972544,
+    "replay_allowed": false
+  },
+  "checks": [
+    "Actual request and helper hashes equal the independently reviewed exact files.",
+    "All five completed target names, sequences, source/destination paths and kinds exactly match the fixed request/pins; the three retained database hashes are present and total 8946056 bytes.",
+    "The accepted source reaches passed output only after streaming pre/post rename hashes and identities, durable before/intent/done records, complete directory preservation and all final absence/protected-state checks.",
+    "Checkpoint inventory digest matches the accepted original inventory; original DB and sidecars are absent, pointers/config/index stay unchanged and zero-byte operation/publication locks are retained.",
+    "Both failed output directories are retained in the private recovery package. The wrapper completed normally within the reviewed resource limits, with no stderr or dropped output."
+  ],
+  "boundary": "This one-time preserving recovery is settled and consumed. The separately reviewed staged restore-original v2 request may proceed under its existing guards. Original authority transfer and restored history remain pending that actual phase; the quarantined original attempt and its receipts remain retained.",
+  "activity": {
+    "pc_actions": 0,
+    "ref_writes": 0,
+    "product_tests": 0,
+    "builds": 0
+  }
+}
