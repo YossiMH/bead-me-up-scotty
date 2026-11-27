@@ -218,7 +218,7 @@
       ]
     }
   },
-  "updated_utc": "2026-11-27T09:31:02.684692+00:00",
+  "updated_utc": "2026-11-27T09:33:35.224539+00:00",
   "previous_status": {
     "commit": "d02907bfc521bb49a478bc1e82877405484e91d3",
     "sha256": "c1338e963ca1a2b4caaa1b868f72e05411fb217c7ae3fd36987afa84d085cd86"
@@ -612,5 +612,15 @@
     "linux_result": "passed: default diff refreshes stat bytes; command-local false preserves them and still rejects changed content",
     "windows_ps51_parse": "pending",
     "windows_execution": "pending"
+  },
+  "installation_index_correction": {
+    "directory": "20261127/installation-index-correction",
+    "driver_sha256": "5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5",
+    "supervisor_sha256": "ebb659ca3f2f53ca81b8eb2ae42ca3f5b57cccfbc4acaff3fdecdcfc2527286c",
+    "independent_source_review_sha256": "2f1510bbfae5e65e47e8da7d38d600bee4c72973cc536e5f284649e17eba396c",
+    "change": "One command-local diff.autoRefreshIndex=false argument preserves every original strict raw-index guard.",
+    "windows_qualification": "pending actual result acceptance",
+    "actual_installation": "not started",
+    "output": "F:/Dev/.bead-edit-20261111/install-v9-index-20261127-2889282bfcec"
   }
 }

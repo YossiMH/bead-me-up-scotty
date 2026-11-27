@@ -1,0 +1,161 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "author": "/root/delivery_audit",
+  "recorded_utc": "2026-11-27T09:31:38.761615+00:00",
+  "task_key": "install",
+  "scope": "One command-local Git setting on the private diff validation, with separately named driver/supervisor and one fresh output.",
+  "files": [
+    {
+      "path": "windows-install-tray-host-index-20261127.ps1",
+      "bytes": 34715,
+      "sha256": "5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5"
+    },
+    {
+      "path": "windows-install-supervisor-index-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "ebb659ca3f2f53ca81b8eb2ae42ca3f5b57cccfbc4acaff3fdecdcfc2527286c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 7037,
+      "sha256": "bb7756b8f79bf5d5c8c42e588c394ee68a1b2aed22f90dde3f0faa1e72bcd7b7"
+    }
+  ],
+  "baselines": [
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-tray-host-retry-20261127.ps1",
+      "bytes": 34680,
+      "sha256": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-supervisor-retry-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d"
+    }
+  ],
+  "actual_basis": [
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-retry-20261127-2889282bfcec/install-result.json",
+      "bytes": 6204,
+      "sha256": "22195c6b222f7798440ac27122febb75faed1c4ff0cc836120adc84d3920a0f2"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-preservation-reconciliation.json",
+      "bytes": 6988,
+      "sha256": "3e9ebf53930fcfdeb6cf942023ff226239a9618e6a10bb9236e76951191cb300"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-private-index-failure-review.json",
+      "bytes": 7954,
+      "sha256": "469c0ecb4ffea76a170ded402035ddd1ae1518addebc2494b0e630955daaac77"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-refresh-qualification/linux-result.json",
+      "bytes": 7094,
+      "sha256": "ac9c04b28df2591569da686c459461b23de2120cb5ab92ccdaa094117b4f232d"
+    }
+  ],
+  "windows_qualification_preparation": [
+    {
+      "path": "/tmp/beads-2889282bfcec/index-refresh-qualification/windows/qualify-private-index-refresh-20261127.ps1",
+      "bytes": 22837,
+      "sha256": "269638d84252ff895cc5790687923a67f16ffa20ee0a650a502d15176935ad0c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/index-refresh-windows-source-review.json",
+      "bytes": 6455,
+      "sha256": "2cdedd7db279e303d4e63d276907883d90a82488e0e6f1829f26869f04a5e94e"
+    }
+  ],
+  "windows_qualification_status": "Pending actual accepted Windows result; it is a prerequisite for running this installer.",
+  "exact_substitutions": {
+    "driver": [
+      {
+        "before": "$null=Git-Index $Scotty $preparedIndex @('diff','--exit-code','--quiet','--')",
+        "after": "$null=Git-Index $Scotty $preparedIndex @('-c','diff.autoRefreshIndex=false','diff','--exit-code','--quiet','--')"
+      }
+    ],
+    "supervisor": [
+      {
+        "before": "windows-install-tray-host-retry-20261127.ps1",
+        "after": "windows-install-tray-host-index-20261127.ps1"
+      },
+      {
+        "before": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638",
+        "after": "5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5"
+      },
+      {
+        "before": "install-v9-retry-20261127-2889282bfcec",
+        "after": "install-v9-index-20261127-2889282bfcec"
+      }
+    ]
+  },
+  "complete_comparisons": [
+    {
+      "kind": "driver",
+      "old_sha256": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638",
+      "new_sha256": "5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5",
+      "complete_inverse_byte_equality": true,
+      "csharp_exact": true
+    },
+    {
+      "kind": "supervisor",
+      "old_sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d",
+      "new_sha256": "ebb659ca3f2f53ca81b8eb2ae42ca3f5b57cccfbc4acaff3fdecdcfc2527286c",
+      "complete_inverse_byte_equality": true,
+      "csharp_exact": true
+    }
+  ],
+  "unchanged_protections": [
+    "Private prepared tree must exactly match accepted baseline.",
+    "Both original HEADs, app raw index/status and all fifteen source files remain checked before adoption.",
+    "Private index must retain its initially recorded full SHA through validation.",
+    "ReadAllBytes must match that same SHA immediately before writing the owned lock.",
+    "Full lock identity, atomic replacement backup hash and published index hash remain checked.",
+    "Retained origin/NullString corrections, source/pin/runtime/environment guards, fixed user-fork URLs and normal pushes remain exact.",
+    "Wrapper Job membership, all process functions, C# declarations, timeout/memory/priority/stream accounting and complete final cleanup are unchanged."
+  ],
+  "fresh_output_directory": "F:\\Dev\\.bead-edit-20261111\\install-v9-index-20261127-2889282bfcec",
+  "preserve_prior_attempts": [
+    "F:\\Dev\\.bead-edit-20261111\\install-v9-final-20261125-1151",
+    "F:\\Dev\\.bead-edit-20261111\\install-v9-retry-20261127-2889282bfcec"
+  ],
+  "consecutive_complete_author_inspections": [
+    {
+      "sequence": 1,
+      "status": "clean",
+      "scope": "Complete source-delta and control-flow inspection against the fully read accepted retry driver/supervisor, the exact new bodies, failure result, fresh preservation and cloud qualification.",
+      "checks": [
+        "The sole driver difference is a Git global-option pair before diff, scoped to this private-index process.",
+        "Exit-code/quiet validation semantics and every original full-byte guard remain exact.",
+        "Complete inverse comparisons recover both baselines with no other source change.",
+        "Only the three execution bindings change in the wrapper; final product/stage and publication identities remain exact."
+      ],
+      "findings": []
+    },
+    {
+      "sequence": 2,
+      "status": "clean",
+      "scope": "Second complete inspection of the private-index preparation/adoption path and the full normalized driver/supervisor contract, including all fixed inputs, failure paths, cleanup and the final README.",
+      "checks": [
+        "The unchanged initial prepared hash remains the publication identity; no later recapture or weaker acceptance is introduced.",
+        "Copied retained C# and complete wrapper functions/finally are identical, and the fresh output cannot collide with either failed attempt.",
+        "The cloud control/correction and changed-content refusal support the exact option; the README explicitly requires accepted actual Windows qualification before use.",
+        "The new invocation uses the original actual stage receipt hashes, fresh observed ports, and the unchanged 3 GiB/1 GiB/512 MiB/180-second installation limits.",
+        "Original helper bytes and failed attempt/backup records remain retained.",
+        "No final installation, configured-launch, task-state or handoff completion is claimed."
+      ],
+      "findings": []
+    }
+  ],
+  "pending": [
+    "Independent review of the complete new packet.",
+    "Exact successful Windows private-index qualification and independent actual acceptance.",
+    "Root stages/hashes/parses the two new scripts and refreshes original preservation, output/pin absence, process/port and memory observations.",
+    "Root performs one new installation and collects complete actual results/logs for acceptance."
+  ],
+  "author_actions": "Private preparation and static comparisons. The separately documented focused cloud Git fixture was run; no product build/test, PC execution or task-state mutation was performed by the author.",
+  "retention": "Publish through the existing transfer branch; no new linked worktree. Keep both failed attempts, qualification fixtures and all original rollback records for root-owned final reconciliation and cleanup.",
+  "findings": []
+}

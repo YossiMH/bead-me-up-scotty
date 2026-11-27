@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "frontend_audit",
+  "review_type": "Independent frozen source review of the command-local private-index installer correction",
+  "reviewed_utc": "2026-11-27T09:32:33.156007+00:00",
+  "files": [
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-index-correction/20261127/installation-index-correction/windows-install-tray-host-index-20261127.ps1",
+      "bytes": 34715,
+      "sha256": "5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-index-correction/20261127/installation-index-correction/windows-install-supervisor-index-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "ebb659ca3f2f53ca81b8eb2ae42ca3f5b57cccfbc4acaff3fdecdcfc2527286c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-index-correction/20261127/installation-index-correction/README.md",
+      "bytes": 7037,
+      "sha256": "bb7756b8f79bf5d5c8c42e588c394ee68a1b2aed22f90dde3f0faa1e72bcd7b7"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-index-correction/20261127/installation-index-correction/author-inspections.json",
+      "bytes": 8101,
+      "sha256": "31ef198d4a5f07cb7b0bd06e836c5f60c4a262f7fe0d204dcb86780346103025"
+    }
+  ],
+  "accepted_baselines": [
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-tray-host-retry-20261127.ps1",
+      "bytes": 34680,
+      "sha256": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-supervisor-retry-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d"
+    }
+  ],
+  "actual_failure_and_preservation": [
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-retry-20261127-2889282bfcec/install-result.json",
+      "bytes": 6204,
+      "sha256": "22195c6b222f7798440ac27122febb75faed1c4ff0cc836120adc84d3920a0f2"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-preservation-reconciliation.json",
+      "bytes": 6988,
+      "sha256": "3e9ebf53930fcfdeb6cf942023ff226239a9618e6a10bb9236e76951191cb300"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-private-index-failure-review.json",
+      "bytes": 7954,
+      "sha256": "469c0ecb4ffea76a170ded402035ddd1ae1518addebc2494b0e630955daaac77"
+    }
+  ],
+  "checks": [
+    {
+      "name": "frozen identities and complete packet",
+      "status": "passed",
+      "detail": "Read the final four-file packet and both clean author inspections. Every file, baseline, actual failure/preservation and Windows qualification-preparation identity in the author record rehashes exactly. The README-only phrase refinement recovers its previously read draft hash when reversed; it correctly says the byte guard remains after validation."
+    },
+    {
+      "name": "single driver change",
+      "status": "passed",
+      "detail": "The only source change from c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638 is adding the argument pair -c diff.autoRefreshIndex=false before the single private-index diff verb. Reversing exactly that one occurrence reproduces the entire old driver byte-for-byte. Git global options are positioned before the subcommand; the setting applies only to this child invocation and does not change persistent configuration."
+    },
+    {
+      "name": "fresh supervisor binding only",
+      "status": "passed",
+      "detail": "The supervisor changes exactly three literals: the new driver filename, required driver hash 5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5 and install-v9-index-20261127-2889282bfcec output basename. Reversing those occurrences reproduces the entire accepted 719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d supervisor byte-for-byte. Both previous failed attempt paths remain separate and immutable."
+    },
+    {
+      "name": "logical and complete-byte publication guards retained",
+      "status": "passed",
+      "detail": "Prepared write-tree must still equal the accepted baseline. Original app raw index/status, both HEADs and all 15 source files are checked before adoption. Private diff must still exit 0; untracked-source refusal remains. The original initially captured prepared hash is still checked after validation and against ReadAllBytes before publication. Lock identity, original-index replacement backup hash, published-index hash and expected-old ref adoption are unchanged. No later hash recapture or weakened comparison is introduced."
+    },
+    {
+      "name": "other installation behavior unchanged",
+      "status": "passed",
+      "detail": "The previously qualified exact SSH-origin expectation and full-name NullString result writer remain. Final app/native source, stage result/supervisor hashes, production runtime manifest/BUILD_ID, native binary/provenance, rollback preservation, environment selection and ordinary explicit user-fork publication remain exact. The README invocation matches declared supervisor parameters and the unchanged actual stage receipts."
+    },
+    {
+      "name": "foreground limits and failure cleanup unchanged",
+      "status": "passed",
+      "detail": "Complete inversion proves all original process/path functions, C# Job code and cleanup remain identical. Limits remain 3 GiB initial/immediate free, 1 GiB live free, 512 MiB sampled aggregate resident memory, BelowNormal, 100 ms sampling, 168-second work stop and 180-second hard deadline with 12-second cleanup reserve. Existing output refusal and interrupted-outcome reconciliation remain binding."
+    },
+    {
+      "name": "qualification and delivery claims limited correctly",
+      "status": "passed",
+      "detail": "The actual failed attempt and focused cloud control/correction/refusal result support the correction. The separate Windows fixture is source-accepted at 269638d84252ff895cc5790687923a67f16ffa20ee0a650a502d15176935ad0c; its actual successful result and independent acceptance remain explicit prerequisites. The frozen packet claims no successful installation, configured launch, source publication or task closure."
+    }
+  ],
+  "findings": [],
+  "required_before_execution": [
+    "Obtain and independently accept the exact actual Windows control/correction/refusal result, including retained original/private index preservation and normal cleanup.",
+    "Stage/hash and ordinarily parse both exact new scripts under Windows PowerShell 5.1.",
+    "Review the concrete fresh invocation and refresh current source/index/private-state, pin/output absence, ports/processes and at-least-3-GiB memory admission."
+  ],
+  "required_after_execution": [
+    "Collect exact inner/supervisor results and streams, verify final source/runtime/pin/user-fork state and owned cleanup.",
+    "Bind configured launch to the actual accepted new installation receipts and this new driver/supervisor pair."
+  ],
+  "scope": "Frozen installer source/preparation acceptance only. Actual installation and task closure remain pending."
+}
