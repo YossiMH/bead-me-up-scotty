@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_independent_review",
+  "author": "/root/review_bead_rs",
+  "scope": "Exactly five preserving same-volume renames for the interrupted native restore; no checkpoint-file rollback is needed.",
+  "files": {
+    "quarantine-restore-original-20261127.cjs": {
+      "bytes": 21615,
+      "sha256": "92bfd912e3c4a9b174c77eb08cab6bdff6df43f99fbdfc0866b2eb7dfe23bd63"
+    },
+    "quarantine-restore-original.request.prepared.json": {
+      "bytes": 2470,
+      "sha256": "465f3dac3f0bebffd9bf0c6a044aa837b791426717c9129668ac0ce3e2829ff5"
+    },
+    "quarantine-restore-original-invocation.prepared.json": {
+      "bytes": 1460,
+      "sha256": "09fccf8b6e381d3cb19af52e95cb6fa1d4a99f18caffe873663a38b118342000"
+    },
+    "quarantine-restore-original-pins.prepared.json": {
+      "bytes": 8155,
+      "sha256": "66c6c78bd7a00ec9924f3c7969bb9f2af74d9b203b090bf9afa960633dbe72a9"
+    }
+  },
+  "actual_evidence": {
+    "git_before_and_after_init": {
+      "bytes_each": 102337,
+      "sha256": "9a10be2f5be17561e3bfe1df14c12fd81cd696101aa8516191cb5be64e060cc7",
+      "matches_accepted_source_restore_output": true
+    },
+    "checkpoint_inventory": {
+      "file": "checkpoint-interruption-inventory-actual.json",
+      "sha256": "fa06fa988b03dc24781a7bdd061326a86ac7e79a9220927233914953602d798f",
+      "rows_sha256": "1d29aa194ee0979d887240c8fd625b902ce93e2668f249b2ce0da642b8e1c371",
+      "baseline_files_present": 53,
+      "missing_files": [],
+      "only_extra_file": "publish.lock",
+      "extra_file_bytes": 0,
+      "total_files": 54,
+      "directories": 1
+    },
+    "interruption_probe": {
+      "file": "restore-interruption-probe-data.json",
+      "sha256": "4c33891e3dd09432c19b6c02d70ebaa372a130cc54c79ceae1cf24be044694a9",
+      "contains_private_config_raw_bytes": "Keep the full probe/private execution wrapper out of publication; this packet includes only its digest and selected metadata."
+    },
+    "failed_supervisor": {
+      "file": "restore-original-failed-supervisor-result.json",
+      "sha256": "93b0d8ea7f82377c6ac59ee18fc28f7b6f289248d097196a3d22cb86bf5e4eac",
+      "bytes": 9793,
+      "immutable_commit": "5bcb397bc351c69ea71a2fba729b8d9623d2ce3f",
+      "immutable_path": "20261127/resumed-completion/restore-original-failed-supervisor-result.json",
+      "remaining_job_members": [],
+      "cleanup_assisted": true
+    },
+    "init_completed_empty": true,
+    "restore_command_started_without_exit_receipt": true,
+    "original_pointers_config_and_index_unchanged": true
+  },
+  "exact_targets": [
+    {
+      "name": "beads.db",
+      "source": "F:/Dev/bead-rs/.beads/beads.db",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/original-db/beads.db",
+      "kind": "file",
+      "bytes": "413696",
+      "mtime_ns": "1795795080056167800"
+    },
+    {
+      "name": "beads.db-wal",
+      "source": "F:/Dev/bead-rs/.beads/beads.db-wal",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/original-db/beads.db-wal",
+      "kind": "file",
+      "bytes": "8499592",
+      "mtime_ns": "1795795086832252700"
+    },
+    {
+      "name": "beads.db-shm",
+      "source": "F:/Dev/bead-rs/.beads/beads.db-shm",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/original-db/beads.db-shm",
+      "kind": "file",
+      "bytes": "32768",
+      "mtime_ns": "1795795087475955400"
+    },
+    {
+      "name": "failed-phase",
+      "source": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/failed-phase",
+      "kind": "directory"
+    },
+    {
+      "name": "failed-supervisor",
+      "source": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752/failed-supervisor",
+      "kind": "directory"
+    }
+  ],
+  "inspection_passes": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "focus": "Ownership, preconditions and immutable evidence",
+      "checks": [
+        "Read the complete candidate and embedded pins. Verified exact three database names/sizes/mtime and fixed two failed output directories; target/request/helper paths are fixed.",
+        "Bound all nine on-PC evidence files by exact bytes/hash, including preceding accepted phases, identical raw Git records, empty init, interrupted restore, and settled failed supervisor.",
+        "Verified all53 original checkpoint files remain, with only the allowed zero-byte publication lock. Inventory rows are pinned by digest; all six protected files are pinned by raw bytes/hash.",
+        "Confirmed no raw native config bytes are embedded in source, request or this packet."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "focus": "Mutation boundaries, interruption recovery and bounds",
+      "checks": [
+        "All evidence, protected files, checkpoint metadata, DB streaming hashes and directory snapshots are checked before creating the fresh retention directory.",
+        "The durable before.json precedes all renames. Every exact rename has a separately fsynced create-new intent receipt, source recheck, post-move hash/identity/content-metadata check, and create-new done receipt.",
+        "Existing retention roots cause refusal; there is no replay/resume path, overwrite, deletion, SQL, native command or child process. An interrupted action is reconciled using recorded intents plus source/destination identity and hashes.",
+        "Only original DB/WAL/SHM and two owned output directories move; checkpoint files, pointers, config, Git index and zero-byte operation/publication locks stay in place. Final original DB/sidecar absence and unchanged protected state are verified.",
+        "Single BelowNormal Node:64MiB heap,128MiB RSS,1GiB free floor,100ms checks,15s hard/internal/broker deadline. Hash reads are64KiB chunks; exactly8946056 database bytes; metadata walks<=256 entries/depth8; receipts<=1MiB; stdout<=65000B."
+      ]
+    }
+  ],
+  "syntax_only": {
+    "command": "node --check quarantine-restore-original-20261127.cjs",
+    "exit_code": 0,
+    "body_executed": false
+  },
+  "findings": [],
+  "root_boundary": "Root reviews the concrete packet, publishes/stages exact bytes, keeps exclusive writer ownership, and submits one fresh execution. On any uncertain outcome reconcile retained intent/done receipts and live source/destination state before further actions.",
+  "activity": {
+    "pc_calls": 0,
+    "ref_writes": 0,
+    "helper_body_execution": 0,
+    "product_tests": 0,
+    "builds": 0
+  }
+}
