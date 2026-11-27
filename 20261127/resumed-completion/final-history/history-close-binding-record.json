@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_existing_root_execution",
+  "phase": "close",
+  "task": "beadrs-3ec972f8",
+  "request_sha256": "c84244fb4273028df2daa94db1f589504bb878db38fc28781d88120648b05555",
+  "request_bytes": 6778,
+  "request_template_sha256": "280e6d95bf9040ca974d3a55a8541b64a3a3a6e144828c562790599bd3891bc0",
+  "admission_template_sha256": "d60e5199b5a0636a94949428f4f0d04b545f8cab863cabc84868bcd790a36486",
+  "shared_context": {
+    "local_artifact": "20261127/resumed-completion/cleanup-closure-preparation/cleanup-shared-context-accepted.json",
+    "bytes": 2265,
+    "sha256": "66c971794309de41acf9fb632597691e9a5e88e93c557501a5be126ea9dad7e1",
+    "cleanup_revision": 5,
+    "expected_post_close_revision": 6,
+    "close_reason_sha256": "e0ea269a1d466a871bd78bfebb23e45ed3a7e1b16025b84fa6e75062eeef3406"
+  },
+  "accepted": {
+    "cleanup_results": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/cleanup-results-accepted.json",
+      "sha256": "866424a608939f8021526fd8d2ba0dfeb60fb94755f2dc65550f1ae263e4e9d7"
+    },
+    "cleanup_text_review": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/cleanup-text-review-accepted.json",
+      "sha256": "9e4df7c68a2052eda2973776d1631121f8e543a93a4e2d0020de05a09c66124b"
+    },
+    "initial_checkpoint_publication": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-initial-20261127-02e8a44557c8-v1/result.json",
+      "sha256": "adf4f74a91e403f1629096aab3a4e60196cde8d4f60953c3239203ac1486617b"
+    },
+    "combined_ref_cleanup_review": {
+      "artifact": "20261127/resumed-completion/task-ref-deletion-actual/combined-actual-review.json",
+      "bytes": 4265,
+      "sha256": "1d3d1157752e1206591a7a171957780fa65169bfc30c0b4dd9b6ef07fa61ea80"
+    }
+  },
+  "root_activation": {
+    "published_cleanup_actuals_archive": "4bb1da1eca425790633fb5fdb7ccab7625f7f090",
+    "required_before_invocation": "Root confirmed the exact accepted aggregate/text and canonical cleanup handoff published/read back at4bb1da1e. Root now publishes/readbacks this prepared request, stages the three exact files and retains exclusive native writer ownership before invocation.",
+    "unchanged_supervisor_admission": true
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Exact inverse to accepted data-only close template after binding phase, shared revision/reason, three accepted hashes and existing root flags.",
+        "All five prior phase pins and helper/runtime/plan/materialization/accepted review bindings unchanged.",
+        "Exact accepted aggregate/text/context bytes and reason identity match supplied final facts."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Admission inverse differs only by one completed request SHA; same512MiB aggregate,128MiB old space,4MiB semi-space,180s inner limit,3.5GiB outer admission and200s outer timeout.",
+        "Prior close/final-publish fields remain null because this is the first final phase.",
+        "Final-publish and final-restore will reuse this exact revision5/reason and aggregate/text/publication identities."
+      ],
+      "findings": []
+    }
+  ],
+  "no_new_executor": true,
+  "no_new_tests": true,
+  "pc_actions": false,
+  "ref_actions": false
+}
