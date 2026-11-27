@@ -1,0 +1,72 @@
+{
+  "schema_version": 1,
+  "status": "concrete_bound_request_for_independent_acceptance",
+  "request": {
+    "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/native-checkpoint-initial-20261127-02e8a44557c8-v1.request.json",
+    "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/native-checkpoint-initial-20261127-02e8a44557c8-v1.request.json",
+    "bytes": 3434,
+    "sha256": "bb0a69b2c05f8eb95d0e564c57d7a62bb43ea5531088b32c153c132e4f9fb180"
+  },
+  "admission": {
+    "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/native-checkpoint-initial-admission.ps1",
+    "bytes": 994,
+    "sha256": "b1139268e8d39aa2ba68f35db58af2332855a6479e5d22d048994b88bd974df0",
+    "command_characters": 2762
+  },
+  "actual_inputs": {
+    "publication": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/git-finalization-actual/driver-result.json",
+      "bytes": 14014,
+      "sha256": "8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a"
+    },
+    "verification": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/restore-verification-actual/driver-result.json",
+      "bytes": 10802,
+      "sha256": "8b8fe224216dcd0b7f11f32d3ea87bd24899d23061cebd24831143ab2a7fc239"
+    },
+    "verification_supervisor": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/restore-verification-actual/supervisor-result.json",
+      "bytes": 7274,
+      "sha256": "7e5f4363011f91c663ac104cae6a2e4675ecab21a751165cc84d85cf32e3cc27"
+    },
+    "guards": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/initial-publication-guards.json",
+      "bytes": 1646,
+      "sha256": "1ba90491c42c966bb26bada9e1e98ed9b7876759e478a02f0a605653eb4ea92b"
+    },
+    "guard_execution": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/initial-publication-guards-execution.json",
+      "bytes": 4110,
+      "sha256": "16f43f7efc8f284a28887c476ee66aa9f1eb54893e1df90f2313384c32fec549"
+    },
+    "review_input": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/git-finalization-actual/actual-and-next-restore-review.json",
+      "bytes": 6980,
+      "sha256": "c697845d475ab293e39ae17ca05d94cf71920a49d6e50232b4aa88f134d2140b"
+    }
+  },
+  "supplemental_binding_record": {
+    "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/initial-publication-supplemental-binding.json",
+    "sha256": "152ad09b54bdf51e16ca6f6644bb8cc27978cc58604634641c8feb9255e1dfe8"
+  },
+  "private_state_source": "Copied the fresh guard six rows exactly, including present zero-byte WAL, present32768-byte SHM and absent journal.",
+  "current_expected_index_sha256": "5f8e3f6d618c308876fa7e0580ef2638020091a06c089098b651aac091cbccf9",
+  "expected_local_and_remote_head": "025ebc6a38013402b1936e932c104348aec06fd4",
+  "remote_check": "The existing publisher rechecks the expected remote main025ebc6a immediately before publication.",
+  "review_input_staging": {
+    "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/actual-and-next-restore-review.json",
+    "bytes": 6980,
+    "sha256": "c697845d475ab293e39ae17ca05d94cf71920a49d6e50232b4aa88f134d2140b"
+  },
+  "author_binding_inspections": [
+    {
+      "status": "passed",
+      "scope": "All actual phase/supervisor, supplemental and guard identities match; both canonical phases use successor2f0f403c and share the exact staged Git state. No source/helper/runtime/product change."
+    },
+    {
+      "status": "passed",
+      "scope": "Completed request fields match fresh guard and immutable prior records; nulls remain only for absent private files and unused hook review. Admission decoded exactly and retains all accepted limits."
+    }
+  ],
+  "action_pending": "Independent actual/request acceptance, root staging and admitted publication; no publication executed by this agent."
+}
