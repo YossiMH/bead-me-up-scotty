@@ -327,7 +327,7 @@ public static class Scotty20261125ArchiveInspector {
         $before=Snapshot $repo
         $record=[ordered]@{path=$repo.path;url=$repo.url;candidate=$repo.candidate;before=$before;status='fetching'}
         $Sources.Add($record)
-        [IO.File]::WriteAllText((Join-Path $ArtifactRoot 'before-fetch.json'),($Result|ConvertTo-Json -Depth 12),$Utf8)
+        [IO.File]::WriteAllText((Join-Path $ArtifactRoot 'before-fetch.json'),($record|ConvertTo-Json -Depth 6),$Utf8)
         $MetadataBuffer.SetLength(0)
         $fetchArgs=@('--no-optional-locks','-C',$repo.path,'-c','gc.auto=0','-c','maintenance.auto=false','-c','pack.threads=1','-c','credential.interactive=false',
           'fetch','--no-tags','--no-recurse-submodules','--no-write-fetch-head','--no-write-commit-graph','--no-auto-maintenance',$repo.url,$repo.candidate)
@@ -338,7 +338,7 @@ public static class Scotty20261125ArchiveInspector {
         $after=Snapshot $repo
         Assert-That (($before|ConvertTo-Json -Depth 12 -Compress) -ceq ($after|ConvertTo-Json -Depth 12 -Compress)) 'Fetch changed an existing source, index, ref or configuration.'
         $record['after']=$after;$record['ancestry_verified']=$repo.ancestors;$record.status='passed'
-        [IO.File]::WriteAllText((Join-Path $ArtifactRoot 'after-fetch.json'),($Result|ConvertTo-Json -Depth 12),$Utf8)
+        [IO.File]::WriteAllText((Join-Path $ArtifactRoot 'after-fetch.json'),($record|ConvertTo-Json -Depth 6),$Utf8)
     }
     $Result['status']='passed'
 }catch{

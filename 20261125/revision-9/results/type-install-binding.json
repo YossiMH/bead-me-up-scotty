@@ -168,11 +168,11 @@
   },
   "task_closer_bound_to_actual_mapping": true,
   "pending": [
-    "Finish the reviewed Windows PowerShell compatibility correction, then download and stage the two exact Windows archives.",
-    "Complete the smaller tray-test wrapper, then run actual logged-in-session tray Exit, parent-loss and restart checks.",
-    "Complete reviewed installation, configured launch and installed review, then publish handoffs and original native history and finish task-owned cleanup."
+    "Accept the separate checkpoint-only history preparation for the observed absent original database and close the two preparation tasks.",
+    "Run reviewed installation, configured launch and installed review with fresh memory and port checks.",
+    "Publish handoffs, preserve native history through the accepted supported restore route, and finish owned cleanup."
   ],
-  "native_mutations": 108,
+  "native_mutations": 111,
   "worktree_cleanup": {
     "status": "pending",
     "latest_probe": {
@@ -189,25 +189,39 @@
       "parent": "/tmp/beads-2889282bfcec/scotty",
       "created_with": "Riftri 0.7.0 command passthrough to a detached sparse Git worktree",
       "cleanup_status": "in use; remove without force after its commits are retained remotely",
-      "next_action": "Verify status, registration and unpublished commits; preserve later work and remove only this task worktree through Riftri. The closer author has a separate registered worktree whose cleanup is also required.",
+      "next_action": "Preserve current continuation changes, then remove its exact clean Riftri worktree without force after publication. Check for newly created history-helper worktrees before final cleanup.",
       "additional_worktrees": [
         {
           "path": "/tmp/beads-2889282bfcec/closure-v9",
           "branch": "task/closure-v9-20261127",
-          "status": "Contains reviewed closer and in-progress installer wrapper; retain all changes before removal."
+          "author_commit": "4f59df1c32e0afba99b3fcbe2a706984431c9cfe",
+          "status": "Removed through Riftri after clean status and exact equality of all ten authored files to transfer commit d02907bf; registration absence verified."
         },
         {
           "path": "/tmp/beads-2889282bfcec/tray-runspace",
           "branch": "task/tray-runspace-2889282bfcec",
-          "status": "Reviewed tray packet retained by this update; commit its exact files before removing the worktree through Riftri."
+          "author_commit": "191e758c149039a601c4738df5f70499d63d8b34",
+          "status": "Removed through Riftri after clean status and exact equality of all three authored files to transfer commit60e5181d; registration absence verified."
+        },
+        {
+          "path": "/tmp/beads-2889282bfcec/native-download-continuation",
+          "branch": "task/native-download-continuation-2889282bfcec",
+          "author_commit": "bda4e985ab84c06cbd765dafb16285b2c6ed7cb7",
+          "status": "Removed through Riftri without force after clean status and exact equality of three authored files to published6ab2afa; directory and registration absence verified."
+        },
+        {
+          "path": "/tmp/beads-2889282bfcec/history-checkpoint-only",
+          "branch": "task/history-checkpoint-only-20261127",
+          "status": "Clean frozen author worktree; remove through Riftri after all eleven exact files are retained remotely and equality is verified.",
+          "author_commit": "dad3688ea00e5829d91fdd952d9c7c0f1c467a1e"
         }
       ]
     }
   },
-  "updated_utc": "2026-11-27T07:00:13.871868+00:00",
+  "updated_utc": "2026-11-27T08:22:26.950765+00:00",
   "previous_status": {
-    "commit": "f8c871f50ebc54a426db016769056ab069e2c100",
-    "sha256": "b2e258a50c1b8861af3bfa167397636c7375c07458c3fe593b73cae3068bd866"
+    "commit": "d02907bfc521bb49a478bc1e82877405484e91d3",
+    "sha256": "c1338e963ca1a2b4caaa1b868f72e05411fb217c7ae3fd36987afa84d085cd86"
   },
   "final_measured_packet": {
     "commit": "70819afe79e783d0db2b10a299155cbeda470d1e",
@@ -291,21 +305,22 @@
   "remaining_active_cloud_execution": true,
   "assignment_complete": false,
   "latest_continuation": {
-    "checked_utc": "2026-11-27T07:00:13.871868+00:00",
-    "source_status": "Accepted app 0309539 and native 2d801ba remain unchanged. Both PC source checkouts still match installer baselines; the fifteen original app changes remain present.",
-    "pc_command_access": "Emergency Maintenance successfully ran the task update and closure, then became intermittent. The latest preparation and read-only status calls timed out without launching work. Wait for the supported connection; preserve running user sessions and never replay a consumed action.",
-    "task_mapping": "Revision 9 completed and independently reviewed: 55 tasks, 91 edges and 1009 issues; all original 954 records retained.",
+    "checked_utc": "2026-11-27T08:22:26.950765+00:00",
+    "source_status": "Both final commit objects and all four required ancestry relationships are present locally. Fresh readback confirms original HEADs and indexes, fifteen original app files, private env and old pin. Native source is clean.",
+    "pc_command_access": "Emergency Maintenance command access works through fresh prepared one-shot actions; root owns sequential execution.",
+    "task_mapping": "Revision 9 completed and independently reviewed: 55 tasks, 91 edges, 1009 issues, and all954 original records retained.",
     "mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
-    "installation": "All original final installer/staging inputs and the Job helper are staged and hash-verified. Compatibility staging stopped at its 1 GiB memory condition; subsequent exact readback found both new files absent. The build archives and actual installation remain pending.",
-    "tray": "The first actual test stopped at 557076480 bytes aggregate RSS with no cases completed and no owned processes left. The smaller wrapper in 20261127/tray-runspace passed independent source review and preserves the exact driver, restart case and process limits. Its ordinary Windows parser check and actual logged-in run remain pending.",
-    "next_action": "Stage and parse the reviewed PowerShell 5.1 copies after checking current available memory and attempt state. Download and stage the exact builds sequentially. Stage/parse the reviewed smaller tray wrapper, then run it in the logged-in session when at least 3 GiB is available. Finish the bounded installer wrapper review and source-object preparation in parallel.",
-    "prior_cloud_worktree_cleanup": "The absent previous continuation worktree registration was removed through Riftri and its absence was verified.",
-    "assignment_complete": false,
-    "task_closure": "All 27 requested transitions are independently accepted. The complete returned mapping has 42 closed and 13 open tasks; the other 28 statuses and revisions are unchanged.",
-    "download": "The first downloader failed at initialization because Windows PowerShell 5.1 does not recognize [ulong]. Readback confirmed no download, claim or output directory was created. The separately named [uint64] compatibility copies passed independent review; use 20261127/powershell51/accepted-invocations.json after staged hash and parser checks.",
-    "active_session": "Root /workspace/scratch/2889282bfcec owns current PC execution and task-store writes; other continuations must respect this active session and retained attempt markers."
+    "task_closure": "Three accepted tray/candidate tasks closed at08:07:26, after the previously accepted27 closures; actual readback has45 closed and10 open. Independent actual review passed.",
+    "tray": "Exit, parent-loss and restart75-exit all passed in the logged-in Windows session and are independently accepted. Peak aggregate518172672 bytes; no assisted cleanup or remaining Job members.",
+    "download": "Both final ZIPs are downloaded and SHA256-verified. The native-only continuation passed and is independently accepted. The original interrupted download remains retained.",
+    "installation": "The final executable, metadata and all560 runtime files were staged successfully and independently accepted. Installation has not run.",
+    "source_fetch": "The original fetch reached the180-second bound while serializing live Process objects in progress logs. Both commits arrived; no fetch replay is needed. The two-line logging correction passed static review but was not executed. Large original process graphs remain private on the PC.",
+    "history": "Fresh metadata-only observation confirms that the original checkout has checkpoint/configuration but no live SQLite database or sidecars. A separate supported checkpoint-only restoration route passed a cloud qualification under128MiB Node heap; final helper/preparation review is in progress.",
+    "next_action": "Finish and retain the checkpoint-only helper preparation and close its two tasks, then run the reviewed installer and configured-launch check when fresh headroom is sufficient.",
+    "active_session": "Root /workspace/scratch/2889282bfcec owns PC execution and task-store writes. Other continuations must respect this active session and retained attempt markers.",
+    "assignment_complete": false
   },
-  "pc_action_summary": "Revision 9 task transition and 27 accepted-cloud-task closures completed. Original 954 issues preserved. Final immutable helpers staged. Real tray attempt stopped at the aggregate 512 MiB cap with no owned processes left; downloader compatibility failure occurred before output creation. Source installation remains pending.",
+  "pc_action_summary": "Revision9 materialization and30 accepted task closures completed;45 of55 tasks are closed. Real tray checks, both final ZIPs and final560-file runtime staging passed. Both final source commits are present while original source/index/private state remains unchanged. Installation and configured launch remain pending.",
   "actual_accepted_cloud_closure": {
     "status": "passed",
     "independent_result_review": "passed",
@@ -327,13 +342,167 @@
     "directory": "20261127/powershell51",
     "downloader_sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
     "stage_supervisor_sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d",
-    "actual_parser_and_execution": "pending"
+    "actual_parser_and_execution": "Exact Windows PowerShell5.1 parsing passed. Corrected downloader and stage supervisor ran successfully; the original failed attempts remain retained."
   },
   "tray_runspace_preparation": {
     "status": "source_review_passed",
     "directory": "20261127/tray-runspace",
     "wrapper_sha256": "5119d47a4eaf69933594940217d8a16f9d3934eb014cd8caf04e54b3487c23c5",
     "review_sha256": "5d98207c5927aa49931b0cb5ede780a937a901ebd009e894f97850373dadfcc2",
-    "actual_parser_and_execution": "pending"
+    "actual_parser_and_execution": "Passed exact Windows parsing and actual15.483-second run; independent actual review accepted atd9b6bc35."
+  },
+  "installation_supervisor_preparation": {
+    "status": "source_review_passed",
+    "directory": "20261127/installation-execution",
+    "wrapper_sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751",
+    "review_sha256": "d37ef1f38dcfd21d224b0c130ff3b0099f3aca68f2d5bd1faf00a938cc232e69",
+    "actual_execution": "pending"
+  },
+  "actual_tray_check": {
+    "schema_version": 1,
+    "status": "passed",
+    "actual_execution": "logged-in Windows session",
+    "result_sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36",
+    "started_utc": "2026-11-27T07:13:57.2208121Z",
+    "completed_utc": "2026-11-27T07:14:12.7033775Z",
+    "elapsed_seconds": 15.483,
+    "case_results": [
+      {
+        "action": "exit",
+        "result": "pass"
+      },
+      {
+        "action": "parent-loss",
+        "result": "pass"
+      },
+      {
+        "action": "restart75-exit",
+        "result": "pass"
+      }
+    ],
+    "job_measurements": {
+      "samples": 61,
+      "peak_resident_bytes": 518172672,
+      "peak_member_count": 10,
+      "budget_exceeded": false,
+      "cleanup_assisted": false
+    },
+    "remaining_job_members": 0,
+    "cleanup": "all_owned_processes_exited",
+    "cleanup_errors": [],
+    "driver_runspace": {
+      "script_sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+      "invocation_state": "Completed",
+      "cancellation_requested": false,
+      "environment_restored": true,
+      "console_error_restored": true,
+      "disposed": true,
+      "had_errors": false
+    },
+    "source_revision_reported": "5232c8b94804064ab71af571ee28797667bd72bd",
+    "independent_actual_review": "passed; 20261127/results/tray-runspace-actual-review.json atd9b6bc35"
+  },
+  "actual_tray": {
+    "status": "passed",
+    "result_sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36",
+    "review_commit": "d9b6bc35e750458eac141686af20f79beed94393",
+    "review_path": "20261127/results/tray-runspace-actual-review.json",
+    "cases": [
+      "exit",
+      "parent-loss",
+      "restart75-exit"
+    ],
+    "duration_seconds": 15.483,
+    "peak_total_resident_bytes": 518172672,
+    "cleanup_assisted": false
+  },
+  "actual_archives": {
+    "status": "passed",
+    "app_sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+    "native_sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+    "continuation_result_sha256": "010b2c098f7ffd448804abc208ac812c07d2028eb830cf5537b6ecb0255fd77b",
+    "old_failure_preserved": true,
+    "independent_actual_review": {
+      "status": "passed",
+      "path": "20261127/results/native-download-continuation-actual-review.json",
+      "sha256": "09a35a842f592d4ba14614d1a697edc717146f5bd15f4bc9290de7105d99b3e3"
+    }
+  },
+  "actual_final_stage": {
+    "status": "passed",
+    "result_sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c",
+    "supervisor_result_sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f",
+    "duration_seconds": 13.738,
+    "peak_total_resident_bytes": 302596096,
+    "independent_actual_review": {
+      "status": "passed",
+      "path": "20261127/results/artifact-stage-actual-review.json",
+      "sha256": "9a7fc088fea62f24dc2c5ea7eda213ea968f54c5c9bbc0c4b411459f4035060c"
+    }
+  },
+  "original_native_database_observation": {
+    "status": "checkpoint_only",
+    "observed_utc": "2026-11-27T08:18:46.3563406Z",
+    "directory": "F:/Dev/bead-rs/.beads",
+    "entries": [
+      ".gitignore",
+      "checkpoint",
+      "config.json",
+      "pinned-binaries"
+    ],
+    "database_or_sidecars_present": false,
+    "old_existing_database_history_helper_applicable": false,
+    "next_action": "Accept the separately qualified supported checkpoint-only helper; retain original checkpoint and raw index, account for native restore audit additions and automatic checkpoint staging.",
+    "result_path": "20261127/results/original-checkpoint-only-observation.json",
+    "sha256": "e85b13c68ed63cf6408f6dfacb137fb526240e808bc87aa0dc76a5b1a20e4491"
+  },
+  "actual_tray_candidate_closure": {
+    "status": "passed",
+    "closed_this_request": 3,
+    "closed_total": 45,
+    "open_total": 10,
+    "result_path": "20261127/results/closure-tray-candidate.json",
+    "result_sha256": "244fbb32b77bdcf3f860101a8ec6d2664717635a69116e62a0cbdf50d94e2e1f",
+    "supervisor_sha256": "c8cac0f504df0283b726096f5707cac92909f3ce3a06d51d5289e3bdb19882b1",
+    "independent_actual_review": {
+      "status": "passed",
+      "path": "20261127/results/tray-candidate-closure-actual-review.json",
+      "sha256": "51ae05657bb49e07f192248bdd62daabb326758d962b9558e633d515aaa1cfcf"
+    }
+  },
+  "source_object_readiness": {
+    "status": "passed",
+    "checked_utc": "2026-11-27T08:20:38.2621441Z",
+    "result_path": "20261127/source-fetch/preservation-reconciliation.json",
+    "sha256": "e40cabdc94cda8b2d7e0fb5afeb6482a8b602e0afe0ba5e12e56131c28280bb0",
+    "fetch_status": "interrupted at180seconds; no replay needed",
+    "required_ancestries_passed": 4,
+    "original_app_files_unchanged": 15,
+    "original_heads_and_indexes_unchanged": true,
+    "original_environment_and_old_pin_unchanged": true,
+    "relevant_processes": 0,
+    "observed_scotty_ports": [
+      3000,
+      43972
+    ],
+    "both_ports_free": true,
+    "memory_mib_observed": 8513,
+    "git_config_hashes": "Current observed values only; no separate pre-fetch hash comparison is claimed.",
+    "independent_actual_review": {
+      "status": "passed",
+      "path": "20261127/source-fetch/source-readiness-actual-review.json",
+      "sha256": "e8f24813534c20c1e670e52f1e4ac1d31a7b7ef3cf75463bb99cc69fc3698e8e"
+    }
+  },
+  "checkpoint_only_history_preparation": {
+    "directory": "20261127/checkpoint-only-handoff",
+    "author_commit": "dad3688ea00e5829d91fdd952d9c7c0f1c467a1e",
+    "driver_sha256": "ff1597b37c873888aef55af6c67b39cd29efeb025d007fe11659ccb81a32cc46",
+    "supervisor_sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5",
+    "actual_cloud_qualification": "passed under128MiB heap in40.611seconds",
+    "qualification_review_sha256": "175a63361363a6d6dfaef9bac000fa7325cf10c3226636fe49b1dc1b2e94cc76",
+    "source_and_plan_review": "pending final independent reviews",
+    "windows_ps51_parse": "pending exact staged AST-only parse",
+    "execution": "not started; future request fields remain null/false"
   }
 }

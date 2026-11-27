@@ -1,0 +1,3 @@
+# Owned continuation workspace
+
+The temporary worktree is `/tmp/beads-2889282bfcec/history-checkpoint-only`, branch `task/history-checkpoint-only-20261127`, registered through Riftri from `/tmp/beads-2889282bfcec/scotty`. Its native COW backend was unavailable in this cloud filesystem, so Riftri exec used the normal linked-worktree fallback. Root owns publication and removal. After the exact authored files are retained in the transfer branch and the worktree is clean, remove this exact worktree through Riftri. If this process stops early, the next agent must inspect its diff, retain accepted files and evidence, and clean up this exact owned worktree. Do not remove the original repositories or either PC task store.

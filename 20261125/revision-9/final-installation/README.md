@@ -4,23 +4,41 @@
 
 Read `20261125/revision-9/results/type-install-binding.json` at the latest transfer
 branch head before acting. It supersedes the older access and resume observations
-below. The direct revision 9 transition succeeded: 55 tasks, 91 dependencies and
-1,009 issues, with the original 954 preserved. The new mapping-bound closer then
-closed 27 accepted development tasks; 42 tasks are closed and 13 remain open.
-Do not replay either operation.
+below. Revision 9 is materialized: 55 tasks, 91 dependencies and 1,009 issues,
+with all954 original issues retained. The27 accepted development closures and
+three tray/candidate closures succeeded;45 tasks are closed and10 remain open.
+Never replay these operations.
 
-All original final installation inputs are staged and hash-verified. The first
-actual tray check stopped at the existing 512 MiB process-memory limit and left
-no owned process running. A smaller wrapper is being prepared. The first download
-helper stopped before creating output because of a Windows PowerShell 5.1 type
-alias. Use only the separately reviewed compatibility copies and invocation
-bindings in `20261127/powershell51` after their ordinary parser checks pass.
-The original helpers and failed results remain retained.
+The smaller tray wrapper passed Exit, parent-loss and restart75-exit in the
+logged-in Windows session. Full actual acceptance is retained at `d9b6bc35`.
+Both final ZIPs are verified. Staging passed with the final executable and all560
+runtime files, with independent acceptance in
+`20261127/results/artifact-stage-actual-review.json`. The stage result is
+`63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c`;
+the supervisor result is
+`c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f`.
 
-Root in `/workspace/scratch/2889282bfcec` currently owns PC execution and task
-writes. Future agents must reconcile this active session and all saved attempt
-markers before starting overlapping work. Installation, the configured launcher,
-final native-history publication and cleanup remain unfinished.
+The source fetch reached its180-second bound while serializing live Process
+objects in progress logs. Both source commits arrived. Fresh readback confirms
+all four required ancestry relationships and unchanged original HEADs, raw
+indexes,15 app files, private env and old native pin. No further
+fetch is needed. The two-line progress correction is statically accepted but
+unused. Preserve the original attempt; its large Process-object logs remain
+private on the PC. At08:20:38UTC, no Scotty process was running, ports3000 and43972
+were free, and8513MiB was available. Recheck these conditions before launch.
+
+The original native checkout has its committed checkpoint and configuration,
+but no live SQLite database or sidecars. A fresh metadata-only observation is
+retained in `20261127/results/original-checkpoint-only-observation.json`.
+The older existing-database history helper is inapplicable to this state.
+The separate supported checkpoint-only route passed cloud qualification under
+128MiB Node heap; final helper/preparation review is underway. Keep both
+preparation tasks open until that exact helper is accepted.
+
+Root in `/workspace/scratch/2889282bfcec` owns PC execution and task writes.
+Future agents must reconcile the active session and all saved attempt markers
+before overlapping work. Installation, configured launch, final native-history
+publication and cleanup remain unfinished.
 
 ## Earlier result and fixed delivery contract
 

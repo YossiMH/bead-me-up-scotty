@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/frontend_audit",
+  "kind": "Independent diagnosis of source-fetch progress serialization",
+  "helper_path": "20261127/source-fetch/fetch-source-objects-20261127.ps1",
+  "helper_bytes": 24349,
+  "helper_sha256": "8496473a3ebb06d5b21db6d4690dca7c03cf044f1f232860774475c18bcdf944",
+  "prior_source_review_sha256": "0f57bdbfa81a869b288dade583eb4c2f6b52864992f20ea0f384e575bba112a4",
+  "verdict": "CONFIRMED_SOURCE_DEFECT",
+  "prior_review_status": "The prior clean source verdict is superseded for this helper by this finding. Existing unchanged source/index/ref guards and the native Job deadline remain relevant; another unchanged execution is not accepted.",
+  "observed_runtime_information": {
+    "source": "Root's current report; raw actual receipt is not yet available to this reviewer",
+    "hard_deadline_exit_code": 124,
+    "deadline_seconds": 180,
+    "progress_json_exceeded_read_limit_bytes": 20480,
+    "causal_limit": "The source defect is proven independently. The exact statement running at termination requires bounded whitelisted progress evidence; no claim is made that the entire timeout cause has already been observed."
+  },
+  "evidence": [
+    {
+      "location": "lines 17 and 26-30",
+      "finding": "$Result.owned_processes references the live mutable $Owned collection."
+    },
+    {
+      "location": "Refresh-Owned, lines 68-94, especially 79-81",
+      "finding": "Each retained entry contains a real System.Diagnostics.Process object under its process key, in addition to scalar identity and sampling fields."
+    },
+    {
+      "location": "lines 321-330",
+      "finding": "before.json is emitted before the first Git child, when Owned is empty. The added before-fetch.json write occurs after --version and Snapshot have started and retained multiple Git children, and serializes the entire Result with ConvertTo-Json -Depth 12."
+    },
+    {
+      "location": "lines 334-341",
+      "finding": "The added after-fetch.json write also serializes the entire Result with live Process handles still present in retained entries."
+    },
+    {
+      "location": "finally block, lines 367-380",
+      "finding": "Process properties are removed only during final cleanup, before the original final Result serialization. This final serialization discipline was not applied to the new intermediate writes."
+    }
+  ],
+  "impact": [
+    "ConvertTo-Json recursively inspects the Process object graph rather than emitting a small progress receipt. Process metadata may include modules, threads, StartInfo and environment-related properties.",
+    "Depth 12 bounds recursion depth but does not bound the number of properties, output size, CPU time, or memory consumed by serialization.",
+    "Serialization is synchronous and outside the active Sample-Budget loop; the independent native hard timer can still stop the exact task Job at 180 seconds.",
+    "The oversized intermediate file should remain private. No raw Process-object dump or environment-related content should be uploaded or retained in public project evidence."
+  ],
+  "minimal_correction": [
+    "Change both intermediate writes to serialize only the current repository record, or an explicitly constructed progress object containing scalar metadata, bounded sanitized command records and scalar repository snapshots.",
+    "Do not place Owned, Process, ProcessStartInfo, stream, timer, task, or other runtime objects in any serialized progress object. Do not shallow-copy Result and assume nested references are sanitized.",
+    "Keep the existing final serialization after process-key removal, Job ownership, priority, memory thresholds, command deadlines, hard deadline and cleanup behavior unchanged.",
+    "Use a fresh exact attempt/claim/supervisor identity and retain all old attempt bytes. Reconcile both exact candidate objects and preserved repository state before any new network transfer.",
+    "Fetch only an exact candidate that is still missing; verify candidate identity and required ancestry when it already exists as well as after a necessary transfer.",
+    "Require a new frozen author packet and independent review before another bounded actual run."
+  ],
+  "reviewer_actions": {
+    "source_read_only": true,
+    "pc_calls": false,
+    "product_checks": false,
+    "oversized_progress_contents_read": false,
+    "replacement_authored": false
+  }
+}

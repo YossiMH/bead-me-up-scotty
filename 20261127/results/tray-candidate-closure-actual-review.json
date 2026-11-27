@@ -1,0 +1,317 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "scope": "Actual root-owned guarded closure of the three independently accepted tray/candidate tasks after the prior 27-task closure.",
+  "inputs": {
+    "plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "actual_materialization_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "previous_actual_state_sha256": "2eb8a4a62adbbadb2659bb8b080e973ed06c9f468b7d40ba968cc4423f32c749",
+    "request": {
+      "path": "20261127/results/close-tray-candidate-accepted-20261127.json",
+      "bytes": 2490,
+      "sha256": "48935647c78bfe1f75f4c1f0d7e1a046324735f0bf1123e577e181f8b987b52f"
+    },
+    "request_basis_sha256": "f100aac4937dbf58686e71306ec098475f5110c3f5cd778fae372477b0ce99e3",
+    "driver_sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3",
+    "supervisor_sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "accepted_driver_source_review_sha256": "ff0dfc38919df499b62bd6c2974a807c06c853e37bbc019e140daa414c1cc771"
+  },
+  "raw_results": {
+    "native": {
+      "publication_path": "20261127/results/tray-candidate-closure/result.json",
+      "pc_path": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\completed-20261127-tray-candidate\\result.json",
+      "bytes": 5893,
+      "sha256": "244fbb32b77bdcf3f860101a8ec6d2664717635a69116e62a0cbdf50d94e2e1f"
+    },
+    "supervisor": {
+      "publication_path": "20261127/results/tray-candidate-closure/supervisor-result.json",
+      "bytes": 6975,
+      "sha256": "c8cac0f504df0283b726096f5707cac92909f3ce3a06d51d5289e3bdb19882b1"
+    },
+    "transport": "The outer execution returned exit 0, complete stdout, empty stderr and no dropped bytes. Its complete emitted supervisor JSON equals the separately read raw supervisor result. Root retained exact original raw file sizes and hashes; these were independently recomputed locally."
+  },
+  "accepted_review_bindings": [
+    {
+      "key": "windows-tray",
+      "publication_path": "20261127/results/tray-runspace-actual-review.json",
+      "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729"
+    },
+    {
+      "key": "tray-repair-review",
+      "publication_path": "20261127/results/tray-repair-final-review.json",
+      "sha256": "22783d2693e0ec706ebfa979ac01250dfa3e6d515305bd4a335c949586ffb23b"
+    },
+    {
+      "key": "candidate-review",
+      "publication_path": "20261127/results/candidate-final-review.json",
+      "sha256": "966f7f2165a1bde5f5676cde3bb88f61a5469b32314bde6a6acd380900722957"
+    }
+  ],
+  "actual_changes": [
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "from_status": "open",
+      "to_status": "closed",
+      "revision_before": 3,
+      "revision_after": 4
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "from_status": "open",
+      "to_status": "closed",
+      "revision_before": 2,
+      "revision_after": 3
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "from_status": "open",
+      "to_status": "closed",
+      "revision_before": 5,
+      "revision_after": 6
+    }
+  ],
+  "dependency_order": [
+    {
+      "key": "windows-tray",
+      "prerequisites": [
+        "tray-diagnose",
+        "tray-repair",
+        "tray-repair-checks"
+      ],
+      "all_closed_before_this_operation": true
+    },
+    {
+      "key": "tray-repair-review",
+      "prerequisites": [
+        "tray-repair",
+        "installer-repair"
+      ],
+      "all_closed_before_this_operation": true
+    },
+    {
+      "key": "candidate-review",
+      "prerequisites": [
+        "plan-review"
+      ],
+      "all_closed_before_this_operation": true
+    }
+  ],
+  "all_55_ids_match_actual_mapping": true,
+  "counts_before": {
+    "closed": 42,
+    "open": 13
+  },
+  "counts_after": {
+    "closed": 45,
+    "open": 10
+  },
+  "other_52_statuses_and_revisions_unchanged": true,
+  "remaining_open_tasks": [
+    {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "status": "open",
+      "revision": 1
+    }
+  ],
+  "only_owned_ready_task": {
+    "key": "type-install-binding",
+    "id": "beadrs-86f1e737",
+    "title": "Bind installation and task recovery to the final type correction",
+    "revision": 1
+  },
+  "preservation": {
+    "original_954_unchanged": true,
+    "other_stored_fields_unchanged": true,
+    "configuration_and_checkpoint_pointer_unchanged": true,
+    "evidence_basis": "The exact accepted driver reports its successful full stored-field/original-inventory comparison after the guarded close manifest. Independent static reconciliation additionally compared every returned continuation ID, status and revision with the previous actual state and exact request.",
+    "checkpoint_publication": "Explicit flush and checked publication remain required."
+  },
+  "actual_execution": {
+    "started_utc": "2026-11-27T08:07:23.2859492Z",
+    "finished_utc": "2026-11-27T08:07:26.8959342Z",
+    "duration_seconds": 3.609,
+    "baseline_free_physical_bytes": 2892673024,
+    "peak_total_resident_bytes": 257970176,
+    "timeout_seconds": 180,
+    "work_stop_seconds": 168,
+    "priority": "BelowNormal",
+    "node_heap_mib": 128,
+    "max_total_resident_mib": 512,
+    "driver_exit_code": 0,
+    "owned_processes": [
+      {
+        "peak_resident_bytes": 101498880,
+        "pid": 55920,
+        "exit_code": 0,
+        "start_ticks": 639313636458638235,
+        "name": "node",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 8470528,
+        "pid": 21744,
+        "exit_code": 0,
+        "start_ticks": 639313636458693001,
+        "name": "conhost",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 7987200,
+        "pid": 52992,
+        "exit_code": 0,
+        "start_ticks": 639313636460245393,
+        "name": "conhost",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 19046400,
+        "pid": 36720,
+        "exit_code": 0,
+        "start_ticks": 639313636460178873,
+        "name": "bead-editing-539cdd0",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 7983104,
+        "pid": 36872,
+        "exit_code": 0,
+        "start_ticks": 639313636462987663,
+        "name": "conhost",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 23650304,
+        "pid": 48288,
+        "exit_code": 0,
+        "start_ticks": 639313636462949620,
+        "name": "bead-editing-539cdd0",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 7983104,
+        "pid": 21032,
+        "exit_code": 0,
+        "start_ticks": 639313636464138193,
+        "name": "conhost",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 6926336,
+        "pid": 48620,
+        "exit_code": 0,
+        "start_ticks": 639313636464329432,
+        "name": "git",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 8609792,
+        "pid": 55560,
+        "exit_code": 0,
+        "start_ticks": 639313636464424127,
+        "name": "git",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 8863744,
+        "pid": 50120,
+        "exit_code": 0,
+        "start_ticks": 639313636464057336,
+        "name": "bead-editing-539cdd0",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      }
+    ],
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "replay_allowed": false
+  },
+  "independent_checks": [
+    "Read both complete raw results, the exact frozen request and review basis, the prior actual 27-task closure and actual revision-9 materialization mapping. Recomputed every input/result SHA-256 and matched the source, request, plan and mapping bindings.",
+    "Reconciled all 55 actual IDs. Exactly windows-tray 3->4, tray-repair-review 2->3 and candidate-review 5->6 move from open to closed. All other 52 returned statuses/revisions are byte-equivalent as parsed records to their previous actual values.",
+    "Simulated the three requested keys in order against each accepted plan prerequisite and the prior closed-task set. Every prerequisite was already closed or was closed earlier in this exact request.",
+    "Confirmed all three closure reasons cite the exact accepted independent reviews. No binding, installation, configured-launch, handoff, text-review or cleanup task is included in the request.",
+    "Counted 45 closed and ten open tasks; the only returned owned-ready task is type-install-binding at actual revision 1. Both binding tasks retain open revision 1.",
+    "Matched the native result SHA with the supervisor, output name, driver/source hashes and the single accepted request. All ten retained owned process identities exited zero without assistance; the Job has no remaining members. The 3.609-second duration and 257,970,176-byte peak aggregate resident memory satisfy the accepted controller bounds."
+  ],
+  "findings": [],
+  "decision": "PASS for the completed three-task closure. The exact current observed continuation state is 45 closed and ten open. Remaining task writes must obtain fresh revisions; installation, history and final publication retain their separate gates.",
+  "reviewer_actions": {
+    "local_reads_and_static_comparisons_only": true,
+    "tests": 0,
+    "builds": 0,
+    "pc_calls": 0,
+    "native_state_writes": 0
+  }
+}

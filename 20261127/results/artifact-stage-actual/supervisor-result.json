@@ -1,0 +1,80 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "phase":  "finished",
+    "started_utc":  "2026-11-27T07:56:10.7902823Z",
+    "timeout_seconds":  180,
+    "work_stop_seconds":  168,
+    "max_total_resident_mib":  512,
+    "baseline_free_required_gib":  1,
+    "live_free_required_gib":  1,
+    "priority":  "BelowNormal",
+    "sample_interval_ms":  100,
+    "cleanup_errors":  [
+
+                       ],
+    "cleanup_assisted":  false,
+    "owned_processes":  [
+                            {
+                                "peak_resident_bytes":  156401664,
+                                "pid":  33788,
+                                "exit_code":  0,
+                                "start_ticks":  639313629714520813,
+                                "name":  "powershell",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  8445952,
+                                "pid":  48388,
+                                "exit_code":  0,
+                                "start_ticks":  639313629714628549,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            }
+                        ],
+    "replay_allowed":  false,
+    "stage_directory":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151",
+    "helper_sha256":  "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+    "supervisor_sha256":  "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d",
+    "job_helper_sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "request_sha256":  "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9",
+    "request_path":  "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\artifact-stage-request.json",
+    "powershell":  "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "session_id":  0,
+    "baseline_free_physical_bytes":  7483535360,
+    "hard_deadline_exit_code":  124,
+    "driver_pid":  33788,
+    "command":  [
+                    "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                    "-NoLogo",
+                    "-NoProfile",
+                    "-NonInteractive",
+                    "-File",
+                    "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\stage-artifacts-20261125.ps1",
+                    "-RequestPath",
+                    "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\artifact-stage-request.json",
+                    "-RequestSha256",
+                    "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9",
+                    "-DeadlineUtc",
+                    "2026-11-27T07:58:48.7902823Z"
+                ],
+    "driver_exit_code":  0,
+    "stage_result":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\stage-result.json",
+    "stage_result_sha256":  "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c",
+    "installer_inputs":  {
+                             "RuntimeManifest":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\manifests\\scotty-runtime.json",
+                             "StageNextDirectory":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\runtime\\.next",
+                             "BeadExe":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe",
+                             "BeadSha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+                             "BeadProvenance":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe.metadata.json"
+                         },
+    "remaining_job_members":  [
+
+                              ],
+    "peak_total_resident_bytes":  302596096,
+    "minimum_observed_free_physical_bytes":  7260233728,
+    "duration_seconds":  13.738,
+    "finished_utc":  "2026-11-27T07:56:24.5300598Z"
+}

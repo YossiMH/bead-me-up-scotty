@@ -1,5 +1,24 @@
 # Fetch final source objects
 
+## Actual attempt and logging correction
+
+The original `8496473a` helper reached its hard deadline with exit124. Its two
+intermediate writes serialized retained process handles as part of the full
+result. Those private progress files must not be uploaded. The finding is
+retained in `progress-serialization-finding.json`, superseding the earlier clean
+source review for this defect. The two writes now serialize only the current
+repository record, which contains strings, numbers, hashes and file metadata.
+All process handles remain excluded until normal final cleanup removes them.
+
+A fresh actual read confirmed both final source objects arrived and both
+original HEADs/raw indexes remain unchanged. No further fetch is needed.
+Complete the remaining read-only ancestry and preservation checks, then use
+the accepted installer's own fresh baseline checks. The failed attempt is not
+accepted as a successful supervised run. Retain its existing claim and paths;
+this corrected helper still refuses those paths and must not be replayed.
+
+## Original fetch contract
+
 The PC does not yet contain either final source commit. This helper fetches the
 two exact reviewed commits sequentially from the user's forks, then verifies
 the expected ancestry. It updates no branch or FETCH_HEAD. Explicit fetch

@@ -1,0 +1,194 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "scope": "Actual bounded Windows staging of the exact qualified app and native archives into the immutable installer input paths.",
+  "source": {
+    "copy_helper": {
+      "commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+      "path": "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1",
+      "bytes": 22746,
+      "sha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1"
+    },
+    "supervisor": {
+      "path": "20261127/powershell51/stage-artifacts-supervisor-20261127.ps1",
+      "bytes": 17488,
+      "sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d",
+      "accepted_original_sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+      "compatibility_delta": "Exactly two PowerShell [ulong] tokens become [uint64]; reversing those tokens reproduces the accepted original byte for byte."
+    },
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "request": {
+      "path": "20261125/revision-9/final-installation/artifact-stage-request.json",
+      "bytes": 1635,
+      "sha256": "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9"
+    },
+    "source_and_actual_helper_review": {
+      "path": "20261125/revision-9/results/artifact-stage-review.json",
+      "bytes": 20465,
+      "sha256": "ada3fe4533abafac60fc503bb8ef32cd4479a606781c1ce40e5e1ff853407633"
+    },
+    "final_binding_review": {
+      "path": "20261125/revision-9/results/final-installation-binding-review.json",
+      "bytes": 16657,
+      "sha256": "9d427fdae7f05e8ca873031630852e26a8e67f0fe859c03e101522c81dc116aa"
+    },
+    "powershell51_compatibility_review": {
+      "path": "20261127/powershell51/powershell51-compatibility-review.json",
+      "bytes": 4355,
+      "sha256": "bef31c7d6356345f9cce5fe3d45a0fc5a6677cbb55d96478ea40ca06b12948bf"
+    }
+  },
+  "raw_results": {
+    "stage_result": {
+      "pc_path": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\stage-result.json",
+      "bytes": 2341,
+      "sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c",
+      "publication_path": "20261127/results/artifact-stage-actual/stage-result.json"
+    },
+    "supervisor_result": {
+      "pc_path": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151.supervisor\\result.json",
+      "bytes": 4366,
+      "sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f",
+      "publication_path": "20261127/results/artifact-stage-actual/supervisor-result.json"
+    },
+    "driver_stdout": {
+      "bytes": 2342,
+      "sha256": "921f69eec940aef5a0de6564263c2f1e2a2c669135cdb67b84258bbf1b04797a",
+      "publication_path": "20261127/results/artifact-stage-actual/driver.stdout.log"
+    },
+    "driver_stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "publication_path": "20261127/results/artifact-stage-actual/driver.stderr.log"
+    },
+    "transport_reconciliation": "The independently decoded PC readbacks match all four exact raw files, including byte counts and SHA-256. Driver stdout is the stage-result JSON with the console CRLF replacing its final single LF. The successful outer command stdout equals the entire supervisor-result file followed by CRLF, with exit 0, empty stderr and no dropped output."
+  },
+  "prior_uncertain_submission": {
+    "state_reconciliation": "Before the accepted fresh attempt, the stage directory, exclusive claim and supervisor directory were all observed absent. The earlier expired uncertain submission is retained separately and is not counted as a successful staging attempt.",
+    "paths_observed_absent": [
+      "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151",
+      "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151.claim",
+      "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151.supervisor"
+    ],
+    "no_replay": true
+  },
+  "actual_staging": {
+    "started_utc": "2026-11-27T07:56:10.7902823Z",
+    "finished_utc": "2026-11-27T07:56:24.5300598Z",
+    "duration_seconds": 13.738,
+    "driver_started_utc": "2026-11-27T07:56:11.9616418Z",
+    "driver_completed_utc": "2026-11-27T07:56:24.4388908Z",
+    "driver_exit_code": 0,
+    "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "native_source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "stage_directory": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151",
+    "app_archive": {
+      "path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\scotty-15003467178.zip",
+      "sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+      "bytes": 7056005
+    },
+    "native_archive": {
+      "path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\bead-15014634952.zip",
+      "sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+      "bytes": 4524263
+    },
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "runtime_bytes": 27426391,
+    "native_files": 3,
+    "native_bytes": 12262464,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "native_manifest_sha256": "dbe3aa25b165991f1590526a6a4b2c3083e263be65132b9bed713d51282009cf",
+    "source_manifest_sha256": "1e114819d4366e5d33443480ef26d909881559ba3908249ff4811ca22b3de241",
+    "native_metadata_sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5",
+    "native_build_result_sha256": "1baf52e88962dde76a536102c10e40c2a915adc15dadd9a13f233a7677f94c9c",
+    "installer_inputs": {
+      "RuntimeManifest": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\manifests\\scotty-runtime.json",
+      "StageNextDirectory": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\runtime\\.next",
+      "BeadExe": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe",
+      "BeadSha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+      "BeadProvenance": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe.metadata.json"
+    },
+    "app_or_native_execution": false,
+    "application": "not_started",
+    "replay_allowed": false
+  },
+  "resource_and_cleanup": {
+    "timeout_seconds": 180,
+    "work_stop_seconds": 168,
+    "max_total_resident_mib": 512,
+    "baseline_free_required_gib": 1,
+    "live_free_required_gib": 1,
+    "priority": "BelowNormal",
+    "sample_interval_ms": 100,
+    "baseline_free_physical_bytes": 7483535360,
+    "minimum_observed_free_physical_bytes": 7260233728,
+    "peak_total_resident_bytes": 302596096,
+    "owned_processes": [
+      {
+        "peak_resident_bytes": 156401664,
+        "pid": 33788,
+        "exit_code": 0,
+        "start_ticks": 639313629714520813,
+        "name": "powershell",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 8445952,
+        "pid": 48388,
+        "exit_code": 0,
+        "start_ticks": 639313629714628549,
+        "name": "conhost",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      }
+    ],
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": []
+  },
+  "native_download_readback_confirmation": {
+    "existing_review": {
+      "path": "20261127/results/native-download-continuation-actual-review.json",
+      "bytes": 11380,
+      "sha256": "09a35a842f592d4ba14614d1a697edc717146f5bd15f4bc9290de7105d99b3e3"
+    },
+    "pc_result": {
+      "pc_path": "F:\\Dev\\.bead-edit-20261111\\native-download-continuation-20261127-2889282bfcec.supervisor\\result.json",
+      "bytes": 8553,
+      "sha256": "010b2c098f7ffd448804abc208ac812c07d2028eb830cf5537b6ecb0255fd77b",
+      "publication_path": "20261127/results/native-continue-result-from-stdout.json"
+    },
+    "finding": "The newly obtained original PC result is byte-for-byte identical to the exact JSON segment accepted in the frozen native-download actual review. This additional readback confirms its 8,553 bytes and SHA-256 010b2c098f7ffd448804abc208ac812c07d2028eb830cf5537b6ecb0255fd77b without changing the prior review or failed predecessor."
+  },
+  "independent_reconciliation": [
+    "Read the complete accepted archive helper and supervisor contract, exact final request, helper qualification and final binding reviews. The actual helper, compatibility supervisor, Job helper and request hashes match those accepted identities.",
+    "Reconciled all four exact raw files with independently decoded readback byte counts and hashes. The raw stage result, emitted JSON and supervisor stage_result_sha256 agree; both wrappers report successful zero exits.",
+    "The completed copy helper verifies both outer archives and every runtime/native entry before claiming a fresh stage, then rehashes the copied inventories. It rejects unsafe, duplicate, unexpected and nonregular ZIP paths and reparse ancestors, uses bounded 64 KiB streams and an absolute copy deadline, and retains partial evidence on failure.",
+    "Matched the actual complete 560-file, 27,426,391-byte runtime and exact BUILD_ID to the accepted final app archive/source/runtime manifest. The native count is exactly three payload files totaling 12,262,464 bytes: the 12,243,456-byte qualified executable, 2,058-byte provenance metadata and 16,950-byte build result.",
+    "Matched native source, source tree, workflow/run/artifact identity and each archive, manifest, executable, metadata and build-receipt hash through the exact final request and its accepted final binding. The staged five-field installer contract is identical in both actual receipts.",
+    "Reconciled the two owned child identities, driver PID, command, request hash, absolute deadline and zero exits. The controller completed in 13.738 seconds with peak aggregate resident memory 302,596,096 bytes, a minimum observed 7,260,233,728 free physical bytes, no assisted cleanup, no cleanup errors and no remaining Job members.",
+    "Retained the accepted earlier hosted helper qualification: 40 focused cases passed, three ordinary PowerShell parses and one embedded declaration compilation. That hosted qualification used the real app runtime and a synthetic native fixture; this actual PC staging receipt binds the final measured native archive instead.",
+    "The original native-download result separately read from the PC matches the previously accepted stdout-derived result exactly. The earlier failed two-archive download and uncertain expired staging submission remain separate retained attempts."
+  ],
+  "findings": [],
+  "decision": {
+    "actual_pc_staging_accepted": true,
+    "qualified_installer_inputs_accepted": true,
+    "stage_result_sha256_for_installer": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c",
+    "stage_supervisor_result_sha256_for_installer": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f",
+    "task_keys_closed_by_this_review": [],
+    "scope_limit": "This receipt accepts the exact staged inputs. Actual source-object availability, applicable checkpoint-only history preparation, installation, configured launch, handoffs and cleanup retain their own separate gates."
+  },
+  "reviewer_actions": {
+    "local_reads_and_static_comparisons_only": true,
+    "product_tests": 0,
+    "product_builds": 0,
+    "pc_calls": 0,
+    "task_state_writes": 0
+  }
+}

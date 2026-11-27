@@ -1,0 +1,249 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "scope": "Actual native-only archive continuation after the exact recorded predecessor failure; acceptance of both verified local final ZIPs for the unchanged archive stager.",
+  "source": {
+    "path": "20261127/native-download-continuation/continue-native-artifact-20261127.ps1",
+    "bytes": 28373,
+    "sha256": "cdf562a85d9ee07761a59d9247f8212ee4a42b5d625baf8926007110039e358e"
+  },
+  "source_review": {
+    "path": "20261127/native-download-continuation/source-review.json",
+    "sha256": "32250cb21504862d62265da153ccb2f8a8256a170249751c2e7acb100f8b916e",
+    "status": "PASS",
+    "reviewer": "root"
+  },
+  "author_inspections": {
+    "sha256": "bd45e6079b2424803ce86ea1426cf595b82fc34a5886068797abe809bb77882d",
+    "complete_clean_inspections": 2
+  },
+  "execution_evidence": {
+    "stdout_path": "20261127/results/native-continue-stdout.log",
+    "stdout_bytes": 8652,
+    "stdout_sha256": "fbd18c473c1bc01e6591cb47f6558fd976d3ff40314045add0988929df246a3c",
+    "result_path": "20261127/results/native-continue-result-from-stdout.json",
+    "result_bytes": 8553,
+    "result_sha256": "010b2c098f7ffd448804abc208ac812c07d2028eb830cf5537b6ecb0255fd77b",
+    "provenance": "Exact UTF-8 JSON segment extracted from the complete captured tool stdout, without reserialization. This hash names the retained stdout segment; no separate PC-file hash readback is claimed.",
+    "json_records": 2,
+    "record_order": [
+      "PowerShell parser receipt",
+      "complete final result"
+    ],
+    "parser_errors": 0,
+    "parser_source_hash_matches": true,
+    "process_exit_code": 0,
+    "stderr_bytes": 0,
+    "stdout_dropped": 0,
+    "stderr_dropped": 0
+  },
+  "predecessor": {
+    "path": "20261127/results/prior-download-failure.json",
+    "bytes": 11444,
+    "sha256": "a8219c011bdf2abe056679efefc100f6967ec67139a9ac12109e8c78da243778",
+    "status": "failed",
+    "app_download_passed": true,
+    "native_zip_command_exit": 1,
+    "native_stdout_bytes": 0,
+    "native_stderr_bytes": 128,
+    "owned_cleanup_clean": true,
+    "directory_readback_bytes": 303,
+    "directory_readback_sha256": "2ce8df173b023eaa50351698129e8246eb2e327fec8a5581def9ee914b90851f",
+    "original_directory_entries": [
+      {
+        "name": "bead-15014634952.zip.partial",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      {
+        "name": "scotty-15003467178.zip",
+        "bytes": 7056005,
+        "sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d"
+      }
+    ],
+    "preserved_by_new_attempt": true
+  },
+  "actual_transfer": {
+    "started_utc": "2026-11-27T07:46:44.0508478Z",
+    "finished_utc": "2026-11-27T07:46:50.0621581Z",
+    "duration_seconds": 6.009,
+    "timeout_seconds": 180,
+    "work_stop_seconds": 168,
+    "max_total_resident_mib": 512,
+    "baseline_free_required_gib": 1,
+    "live_free_required_gib": 1,
+    "baseline_free_physical_bytes": 6091632640,
+    "minimum_observed_free_physical_bytes": 5583925248,
+    "peak_total_resident_bytes": 192602112,
+    "priority": "BelowNormal",
+    "sample_interval_ms": 100,
+    "session_id": 0,
+    "gh_path": "C:\\Program Files\\GitHub CLI\\gh.exe",
+    "gh_sha256": "c3b2dea7d4961d5c54133e3bddf2b9b67505ef4cc0409759569a9972b81e35c2",
+    "gh_version": "gh version 2.89.0 (2026-03-26)\nhttps://github.com/cli/cli/releases/tag/v2.89.0",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "download_directory": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151",
+    "continuation_directory": "F:\\Dev\\.bead-edit-20261111\\native-download-continuation-20261127-2889282bfcec",
+    "commands": [
+      {
+        "arguments": [
+          "--version"
+        ],
+        "stdout_bytes": 79,
+        "stderr_bytes": 0,
+        "stderr_retained": false,
+        "exit_code": 0,
+        "pid": 53148,
+        "start_ticks": 639313624053651674
+      },
+      {
+        "arguments": [
+          "api",
+          "--hostname",
+          "github.com",
+          "--method",
+          "GET",
+          "repos/YossiMH/bead-me-up-scotty/actions/artifacts/15014634952"
+        ],
+        "stdout_bytes": 755,
+        "stderr_bytes": 0,
+        "stderr_retained": false,
+        "exit_code": 0,
+        "pid": 10244,
+        "start_ticks": 639313624054672398
+      },
+      {
+        "arguments": [
+          "api",
+          "--hostname",
+          "github.com",
+          "--method",
+          "GET",
+          "repos/YossiMH/bead-me-up-scotty/actions/artifacts/15014634952/zip"
+        ],
+        "stdout_bytes": 4524263,
+        "stderr_bytes": 0,
+        "stderr_retained": false,
+        "exit_code": 0,
+        "pid": 5808,
+        "start_ticks": 639313624058579184
+      }
+    ],
+    "downloads": [
+      {
+        "id": 15014634952,
+        "name": "checkpoint-windows-release-45600413942-1",
+        "bytes": 4524263,
+        "sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+        "run_id": 45600413942,
+        "workflow_sha": "975d21cca470dbca61a9221391b98eeebcba9d1d",
+        "expires_at": "2026-12-09T11:12:08Z",
+        "final_path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\bead-15014634952.zip",
+        "status": "passed",
+        "partial_path": "F:\\Dev\\.bead-edit-20261111\\native-download-continuation-20261127-2889282bfcec\\bead-15014634952.zip.partial"
+      }
+    ],
+    "preserved_app": {
+      "id": 15003467178,
+      "sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+      "bytes": 7056005,
+      "path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\scotty-15003467178.zip",
+      "status": "verified_before_and_after_transfer"
+    },
+    "previous_attempt": {
+      "result_path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151.supervisor\\result.json",
+      "partial_bytes": 0,
+      "partial_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "partial_path": "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\bead-15014634952.zip.partial",
+      "preserved": true,
+      "result_sha256": "a8219c011bdf2abe056679efefc100f6967ec67139a9ac12109e8c78da243778"
+    },
+    "both_final_archives_verified": true,
+    "owned_processes": [
+      {
+        "peak_resident_bytes": 30375936,
+        "pid": 53148,
+        "exit_code": 0,
+        "start_ticks": 639313624053651674,
+        "name": "gh",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 8253440,
+        "pid": 55540,
+        "exit_code": 0,
+        "start_ticks": 639313624053707744,
+        "name": "conhost",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 42168320,
+        "pid": 10244,
+        "exit_code": 0,
+        "start_ticks": 639313624054672398,
+        "name": "gh",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 8290304,
+        "pid": 6448,
+        "exit_code": 0,
+        "start_ticks": 639313624054721121,
+        "name": "conhost",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 42500096,
+        "pid": 5808,
+        "exit_code": 0,
+        "start_ticks": 639313624058579184,
+        "name": "gh",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      },
+      {
+        "peak_resident_bytes": 8290304,
+        "pid": 38668,
+        "exit_code": 0,
+        "start_ticks": 639313624058644646,
+        "name": "conhost",
+        "session_id": 0,
+        "killed_by_supervisor": false
+      }
+    ],
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "replay_allowed": false
+  },
+  "independent_reconciliation": [
+    "Read the complete accepted continuation source, source review, README and both final author inspections; independently rehashed every candidate file.",
+    "Read the complete actual output and separated its two JSON records without altering the result bytes. The captured UTF-8 stdout length equals the recorded 8652 bytes, with no dropped output, empty stderr and process exit zero.",
+    "Matched the zero-error parser source SHA, runtime helper SHA and accepted immutable source. The reviewed final success path requires both verified archives, preserved predecessor receipt/partial, closed pinned handles and unassisted complete owned cleanup.",
+    "Rehashed and read the original 11,444-byte failure receipt and the retained two-entry directory inventory. The completed app ZIP, exact native failure, empty partial, clean prior cleanup and fixed predecessor hashes agree with the new continuation record.",
+    "Exactly three sequential gh commands ran: version, native metadata and native raw ZIP. All exited zero with empty stderr. No app download command ran. Each gh PID and birth tick matches its retained owned process; all six retained descendants exited zero in session 0 and none was killed by the supervisor.",
+    "The native ID/name/producer run/head, expiry, exact 4,524,263-byte size and SHA agree with the accepted final-installation binding. The app 7,056,005-byte SHA remains exact before and after the native transfer. The source rechecks the complete final directory inventory before recording both_final_archives_verified.",
+    "The source holds the old receipt, app ZIP and empty partial read-only, creates a fresh exclusive continuation claim/partial, checks the new native size/hash, rechecks the predecessor state, and promotes without overwriting. The successful final result therefore leaves both expected final ZIPs plus the preserved old zero-byte partial.",
+    "Measured duration 6.009 seconds, 192,602,112-byte peak and observed free-memory values satisfy the unchanged 180-second/512-MiB/1-GiB bounds. Cleanup was unassisted, no errors or remaining Job members were reported, and overall process exit was zero."
+  ],
+  "preserved_controls": {
+    "inherited_job_and_pipe_functions": "The accepted source review verifies all nine inherited functions and C# byte-identical to the accepted PS5.1 downloader; the full current source was reread for actual-result interpretation.",
+    "stdout_chunk_limit_checked_before_write": true,
+    "metadata_limit_bytes": 65536,
+    "stderr_limit_bytes": 65536,
+    "credentials_or_signed_urls_retained": false,
+    "unrelated_process_termination": false,
+    "retry_or_overwrite_path": false
+  },
+  "findings": [],
+  "decision": "PASS for the actual continuation and verified final ZIP inputs. The unchanged artifact stager may consume those exact two archive paths after root reconciles its own fresh attempt state. This review does not accept the currently uncertain staging invocation or claim installation occurred.",
+  "next_gate": "Actual archive-stage result and its supervisor receipt must pass independent reconciliation before installer acceptance. Preserve the expired/uncertain staging attempt state until root completes its path and process inspection.",
+  "reviewer_actions": "Static source, hash, JSON and retained-result comparison; no PC action or product execution."
+}

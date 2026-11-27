@@ -1,0 +1,166 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "phase":  "finished",
+    "started_utc":  "2026-11-27T07:46:44.0508478Z",
+    "timeout_seconds":  180,
+    "work_stop_seconds":  168,
+    "max_total_resident_mib":  512,
+    "baseline_free_required_gib":  1,
+    "live_free_required_gib":  1,
+    "priority":  "BelowNormal",
+    "sample_interval_ms":  100,
+    "cleanup_errors":  [
+
+                       ],
+    "cleanup_assisted":  false,
+    "owned_processes":  [
+                            {
+                                "peak_resident_bytes":  30375936,
+                                "pid":  53148,
+                                "exit_code":  0,
+                                "start_ticks":  639313624053651674,
+                                "name":  "gh",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  8253440,
+                                "pid":  55540,
+                                "exit_code":  0,
+                                "start_ticks":  639313624053707744,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  42168320,
+                                "pid":  10244,
+                                "exit_code":  0,
+                                "start_ticks":  639313624054672398,
+                                "name":  "gh",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  8290304,
+                                "pid":  6448,
+                                "exit_code":  0,
+                                "start_ticks":  639313624054721121,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  42500096,
+                                "pid":  5808,
+                                "exit_code":  0,
+                                "start_ticks":  639313624058579184,
+                                "name":  "gh",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  8290304,
+                                "pid":  38668,
+                                "exit_code":  0,
+                                "start_ticks":  639313624058644646,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            }
+                        ],
+    "replay_allowed":  false,
+    "commands":  [
+                     {
+                         "arguments":  [
+                                           "--version"
+                                       ],
+                         "stdout_bytes":  79,
+                         "stderr_bytes":  0,
+                         "stderr_retained":  false,
+                         "exit_code":  0,
+                         "pid":  53148,
+                         "start_ticks":  639313624053651674
+                     },
+                     {
+                         "arguments":  [
+                                           "api",
+                                           "--hostname",
+                                           "github.com",
+                                           "--method",
+                                           "GET",
+                                           "repos/YossiMH/bead-me-up-scotty/actions/artifacts/15014634952"
+                                       ],
+                         "stdout_bytes":  755,
+                         "stderr_bytes":  0,
+                         "stderr_retained":  false,
+                         "exit_code":  0,
+                         "pid":  10244,
+                         "start_ticks":  639313624054672398
+                     },
+                     {
+                         "arguments":  [
+                                           "api",
+                                           "--hostname",
+                                           "github.com",
+                                           "--method",
+                                           "GET",
+                                           "repos/YossiMH/bead-me-up-scotty/actions/artifacts/15014634952/zip"
+                                       ],
+                         "stdout_bytes":  4524263,
+                         "stderr_bytes":  0,
+                         "stderr_retained":  false,
+                         "exit_code":  0,
+                         "pid":  5808,
+                         "start_ticks":  639313624058579184
+                     }
+                 ],
+    "downloads":  [
+                      {
+                          "id":  15014634952,
+                          "name":  "checkpoint-windows-release-45600413942-1",
+                          "bytes":  4524263,
+                          "sha256":  "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
+                          "run_id":  45600413942,
+                          "workflow_sha":  "975d21cca470dbca61a9221391b98eeebcba9d1d",
+                          "expires_at":  "2026-12-09T11:12:08Z",
+                          "final_path":  "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\bead-15014634952.zip",
+                          "status":  "passed",
+                          "partial_path":  "F:\\Dev\\.bead-edit-20261111\\native-download-continuation-20261127-2889282bfcec\\bead-15014634952.zip.partial"
+                      }
+                  ],
+    "baseline_free_physical_bytes":  6091632640,
+    "download_directory":  "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151",
+    "helper_sha256":  "cdf562a85d9ee07761a59d9247f8212ee4a42b5d625baf8926007110039e358e",
+    "continuation_directory":  "F:\\Dev\\.bead-edit-20261111\\native-download-continuation-20261127-2889282bfcec",
+    "previous_attempt":  {
+                             "result_path":  "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151.supervisor\\result.json",
+                             "partial_bytes":  0,
+                             "partial_sha256":  "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+                             "partial_path":  "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\bead-15014634952.zip.partial",
+                             "preserved":  true,
+                             "result_sha256":  "a8219c011bdf2abe056679efefc100f6967ec67139a9ac12109e8c78da243778"
+                         },
+    "preserved_app":  {
+                          "id":  15003467178,
+                          "sha256":  "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
+                          "bytes":  7056005,
+                          "path":  "F:\\Dev\\.bead-edit-20261111\\downloads-v9-final-20261125-1151\\scotty-15003467178.zip",
+                          "status":  "verified_before_and_after_transfer"
+                      },
+    "job_helper_sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "gh_path":  "C:\\Program Files\\GitHub CLI\\gh.exe",
+    "gh_sha256":  "c3b2dea7d4961d5c54133e3bddf2b9b67505ef4cc0409759569a9972b81e35c2",
+    "session_id":  0,
+    "hard_deadline_exit_code":  124,
+    "gh_version":  "gh version 2.89.0 (2026-03-26)\nhttps://github.com/cli/cli/releases/tag/v2.89.0",
+    "both_final_archives_verified":  true,
+    "remaining_job_members":  [
+
+                              ],
+    "peak_total_resident_bytes":  192602112,
+    "minimum_observed_free_physical_bytes":  5583925248,
+    "duration_seconds":  6.009,
+    "finished_utc":  "2026-11-27T07:46:50.0621581Z"
+}

@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "scope": "Source readiness from separate bounded read-only reconciliation after the failed fetch attempt",
+  "observed_utc": "2026-11-27T08:20:38.2621441Z",
+  "actual_observations": {
+    "source-preservation-reconciliation.json": "e40cabdc94cda8b2d7e0fb5afeb6482a8b602e0afe0ba5e12e56131c28280bb0",
+    "source-preservation-reconciliation-execution.json": "7d121a8eb4abb77c3165da4b0c8111e9517a66a4d11e7bb9f2fd54cc1fe04cba",
+    "source-preservation-reconciliation-command.json": "12bd65e375ed200d7d5797fcd7e9b15ae90b21ac7346dc57ec959f754bc84411"
+  },
+  "baselines": {
+    "pc-preflight.json": "da79a0fcf1ed24c26302b0f85724c5767dabc2001d2c9b5a0717d64a3e3011f7",
+    "pc-preservation-raw.json": "70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362",
+    "install-preflight-and-tray-task.json": "aff31ec4e14bbd738b37605e09760757f7f55c3189e06093f402e97ea6339570"
+  },
+  "checks": [
+    {"name": "Actual command transport", "status": "passed", "evidence": "Retained read-only command completed with exit0, no stderr and no dropped output. Its complete stdout parses exactly to the separate reconciliation JSON; that JSON is a parsed rendering, not a claim of byte identity to raw stdout."},
+    {"name": "Exact candidate objects and ancestry", "status": "passed", "evidence": "The command verifies native2d801ba455b7a722daf644a7615445117d57e8e9 and app0309539797fd7d016e2b8fd8bdc0ae9cefc20219 as commit objects, then checks all four pinned ancestry relationships with explicit Git exit-code assertions."},
+    {"name": "Existing repository state", "status": "passed", "evidence": "Both original HEADs and case-normalized raw index SHA256 values equal the retained preflight. Native source is clean. App porcelain entries equal the earlier status after removing its branch-header line; its four modified and eleven untracked existing files remain the same."},
+    {"name": "Fifteen existing app files", "status": "passed", "evidence": "Every path, byte length and SHA256 matches the complete70d93458 preservation manifest; exactly15 distinct files are present."},
+    {"name": "Existing launch configuration and native pin", "status": "passed", "evidence": "The .env.local hash equals the separately retained07:31:22 pre-fetch observation. The existing native pin matches the exact expected376537b7917f18d33383a3e4bd3eb9e0955bb42d1a60b73aef5c81865662af28 identity asserted by the retained read-only command. Relevant launch settings remain as expected."},
+    {"name": "Readiness at observation time", "status": "passed", "evidence": "No relevant app/helper process was observed, ports3000 and43972 were free, and PORT/BEAD_BIN were unset at Process/User/Machine levels. These are point-in-time observations; the actual installer and launcher retain their own fresh admission checks."}
+  ],
+  "qualification": "The two .git/config hashes in this result are current observations only. There is no separately retained pre-fetch cloud baseline for those bytes, so this review does not assert they are unchanged.",
+  "failed_fetch_status": "The original8496473a fetch attempt remains failed with hard-deadline exit124. Present source objects and this later read-only reconciliation do not convert it into a successful supervised fetch. No repeat network fetch is needed.",
+  "open_findings": [],
+  "next_gate": "The accepted installer independently rechecks current source, preserved files and runtime identities before any installation write.",
+  "reviewer_activity": {"pc_calls": false, "network_fetches": false, "product_runs": false, "private_oversized_progress_files_read": false},
+  "retention": "Keep raw connector execution/command observations private. Public project records may retain this source-readiness conclusion and the necessary source/file bindings."
+}

@@ -1,0 +1,159 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root/frontend_audit",
+  "review_type": "Independent final-source analysis for checkpoint-only native restore route",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+  "verdict": "SUPPORTED_ROUTE_WITH_EXPLICIT_RECONCILIATION",
+  "scope": "Source analysis and inspection of the already qualified immutable original checkpoint. Candidate helper review and actual route-result review remain separate gates.",
+  "product_execution_by_reviewer": false,
+  "pc_calls_by_reviewer": false,
+  "source_files": {
+    "src/main.rs": "d4b1ab9d02b186615cfd3f65dbb8d98366fad11d00065bbfe65ce7604612a3e0",
+    "src/cli_checkpoint_guard.rs": "4b11cc1d5648d85817317dade0099717c55b6ec2824e93cb96bc92cfc0475a0e",
+    "src/store/sqlite.rs": "0729ec6cdea01a2bd7c326c8793742d88af1f4a2f27663790d33c427fd009285",
+    "src/service/checkpoint.rs": "f860195328ef19049d87aa3904ef04de518889e9d289b57b00f0fcf4413e366c",
+    "src/service/reconcile.rs": "2aaf6b3caef47b040ffd3e6b72e023d9404c43c655613413339dd77dcfc99dfc",
+    "src/service/git_stage.rs": "e2cbd2423eb73fba4a0d038bda9a0108e732dad01e119fa7d30613882361c420"
+  },
+  "original_checkpoint": {
+    "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "format_uuid": "f6a8c2e0-6b1d-4b7a-9b3a-2e7a7c5e9a4f",
+    "generation_id": "gen-a569f746bbb268015d996c8ed4c76f57",
+    "root_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+    "current_json_sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+    "snapshot_sequence": 29609,
+    "issues": 954,
+    "events": 11264,
+    "receipts": 5,
+    "attempt_outcomes": 413,
+    "event_identity_basis": "All original canonical events belong to the original store UUID with contiguous origin sequences 1 through 11264.",
+    "resource_declaration_issues": 65,
+    "resource_declarations": 95,
+    "active_resource_issues_with_assignees": 2,
+    "active_resource_locks_reconstructed": 3,
+    "comments": 3,
+    "data_records": 171,
+    "external_references": 250
+  },
+  "qualified_runtime": {
+    "artifact_id": 15016141673,
+    "run_id": 45600748319,
+    "archive_sha256": "0ff1219eb6c86dee6b311387cf35b7fcfac6904df55b1e39d8159787f0baf8c2",
+    "archive_bytes": 22283030,
+    "binary_sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c",
+    "binary_bytes": 13618928,
+    "retrieval_receipt_sha256": "16498862f50bc7624a78c58e2df30833a2867dd94741998af7e7a7ee2a524015",
+    "retrieval_directory": "/tmp/beads-2889282bfcec/qualified-linux-final-15016141673"
+  },
+  "route": [
+    {
+      "step": "Preserve and verify the original checkpoint-only state",
+      "requirements": [
+        "Retain exact original config, current and optional previous pointer closures, relevant Git state, raw index, and explicit database/WAL/SHM/journal absence.",
+        "Freeze and verify all 1009 source issues, their exact portable auxiliary content, event/receipt/outcome corpus, and the accepted task graph before opening the original with the final native runtime.",
+        "Keep old accepted helper files and all existing preservation evidence immutable."
+      ]
+    },
+    {
+      "step": "Initialize only the missing database",
+      "command_shape": "bead --no-auto-flush init --prefix beadrs",
+      "source_evidence": ["src/main.rs:1352-1490", "src/store/sqlite.rs:347-537"],
+      "requirements": [
+        "Require the existing config identity and prefix; native initialization preserves existing config and .gitignore bytes.",
+        "Require initialized native schema and workspace identity, zero semantic target records, and local event sequence zero.",
+        "Original checkpoint closure, HEAD, raw index, config and unrelated working files must remain unchanged after init."
+      ]
+    },
+    {
+      "step": "Restore the complete frozen source with normal automatic publication",
+      "command_shape": "bead restore --source <verified frozen source directory> --generation <pinned generation> --actor <pinned actor> --prefix beadrs --format json",
+      "source_evidence": ["src/main.rs:367-506", "src/main.rs:759-806", "src/main.rs:1219-1296", "src/cli_checkpoint_guard.rs:71-185"],
+      "requirements": [
+        "Do not pass --no-auto-flush or --allow-non-empty to this restore.",
+        "The Ready target arms publication_probe. Restore is explicit recovery, so committed publication bypasses the ordinary covered-ahead history check and the covered>=live shortcut.",
+        "Treat any command failure after activation as an inspectable partial result; never replay restore automatically.",
+        "Reconcile complete target corpus and audit additions before transferring canonical task authority."
+      ]
+    },
+    {
+      "step": "Reconcile native publication",
+      "source_evidence": ["src/service/checkpoint.rs:7885-8396", "src/service/git_stage.rs:221-229"],
+      "requirements": [
+        "The newly published pointer must use actual restored local MAX(events.sequence); 29609 remains the preserved old checkpoint sequence and is not a minimum for the fresh database.",
+        "previous.json must preserve the exact outgoing original current.json and its complete verified root closure.",
+        "Status must be aligned, clean, checkpoint-consistent and root-verified, with live sequence = covered sequence = new pointer snapshot sequence and no unresolved tombstones.",
+        "Native publication uses normal auto-stage behavior. Preserve the original raw index as evidence, keep HEAD unchanged, and prove all non-checkpoint index entries unchanged while each checkpoint staged entry matches verified actual content or an expected deletion.",
+        "GIT_OPTIONAL_LOCKS=0 does not suppress explicit native git add; raw index equality after publication is not the right invariant."
+      ]
+    }
+  ],
+  "unsupported_shortcuts": [
+    "An uninitialized --no-auto-flush restore followed by sync flush-only remains blocked by the original covered-ahead checkpoint.",
+    "Simply removing --no-auto-flush from an uninitialized restore still reaches publish_newly_restored_state, whose covered>=live shortcut skips publication.",
+    "The helper must not edit SQL, raise sqlite_sequence, fabricate events, replace the original database directly, move original checkpoint topology, or remove the original checkpoint to evade sequence checks."
+  ],
+  "restore_audit_invariants": {
+    "source_evidence": ["src/service/checkpoint.rs:2252-2255", "src/service/checkpoint.rs:4685-4764", "src/service/checkpoint.rs:5171-5272", "src/service/checkpoint.rs:6077-6180", "src/service/checkpoint.rs:10004-10090"],
+    "event": {
+      "delta": 1,
+      "issue_id": null,
+      "kind": "checkpoint_restored",
+      "actor": "Exact pinned restore actor",
+      "time": "Valid RFC3339 timestamp within the observed native operation window",
+      "detail": {
+        "source_store_uuid": "Exact source UUID",
+        "source_root_sha256": "Exact source active_root.sha256",
+        "snapshot_sequence": "Exact source pointer snapshot_sequence",
+        "issues_restored": "Source issue count I",
+        "events_restored": "Source event count E",
+        "provenance_receipts_restored": "Source receipt count R",
+        "replaced_non_empty_target": false
+      },
+      "identity_rule": "Report.summary_event_sequence is local SQLite N. Canonical origin identity is assigned after the largest incoming explicit origin for the local store. N=E+1 is valid here only if the helper first proves empty initialized local sequence zero and all incoming events have the single pinned UUID with contiguous origins 1..E."
+    },
+    "receipt": {
+      "delta": 1,
+      "receipt_id": "Fresh restore-<hexadecimal nanosecond timestamp> generated by the native uuid() helper, absent from incoming receipts; this is not an RFC UUID",
+      "kind": "restore",
+      "source_store_uuid": "Exact source UUID",
+      "target_store_uuid": "Exact source UUID",
+      "source_root_sha256": "Exact source active_root.sha256",
+      "actor": "Exact pinned restore actor",
+      "created_at": "Decimal Unix-second timestamp within the observed native operation window",
+      "counts": {"issues": "I", "events": "E", "provenance_receipts": "R"},
+      "result": "success",
+      "summary_event_identity": "local- followed by report.summary_event_sequence",
+      "receipt_sha256": "SHA256 of direct UTF-8 concatenation receipt_id + restore + source_root_sha256 + actor + created_at + success",
+      "report_binding": "Exact receipt ID and SHA256 must equal RestoreReport fields."
+    },
+    "report": [
+      "Exact source generation, mode, root, UUID, snapshot, actor and incoming counts.",
+      "non_empty_override=false and all displaced counts zero.",
+      "local_recovery_succeeded=true, secret_quarantined=false, checkpoint_publication_withheld=false.",
+      "Every incoming canonical event and receipt hash survives exactly; final events E+1, receipts R+1, issues I, outcomes unchanged."
+    ]
+  },
+  "all_issue_scoped_rows": {
+    "coverage": "All 1009 original and continuation issue IDs, including unknown additive fields, comments, data, references, labels, dependencies and resource declarations; not only the 55 newly created continuation tasks.",
+    "raw_equal_when_portable": "Issue rows and deterministic auxiliary rows should retain exact values; normalize JSON structurally only when a specific native serializer difference is demonstrated and retain complete canonical checkpoint equality.",
+    "resource_locks": {
+      "source_evidence": ["src/service/checkpoint.rs:6444-6486", "src/service/resource_locks.rs:143-163", "src/service/resource_locks.rs:366-415"],
+      "expected_change": "Native restore reconstructs lock rows for in_progress issues with assignees from resource declarations, with fresh acquired_at and null lease_fencing_token.",
+      "required_checks": "Require the exact expected resource_key/issue_id ownership set, null native restore fencing tokens, and valid timestamps within the restore window. Preserve exact portable resource declarations and extensions. Do not simply skip this table."
+    },
+    "attempt_outcomes": {
+      "source_evidence": ["src/service/checkpoint.rs:5738-5767"],
+      "expected_change": "prior_attempt_tier is not checkpoint-visible and is reconstructed as zero. All checkpoint-visible outcome fields and extensions must remain exact.",
+      "required_checks": "For this isolated source, verify prior_attempt_tier is already zero before using raw outcome-row equality. Otherwise document and verify the precise native reconstruction rather than omitting the table."
+    },
+    "events": "Compare complete canonical origin identity/content maps. Imported raw SQLite sequence and origin columns may legitimately differ. Preserve exact raw events for comparisons within one database across nonsemantic operations.",
+    "local_bookkeeping": "Workspace creation timestamp, checkpoint_state and SQLite ingestion counters are local native state. Validate their exact allowed semantics rather than claiming source database byte equality across fresh restore."
+  },
+  "remaining_gates": [
+    "Author's narrow disposable route qualification against the retrieved exact final Linux binary.",
+    "Independent review of the actual qualification report and retained command outputs.",
+    "Independent source/runtime-safety review of the frozen new helper and supervisor packet.",
+    "Root-owned bounded execution and reconciliation on the actual checkpoint-only original repository."
+  ]
+}
