@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Combined existing final-publish actual acceptance and next final-restore request/admission acceptance.",
+  "findings": [],
+  "actuals": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-history-publish-actual/driver-result.json",
+      "bytes": 17520,
+      "sha256": "0732b04aa7acdd61079edb9dd78ce24cd28e9e3da00e0e4636f433359a2775be"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-history-publish-actual/supervisor-result.json",
+      "bytes": 12273,
+      "sha256": "ec35a5d232532cf535b0972ebd7ff216265eac233847e2442ba8efb36e2695e8"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-history-publish-actual/execution.json",
+      "bytes": 29013,
+      "sha256": "6758f1b582291afa347d7c1b613ff62ef69fcb90155a0aa47132578c3ef23bba"
+    }
+  ],
+  "publication": {
+    "proposal_id": "o7dqkwRRlD1gwEIYUH_jzUD-9wRL-ts9YZvkFEZL0Us",
+    "request_sha256": "9901815ec25a79523653378a82acfac87240cbfc8ecb71f4cd1b39172478de09",
+    "authority": "F:/Dev/bead-rs",
+    "generation": "gen-b0dbb36610c8c0737ec852537da42eff",
+    "root_sha256": "25eb42214ef4f3635f161db8b728fbf270014d315f8da12640db1a025d953f97",
+    "local_sequence": 11524,
+    "checkpoint_path": "F:\\Dev\\.bead-edit-20261111\\preservation-checkpoint-only-20261127-v1\\final-published\\checkpoint",
+    "checkpoint_manifest_sha256": "d28cabde27498cde2a56eb03368d361ccdc9a3dbc4800f4030e238f5364a0d0e",
+    "before_database_snapshot_sha256": "78b25ab7e343ebcc3ab554ea5731bea85f401dd05c504c259f67128ec917e9fb",
+    "after_database_snapshot_sha256": "251c0c5e117c0956cec0e99cd75f74afbe5835b05c30aa42eb9aed14d9c1b89c",
+    "original_git_before_sha256": "da332fdce72e80c34c153fcba966d8ac8e0095126fc9b2b230415ab798013e26",
+    "original_git_after_sha256": "2aeb94acffd724b4c5c36d3f4571a300bc41764f39db26736e147cbcf6999928",
+    "checkpoint_index_reconciliation_sha256": "ed7b76148ab12fb95e3b0cca1977d88c5fed32476da339ac60c30ad61d457dc3",
+    "published_manifest_file_sha256": "2971f585309c02206a7c55eb358312987911c037253a7d670fecab9f97b63cb1",
+    "retained_previous_receipt_sha256": "82b64eb9c93a4b695f6a926a677abbf37b2a587d2785e490460aea6ae13a2fb6",
+    "git_publication": "root pending"
+  },
+  "resources": {
+    "duration_seconds": 21.54,
+    "peak_total_resident_bytes": 373723136,
+    "baseline_free_physical_bytes": 4669648896,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "all_recorded_owned_processes_exit0": true
+  },
+  "actual_checks": [
+    "Exact raw driver/supervisor identities and the complete exit0 wrapper bind accepted9901815e; console stdout equals supervisor plus terminal CRLF, with no stderr or drops.",
+    "Before database78b25ab7 and Gitda332fdc exactly match accepted close after-state. Unchanged source validates the shared reason and revision relationship, flushes only the closed original store and checks that all tables except checkpoint_state plus raw events are preserved.",
+    "Generation advanced from e09b to b0db and local sequence11524. Passing source verifies promoted previous pointer, selected objects and prior corpus remain intact; the1009-issue corpus includes the single cleanup closure and all55 continuation tasks closed.",
+    "Published corpus, retained final checkpoint/manifest, inventory, retained-selected-generation and exact index reconciliation are present and hash-bound. Successor2f0 source applies the accepted stdin staging and unchanged strict index verifier; Git configuration before/after remains994872f3.",
+    "Supervisor completed normally within unchanged resource limits. All20 recorded owned processes exited0, no supervisor kills/assistance/errors/residual members, and publication locks remained ordinary empty files."
+  ],
+  "next_request": {
+    "status": "accepted_for_root_staging_and_execution",
+    "files": [
+      {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/final-history/history-final-restore-20261127-v1.request.json",
+        "bytes": 7106,
+        "sha256": "d471c281917aaceb32e4309304bcb3a3893023cbea0763040ae05a8bc69b1ef9"
+      },
+      {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/final-history/history-final-restore-admission.ps1",
+        "bytes": 993,
+        "sha256": "e89d9bd3681f2f395cf9b5e75ff8bd6a8b135acf8e19c1aa47f321ea086c75dc"
+      },
+      {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/final-history/history-final-restore-admission-invocation.json",
+        "bytes": 3479,
+        "sha256": "fd535874f9863ce7f4cd0a5ee67b8682d4ce01f775893090909bc8c4f60ae866"
+      }
+    ],
+    "phase": "final-restore",
+    "helper_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+    "supervisor_sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553",
+    "prior_close": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/close/result.json",
+      "sha256": "d51e7f260b5fc7abd3eeee9a1456fee369be22e11ee9d61e340bb0f34d57eb60"
+    },
+    "prior_final_publish": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+      "sha256": "0732b04aa7acdd61079edb9dd78ce24cd28e9e3da00e0e4636f433359a2775be"
+    },
+    "cleanup_revision": 5,
+    "close_reason_sha256": "e0ea269a1d466a871bd78bfebb23e45ed3a7e1b16025b84fa6e75062eeef3406",
+    "accepted_cleanup_results": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/cleanup-results-accepted.json",
+      "sha256": "866424a608939f8021526fd8d2ba0dfeb60fb94755f2dc65550f1ae263e4e9d7"
+    },
+    "accepted_cleanup_text": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/cleanup-text-review-accepted.json",
+      "sha256": "9e4df7c68a2052eda2973776d1631121f8e543a93a4e2d0020de05a09c66124b"
+    },
+    "initial_publication": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-initial-20261127-02e8a44557c8-v1/result.json",
+      "sha256": "adf4f74a91e403f1629096aab3a4e60196cde8d4f60953c3239203ac1486617b"
+    },
+    "checks": [
+      "Exact inverse to the frozen final-restore template changes only phase,actual accepted hashes,prior.close/prior.final-publish,existing root attestations and shared revision/reason; all earlier phase pins and fixed runtime/helper inputs are unchanged.",
+      "Actual0732 final-publish andd51e close pins are exact. Request revision remains5 and reason e0ea is unchanged, with aggregate866424/text9e4df7/initial publicationadf4 carried intact.",
+      "The saved admission is the frozen accepted body with only request hash bound; its UTF16LE decoded command is identical. Existing BelowNormal,3.5GiB outer deferral,180second512MiB supervisor and200second broker bounds remain.",
+      "Accepted final-restore source verifies the final checkpoint in its fresh disposable target, compares complete corpus/database/audit/inventory and verifies original database/checkpoint/Git state and frozen source remain unchanged."
+    ]
+  },
+  "execution_boundary": "Root stages exactd471c281 request and runs its existing admission under the exclusive writer window. Final disposable verification and final native Git publication remain subsequent actual outcomes.",
+  "activity": "Cloud-only retained-source/raw-byte/request binding review; no PC/ref action, source change, product test or additional gate."
+}

@@ -1,0 +1,48 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_existing_combined_acceptance",
+  "phase": "final-restore",
+  "request_sha256": "d471c281917aaceb32e4309304bcb3a3893023cbea0763040ae05a8bc69b1ef9",
+  "request_bytes": 7106,
+  "request_template_sha256": "2176e466d8b97c8dd0e6cf58890c7f9095540cbfbfe8fa968dc39f9187ebd796",
+  "admission_template_sha256": "5493e9c7a10a6096875200f59316c5ded7407d7bbc25b3585f48bc3afb45d0b9",
+  "shared_context_sha256": "66c971794309de41acf9fb632597691e9a5e88e93c557501a5be126ea9dad7e1",
+  "shared_request_cleanup_revision": 5,
+  "close_reason_sha256": "e0ea269a1d466a871bd78bfebb23e45ed3a7e1b16025b84fa6e75062eeef3406",
+  "prior_close": {
+    "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/close/result.json",
+    "sha256": "d51e7f260b5fc7abd3eeee9a1456fee369be22e11ee9d61e340bb0f34d57eb60"
+  },
+  "prior_final_publish": {
+    "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+    "bytes": 17520,
+    "sha256": "0732b04aa7acdd61079edb9dd78ce24cd28e9e3da00e0e4636f433359a2775be",
+    "generation": "gen-b0dbb36610c8c0737ec852537da42eff",
+    "root_sha256": "25eb42214ef4f3635f161db8b728fbf270014d315f8da12640db1a025d953f97",
+    "local_sequence": 11524
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Exact final-publish raw identity and passed phase/request/generation/root/sequence checked.",
+        "Exact final-restore template inverse after phase, shared accepted context, existing root flags and two actual phase pins.",
+        "All6 earlier prior bindings and helper/runtime/plan/materialization/accepted identities unchanged."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Shared request revision5, accepted reason e0ea and all3 completion receipt bindings match close/final-publish.",
+        "Admission differs from its accepted template only by one request SHA; supervisor path and limits unchanged.",
+        "Actual final-publish/next request receive the existing combined independent review before invocation."
+      ],
+      "findings": []
+    }
+  ],
+  "pc_actions": false,
+  "ref_actions": false,
+  "new_executor": false,
+  "new_tests": false
+}
