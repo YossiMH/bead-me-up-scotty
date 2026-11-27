@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/backend_audit",
+  "author": "/root/delivery_audit",
+  "scope": "Independent static acceptance of the partially filled app document publisher request and corrected runbook. This review does not accept a completed request, actual document adoption or task closure.",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/delivery/app-document-publication",
+  "files": {
+    "publish-scotty-documents.request.template.json": {
+      "bytes": 2803,
+      "sha256": "b126e78cf49920ef22f5f625c987e2a4935e9d26e1dac44dcd35aa8d687e6718"
+    },
+    "README.md": {
+      "bytes": 8462,
+      "sha256": "5856d2651d2c67c13bb7d0bd6ff7bc6e2c4628307b90bd1edace1fb5d7a04c07"
+    },
+    "author-inspections.json": {
+      "bytes": 7092,
+      "sha256": "144bca8215d4d40b511a6961f1e8fe28237181d926b0f3b30156711435e251eb"
+    }
+  },
+  "checks": [
+    {
+      "name": "Full request and runbook read",
+      "status": "passed",
+      "establishes": "Read the complete request, full runbook and final author record, including both clean author inspections. The request is a documents/scotty instance of the accepted closed schema with exact README.md and docs/backend-compatibility.md mode100644 allowlist."
+    },
+    {
+      "name": "Unchanged accepted sources and schema",
+      "status": "passed",
+      "establishes": "Independently rehashed all seven author basis files: publisher7d8be720, supervisorb86a74ad, history1015fa58, source review8b05fa67, original templatee833d12b, configured reviewebe3a62e and installed reviewb3bdf099. Request and per-document key sets match the accepted template exactly."
+    },
+    {
+      "name": "Observed guard and retention bindings",
+      "status": "passed",
+      "establishes": "HEAD030953, index9886ccbe, Gitconfigurationc819b572 and131-byte .env.local f9987d51 agree with root's supplied actual observations. Accepted hooks are empty and core.autocrlf is the literal true setting. The exact2758 Job helper copy is the one recorded in the accepted TCP actual result; all review paths are under coordination."
+    },
+    {
+      "name": "Execution preparation boundary",
+      "status": "passed",
+      "establishes": "Both target and expected remote commit remain null until the same GitHub-first descendant is actually published. Final canonical and distinct CRLF working document identities, final text-review hash and all four root attestations remain null. hook_review null is intentional for no accepted hooks. Output directories follow the exact run-id relationship and remain subject to actual fresh absence checks."
+    },
+    {
+      "name": "Explicit hidden invocation correction",
+      "status": "passed",
+      "establishes": "The only20-byte README change adds -WindowStyle Hidden to the outer ordinary PowerShell invocation. Removing those bytes exactly reproduces8442B/63205cd0 before-correction README. Request b126e78c is unchanged. Existing source-bound BelowNormal,Node128,3GiB start/1GiB live,512MiB aggregate and180s/12s cleanup remain unchanged."
+    },
+    {
+      "name": "Normal checkout and private-state protection",
+      "status": "passed",
+      "establishes": "The runbook uses ordinary stored core.autocrlf semantics and separate reviewed raw/working hashes, explicit fork fetch, exact allowed descendant, normal fast-forward and remote readback. It introduces no stored configuration/authentication change, hook suppression, private app task-store operation or new helper."
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "P-HIDDEN-1",
+      "status": "resolved",
+      "resolution": "Add explicit -WindowStyle Hidden to the outer invocation; source helpers and request remain exact."
+    }
+  ],
+  "findings": [],
+  "open_findings": [],
+  "later_gates": [
+    "The final concrete request and invocation need their own exact binding review after root confirms target/main and attestations.",
+    "Stage the final exact text review and completed request, then root executes the unchanged bounded supervisor once.",
+    "Independently reconcile actual driver/supervisor outputs and exact source/index/config/environment/main outcomes before task closure or history acceptance."
+  ],
+  "activity": {
+    "pc_calls": false,
+    "task_writes": false,
+    "product_changes": false,
+    "product_tests": false,
+    "helper_changes": false,
+    "publication": false
+  }
+}

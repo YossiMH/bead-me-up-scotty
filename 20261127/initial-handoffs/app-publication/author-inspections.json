@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "status": "complete_request_prepared_for_independent_review",
+  "author": "/root/delivery_audit",
+  "scope": "Exact app documentation request and existing-supervisor invocation after root's observed GitHub main publication; actual PC adoption and task closures remain future results.",
+  "files": {
+    "README.md": {
+      "bytes": 3231,
+      "sha256": "61566d1589423fb12cee831bc3b662fd788e2167ca19df58ef8eba879c020e3a"
+    },
+    "invocation.json": {
+      "bytes": 2208,
+      "sha256": "8642e0ec72ee5680d2fb1610a333b7df5ed2c0392d40ae47d69a3a0ab2a29d91"
+    },
+    "publish-scotty-documents-20261127-2889282bfcec.request.json": {
+      "bytes": 3269,
+      "sha256": "7e5ca1b50246dfc2b0837e3d88f4fcdcb26231edc02fb87980e4b4ce8825c15d"
+    }
+  },
+  "basis": {
+    "publisher": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/publish-reviewed-git-crlf-20261127.mjs",
+      "bytes": 45087,
+      "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13"
+    },
+    "supervisor": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "bytes": 20108,
+      "sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52"
+    },
+    "history": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-20261127.mjs",
+      "bytes": 84410,
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+    },
+    "source_review": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/independent-review.json",
+      "bytes": 13770,
+      "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c"
+    },
+    "prepared_request": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/app-document-publication/publish-scotty-documents.request.template.json",
+      "bytes": 2803,
+      "sha256": "b126e78cf49920ef22f5f625c987e2a4935e9d26e1dac44dcd35aa8d687e6718"
+    },
+    "prepared_author": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/app-document-publication/author-inspections.json",
+      "bytes": 7092,
+      "sha256": "144bca8215d4d40b511a6961f1e8fe28237181d926b0f3b30156711435e251eb"
+    },
+    "prepared_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/reviews/app-document-publication-preparation-review.json",
+      "bytes": 4420,
+      "sha256": "6ff4732f8811ff3e1eead230da808d5ee0ee0974ec63d487d7bf28d94bcb9061"
+    },
+    "main_publication": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/initial-handoff-main-publication.json",
+      "bytes": 1026,
+      "sha256": "16d6deb98f5472e161eabe857de4ceafd901afd88a7ab09c7025026bbfb85733"
+    },
+    "final_text_author": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/app-handoff-final/author-inspections.json",
+      "bytes": 10302,
+      "sha256": "cfaa51393228b4ff853228fc77f8afd6465f54ee0ddd55fd3115077c5c248be9"
+    },
+    "configured_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b"
+    },
+    "installed_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/installed-final-review.json",
+      "bytes": 16318,
+      "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b"
+    },
+    "final_text_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/reviews/app-handoff-final-text-review.json",
+      "bytes": 24264,
+      "sha256": "b36af077a90948fb4c9a066c1666b1179966b07d44b5b909a121d61441abd715"
+    }
+  },
+  "authorization": {
+    "source": "Root's 2026-11-27 message after accepting b36af077 and observing app main b8caabf9.",
+    "statement": "Root explicitly confirmed the ordinary expected-head update, exact ls-remote main readback and all four true attestations: exclusive root writer, reviewed request, accepted installation, accepted document reviews.",
+    "attestations": {
+      "exclusive_repository_writer": true,
+      "reviewed_request": true,
+      "installed_reviews_accepted": true,
+      "document_reviews_accepted": true
+    }
+  },
+  "derivation": {
+    "baseline_request_sha256": "b126e78cf49920ef22f5f625c987e2a4935e9d26e1dac44dcd35aa8d687e6718",
+    "changed_leaf_count": 17,
+    "changed_paths": [
+      "/expected_remote_commit",
+      "/reviews/2/sha256",
+      "/attestations/exclusive_repository_writer",
+      "/attestations/reviewed_request",
+      "/attestations/installed_reviews_accepted",
+      "/attestations/document_reviews_accepted",
+      "/target_commit",
+      "/document_files/0/bytes",
+      "/document_files/0/sha256",
+      "/document_files/0/git_blob",
+      "/document_files/0/working_bytes",
+      "/document_files/0/working_sha256",
+      "/document_files/1/bytes",
+      "/document_files/1/sha256",
+      "/document_files/1/git_blob",
+      "/document_files/1/working_bytes",
+      "/document_files/1/working_sha256"
+    ],
+    "complete_inverse_recovers_original_bytes": true,
+    "unchanged": "All other request fields, source helpers, paths, prior observed local guards and schema remain exact."
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "complete": true,
+      "read": [
+        "Complete final request, invocation argument array and README.",
+        "Accepted publisher request validation and document-related guard code; final text review candidate/document records and actual main publication receipt."
+      ],
+      "checked": [
+        "Local installed HEAD is preserved while target and remote bind the actual published documentation descendant.",
+        "Both document canonical lengths, SHA-256, Git blob IDs and expected CRLF lengths/hashes match the accepted final bytes.",
+        "All three review identities and root-supplied attestations match their accepted records.",
+        "Exact command keeps Hidden, 180 seconds, 512 MiB and unchanged source/Job/import bindings."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "complete": true,
+      "read": [
+        "Complete final request, invocation and README again.",
+        "All twelve pinned basis inputs and the exact original-template comparison."
+      ],
+      "checked": [
+        "Exactly seventeen null leaf values are filled; reversing them reproduces all 2,803 original template bytes.",
+        "Recomputed both complete document Git blob and CRLF identities from final source files and compared the independent text review.",
+        "Rechecked request size/hash, fresh run/output relationship, command argument identity, preserved index/config/environment and empty-hook fields.",
+        "Confirmed actual PC execution is still pending, only hook_review remains intentionally inapplicable in the request, and the future result is required before handoff closures."
+      ],
+      "findings": []
+    }
+  ],
+  "static_checks": {
+    "json_parse": true,
+    "full_template_inverse": true,
+    "exact_seventeen_fills": true,
+    "main_readback_exact": true,
+    "canonical_and_working_documents_exact": true,
+    "all_twelve_basis_pins_exact": true,
+    "accepted_review_statuses_and_empty_open_findings": true,
+    "request_invocation_hash_exact": true,
+    "unchanged_source_and_observed_guards": true,
+    "exact_two_document_paths": true,
+    "only_environment_private_state": true
+  },
+  "findings": [],
+  "next_steps": [
+    "Independent concrete-request review.",
+    "Root stages and hash-reads the exact request and final text review, confirms fresh attempt path absence and executes the existing bounded supervisor.",
+    "Reconcile driver and supervisor results, exact local/remote/document/private/index state and owned cleanup before actual adoption acceptance."
+  ],
+  "activity": {
+    "pc_actions": false,
+    "product_tests": false,
+    "builds": false,
+    "helper_edits": false,
+    "source_branch_changes": false,
+    "publication": false
+  }
+}

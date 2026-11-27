@@ -1,0 +1,147 @@
+{
+  "status": "prepared_pending_actual_document_adoption_reviews",
+  "basis": {
+    "request_template": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/close-handoffs.request.template.json",
+      "bytes": 618,
+      "sha256": "ed52ba5e3912ab0c933ee229fb9b85baf9fb60cd3cf031d096322a3e73331b7d"
+    },
+    "plan": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261125/revision-9/plan.json",
+      "bytes": 419134,
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+    },
+    "materialization": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/results/materialization-v9-result.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    "last_closure": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-actual/result.json",
+      "bytes": 5964,
+      "sha256": "6b0cbed2c93a5e517a50fb6e10f98382ff8cc480edff2336c97c96ff332f8a73"
+    },
+    "last_closure_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-installed-closure-actual-review.json",
+      "bytes": 9093,
+      "sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5"
+    },
+    "native_text_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/reviews/native-handoff-final-text-review.json",
+      "bytes": 16394,
+      "sha256": "1798222c75283975a39de6862941763100c91b313c9b60ea5b3abf7dfae90b40"
+    },
+    "app_text_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/reviews/app-handoff-final-text-review.json",
+      "bytes": 24264,
+      "sha256": "b36af077a90948fb4c9a066c1666b1179966b07d44b5b909a121d61441abd715"
+    },
+    "main_publication": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/initial-handoff-main-publication.json",
+      "bytes": 1026,
+      "sha256": "16d6deb98f5472e161eabe857de4ceafd901afd88a7ab09c7025026bbfb85733"
+    },
+    "closer": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/revision-9-execution/record-accepted-tasks-v9.mjs",
+      "bytes": 13438,
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3"
+    },
+    "supervisor": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/revision-9-execution/record-accepted-tasks-v9-supervisor.ps1",
+      "bytes": 17282,
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426"
+    }
+  },
+  "order": [
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "before": {
+        "id": "beadrs-1371879c",
+        "status": "open",
+        "revision": 3
+      },
+      "after_expected": {
+        "id": "beadrs-1371879c",
+        "status": "closed",
+        "revision": 4
+      },
+      "prerequisites": [
+        "configured-launch",
+        "installed-review"
+      ]
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "before": {
+        "id": "beadrs-f0039a6a",
+        "status": "open",
+        "revision": 5
+      },
+      "after_expected": {
+        "id": "beadrs-f0039a6a",
+        "status": "closed",
+        "revision": 6
+      },
+      "prerequisites": [
+        "configured-launch",
+        "installed-review"
+      ]
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "before": {
+        "id": "beadrs-30f13b5b",
+        "status": "open",
+        "revision": 3
+      },
+      "after_expected": {
+        "id": "beadrs-30f13b5b",
+        "status": "closed",
+        "revision": 4
+      },
+      "prerequisites": [
+        "backend-handoff"
+      ]
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "before": {
+        "id": "beadrs-c62c1990",
+        "status": "open",
+        "revision": 5
+      },
+      "after_expected": {
+        "id": "beadrs-c62c1990",
+        "status": "closed",
+        "revision": 6
+      },
+      "prerequisites": [
+        "app-handoff"
+      ]
+    }
+  ],
+  "expected_after": {
+    "closed": 54,
+    "open": 1,
+    "remaining": [
+      {
+        "key": "preserve-and-clean",
+        "id": "beadrs-3ec972f8",
+        "status": "open",
+        "revision": 5
+      }
+    ],
+    "unchanged_other_task_summaries": 51,
+    "original_records": 954
+  },
+  "actual_adoption_inputs": {
+    "native": null,
+    "app": null
+  },
+  "request_reasons_filled": false,
+  "execution_started": false
+}

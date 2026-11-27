@@ -1,0 +1,135 @@
+{
+  "schema_version": 1,
+  "status": "prepared_request_with_future_fields",
+  "author": "/root/delivery_audit",
+  "prepared_utc": "2026-11-27 12:55:01 UTC",
+  "scope": "Partial app documents request for the unchanged accepted Git publisher; final document identities, published target/remote commit, final text-review hash and root attestations remain pending.",
+  "files": {
+    "publish-scotty-documents.request.template.json": {
+      "bytes": 2803,
+      "sha256": "b126e78cf49920ef22f5f625c987e2a4935e9d26e1dac44dcd35aa8d687e6718"
+    },
+    "README.md": {
+      "bytes": 8462,
+      "sha256": "5856d2651d2c67c13bb7d0bd6ff7bc6e2c4628307b90bd1edace1fb5d7a04c07"
+    }
+  },
+  "basis": {
+    "publisher": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/publish-reviewed-git-crlf-20261127.mjs",
+      "bytes": 45087,
+      "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13"
+    },
+    "supervisor": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "bytes": 20108,
+      "sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52"
+    },
+    "history": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-20261127.mjs",
+      "bytes": 84410,
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+    },
+    "source_review": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/independent-review.json",
+      "bytes": 13770,
+      "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c"
+    },
+    "original_templates": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/git-publication/request-templates.json",
+      "bytes": 13757,
+      "sha256": "e833d12b8317800228b0909cc2206b1b2e14e09be325a134d43ff389f73a4b89"
+    },
+    "configured_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b"
+    },
+    "installed_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/installed-final-review.json",
+      "bytes": 16318,
+      "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b"
+    }
+  },
+  "observed_guards_source": "Root supplied the actual installed HEAD, index/config hashes, .env.local bytes/hash, autocrlf=true and no-hook observation in this assignment. The request preserves them as fail-closed expected values; this author performed no PC observation.",
+  "review_destination_source": "Root's stage-installed-acceptance.cjs names C/revision-9/checkpoint-only-inputs; root separately confirmed both exact review destinations. Their local bytes match immutable3151657d objects.",
+  "job_helper_source": "The passed TCP raw result54e074ed records the selected final-installation/windows-task-job.ps1 copy with exact2758a6ff SHA.",
+  "derivation": {
+    "source": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/git-publication/request-templates.json",
+    "selection": "templates.scotty_documents",
+    "key_shape_unchanged": true,
+    "changes": [
+      "Accepted CRLF publisher/supervisor hashes7d8be720/b86a74ad.",
+      "Proposed fresh run, driver/supervisor output and exact observed Job-helper path.",
+      "Observed local HEAD/index/config/private environment/check-out mode and empty hooks.",
+      "Two accepted actual C review pins and one planned final text-review path."
+    ],
+    "pending": [
+      "Both final document canonical identities and reviewed CRLF working identities.",
+      "target_commit and expected_remote_commit, to be set to the same actual published GitHub-first descendant.",
+      "Final independent text-review SHA256.",
+      "All four root attestations."
+    ]
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "complete": true,
+      "read": [
+        "Complete prepared request and README.",
+        "Accepted publisher retained()/accepted(), document validation and complete documents branch.",
+        "Supervisor input/hash/output validation and driver invocation."
+      ],
+      "checked": "Fixed scotty scope, exact two documents, single environment private-state record, exact guards, current review paths, post-cloud-publication remote equality and future fields. The complete corrected invocation explicitly starts hidden and preserves the same supervisor/hash/180-second/512MiB bounds.",
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "complete": true,
+      "read": [
+        "Complete final request and README again.",
+        "Exact source/helper/review byte bindings and the fresh TCP Job-helper identity."
+      ],
+      "checked": "Original inner schema key set, run/output relationship, fixed document modes, no executable helper changes, all current values versus root observations, accepted local/immutable review equality, all remaining future fields unset and intentionally inapplicable null hook review. The complete corrected invocation explicitly starts hidden and preserves the same supervisor/hash/180-second/512MiB bounds.",
+      "findings": []
+    }
+  ],
+  "static_checks": {
+    "json_parse": true,
+    "source_template_key_shape_equal": true,
+    "output_and_run_id_contract": true,
+    "observed_guards_equal": true,
+    "only_environment_in_app_private_state": true,
+    "two_current_reviews_match_immutable_sources": true,
+    "job_helper_matches_actual_result": true,
+    "final_document_commit_review_attestations_unset": true,
+    "outer_hidden_explicit": true,
+    "runbook_single_delta_inverse": true
+  },
+  "findings": [],
+  "final_gates": [
+    "Final actual-task text update, two final text author inspections and independent final text acceptance.",
+    "Publish and observe the exact doc-only descendant and fill target/remote equality and both canonical/working document records.",
+    "Stage final exact review and completed request, obtain independent completed-request acceptance, then root confirms the fresh writer/guard conditions and attestations.",
+    "Root executes the existing bounded supervisor once and reconciles both actual receipts and source/index/remote/environment outcomes."
+  ],
+  "activity": {
+    "request_and_document_files_only": true,
+    "pc_actions": false,
+    "product_tests": false,
+    "builds": false,
+    "helper_edits": false,
+    "source_branch_changes": false,
+    "publication": false
+  },
+  "review_corrections": [
+    {
+      "id": "P-HIDDEN-1",
+      "reviewer": "/root/backend_audit",
+      "finding": "The outer PowerShell invocation omitted the explicit hidden-window argument.",
+      "resolution": "Added only -WindowStyle Hidden to the documented outer invocation. Reversing those20 bytes exactly reproduces the previously reviewed README. Request JSON and accepted executable helpers are unchanged."
+    }
+  ]
+}
