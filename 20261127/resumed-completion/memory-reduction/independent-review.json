@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "passed_independent_source_and_pin_coherence_review",
+  "reviewer": "/root/review_scotty",
+  "source_repository": "YossiMH/bead-me-up-scotty",
+  "baseline_commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+  "memory_driver_commit": "925dc93eb7610b9f912c57ea9f8a640d7153cd1a",
+  "publisher_successor_commit": "34474ecfb41f8845fb2302782e774286cef6c9c9",
+  "scope": "Single independent static review of the exact two-line memory retention change, unchanged history supervisor, and the two coherent publisher history path/hash substitutions. Interrupted original-store reconciliation remains a separate root-owned action.",
+  "findings": [],
+  "accepted_files": [
+    {
+      "path": "20261127/resumed-completion/memory-reduction/checkpoint-only-handoff-crlf-20261127.mjs",
+      "name": "history",
+      "bytes": 84430,
+      "sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773",
+      "git_blob_sha": "d1f656e240c90216849d8f349395961fce489e43"
+    },
+    {
+      "path": "20261127/resumed-completion/memory-reduction/checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+      "name": "history-supervisor",
+      "bytes": 19195,
+      "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+      "git_blob_sha": "278ae39cf2e52abf418f59c7df5e38506fd74f47"
+    },
+    {
+      "path": "20261127/resumed-completion/memory-reduction/publisher-successors/publish-reviewed-git-crlf-20261127.mjs",
+      "name": "publish-reviewed-git-crlf-20261127.mjs",
+      "bytes": 45107,
+      "sha256": "7db3143e5982cf0bec76c2f3d641976d078e176cfcba89b8d8e191c996654ff2",
+      "git_blob_sha": "76a635170bfcf4588bf43c5d33ab5a79b15466e0"
+    },
+    {
+      "path": "20261127/resumed-completion/memory-reduction/publisher-successors/publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "name": "publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "bytes": 20128,
+      "sha256": "596abef58957b4b1bab83042f0e0ee07ba331715923787bd9a44c8bbe9313b50",
+      "git_blob_sha": "1721a4c9726c1e3cc28e7aa40985de84a04c4d6c"
+    }
+  ],
+  "exact_comparisons": {
+    "history_driver": "Each changed full line occurs exactly once; reversing both substitutions reconstructs the complete 84,410-byte accepted baseline.",
+    "history_supervisor": "Complete 19,195-byte candidate equals the accepted baseline byte for byte.",
+    "publisher_driver": "Reversing its one quoted path and one quoted SHA substitution reconstructs the complete 45,087-byte accepted baseline.",
+    "publisher_supervisor": "Reversing its one quoted path and one quoted SHA substitution reconstructs the complete 20,108-byte accepted baseline.",
+    "independent_digests": "SHA-256 and Git blob SHA-1 calculated over exact immutable connector-fetched UTF-8 bytes; all four sources are ASCII."
+  },
+  "reasoning": [
+    "checkpoint(originalCanonicalPath) still completes its full existing validation before init, including generation syntax, selected object lengths/digests and corpus checks. Only its validated immutable generation string is retained for the later generation inequality.",
+    "The original checkpoint object graph is no longer retained by selectedBefore across initialization and restore. This makes the unnecessary graph eligible for collection; no measured RSS reduction or GC timing guarantee is claimed.",
+    "The separate final-publish selectedBefore object and all of its pointer/files/corpus comparisons remain byte-identical.",
+    "Publisher PIN.history/PIN.historySha and its supervisor's history source/hash check resolve to the same candidate under the existing checkpoint-only-inputs directory.",
+    "The unchanged publisher verifies both initial restore-original/restore request helper hashes and both final final-publish/final-restore request helper hashes against a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773.",
+    "Historical preserve/freeze/source-restore result pins remain valid: unchanged prior() checks exact retained result bytes, passed phase, runtime, plan and materialization; it does not require rewriting previous helper hashes."
+  ],
+  "unchanged": {
+    "all_other_control_flow": true,
+    "native_runtime_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "all_corpus_runtime_checkpoint_index_and_receipt_checks": true,
+    "all_output_freshness_and_replay_guards": true,
+    "all_ref_allowlists_leases_hook_config_and_private_store_guards": true,
+    "history_supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+    "node_old_space_mib": 128,
+    "aggregate_resident_mib": 512,
+    "baseline_free_gib": 3,
+    "live_free_floor_gib": 1,
+    "timeout_seconds": 180,
+    "priority": "BelowNormal"
+  },
+  "future_request_binding_contract": {
+    "stage_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs",
+    "remaining_history_phases": [
+      "restore-original",
+      "restore",
+      "close",
+      "final-publish",
+      "final-restore"
+    ],
+    "history_helper_sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773",
+    "history_supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+    "history_supervisor_basename": "checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+    "publisher_helper_sha256": "7db3143e5982cf0bec76c2f3d641976d078e176cfcba89b8d8e191c996654ff2",
+    "publisher_supervisor_sha256": "596abef58957b4b1bab83042f0e0ee07ba331715923787bd9a44c8bbe9313b50",
+    "publisher_supervisor_basename": "publish-reviewed-git-crlf-supervisor-20261127.ps1",
+    "sibling_resolution": "Each unchanged supervisor resolves its matching driver basename from PSScriptRoot; co-stage each reviewed pair in the stated directory.",
+    "scope": "Use these coherent identities when completing actual future requests. Keep prior executed requests and failed outputs unchanged; actual future receipt hashes, revisions, heads and authority attestations remain unfilled until observed.",
+    "interrupted_phase": "This source review does not authorize replay or classify the interrupted original-store state. Root's accepted preserving recovery and actual reconciliation govern that separately."
+  },
+  "activity": {
+    "pc_actions": 0,
+    "remote_mutations": 0,
+    "product_tests": 0,
+    "builds": 0
+  },
+  "conclusion": "Accepted as prepared source and matching future-request pin contract. No additional source or syntax gate is warranted for these exact changes."
+}

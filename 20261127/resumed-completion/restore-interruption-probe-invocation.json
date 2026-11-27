@@ -1,0 +1,6 @@
+{
+  "command": "\"C:\\Program Files\\nodejs\\node.exe\" --max-old-space-size=64 -e \"const p='F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/restore-interruption-probe-20261127.cjs';if(require('node:crypto').createHash('sha256').update(require('node:fs').readFileSync(p)).digest('hex')!=='c385ffc388dffe9648f6bf0a51ee0c7e5cb1ba2b65ffcfd727652f2c1e9afa02')throw Error('Probe hash differs');require(p)\"",
+  "cwd": "F:\\Dev",
+  "timeout_ms": 15000,
+  "expected_effects": "Run the independently reviewed fixed read-only interruption probe after the failed native restore. Read only small bounded phase markers and pointer/config/index identities; database and sidecars receive metadata checks only. No SQL, native command, writes, renames, process control or database copy. Exact source hash c385ffc3, BelowNormal,64MiBheap,128MiBownRSS,1GiBfree floor,15second deadline and65000byte output cap."
+}
