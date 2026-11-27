@@ -1,0 +1,125 @@
+{
+  "schema_version": 1,
+  "status": "prepared_data_only",
+  "basis": {
+    "commit": "60a884ad8febee8a14be4691591fb0a61cbe8f66",
+    "request_path": "20261127/resumed-completion/restore-verification/history-restore-verification-20261127-v1.request.json",
+    "request_sha256": "e63f4f79b94a3bf2fd3bade1233ffc635cab8a5105b8425e0f25ddaaac2ec6b8",
+    "admission_path": "20261127/resumed-completion/restore-verification/history-restore-verification-admission.ps1",
+    "admission_sha256": "8b51ca83285076461864babec0964a3e77576e1ac435b0c1e696eef94d59842a",
+    "authoritative_procedure": "Previously accepted cleanup-close-actual-binding-procedure.json; read before cloud outage. Its phase/revision/reason/future-hash/attestation policy is retained below."
+  },
+  "helper_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+  "supervisor_sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553",
+  "known_current_phase_pins": {
+    "preserve": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+      "sha256": "cd0ef5d40bdf9e7bd34af52c7e0c46867ef702ad21be385d58a8ae0199b78dd7"
+    },
+    "freeze": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+      "sha256": "ac743406703ee2ced9c35456032debbddb981ffb05957865a30ffabf943c4521"
+    },
+    "source-restore": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+      "sha256": "ae8c1d41f9805cdd02b7270d3a2b5a0c26808e8b251a26a300bccba43dc1de52"
+    },
+    "restore-original": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+      "sha256": "8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a"
+    },
+    "restore": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore/result.json",
+      "sha256": "8b8fe224216dcd0b7f11f32d3ea87bd24899d23061cebd24831143ab2a7fc239"
+    }
+  },
+  "accepted_destinations": {
+    "cleanup-results": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/cleanup-results-accepted.json",
+    "cleanup-text-review": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/cleanup-text-review-accepted.json",
+    "checkpoint-publication": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-initial-20261127-02e8a44557c8-v1/result.json"
+  },
+  "revision_source": {
+    "phase_result": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+      "sha256": "8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a"
+    },
+    "after_file": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/after.json",
+    "after_file_sha256": "438227b2721f26d2c011337ff4c8bc83a8114809a4aa1b9e81bdad4d3b7ffbd6",
+    "row": "issueRows[beadrs-3ec972f8]",
+    "required_fields": {
+      "base_status": "open",
+      "assignee": null,
+      "claim_epoch": 0,
+      "manual_blocked": 0
+    },
+    "cleanup_revision": null,
+    "existing_frozen_row_allowed": "Use an already retained exact frozen row with the accepted restore proof, which compares every scoped issue row and inventory to frozen source."
+  },
+  "shared_completion_context": {
+    "initial_checkpoint_publication_result_sha256": null,
+    "cleanup_aggregate_sha256": null,
+    "cleanup_text_review_sha256": null,
+    "pre_close_revision": null,
+    "reviewed_close_reason": null,
+    "archive_and_exact_ref_cleanup_receipts": "Bind through the existing cleanup aggregate after accepted actual completion."
+  },
+  "mechanical_binding_steps": [
+    "Bind one shared pre-close revision and exact trimmed reviewed close_reason, length80..4096, with the accepted cleanup aggregate/text review and initial native publication hashes.",
+    "Complete close from this shared context, set phase close, and set existing attestations only when true. Leave unused prior.close/final-publish null. Hash and stage the exact request; replace the one admission hash placeholder and encode UTF-16LE Base64.",
+    "After accepted close actual, require returned cleanup_revision == shared pre_close_revision +1 and returned close_reason == shared reviewed_close_reason. Bind that raw close result into final-publish.",
+    "Complete final-publish using the same shared pre-close revision, identical reason and accepted cleanup/publication pins. Keep the incremented result revision out of the request's pre-close revision field.",
+    "After accepted final-publish actual, bind its raw result into final-restore. Preserve the same shared context and actual close pin; verify the final published generation/root through the existing fresh R/final-restore-check operation."
+  ],
+  "future_values_explicit": {
+    "all_request_phases": null,
+    "all_cleanup_revisions": null,
+    "all_close_reasons": null,
+    "future_receipt_hashes": null,
+    "future_attestations": false,
+    "all_invocation_commands": null
+  },
+  "inspection": {
+    "request_common_context_inverse": true,
+    "all_five_current_phase_pins_preserved": true,
+    "admission_literal_inverse": true,
+    "helper_or_product_change": false,
+    "new_executor": false,
+    "new_review_gate": false,
+    "new_tests": false
+  },
+  "templates": [
+    {
+      "phase": "close",
+      "request_template": "history-close-20261127-v1.request.prepared.json",
+      "request_bytes": 5767,
+      "request_sha256": "280e6d95bf9040ca974d3a55a8541b64a3a3a6e144828c562790599bd3891bc0",
+      "admission_template": "history-close-admission.prepared.ps1",
+      "admission_bytes": 937,
+      "admission_sha256": "d60e5199b5a0636a94949428f4f0d04b545f8cab863cabc84868bcd790a36486",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/history-close-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-close-20261127-v1"
+    },
+    {
+      "phase": "final-publish",
+      "request_template": "history-final-publish-20261127-v1.request.prepared.json",
+      "request_bytes": 5865,
+      "request_sha256": "09b22c542111a8a8be9df52fd3bd48b16d99018dbfca76de8340297177aca78b",
+      "admission_template": "history-final-publish-admission.prepared.ps1",
+      "admission_bytes": 961,
+      "admission_sha256": "f695b1b39fa73ac1ce516bdc329b172388bc4cc37449782168a46ddbc211d556",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/history-final-publish-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-publish-20261127-v1"
+    },
+    {
+      "phase": "final-restore",
+      "request_template": "history-final-restore-20261127-v1.request.prepared.json",
+      "request_bytes": 5963,
+      "request_sha256": "2176e466d8b97c8dd0e6cf58890c7f9095540cbfbfe8fa968dc39f9187ebd796",
+      "admission_template": "history-final-restore-admission.prepared.ps1",
+      "admission_bytes": 961,
+      "admission_sha256": "5493e9c7a10a6096875200f59316c5ded7407d7bbc25b3585f48bc3afb45d0b9",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/history-final-restore-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-restore-20261127-v1"
+    }
+  ]
+}

@@ -1,0 +1,37 @@
+{
+  "status": "prepared_only_actual_cleanup_and_prior_bindings_pending",
+  "intended_phase": "final-publish",
+  "command": null,
+  "cwd": "F:\\Dev",
+  "timeout_ms": 200000,
+  "request_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/history-final-publish-20261127-v1.request.json",
+  "request_sha256": null,
+  "request_template": "history-final-publish-20261127-v1.request.prepared.json",
+  "request_template_sha256": "09b22c542111a8a8be9df52fd3bd48b16d99018dbfca76de8340297177aca78b",
+  "admission_template": "history-final-publish-admission.prepared.ps1",
+  "admission_template_sha256": "f695b1b39fa73ac1ce516bdc329b172388bc4cc37449782168a46ddbc211d556",
+  "request_hash_placeholder": "__FINAL_PUBLISH_REQUEST_SHA256__",
+  "powershell_prefix": "powershell.exe -NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -EncodedCommand ",
+  "supervisor_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/checkpoint-only-handoff-crlf-supervisor-20261127-memory-v3.ps1",
+  "helper_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+  "supervisor_sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553",
+  "expected_phase_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish",
+  "expected_supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-publish-20261127-v1",
+  "limits": {
+    "outer_free_bytes": 3758096384,
+    "supervisor_seconds": 180,
+    "max_owned_resident_mib": 512,
+    "node_old_space_mib": 128,
+    "node_semi_space_mib": 4
+  },
+  "phase_stays_null_until_completed": true,
+  "shared_binding_fields": [
+    "accepted.cleanup-results.sha256",
+    "accepted.cleanup-text-review.sha256",
+    "accepted.checkpoint-publication.sha256",
+    "cleanup_revision",
+    "close_reason",
+    "attestations"
+  ],
+  "actual_prior_close_sha256": null
+}
