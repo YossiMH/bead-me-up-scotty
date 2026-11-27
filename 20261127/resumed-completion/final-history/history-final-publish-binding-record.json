@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_existing_combined_acceptance",
+  "phase": "final-publish",
+  "request_sha256": "9901815ec25a79523653378a82acfac87240cbfc8ecb71f4cd1b39172478de09",
+  "request_bytes": 6946,
+  "request_template_sha256": "09b22c542111a8a8be9df52fd3bd48b16d99018dbfca76de8340297177aca78b",
+  "admission_template_sha256": "f695b1b39fa73ac1ce516bdc329b172388bc4cc37449782168a46ddbc211d556",
+  "shared_context_sha256": "66c971794309de41acf9fb632597691e9a5e88e93c557501a5be126ea9dad7e1",
+  "shared_request_cleanup_revision": 5,
+  "actual_post_close_revision": 6,
+  "close_reason_sha256": "e0ea269a1d466a871bd78bfebb23e45ed3a7e1b16025b84fa6e75062eeef3406",
+  "prior_close": {
+    "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/close/result.json",
+    "bytes": 12213,
+    "sha256": "d51e7f260b5fc7abd3eeee9a1456fee369be22e11ee9d61e340bb0f34d57eb60"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Exact close raw identity and passed phase/cleanup ID/request/revision6/reason/final-publication-required checked.",
+        "Exact final-publish template inverse after only phase, shared accepted context, existing root flags and prior.close hash bindings.",
+        "All5 earlier prior pins and helper/runtime/plan/materialization/accepted identities unchanged."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Shared request revision remains5, while actual close revision is6; exact accepted reason and all3 completion receipt bindings match close.",
+        "Admission differs from its accepted template only by one request SHA; supervisor path and limits unchanged.",
+        "Actual close/next request receive the existing combined independent review before invocation."
+      ],
+      "findings": []
+    }
+  ],
+  "pc_actions": false,
+  "ref_actions": false,
+  "new_executor": false,
+  "new_tests": false
+}
