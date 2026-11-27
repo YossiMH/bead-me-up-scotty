@@ -1,0 +1,90 @@
+{
+  "schema_version": 1,
+  "status": "passed_independent_v2_recovery_source_review",
+  "reviewer": "/root/review_scotty",
+  "findings": [],
+  "accepted_files": [
+    {
+      "name": "quarantine-restore-original-20261127-v2.cjs",
+      "bytes": 21619,
+      "sha256": "c32bef5991b7d063372aa494c0ed8b13701de2c1ac1649facf439f8ca6d360c2"
+    },
+    {
+      "name": "quarantine-restore-original-v2.request.prepared.json",
+      "bytes": 2470,
+      "sha256": "e86f9dc7f791ab8e03c9f1fb12a27e001f291883cfe4a630d58ab6b76b4ac73d"
+    },
+    {
+      "name": "quarantine-restore-original-v2-invocation.prepared.json",
+      "bytes": 1599,
+      "sha256": "f0f60ea054f5f18c47467a9a0c45e76029644093bf6556e557ac570b4d283f3a"
+    },
+    {
+      "name": "quarantine-restore-original-v2-author-inspections.json",
+      "bytes": 7864,
+      "sha256": "bc5135296231e045ccef8e21c18e4ccc543a28666e3402cc722ab549c2f1b55c"
+    }
+  ],
+  "accepted_baseline": {
+    "source_sha256": "92bfd912e3c4a9b174c77eb08cab6bdff6df43f99fbdfc0866b2eb7dfe23bd63",
+    "source_review_sha256": "b1f9ae5662e7a42bf153a24f1d3443708b1ff579349a893bcf41e7626d2ccdc8",
+    "actual_review_sha256": "6a51f26431280e79fbb718b8509badd703a71a0e45164d85056d909489d68511"
+  },
+  "exact_derivation": {
+    "single_PIN_line_changed": true,
+    "whole_source_inverse_reconstructs_every_baseline_byte": true,
+    "changed_PIN_leaves": 27,
+    "body_control_flow_resource_and_preservation_guards_changed": false,
+    "request_targets_equal_embedded_and_standalone_pins": true
+  },
+  "evidence": {
+    "private_probe_sha256": "18448d9ea5b46a7f1d526394d1373e4bf49dad6515fefe32705fd12d54286e23",
+    "inventory_sha256": "430a3d8613bf464f1f121ac648df9239fd41d2fcb8aa34b9d3a58209b86237c0",
+    "inventory_rows_sha256": "1d29aa194ee0979d887240c8fd625b902ce93e2668f249b2ce0da642b8e1c371",
+    "failed_supervisor": {
+      "bytes": 10006,
+      "sha256": "00c1f721d2845581d4de5014e0b195cb9711e45eb387749632f5e00c8412a1b6",
+      "phase": "restore-original",
+      "status": "failed",
+      "request_sha256": "7d18a7444b818a9f5b136514da63804cd2e26c0787a5d81f4899645af08c54be",
+      "peak_total_resident_bytes": 540721152,
+      "duration_seconds": 21.087,
+      "cleanup_assisted": true,
+      "remaining_job_members": []
+    },
+    "checks": [
+      "All 55 checkpoint rows equal the first accepted inventory, and their compact JSON digest independently matches the embedded row pin.",
+      "All six protected raw hashes/sizes and all three database sizes/new mtimes match the fresh private probe.",
+      "Decoded only the three allowed small marker records: initialization exited 0 with empty state; the exact v2 restore request began; result/restore-exit/status/after/inventory/authority-completion/original-Git-after and published targets remain absent.",
+      "The helper, request, invocation and author packet hashes were independently recomputed; invocation binds the new helper and request identities."
+    ],
+    "raw_git_receipts": {
+      "bytes_each": 102337,
+      "expected_sha256": "9a10be2f5be17561e3bfe1df14c12fd81cd696101aa8516191cb5be64e060cc7",
+      "fresh_probe_scope": "Metadata only; no fresh raw-content readback is claimed.",
+      "enforcement": "Unchanged helper reads and hashes both exact current receipts before its first mutation, requiring the previously accepted source-restore identity and parsed Git state. A mismatch refuses safely."
+    },
+    "privacy": "No private probe/config bytes or database content are reproduced in this review."
+  },
+  "approved_scope": {
+    "operation": "retain-interrupted-restore-original-20261127-v2",
+    "consumed_failed_proposal": "SMxgXIPKm-d0LJ_JogjrVHYpG3OwxW2XO2Rc1ibxsAk",
+    "fresh_retention": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019",
+    "retained_first_package": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752",
+    "renames": 5,
+    "database_bytes": 8946056,
+    "checkpoint_moves": 0,
+    "native_or_SQL_execution": false,
+    "deletion_or_overwrite": false
+  },
+  "unchanged_guards": "Single BelowNormal Node,64 MiB old space,128 MiB own RSS,1 GiB free floor,15-second internal/broker limits,64 KiB streaming reads, bounded metadata, fsynced create-new before/intent/done records, identity/hash postchecks, no retention reuse or automatic replay.",
+  "root_boundary": "Accepted exact prepared derivative for the root-owned exclusive writer window and one preserving execution. The first retained package remains outside all targets. This review settles source acceptance only; actual completion needs its already-requested result review. Any later native restore requires the separately accepted measured memory candidate.",
+  "activity": {
+    "pc_actions": 0,
+    "ref_writes": 0,
+    "helper_body_execution": 0,
+    "product_tests": 0,
+    "builds": 0
+  },
+  "conclusion": "PASS with no additional optional syntax, collection or product test gate."
+}

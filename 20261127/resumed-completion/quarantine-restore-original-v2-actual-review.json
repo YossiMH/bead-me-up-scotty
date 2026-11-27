@@ -1,0 +1,108 @@
+{
+  "schema_version": 1,
+  "status": "passed_independent_v2_actual_recovery_review",
+  "reviewer": "/root/review_scotty",
+  "findings": [],
+  "source_review_sha256": "fce9b92404695e6b62d083e31d63d50dade17abfbd5c70cc84887f86935dba0e",
+  "execution": {
+    "file": "quarantine-restore-original-v2-execution.json",
+    "bytes": 7310,
+    "sha256": "724e2d5cf5f3f1eaa9f5d91b22e2ee6a7bd238b07905ef200fd0e3d2253801bd",
+    "proposal": "i38Cxi351XkdZsLyKLJYLPGsuIYDZMBIDzCcVD-QKIc",
+    "job": "j1795798989786-31932-9485953116354195194",
+    "status": "exited",
+    "exit": 0,
+    "stderr": "",
+    "dropped": 0
+  },
+  "actual_stdout": {
+    "file": "quarantine-restore-original-v2-actual-stdout.json",
+    "bytes": 2818,
+    "sha256": "5312061fe32c3433c02d8e8811ae096cfe1ca32506466569638eaa24d1ca70cb",
+    "exact_wrapper_match": true
+  },
+  "accepted_result": {
+    "schema_version": 1,
+    "status": "passed",
+    "operation": "retain-interrupted-restore-original-20261127-v2",
+    "request_sha256": "e86f9dc7f791ab8e03c9f1fb12a27e001f291883cfe4a630d58ab6b76b4ac73d",
+    "helper_sha256": "c32bef5991b7d063372aa494c0ed8b13701de2c1ac1649facf439f8ca6d360c2",
+    "old_proposal_id": "SMxgXIPKm-d0LJ_JogjrVHYpG3OwxW2XO2Rc1ibxsAk",
+    "quarantine": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019",
+    "completed_targets": [
+      {
+        "sequence": 1,
+        "name": "beads.db",
+        "source": "F:/Dev/bead-rs/.beads/beads.db",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db",
+        "kind": "file",
+        "bytes": "413696",
+        "sha256": "4011cfe5ef8fa02eb9dacee34874131141adc9c3f9a1b0318272eabe43304c06"
+      },
+      {
+        "sequence": 2,
+        "name": "beads.db-wal",
+        "source": "F:/Dev/bead-rs/.beads/beads.db-wal",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-wal",
+        "kind": "file",
+        "bytes": "8499592",
+        "sha256": "b79272504d310129306cf3c317f70a3558ce20d7e62bf139e74cad762b898d04"
+      },
+      {
+        "sequence": 3,
+        "name": "beads.db-shm",
+        "source": "F:/Dev/bead-rs/.beads/beads.db-shm",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-shm",
+        "kind": "file",
+        "bytes": "32768",
+        "sha256": "20ac58ca0aa47f79b46d099c93870b0030c3e6d827479336c4905fcbde0395f6"
+      },
+      {
+        "sequence": 4,
+        "name": "failed-phase",
+        "source": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/failed-phase",
+        "kind": "directory",
+        "entries": 96,
+        "rows_sha256": "59b4437e29c8eabc9e6dc43b5113924489bc4fcc49e817253d34d827f7bdeb62"
+      },
+      {
+        "sequence": 5,
+        "name": "failed-supervisor",
+        "source": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/failed-supervisor",
+        "kind": "directory",
+        "entries": 4,
+        "rows_sha256": "b883f42bb51efcb78256eb44e473e5823fbfdfda1e37ab2e734533b3bb69ab23"
+      }
+    ],
+    "original_database_and_sidecars_absent": true,
+    "original_checkpoint_config_and_index_unchanged": true,
+    "zero_byte_operation_and_publication_locks_retained": true,
+    "failed_phase_and_supervisor_retained": true,
+    "retained_database_bytes": 8946056,
+    "checkpoint_rows_sha256": "1d29aa194ee0979d887240c8fd625b902ce93e2668f249b2ce0da642b8e1c371",
+    "no_sql_or_native_execution": true,
+    "priority": "BelowNormal",
+    "node_heap_mib": 64,
+    "elapsed_ms": 251,
+    "peak_rss_bytes": 56655872,
+    "minimum_free_bytes": 6836510720,
+    "replay_allowed": false
+  },
+  "checks": [
+    "Execution exited 0 with no stderr or dropped output; exact saved stdout bytes equal the execution wrapper's complete stdout.",
+    "Actual helper/request hashes equal the accepted derivative, and all five target names/sequences/source/destination/kind fields equal its fixed pins.",
+    "The three retained file hashes are present and sizes total 8946056 bytes. Whole failed phase and supervisor directories are retained with exact post-move metadata digests.",
+    "The reviewed body reaches passed output only after durable before/intent/done records, pre/post streamed identity/hash checks and all final absence and unchanged-state checks.",
+    "The original database/sidecars and old output paths are absent; six protected files and all checkpoint metadata remain unchanged. Operation/publication zero-byte locks remain.",
+    "Observed elapsed/RSS/free-memory values satisfy the unchanged bounds. The separately retained first recovery package lies outside this derivative's target set."
+  ],
+  "boundary": "The second preserving reset is settled and consumed. Both interrupted attempts remain retained. Original history/authority restoration has not completed; root is holding further native work until the measured operational memory candidate is independently accepted. No additional optional reset check is requested.",
+  "activity": {
+    "pc_actions": 0,
+    "ref_writes": 0,
+    "product_tests": 0,
+    "builds": 0
+  }
+}
