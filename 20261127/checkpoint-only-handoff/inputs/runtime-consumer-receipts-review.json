@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "scope": "Independent review of two consumer-compatible receipts for previously accepted final native Windows qualification",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "binary_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+  "reviewed_receipts": {
+    "runtime-qualification-accepted.json": {"bytes": 1857, "sha256": "a0adc1eb5ca1707977eedcf42b084b0c55207410d2f8eba349572d68866ee3cc"},
+    "runtime-review-accepted.json": {"bytes": 1014, "sha256": "9e2e68863cc3fa0442b88be4eec6ed0d6aec2e9235e4374658944d7103b44972"}
+  },
+  "originals_verified_against_immutable_git_objects": [
+    {"commit": "52bfafd7d9ad108bc54e523b6c3f3dc6b4bdb638", "path": "20261125/revision-9/results/native-windows-qualification-45603696205/aggregate/result.json", "bytes": 13755, "sha256": "ac65894f80215aed7ddc03f72935c91095ab9717e0a07a7e66196900129abc1d"},
+    {"commit": "473530433d66206ec6ba8a9980c9ed4bd0e12848", "path": "20261125/revision-9/results/native-windows-qualification-review.json", "bytes": 27661, "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae"},
+    {"commit": "7d30c840514d318a4588d979a90c20bcf07d8734", "path": "20261125/revision-9/results/native-final-review.json", "bytes": 18086, "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"}
+  ],
+  "checks": [
+    {"name": "Exact source and executable", "status": "passed", "evidence": "All three cited originals bind the exact2d801ba source. Both Windows qualification records and final native review identify the0431a828 executable,12243456bytes, and21ca90e2 original metadata. Neither consumer receipt substitutes a build or source descendant."},
+    {"name": "Qualification conclusion and counts", "status": "passed", "evidence": "The original aggregate status is passed and its independent Windows review is PASS/accepted:true. The translated summary exactly equals the original counts object:98 ordinary passes,zero ordinary failures/ignores,25core+73editing,12ordinary conformance cases,12characterization invocations,37test invocations,73successful driver commands,221saved streams and5closed empty owned Jobs."},
+    {"name": "Characterization qualifications retained", "status": "passed", "evidence": "The original grid has10GREEN and2caught RED results under deliberate out-of-band corruption. Both RED classifications and their distinct meaning from the12passing ordinary conformance cases remain explicit; no failed characterization is relabeled GREEN."},
+    {"name": "Final independent acceptance translation", "status": "passed", "evidence": "The original final native review is independent, PASS and accepted:true for this exact final source/build/runtime qualification. Lowercase passed expresses the same accepted conclusion required by the history driver. The Windows partition review alone explicitly was not final native acceptance; the separate final-review receipt correctly cites the subsequent complete final review."},
+    {"name": "Scope and immutable provenance", "status": "passed", "evidence": "All referenced raw files equal their exact Git commit:path bytes and recorded SHA256 values. The originals remain unchanged. Both receipts explicitly deny new PC/product execution and retain installation/configured-launch/history operations as separate future gates."
+    }
+  ],
+  "open_findings": [],
+  "consumer_use": "These exact receipts may satisfy runtime.qualification and runtime.review after root copies and hash-verifies them beneath an allowed owned evidence root. They do not satisfy install, configured-launch, installed-review, publication or cleanup roles.",
+  "reviewer_activity": {"pc_calls": false, "runtime_execution": false, "new_tests": false, "builds": false, "local_immutable_object_and_receipt_reads": true}
+}

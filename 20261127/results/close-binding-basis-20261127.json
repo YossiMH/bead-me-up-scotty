@@ -1,0 +1,191 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_root_review",
+  "root_is_sole_state_writer": true,
+  "request": {
+    "path": "20261127/results/close-binding-accepted-20261127.json",
+    "bytes": 2078,
+    "sha256": "5dceebdcac2bea85720b2820f4dc8c755f5d51590dba1a2640216c32a749ef43"
+  },
+  "combined_acceptance": {
+    "path": "20261127/results/type-install-binding-final-review.json",
+    "bytes": 20991,
+    "sha256": "22207219443c00a6ef1dd53829efb9ff97a782c6a1b8409441619bd53e317c99"
+  },
+  "plan": {
+    "path": "20261125/revision-9/plan.json",
+    "bytes": 419134,
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "actual_mapping": {
+    "path": "20261127/results/materialization-v9-result.json",
+    "bytes": 11930,
+    "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+  },
+  "last_actual_state": {
+    "path": "20261127/results/tray-candidate-closure/result.json",
+    "bytes": 5893,
+    "sha256": "244fbb32b77bdcf3f860101a8ec6d2664717635a69116e62a0cbdf50d94e2e1f"
+  },
+  "last_actual_state_review": {
+    "path": "20261127/results/tray-candidate-closure-actual-review.json",
+    "bytes": 11035,
+    "sha256": "51ae05657bb49e07f192248bdd62daabb326758d962b9558e633d515aaa1cfcf"
+  },
+  "requested_order_and_guards": [
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "before": {
+        "id": "beadrs-86f1e737",
+        "status": "open",
+        "revision": 1
+      },
+      "expected_after": {
+        "status": "closed",
+        "revision": 2
+      },
+      "prerequisites": [
+        {
+          "key": "type-app-checks",
+          "id": "beadrs-96c08619",
+          "status": "closed",
+          "revision": 2,
+          "already_closed_or_prior_requested": true
+        },
+        {
+          "key": "checkpoint-windows-build",
+          "id": "beadrs-70721b6a",
+          "status": "closed",
+          "revision": 3,
+          "already_closed_or_prior_requested": true
+        }
+      ]
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "before": {
+        "id": "beadrs-261d621c",
+        "status": "open",
+        "revision": 1
+      },
+      "expected_after": {
+        "status": "closed",
+        "revision": 2
+      },
+      "prerequisites": [
+        {
+          "key": "type-install-binding",
+          "id": "beadrs-86f1e737",
+          "status": "closed",
+          "revision": 2,
+          "already_closed_or_prior_requested": true
+        }
+      ]
+    }
+  ],
+  "expected_counts_after_success": {
+    "closed": 47,
+    "open": 8,
+    "tasks": 55,
+    "edges": 91,
+    "total_issues": 1009
+  },
+  "other_continuation_tasks_to_preserve": 53,
+  "original_records_to_preserve": 954,
+  "remaining_tasks_after_success": [
+    {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "status": "open",
+      "revision": 5
+    }
+  ],
+  "next_ready_task": {
+    "key": "install",
+    "id": "beadrs-0bab2976",
+    "status": "open",
+    "revision": 5
+  },
+  "scope": "Close only the completed prepared-binding author/reviewer tasks. Neither actual installation/configured launch nor original-history transfer is asserted. Current execution conditions remain separate.",
+  "invocation": {
+    "driver": {
+      "path": "20261127/revision-9-execution/record-accepted-tasks-v9.mjs",
+      "bytes": 13438,
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3"
+    },
+    "supervisor": {
+      "path": "20261127/revision-9-execution/record-accepted-tasks-v9-supervisor.ps1",
+      "bytes": 17282,
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426"
+    },
+    "suggested_new_output_name": "completed-20261127-binding",
+    "supervisor_output_name": "completed-20261127-binding-supervisor",
+    "pc_request_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/close-binding-accepted-20261127.json",
+    "requirements": [
+      "Root publishes and verifies exact decision/request bytes before invocation.",
+      "Root reconciles current task revisions, fresh output/attempt absence and absent authority-freeze marker. Both binding tasks must still be open, unassigned and revision1.",
+      "Use the unchanged accepted supervisor and Job helper with the exact request hash, fresh output name, at-least1GiB free physical memory and existing512MiB/128MiB/180-second controls.",
+      "The driver compares the complete1009-row inventory, original954,55 exact task descriptions and91 edges before a single guarded manifest commit with automatic checkpoint flushing disabled.",
+      "Require zero connector/child exits, passed supervisor/driver results, no assisted cleanup/errors/remaining members and exact raw result hashes; independently reconcile both revisions1to2 and all other53 unchanged task states before reporting actual47closed8open."
+    ]
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "method": "Read the complete final request and basis against the accepted combined review, actual55-row mapping/state and unchanged closer contract. The two final wording substitutions clarify recorded results, fresh state checks, and product/build identities without changing task scope. Both selected tasks remain guarded at revision1, with exactly the accepted author-then-review order."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "method": "Re-read the complete final request and basis after the two wording corrections. Verified both final reason texts and lengths 827/794, exact request/review hashes, valid schema, prerequisite order, expected47closed8open,53 unchanged other task states and the eight remaining runtime/handoff tasks. The27 component identities and combined review remain unchanged; future installed/history success remains false."
+    }
+  ],
+  "native_state_written_by_reviewer": false
+}

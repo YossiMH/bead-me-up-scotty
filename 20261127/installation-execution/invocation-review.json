@@ -1,0 +1,58 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "frontend_audit",
+  "review_type": "independent static invocation review",
+  "reviewed_utc": "2026-11-27T08:39:28.858208+00:00",
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/final-install-invocation.json",
+      "bytes": 3063,
+      "sha256": "0ed050ba0d0dc8ad37d18a10597c214de41ccf560d19d9c5a4b14b573536c4de"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/installation-execution/windows-install-supervisor-20261127.ps1",
+      "bytes": 23753,
+      "sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/results/artifact-stage-actual/stage-result.json",
+      "bytes": 2341,
+      "sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/results/artifact-stage-actual/supervisor-result.json",
+      "bytes": 4366,
+      "sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f"
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact supervisor and stage bindings",
+      "status": "passed",
+      "detail": "Invocation checks supervisor d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751 and passes actual accepted stage result 63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c plus supervisor c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f. Independently rehashed all three local retained files."
+    },
+    {
+      "name": "parameter contract",
+      "status": "passed",
+      "detail": "All four mandatory supervisor parameters supplied. JobHelperPath points to retained windows-task-job.ps1; supervisor hashes it and its installer sibling against 2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f. ScottyPorts receives an integer array containing 3000 and 43972."
+    },
+    {
+      "name": "fresh preflight and attempt refusal",
+      "status": "passed",
+      "detail": "Hidden BelowNormal host checks at least 3 GiB free RAM, absence of PORT/BEAD_BIN at Process/User/Machine levels, continued absence of .env/.env.production, both TCP ports free, and absence of both installation output directories before calling the accepted supervisor."
+    },
+    {
+      "name": "bounded unchanged execution",
+      "status": "passed",
+      "detail": "The wrapper calls the accepted supervisor in the same PowerShell host. The unchanged supervisor separately enforces 3 GiB baseline/immediate, 1 GiB live, 512 MiB aggregate, 168-second work stop and 180-second hard deadline with owned cleanup. Its one installer child is required for separate Job-helper static state. Connector timeout is 195000 ms."
+    },
+    {
+      "name": "result interpretation",
+      "status": "passed",
+      "detail": "Early memory refusal emits status waiting-for-memory and exit 0 before installer invocation. This is a postponed operation, never installation acceptance. A real pass requires exact driver and supervisor results, stopped application, correct runtime/pin/source identities, complete normal publication, and unassisted empty cleanup."
+    }
+  ],
+  "findings": [],
+  "scope": "Prepared invocation only. Actual preparation task closure, PC execution, and installation result review remain separate gates."
+}

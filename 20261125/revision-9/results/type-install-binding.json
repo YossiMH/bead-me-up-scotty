@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_key": "type-install-binding",
-  "status": "PENDING_PC_INSTALLATION_AND_EXECUTION",
+  "status": "PREPARATION_ACCEPTED_PC_INSTALLATION_PENDING",
   "author": "/root",
   "continuation_revision": 9,
   "candidate_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
@@ -168,7 +168,7 @@
   },
   "task_closer_bound_to_actual_mapping": true,
   "pending": [
-    "Accept the configured-launch live-memory correction and exact PS5.1 parse, finish combined preparation acceptance, and close its two tasks.",
+    "Apply the accepted two-task preparation closure request once, then run installation with fresh headroom and port checks.",
     "Run reviewed installation, configured launch and installed review with fresh memory and port checks.",
     "Publish handoffs, preserve native history through the accepted supported restore route, and finish owned cleanup."
   ],
@@ -218,7 +218,7 @@
       ]
     }
   },
-  "updated_utc": "2026-11-27T08:31:52.797773+00:00",
+  "updated_utc": "2026-11-27T08:45:05.964730+00:00",
   "previous_status": {
     "commit": "d02907bfc521bb49a478bc1e82877405484e91d3",
     "sha256": "c1338e963ca1a2b4caaa1b868f72e05411fb217c7ae3fd36987afa84d085cd86"
@@ -315,8 +315,8 @@
     "download": "Both final ZIPs are downloaded and SHA256-verified. The native-only continuation passed and is independently accepted. The original interrupted download remains retained.",
     "installation": "The final executable, metadata and all560 runtime files were staged successfully and independently accepted. Installation has not run.",
     "source_fetch": "The original fetch reached the180-second bound while serializing live Process objects in progress logs. Both commits arrived; no fetch replay is needed. The two-line logging correction passed static review but was not executed. Large original process graphs remain private on the PC.",
-    "history": "Fresh metadata-only observation confirms that the original checkout has checkpoint/configuration but no live SQLite database or sidecars. A separate supported checkpoint-only restoration route passed a cloud qualification under128MiB Node heap; final helper/preparation review is in progress.",
-    "next_action": "Finish and retain the checkpoint-only helper preparation and close its two tasks, then run the reviewed installer and configured-launch check when fresh headroom is sufficient.",
+    "history": "The checkpoint-only route is independently accepted, including full128MiB qualification and exact WindowsPS5.1 parsing. All actual history phases remain pending.",
+    "next_action": "Apply the two-task accepted preparation closures, then run the reviewed installer when at least3GiB is freshly available. Use corrected configured helper8db39140 after installation acceptance.",
     "active_session": "Root /workspace/scratch/2889282bfcec owns PC execution and task-store writes. Other continuations must respect this active session and retained attempt markers.",
     "assignment_complete": false
   },
@@ -525,7 +525,19 @@
       "path": "20261127/configured-launch-memory/source-review.json",
       "sha256": "79e40e25cd438a7a20d37883e0051a3da5d11efd96fcae274bcc592744194db7"
     },
-    "windows_parse": "pending",
+    "windows_parse": {
+      "status": "passed",
+      "path": "20261127/configured-launch-memory/windows-ps51-parse.json",
+      "sha256": "8c5aadb91af51ca4078d57759d42ba07ee408053569c3fca62cf5fac6de5b175"
+    },
     "execution": "not started"
+  },
+  "combined_preparation_acceptance": {
+    "status": "passed",
+    "path": "20261127/results/type-install-binding-final-review.json",
+    "sha256": "22207219443c00a6ef1dd53829efb9ff97a782c6a1b8409441619bd53e317c99",
+    "request_path": "20261127/results/close-binding-accepted-20261127.json",
+    "request_sha256": "5dceebdcac2bea85720b2820f4dc8c755f5d51590dba1a2640216c32a749ef43",
+    "actual_closure": "pending"
   }
 }

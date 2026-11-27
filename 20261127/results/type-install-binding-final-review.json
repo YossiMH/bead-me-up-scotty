@@ -1,0 +1,375 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "continuation_revision": 9,
+  "task_keys": [
+    "type-install-binding",
+    "type-install-binding-review"
+  ],
+  "scope": "Combined final preparation acceptance of the exact installation, configured-launch, actual-mapping closure and applicable checkpoint-only history bindings. Actual installation and original-store handoff remain separate runtime tasks.",
+  "published_component_commit": "e74078655f7428b0b7665104229b014f9faa7916",
+  "plan": {
+    "path": "20261125/revision-9/plan.json",
+    "bytes": 419134,
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "actual_mapping": {
+    "path": "20261127/results/materialization-v9-result.json",
+    "bytes": 11930,
+    "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+  },
+  "latest_actual_task_state": {
+    "path": "20261127/results/tray-candidate-closure/result.json",
+    "bytes": 5893,
+    "sha256": "244fbb32b77bdcf3f860101a8ec6d2664717635a69116e62a0cbdf50d94e2e1f"
+  },
+  "current_counts": {
+    "tasks": 55,
+    "blocking_edges": 91,
+    "original_issues": 954,
+    "total_issues": 1009,
+    "closed": 45,
+    "open": 10
+  },
+  "selected_tasks": [
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "status": "open",
+      "revision": 1,
+      "prerequisites": [
+        "type-app-checks",
+        "checkpoint-windows-build"
+      ]
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "status": "open",
+      "revision": 1,
+      "prerequisites": [
+        "type-install-binding"
+      ]
+    }
+  ],
+  "fixed_product_inputs": {
+    "native_source": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "native_executable_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "native_executable_bytes": 12243456,
+    "installed_native_basename": "bead-0431a828bf95.exe",
+    "native_metadata_sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5",
+    "app_source": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_files": 560,
+    "runtime_expanded_bytes": 27426391,
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "preservation_manifest_sha256": "70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "tray_owner_sha256": "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+    "tray_host_sha256": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd"
+  },
+  "current_helpers": {
+    "installer": {
+      "path": "20261125/revision-9/install-binding/windows-install-tray-host-20261125.ps1",
+      "bytes": 34632,
+      "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0"
+    },
+    "installer_supervisor": {
+      "path": "20261127/installation-execution/windows-install-supervisor-20261127.ps1",
+      "bytes": 23753,
+      "sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751"
+    },
+    "configured_launch": {
+      "path": "20261127/configured-launch-memory/windows-configured-launch-host-memory-20261127.ps1",
+      "bytes": 48944,
+      "sha256": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae"
+    },
+    "materializer": {
+      "path": "20261125/revision-9/install-binding/materialize-v9.mjs",
+      "bytes": 23307,
+      "sha256": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686"
+    },
+    "materializer_supervisor": {
+      "path": "20261125/revision-9/install-binding/materialize-v9-supervisor.ps1",
+      "bytes": 16030,
+      "sha256": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3"
+    },
+    "closer": {
+      "path": "20261127/revision-9-execution/record-accepted-tasks-v9.mjs",
+      "bytes": 13438,
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3"
+    },
+    "closer_supervisor": {
+      "path": "20261127/revision-9-execution/record-accepted-tasks-v9-supervisor.ps1",
+      "bytes": 17282,
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426"
+    },
+    "stage_supervisor": {
+      "path": "20261127/powershell51/stage-artifacts-supervisor-20261127.ps1",
+      "bytes": 17488,
+      "sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d"
+    },
+    "checkpoint_only_history": {
+      "path": "20261127/checkpoint-only-handoff/checkpoint-only-handoff-20261127.mjs",
+      "bytes": 72053,
+      "sha256": "ff1597b37c873888aef55af6c67b39cd29efeb025d007fe11659ccb81a32cc46"
+    },
+    "checkpoint_only_supervisor": {
+      "path": "20261127/checkpoint-only-handoff/checkpoint-only-handoff-supervisor-20261127.ps1",
+      "bytes": 19190,
+      "sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5"
+    },
+    "checkpoint_only_request_template": {
+      "path": "20261127/checkpoint-only-handoff/request.template.json",
+      "bytes": 3154,
+      "sha256": "b532e85b0b36869c72032f9b02d3ab85fc3999c6d0d788162746807f0ad2eb35"
+    },
+    "stage_driver": {
+      "commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+      "path": "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1",
+      "bytes": 22746,
+      "sha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1"
+    }
+  },
+  "consumed_reviews": {
+    "accepted_plan_review": {
+      "path": "20261125/revision-9/plan-review.json",
+      "bytes": 9514,
+      "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+    },
+    "original_helper_preparation": {
+      "path": "20261125/revision-9/results/binding-preparation-review.json",
+      "bytes": 7611,
+      "sha256": "fb62b68a08e1a177c36c88857a1b6cbc5a466ec8e3e0b9da193352fbf74d518b"
+    },
+    "original_syntax_and_refusal_results": {
+      "path": "20261125/revision-9/results/type-binding-checks-review.json",
+      "bytes": 5453,
+      "sha256": "5912d14297972d8bcdd21afcb974b862ca987f933ec5bec547a1a5930f89cfa5"
+    },
+    "final_artifact_binding": {
+      "path": "20261125/revision-9/results/final-installation-binding-review.json",
+      "bytes": 16657,
+      "sha256": "9d427fdae7f05e8ca873031630852e26a8e67f0fe859c03e101522c81dc116aa"
+    },
+    "native_final": {
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "bytes": 18086,
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+    },
+    "native_linux": {
+      "path": "20261125/revision-9/results/native-linux-qualification-review.json",
+      "bytes": 19043,
+      "sha256": "5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf"
+    },
+    "native_windows": {
+      "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+      "bytes": 27661,
+      "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae"
+    },
+    "app_final": {
+      "path": "20261125/revision-9/results/type-app-review.json",
+      "bytes": 10323,
+      "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e"
+    },
+    "app_windows_roundtrip": {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+      "bytes": 14106,
+      "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b"
+    },
+    "app_runtime_inventory": {
+      "path": "20261125/revision-9/results/app-runtime-inventory-review.json",
+      "bytes": 7530,
+      "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525"
+    },
+    "artifact_stager_source_and_checks": {
+      "path": "20261125/revision-9/results/artifact-stage-review.json",
+      "bytes": 20465,
+      "sha256": "ada3fe4533abafac60fc503bb8ef32cd4479a606781c1ce40e5e1ff853407633"
+    },
+    "materialization_actual": {
+      "path": "20261127/results/materialization-v9-review.json",
+      "bytes": 3639,
+      "sha256": "1d677f5eab5457194484c413de9d98d2006eab37971737111500a7af1a05ce02"
+    },
+    "closer_source": {
+      "path": "20261127/revision-9-execution/closure-v9-review.json",
+      "bytes": 25650,
+      "sha256": "ff0dfc38919df499b62bd6c2974a807c06c853e37bbc019e140daa414c1cc771"
+    },
+    "installer_supervisor_source": {
+      "path": "20261127/installation-execution/source-review.json",
+      "bytes": 10445,
+      "sha256": "d37ef1f38dcfd21d224b0c130ff3b0099f3aca68f2d5bd1faf00a938cc232e69"
+    },
+    "configured_launch_source": {
+      "path": "20261127/configured-launch-memory/source-review.json",
+      "bytes": 4278,
+      "sha256": "79e40e25cd438a7a20d37883e0051a3da5d11efd96fcae274bcc592744194db7"
+    },
+    "history_source": {
+      "path": "20261127/checkpoint-only-handoff/source-review.json",
+      "bytes": 10886,
+      "sha256": "87c181a0a6998e52f4808df03a7d8986791f20c598edf757bf5f71af52d9d605"
+    },
+    "history_actual_qualification": {
+      "path": "20261127/checkpoint-only-handoff/qualification-review.json",
+      "bytes": 8694,
+      "sha256": "175a63361363a6d6dfaef9bac000fa7325cf10c3226636fe49b1dc1b2e94cc76"
+    },
+    "history_publication_and_worktree_cleanup": {
+      "path": "20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json",
+      "bytes": 3390,
+      "sha256": "1518bcfd3e2d596c806608901da5b80d9003b9fa77db0b5f375d19715bf06e2f"
+    },
+    "source_readiness": {
+      "path": "20261127/source-fetch/source-readiness-actual-review.json",
+      "bytes": 3862,
+      "sha256": "e8f24813534c20c1e670e52f1e4ac1d31a7b7ef3cf75463bb99cc69fc3698e8e"
+    },
+    "history_preparation": {
+      "path": "20261127/checkpoint-only-handoff/preparation-review.json",
+      "bytes": 12115,
+      "sha256": "147e31b3936bbb0f78307bf583039b855e21ec4bea3e415b525fc929deb6097d"
+    },
+    "actual_archive_staging": {
+      "path": "20261127/results/artifact-stage-actual-review.json",
+      "bytes": 11746,
+      "sha256": "9a7fc088fea62f24dc2c5ea7eda213ea968f54c5c9bbc0c4b411459f4035060c"
+    },
+    "actual_native_download": {
+      "path": "20261127/results/native-download-continuation-actual-review.json",
+      "bytes": 11380,
+      "sha256": "09a35a842f592d4ba14614d1a697edc717146f5bd15f4bc9290de7105d99b3e3"
+    },
+    "three_task_closure_actual": {
+      "path": "20261127/results/tray-candidate-closure-actual-review.json",
+      "bytes": 11035,
+      "sha256": "51ae05657bb49e07f192248bdd62daabb326758d962b9558e633d515aaa1cfcf"
+    },
+    "candidate_final": {
+      "path": "20261127/results/candidate-final-review.json",
+      "bytes": 12147,
+      "sha256": "966f7f2165a1bde5f5676cde3bb88f61a5469b32314bde6a6acd380900722957"
+    },
+    "tray_repair_final": {
+      "path": "20261127/results/tray-repair-final-review.json",
+      "bytes": 6362,
+      "sha256": "22783d2693e0ec706ebfa979ac01250dfa3e6d515305bd4a335c949586ffb23b"
+    },
+    "tray_actual": {
+      "path": "20261127/results/tray-runspace-actual-review.json",
+      "bytes": 24623,
+      "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729"
+    },
+    "powershell51_compatibility": {
+      "path": "20261127/powershell51/powershell51-compatibility-review.json",
+      "bytes": 4355,
+      "sha256": "bef31c7d6356345f9cce5fe3d45a0fc5a6677cbb55d96478ea40ca06b12948bf"
+    }
+  },
+  "actual_stage_receipts_for_installer": {
+    "driver": {
+      "path": "20261127/results/artifact-stage-actual/stage-result.json",
+      "bytes": 2341,
+      "sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c"
+    },
+    "supervisor": {
+      "path": "20261127/results/artifact-stage-actual/supervisor-result.json",
+      "bytes": 4366,
+      "sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f"
+    }
+  },
+  "syntax_and_qualification": {
+    "original_binding_checks": "Accepted hosted run45596905174: four PowerShell parses, two Node syntax checks, two JSON inputs, four unchanged embedded declarations compiled, nine installer and eight graph fixture cases; zero failures. Original installer and applicable declaration bodies remain exact.",
+    "artifact_stage_checks": "Accepted40-case staging qualification and exact actual Windows staging PASS retain source/hash/path/count/size/refusal and owned-cleanup evidence.",
+    "closer_checks": "The independently accepted actual-mapping closer retains two Node syntax checks and13 author refusal/success cases, followed by the exact actual27-task and3-task executions. Reuse its existing checks for this new data-only request.",
+    "installer_supervisor_parse": {
+      "status": "passed",
+      "utc": "2026-11-27T07:13:56.6350805Z",
+      "parsed_files_in_operation": 4,
+      "parser_errors": 0,
+      "exact_installer_supervisor_sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751",
+      "exact_command_sha256": "c3045b0c50a4141fd7b07aac98d990385fa32c8a4531dfb55bc4b04f2f151615",
+      "retained_execution_sha256": "cd1174b8220b8010d0e571b9a9bded461fe336daf094d4736f0831aa19a2684e",
+      "method": "Read the complete retained command and actual receipt. Its four-file loop hashes each named helper before ordinary PowerShell ParseFile and throws on any parser error before task launch. The exact installer-supervisor filename/hash is in that loop. Actual command exit0, empty stderr, no dropped streams and parser_errors0/parsed_files4 establish this parse. The private connector envelope is retained outside the repository.",
+      "installer_executed_by_parser": false
+    },
+    "configured_launch_parse": {
+      "path": "20261127/configured-launch-memory/windows-ps51-parse.json",
+      "bytes": 501,
+      "sha256": "8c5aadb91af51ca4078d57759d42ba07ee408053569c3fca62cf5fac6de5b175"
+    },
+    "history_supervisor_parse": {
+      "path": "20261127/checkpoint-only-handoff/windows-ps51-parse.json",
+      "bytes": 497,
+      "sha256": "54a699d087ef848e506e217bd92324deab958a79a550ae5e4b03a42576635e76"
+    },
+    "new_parsers": "Both exact new scripts pass Windows PowerShell5.1.26100.9818 AST parsing with zero errors. Complete emitted JSON equals the retained parsed receipts and both outer commands exit0 without stderr or dropped output. These parses do not execute script bodies or embedded methods.",
+    "history_qualification": "Final same-byte128MiB Node qualification passed in40611ms with51 native commands,153 complete streams,1009 issues, preserved954 original corpus, exactly one restore event/receipt, all91 task edges and four targeted refusals. Independent source and actual-result reviews accept this checkpoint-only route; Windows original-store execution remains future."
+  },
+  "resolved_preparation_gaps": [
+    "The actual direct revision6-to9 transition supplies all55 stable IDs,91 edges and1009 issues. Accepted actual closures preserve the full original954 records and all unrelated task state. No provisional mapping or synthetic closed state is used.",
+    "The exact final native build and unchanged560-file app runtime now have independent platform, source, real Windows HTTP and candidate acceptance. Small archive transfer and exact extraction are accepted with complete actual receipts.",
+    "The original history driver assumes an existing original SQLite database, while actual original metadata has only checkpoint/config/pinned binaries. The separately named checkpoint-only driver preserves that absence and all original checkpoint/Git/index evidence, uses supported no-auto-flush init followed by normal native explicit-recovery restore, and requires exact incoming corpus plus one restore event/receipt before authority transfer. The original helper remains unchanged and inapplicable.",
+    "All54 tasks preceding cleanup must be closed before the history source is frozen. Exact mapping, descriptions,91 directed edges and retained original history remain guarded; final cleanup closes only in the original-owned phase. Null phase/output and false future attestations in the prepared template refuse execution before output creation.",
+    "The corrected configured copy adds exactly373 bytes at the start of Check-Budget. Removing that insertion reproduces the entire accepted original. Existing AvailablePhysical sampling enforces a live1GiB floor and records only a scalar minimum; cleanup remains outside the floor. Product behavior, ownership, deadlines,3GiB immediate launch gate,512MiB RSS and128MiB Node heap remain unchanged.",
+    "The installer supervisor now has exact ordinary PS5.1 parser evidence, accepted stage hashes and source-readiness evidence. It preserves the unchanged installer,15-file/private-data/index/rollback protections and ordinary main publication; current memory/process/port/path conditions are still checked before actual execution.",
+    "The11 authored history files are retained exactly at473530433d66206ec6ba8a9980c9ed4bd0e12848. The recorded clean worktree removal used Riftri without force; later authored-file comparison and path/registration absence reconcile the earlier whole-subtree comparison limitation. Remaining continuation worktree cleanup stays assigned to root."
+  ],
+  "dependency_decision": {
+    "prepared_candidate_is_task_completion": true,
+    "reason": "The accepted task description explicitly completes at prepared helpers, syntax checks and preservation comparisons. Type-install-binding-review is a direct prerequisite of install. Actual install/configured/text receipts therefore gate later history execution, while the applicable reviewed template and supported route satisfy preparation. Requiring future installed receipts to close preparation would create a dependency cycle.",
+    "allowed_close_order": [
+      "type-install-binding",
+      "type-install-binding-review"
+    ],
+    "observed_revisions": [
+      1,
+      1
+    ],
+    "expected_revisions_after_guarded_success": [
+      2,
+      2
+    ],
+    "expected_counts_after_guarded_success": {
+      "closed": 47,
+      "open": 8
+    },
+    "next_ready_task": {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "revision": 5
+    }
+  },
+  "required_actual_execution_gates": [
+    "Root publishes/hash-verifies this decision and closes only these two current tasks using the unchanged guarded closer, then reconciles exact actual receipts. Task status is not changed by this review.",
+    "Before installation, root obtains fresh at-least3GiB memory, unused observed ports, no user Scotty session, unchanged source/index/preservation/configuration inputs, correct Git objects/ancestry and absent output/attempt paths. Pass the two actual staging hashes to the accepted installer supervisor. No previous uncertain attempt is replayed.",
+    "Run the accepted installer once with existing limits, retain complete phase/backups/publication results and independently accept actual source/runtime/native/default-pin/main-ref and stopped-state readback.",
+    "Only after installation, run the exact corrected configured helper8db39140 through the installed batch/default pin in the existing session. Require five scalar edit/readbacks, real tray Exit, released port/cache,1GiB minimum,512MiB aggregate and normal owned cleanup.",
+    "Actual installed review and initial backend/app handoff/text reviews must precede history execution. Bind concrete existing receipt files and fresh state to each separate phase request. Template nulls and attestations must never be mechanically promoted to success.",
+    "Complete preservation,54-task freeze, disposable source restore, guarded original initialization/restore, independent original readback, original-owned publication/cleanup-close/final publication and final disposable restore with supported commands. Preserve recovery copies and exact prior phase results through final Git verification."
+  ],
+  "historical_limits_retained": "Earlier failed transfers/source fetches and old helper candidates remain historical. Accepted source readiness comes from later exact read-only source/preservation reconciliation; it does not relabel the timed-out source-fetch attempt successful. Product existing ignores, deliberately caught RED characterizations, historical log limitations and the separate staged tray runtime scope remain as recorded in their independent reviews.",
+  "findings": [],
+  "decision": {
+    "binding_preparation_accepted": true,
+    "binding_independent_review_accepted": true,
+    "actual_installation_accepted": false,
+    "actual_configured_launch_accepted": false,
+    "actual_original_history_transfer_accepted": false,
+    "native_task_state_written": false,
+    "assignment_complete": false
+  },
+  "reviewer_activity": {
+    "local_reads_and_static_comparisons_only": true,
+    "pc_calls": 0,
+    "product_tests_or_builds": 0,
+    "native_task_writes": 0
+  }
+}
