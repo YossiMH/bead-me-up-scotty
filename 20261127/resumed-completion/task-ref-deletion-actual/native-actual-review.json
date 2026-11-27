@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_scotty",
+  "scope": "Independent actual acceptance of the exact two native task-ref deletions under the previously accepted publisher/request and native-main retention proof.",
+  "findings": [],
+  "actual_inputs": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/native-driver-result.json",
+      "bytes": 15466,
+      "sha256": "340a4dc30bf2cc3e95058e96379e4930645505a4869e52c4263b0c77d0a8843b"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/native-supervisor-result.json",
+      "bytes": 18705,
+      "sha256": "7ef7200c40ce4bc8f7e5053b0da8e76084dcee713131eefa280299403140bd5a"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/native-execution.json",
+      "bytes": 43529,
+      "sha256": "8c551f235364ef502c5a4b0e8be7ddb7635b921fe2bff71da2ce7c2dd500381b"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/pre-app-collector-metadata.json",
+      "bytes": 1704,
+      "sha256": "9e11a5cc834baf113a0b02acbd4c014a7a8529313bdcffef568162fd6edc0004"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/native-reviewer-github-readback.json",
+      "bytes": 54,
+      "sha256": "fe70f41756c0a95202b6164cf5cf469c9f85eee171a275add160c2b954120538"
+    }
+  ],
+  "request_sha256": "64844e88ea56d3caa1cbf86fbbaf517db4ef71f7e0c972e2e57a28e138dab9bb",
+  "request_review_sha256": "f408d54977c1a41288388dad029c5d33d763c1e4401e2e877a96f176f48fcab1",
+  "deleted_refs": [
+    {
+      "ref": "refs/heads/task/bead-finish-20261124",
+      "sha": "2d801ba455b7a722daf644a7615445117d57e8e9"
+    },
+    {
+      "ref": "refs/heads/task/type-file-20261125",
+      "sha": "2d801ba455b7a722daf644a7615445117d57e8e9"
+    }
+  ],
+  "retained_refs": {
+    "refs/heads/main": "4c2e842beac30e3663a3816722430659befad7ee"
+  },
+  "reviewed_refs_sha256": "9b2fc7f35aa8018e6252a0fe0929dabafce797e3a17606ed0f238e10121345bf",
+  "outcome": {
+    "driver_and_supervisor_status": "passed",
+    "execution_exit_code": 0,
+    "proposal_id": "WJSx2rfWI4jKpaRZssFFMbzEqGtFHQELbRy1BI4fvL0",
+    "duration_seconds": 13.461,
+    "peak_total_resident_bytes": 301150208,
+    "baseline_free_physical_bytes": 4215361536,
+    "minimum_observed_free_physical_bytes": 3108143104,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "owned_exit_counts": {
+      "0": 30,
+      "1": 4
+    },
+    "killed_by_supervisor": 0,
+    "direct_github_task_refs_remaining": 0
+  },
+  "checks": [
+    "Complete successful execution stdout equals the exact collected supervisor bytes plus one terminal CRLF; no stderr or dropped bytes. Supervisor binds the exact driver-result SHA256.",
+    "Both results bind the accepted 64844e88 request, unchanged 74a19e0f publisher and 2f0f403c history verifier; retained proof/review pins and exact two expected native tips match.",
+    "Passing immutable publisher path verifies fresh before refs, performs one atomic push with explicit expected-tip leases, checks exact retained main-only after refs, and requires after source/index state equal before plus unchanged config/private/hook guards.",
+    "Manifest binds before/after Git receipts, exact raw prior-index hash, mutation intent and remote before/after command receipts. No history fetch occurs.",
+    "Independent GitHub matching-refs readback is empty for native task refs. Retained native main remains the exact 4c2e842b identity in the executed remote-after check.",
+    "Supervisor finished normally within unchanged resource limits. Four sampled Git children exited 1; the accepted source permits 0/1 for missing-configuration probes. The sample does not independently map each child to its command. No child was supervisor-killed, and this review does not claim every child exited 0."
+  ],
+  "remaining": "Scotty deletion and combined ref-cleanup acceptance remain pending. Founding archive 53f981bc remains fixed through that operation.",
+  "activity": "Cloud-only raw-byte, retained-source and GitHub readback review; no PC/ref/source mutation."
+}

@@ -1,0 +1,75 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_scotty",
+  "scope": "Combined independent acceptance of exact native2/Scotty86 leased task-ref cleanup with actual retention and final remote readback.",
+  "findings": [],
+  "accepted_reviews": {
+    "native": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/native-actual-review.json",
+      "bytes": 4334,
+      "sha256": "e6e29f879fc1da86caf267ec4af5cd76f4b618aff476407b0e9887461aebcf7c"
+    },
+    "scotty": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/scotty-actual-review.json",
+      "bytes": 4701,
+      "sha256": "f163b2f92b1f176f5d265ecb8db466d8b37d920c22a2a8bf029aa37d36d96d8d"
+    },
+    "retention": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/archive-actual/archive-and-native-retention-independent-review.json",
+      "bytes": 3332,
+      "sha256": "f42de6e841247941b0eed90200d1af28c158513cc21abb17752a45e506557418"
+    }
+  },
+  "raw_results": {
+    "native-driver-result.json": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/native-driver-result.json",
+      "bytes": 15466,
+      "sha256": "340a4dc30bf2cc3e95058e96379e4930645505a4869e52c4263b0c77d0a8843b"
+    },
+    "native-supervisor-result.json": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/native-supervisor-result.json",
+      "bytes": 18705,
+      "sha256": "7ef7200c40ce4bc8f7e5053b0da8e76084dcee713131eefa280299403140bd5a"
+    },
+    "scotty-driver-result.json": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/scotty-driver-result.json",
+      "bytes": 25178,
+      "sha256": "afba4d30fe3eb8f31d7fd97e78b811a536f7c1d6bccc96d99b36905d841461ec"
+    },
+    "scotty-supervisor-result.json": {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/scotty-supervisor-result.json",
+      "bytes": 18698,
+      "sha256": "214b9b8b270cedf1730cedf5c3ca0bb31a08b378ecb90fcf4b4a65d325079a3c"
+    }
+  },
+  "final_readback": {
+    "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/remote-final-readbacks.json",
+    "bytes": 1468,
+    "sha256": "727e45d0540e3b389dfd56cabd8330873c24da2d5f4b27c1462a1c68c223ae11"
+  },
+  "observed_utc": "2026-11-27 18:47:08 UTC",
+  "outcomes": {
+    "native_task_refs_deleted": 2,
+    "scotty_task_refs_deleted": 86,
+    "native_task_refs_remaining": 0,
+    "scotty_task_refs_remaining": 0,
+    "exact_expected_tip_leases": true,
+    "atomic_push_per_repository": true,
+    "source_and_index_preserved": true,
+    "private_configuration_and_hooks_preserved": true,
+    "history_fetch": false,
+    "scotty_private_task_store_in_request_scope": false,
+    "founding_archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+    "founding_archive_commit": "53f981bce9b13bc9c84d3138c9e99a26c0eb911d",
+    "final_transfer_retained_in_archive": "8dfbd35a460fb5f8da289e1ac26119cb213abfa3",
+    "archive_tree": "69f4f0f0cdc573370342681a0719ea49b52276ce",
+    "scotty_main": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+    "native_main": "4c2e842beac30e3663a3816722430659befad7ee"
+  },
+  "retention": "The archive retains final transfer plus31 accepted additional parents and all86 former app tips. Native main retains both deleted native tips through the accepted ancestry proof. Founding archive stayed fixed through both deletions. Later evidence may now be retained in a descendant archive commit without changing these historical outcomes.",
+  "prior_uncertain_execute": "The old unconsumed Scotty proposal was retained, repolled OPEN after expiry and never replayed; successful app deletion used its distinct fresh proposal.",
+  "completion_boundary": "This accepts the required ref-cleanup outcome. The existing cleanup aggregate may consume these exact reviews/results for its final close request; final task/history/document phases are not asserted here.",
+  "activity": "One shared-publisher actual reconciliation, with no additional product tests or PC actions."
+}

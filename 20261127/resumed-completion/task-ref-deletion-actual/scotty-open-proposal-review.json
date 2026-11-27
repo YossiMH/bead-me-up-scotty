@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "accepted_observation_with_expiry_repoll_pending",
+  "accepted": true,
+  "reviewer": "/root/review_scotty",
+  "scope": "Review of the already collected Scotty proposal reconciliation; no successful app deletion is asserted.",
+  "record": {
+    "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/scotty-open-proposal.json",
+    "bytes": 2257,
+    "sha256": "2b8cbab5bff785b3cd450d81b5c7a3afda166627d3334a2d1c7deaaa5dac7527"
+  },
+  "fixed_collector_metadata": {
+    "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/task-ref-deletion-actual/pre-app-collector-metadata.json",
+    "bytes": 1704,
+    "sha256": "9e11a5cc834baf113a0b02acbd4c014a7a8529313bdcffef568162fd6edc0004"
+  },
+  "proposal_id": "PKVCow4LAz2chWTq1DsQc4s8_RJWkdTqOViHMKTv4Eo",
+  "observed_status": "open",
+  "replay_allowed": false,
+  "expires_at_unix": 1795805149.25151,
+  "app_driver_output_directory_absent": true,
+  "app_supervisor_output_directory_absent": true,
+  "both_app_results_absent": true,
+  "root_observed_app86_unchanged": true,
+  "root_observed_native_task_refs_absent": true,
+  "root_observed_archive_unchanged": "53f981bce9b13bc9c84d3138c9e99a26c0eb911d",
+  "contract": "Emergency admin_execute consumes a proposal before execution; uncertain outcomes cannot be replayed automatically, and admin_poll never retries. The OPEN observation plus both absent output directories/results and unchanged app refs supports no started app publisher at this observation.",
+  "root_next_step": "Preserve the failed execute and OPEN proposal record. Do not reuse that proposal. After its recorded expiry, repoll to confirm the proposal did not become consumed/running; root may then prepare a fresh exact already-reviewed action while unchanged publisher guards recheck output freshness, refs and source state. A consumed/running or changed-state observation requires its own reconciliation.",
+  "completion_boundary": "Fresh proposal preparation/execution and app deletion result are pending actuals. This record does not claim the expiry repoll has occurred.",
+  "findings": []
+}

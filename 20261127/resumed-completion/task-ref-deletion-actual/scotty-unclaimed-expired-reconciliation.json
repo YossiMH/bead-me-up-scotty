@@ -1,0 +1,30 @@
+{
+  "proposal_id": "PKVCow4LAz2chWTq1DsQc4s8_RJWkdTqOViHMKTv4Eo",
+  "status": "open",
+  "replay_allowed": false,
+  "expires_at_unix": 1795805149.25151,
+  "observed_unix": 1795805165,
+  "expired": true,
+  "never_replay": true,
+  "pc_output_dirs_absent": true,
+  "app_refs_unchanged": true,
+  "native_refs_absent": true,
+  "final_poll": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"proposal_id\": \"PKVCow4LAz2chWTq1DsQc4s8_RJWkdTqOViHMKTv4Eo\", \"replay_allowed\": false, \"status\": \"open\"}"
+      }
+    ],
+    "structuredContent": {
+      "proposal_id": "PKVCow4LAz2chWTq1DsQc4s8_RJWkdTqOViHMKTv4Eo",
+      "status": "open",
+      "replay_allowed": false
+    },
+    "isError": false
+  },
+  "clock": {
+    "current_time": "2026-11-27 18:46:05 UTC"
+  },
+  "interpretation": "The old proposal remains open and unconsumed after its expiry; the connector contract consumes proposals before execution. Both fixed app output directories/results were absent and all86 exact remote refs unchanged. It will never be replayed. A fresh proposal retains the accepted request and rechecks all resource/source/ref guards."
+}
