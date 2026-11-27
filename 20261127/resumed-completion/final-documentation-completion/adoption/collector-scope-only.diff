@@ -1,0 +1,25 @@
+--- accepted-task-ref-publications-fixed4.cjs
++++ collect-final-document-adoptions.cjs
+@@ -1,7 +1,7 @@
+ 'use strict';
+ const fs=require('node:fs/promises'),os=require('node:os'),z=require('node:zlib'),crypto=require('node:crypto');
+ process.env.UV_THREADPOOL_SIZE='1';
+-const root='F:/Dev/.bead-edit-20261111',coord=root+'/coordination-20261124',native=coord+'/git-publication-native-task-ref-deletion-20261127-02e8a44557c8-v1',nativeSuper=native+'.supervisor',app=coord+'/git-publication-scotty-task-ref-deletion-20261127-02e8a44557c8-v1',appSuper=app+'.supervisor';
++const root='F:/Dev/.bead-edit-20261111',coord=root+'/coordination-20261124',native=coord+'/git-publication-native-completion-documents-20261127-02e8a44557c8-v1',nativeSuper=native+'.supervisor',app=coord+'/git-publication-scotty-completion-documents-20261127-02e8a44557c8-v1',appSuper=app+'.supervisor';
+ const paths=[native+'/result.json',nativeSuper+'/result.json',app+'/result.json',appSuper+'/result.json'];
+ const start=Date.now(),floor=1073741824,cap=134217728,block=37500;
+ let peak=0,minimum=Infinity,samples=0,sent=false,timer,hard;
+@@ -33,11 +33,11 @@
+  }
+  for(const [p,identity] of parentStates){const s=await stat(p);if((s?String(s.dev)+':'+String(s.ino):null)!==identity||(s&&(s.isSymbolicLink()||!s.isDirectory())))throw error('parent-changed');}
+  for(const [p,identity] of stable){check();const s=await stat(p);if((s?signature(s):null)!==identity||(s&&(s.isSymbolicLink()||!s.isFile())))throw error('snapshot-changed');}
+- const payload=Buffer.from(JSON.stringify({schema_version:1,scope:'task-ref-publications-fixed4-raw',parent_states:parentStates.map(([path,identity])=>({path,present:identity!==null,identity})),files}),'utf8');check();
++ const payload=Buffer.from(JSON.stringify({schema_version:1,scope:'final-document-publications-fixed4-raw',parent_states:parentStates.map(([path,identity])=>({path,present:identity!==null,identity})),files}),'utf8');check();
+  const packed=await new Promise((resolve,reject)=>z.gzip(payload,{level:1},(e,b)=>e?reject(e):resolve(b)));check();
+  const digest=sha(packed);if(expected!=='-'&&expected!==digest)throw error('package-changed');if(offset>=packed.length)throw error('chunk-out-of-range');
+  const part=packed.subarray(offset,Math.min(packed.length,offset+block)),base64=part.toString('base64');check();
+- emit({schema_version:1,status:offset===0&&part.length===packed.length?'complete':'chunk',encoding:'gzip+base64',scope:'task-ref-publications-fixed4-raw',offset_bytes:offset,chunk_bytes:part.length,chunk_sha256:sha(part),total_bytes:packed.length,package_sha256:digest,next_offset_bytes:offset+part.length<packed.length?offset+part.length:null,uncompressed_bytes:payload.length,uncompressed_sha256:sha(payload),raw_file_bytes:total,files:files.map(({base64,...m})=>m),node:process.version,priority:'BelowNormal',node_heap_mib:64,elapsed_ms:Date.now()-start,peak_rss_bytes:peak,minimum_free_bytes:minimum,resource_samples:samples,payload_base64:base64},0);
++ emit({schema_version:1,status:offset===0&&part.length===packed.length?'complete':'chunk',encoding:'gzip+base64',scope:'final-document-publications-fixed4-raw',offset_bytes:offset,chunk_bytes:part.length,chunk_sha256:sha(part),total_bytes:packed.length,package_sha256:digest,next_offset_bytes:offset+part.length<packed.length?offset+part.length:null,uncompressed_bytes:payload.length,uncompressed_sha256:sha(payload),raw_file_bytes:total,files:files.map(({base64,...m})=>m),node:process.version,priority:'BelowNormal',node_heap_mib:64,elapsed_ms:Date.now()-start,peak_rss_bytes:peak,minimum_free_bytes:minimum,resource_samples:samples,payload_base64:base64},0);
+ }
+ main().catch(stop);
+ 

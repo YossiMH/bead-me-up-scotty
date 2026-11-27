@@ -1,0 +1,120 @@
+{
+  "schema_version": 1,
+  "status": "completed_for_existing_independent_request_review",
+  "author": "/root/finish_preparation",
+  "preparation_tree": "de85b97a365583f92f18080cd636379750181006",
+  "completed_text_review_sha256": "a664e478e4a0c46abb0de44cb19638715471b567aeb123afec5ccbb4633a2271",
+  "remote_readbacks_sha256": "35071255be5599528dc3ac0be3bea5073eddceaace01e6d20790f74d899ade29",
+  "document_files_sha256": "68170206c7c9a164446c1e319dba829dfd242d623e4433461ee9f3be334903f4",
+  "helper_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+  "supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+  "requests": [
+    {
+      "repository": "native",
+      "run_id": "native-completion-documents-20261127-02e8a44557c8-v1",
+      "request": "native-completion-documents-20261127-02e8a44557c8-v1.request.json",
+      "request_bytes": 3806,
+      "request_sha256": "137b6513bc6c2dd93481f405be5ef25d96f9d08c84e43f52dd3ded777d8ebc4f",
+      "admission": "native-completion-documents-admission.ps1",
+      "admission_bytes": 995,
+      "admission_sha256": "889483e3b4ded12aad0061b8314f0b82235d55735475f2cf6c164f80347c2561",
+      "invocation": "native-completion-documents-admission-invocation.json",
+      "invocation_bytes": 3820,
+      "invocation_sha256": "2769180645173b10a5517df3fd9dfe46bb47193bb0fcab60d1ea14fc5f84508b",
+      "command_characters": 2746,
+      "expected_head": "ffe98e3a64082d1291577a437a0b48adc22201b3",
+      "target_commit": "385552651d0b2dda891115c3dd59c27dc4b4a6c5",
+      "expected_remote_commit": "385552651d0b2dda891115c3dd59c27dc4b4a6c5",
+      "review": {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/native-completion-final-text-review-20261127-02e8a44557c8.json",
+        "sha256": "a664e478e4a0c46abb0de44cb19638715471b567aeb123afec5ccbb4633a2271"
+      },
+      "document_files": [
+        {
+          "path": ".marathon/progress.md",
+          "mode": "100644",
+          "bytes": 187147,
+          "sha256": "60d755017e01fb26543f18fe815297eba70209b15ac6d4e1940e35d4f941d2ac",
+          "git_blob": "f9f95edb0d34d2f47b70da48e6c0400eae5517bd",
+          "working_bytes": 189990,
+          "working_sha256": "970e350b3b97532089e38266efced7f64c3ba1202c4472e9144cb49199921ddb"
+        }
+      ]
+    },
+    {
+      "repository": "scotty",
+      "run_id": "scotty-completion-documents-20261127-02e8a44557c8-v1",
+      "request": "scotty-completion-documents-20261127-02e8a44557c8-v1.request.json",
+      "request_bytes": 3339,
+      "request_sha256": "58511dd377afa117b1a8a76a2653abc7168f8c79c090109ef4a4853074db1442",
+      "admission": "scotty-completion-documents-admission.ps1",
+      "admission_bytes": 995,
+      "admission_sha256": "bb7257723b202331eac0a4ffc3c343b7618b6c5038818266b57d476741c19cbe",
+      "invocation": "scotty-completion-documents-admission-invocation.json",
+      "invocation_bytes": 3820,
+      "invocation_sha256": "d0542fb3e9827006e31bbea35ac210d52ef6082af3eb8567d03ec640fa6c8e07",
+      "command_characters": 2746,
+      "expected_head": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+      "target_commit": "faedbfc638898841611b28058bfa1edc1e8c539c",
+      "expected_remote_commit": "faedbfc638898841611b28058bfa1edc1e8c539c",
+      "review": {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/scotty-completion-final-text-review-20261127-02e8a44557c8.json",
+        "sha256": "a664e478e4a0c46abb0de44cb19638715471b567aeb123afec5ccbb4633a2271"
+      },
+      "document_files": [
+        {
+          "path": "README.md",
+          "mode": "100644",
+          "bytes": 25797,
+          "sha256": "f3233e50b91238d9193fa21fe6e2c9dd4d2b44ae457630bce56cf6b929a87151",
+          "git_blob": "878f8cad609802a66dbfc6b6166492067b1bdb7b",
+          "working_bytes": 26313,
+          "working_sha256": "e2f48a2777d78af623e59f2042988c48e90d24abcdf8fa82a90519ea8b543517"
+        },
+        {
+          "path": "docs/backend-compatibility.md",
+          "mode": "100644",
+          "bytes": 86598,
+          "sha256": "a36bf74f168f8ec140d78559ef4e4aab79f1db57abbbba6bb58f1bb5e133d44d",
+          "git_blob": "2cce0db6a13054ea33f36627e172584baf36c624",
+          "working_bytes": 87935,
+          "working_sha256": "6959ade72da14dd5e91c359eff147e562d4e8234ebdb612d9f244998d306f807"
+        }
+      ]
+    }
+  ],
+  "protected": {
+    "native_checkpoint_tree": "f4a6e82b81c9f052c707b7f68f4b55176e267e3d",
+    "scotty_original_user_files": 15,
+    "native_private_guard": "Exact d85 rows preserved by final05369 publisher, current index f995.",
+    "scotty_private_guard": "Only exact .env.local f998; private task-store data excluded."
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Both requests exactly invert to stableguard templates after only phase/target/remote/document/third-review/existing-root-flag bindings.",
+        "All file byte/blob/working-byte identities match a664 reviewed_files; mode remains100644 from the accepted templates.",
+        "Actual targets equal35071255 post-review remote readback; prior local heads, first2 reviews and all state guards unchanged."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Each admission replaces exactly one prepared request-hash placeholder and keeps the accepted b113 phase/run-name/hash-only derivation.",
+        "Both encoded UTF16LE commands, saved request hashes and file identities checked on readback.",
+        "Same74a/08af sources, BelowNormal,3.5GiB deferral,180s/512MiB supervision and200s outer timeout; no executor/test/gate added."
+      ],
+      "findings": []
+    }
+  ],
+  "collector": {
+    "source_sha256": "c6d5d4abb18bbccee27b66f4a4b3d936f82b541b43e9110769fb16d8f3d6bd06",
+    "invocation_sha256": "17d8c9ca5847d993bf8bb540929074ce70df39cbacc5b9002a39aa9cdcc6b7ef",
+    "scope": "final-document-publications-fixed4-raw"
+  },
+  "execution_boundary": "After existing independent acceptance, root publishes/readbacks this packet, stages the exact4 request/review destinations and executes both adoptions serially. Existing guards reject any intervening change.",
+  "pc_actions": false,
+  "ref_actions": false
+}

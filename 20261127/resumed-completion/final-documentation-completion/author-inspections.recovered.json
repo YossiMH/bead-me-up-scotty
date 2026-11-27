@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "author": "/root/review_scotty",
+  "status": "passed_same_frozen_documents",
+  "recovery_record": "recovery-record.json",
+  "original_reported_author_record_sha256": "ff081ca07a688bf91688df54b7d3b6789febfddc68e404f42ca24acb38496d23",
+  "inspection_1": {
+    "result": "passed",
+    "scope": "Complete byte and operation preservation",
+    "findings": [],
+    "checks": [
+      "Recovered LF hashes, Git blobs, sizes and CRLF identities match all three frozen documents.",
+      "Inverse four app operations recover exact accepted README and compatibility baselines.",
+      "Native original181588-byte prefix is unchanged; exactly one LF and completed append follow.",
+      "All31 values are bound; no unresolved template markers, template-only comments or double summary punctuation remain."
+    ]
+  },
+  "inspection_2": {
+    "result": "passed",
+    "scope": "Completed text facts, chronology and adoption boundary",
+    "findings": [],
+    "checks": [
+      "Accepted final55/0 closure, cleanup revision6 and1009-issue corpus are bound to exact raw receipts.",
+      "Initial e09b generation remains historical; final b0db/root25eb, final restore and ffe98 publication are distinct accepted observations.",
+      "Founding53f9 archive and pre-text79bc archive remain distinct;86app/2native refs,23tasks/4caches and two specifically evidenced Riftri removals have exact scoped links.",
+      "The worktree ordering qualification is retained in raw1518 and note42fb; aggregate866424 and executed close reason remain unchanged.",
+      "Windows native automatic Git staging error206 remains documented; operational stdin finalization did not replay the native restore.",
+      "Existing product qualification, launch behavior and15 original user-file preservation facts stay in the unchanged baseline.",
+      "Overall review39e7 and pre-text readback19:18:45 precede these document commits; completed-text review and Windows adoption receipts remain separate evidence."
+    ]
+  },
+  "inspection_evidence": "full-byte-preservation-inspection.recovered.json",
+  "documents": {
+    "scotty": [
+      {
+        "path": "README.md",
+        "mode": "100644",
+        "bytes": 25797,
+        "sha256": "f3233e50b91238d9193fa21fe6e2c9dd4d2b44ae457630bce56cf6b929a87151",
+        "git_blob": "878f8cad609802a66dbfc6b6166492067b1bdb7b",
+        "working_bytes": 26313,
+        "working_sha256": "e2f48a2777d78af623e59f2042988c48e90d24abcdf8fa82a90519ea8b543517"
+      },
+      {
+        "path": "docs/backend-compatibility.md",
+        "mode": "100644",
+        "bytes": 86598,
+        "sha256": "a36bf74f168f8ec140d78559ef4e4aab79f1db57abbbba6bb58f1bb5e133d44d",
+        "git_blob": "2cce0db6a13054ea33f36627e172584baf36c624",
+        "working_bytes": 87935,
+        "working_sha256": "6959ade72da14dd5e91c359eff147e562d4e8234ebdb612d9f244998d306f807"
+      }
+    ],
+    "native": [
+      {
+        "path": ".marathon/progress.md",
+        "mode": "100644",
+        "bytes": 187147,
+        "sha256": "60d755017e01fb26543f18fe815297eba70209b15ac6d4e1940e35d4f941d2ac",
+        "git_blob": "f9f95edb0d34d2f47b70da48e6c0400eae5517bd",
+        "working_bytes": 189990,
+        "working_sha256": "970e350b3b97532089e38266efced7f64c3ba1202c4472e9144cb49199921ddb"
+      }
+    ]
+  },
+  "independent_completed_text_review": {
+    "bytes": 9547,
+    "sha256": "a664e478e4a0c46abb0de44cb19638715471b567aeb123afec5ccbb4633a2271",
+    "standalone_tree": "9e2a7ef9fc36c69e11e693e3cbcbfa20db929754"
+  },
+  "no_new_product_tests": true,
+  "no_pc_actions": true,
+  "no_commit_or_ref_actions": true
+}

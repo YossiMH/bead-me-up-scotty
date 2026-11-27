@@ -1,0 +1,76 @@
+{
+  "schema_version": 1,
+  "status": "prepared_data_only",
+  "basis": {
+    "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/final-document-adoption-collector-basis.json",
+    "bytes": 9788,
+    "sha256": "9f38b5a53d70f70766e0335972aa2b12be6ed2aba55561a096c4611b0e3478a0",
+    "source_sha256": "017d324bea6e7d3457a0170fbf798d12cd417fcd453ae3ffa525419d42b436c4",
+    "source_bytes": 5714
+  },
+  "substitutions": [
+    {
+      "from": "git-publication-native-task-ref-deletion-20261127-02e8a44557c8-v1",
+      "to": "git-publication-native-completion-documents-20261127-02e8a44557c8-v1",
+      "occurrences": 1
+    },
+    {
+      "from": "git-publication-scotty-task-ref-deletion-20261127-02e8a44557c8-v1",
+      "to": "git-publication-scotty-completion-documents-20261127-02e8a44557c8-v1",
+      "occurrences": 1
+    },
+    {
+      "from": "task-ref-publications-fixed4-raw",
+      "to": "final-document-publications-fixed4-raw",
+      "occurrences": 2
+    }
+  ],
+  "scope": "final-document-publications-fixed4-raw",
+  "files": [
+    {
+      "name": "collect-final-document-adoptions.cjs",
+      "bytes": 5732,
+      "sha256": "c6d5d4abb18bbccee27b66f4a4b3d936f82b541b43e9110769fb16d8f3d6bd06"
+    },
+    {
+      "name": "collect-final-document-adoptions-invocation.json",
+      "bytes": 3902,
+      "sha256": "17d8c9ca5847d993bf8bb540929074ce70df39cbacc5b9002a39aa9cdcc6b7ef"
+    },
+    {
+      "name": "collector-scope-only.diff",
+      "bytes": 3685,
+      "sha256": "6e1364e9f438aca081fabe7344f100129c09030b041854f46fc0e831e059d3bb"
+    }
+  ],
+  "unchanged_limits": {
+    "priority": "BelowNormal",
+    "node_heap_mib": 64,
+    "own_rss_cap_bytes": 134217728,
+    "minimum_free_bytes": 1073741824,
+    "deadline_ms": 15000,
+    "chunk_bytes": 37500,
+    "per_file_bytes": 2097152,
+    "total_raw_bytes": 4194304
+  },
+  "execution": "Use terminal0 - for first read, then only the reported next_offset_bytes/package_sha256 until next_offset_bytes is null; exact four-result scope contains no index contents. Invoked inline, no PC staging needed.",
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Exact source inverse changes only two run paths and two occurrences of the scope label.",
+        "The four exact result paths, parent/file stability checks and all bounds are unchanged."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Decoded original gzip payload equals accepted017d source; decoded new payload equals exact final source/hash.",
+        "Command wrapper inverse changes only gzip payload and its SHA; same cwd and timeout.",
+        "No new executor, file scope, tests, gate, PC/ref action."
+      ],
+      "findings": []
+    }
+  ]
+}

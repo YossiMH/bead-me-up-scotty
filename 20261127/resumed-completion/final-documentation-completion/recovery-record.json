@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "same_frozen_documents_recovered_ancillary_metadata_reconstructed",
+  "author": "/root/review_scotty",
+  "cause": "Cloud environment reset removed the old cwd and local packet before durable final-text publication. The reviewer retained exact31 values and templates; finish_preparation retained exact document-files.json in standalone tree de85b97a365583f92f18080cd636379750181006.",
+  "recovered_exact": [
+    "Three final document byte streams",
+    "Two completed insertion/append blocks",
+    "All31 actual_values",
+    "document-files.json",
+    "Both previously published Riftri evidence files"
+  ],
+  "reported_pre_reset_metadata_identities_only": [
+    {
+      "path": "completion-bindings.complete.json",
+      "bytes": 6985,
+      "sha256": "8e5da61fb4c93a161335d167bc44b4a812c32bf737007a6974f26ec6d2babfe1"
+    },
+    {
+      "path": "author-inspections.json",
+      "bytes": 6833,
+      "sha256": "ff081ca07a688bf91688df54b7d3b6789febfddc68e404f42ca24acb38496d23"
+    },
+    {
+      "path": "final-packet-manifest.json",
+      "bytes": 3331,
+      "sha256": "7dd7344b2e0d102a6b86c07805311c23277473ca2036face9bd44d84ae4ccc6b"
+    }
+  ],
+  "identity_qualification": "The three reported metadata files were not recovered byte-for-byte and their former hashes are historical reports only. Newly named recovered records have their own manifest identities; no old metadata hash is claimed for reconstructed bytes.",
+  "three_document_frozen_hashes_unchanged": true,
+  "source_of_bindings": "completion-actual-values.recovered.json",
+  "production_trees": "production-tree-readbacks.json",
+  "original_author_review": "The pre-reset author completed two inspections before giving the frozen hashes. This record preserves that reported event and the current recovery verification. The independently completed text review is separate."
+}

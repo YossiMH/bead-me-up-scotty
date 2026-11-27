@@ -1,0 +1,74 @@
+{
+  "schema_version": 1,
+  "status": "prepared_data_only",
+  "phase_remains_null": true,
+  "bases": [
+    {
+      "name": "native-completion-documents.request.bound-guards.json",
+      "bytes": 3499,
+      "sha256": "5f9caa33424abc8273baced82391ee25b41ce015ba6119a9565cdcd14ed4d52d"
+    },
+    {
+      "name": "scotty-completion-documents.request.bound-guards.json",
+      "bytes": 2870,
+      "sha256": "a47c9476a2a56c38ee2cb288f820a10e02b96938d87232710c148d83039bdd18"
+    },
+    {
+      "name": "stable-guard-bindings.json",
+      "bytes": 2259,
+      "sha256": "633064d6f656d859d90e1004de174441475251ade41c913d8b217cf4929f6097"
+    }
+  ],
+  "admission_basis_sha256": "b1139268e8d39aa2ba68f35db58af2332855a6479e5d22d048994b88bd974df0",
+  "helper_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+  "supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+  "phase_on_activation": "documents",
+  "pending": [
+    "Exact final document LF/Git/Windows CRLF identities from accepted completed text",
+    "Exact final-text-review SHA for each existing accepted I alias",
+    "Root-created native/scotty documentation target commits and current remote-main readback",
+    "Existing root attestations and exact completed request hashes"
+  ],
+  "expected_publication_sequence": "Root publishes each reviewed document-only descendant using cloud CAS; then set expected_remote_commit=target_commit while local expected_head remains native ffe98 / Scotty b8ca.",
+  "protected": {
+    "native_checkpoint_tree": "f4a6e82b81c9f052c707b7f68f4b55176e267e3d",
+    "native_private_state": "Exact six d85 rows preserved by passed final publisher05369; current index f995.",
+    "scotty_original_user_files": 15,
+    "scotty_private_scope": [
+      ".env.local"
+    ],
+    "unchanged_document_scope": {
+      "native": [
+        ".marathon/progress.md"
+      ],
+      "scotty": [
+        "README.md",
+        "docs/backend-compatibility.md"
+      ]
+    }
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Existing guard/source fields retained; phase/targets/doc identities/review hashes/flags stay inert.",
+        "Both PS admissions exactly invert to accepted b113 after only deferred phase label, request filename and hash placeholder substitutions."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Existing I/git-finalization parent and unchanged74a/08af siblings used; no new PC directory.",
+        "Same BelowNormal,3.5GiB outer deferral,180s/512MiB supervisor and200s outer invocation.",
+        "Only the three accepted documentation paths can change; existing publisher verifies current guards and unrelated tree/index preservation."
+      ],
+      "findings": []
+    }
+  ],
+  "pc_actions": false,
+  "ref_actions": false,
+  "new_executor": false,
+  "new_gate": false,
+  "new_tests": false
+}

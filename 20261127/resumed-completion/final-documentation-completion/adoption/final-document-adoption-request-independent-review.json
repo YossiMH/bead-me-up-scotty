@@ -1,0 +1,155 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_bead_rs",
+  "findings": [],
+  "scope": "Existing bounded independent review of the two final documentation-adoption requests/admissions and the fixed four-result collector; accepted helper and resource mechanics remain unchanged.",
+  "accepted_sources": {
+    "publisher_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+    "supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+    "history_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+    "admission_basis_sha256": "b1139268e8d39aa2ba68f35db58af2332855a6479e5d22d048994b88bd974df0"
+  },
+  "requests": [
+    {
+      "repository": "native",
+      "request": {
+        "name": "native-completion-documents-20261127-02e8a44557c8-v1.request.json",
+        "bytes": 3806,
+        "sha256": "137b6513bc6c2dd93481f405be5ef25d96f9d08c84e43f52dd3ded777d8ebc4f"
+      },
+      "admission": {
+        "name": "native-completion-documents-admission.ps1",
+        "bytes": 995,
+        "sha256": "889483e3b4ded12aad0061b8314f0b82235d55735475f2cf6c164f80347c2561"
+      },
+      "invocation": {
+        "name": "native-completion-documents-admission-invocation.json",
+        "bytes": 3820,
+        "sha256": "2769180645173b10a5517df3fd9dfe46bb47193bb0fcab60d1ea14fc5f84508b",
+        "command_characters": 2746
+      },
+      "target_commit": "385552651d0b2dda891115c3dd59c27dc4b4a6c5",
+      "tree": "6de676564644ce7ceaf109374b93dad808828dd4",
+      "parent": "ffe98e3a64082d1291577a437a0b48adc22201b3",
+      "expected_index_sha256": "f9955e02d1b2d1f0a15c4b53b7016a7ab6182b8ca1cbcc123fc48cbd6006fff5",
+      "private_state_rows": 6,
+      "review_sha256": "a664e478e4a0c46abb0de44cb19638715471b567aeb123afec5ccbb4633a2271",
+      "exact_allowed_request_derivation": true,
+      "exact_initial_admission_inverse": true
+    },
+    {
+      "repository": "scotty",
+      "request": {
+        "name": "scotty-completion-documents-20261127-02e8a44557c8-v1.request.json",
+        "bytes": 3339,
+        "sha256": "58511dd377afa117b1a8a76a2653abc7168f8c79c090109ef4a4853074db1442"
+      },
+      "admission": {
+        "name": "scotty-completion-documents-admission.ps1",
+        "bytes": 995,
+        "sha256": "bb7257723b202331eac0a4ffc3c343b7618b6c5038818266b57d476741c19cbe"
+      },
+      "invocation": {
+        "name": "scotty-completion-documents-admission-invocation.json",
+        "bytes": 3820,
+        "sha256": "d0542fb3e9827006e31bbea35ac210d52ef6082af3eb8567d03ec640fa6c8e07",
+        "command_characters": 2746
+      },
+      "target_commit": "faedbfc638898841611b28058bfa1edc1e8c539c",
+      "tree": "31c5034df1fbe5f15068f26dff60c4488dfb1b3f",
+      "parent": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+      "expected_index_sha256": "af34dccf7686601e19860c393dc4cb45452b0c0546389b5e0a0238b19bda8cf5",
+      "private_state_rows": 1,
+      "review_sha256": "a664e478e4a0c46abb0de44cb19638715471b567aeb123afec5ccbb4633a2271",
+      "exact_allowed_request_derivation": true,
+      "exact_initial_admission_inverse": true
+    }
+  ],
+  "evidence": {
+    "completed_text_review": {
+      "bytes": 9547,
+      "sha256": "a664e478e4a0c46abb0de44cb19638715471b567aeb123afec5ccbb4633a2271"
+    },
+    "document_manifest": {
+      "bytes": 2955,
+      "sha256": "68170206c7c9a164446c1e319dba829dfd242d623e4433461ee9f3be334903f4"
+    },
+    "post_publication_readback": {
+      "bytes": 668,
+      "sha256": "35071255be5599528dc3ac0be3bea5073eddceaace01e6d20790f74d899ade29",
+      "observed_utc": "2026-11-27 19:30:51 UTC"
+    },
+    "prepared_packet_tree": "de85b97a365583f92f18080cd636379750181006"
+  },
+  "guards": {
+    "native": {
+      "expected_head": "ffe98e3a64082d1291577a437a0b48adc22201b3",
+      "expected_index_sha256": "f9955e02d1b2d1f0a15c4b53b7016a7ab6182b8ca1cbcc123fc48cbd6006fff5",
+      "checkpoint_tree": "f4a6e82b81c9f052c707b7f68f4b55176e267e3d",
+      "private_rows": 6,
+      "basis": "Exact d85 six rows preserved by successful05369 final checkpoint publisher, including present zero-byte WAL and32768-byte SHM; no absent-database guard reused."
+    },
+    "scotty": {
+      "expected_head": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+      "expected_index_sha256": "af34dccf7686601e19860c393dc4cb45452b0c0546389b5e0a0238b19bda8cf5",
+      "private_rows": 1,
+      "basis": "Exact existing .env.local f998 guard and c819 Git configuration preserved by accepted afba task-ref deletion;15 original user-file preservation remains unchanged."
+    },
+    "accepted_hooks": [],
+    "document_autocrlf": "true"
+  },
+  "collector": {
+    "source_bytes": 5732,
+    "source_sha256": "c6d5d4abb18bbccee27b66f4a4b3d936f82b541b43e9110769fb16d8f3d6bd06",
+    "invocation_bytes": 3902,
+    "invocation_sha256": "17d8c9ca5847d993bf8bb540929074ce70df39cbacc5b9002a39aa9cdcc6b7ef",
+    "command_characters": 3480,
+    "source_basis_bytes": 5714,
+    "source_basis_sha256": "017d324bea6e7d3457a0170fbf798d12cd417fcd453ae3ffa525419d42b436c4",
+    "exact_substitutions": [
+      [
+        "git-publication-native-task-ref-deletion-20261127-02e8a44557c8-v1",
+        "git-publication-native-completion-documents-20261127-02e8a44557c8-v1",
+        1
+      ],
+      [
+        "git-publication-scotty-task-ref-deletion-20261127-02e8a44557c8-v1",
+        "git-publication-scotty-completion-documents-20261127-02e8a44557c8-v1",
+        1
+      ],
+      [
+        "task-ref-publications-fixed4-raw",
+        "final-document-publications-fixed4-raw",
+        2
+      ]
+    ],
+    "source_inverse_exact": true,
+    "decoded_source_hashes_exact": true,
+    "wrapper_inverse_exact": true,
+    "files": "Exactly the native/app final document driver and supervisor result.json files; no private index payload.",
+    "unchanged_limits": {
+      "priority": "BelowNormal",
+      "heap_mib": 64,
+      "own_rss_bytes": 134217728,
+      "minimum_free_bytes": 1073741824,
+      "deadline_ms": 15000,
+      "chunk_bytes": 37500,
+      "per_file_bytes": 2097152,
+      "total_raw_bytes": 4194304
+    }
+  },
+  "checks": [
+    "Both complete request JSON byte strings are exactly reproduced from the held bound-guard templates after only phase=documents, actual target/remote commits, exact reviewed document identities, third-review SHA and the four existing root attestation values are bound. All existing paths, executable hashes, first two review pins, private/config/index/hook guards and document allowlists remain unchanged.",
+    "Independent GitHub commit reads confirm native385552 has sole parentffe98 and tree6de67656; appfaed has sole parentb8ca and tree31c5034d. Both targets match the exact post-CAS remote readback35071255. Local expected heads remain the original PC heads; expected remote commits equal the already-published targets.",
+    "The native request permits only .marathon/progress.md and the Scotty request only README.md plus docs/backend-compatibility.md. All canonical byte/SHA/Git-blob and built-in CRLF working-byte identities equal the accepted a664 text review and original68170206 manifest. Both existing review aliases bind the same exact accepted combined review.",
+    "Both saved995-byte admissions independently invert to the accepted b113 admission outside phase, request filename and request hash. They also match their prepared PS files after only the hash placeholder is filled. Each2746-character encoded command decodes exactly from UTF16LE to its saved PS bytes; the current directory is the same F:/Dev directory as the accepted F:\\Dev spelling.",
+    "Unchanged BelowNormal admission defers before starting the supervisor below3758096384 free bytes. The accepted supervisor receives the exact request hash,180 seconds and512MiB aggregate cap; the outer invocation remains200 seconds. No helper revision or guard reduction is introduced.",
+    "The accepted documents branch checks clean current state, hashes/reviews/hooks/config/private guards, exact descendant file changes, modes/blobs/canonical and checkout bytes, then performs a fast-forward and verifies unrelated index and checkpoint objects plus working/private state. The already-published target is read back instead of introducing another Git publication.",
+    "The four-input staging manifest names exactly the two request destinations under I/git-finalization and the two existing review aliases directly under I, with the correct sizes/hashes. Root retains exclusive staging and serialized PC execution.",
+    "Collector source comparison and both gzip decodes prove only the two run paths and two scope-label occurrences changed from accepted017d. The command wrapper inverse is exact; fixed file scope, path/file identity checks, chunk identity and every resource limit remain unchanged."
+  ],
+  "boundary": "This acceptance completes the existing request/collector review. Root may publish/stage the exact packet and execute the two bounded adoptions serially; each actual result remains to be collected and accepted through the existing receipt review.",
+  "activity": "Cloud-only static byte, source-contract, request-data and immutable commit review."
+}

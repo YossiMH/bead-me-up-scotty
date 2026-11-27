@@ -1,0 +1,20 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Recovery verification of the same frozen documents; no new product test or acceptance gate.",
+  "app": {
+    "operations": 4,
+    "inverse_recovers_exact_baselines": true,
+    "README_baseline_sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+    "compatibility_baseline_sha256": "04fdc705d9b7de7d653644c8cbe3adb9c82dabe806f303360956e1924cbdf06f"
+  },
+  "native": {
+    "unchanged_prefix_bytes": 181588,
+    "unchanged_prefix_sha256": "ddd99e39475d51b9d5a096e2e31d28efad951c7546b1dda8cd37b4ac29857779",
+    "exact_one_LF_then_completed_append": true
+  },
+  "completed_bindings": 31,
+  "all_three_frozen_LF_SHA256_git_blobs_sizes_and_Windows_CRLF_identities_match": true,
+  "unresolved_template_markers": 0,
+  "completed_text_review_and_document_adoption_separate": true
+}
