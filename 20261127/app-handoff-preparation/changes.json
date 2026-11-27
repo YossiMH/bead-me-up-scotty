@@ -1,0 +1,241 @@
+{
+  "schema_version": 1,
+  "scope": "Regenerated app handoff and production-first README; text-only preparation",
+  "recovery": {
+    "method": "Fresh derivation from immutable source and revision-9 draft; no claim of recovery of lost unpublished candidate bytes.",
+    "base_app_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "revision9_draft_ref": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+    "revision9_draft_path": "20261125/revision-9/app-continuation-draft.json",
+    "revision9_draft_sha256": "169ab1f278de728a5789e3ac4dcbe8d643f86b62b2f5ff4d255b4c8536daa025",
+    "revision9_content_sha256": "128035c955c7c0c240d4d5cb709f97e30e6bd3bbc659de6c1c892666a7d6b3e5",
+    "canonical_published_doc_sha256": "3564de23de0ca506e2725bf5bcedea19722f0f90a377b4abbe1201d412de94a4",
+    "readme_sha256": "03647a12b3ea2a8ff8a50019267a9d936db20695acbd3653d3132376ea0a9b70"
+  },
+  "documents": {
+    "docs/backend-compatibility.md": [
+      {
+        "id": "current-state-section",
+        "kind": "replace",
+        "old": "## Versions and installation",
+        "new": "<!-- delivery-state:start -->\n## Delivery state — 2026-11-27\n\nThis section records the current delivery snapshot. Installation and the three\ntray lifecycle cases have passed independent review. The installed default launch,\nfinal installed review, documentation publication and original task-history\nhandoff remain to be completed. The latest accepted native task readback is\n10:01:48 UTC; the subsequent configured-launch preparation is recorded separately.\nThe dated sections below retain the earlier qualification and failed attempts.\n\n### Installed source, pin and runtime\n\n| Installed item | Accepted identity |\n| --- | --- |\n| Scotty source in `F:/Dev/bead-me-up-scotty` | `0309539797fd7d016e2b8fd8bdc0ae9cefc20219`, tree `84bb66cde1832ad8d30b63773efb77c952787b94` |\n| Native source in `F:/Dev/bead-rs` | `2d801ba455b7a722daf644a7615445117d57e8e9`, tree `509d6222300b84b16041a8366a8b6ae4c28ccc98` |\n| Selected native executable | `.scotty-local/bin/bead-0431a828bf95.exe`, 12,243,456 bytes; SHA-256 `0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a` |\n| Executable metadata | 2,058 bytes; SHA-256 `21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5` |\n| Installed production runtime | BUILD_ID `YIOHeRJTEdlOszyc4LyHr`; 560 files, 27,426,391 bytes |\n| Complete runtime manifest | SHA-256 `612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7` |\n\nThe exact app and native release archives were downloaded, hashed and staged.\nThe [actual stage review](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/artifact-stage-actual-review.json)\naccepts both original ZIPs and every runtime file. Staging completed in 13.738\nseconds with a sampled aggregate peak of 302,596,096 bytes and normal owned\ncleanup. The app ZIP was 7,056,005 bytes, SHA-256\n`15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d`;\nthe native ZIP was 4,524,263 bytes, SHA-256\n`6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8`.\n\nThe third installation attempt passed at 09:42 UTC and was independently\nreconciled with the 09:52:16 UTC preservation readback. It installed the source\nand runtime above, selected the final pin through the existing `BEAD_BIN` line,\nand normally pushed both exact source commits to the user forks' `main` branches.\nThe [installation acceptance](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/installation-completed/actual-review.json)\nhas SHA-256 `f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e`.\nIts inner result has SHA-256\n`a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673`;\nthe supervisor result has SHA-256\n`ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760`.\nThe 31.973-second attempt stayed below the 512 MiB aggregate limit, with a\n418,521,088-byte peak, no assisted cleanup, no cleanup errors and no remaining\nowned processes. The post-installation observation found both source checkouts\nclean and the app stopped.\n\nAll 15 original raw app files, original index and environment copies, the old\n`bead-376537b7917f.exe` pin and previous `.next` runtime remain retained for\nrecovery. The previous BUILD_ID is `YHFpYLvHE99qaExIBY8FL`. The two earlier\ninstallation attempts remain failed records: the first refused the expected\norigin's HTTPS spelling when the existing native origin used SSH, and its result\nwriter then failed on a null backup argument; the second refused a private index\nwhose stat cache Git refreshed during validation. Separate, qualified helper\ncorrections admitted the exact observed SSH origin, used the proper null-string\nbackup argument and disabled that refresh for the one private-index diff.\nThe original source/index checks and byte-exact publication guards stayed in\nplace. Repository configuration and explicit user-fork push destinations were\npreserved. Scotty's private local task data remains on the PC.\n\n### Tray behavior and installed launch\n\nThe [actual interactive tray review](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/tray-runspace-actual-review.json)\naccepts three real Windows cases in the logged-in desktop session: **Exit**\nstopped its server and disposed the icon; parent loss removed the copied helper\nand empty session directory; and an exit-75 restart replaced the server while\nretaining one icon, followed by a real **Exit**. All three passed in 15.483\nseconds with a 518,172,672-byte sampled aggregate peak, below the 536,870,912-byte\nlimit. The outer controller reported normal cleanup and no remaining owned\nprocesses. The parent-loss fixture deliberately ended its own controller/server;\nthat required action is distinct from assisted outer cleanup.\n\nThis tray run used the retained `5232c8b94804064ab71af571ee28797667bd72bd`\nstage, its 230-file BUILD_ID `Eox2_s2VuIuWWAISvMqKK` and native pin `25a05bdf…`.\nIts tray modules are unchanged in final app source `03095397…`. The final\n560-file runtime and pin `0431a828…` have their own platform and installation\nacceptance above. The installed check still needs to exercise\n`launch-scotty.bat` with its default selected pin, five scalar edits and real\ntray **Exit** on the fresh disposable fixture at port 43972.\n\nTwo configured-launch attempts are retained as failed. The first task exited\nbefore creating its result directory; its early error was not captured. A later\nread verified that both installed tray module files contain CRLF while the\noriginal observation helper expected their canonical LF hashes. A separately\nnamed helper bound the observed CRLF bytes and their unchanged Git blobs.\nThe second attempt completed its native fixture initialization and then refused\na missing session value from a short-lived managed process object. Its retained\nJob record already identified that exact PID and birth time in session 1 with\nthe expected executable and exit 0; app, HTTP and tray work had not started.\nThe [second failure review](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-crlf-actual/independent-review.json)\npreserves that distinction.\n\nThe [reviewed session helper](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-session/source-review.json)\n`windows-configured-launch-host-session-20261127.ps1`, SHA-256\n`33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4`,\nuses the already verified PID/birth Job snapshot and still requires the exact\ninteractive session. It refuses a child that exited before any validated\nsnapshot exists. Its third task name is\n`ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec`, with fresh\noutput, creation receipt and stdout/stderr paths. At 11:20:57 UTC its launch\npreflight recorded 3,017 MiB free, below the required 3 GiB; it created no task\nand started no app. The configured outcome and final installed review are\npending. Previous failed tasks and outputs remain retained.\n\n### Native task mapping and remaining delivery\n\nThe [actual materialization review](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/materialization-v9-review.json)\naccepts the direct revision 6-to-9 update: 55 continuation tasks, 91 blocking\nedges and 1,009 total issues, including all original 954. Revisions 7 and 8 were\nnever materialized. The returned mapping has SHA-256\n`6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3`.\nThe retained closure sequence reached 42 closed/13 open after the 27 accepted\ncloud tasks, 45/10 after the three tray/candidate tasks, 47/8 after the two\nbinding-preparation tasks and **48 closed/7 open** after installation.\n\nThe [actual installation closure review](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/installation-completed/closure/actual-review.json)\naccepts `install` (`beadrs-0bab2976`) moving from open revision 5 to closed\nrevision 6, with the other 54 continuation rows and original 954 issues\nunchanged. The seven remaining rows at that readback are:\n\n| Task key | Native ID | Status | Revision |\n| --- | --- | --- | ---: |\n| `configured-launch` | `beadrs-c9526055` | open | 5 |\n| `installed-review` | `beadrs-47da80ac` | open | 3 |\n| `backend-handoff` | `beadrs-1371879c` | open | 3 |\n| `app-handoff` | `beadrs-f0039a6a` | open | 5 |\n| `backend-text-review` | `beadrs-30f13b5b` | open | 3 |\n| `app-text-review` | `beadrs-c62c1990` | open | 5 |\n| `preserve-and-clean` | `beadrs-3ec972f8` | open | 5 |\n\nRefresh the actual rows before any close. Graph readiness alone does not satisfy\nthe installed review's requirement for an accepted configured result. This\ndocument is prepared text; its presence is not a task closure or evidence that\nthe handoff has been published.\n\n### Original history, publication and cleanup\n\nThe original native checkout has checkpoint/configuration files and no SQLite\ndatabase or sidecars. Its existing `core.autocrlf=true` is preserved. The\n[reviewed checkpoint-only handoff](https://github.com/YossiMH/bead-me-up-scotty/tree/de71118c225936b8ca6eac4be5db306eff19219b/20261127/checkpoint-crlf-handoff)\nuses selected final pin `0431a828…` and native `--no-auto-flush` initialization\nand verified restore. Its CRLF-compatible driver has SHA-256\n`1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671`;\nits supervisor has SHA-256\n`c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6`.\nThe exact 128 MiB cloud qualification passed; actual Windows parsing, staged\nidentity readback and each real history phase remain separate requirements.\n\nPreserve the original raw selected checkpoint files and their canonical Git\nbytes in separate retained directories. The source-restore phase first proves\nthe canonical original 954-issue corpus, then the complete frozen continuation.\nThe original Git baseline must be recorded after the accepted installation and\nreviewed native handoff publication/adoption, with its exact raw index copy\nunder the coordination directory. It binds the user fork's actual main commit,\nthe unchanged original checkpoint tree\n`ff0759095a01edb38ca4bb8aa90fbdb84476e0f7`, and all 53 original checkpoint\nblobs. An earlier proposed or pre-installation baseline cannot fill that input.\n\nThe eight phases remain `preserve`, `freeze`, `source-restore`,\n`restore-original`, `restore`, `close`, `final-publish` and `final-restore`.\nBefore freeze, every continuation task except `preserve-and-clean` must be\nclosed and that cleanup task must be unassigned and unclaimed. After the\nreconciled restore into the original checkout, that checkout becomes the sole\nwriter; the coordination writer stays frozen. The two explicit Git publications\nretain their own observed commits, index proofs and phase-result bindings.\nThe prepared phase requests keep their input pins unset. Fill them from exact\naccepted installed/configured/handoff records and prior phase receipts staged\nunder the permitted roots; record commit/index values and the cleanup revision\nand reason only from the corresponding actual observation. No original history\nphase has been accepted in this snapshot.\n\nScheduled-task cleanup has a reviewed, exact 22-name preparation: 19 original\ndiagnostic tasks and the three configured-attempt names. Its independent source\nreview has SHA-256\n`d7e63570b39ec31c12e7f6fde105d0df6204764b6b840d44fd5a3a77b07d840a`.\nIt requires the\nsuccessful third result and review, the exact creation receipts, a fresh private\nthree-task definition readback, whole-XML equality, ready state and zero running\ninstances before each exact deletion. The first two failed attempts retain their\nfailed results and expected scheduler exit 1. Private definitions, inputs,\nrollback copies and attempt records remain retained; the helper removes only\nthe named registrations. No such deletion is recorded as complete here.\n\nThe reviewed Git-ref cleanup preparation covers [86 exact app task refs](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/archive-preparation-recovered/reviewed-refs.json)\nand two separately handled native task refs. Refresh all exact live app tips\nafter the final transfer publication and recompute their independent parents.\nThe reviewed archive shape uses\n`refs/heads/archive/bead-editing-complete-20261127`, with the final transfer\ncommit first, its exact tree, and 31 additional independent app tips. A changed\nparent count requires a reviewed adjustment. The approach review\n`ef4cc2d9c01a1e2fcf6a36074f00b9bd7d3515d856fb5db213ce1a8a707e9d24`\naccepts preparation only. Read back the created archive commit/ref and\nindependently prove that it retains all 86 final observed tips before deletion.\nThe two native tips must separately remain ancestors of accepted native `main`.\nOnly then may the bounded publisher delete the exact named refs atomically,\nwith each expected-tip lease. Preserve `main`, the archive and unrelated refs.\nThis conditional archive route governs final transfer-branch removal; the\nhistorical instructions below describe earlier preservation checkpoints.\nActual archive creation, ancestry acceptance and deletions are still pending.\n\nWorktree cleanup likewise requires current registrations, clean status and\npublished retained work, followed by ordinary Riftri removal without force.\nThe accepted checkpoint-only author worktree removal is separately recorded in\n[its publication and cleanup receipt](https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json).\nCloud filesystem loss is not evidence of a verified worktree removal.\nFinal documentation publication, remaining task closures, original history\npublication and complete cleanup acceptance are still pending.\n<!-- delivery-state:end -->\n\n## Versions and installation"
+      },
+      {
+        "id": "current-qualification-pointer",
+        "kind": "replace",
+        "old": "The current sources, production runtime and remaining Windows checks are recorded\nin the [2026-11-25 continuation](#2026-11-25-continuation). Earlier receipts below\nqualify their stated builds. Retain a new binary's source commit, target and\nSHA-256 alongside its Windows execution results before selecting it.",
+        "new": "The installed sources, production runtime and remaining delivery checks are\nrecorded in [Delivery state — 2026-11-27](#delivery-state--2026-11-27). The\n[2026-11-25 continuation](#2026-11-25-continuation) retains the hosted qualification.\nEarlier receipts below qualify their stated builds. Retain a new binary's source\ncommit, target and SHA-256 alongside its Windows execution results before\nselecting it."
+      },
+      {
+        "id": "installed-pin-and-launch",
+        "kind": "replace",
+        "old": "For an independent local installation, `.env.local` can hold absolute paths.\nThis example preserves the earlier Windows pin; select the newly qualified pin\nto enable the editing extension:\n\n```dotenv\nBEAD_BIN=F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-376537b7917f.exe\nXDG_CONFIG_HOME=F:/Dev/bead-me-up-scotty/.scotty-local\n```\n\nFor this already configured clone, launch from `F:\\Dev\\bead-me-up-scotty`:\n\n```powershell\nnode .\\bin\\bead-me-up-scotty.mjs --host 127.0.0.1 --port 3000 --no-open\n```\n\nOpen the printed URL, then use **Add project**, choose **bead-rs**, and enter the\nrepository root containing `.beads`, rather than the `.beads` directory itself.\nExisting process environment settings take precedence over `.env.local`.\n\nThis keeps this clone's project registrations and native claim credentials in\nits ignored `.scotty-local/` directory. Existing Scotty registrations remain in\ntheir previous configuration directory. Launching this clone starts at its own\nproject picker; use **Add project**, choose **bead-rs**, and select an initialized\nworkspace already known to be compatible with the selected executable. Adding a\nproject opens that workspace through the selected CLI; it does not copy its data.\nQualification runs capability and snapshot commands. Normal native commands can\nupgrade older schemas, including through a command's pre-dispatch connection;\nbackend selection is not a no-migration mode. The compatibility tests use newly\ninitialized disposable workspaces. Older original stores require a separate\nsafe-access and migration decision before registration.\n\nThis installation pins a copy of the tested fork binary at the path above,\nwith a neighboring provenance receipt and SHA-256. It does not follow future\nfork rebuilds. A development `target/debug/bead.exe` can be replaced by another\nbuild while Scotty is running; qualify a new binary on disposable data before\nreplacing the local pin or selecting it with `--bead-bin`.\n\n",
+        "new": "The installed F: clone selects the final qualified pin through `.env.local`:\n\n```dotenv\nBEAD_BIN=F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-0431a828bf95.exe\n```\n\nFrom `F:\\Dev\\bead-me-up-scotty`, use the production batch launcher:\n\n```powershell\n.\\launch-scotty.bat --no-open\n```\n\nThe launcher uses `127.0.0.1` and the default port 3000 unless overridden; open\nthe URL it prints. `--no-open` keeps the browser closed and leaves the tray\nenabled. The current acceptance state for this installed route is recorded in\n[Delivery state — 2026-11-27](#delivery-state--2026-11-27). The installed build\ncan be launched directly; building again is a separate source-update operation.\n\nUse **Add project**, choose **bead-rs**, and enter the repository root containing\n`.beads`. Existing process environment settings take precedence over\n`.env.local`. `--bead-bin` overrides the selected executable for that launch.\n\nScotty stores project registrations and acquired native claim credentials in its\nconfiguration directory. Placing the binary in `.scotty-local/bin/` does not\nchange that directory. To deliberately use a separate configuration for this\nclone, set `XDG_CONFIG_HOME=F:/Dev/bead-me-up-scotty/.scotty-local` before launch;\nthat optional setting is not part of the installed `BEAD_BIN` replacement.\nKeep the chosen configuration directory private and preserve it across restarts.\n\nSelect an initialized workspace already known to be compatible with the selected\nexecutable. Adding a project opens it through the public CLI and can upgrade an\nolder schema, including during the command's pre-dispatch connection. The\nqualification fixtures are newly initialized disposable stores. For the original\nnative checkout, use the delivery section's accepted history state to determine\nwhen registration is ready. Preserve its checkpoint and database state throughout\nthe approved handoff.\n\nThis installation pins a copy of the tested fork binary with neighboring\nprovenance metadata and its exact SHA-256. It does not follow future fork\nrebuilds. Qualify a replacement on disposable data before changing the pin.\nThe earlier `bead-376537b7917f.exe` and its receipt remain available for the\n[documented rollback](#return-to-the-previous-binary-pin).\n\n"
+      },
+      {
+        "id": "nov11-snapshot",
+        "kind": "replace",
+        "old": "## 2026-11-11 editing and Windows tray work\n\n",
+        "new": "## 2026-11-11 editing and Windows tray work\n\nThis dated record describes the November 11 candidate and observations. Later\ninstallation and acceptance are recorded in the delivery section above.\n\n"
+      },
+      {
+        "id": "nov11-candidate-tense",
+        "kind": "replace",
+        "old": "The editing and tray implementation is integrated in the following candidate.\nThe intended pin identifies the exact cross-built Windows file; installing or\nselecting it remains dependent on the complete Windows results.",
+        "new": "At this checkpoint, the editing and tray implementation was integrated in the\nfollowing candidate. Its intended pin identified the exact cross-built Windows\nfile; installation and selection still depended on complete Windows results."
+      },
+      {
+        "id": "nov11-pending-tense",
+        "kind": "replace",
+        "old": "Tray lifecycle and installed-default launch results remain pending. This\ncandidate is not yet recorded as the installed default. Preserve the adjacent\nbuild metadata and final execution receipts with the binary; retain the earlier",
+        "new": "At the November 11 checkpoint, tray lifecycle and installed-default launch\nresults were pending, and this candidate was not the recorded installed default.\nPreserve the adjacent build metadata and execution receipts with the binary;\nretain the earlier"
+      },
+      {
+        "id": "nov11-worktree-tense",
+        "kind": "replace",
+        "old": "Development is running in cloud linked Git worktrees created through Riftri.\nThe PC source and native checkpoints remain preserved. If the session stops,\ninspect these directories and branches before resuming or removing anything:",
+        "new": "Development then used the following cloud linked Git worktrees created through\nRiftri. This is the historical inventory; establish current registrations and\nretained contents before attempting recovery or removal:"
+      },
+      {
+        "id": "nov11-cleanup-tense",
+        "kind": "replace",
+        "old": "Git worktrees. The final update will record removal.",
+        "new": "Git worktrees. Any completed removal requires its own observed result."
+      },
+      {
+        "id": "nov11-backend-tense",
+        "kind": "replace",
+        "old": "Backend source starts at `afac9fa0ce9533a707d745018d16a25e4ccff492` from\n`YossiMH/bead-rs`. Scotty's existing local source was preserved at\n`55f17568be93442abc6e4725d3e159448e0c9ab5` before new code. Only the backend's\nverified native checkpoint is being restored into the isolated cloud checkout\nfor task coordination. Scotty's machine-local task data stays on the PC.",
+        "new": "Backend source began at `afac9fa0ce9533a707d745018d16a25e4ccff492` from\n`YossiMH/bead-rs`. Scotty's existing local source was preserved at\n`55f17568be93442abc6e4725d3e159448e0c9ab5` before new code. The verified native\ncheckpoint supplied the isolated task-coordination checkout. Scotty's\nmachine-local task data stays on the PC."
+      },
+      {
+        "id": "nov24-snapshot",
+        "kind": "replace",
+        "old": "## 2026-11-24 recovery after the cloud restart\n\n",
+        "new": "## 2026-11-24 recovery after the cloud restart\n\nThis dated recovery record retains the source, failures and task plan known on\nNovember 24. Its inventory and pending checks are historical; the delivery\nsection above records the subsequent revision 9 mapping and accepted PC work.\n\n"
+      },
+      {
+        "id": "nov24-failure-tense",
+        "kind": "replace",
+        "old": "failure still needs diagnosis and a passing rerun. New cloud runs passed all\n32 launcher checks and all 161 adapter/editor checks, with raw output in the\npaths below. The complete browser, Windows tray and installed-default launcher\nchecks remain pending. Installation has not run; Scotty's original 15 modified\nsource files and machine-local task store remain preserved on the PC.",
+        "new": "failure required diagnosis and a passing rerun. Cloud runs passed all\n32 launcher checks and all 161 adapter/editor checks, with raw output in the\npaths below. At that checkpoint, the complete browser, Windows tray and\ninstalled-default launcher checks were pending and installation had not run.\nScotty's original 15 modified source files and machine-local task store were\npreserved on the PC."
+      },
+      {
+        "id": "nov24-plan-tense",
+        "kind": "replace",
+        "old": "The independently reviewed continuation has 16 tasks and 24 blocking\ndependencies. Root is materializing it in",
+        "new": "The independently reviewed continuation then had 16 tasks and 24 blocking\ndependencies. Its materialization target was"
+      },
+      {
+        "id": "nov24-table-tense",
+        "kind": "replace",
+        "old": "| Location | Current use |",
+        "new": "| Location | Recorded use on 2026-11-24 |"
+      },
+      {
+        "id": "nov25-snapshot",
+        "kind": "replace",
+        "old": "This checkpoint records the resumed editing and tray assignment after hosted\nqualification. Actual PC installation and tray checks remain pending. The\naccepted revision 9 plan and current results are retained on",
+        "new": "This dated checkpoint records the resumed editing and tray assignment after\nhosted qualification. Actual PC installation and tray checks were pending at\nthat time. The subsequent accepted PC outcomes are in the delivery section\nabove. The accepted revision 9 plan and its qualification results are retained on"
+      },
+      {
+        "id": "nov25-mapping-tense",
+        "kind": "replace",
+        "old": "Actual native state remains revision 6 with 32 tasks and 51 dependencies.\nRevisions 7 and 8 were never materialized. The guarded update goes directly\nfrom revision 6 to 9: 23 creates, 15 description updates and 40 dependencies\nin 78 manifest operations, plus the three separately guarded reopens. The planned\nfinal store contains 1,009 issues including the original 954. Reconcile the actual\nreturned mapping before using new task IDs or recording completion.",
+        "new": "Native state at that checkpoint remained revision 6 with 32 tasks and 51\ndependencies. The guarded update was prepared directly from revision 6 to 9:\n23 creates, 15 description updates and 40 dependencies in 78 manifest operations,\nplus three separately guarded reopens. The actual November 27 materialization\nsubsequently accepted all 55 tasks and 91 edges in the 1,009-issue store, preserving\nthe original 954. Revisions 7 and 8 were never materialized. Use the returned\nrevision 9 mapping and freshly observed revisions for subsequent task writes."
+      },
+      {
+        "id": "nov25-source-heading",
+        "kind": "replace",
+        "old": "### Current source and production files",
+        "new": "### Qualified source and production files"
+      },
+      {
+        "id": "nov25-installed-name",
+        "kind": "replace",
+        "old": "planned installed basename `bead-0431a828bf95.exe`",
+        "new": "installed basename `bead-0431a828bf95.exe`"
+      },
+      {
+        "id": "nov25-hosted-heading",
+        "kind": "replace",
+        "old": "### Completed hosted checks and pending PC work",
+        "new": "### Hosted qualification and delivery preparation"
+      },
+      {
+        "id": "native-publication-tense",
+        "kind": "replace",
+        "old": "The shared native task branch `task/bead-finish-20261124` now points to the\nexact accepted `2d801ba455b7a722daf644a7615445117d57e8e9`. Its author performed",
+        "new": "The shared native task branch `task/bead-finish-20261124` was advanced to the\nexact accepted `2d801ba455b7a722daf644a7615445117d57e8e9`. Its author performed"
+      },
+      {
+        "id": "native-publication-scope",
+        "kind": "replace",
+        "old": "native source branch; PC installation remains separately gated. The exact",
+        "new": "native source branch; its receipt did not itself establish PC installation. The exact"
+      },
+      {
+        "id": "rev8-never-materialized",
+        "kind": "replace",
+        "old": "operations. The resulting 52-task/86-dependency mapping has not been written to\nthe PC.",
+        "new": "operations. That 52-task/86-dependency mapping was never written to the PC."
+      },
+      {
+        "id": "rev9-materialization-later",
+        "kind": "replace",
+        "old": "The prepared 55-task/91-edge graph has not been written to the PC.",
+        "new": "These hosted checks preceded the actual 55-task/91-edge materialization recorded\nin the November 27 delivery section."
+      },
+      {
+        "id": "archive-current-state",
+        "kind": "replace",
+        "old": "Actual archive transfer/copy, observed ports and the actual native mapping\nremain pending. Three earlier failed attempts remain retained with",
+        "new": "Archive transfer/copy, observed ports and the actual native mapping were pending\nat that checkpoint; their later accepted results are in the delivery section.\nThree earlier failed attempts remain retained with"
+      },
+      {
+        "id": "no-stage-replay",
+        "kind": "replace",
+        "old": "The previously applied 523 tray stage must not be replayed. Use the accepted\nfinal binding after reconciling actual native mapping and completing the\nrequired PC preparation.",
+        "new": "The previously applied 523 tray stage and the later successful final stage are\nsingle recorded attempts. Retain their results and observe path state before\nany further delivery operation."
+      },
+      {
+        "id": "install-pending-historical",
+        "kind": "replace",
+        "old": "Actual tray Exit/restart checks in the user's logged-in PC session, installation\nin both requested repositories, and the final configured default launch remain\nrequired. No installation is recorded as complete. Preserve the PC's original\n15 modified app files, indexes, private task data and configuration, previous\nnative pin and runtime. Re-read their current bytes before installation.",
+        "new": "At this November 25 checkpoint, actual tray Exit/restart, installation in both\nrequested repositories and the configured default launch were still required.\nThe November 27 delivery section records the subsequent tray and installation\nacceptance and the remaining configured check. The original 15 raw app files,\nindexes, private task data, configuration, previous native pin and runtime are\nretained through that delivery."
+      },
+      {
+        "id": "bounded-current-delivery-policy",
+        "kind": "replace",
+        "old": "PC work stays with the root coordinator through Emergency Maintenance. The\nlatest memory query was refused with `ADMIN_BROKER_DENIED` before it started.\nDo not replay that denied request or switch connectors to bypass it; restore\npermitted access before PC work. Compilation and browser runs stay in the cloud.\nCopy-only archive staging requires\nat least 1 GiB free physical RAM before and during work, hidden BelowNormal\nexecution, at most 512 MiB aggregate owned RSS and a 180-second total deadline\nwith cleanup reserve. Retain partial stage evidence on failure and refuse replay.\nBefore an app check, require 3 GiB free physical RAM, hidden BelowNormal\nexecution, at most 256 MiB per Node\nheap and 512 MiB total resident memory for the check's processes. Stop only\nthose processes on deadline, excess memory or foreground resource pressure.\n\n",
+        "new": "PC execution stays with the root coordinator and uses the exact independently\nreviewed inputs. Compilation and browser qualification stay in the cloud.\nCopy-only archive staging requires at least 1 GiB free physical RAM before\nand during work, hidden BelowNormal execution, at most 512 MiB aggregate owned\nRSS and a 180-second total deadline with cleanup reserve. Partial attempts\nremain retained for reconciliation before a new attempt is considered.\nApplication checks require fresh 3 GiB headroom, a 1 GiB live free-memory floor,\n128 MiB Node heaps and at most 512 MiB aggregate resident memory for their owned\nprocesses. Their deadline and ownership checks govern cleanup. Current exact\nhelper identities and accepted outcomes are recorded in the delivery section.\n\n"
+      },
+      {
+        "id": "historical-worktree-heading",
+        "kind": "replace",
+        "old": "### Recover and remove the current worktrees",
+        "new": "### Historical worktree recovery"
+      },
+      {
+        "id": "historical-worktree-intro",
+        "kind": "replace",
+        "old": "Local execution became unavailable after the source and test work had been\npublished. These removals are pending. If the process dies or another agent\ncontinues, inspect these exact registrations and their current Git status,\npreserve unpublished or uncommitted work, and reconcile the remote commits\nbefore removing a worktree:",
+        "new": "Local execution became unavailable after this source and test work had been\npublished. The following table records the last known November 25 inventory.\nUse it to locate retained work, then establish which registrations still exist.\nInspect current registrations and Git status, preserve unpublished or uncommitted\nwork, and reconcile remote commits before any removal:"
+      },
+      {
+        "id": "historical-parents",
+        "kind": "replace",
+        "old": "Parent clones are `/tmp/beads-55c9/bead-me-up-scotty` and\n`/tmp/beads-55c9/bead-rs`. The installed Riftri 0.7.0 at",
+        "new": "The recorded parent clones were `/tmp/beads-55c9/bead-me-up-scotty` and\n`/tmp/beads-55c9/bead-rs`. The then-installed Riftri 0.7.0 at"
+      },
+      {
+        "id": "historical-helpers",
+        "kind": "replace",
+        "old": "helper `17c3d498cf9d9970dfa157700216481428448a51` and revision 8 helper\n`98a2daa3ef411c0f986daee1794c130f025c49cd` have not been materialized in\nthe coordination worktree. Reconcile their retained remote contents and newer\naccepted results before resuming the installer or final task-history work.",
+        "new": "helper `17c3d498cf9d9970dfa157700216481428448a51` and revision 8 helper\n`98a2daa3ef411c0f986daee1794c130f025c49cd` were never materialized in the\ncoordination worktree. The November 27 delivery section identifies the accepted\nrevision 9 route and original-history preparation."
+      },
+      {
+        "id": "immutable-plan-retention-link",
+        "kind": "replace",
+        "old": "[task/build-transfer-20261111](https://github.com/YossiMH/bead-me-up-scotty/tree/task/build-transfer-20261111/20261125/revision-9).",
+        "new": "[the immutable revision 9 record](https://github.com/YossiMH/bead-me-up-scotty/tree/717acefc5bf677c8d18dcf16b692117042bae4ae/20261125/revision-9)."
+      }
+    ],
+    "README.md": [
+      {
+        "id": "production-first-install",
+        "old": "```bash\nnpm install\nnpm run dev            # http://localhost:3000\n```",
+        "new": "From a source checkout, install dependencies and build the production app:\n\n```bash\nnpm ci\nnpm run build\nnpm run serve\n```\n\nOpen the URL printed by the launcher; the default port is 3000. For the already\ninstalled Windows checkout, start the production build with\n`launch-scotty.bat --no-open` as described below."
+      },
+      {
+        "id": "separate-development-command",
+        "old": "For a production source installation, run `npm ci`, `npm run build`, then\n`npm run serve` or `npm start`. Set the backend executable variables when\nstarting the server.",
+        "new": "Set the backend executable variables when starting the server. The installed\nWindows native pin and its qualification are documented in\n[Backend compatibility](docs/backend-compatibility.md#use-a-local-bead-rs-fork-on-windows).\nUse `npm start` as an alternative production launcher. For active source\ndevelopment, `npm run dev` starts the development server and bypasses the\nproduction tray controller."
+      },
+      {
+        "id": "windows-installed-route",
+        "old": "From the source checkout, start without opening a browser:",
+        "new": "From the Windows checkout after its production build is installed, start without\nopening a browser:"
+      }
+    ]
+  },
+  "update_boundary": {
+    "start": "<!-- delivery-state:start -->",
+    "end": "<!-- delivery-state:end -->",
+    "separate_file": "delivery-state.md",
+    "instructions": "Update accepted actual outcomes only inside this single marked section and its separate exact copy; refresh the manifest, author inspections and independent review for final publication. Preserve earlier failure records and dated qualification."
+  },
+  "review_corrections": [
+    {
+      "id": "A1",
+      "source": "/root/backend_audit",
+      "finding": "The retained November25 link targeted a task branch slated for eventual cleanup.",
+      "resolution": "Replaced it with the exact immutable717acefc revision9 permalink and label."
+    },
+    {
+      "id": "A2",
+      "source": "/root/backend_audit",
+      "finding": "The current state needed to distinguish the later accepted archive route from historical shared-transfer preservation instructions.",
+      "resolution": "Added the conditional exact86-app/two-native ref route, fresh final tip/parent/tree proof, independently accepted archive coverage and only then atomic expected-tip deletions; actual archive and deletions remain pending."
+    }
+  ]
+}

@@ -1,0 +1,342 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "reviewed_utc": "2026-11-27T11:42:30.097049+00:00",
+  "scope": "Preparation acceptance of the exact regenerated native .marathon/progress.md appendix and complete proposed file. Final configured, installed-result, publication, native-history and cleanup outcomes remain separately gated.",
+  "target_repository": "YossiMH/bead-rs",
+  "target_path": ".marathon/progress.md",
+  "base_source": {
+    "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "bytes": 143110,
+    "sha256": "5e1d501c364aa5048d5b7e68c91b59d0bb65454d2130f3dd9339a49ae6513560"
+  },
+  "accepted_files": {
+    "baseline-progress.md": {
+      "bytes": 143110,
+      "sha256": "5e1d501c364aa5048d5b7e68c91b59d0bb65454d2130f3dd9339a49ae6513560"
+    },
+    "derivation.json": {
+      "bytes": 29296,
+      "sha256": "1ddc404cf2d2be23886641e6b3c26c85670d74edae8b866d66aa26e57992c9b8"
+    },
+    "historical-append.draft.md": {
+      "bytes": 14933,
+      "sha256": "7f7d21fd97f69bee0375d003867b2299a22845da316da46e031e327ccb3796c7"
+    },
+    "native-progress-append.draft.md": {
+      "bytes": 32741,
+      "sha256": "7cf405e8183ed2b768bea4b4f9f5243d9bcf4f843671311c8893629365666834"
+    },
+    "progress.proposed.md": {
+      "bytes": 175852,
+      "sha256": "ec766e50e4255018886708ba4449ace59737dd840b7ca154b7818de479ffe7f2"
+    },
+    "source-inputs-and-checks.json": {
+      "bytes": 7612,
+      "sha256": "7ddbe74f225f71d670bd1aa54f9740e39c8e54e4d72019f6bf3efb099a02efd6"
+    },
+    "author-inspections.json": {
+      "bytes": 10556,
+      "sha256": "004d80cd5fe45660374f363749df5fe549c057193bd4a62f5588e63c89498d85"
+    }
+  },
+  "publication_composition": {
+    "complete_baseline_unchanged": true,
+    "separator": "one LF",
+    "append_bytes": 32741,
+    "proposed_bytes": 175852,
+    "proposed_sha256": "ec766e50e4255018886708ba4449ace59737dd840b7ca154b7818de479ffe7f2",
+    "git_blob": "9e03ea15d9860d88b8bf8389da6dcb89b8091fcd",
+    "crlf_bytes": 178569,
+    "crlf_sha256": "5bb90587bddd76a5da4a3693a5db5d978bb7d898f4d875ce3214e03e8de00075",
+    "observed_pc_working_bytes": false
+  },
+  "source_inputs": [
+    {
+      "repository": "YossiMH/bead-rs",
+      "object": "2d801ba455b7a722daf644a7615445117d57e8e9:.marathon/progress.md",
+      "bytes": 143110,
+      "sha256": "5e1d501c364aa5048d5b7e68c91b59d0bb65454d2130f3dd9339a49ae6513560"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb:20261125/revision-9/native-progress-append.draft.md",
+      "bytes": 14933,
+      "sha256": "7f7d21fd97f69bee0375d003867b2299a22845da316da46e031e327ccb3796c7"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/installation-completed/actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/installation-completed/closure/actual-review.json",
+      "bytes": 7348,
+      "sha256": "5fe7cfb2ed7466d339c455d33417796ee175d89b73abef7cd438fa0e343662f9"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/tray-runspace-actual-review.json",
+      "bytes": 24623,
+      "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/artifact-stage-actual-review.json",
+      "bytes": 11746,
+      "sha256": "9a7fc088fea62f24dc2c5ea7eda213ea968f54c5c9bbc0c4b411459f4035060c"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/source-fetch/source-readiness-actual-review.json",
+      "bytes": 3862,
+      "sha256": "e8f24813534c20c1e670e52f1e4ac1d31a7b7ef3cf75463bb99cc69fc3698e8e"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/configured-launch-first-attempt/readback.json",
+      "bytes": 13155,
+      "sha256": "75449d6ad9adddbd73538e3f2a75dd74429d8dfa5204d7180bf562f660b7765d"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/configured-launch-crlf-actual/independent-review.json",
+      "bytes": 6459,
+      "sha256": "82695323d385d933f650dfee0d3a92f80a37f595b8001d7a3402b8cdf6083a22"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/configured-launch-crlf-actual/final-task-state.json",
+      "bytes": 2725,
+      "sha256": "62add671ae8eacffb4b1fe9901ed6f78f5f1cd03b564227fd5b2bcef17ac144f"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/configured-launch-session/README.md",
+      "bytes": 9178,
+      "sha256": "24b284848427c3c0a9dd7bb8f478b31c4dda63e11a9d953b7731d68436ea7a35"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/configured-launch-session/source-review.json",
+      "bytes": 8080,
+      "sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/handoff-compatibility/readback.json",
+      "bytes": 3482,
+      "sha256": "4d4d4f64399f623c0b72cd68dad09e8e1e0b0f054ad4fd1c55fffc9b1689d745"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/handoff-compatibility/original-crlf-source-trace.json",
+      "bytes": 9072,
+      "sha256": "3f9e45b3e2776f6a1b98a74009fef103cfd27307781ec6a68d6890dea75fe54d"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json",
+      "bytes": 3390,
+      "sha256": "1518bcfd3e2d596c806608901da5b80d9003b9fa77db0b5f375d19715bf06e2f"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/materialization-v9-result.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/installation-first-attempt/failure-review.json",
+      "bytes": 9228,
+      "sha256": "5da64d48592579de484e79f6310cecd8b558a9ec236d98e13be5baabc399f41b"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/archive-preparation-recovered/reviewed-refs.json",
+      "bytes": 10948,
+      "sha256": "9651b0b5c3e1657a76a093209715f13e0980c692bc7478ca42a398743802a30c"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "de71118c225936b8ca6eac4be5db306eff19219b:20261127/checkpoint-crlf-handoff/author-inspections.json",
+      "bytes": 10021,
+      "sha256": "4b9599b7cd488ec204e53bd7e9cfa0305d62009dafd6ed63ea909ac9bc798730"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "de71118c225936b8ca6eac4be5db306eff19219b:20261127/checkpoint-crlf-handoff/independent-review.json",
+      "bytes": 13770,
+      "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "de71118c225936b8ca6eac4be5db306eff19219b:20261127/checkpoint-crlf-handoff/qualification-result.json",
+      "bytes": 27250,
+      "sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03"
+    },
+    {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "object": "2a62978c93befa9a08566765344320e45ffbcb2c:20261127/configured-launch-session/memory-deferred-execution.json",
+      "bytes": 476,
+      "sha256": "b285c08fd58e1324a40dfffe8c2206392fc576984a5c4f4f67c26839956f01cc"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/archive-parent-approach-review.json",
+      "bytes": 5560,
+      "sha256": "ef4cc2d9c01a1e2fcf6a36074f00b9bd7d3515d856fb5db213ce1a8a707e9d24"
+    }
+  ],
+  "immutable_link_checks": [
+    {
+      "url": "https://github.com/YossiMH/bead-rs/commit/2d801ba455b7a722daf644a7615445117d57e8e9",
+      "type": "commit"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/tree/66d679b5fd3d190025068ad47167352fa5a90669/20261125/revision-9/results",
+      "type": "tree"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/artifact-stage-actual-review.json",
+      "type": "blob"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/source-fetch/source-readiness-actual-review.json",
+      "type": "blob"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/installation-completed/actual-review.json",
+      "type": "blob"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/tree/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127",
+      "type": "tree"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/installation-completed/closure/actual-review.json",
+      "type": "blob"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/tray-runspace-actual-review.json",
+      "type": "blob"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-first-attempt/readback.json",
+      "type": "blob"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/tree/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-crlf-actual",
+      "type": "tree"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/tree/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-session",
+      "type": "tree"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/tree/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/handoff-compatibility",
+      "type": "tree"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/tree/de71118c225936b8ca6eac4be5db306eff19219b/20261127/checkpoint-crlf-handoff",
+      "type": "tree"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json",
+      "type": "blob"
+    },
+    {
+      "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/archive-preparation-recovered/reviewed-refs.json",
+      "type": "blob"
+    }
+  ],
+  "checks": [
+    "Read the complete corrected appendix and its derivation, author and source-input records. Proved that the entire 143,110-byte native progress baseline is unchanged in the proposed file.",
+    "Recomputed all seven frozen candidate digests and reproduced the full appendix from the immutable revision 9 draft and explicit substitutions.",
+    "Read all 23 exact source records with their recorded lengths and hashes. Git reads disabled lazy fetch and replacement objects. All 15 immutable link objects resolve as the expected commit, tree or blob.",
+    "Reconciled final native source and platform qualification: 95 affected Linux passes, 1,913 full Linux passes with eight existing ignores, 98 ordinary Windows checks, 55 smoke commands and both intentionally caught destructive RED classifications.",
+    "Reconciled actual staging, runtime/native artifacts, successful installation, preserved backups/configuration/rollback files, the exact 48 closed/seven open task state and all seven open IDs/revisions.",
+    "Verified that the tray scope rests on eight source and fixture identities equal at the tested 5232c8b9 and final 03095397 commits. Its earlier 230-file fixture remains distinct from acceptance of the installed 560-file configured runtime.",
+    "Reconciled the second configured failure's matching retained PID, birth, session, image and exit 0, before application, HTTP or tray work. The session repair preserves strict session equality and refusal when a validated snapshot is missing.",
+    "Reconciled original checkpoint-only/CRLF applicability, raw/canonical retention, supported initialization and one restore event/receipt, initial previous-pointer normalization and strict final publication against the accepted compatibility review.",
+    "Reviewed the source-derived post-handoff baseline, phase/publication order, frozen coordination writer and original-only later closure boundary.",
+    "Verified the final archive paragraph requires refreshed final live tips, an exact independent parent set/tree and independent actual archive coverage acceptance before any leased deletion. The existing approach review accepts only preparation and its dated snapshot.",
+    "Distinguished the independently verified historical Riftri removal from filesystem-reset absence and current ordinary author directories. No new cleanup or publication is asserted.",
+    "Reversed only the four final corrections and recovered the entire original 32,088-byte appendix with SHA-256 0fb3adc0768d0f8487e9de9cb3198fbe2e040fbc75504d476c7f762b0d720d1a. The complete corrected derivation and baseline-plus-one-LF composition are exact.",
+    "Read the retained 476-byte memory-deferral receipt: exit 0, 77-byte stdout, empty stderr and no dropped output. It reports 3,017 MiB and task_created=false within 11:20:41.219–11:20:57.709. The corrected wording uses approximately 11:20 UTC without inventing a memory-sample timestamp.",
+    "Reconciled the primary origin spelling refusal and secondary File.Replace recording failure against the exact first-installation failure review. The first configured failure remains an uncaptured early error plus a later CRLF observation.",
+    "Computed the canonical Git blob and predicted 178,569-byte CRLF working identity recorded above from the proposed bytes. These remain predictions until an actual PC working-file observation.",
+    "Read both complete final author inspections and the retained future-outcome boundaries. The isolated current-state paragraph requires an actual-result update and independent acceptance before final handoff publication."
+  ],
+  "resolved_findings": [
+    {
+      "id": "N1",
+      "topic": "First installer failure",
+      "request": "State the primary native-origin spelling refusal before the secondary null-backup result-writer failure.",
+      "status": "resolved"
+    },
+    {
+      "id": "N2",
+      "topic": "First configured failure",
+      "request": "State that no early error stream was captured and that the exact CRLF mismatch was established by a later observation.",
+      "status": "resolved"
+    },
+    {
+      "id": "N3",
+      "topic": "Admission time",
+      "request": "Use around 11:20 UTC or explicitly identify command start/finish; do not label 11:20:41 as a precise memory-sample time.",
+      "status": "resolved"
+    },
+    {
+      "id": "N4",
+      "topic": "Archive freshness",
+      "request": "Require refreshed final 86 live tips and recomputed parent/tree proof after last transfer publication; mark existing review as approach-only and require actual archive coverage acceptance before deletion.",
+      "status": "resolved"
+    }
+  ],
+  "findings": [],
+  "accepted_current_state": {
+    "installation": "accepted separately by f21530a4",
+    "task_state": {
+      "closed": 48,
+      "open": 7,
+      "total": 55,
+      "observed_utc": "2026-11-27T10:01:48.7668499Z",
+      "original_954_unchanged": true
+    },
+    "configured_failures": "Both retained failed attempts remain failed; later success is outside this preparation cut.",
+    "history_compatibility": "Source and actual cloud qualification are accepted separately by the exact 8b05fa67 review; real PC phases remain pending.",
+    "archive": "Approach preparation only; actual archive creation, ancestry acceptance and deletion are pending."
+  },
+  "scope_limits": {
+    "actual_configured_acceptance": false,
+    "actual_installed_combined_review": false,
+    "actual_handoff_publication": false,
+    "actual_task_closures": false,
+    "actual_history_acceptance": false,
+    "actual_cleanup_acceptance": false,
+    "latest_state_update": "Before final handoff publication, update the isolated current-state paragraph from independently accepted actual results and refresh exact text acceptance."
+  },
+  "review_method": {
+    "full_append_read": true,
+    "full_derivation_and_author_records_read": true,
+    "immutable_baseline_compared_in_full": true,
+    "all23_exact_input_digests_verified": true,
+    "all15_link_objects_resolved": true,
+    "read_only_git_options": [
+      "GIT_NO_LAZY_FETCH=1",
+      "--no-replace-objects"
+    ],
+    "pc_calls": 0,
+    "product_tests_or_builds": 0,
+    "source_edits": 0,
+    "task_writes": 0,
+    "pushes": 0
+  },
+  "decision": "PASS for the frozen preparation bytes. The exact source/history and factual failure corrections reconcile; no unresolved text finding remains. Root retains publication and all actual state-write ownership."
+}

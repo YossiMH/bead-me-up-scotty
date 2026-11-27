@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "status": "prepared_text_pending_final_actual_results_and_independent_review",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "base_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "plan_revision": 9,
+  "target_paths": [
+    "docs/backend-compatibility.md",
+    "README.md"
+  ],
+  "current_state_section": {
+    "start": "<!-- delivery-state:start -->",
+    "end": "<!-- delivery-state:end -->",
+    "separate_file": "delivery-state.md",
+    "task_snapshot_utc": "2026-11-27T10:01:48.766Z",
+    "latest_launch_observation_utc": "2026-11-27T11:20:57.709Z",
+    "later_actual_updates_confined_to_this_section": true
+  },
+  "recovery": {
+    "provenance": "Regenerated from immutable revision-9 draft and final app source after filesystem loss. The lost unpublished 335c5c/ecec71/040ab766 payloads were not recovered or represented as these bytes.",
+    "draft_ref": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+    "draft_path": "20261125/revision-9/app-continuation-draft.json",
+    "draft_sha256": "169ab1f278de728a5789e3ac4dcbe8d643f86b62b2f5ff4d255b4c8536daa025",
+    "base_document_content_sha256": "128035c955c7c0c240d4d5cb709f97e30e6bd3bbc659de6c1c892666a7d6b3e5",
+    "base_published_document_sha256": "3564de23de0ca506e2725bf5bcedea19722f0f90a377b4abbe1201d412de94a4",
+    "base_readme_sha256": "03647a12b3ea2a8ff8a50019267a9d936db20695acbd3653d3132376ea0a9b70",
+    "old_unpublished_acceptance_reused": false,
+    "all_final_payload_texts_cached": true
+  },
+  "files": {
+    "README.md": {
+      "bytes": 25639,
+      "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+      "git_blob": "2f9296f733ab66e04c524c704e783663341213b2",
+      "predicted_crlf_worktree": {
+        "bytes": 26153,
+        "sha256": "69bfeee55036bb14e22948899e74f687b6e6deda765929cd9c6185410e2dd01b",
+        "observation": "derived from canonical LF bytes; actual PC working bytes must match before publication"
+      }
+    },
+    "changes.json": {
+      "bytes": 38178,
+      "sha256": "e52442d2f47639efa464c04461e241d56a2566eff6bcef9443cceddc8ea30ad5"
+    },
+    "delivery-state.md": {
+      "bytes": 14013,
+      "sha256": "282e53eda97d8754267da360c9412c054e6a01e03d45b7783c5778a1b33115cf"
+    },
+    "docs/backend-compatibility.md": {
+      "bytes": 74368,
+      "sha256": "884dc86db10a577eb1071f4dd19e5958ed9ff2dbf0304e0c4575f9d7ad6ecdaf",
+      "git_blob": "080076ca32e7dc473e809d150f263ee2f8f1fdd1",
+      "predicted_crlf_worktree": {
+        "bytes": 75572,
+        "sha256": "c8e8bbe80cb501cad8f2e1163d47e5a0393d6482dd07fa2100e03f48c88eab51",
+        "observation": "derived from canonical LF bytes; actual PC working bytes must match before publication"
+      }
+    }
+  },
+  "actual_evidence": {
+    "immutable_transfer_ref": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "files": {
+      "20261127/results/materialization-v9-review.json": {
+        "bytes": 3639,
+        "sha256": "1d677f5eab5457194484c413de9d98d2006eab37971737111500a7af1a05ce02"
+      },
+      "20261127/results/tray-runspace-result.json": {
+        "bytes": 37543,
+        "sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36"
+      },
+      "20261127/results/tray-runspace-actual-review.json": {
+        "bytes": 24623,
+        "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729"
+      },
+      "20261127/results/artifact-stage-actual/stage-result.json": {
+        "bytes": 2341,
+        "sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c"
+      },
+      "20261127/results/artifact-stage-actual/supervisor-result.json": {
+        "bytes": 4366,
+        "sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f"
+      },
+      "20261127/results/artifact-stage-actual-review.json": {
+        "bytes": 11746,
+        "sha256": "9a7fc088fea62f24dc2c5ea7eda213ea968f54c5c9bbc0c4b411459f4035060c"
+      },
+      "20261127/installation-completed/result.json": {
+        "bytes": 16086,
+        "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+      },
+      "20261127/installation-completed/supervisor-result.json": {
+        "bytes": 61457,
+        "sha256": "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760"
+      },
+      "20261127/installation-completed/actual-review.json": {
+        "bytes": 8792,
+        "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+      },
+      "20261127/installation-completed/closure/result.json": {
+        "bytes": 5925,
+        "sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+      },
+      "20261127/installation-completed/closure/actual-review.json": {
+        "bytes": 7348,
+        "sha256": "5fe7cfb2ed7466d339c455d33417796ee175d89b73abef7cd438fa0e343662f9"
+      },
+      "20261127/configured-launch-first-attempt/creation-receipt.json": {
+        "bytes": 2571,
+        "sha256": "435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd"
+      },
+      "20261127/configured-launch-crlf-actual/independent-review.json": {
+        "bytes": 6459,
+        "sha256": "82695323d385d933f650dfee0d3a92f80a37f595b8001d7a3402b8cdf6083a22"
+      },
+      "20261127/configured-launch-session/source-review.json": {
+        "bytes": 8080,
+        "sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0"
+      },
+      "20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json": {
+        "bytes": 3390,
+        "sha256": "1518bcfd3e2d596c806608901da5b80d9003b9fa77db0b5f375d19715bf06e2f"
+      }
+    }
+  },
+  "current_status": {
+    "total_tasks": 55,
+    "blocking_edges": 91,
+    "total_issues": 1009,
+    "original_issues": 954,
+    "closed": 48,
+    "open": 7,
+    "installed": true,
+    "configured_launch_accepted": false,
+    "installed_review_complete": false,
+    "docs_published": false,
+    "history_handoff_complete": false,
+    "cleanup_complete": false
+  },
+  "production": {
+    "app_source": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "native_source": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7"
+  },
+  "current_preparation": {
+    "configured": {
+      "helper_sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+      "source_review_sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0",
+      "task_name": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+      "latest_preflight": {
+        "status": "waiting_for_memory",
+        "free_memory_mib": 3017,
+        "task_created": false,
+        "source": "Exact retained root execution receipt, independently read for exit0/77-byte stdout/empty stderr and no dropped output.",
+        "stdout": "{\"status\":\"waiting_for_memory\",\"free_memory_mib\":3017,\"task_created\":false}\r\n",
+        "receipt": {
+          "ref": "2a62978c93befa9a08566765344320e45ffbcb2c",
+          "path": "20261127/configured-launch-session/memory-deferred-execution.json",
+          "bytes": 476,
+          "sha256": "b285c08fd58e1324a40dfffe8c2206392fc576984a5c4f4f67c26839956f01cc",
+          "started_ms": 1795778441219,
+          "finished_ms": 1795778457709
+        }
+      }
+    },
+    "history": {
+      "immutable_ref": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "path": "20261127/checkpoint-crlf-handoff",
+      "helper_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+      "supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+      "qualification_sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03",
+      "source_and_qualification_review_sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c",
+      "author_sha256": "4b9599b7cd488ec204e53bd7e9cfa0305d62009dafd6ed63ea909ac9bc798730"
+    },
+    "cleanup": {
+      "exact_task_count": 22,
+      "helper_sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414",
+      "source_review_sha256": "d7e63570b39ec31c12e7f6fde105d0df6204764b6b840d44fd5a3a77b07d840a"
+    },
+    "ref_cleanup": {
+      "app_ref_count": 86,
+      "native_ref_count": 2,
+      "archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+      "independent_parent_count": 32,
+      "inventory": {
+        "ref": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+        "path": "20261127/archive-preparation-recovered/reviewed-refs.json",
+        "bytes": 10948,
+        "sha256": "9651b0b5c3e1657a76a093209715f13e0980c692bc7478ca42a398743802a30c"
+      },
+      "approach_review": {
+        "bytes": 5560,
+        "sha256": "ef4cc2d9c01a1e2fcf6a36074f00b9bd7d3515d856fb5db213ce1a8a707e9d24",
+        "approach_accepted": true,
+        "actual_archive_accepted": false
+      },
+      "final_tips_require_refresh": true,
+      "actual_archive_and_deletions": null
+    }
+  },
+  "pending": {
+    "independent_text_review": null,
+    "actual_configured_result": null,
+    "actual_configured_review": null,
+    "actual_installed_review": null,
+    "configured_and_installed_task_closures": null,
+    "actual_document_publication": null,
+    "post_handoff_original_git_baseline": null,
+    "history_phase_receipts": null,
+    "actual_scheduled_task_cleanup": null,
+    "remaining_worktree_and_branch_cleanup": null,
+    "final_delivery_acceptance": null
+  },
+  "scope": {
+    "text_only": true,
+    "product_code_changed": false,
+    "pc_execution": false,
+    "task_writes": false,
+    "app_main_modified": false,
+    "publication": false
+  },
+  "review_requirements": [
+    "Read complete proposed documents and retained dated qualification.",
+    "Verify full inverse transformations to both immutable baselines and exact predicted CRLF working identities.",
+    "Reconcile actual source/build/tray/staging/installation/mapping/closure identities; keep configured, docs, history and cleanup actual acceptance pending.",
+    "Verify the marked state section is the only region intended to receive later actual-result updates before final publication."
+  ],
+  "review_corrections": [
+    {
+      "id": "A1",
+      "source": "/root/backend_audit",
+      "finding": "The retained November25 link targeted a task branch slated for eventual cleanup.",
+      "resolution": "Replaced it with the exact immutable717acefc revision9 permalink and label."
+    },
+    {
+      "id": "A2",
+      "source": "/root/backend_audit",
+      "finding": "The current state needed to distinguish the later accepted archive route from historical shared-transfer preservation instructions.",
+      "resolution": "Added the conditional exact86-app/two-native ref route, fresh final tip/parent/tree proof, independently accepted archive coverage and only then atomic expected-tip deletions; actual archive and deletions remain pending."
+    }
+  ]
+}

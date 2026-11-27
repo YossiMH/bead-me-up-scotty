@@ -1,0 +1,309 @@
+{
+  "schema_version": 1,
+  "status": "inventory-complete",
+  "reviewer": "/root/frontend_audit",
+  "prepared_utc": "2026-11-27T11:34:07.036Z",
+  "scope": "Bounded read-only inventory of exact recorded task-owned cloud paths, local Git worktree registrations/branches and evidence retention. No PC calls, product execution, deletions, checkout/index/ref mutations or unrelated workspace scan.",
+  "observation_cutoff_utc": "2026-11-27T11:32:31.945889+00:00",
+  "cleanup_executed": false,
+  "evidence": [
+    {
+      "file": "repository-observations.json",
+      "bytes": 12172,
+      "sha256": "3924533b062a7931460293aa09796ec7ade9555aa564fc18d6bd25bff633651c"
+    },
+    {
+      "file": "path-observations.json",
+      "bytes": 9605,
+      "sha256": "95cc1a097573a4f9dc9757bbb6171be5b5c58be418e800d122dafe94a07f5529"
+    },
+    {
+      "file": "published-crlf-packet-equality.json",
+      "bytes": 9132,
+      "sha256": "37ebf8ba901b1bd79dd68623614590e3a80df0aaab045e5ddb5b9860ccb5b69c"
+    },
+    {
+      "file": "continuation-final-observation.json",
+      "bytes": 1895,
+      "sha256": "66c723431110990e58333120276528586ff6647c0af22f9d5b092c3d1b66457d"
+    }
+  ],
+  "current_registered_worktrees": [
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation",
+      "kind": "Riftri-created linked sparse ordinary Git worktree",
+      "parent": "/tmp/beads-2889282bfcec/scotty",
+      "git_directory": "/tmp/beads-2889282bfcec/scotty/.git/worktrees/continuation",
+      "head": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "detached": true,
+      "first_observation": "Clean before root publication staging began.",
+      "latest_status": {
+        "clean": false,
+        "staged_additions": 15,
+        "unstaged_changes": 0,
+        "untracked_reported": 0
+      },
+      "active": true,
+      "gate": "Retain root's15 staged publication files and all subsequent changes; verify exact remote publication and then a fresh clean status before non-force Riftri removal."
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/scotty",
+      "kind": "Primary no-checkout parent clone",
+      "head": "717667dd46d5d27cb6708120429927bbadd57b5e",
+      "branch": "refs/heads/task/build-transfer-20261111",
+      "local_branch_count": 1,
+      "top_level_entries": [
+        ".git"
+      ],
+      "index_exists": false,
+      "index_entries": 0,
+      "status_counts": {
+        "D ": 1598
+      },
+      "classification": "Expected no-checkout representation; not described as a clean checked-out worktree.",
+      "active": true,
+      "gate": "Keep while the continuation registration or any reviewed history/publication dependency remains. Do not interpret the empty-index status as authorization to reset, commit or discard a populated worktree."
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/native",
+      "kind": "Primary no-checkout immutable-object clone",
+      "head": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "branch": "refs/heads/main",
+      "local_branch_count": 1,
+      "registered_linked_worktrees": 0,
+      "top_level_entries": [
+        ".git"
+      ],
+      "index_exists": false,
+      "index_entries": 0,
+      "status_counts": {
+        "D ": 652
+      },
+      "active": true,
+      "gate": "The successful fixture uses this exact object store through Git alternates. Preserve it until the fixture and native documentation/object-verification work are finished."
+    }
+  ],
+  "riftri": {
+    "path": "/tmp/beads-2889282bfcec/tools/node_modules/.bin/riftri",
+    "exists": true,
+    "symlink_target": "../riftri/bin/riftri.js",
+    "resolved": "/tmp/beads-2889282bfcec/tools/node_modules/riftri/bin/riftri.js",
+    "package": "riftri",
+    "version": "0.7.1",
+    "package_json_sha256": "f9ef2b53b1031b06d9d8296b19cc4f09776878a4d0165f3d0ba34a5c98d431f2",
+    "removal_command": [
+      "/tmp/beads-2889282bfcec/tools/node_modules/.bin/riftri",
+      "exec",
+      "--",
+      "git",
+      "-C",
+      "/tmp/beads-2889282bfcec/scotty",
+      "worktree",
+      "remove",
+      "/tmp/beads-2889282bfcec/continuation"
+    ],
+    "force": false,
+    "gate": "Retain the tools directory until every surviving linked worktree is removed and path/registration absence is recorded. Root executes the command only after the exact final publication and clean-status checks."
+  },
+  "current_qualification_and_tools": [
+    {
+      "path": "/tmp/checkpoint-crlf-qualification-5",
+      "exists": true,
+      "owner": "/root/backend_audit",
+      "role": "Successful cloud-only CRLF qualification",
+      "result_sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03",
+      "file_count_previously_verified": 1671,
+      "raw_bytes_previously_verified": 120336193,
+      "alternate_file": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original/.git/objects/info/alternates",
+      "alternate_content": "/tmp/beads-2889282bfcec/native/.git/objects",
+      "retention": "The source, result, all198 command records and selected audits are retained through the accepted37-file packet at de71118c. Full DB/checkpoint snapshots are hash-indexed and locally reviewed but are not remotely embedded.",
+      "cleanup_gate": "The stated independent-review and durable-source/result/command-retention gates are satisfied. Root must explicitly choose the known local-only snapshot disposition and retain the scope statement before removing this exact fixture. Remove the fixture before its shared native object store."
+    },
+    {
+      "path": "/tmp/qualified-linux-final-recovery",
+      "exists": true,
+      "owner": "/root/frontend_audit",
+      "files": [
+        {
+          "path": "qualified-linux-final-15016141673.zip",
+          "bytes": 22283030,
+          "sha256": "0ff1219eb6c86dee6b311387cf35b7fcfac6904df55b1e39d8159787f0baf8c2"
+        },
+        {
+          "path": "extracted/release/bead-editing-2d801ba-linux-20261125",
+          "bytes": 13618928,
+          "sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c"
+        }
+      ],
+      "retention": "Known qualified release artifact15016141673/run45600748319; exact tool identities and invocation are retained. The complete ZIP and executable bytes are local downloads, not embedded in the de71118c packet.",
+      "cleanup_gate": "Preserve until root/backend confirm no remaining qualified-binary use; then remove only this recorded download/extraction directory."
+    },
+    {
+      "path": "/tmp/qualified-node25-recovery",
+      "exists": true,
+      "owner": "/root/frontend_audit",
+      "files": [
+        {
+          "path": "node",
+          "bytes": 123759744,
+          "sha256": "ff2d367cbba86845f4634df2197955188549a129f486b88e955fac037ab29950"
+        },
+        {
+          "path": "node-v25.2.1-linux-x64.tar.xz",
+          "bytes": 28628292,
+          "sha256": "b9f6a97e81c89a9df45526b4f86dafdccaf12b82295f7bf35bdb2b0f5e68744f"
+        }
+      ],
+      "retention": "Official Node25.2.1 archive and qualified invocation/hash receipts retained; binary/archive bytes remain local reproducible tools.",
+      "cleanup_gate": "Preserve until root/backend confirm no remaining exact-Node qualification use; then remove only this recorded directory, leaving system/runtime Node installations untouched."
+    }
+  ],
+  "retained_and_active_packets": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility",
+      "kind": "Ordinary packet directory, no worktree registration",
+      "published_commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "published_path": "20261127/checkpoint-crlf-handoff",
+      "authored_files_verified_exact": 37,
+      "published_proofs_and_review": 3,
+      "active": "Windows parse, request construction, actual history phases and handoff reference still pending."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/native-handoff-regenerated",
+      "kind": "Ordinary author directory",
+      "active": true,
+      "retention": "Regenerated current handoff draft; preserve until final factual/text review, future actual-result updates and exact publication."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/app-handoff-regenerated",
+      "kind": "Ordinary author directory",
+      "active": true,
+      "retention": "Still authoring; no cleanup or old lost-draft equality claim."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-inputs-crlf",
+      "kind": "Ordinary preparation directory",
+      "active": true,
+      "retention": "Future actual phase inputs; retain until exact request review/publication and actual use are complete."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/configured-session",
+      "kind": "Ordinary source packet directory",
+      "active": true,
+      "retention": "Reviewed source is published at717acefc; actual configured run/acceptance remains pending at this inventory."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup22",
+      "kind": "Ordinary source packet directory",
+      "active": true,
+      "retention": "Source review passed; its8 publication files are among root's currently staged15. Actual configured success/XML/request/cleanup remain pending."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet",
+      "kind": "Ordinary accepted baseline packet directory",
+      "active": true,
+      "retention": "Published baseline remains a dependency/provenance reference for the separately reviewed CRLF copy."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/app-handoff-baselines",
+      "kind": "Ordinary immutable baseline directory",
+      "active": true,
+      "retention": "Required for exact final handoff comparison."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/baseline-configured-crlf",
+      "kind": "Ordinary immutable baseline directory",
+      "active": true,
+      "retention": "Required for source/delta and failed-attempt provenance."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/baseline-cleanup20",
+      "kind": "Ordinary immutable baseline directory",
+      "active": true,
+      "retention": "Required for exact cleanup22 derivative provenance."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/qualified-linux-final",
+      "kind": "Small immutable download/recovery receipts",
+      "active": true,
+      "retention": "Keep metadata with final evidence even after larger downloaded tools are removed."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root",
+      "kind": "Active coordination and raw result/publication records",
+      "active": true,
+      "retention": "Contains evolving actual receipts and publication packets. It is not a blanket deletion target."
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend",
+      "kind": "Active independent reviews, baseline sources and this inventory",
+      "active": true,
+      "retention": "Keep until exact reviews, evidence and final inventory are durably published; preserve required baseline references until all reviews finish."
+    }
+  ],
+  "historical_removal_with_retained_proof": {
+    "path": "/tmp/beads-2889282bfcec/history-checkpoint-only",
+    "currently_absent": true,
+    "currently_unregistered": true,
+    "receipt": {
+      "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "path": "20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json",
+      "bytes": 3390,
+      "sha256": "1518bcfd3e2d596c806608901da5b80d9003b9fa77db0b5f375d19715bf06e2f"
+    },
+    "author_commit": "dad3688ea00e5829d91fdd952d9c7c0f1c467a1e",
+    "published_commit": "473530433d66206ec6ba8a9980c9ed4bd0e12848",
+    "non_force_riftri_exit": 0,
+    "verified_utc": "2026-11-27T08:28:52.956047+00:00",
+    "ordering": "The initial whole-subtree equality check failed because publication added two review files. The clean worktree was removed before the corrected11-authored-file equality check. The retained receipt explicitly records that order and completed exact-file/path/registration reconciliation."
+  },
+  "other_absent_historical_paths": {
+    "exact_paths_recorded_in": "path-observations.json",
+    "classification": "Presence/absence is independently observed. Except for the separately proven history-checkpoint-only removal and exact reviewer cache removal, absence is not credited as an independently verified Riftri cleanup.",
+    "formerly_named_worktrees": [
+      "/tmp/beads-2889282bfcec/tray-runspace",
+      "/tmp/beads-2889282bfcec/native-download-continuation",
+      "/tmp/beads-2889282bfcec/closure-v9",
+      "/tmp/beads-55c9/backend-type-edit"
+    ],
+    "reported_but_not_independently_recovered_receipt": "Backend reports root previously removed closure-v9 after exact publication checks; this inventory did not recover its specific raw removal receipt, so that is kept distinct from the fully evidenced history-checkpoint-only removal.",
+    "reset_lost_fixtures": [
+      "/tmp/checkpoint-crlf-qualification-1",
+      "/tmp/checkpoint-crlf-qualification-2",
+      "/tmp/checkpoint-crlf-qualification-3",
+      "/tmp/checkpoint-crlf-qualification-4",
+      "/tmp/beads-2889282bfcec/checkpoint-only-qualification-v1",
+      "/tmp/beads-2889282bfcec/checkpoint-only-qualification-128m"
+    ],
+    "earlier_roots": "Exact recorded51bd,3160,3af and55c9 worktree/clone/tool paths were checked individually and are absent. No unrelated parent-root scan was performed.",
+    "lost_evidence": "The first four CRLF attempts' surviving historical metadata is in recovery-provenance.json; absent raw streams and unconfirmed run4 cause remain explicit. Missing old paths do not establish durable retention."
+  },
+  "already_removed_review_cache": {
+    "path": "/tmp/frontend-crlf-review-cache",
+    "currently_absent": true,
+    "receipt": "../reviews/review-cache-cleanup.json",
+    "completed_utc": "2026-11-27T11:23:18.096314+00:00",
+    "method": "Exact one-file hash verification, unlink and empty-directory removal after de71118c retention.",
+    "worktree_removal": false
+  },
+  "successor_cleanup_sequence": [
+    "Reconcile actual PC/task/history status and all uncertain attempts separately. This cloud inventory authorizes no PC cleanup.",
+    "Finish active handoff, configured/history and publication work; retain all accepted/failure evidence and exact source remotely. Refresh this dated inventory before any deletion.",
+    "Resolve root's staged15 continuation files and all later changes by exact publication. Recheck HEAD, raw status, registrations and remote ancestry; preserve any unexpected work.",
+    "Remove the exact clean continuation linked worktree through the recorded Riftri command without force, then verify both path and Git registration absence. Keep the parent clone and Riftri tools until that check completes.",
+    "After root accepts the explicitly documented local-only full-snapshot disposition, remove the exact qualification5 fixture. Preserve its durable result/source/command bundle and independent integrity/snapshot-review records.",
+    "After all native source/object and qualification dependencies are finished, remove only the recorded owned native and Scotty parent clone directories, with their final branch/commit retention established. Never treat the user's PC repositories as these cloud clones.",
+    "Remove exact qualified Linux/Node download directories only when no remaining runtime qualification uses them. Keep the small recovery/hash receipts; leave system/runtime tool installations unchanged.",
+    "Remove ordinary named author packets only after publication/equality and downstream use are complete. Keep final reviews, recovery material and cleanup receipts durable.",
+    "If the process dies, a successor must resume from actual attempt receipts and fresh Git state. Never infer a successful deletion from a reset or missing path, and never perform broad prefix removal."
+  ],
+  "constraints": {
+    "root_executes_cleanup": true,
+    "force_removal": false,
+    "remote_ref_deletions_in_scope": false,
+    "pc_calls": false,
+    "product_execution": false,
+    "unrelated_root_scan": false
+  }
+}
+

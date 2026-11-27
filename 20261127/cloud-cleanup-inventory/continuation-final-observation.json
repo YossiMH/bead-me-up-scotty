@@ -1,0 +1,37 @@
+{
+  "schema_version": 1,
+  "observed_utc": "2026-11-27T11:32:31.945889+00:00",
+  "repository": "/tmp/beads-2889282bfcec/continuation",
+  "read_only": true,
+  "commands": [
+    {
+      "arguments": [
+        "rev-parse",
+        "HEAD"
+      ],
+      "exit_code": 0,
+      "stdout": "de71118c225936b8ca6eac4be5db306eff19219b\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "status",
+        "--porcelain=v1",
+        "--untracked-files=normal"
+      ],
+      "exit_code": 0,
+      "stdout": "A  20261127/archive-preparation-recovered/graph-inspection.json\nA  20261127/archive-preparation-recovered/source-review.json\nA  20261127/checkpoint-crlf-handoff/review-cache-cleanup.json\nA  20261127/configured-launch-session/memory-deferred-execution.json\nA  20261127/configured-launch-session/staging-execution.json\nA  20261127/configured-launch-session/staging-expired-unclaimed.json\nA  20261127/configured-launch-session/windows-ps51-parse-execution.json\nA  20261127/scheduled-task-cleanup22/README.md\nA  20261127/scheduled-task-cleanup22/author-inspections.json\nA  20261127/scheduled-task-cleanup22/invocation.template.json\nA  20261127/scheduled-task-cleanup22/remove-exact-scheduled-tasks22-20261127.ps1\nA  20261127/scheduled-task-cleanup22/request.template.json\nA  20261127/scheduled-task-cleanup22/source-delta.json\nA  20261127/scheduled-task-cleanup22/source-review.json\nA  20261127/scheduled-task-cleanup22/task-names.json\n",
+      "stderr": ""
+    },
+    {
+      "arguments": [
+        "worktree",
+        "list",
+        "--porcelain"
+      ],
+      "exit_code": 0,
+      "stdout": "worktree /tmp/beads-2889282bfcec/scotty\nHEAD 717667dd46d5d27cb6708120429927bbadd57b5e\nbranch refs/heads/task/build-transfer-20261111\n\nworktree /tmp/beads-2889282bfcec/continuation\nHEAD de71118c225936b8ca6eac4be5db306eff19219b\ndetached\n\n",
+      "stderr": ""
+    }
+  ]
+}

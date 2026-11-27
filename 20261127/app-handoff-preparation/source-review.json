@@ -1,0 +1,275 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "reviewer": "/root/backend_audit",
+  "independent": true,
+  "reviewed_utc": "2026-11-27T11:44:39.042Z",
+  "scope": "Independent full-text and immutable-source review of the regenerated app README and backend-compatibility handoff. This accepts prepared text at the retained 48-closed/7-open and 11:20 UTC admission evidence cut. Actual configured success, installed-result acceptance, later text updates, publication, task closure, original history execution and cleanup remain separate.",
+  "preparation_accepted": true,
+  "actual_handoff_publication_accepted": false,
+  "actual_task_closure_accepted": false,
+  "actual_configured_launch_accepted": false,
+  "candidate_directory": "recovery/delivery/app-handoff-regenerated",
+  "files": {
+    "README.md": {
+      "bytes": 25639,
+      "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27"
+    },
+    "author-inspections.json": {
+      "bytes": 9646,
+      "sha256": "32ffbf7ab616f945f29b8455e00fbb43b744d42a5c6dee761d5e7bfe83df3d3e"
+    },
+    "changes.json": {
+      "bytes": 38178,
+      "sha256": "e52442d2f47639efa464c04461e241d56a2566eff6bcef9443cceddc8ea30ad5"
+    },
+    "delivery-state.md": {
+      "bytes": 14013,
+      "sha256": "282e53eda97d8754267da360c9412c054e6a01e03d45b7783c5778a1b33115cf"
+    },
+    "docs/backend-compatibility.md": {
+      "bytes": 74368,
+      "sha256": "884dc86db10a577eb1071f4dd19e5958ed9ff2dbf0304e0c4575f9d7ad6ecdaf"
+    },
+    "draft-manifest.json": {
+      "bytes": 11027,
+      "sha256": "65e7f54e4c33f232647fcfd26e097fca6fafd519c0dfa0bc5b26776df973865e"
+    }
+  },
+  "immutable_baselines": {
+    "app_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "revision9_draft_object": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb:20261125/revision-9/app-continuation-draft.json",
+    "revision9_draft_sha256": "169ab1f278de728a5789e3ac4dcbe8d643f86b62b2f5ff4d255b4c8536daa025",
+    "revision9_document_content_sha256": "128035c955c7c0c240d4d5cb709f97e30e6bd3bbc659de6c1c892666a7d6b3e5",
+    "published_document_sha256": "3564de23de0ca506e2725bf5bcedea19722f0f90a377b4abbe1201d412de94a4",
+    "published_readme_sha256": "03647a12b3ea2a8ff8a50019267a9d936db20695acbd3653d3132376ea0a9b70",
+    "source_recovery": "These are newly regenerated documents derived from immutable inputs; no unavailable earlier unpublished draft or review is represented as recovered byte-identical content."
+  },
+  "full_byte_comparisons": {
+    "complete_readme_and_backend_document_read": true,
+    "complete_changes_manifest_author_and_state_read": true,
+    "all_six_candidate_hashes_verified": true,
+    "both_author_passes_bind_every_payload": true,
+    "complete_derivations": [
+      {
+        "name": "docs/backend-compatibility.md",
+        "transform_count": 31,
+        "complete_forward": true,
+        "complete_inverse": true,
+        "canonical": {
+          "bytes": 74368,
+          "sha256": "884dc86db10a577eb1071f4dd19e5958ed9ff2dbf0304e0c4575f9d7ad6ecdaf"
+        },
+        "git_blob": "080076ca32e7dc473e809d150f263ee2f8f1fdd1",
+        "predicted_crlf": {
+          "bytes": 75572,
+          "sha256": "c8e8bbe80cb501cad8f2e1163d47e5a0393d6482dd07fa2100e03f48c88eab51"
+        }
+      },
+      {
+        "name": "README.md",
+        "transform_count": 3,
+        "complete_forward": true,
+        "complete_inverse": true,
+        "canonical": {
+          "bytes": 25639,
+          "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27"
+        },
+        "git_blob": "2f9296f733ab66e04c524c704e783663341213b2",
+        "predicted_crlf": {
+          "bytes": 26153,
+          "sha256": "69bfeee55036bb14e22948899e74f687b6e6deda765929cd9c6185410e2dd01b"
+        }
+      }
+    ],
+    "single_marked_state_copy_exact_including_blank_separator": true,
+    "no_remaining_mutable_task_branch_links": true,
+    "ten_current_state_permalink_objects_exist": true,
+    "all_24_pinned_evidence_identities_verified": true,
+    "all_future_actual_fields_null": true,
+    "canonical_git_blob_hashes_verified": true,
+    "crlf_worktree_identities_are_predictions_only": true
+  },
+  "factual_reconciliation": [
+    "The installed product identities match the retained actual installation acceptance: app 03095397 and native 2d801ba, final native 0431a828 pin/metadata, BUILD_ID YIOHeRJTEdlOszyc4LyHr, 560 runtime files and the exact runtime manifest. The successful third installer and accepted staging results are distinct from prior failed attempts.",
+    "The first installer paragraph preserves its strict native-origin SSH/HTTPS mismatch and secondary null-backup result-writer failure. The second private-index stat refresh remains a safe failed attempt. The successful one-line diff.autoRefreshIndex correction preserves the exact index/config guards.",
+    "The original 15 app source files, raw index/environment, old 376537 pin and previous runtime remain recovery material. The text confines the actual environment selection change to BEAD_BIN and preserves the existing private configuration; optional XDG isolation is a separate user choice.",
+    "The three real NotifyIcon cases are correctly scoped to the older 5232c8b stage, 230-file Eox2 runtime and native 25a pin. Their unchanged tray modules support the final source; the installed 560-file default batch has a separate pending configured gate. Expected fixture termination is kept distinct from assisted outer cleanup.",
+    "Both configured failures retain their observed scope. The first early error was not captured; a later byte comparison established the CRLF module mismatch. The second had a missing late process-session value despite an exact retained PID, birth, session 1 and exit 0 Job record; app/HTTP/tray work had not started. The accepted session repair is preparation, not a successful configured run.",
+    "The exact 476-byte memory-deferral receipt exited 0 with 77-byte waiting_for_memory stdout, 3,017 MiB and task_created=false. Its 11:20:41.219 to 11:20:57.709 command interval supports the dated pending snapshot. Any subsequent registered attempt requires its own actual result/review and a new current-state text delta.",
+    "The revision 9 materialization and install closure are exact: 55 continuation tasks, 91 edges and 1,009 total issues including 954 originals. Install beadrs-0bab2976 changes open revision 5 to closed revision 6 only. The seven table IDs/statuses/revisions agree with the accepted full state, 48 closed and 7 open. Readiness is not represented as completion.",
+    "The checkpoint-only route reflects original DB/sidecar absence and actual autocrlf=true. It preserves the four selected raw files separately from their canonical Git bytes, restores the canonical original 954 and frozen 1,009 corpus, retains the after-handoff Git/raw-index baseline and 53 immutable blobs, and transfers sole writer authority only after reconciled original restoration. Eight actual phases remain pending.",
+    "The helper 1015fa58, supervisor c0c289a9, qualification fe2056c9 and independent review 8b05fa67 match the immutable de71118c compatibility packet. The text keeps real Windows parsing, staged identity and each actual phase separate from the accepted cloud 128 MiB qualification.",
+    "The scheduled-task cleanup paragraph accurately describes the independently reviewed fixed 22-name helper, required actual third success, complete exact private XML/idle rechecks and preserved failures/rollback records. It does not claim execution or deletion.",
+    "The archive paragraph uses the exact 86-app inventory and two separate native refs, requires refreshed final tips/independent parent set/tree after final transfer publication, and distinguishes approach review from actual archive creation/coverage acceptance. Only that later acceptance permits exact atomic expected-tip deletions; main/archive/unrelated refs remain outside the set.",
+    "Worktree cleanup is conditional on current registrations, clean status and durable equality followed by Riftri without force. The historical named worktree removal is linked to its actual receipt; filesystem resets are not treated as verified cleanup.",
+    "The production-first README commands and launcher flags match the exact final package.json, batch launcher and CLI option/controller imports. The existing native edit/dependency/capability/large-field contracts, older qualification details and rollback instructions remain preserved by the complete derivations.",
+    "All current state and future outcomes are confined to the single marked section and its byte-identical separate copy. Historical dated evidence remains intact, including the explicitly caught destructive-grid RED classifications."
+  ],
+  "resolved_findings": [
+    {
+      "id": "A1",
+      "finding": "The dated revision 9 plan link used a task branch scheduled for eventual cleanup.",
+      "resolution": "Changed to the immutable 717acefc commit/path and matching label; no moving task-branch URL remains.",
+      "status": "resolved"
+    },
+    {
+      "id": "A2",
+      "finding": "Current cleanup text needed the conditional final archive/ref route to distinguish it from historical transfer-branch preservation instructions.",
+      "resolution": "Added the exact 86-app/two-native route, final tip/parent/tree refresh and independently accepted actual archive coverage before leased deletions. Actual outcomes remain pending.",
+      "status": "resolved"
+    }
+  ],
+  "evidence": [
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/materialization-v9-review.json",
+      "bytes": 3639,
+      "sha256": "1d677f5eab5457194484c413de9d98d2006eab37971737111500a7af1a05ce02"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/tray-runspace-result.json",
+      "bytes": 37543,
+      "sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/tray-runspace-actual-review.json",
+      "bytes": 24623,
+      "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/artifact-stage-actual/stage-result.json",
+      "bytes": 2341,
+      "sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/artifact-stage-actual/supervisor-result.json",
+      "bytes": 4366,
+      "sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/results/artifact-stage-actual-review.json",
+      "bytes": 11746,
+      "sha256": "9a7fc088fea62f24dc2c5ea7eda213ea968f54c5c9bbc0c4b411459f4035060c"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/installation-completed/result.json",
+      "bytes": 16086,
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/installation-completed/supervisor-result.json",
+      "bytes": 61457,
+      "sha256": "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/installation-completed/actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/installation-completed/closure/result.json",
+      "bytes": 5925,
+      "sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/installation-completed/closure/actual-review.json",
+      "bytes": 7348,
+      "sha256": "5fe7cfb2ed7466d339c455d33417796ee175d89b73abef7cd438fa0e343662f9"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/configured-launch-first-attempt/creation-receipt.json",
+      "bytes": 2571,
+      "sha256": "435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/configured-launch-crlf-actual/independent-review.json",
+      "bytes": 6459,
+      "sha256": "82695323d385d933f650dfee0d3a92f80a37f595b8001d7a3402b8cdf6083a22"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/configured-launch-session/source-review.json",
+      "bytes": 8080,
+      "sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json",
+      "bytes": 3390,
+      "sha256": "1518bcfd3e2d596c806608901da5b80d9003b9fa77db0b5f375d19715bf06e2f"
+    },
+    {
+      "object": "de71118c225936b8ca6eac4be5db306eff19219b:20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-20261127.mjs",
+      "bytes": 84410,
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+    },
+    {
+      "object": "de71118c225936b8ca6eac4be5db306eff19219b:20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+      "bytes": 19195,
+      "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+    },
+    {
+      "object": "de71118c225936b8ca6eac4be5db306eff19219b:20261127/checkpoint-crlf-handoff/qualification-result.json",
+      "bytes": 27250,
+      "sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03"
+    },
+    {
+      "object": "de71118c225936b8ca6eac4be5db306eff19219b:20261127/checkpoint-crlf-handoff/independent-review.json",
+      "bytes": 13770,
+      "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c"
+    },
+    {
+      "object": "de71118c225936b8ca6eac4be5db306eff19219b:20261127/checkpoint-crlf-handoff/author-inspections.json",
+      "bytes": 10021,
+      "sha256": "4b9599b7cd488ec204e53bd7e9cfa0305d62009dafd6ed63ea909ac9bc798730"
+    },
+    {
+      "object": "2a62978c93befa9a08566765344320e45ffbcb2c:20261127/configured-launch-session/memory-deferred-execution.json",
+      "bytes": 476,
+      "sha256": "b285c08fd58e1324a40dfffe8c2206392fc576984a5c4f4f67c26839956f01cc"
+    },
+    {
+      "object": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/archive-preparation-recovered/reviewed-refs.json",
+      "bytes": 10948,
+      "sha256": "9651b0b5c3e1657a76a093209715f13e0980c692bc7478ca42a398743802a30c"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/archive-parent-approach-review.json",
+      "bytes": 5560,
+      "sha256": "ef4cc2d9c01a1e2fcf6a36074f00b9bd7d3515d856fb5db213ce1a8a707e9d24"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/scheduled-task-cleanup22-source-review.json",
+      "bytes": 7953,
+      "sha256": "d7e63570b39ec31c12e7f6fde105d0df6204764b6b840d44fd5a3a77b07d840a"
+    }
+  ],
+  "current_state_links": [
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/archive-preparation-recovered/reviewed-refs.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-crlf-actual/independent-review.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-session/source-review.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/installation-completed/actual-review.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/installation-completed/closure/actual-review.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/artifact-stage-actual-review.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/materialization-v9-review.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/tray-runspace-actual-review.json",
+    "https://github.com/YossiMH/bead-me-up-scotty/tree/de71118c225936b8ca6eac4be5db306eff19219b/20261127/checkpoint-crlf-handoff"
+  ],
+  "remaining_gates": [
+    "Retain this exact prepared packet and review; preserve current canonical LF and predicted CRLF identities as distinct values.",
+    "Independently accept the actual configured result and installed-result/task-state outcomes, then update only the marked current-state section and exact copy plus manifest/author records; review that concrete delta before publication.",
+    "Publish only the reviewed README.md and docs/backend-compatibility.md descendants, then use the accepted guarded document-adoption helper with exact actual Git/working-byte identities and unchanged stored configuration.",
+    "Refresh actual task revisions/dependencies before any handoff/text closure. This preparation review alone does not close those rows.",
+    "Execute and reconcile original history, checkpoint publication, exact task/ref/worktree cleanup with their independently reviewed concrete requests and retained actual receipts."
+  ],
+  "findings": [],
+  "reviewer_activity": {
+    "cloud_read_only_source_and_evidence": true,
+    "candidate_files_modified": false,
+    "pc_calls": 0,
+    "task_state_writes": 0,
+    "product_tests": 0,
+    "builds": 0,
+    "pushes": 0
+  }
+}

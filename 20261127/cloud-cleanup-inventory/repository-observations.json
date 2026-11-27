@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "status": "observed",
+  "read_only": true,
+  "git_environment": {
+    "GIT_OPTIONAL_LOCKS": "0",
+    "GIT_NO_LAZY_FETCH": "1",
+    "GIT_NO_REPLACE_OBJECTS": "1"
+  },
+  "repositories": [
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation",
+      "exists": true,
+      "observed_utc": "2026-11-27T11:29:50.943006+00:00",
+      "top_level_entries": [
+        {
+          "name": ".git",
+          "directory": false,
+          "symlink": false
+        },
+        {
+          "name": "20261125",
+          "directory": true,
+          "symlink": false
+        },
+        {
+          "name": "20261127",
+          "directory": true,
+          "symlink": false
+        }
+      ],
+      "commands": [
+        {
+          "arguments": [
+            "rev-parse",
+            "--path-format=absolute",
+            "--git-dir",
+            "--git-common-dir",
+            "--git-path",
+            "index"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 160,
+          "stdout_sha256": "b4b805a2aa0919e3be3f9ca4e940af81558f3364cf63642d19c7b953a7e5fc60",
+          "stderr": "",
+          "stdout": "/tmp/beads-2889282bfcec/scotty/.git/worktrees/continuation\n/tmp/beads-2889282bfcec/scotty/.git\n/tmp/beads-2889282bfcec/scotty/.git/worktrees/continuation/index\n"
+        },
+        {
+          "arguments": [
+            "worktree",
+            "list",
+            "--porcelain"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 236,
+          "stdout_sha256": "9a13f09947616a6524a346d85ec6fb13c1454bd72747b6c8d0b5104b2c88630c",
+          "stderr": "",
+          "stdout": "worktree /tmp/beads-2889282bfcec/scotty\nHEAD 717667dd46d5d27cb6708120429927bbadd57b5e\nbranch refs/heads/task/build-transfer-20261111\n\nworktree /tmp/beads-2889282bfcec/continuation\nHEAD de71118c225936b8ca6eac4be5db306eff19219b\ndetached\n\n"
+        },
+        {
+          "arguments": [
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 41,
+          "stdout_sha256": "492272932e6158270b1c6a87815f256970d73abbe5c3fc9d3682e28be9c63baf",
+          "stderr": "",
+          "stdout": "de71118c225936b8ca6eac4be5db306eff19219b\n"
+        },
+        {
+          "arguments": [
+            "symbolic-ref",
+            "--quiet",
+            "HEAD"
+          ],
+          "exit_code": 1,
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "stdout": ""
+        },
+        {
+          "arguments": [
+            "for-each-ref",
+            "--format=%(refname) %(objectname)",
+            "refs/heads"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 81,
+          "stdout_sha256": "549bc05bd04638594a4ba24e93a7681aec36dc9a840b5619b2eb5090b71859fe",
+          "stderr": "",
+          "stdout": "refs/heads/task/build-transfer-20261111 717667dd46d5d27cb6708120429927bbadd57b5e\n"
+        },
+        {
+          "arguments": [
+            "ls-files",
+            "-z"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 139907,
+          "stdout_sha256": "255084ce9ef051be346c15bbe39d088bc95a4aa2dd752ce615b7441d18eecddf",
+          "stderr": "",
+          "record_count": 1695
+        },
+        {
+          "arguments": [
+            "status",
+            "--porcelain=v1",
+            "-z",
+            "--untracked-files=normal"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 932,
+          "stdout_sha256": "bd191e7b037822b52f231e965846063f0fc6422c87f6f3e972eb10ad7af79c5f",
+          "stderr": "",
+          "record_count": 15,
+          "status_counts": {
+            "A ": 15
+          },
+          "first6": [
+            "A  20261127/archive-preparation-recovered/graph-inspection.json",
+            "A  20261127/archive-preparation-recovered/source-review.json",
+            "A  20261127/checkpoint-crlf-handoff/review-cache-cleanup.json",
+            "A  20261127/configured-launch-session/memory-deferred-execution.json",
+            "A  20261127/configured-launch-session/staging-execution.json",
+            "A  20261127/configured-launch-session/staging-expired-unclaimed.json"
+          ]
+        }
+      ],
+      "index_metadata": {
+        "path": "/tmp/beads-2889282bfcec/scotty/.git/worktrees/continuation/index",
+        "exists": true,
+        "bytes": 259509,
+        "sha256": "58616eb8de34ef008f6ebc7a7831b4870597d5e79a4b3e1f8ec20562d9b2652b"
+      }
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/scotty",
+      "exists": true,
+      "observed_utc": "2026-11-27T11:29:50.962622+00:00",
+      "top_level_entries": [
+        {
+          "name": ".git",
+          "directory": true,
+          "symlink": false
+        }
+      ],
+      "commands": [
+        {
+          "arguments": [
+            "rev-parse",
+            "--path-format=absolute",
+            "--git-dir",
+            "--git-common-dir",
+            "--git-path",
+            "index"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 114,
+          "stdout_sha256": "a6a163ab3af6bddd9cfe9b39481582f94935603512b08d76d9d29a39e5d45f8b",
+          "stderr": "",
+          "stdout": "/tmp/beads-2889282bfcec/scotty/.git\n/tmp/beads-2889282bfcec/scotty/.git\n/tmp/beads-2889282bfcec/scotty/.git/index\n"
+        },
+        {
+          "arguments": [
+            "worktree",
+            "list",
+            "--porcelain"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 236,
+          "stdout_sha256": "9a13f09947616a6524a346d85ec6fb13c1454bd72747b6c8d0b5104b2c88630c",
+          "stderr": "",
+          "stdout": "worktree /tmp/beads-2889282bfcec/scotty\nHEAD 717667dd46d5d27cb6708120429927bbadd57b5e\nbranch refs/heads/task/build-transfer-20261111\n\nworktree /tmp/beads-2889282bfcec/continuation\nHEAD de71118c225936b8ca6eac4be5db306eff19219b\ndetached\n\n"
+        },
+        {
+          "arguments": [
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 41,
+          "stdout_sha256": "18a38ebd2866d61794959fb6ca6fb5805d66810445bc1d71d888f11ea061ad65",
+          "stderr": "",
+          "stdout": "717667dd46d5d27cb6708120429927bbadd57b5e\n"
+        },
+        {
+          "arguments": [
+            "symbolic-ref",
+            "--quiet",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 40,
+          "stdout_sha256": "b64733d49c11047aca86e47b41766d3e060f6bdba70106931747a9d7f601c30e",
+          "stderr": "",
+          "stdout": "refs/heads/task/build-transfer-20261111\n"
+        },
+        {
+          "arguments": [
+            "for-each-ref",
+            "--format=%(refname) %(objectname)",
+            "refs/heads"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 81,
+          "stdout_sha256": "549bc05bd04638594a4ba24e93a7681aec36dc9a840b5619b2eb5090b71859fe",
+          "stderr": "",
+          "stdout": "refs/heads/task/build-transfer-20261111 717667dd46d5d27cb6708120429927bbadd57b5e\n"
+        },
+        {
+          "arguments": [
+            "ls-files",
+            "-z"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "record_count": 0
+        },
+        {
+          "arguments": [
+            "status",
+            "--porcelain=v1",
+            "-z",
+            "--untracked-files=normal"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 138478,
+          "stdout_sha256": "79e350482aacea6cd0de7318a089d66071a21bd01796c9ba5201452886f0305b",
+          "stderr": "",
+          "record_count": 1598,
+          "status_counts": {
+            "D ": 1598
+          },
+          "first6": [
+            "D  .github/workflows/scotty-type-windows-20261125.yml",
+            "D  .github/workflows/type-binding-v9-checks-20261125.yml",
+            "D  20261124/coordination/checks.json",
+            "D  20261124/coordination/make_plan.py",
+            "D  20261124/coordination/manifest.json",
+            "D  20261124/coordination/plan-review.json"
+          ]
+        }
+      ],
+      "index_metadata": {
+        "path": "/tmp/beads-2889282bfcec/scotty/.git/index",
+        "exists": false,
+        "bytes": null
+      }
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/native",
+      "exists": true,
+      "observed_utc": "2026-11-27T11:29:50.977890+00:00",
+      "top_level_entries": [
+        {
+          "name": ".git",
+          "directory": true,
+          "symlink": false
+        }
+      ],
+      "commands": [
+        {
+          "arguments": [
+            "rev-parse",
+            "--path-format=absolute",
+            "--git-dir",
+            "--git-common-dir",
+            "--git-path",
+            "index"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 114,
+          "stdout_sha256": "9df00b7e3b936b32b0b426f55dfd7952ff4b7b7c3d020f530da32cf65179a192",
+          "stderr": "",
+          "stdout": "/tmp/beads-2889282bfcec/native/.git\n/tmp/beads-2889282bfcec/native/.git\n/tmp/beads-2889282bfcec/native/.git/index\n"
+        },
+        {
+          "arguments": [
+            "worktree",
+            "list",
+            "--porcelain"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 110,
+          "stdout_sha256": "73589cfec3805c18cfe20b8980033b34b0a8ca05ef7ce56860cd9a2bb84522b6",
+          "stderr": "",
+          "stdout": "worktree /tmp/beads-2889282bfcec/native\nHEAD 2d801ba455b7a722daf644a7615445117d57e8e9\nbranch refs/heads/main\n\n"
+        },
+        {
+          "arguments": [
+            "rev-parse",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 41,
+          "stdout_sha256": "ced4fa05417423f5c88966d8e7e9d5619f09e652baefe4cf59ea68f7e2a0cb49",
+          "stderr": "",
+          "stdout": "2d801ba455b7a722daf644a7615445117d57e8e9\n"
+        },
+        {
+          "arguments": [
+            "symbolic-ref",
+            "--quiet",
+            "HEAD"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 16,
+          "stdout_sha256": "599bbcd7b7f94b50d9b83318ba0dd4b8e1ba9e39d1d3ee73d1fbbd70496d0f93",
+          "stderr": "",
+          "stdout": "refs/heads/main\n"
+        },
+        {
+          "arguments": [
+            "for-each-ref",
+            "--format=%(refname) %(objectname)",
+            "refs/heads"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 57,
+          "stdout_sha256": "8d88b6e035ee63e3cb2cfc54a3ff26c34991011b5d95760a4736c23012e6de18",
+          "stderr": "",
+          "stdout": "refs/heads/main 2d801ba455b7a722daf644a7615445117d57e8e9\n"
+        },
+        {
+          "arguments": [
+            "ls-files",
+            "-z"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 0,
+          "stdout_sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+          "stderr": "",
+          "record_count": 0
+        },
+        {
+          "arguments": [
+            "status",
+            "--porcelain=v1",
+            "-z",
+            "--untracked-files=normal"
+          ],
+          "exit_code": 0,
+          "stdout_bytes": 30339,
+          "stdout_sha256": "a557176cf6cdedfef40dffcb6e947dede1b57bbf460267ee4f3b00a6fb3526b6",
+          "stderr": "",
+          "record_count": 652,
+          "status_counts": {
+            "D ": 652
+          },
+          "first6": [
+            "D  .beads/.gitignore",
+            "D  .beads/checkpoint/current.json",
+            "D  .beads/checkpoint/forensic.jsonl",
+            "D  .beads/checkpoint/objects/037635c232bc477f8349d6d6a20bada6a50d2a00885229751903ae5a6bc0147f.jsonl",
+            "D  .beads/checkpoint/objects/067003a461c43da08c2bf9f3a84f1b61cf7148fc220c94d910f62007ceb44af3.jsonl",
+            "D  .beads/checkpoint/objects/1489c5b50d2003f9982727027dd3f96481bf4e1bae7391eb61529dd44eb78992.jsonl"
+          ]
+        }
+      ],
+      "index_metadata": {
+        "path": "/tmp/beads-2889282bfcec/native/.git/index",
+        "exists": false,
+        "bytes": null
+      }
+    }
+  ]
+}
