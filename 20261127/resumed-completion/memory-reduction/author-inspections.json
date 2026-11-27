@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "passed_static_author_inspections_prepared_only",
+  "author": "/root/finish_preparation",
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+    "path": "20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-20261127.mjs",
+    "bytes": 84410,
+    "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+  },
+  "candidate": {
+    "basename": "checkpoint-only-handoff-crlf-20261127.mjs",
+    "bytes": 84430,
+    "sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773"
+  },
+  "changes": [
+    {
+      "before": "      const selectedBefore=checkpoint(originalCanonicalPath);",
+      "after": "      const selectedBeforeGeneration=checkpoint(originalCanonicalPath).pointer.generation_id;"
+    },
+    {
+      "before": "      assert.notEqual(cp.pointer.generation_id,selectedBefore.pointer.generation_id);",
+      "after": "      assert.notEqual(cp.pointer.generation_id,selectedBeforeGeneration);"
+    }
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Trace restore-original lifetime: complete checkpoint validation runs unchanged before init, and the returned original checkpoint is used later only for pointer.generation_id. Capturing that immutable string preserves every validation and generation inequality while releasing the unnecessary object graph."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Reconstruct exact candidate from immutable accepted GitHub bytes; inverse both substitutions and compare full baseline; verify only two new variable occurrences and final-publish selectedBefore references unchanged. Inspect builtin imports, supervisor directory guards and downstream history identity consumers."
+    }
+  ],
+  "memory_effect": "Makes original checkpoint pointer/files/corpus/issues/details object collectible before init; does not claim a measured RSS reduction or guarantee GC timing.",
+  "unchanged": {
+    "runtime_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "history_supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+    "node_old_space_mib": 128,
+    "aggregate_rss_mib": 512,
+    "all_checkpoint_validation": true,
+    "all_native_commands": true
+  },
+  "staging": {
+    "directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs",
+    "driver": "checkpoint-only-handoff-crlf-20261127.mjs",
+    "supervisor": "checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+    "requires_absent_or_identical_destinations": true,
+    "request_change": "Use candidate helper_sha256 and unchanged supervisor_sha256 only after independent acceptance and actual partial-state reconciliation.",
+    "imports": [
+      "node:assert/strict",
+      "node:fs",
+      "node:path",
+      "node:crypto",
+      "node:child_process",
+      "node:url",
+      "node:sqlite"
+    ]
+  },
+  "downstream": {
+    "publisher_driver": [
+      "PIN.history: point to accepted candidate in I.",
+      "PIN.historySha: a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773.",
+      "Line448 requires both publication/verification requests to bind that history helper hash; use accepted candidate for restore-original+restore, and final-publish+final-restore."
+    ],
+    "publisher_supervisor": [
+      "Lines148-149 hardcode history source path/hash and must be coherently updated for the accepted candidate.",
+      "Sibling publisher basename is resolved from PSScriptRoot; co-stage reviewed successor publisher/supervisor in I without replacing original accepted helpers."
+    ],
+    "future_publisher_request": "Fill actual successor publisher and supervisor hashes after independent review; no change made here."
+  },
+  "cloud_filesystem_status": "Unavailable; exact candidate authored and inspected in orchestration memory from immutable GitHub baseline; this publication preserves the candidate before any PC staging or execution.",
+  "syntax_parse_performed": false,
+  "independent_review_performed": false,
+  "pc_actions": 0,
+  "remote_mutations": 0,
+  "tests": 0,
+  "builds": 0,
+  "reexecution_authorized_by_this_record": false,
+  "publication_scope": "Only prepared memory driver, unchanged history supervisor, exact two-line diff and this author record."
+}

@@ -1,0 +1,20 @@
+--- a/checkpoint-only-handoff-crlf-20261127.mjs
++++ b/checkpoint-only-handoff-crlf-20261127.mjs
+@@ -782,7 +782,7 @@
+       const gitBefore=gitState('original-git-before',true);
+       equal(gitBefore,kept('source-restore','original-git-after.json'),'Original Git state changed since source qualification');
+       assert.equal(digest(selectedManifest(originalCheckpoint)),preserved.checkpoint_manifest_sha256);
+-      const selectedBefore=checkpoint(originalCanonicalPath);
++      const selectedBeforeGeneration=checkpoint(originalCanonicalPath).pointer.generation_id;
+       subsetCorpus(kept('preserve','original-corpus.json'),source.corpus);
+       write('authority-transfer-intended.json',{from:PIN.isolated,to:PIN.original,source_generation:source.pointer.generation_id,
+         source_manifest_sha256:prior('freeze').source_manifest_sha256,original_database:'absent',replay_allowed:false});
+@@ -806,7 +806,7 @@
+       const report=run(PIN.original,restoreArgs,'restore-original');restoreWindow.finished_ms=Date.now();verifyRestoreReport(report,source,PIN.actor);
+       const cp=checkpoint(originalCheckpoint);statusAligned(run(PIN.original,['sync','status','--format','json'],'status'),cp.pointer);
+       const audit=verifyRestoredCorpus(source,cp,report,PIN.actor);
+-      assert.notEqual(cp.pointer.generation_id,selectedBefore.pointer.generation_id);
++      assert.notEqual(cp.pointer.generation_id,selectedBeforeGeneration);
+       const promoted=verifyOriginalRawPromotion(originalCheckpoint,originalRawPath,originalCanonicalPath,gitBefore.entries);
+       const after=await snapshot(originalDB,'after');verifyRestoredDatabase(frozenDB,after,cp,restoreWindow);
+       const inventory=list(PIN.original,'inventory');verifyPlan(inventory,plan,mapping,baseline);
