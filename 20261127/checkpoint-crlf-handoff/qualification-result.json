@@ -1,0 +1,1015 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Disposable actual-CRLF original recovery, canonical old-generation restore and both native publications with exact 53-object original tree and synthetic accepted-plan shape",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "binary_sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c",
+  "helper_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+  "qualification_sha256": "b49eadb52032d32e439680af961e392a33f7207d8affebfb0f62e4daaf441d1b",
+  "exec_argv": [
+    "--max-old-space-size=128"
+  ],
+  "node_version": "v25.2.1",
+  "observed_original_raw_manifest": {
+    "current.json": {
+      "sha256": "ccb1abde721af7a7fedbf3302d0143bd12e332cee47530d05f6c3515b3338b0a",
+      "bytes": 920
+    },
+    "objects/4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d.jsonl": {
+      "sha256": "b6cc30c51074894b6a7248aabbec1c5f59e9b593610ec38bccdd7852eacf55b4",
+      "bytes": 8581913
+    },
+    "objects/5711cb1301c4de33554b7df0ea3c9fb7bec4b9cc8108b47108b2fb53fac1936f.jsonl": {
+      "sha256": "d9cd655cf5e8a7b54cc62a11f1ffad4bb93e587ba2d16a43f8d988ef42a449c0",
+      "bytes": 8504969
+    },
+    "previous.json": {
+      "sha256": "3ced2fb2fb98fbbac359640b82fc496eb41d8deae04b20389639eea39a8f7cc1",
+      "bytes": 919
+    }
+  },
+  "canonical_original_manifest": {
+    "current.json": {
+      "sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+      "bytes": 893
+    },
+    "objects/4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d.jsonl": {
+      "sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+      "bytes": 8569277
+    },
+    "objects/5711cb1301c4de33554b7df0ea3c9fb7bec4b9cc8108b47108b2fb53fac1936f.jsonl": {
+      "sha256": "5711cb1301c4de33554b7df0ea3c9fb7bec4b9cc8108b47108b2fb53fac1936f",
+      "bytes": 8492439
+    },
+    "previous.json": {
+      "sha256": "820306f78385f060d91409d58c3134959dbff90984292ffd23c297e104a28c73",
+      "bytes": 892
+    }
+  },
+  "core_autocrlf": "true",
+  "git_config_unchanged": true,
+  "original_counts": {
+    "issues": 954,
+    "events": 11264,
+    "receipts": 5,
+    "outcomes": 413
+  },
+  "original_covered_sequence": 29609,
+  "incoming_counts": {
+    "issues": 1009,
+    "events": 11465,
+    "receipts": 6,
+    "outcomes": 413
+  },
+  "recovered_local_sequence": 11466,
+  "restore_added_events": 1,
+  "restore_added_receipts": 1,
+  "resource_locks_reconstructed": 3,
+  "all_issue_scopes_compared": 1009,
+  "checkpoint_only_index_delta_verified": true,
+  "original_raw_pointer_preserved_as_previous": true,
+  "raw_original_restore_refused": true,
+  "canonical_original_restore_passed": true,
+  "initial_previous_only_normalization_verified": true,
+  "final_flush_and_restore_passed": true,
+  "focused_refusals": 10,
+  "duration_ms": 57213,
+  "commands": [
+    {
+      "label": "source-init",
+      "args": [
+        "--no-auto-flush",
+        "init",
+        "--prefix",
+        "beadrs"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/synthetic-continuation",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "source-original-restore",
+      "args": [
+        "restore",
+        "--source",
+        "/tmp/qualified-linux-final-recovery/extracted/public-original",
+        "--generation",
+        "gen-a569f746bbb268015d996c8ed4c76f57",
+        "--actor",
+        "checkpoint-only-cloud-source",
+        "--prefix",
+        "beadrs",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/synthetic-continuation",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "source-fixture-manifest",
+      "args": [
+        "--no-auto-flush",
+        "manifest",
+        "commit",
+        "--input",
+        "/tmp/checkpoint-crlf-qualification-5/fixture-manifest.json",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/synthetic-continuation",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "source-flush",
+      "args": [
+        "sync",
+        "flush-only"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/synthetic-continuation",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-git-init",
+      "args": [
+        "--no-optional-locks",
+        "init",
+        "--quiet"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-git-name",
+      "args": [
+        "--no-optional-locks",
+        "config",
+        "user.name",
+        "Checkpoint qualification"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-git-email",
+      "args": [
+        "--no-optional-locks",
+        "config",
+        "user.email",
+        "checkpoint-qualification@example.invalid"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-git-autocrlf",
+      "args": [
+        "--no-optional-locks",
+        "config",
+        "core.autocrlf",
+        "true"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-git-add-unrelated",
+      "args": [
+        "--no-optional-locks",
+        "add",
+        "--",
+        ".beads/config.json",
+        ".beads/.gitignore",
+        "unrelated.txt"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-read-original-tree",
+      "args": [
+        "--no-optional-locks",
+        "read-tree",
+        "--prefix=.beads/checkpoint/",
+        "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-checkout-original-tree",
+      "args": [
+        "--no-optional-locks",
+        "checkout-index",
+        "--all",
+        "--force"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-git-commit",
+      "args": [
+        "--no-optional-locks",
+        "commit",
+        "--quiet",
+        "-m",
+        "Preserve exact original checkpoint fixture"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-index-path",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "--path-format=absolute",
+        "--git-path",
+        "index"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-tree-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-head",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-tree",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-status",
+      "args": [
+        "--no-optional-locks",
+        "-c",
+        "status.renames=false",
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all",
+        "--",
+        ".beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "canonical-blob-1",
+      "args": [
+        "--no-optional-locks",
+        "cat-file",
+        "blob",
+        "fb204445a6a7b15f494b189839dddde2b84b139f"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "canonical-blob-2",
+      "args": [
+        "--no-optional-locks",
+        "cat-file",
+        "blob",
+        "2266bbc1021c90853f0ffb05171eea691e3cb910"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "canonical-blob-3",
+      "args": [
+        "--no-optional-locks",
+        "cat-file",
+        "blob",
+        "2420cbad33c4df58a98c17eb3161be02b65cc8bc"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "canonical-blob-4",
+      "args": [
+        "--no-optional-locks",
+        "cat-file",
+        "blob",
+        "ed7e25648c4ce861626c9df0e3d23814597dd9f9"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "raw-original-restore-refused",
+      "args": [
+        "restore",
+        "--source",
+        "/tmp/checkpoint-crlf-qualification-5/original-raw-retained",
+        "--generation",
+        "gen-a569f746bbb268015d996c8ed4c76f57",
+        "--actor",
+        "chatgpt-bead-edit-restore-check-20261127",
+        "--prefix",
+        "beadrs",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/raw-original-refusal",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 5,
+      "error": null
+    },
+    {
+      "label": "canonical-original-restore",
+      "args": [
+        "restore",
+        "--source",
+        "/tmp/checkpoint-crlf-qualification-5/original-canonical-retained",
+        "--generation",
+        "gen-a569f746bbb268015d996c8ed4c76f57",
+        "--actor",
+        "chatgpt-bead-edit-restore-check-20261127",
+        "--prefix",
+        "beadrs",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/canonical-original-restore-check",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "canonical-original-status",
+      "args": [
+        "sync",
+        "status",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/canonical-original-restore-check",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-canonical-check-index-path",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "--path-format=absolute",
+        "--git-path",
+        "index"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-canonical-check-tree-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-canonical-check-head",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-canonical-check-tree",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-canonical-check-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-canonical-check-status",
+      "args": [
+        "--no-optional-locks",
+        "-c",
+        "status.renames=false",
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all",
+        "--",
+        ".beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-empty-init",
+      "args": [
+        "--no-auto-flush",
+        "init",
+        "--prefix",
+        "beadrs"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-init-index-path",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "--path-format=absolute",
+        "--git-path",
+        "index"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-init-tree-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-init-head",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-init-tree",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-init-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-init-status",
+      "args": [
+        "--no-optional-locks",
+        "-c",
+        "status.renames=false",
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all",
+        "--",
+        ".beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-full-restore",
+      "args": [
+        "restore",
+        "--source",
+        "/tmp/checkpoint-crlf-qualification-5/synthetic-continuation/.beads/checkpoint",
+        "--generation",
+        "gen-dda408ee954c9a49a5a7edb8a2d041f8",
+        "--actor",
+        "chatgpt-bead-edit-20261127",
+        "--prefix",
+        "beadrs",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-status",
+      "args": [
+        "sync",
+        "status",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-restore-index-path",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "--path-format=absolute",
+        "--git-path",
+        "index"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-restore-tree-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-restore-head",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-restore-tree",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-restore-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-restore-status",
+      "args": [
+        "--no-optional-locks",
+        "-c",
+        "status.renames=false",
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all",
+        "--",
+        ".beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-recovery-commit",
+      "args": [
+        "--no-optional-locks",
+        "commit",
+        "--quiet",
+        "-m",
+        "Publish recovered checkpoint fixture"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-cleanup-index-path",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "--path-format=absolute",
+        "--git-path",
+        "index"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-cleanup-tree-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-cleanup-head",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-cleanup-tree",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-cleanup-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "before-cleanup-status",
+      "args": [
+        "--no-optional-locks",
+        "-c",
+        "status.renames=false",
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all",
+        "--",
+        ".beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-inventory",
+      "args": [
+        "list",
+        "--all",
+        "--json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-cleanup-close",
+      "args": [
+        "--no-auto-flush",
+        "manifest",
+        "commit",
+        "--input",
+        "/tmp/checkpoint-crlf-qualification-5/cleanup-manifest.json",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-final-flush",
+      "args": [
+        "sync",
+        "flush-only"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "target-final-status",
+      "args": [
+        "sync",
+        "status",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-final-flush-index-path",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "--path-format=absolute",
+        "--git-path",
+        "index"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-final-flush-tree-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-tree",
+        "-r",
+        "-l",
+        "-z",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-final-flush-head",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-final-flush-tree",
+      "args": [
+        "--no-optional-locks",
+        "rev-parse",
+        "HEAD:.beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-final-flush-entries",
+      "args": [
+        "--no-optional-locks",
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "after-final-flush-status",
+      "args": [
+        "--no-optional-locks",
+        "-c",
+        "status.renames=false",
+        "status",
+        "--porcelain=v1",
+        "-z",
+        "--untracked-files=all",
+        "--",
+        ".beads/checkpoint"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original",
+      "program": "git",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "final-check-init",
+      "args": [
+        "--no-auto-flush",
+        "init",
+        "--prefix",
+        "beadrs"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/final-restore-check",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "final-check-restore",
+      "args": [
+        "restore",
+        "--source",
+        "/tmp/checkpoint-crlf-qualification-5/checkpoint-only-original/.beads/checkpoint",
+        "--generation",
+        "gen-629c2c29098e12d824d6133f07786311",
+        "--actor",
+        "chatgpt-bead-edit-restore-check-20261127",
+        "--prefix",
+        "beadrs",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/final-restore-check",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    },
+    {
+      "label": "final-check-status",
+      "args": [
+        "sync",
+        "status",
+        "--format",
+        "json"
+      ],
+      "cwd": "/tmp/checkpoint-crlf-qualification-5/final-restore-check",
+      "program": "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+      "status": 0,
+      "error": null
+    }
+  ],
+  "pc_executed": false,
+  "actual_task_acceptance": false,
+  "cleanup": "Retain result/log hashes, then remove only this exact disposable output tree."
+}

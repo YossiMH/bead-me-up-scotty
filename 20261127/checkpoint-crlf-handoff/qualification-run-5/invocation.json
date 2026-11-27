@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "command": [
+    "/tmp/qualified-node25-recovery/node",
+    "--max-old-space-size=128",
+    "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/qualify-checkpoint-crlf.mjs",
+    "--binary",
+    "/tmp/qualified-linux-final-recovery/extracted/release/bead-editing-2d801ba-linux-20261125",
+    "--original",
+    "/tmp/qualified-linux-final-recovery/extracted/public-original",
+    "--config",
+    "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/fixture-config.json",
+    "--plan",
+    "/workspace/scratch/2889282bfcec/recovery/frontend/baseline/plan-revision9-recovered.json",
+    "--output",
+    "/tmp/checkpoint-crlf-qualification-5",
+    "--repository",
+    "/tmp/beads-2889282bfcec/native"
+  ],
+  "cwd": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility",
+  "started_utc": "2026-11-27T10:58:52.098407+00:00",
+  "node_sha256": "ff2d367cbba86845f4634df2197955188549a129f486b88e955fac037ab29950",
+  "helper_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+  "qualifier_sha256": "b49eadb52032d32e439680af961e392a33f7207d8affebfb0f62e4daaf441d1b",
+  "maximum_old_space_mib": 128,
+  "pc_executed": false,
+  "scope": "Reconstructed candidate after cloud reset; whole-fixture graphs are explicitly released after their assertions. Actual runtime phases use separate processes."
+}

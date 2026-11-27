@@ -1,0 +1,20 @@
+{
+  "source_sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+  "changes": [
+    {
+      "before": "checkpoint-only-handoff-20261127.mjs",
+      "after": "checkpoint-only-handoff-crlf-20261127.mjs",
+      "occurrences": 1
+    },
+    {
+      "before": "ff1597b37c873888aef55af6c67b39cd29efeb025d007fe11659ccb81a32cc46",
+      "after": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+      "occurrences": 1
+    },
+    {
+      "before": "  equal(history.verifyPublicationIndex(initial, before, path.join(repo.path, '.beads/checkpoint')), reconciliation, 'Staged checkpoint reconciliation changed');",
+      "after": "  for(const [record,name] of [[publication,publicationName],[verification,verificationName]]) assert.equal(phaseOutput(record,name,'request.json').helper_sha256,PIN.historySha,'Checkpoint phase used a different history compatibility helper');\n  const checkedIndex = request.checkpoint_stage === 'initial'\n    ? history.verifyInitialPublicationIndex(initial, before, path.join(repo.path, '.beads/checkpoint'), path.join(PIN.retention, 'original-files/checkpoint-raw'), path.join(PIN.retention, 'original-files/checkpoint'))\n    : history.verifyPublicationIndex(initial, before, path.join(repo.path, '.beads/checkpoint'));\n  equal(checkedIndex, reconciliation, 'Staged checkpoint reconciliation changed');",
+      "occurrences": 1
+    }
+  ]
+}

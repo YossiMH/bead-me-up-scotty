@@ -1,0 +1,212 @@
+{
+  "schema_version": 1,
+  "status": "author-inspections-passed",
+  "author": "/root/backend_audit",
+  "task_scope": "Existing preserve-and-clean execution correction; no product code, PC calls or canonical task-store writes.",
+  "source_frozen": true,
+  "source_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+  "publisher_sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+  "passes": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "scope": "Complete resulting history/publisher source and exact borrowed-envelope comparison",
+      "findings_resolved": [
+        "The observed raw originals require both byte-exact CRLF preservation and a canonical Git-derived native source; no original file/config rewrite occurs before supported init/restore.",
+        "The initial pointer proof permits only preserved original current bytes staged as their exact canonical Git blob. Every other changed file, unrelated index entry and final generation retains strict proof.",
+        "Git configuration is checked before/after each phase and against preserve across all later phases; shared gitState shape is unchanged.",
+        "Every native restore supplies actor, UUID/generation and exact source pins; original DB/sidecar absence is checked again at the mutation boundary.",
+        "Canonical-original verification keeps its full portable corpus/audit checks and explicitly clears large temporary graphs before the continuation check."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "scope": "Independent second author reread of full resulting control flow, publishers, supervisors, qualifier, inert template, runbooks, actual raw evidence and recovery limitations",
+      "conclusions": [
+        "The complete history and publisher inverse records reproduce their accepted sources exactly (22 and 3 transformations); the full 23-transformation qualifier forward derivation reproduces its complete frozen source exactly.",
+        "Both complete supervisor inversions are byte-identical to their accepted originals after only filename/dependency identity substitutions; C# and resource/cleanup bodies are unchanged.",
+        "All 66 actual commands,198 raw stream/exit files,215 embedded artifact records and two immutable original Git stdout references reconcile to the actual successful result.",
+        "All 1,009 issue scopes, original954 corpus and complete history, three resource locks, both native publications, final restore and ten focused refusal cases remain asserted.",
+        "Historical unsuccessful/lost attempts are not promoted into pass results. Run4's abort cause remains unconfirmed. The fresh accepted-candidate run has its own exact invocation/source/stream/result identities.",
+        "The complete1,671-file closure stays local through independent review. The small durable bundle embeds command/audit evidence and references reproducible scenario snapshots by exact hashes without promising fresh byte-identical timestamps/IDs.",
+        "Future Windows phase results, exact ordinary PS5.1 parse and independent acceptance remain pending; all future template receipts/attestations stay unset."
+      ]
+    }
+  ],
+  "qualification": {
+    "status": "passed",
+    "result": "qualification-result.json",
+    "result_sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03",
+    "invocation": "qualification-run-5/invocation.json",
+    "exit": "qualification-run-5/exit.json",
+    "node_version": "v25.2.1",
+    "node_max_old_space_mib": 128,
+    "outer_duration_ms": 57545,
+    "exit_code": 0,
+    "actual_task_acceptance": false
+  },
+  "evidence_contract": {
+    "manifest": "qualification-evidence.json",
+    "manifest_sha256": "47f9d39a7ab3e076ac8d6cb0554eff429be605eebe1fd3da23133a49916d8cf4",
+    "command_count": 66,
+    "raw_command_files": 198,
+    "embedded_files": 215,
+    "immutable_original_git_stdout_files": 2,
+    "fixture_file_count": 1671,
+    "full_snapshots": "Local-only through independent review; exact hashes retained; scenario reproduction is not a byte-identical receipt/ID/time guarantee."
+  },
+  "ordinary_windows_ps51_parse": "Pending root receipt for these exact two supervisor files.",
+  "independent_source_and_actual_qualification_review": "Pending /root/frontend_audit.",
+  "worktree_cleanup": "Ordinary named packet, no new Git worktree registration; exact cloud fixture and successor cleanup in CLEANUP.md.",
+  "pc_executed": false,
+  "canonical_task_mutations": false,
+  "main_or_transfer_pushes_by_author": false,
+  "frozen_utc": "2026-11-27T11:10:20.212507+00:00",
+  "files": {
+    "CLEANUP.md": {
+      "bytes": 2930,
+      "sha256": "d56a070b505eb87ed8b2898b84e89b2a7a1a737638fb5a2ee63cb1dbf0dd1b49"
+    },
+    "README.md": {
+      "bytes": 12303,
+      "sha256": "ebc2bbf793157c331ae1a706289033379f39539fc08aa0fdac18bc4bceed0115"
+    },
+    "author-checks.json": {
+      "bytes": 2952,
+      "sha256": "5c23bf81fcc8fa19309f067064d16fa49b5c30dea9bd62b289d3518f03fc36c9"
+    },
+    "author-notes.json": {
+      "bytes": 4520,
+      "sha256": "483f2966f8f92b651f4038ec98051584932b06f57680e56899e04e158d0956c5"
+    },
+    "check-packet.py": {
+      "bytes": 5436,
+      "sha256": "c71959de1028dcbeefcbba98b4d0ad93971efd19ee15b81da48cedc8af3ea431"
+    },
+    "checkpoint-only-handoff-crlf-20261127.mjs": {
+      "bytes": 84410,
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+    },
+    "checkpoint-only-handoff-crlf-supervisor-20261127.ps1": {
+      "bytes": 19195,
+      "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+    },
+    "derive-candidate.py": {
+      "bytes": 10159,
+      "sha256": "812b36540f4b3dd20295d0989b577dae3bc8c62ce4bf213c87c6c1704e1269b8"
+    },
+    "derive-qualification.py": {
+      "bytes": 9963,
+      "sha256": "e3e416142032d9ad43eb6b0887c15ba50be23eda8f4e5b16072fc8a1a32bfda4"
+    },
+    "evidence/qualification-raw-001.b64": {
+      "bytes": 524289,
+      "sha256": "e4fb08879441d46bcc42ba4c71520a16c91b4b860f9f7fdb72ee3c0ae8154fa9"
+    },
+    "evidence/qualification-raw-002.b64": {
+      "bytes": 524289,
+      "sha256": "70f827136a6fe46a443738f81fb4d73b80b6122c38eb51632a2fd605cbc87fcc"
+    },
+    "evidence/qualification-raw-003.b64": {
+      "bytes": 524289,
+      "sha256": "241e56b4243de88aebd48f9c06240de4fd3273a6a94bc75fb4ebcf484450bda2"
+    },
+    "evidence/qualification-raw-004.b64": {
+      "bytes": 524289,
+      "sha256": "fd7ca1d52ec8988df0e0fd4c2d93aa4cc9b3cf8068064290747bd799a33aa3bd"
+    },
+    "evidence/qualification-raw-005.b64": {
+      "bytes": 524289,
+      "sha256": "ebcb7b8ca1ccd63fdda0b25bc526e06203b8ed634cc08f6854c79827a3509419"
+    },
+    "evidence/qualification-raw-006.b64": {
+      "bytes": 134949,
+      "sha256": "0446519a86240cdfc1bcd6ed00ef5fc275f56a94fc264b3c1159609ace6d9fe4"
+    },
+    "fixture-config.json": {
+      "bytes": 123,
+      "sha256": "5eca31e8f37cc9a6ff178452c20d11f10396e0a8835f94777705ed67dc63a3da"
+    },
+    "fixture-object-fetch-command.json": {
+      "bytes": 2927,
+      "sha256": "4da3ab1008d9b2680ef1158814f17217d5ce49f2233ee28a9dbd3554b7ec8b3c"
+    },
+    "fixture-object-fetch.stderr": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "fixture-object-fetch.stdout": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "history-request.template.json": {
+      "bytes": 3154,
+      "sha256": "61a4b9d0509b0b726daee7d2e36e5c0a741c9f6b315118c55b17ec5689f53f6f"
+    },
+    "history-transformations.json": {
+      "bytes": 24679,
+      "sha256": "3808369a16a3c0d8643a1f8e4036628e2f8399b02203e5ffb4cc95437b6f11b5"
+    },
+    "parts.json": {
+      "bytes": 13928,
+      "sha256": "c8634e77bb0fe65a2bda687e62e146e77a92207767d1ac002bcceb6447ea59f1"
+    },
+    "publish-reviewed-git-crlf-20261127.mjs": {
+      "bytes": 45087,
+      "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13"
+    },
+    "publish-reviewed-git-crlf-supervisor-20261127.ps1": {
+      "bytes": 20108,
+      "sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52"
+    },
+    "publisher-transformations.json": {
+      "bytes": 1406,
+      "sha256": "f76e71919ec89744259818b474cc07059f97dd79c22293f17c3463adafcfa243"
+    },
+    "qualification-evidence.json": {
+      "bytes": 684522,
+      "sha256": "47f9d39a7ab3e076ac8d6cb0554eff429be605eebe1fd3da23133a49916d8cf4"
+    },
+    "qualification-fixture.txt": {
+      "bytes": 4139,
+      "sha256": "ff0af5136e2b3fafe0f3c937fcc5e7b9badf979d3f8293422d5235a8f8b4cbbb"
+    },
+    "qualification-result.json": {
+      "bytes": 27250,
+      "sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03"
+    },
+    "qualification-run-5/exit.json": {
+      "bytes": 1661,
+      "sha256": "a4bd71f600219ec382ba13bd768d26d0f38d929be4a463da8e6f51c8e357991b"
+    },
+    "qualification-run-5/invocation.json": {
+      "bytes": 1394,
+      "sha256": "4b86f7487b12146097617c5a9cf1290b846c94eba9c3a6f7a28ddd3bbfb8edd4"
+    },
+    "qualification-run-5/stderr": {
+      "bytes": 166,
+      "sha256": "9288dc6d1347f8b0dea5f35facd043eaeb4742ab21724e92f424a2358ce4b345"
+    },
+    "qualification-run-5/stdout": {
+      "bytes": 88,
+      "sha256": "19668f5e1979a13073a9f24e3acfab76f35dc7d477ae8f73d4c7cd1307d2c357"
+    },
+    "qualification-transformations.json": {
+      "bytes": 15729,
+      "sha256": "f00f717d7ab2866538520518353e05e45f3155d08f95beba5f238a653b36942f"
+    },
+    "qualify-checkpoint-crlf.mjs": {
+      "bytes": 21571,
+      "sha256": "b49eadb52032d32e439680af961e392a33f7207d8affebfb0f62e4daaf441d1b"
+    },
+    "recovery-provenance.json": {
+      "bytes": 2676,
+      "sha256": "55a605b828878c2a6d7bede0a3e7751b74428fff57659e1420d61e168a8e68a2"
+    },
+    "run-qualification.py": {
+      "bytes": 2297,
+      "sha256": "6d0802128d9bff5378c47a6ee0a89c70fe1b75c51f7ba1fe8cedac0ef826da8b"
+    }
+  }
+}

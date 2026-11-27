@@ -1,0 +1,121 @@
+{
+  "source_sha256": "5023568ee13227573a660274ea0f531748273e6828ebd6fb1ac8e9cb40d617bb",
+  "changes": [
+    {
+      "before": "  parseIndexEntries, verifyPublicationIndex,",
+      "after": "  parseIndexEntries, verifyPublicationIndex, ORIGINAL_CHECKOUT, originalManifest,\n  verifyOriginalCheckout, verifyOriginalRetention, verifyOriginalRawPromotion, verifyInitialPublicationIndex,",
+      "occurrences": 1
+    },
+    {
+      "before": "./checkpoint-only-handoff-20261127.mjs",
+      "after": "./checkpoint-only-handoff-crlf-20261127.mjs",
+      "occurrences": 2
+    },
+    {
+      "before": "assert.equal(process.argv.slice(2).length,10);",
+      "after": "assert.equal(process.argv.slice(2).length,12);\nassert.equal(process.version,'v25.2.1');assert.ok(process.execArgv.includes('--max-old-space-size=128'));\nconst repository=path.resolve(options.repository);",
+      "occurrences": 1
+    },
+    {
+      "before": "const run=(cwd,args,label,{git=false,json=true}={})=>{",
+      "after": "const run=(cwd,args,label,{git=false,json=true,expectFailure=false}={})=>{",
+      "occurrences": 1
+    },
+    {
+      "before": "  assert.equal(result.error,undefined);assert.equal(result.status,0,label);",
+      "after": "  assert.equal(result.error,undefined);if(expectFailure)assert.notEqual(result.status,0,label);else assert.equal(result.status,0,label);\n  if(expectFailure)return result.stderr.toString('utf8');",
+      "occurrences": 1
+    },
+    {
+      "before": "  const before=hash(indexPath);\n  const value=",
+      "after": "  const before=hash(indexPath),entries={};\n  for(const row of git(cwd,['ls-tree','-r','-l','-z','HEAD:.beads/checkpoint'],label+'-tree-entries').split('\\0').filter(Boolean)){\n    const match=/^(100644) blob ([a-f0-9]{40}) +([0-9]+)\\t(.+)$/.exec(row);assert.ok(match);entries[match[4]]={mode:match[1],blob:match[2],bytes:Number(match[3])};\n  }\n  const value=",
+      "occurrences": 1
+    },
+    {
+      "before": "    entries:git(cwd,['ls-tree','-r','-l','-z','HEAD:.beads/checkpoint'],label+'-tree-entries'),index_path:indexPath,index_sha256:before,",
+      "after": "    entries,index_path:indexPath,index_sha256:before,",
+      "occurrences": 1
+    },
+    {
+      "before": "  const originalBefore=checkpoint(original);",
+      "after": "  let originalBefore=checkpoint(original);const originalFingerprint=digest(originalBefore);",
+      "occurrences": 1
+    },
+    {
+      "before": "  const sourceCheckpoint=path.join(source,'.beads/checkpoint'),incoming=checkpoint(sourceCheckpoint),sourceDB=",
+      "after": "  let sourceCheckpoint=path.join(source,'.beads/checkpoint'),incoming=checkpoint(sourceCheckpoint),sourceDB=",
+      "occurrences": 1
+    },
+    {
+      "before": "  const target=makeWorkspace('checkpoint-only-original');const targetCheckpoint=path.join(target,'.beads/checkpoint');fs.mkdirSync(targetCheckpoint);\n  for(const relative of Object.keys(originalBefore.files)){const dest=path.join(targetCheckpoint,relative);fs.mkdirSync(path.dirname(dest),{recursive:true});fs.copyFileSync(path.join(original,relative),dest);}\n  fs.writeFileSync(path.join(target,'.beads/.gitignore'),'beads.db*\\ncheckpoint/publish.lock\\n');fs.writeFileSync(path.join(target,'unrelated.txt'),'Unrelated Git entry must survive native recovery.\\n');\n  git(target,['init','--quiet'],'target-git-init');git(target,['config','user.name','Checkpoint qualification'],'target-git-name');git(target,['config','user.email','checkpoint-qualification@example.invalid'],'target-git-email');\n  git(target,['config','core.autocrlf','false'],'target-git-autocrlf');git(target,['add','--','.beads/config.json','.beads/.gitignore','.beads/checkpoint','unrelated.txt'],'target-git-add');git(target,['commit','--quiet','-m','Preserve original checkpoint fixture'],'target-git-commit');\n  const gitBefore=indexState(target,'before');fs.copyFileSync(gitBefore.index_path,path.join(output,'original-index'));\n",
+      "after": "  const target=makeWorkspace('checkpoint-only-original'),targetCheckpoint=path.join(target,'.beads/checkpoint');\n  git(target,['init','--quiet'],'target-git-init');git(target,['config','user.name','Checkpoint qualification'],'target-git-name');git(target,['config','user.email','checkpoint-qualification@example.invalid'],'target-git-email');\n  git(target,['config','core.autocrlf','true'],'target-git-autocrlf');\n  const objectDirectory=fs.realpathSync(path.join(repository,'.git/objects'));assert.ok(fs.statSync(objectDirectory).isDirectory());\n  fs.writeFileSync(path.join(target,'.git/objects/info/alternates'),objectDirectory+'\\n',{flag:'wx'});\n  fs.writeFileSync(path.join(target,'.beads/.gitignore'),'beads.db*\\ncheckpoint/publish.lock\\n');\n  fs.writeFileSync(path.join(target,'unrelated.txt'),'Unrelated Git entry must survive native recovery.\\n');\n  git(target,['add','--','.beads/config.json','.beads/.gitignore','unrelated.txt'],'target-git-add-unrelated');\n  // Reuse the exact complete original checkpoint tree without checking out or\n  // building unrelated product source. All 53 immutable blobs are present.\n  git(target,['read-tree','--prefix=.beads/checkpoint/',PIN.originalCheckpointTree],'target-read-original-tree');\n  git(target,['checkout-index','--all','--force'],'target-checkout-original-tree');\n  git(target,['commit','--quiet','-m','Preserve exact original checkpoint fixture'],'target-git-commit');\n  const gitBefore=indexState(target,'before');assert.equal(gitBefore.checkpoint_tree,PIN.originalCheckpointTree);\n  assert.equal(Object.keys(gitBefore.entries).length,53);fs.copyFileSync(gitBefore.index_path,path.join(output,'original-index'));\n  const gitConfigHash=hash(path.join(target,'.git/config')),rawManifest=verifyOriginalCheckout(targetCheckpoint);\n  const rawRetained=path.join(output,'original-raw-retained'),canonicalRetained=path.join(output,'original-canonical-retained');\n  fs.mkdirSync(rawRetained);fs.mkdirSync(canonicalRetained);let selectedNumber=0;\n  for(const [relative,item] of Object.entries(ORIGINAL_CHECKOUT)){\n    const rawFile=path.join(rawRetained,relative),canonicalFile=path.join(canonicalRetained,relative);\n    fs.mkdirSync(path.dirname(rawFile),{recursive:true});fs.mkdirSync(path.dirname(canonicalFile),{recursive:true});\n    fs.copyFileSync(path.join(targetCheckpoint,relative),rawFile);\n    const label='canonical-blob-'+(++selectedNumber);git(target,['cat-file','blob',item.blob],label);fs.copyFileSync(path.join(output,label+'.stdout'),canonicalFile);\n  }\n  save('original-retention-proof.json',verifyOriginalRetention(rawRetained,canonicalRetained,gitBefore.entries));\n  {\n    let canonicalOriginal=checkpoint(canonicalRetained);equal(canonicalOriginal,originalBefore);\n    let canonicalPrevious=checkpoint(canonicalRetained,'previous.json');save('canonical-previous.json',{pointer:canonicalPrevious.pointer,files:canonicalPrevious.files});canonicalPrevious=null;\n    const rejectedTarget=makeWorkspace('raw-original-refusal');\n    const rawError=run(rejectedTarget,['restore','--source',rawRetained,'--generation',PIN.originalGeneration,'--actor',PIN.restoreActor,'--prefix','beadrs','--format','json'],'raw-original-restore-refused',{json:false,expectFailure:true});\n    assert.match(rawError,/hash|checksum|digest|content.addressed/i);requireAbsentDatabase(path.join(rejectedTarget,'.beads'));\n    const canonicalTarget=makeWorkspace('canonical-original-restore-check');\n    const canonicalRestoration=nativeRestore(canonicalTarget,canonicalRetained,canonicalOriginal,PIN.restoreActor,'canonical-original-restore');\n    let canonicalRestored=checkpoint(path.join(canonicalTarget,'.beads/checkpoint'));\n    save('canonical-original-audit.json',verifyRestoredCorpus(canonicalOriginal,canonicalRestored,canonicalRestoration.report,PIN.restoreActor));\n    aligned(canonicalTarget,canonicalRestored,'canonical-original-status');\n    canonicalOriginal=null;canonicalRestored=null;\n  }\n  equal(verifyOriginalCheckout(targetCheckpoint),rawManifest);equal(indexState(target,'after-canonical-check'),gitBefore);assert.equal(hash(path.join(target,'.git/config')),gitConfigHash);\n\n",
+      "occurrences": 1
+    },
+    {
+      "before": "  equal(checkpoint(targetCheckpoint).files,originalBefore.files);assert.equal(hash(path.join(target,'.beads/config.json')),configHash);equal(indexState(target,'after-init'),gitBefore);",
+      "after": "  equal(verifyOriginalCheckout(targetCheckpoint),rawManifest);assert.equal(hash(path.join(target,'.beads/config.json')),configHash);equal(indexState(target,'after-init'),gitBefore);",
+      "occurrences": 1
+    },
+    {
+      "before": "  const recovered=checkpoint(targetCheckpoint),restoredDB=",
+      "after": "  let recovered=checkpoint(targetCheckpoint),restoredDB=",
+      "occurrences": 1
+    },
+    {
+      "before": "  verifyPromotedPrevious(originalBefore,checkpoint(targetCheckpoint,'previous.json'));aligned(target,recovered,'target-status');",
+      "after": "  save('raw-promotion-proof.json',verifyOriginalRawPromotion(targetCheckpoint,rawRetained,canonicalRetained,gitBefore.entries));aligned(target,recovered,'target-status');",
+      "occurrences": 1
+    },
+    {
+      "before": "  const gitAfter=indexState(target,'after-restore');const staging=verifyPublicationIndex(gitBefore,gitAfter,targetCheckpoint);",
+      "after": "  const gitAfter=indexState(target,'after-restore');const staging=verifyInitialPublicationIndex(gitBefore,gitAfter,targetCheckpoint,rawRetained,canonicalRetained);",
+      "occurrences": 1
+    },
+    {
+      "before": "unrelated.index_entries['unrelated.txt'].blob='0'.repeat(40);assert.throws(()=>verifyPublicationIndex(gitBefore,unrelated,targetCheckpoint),/unrelated index entry/);",
+      "after": "unrelated.index_entries['unrelated.txt'].blob='0'.repeat(40);assert.throws(()=>verifyInitialPublicationIndex(gitBefore,unrelated,targetCheckpoint,rawRetained,canonicalRetained),/unrelated index entry/);",
+      "occurrences": 1
+    },
+    {
+      "before": "  const changedEvent=structuredClone(recovered);changedEvent.corpus.event[PIN.uuid+':1']='0'.repeat(64);assert.throws(()=>verifyRestoredCorpus(incoming,changedEvent,recovery.report,PIN.actor),/Missing\\/changed event/);\n",
+      "after": "",
+      "occurrences": 1,
+      "offset": 16774
+    },
+    {
+      "before": "  // Exercise the later ordinary flush after the sole cleanup mutation.",
+      "after": "  assert.throws(()=>verifyPublicationIndex(gitBefore,gitAfter,targetCheckpoint),/Staged checkpoint bytes differ/,'The old strict initial verifier must demonstrate the actual CRLF mismatch');\n  const wrongBlob=structuredClone(gitAfter);wrongBlob.index_entries['.beads/checkpoint/previous.json'].blob='0'.repeat(40);\n  assert.throws(()=>verifyInitialPublicationIndex(gitBefore,wrongBlob,targetCheckpoint,rawRetained,canonicalRetained),/exact canonical original current blob/);\n  const rawCurrent=fs.readFileSync(path.join(rawRetained,'current.json'));fs.appendFileSync(path.join(rawRetained,'current.json'),' ');\n  assert.throws(()=>verifyOriginalRetention(rawRetained,canonicalRetained,gitBefore.entries),/Observed original CRLF checkpoint bytes changed/);\n  fs.writeFileSync(path.join(rawRetained,'current.json'),rawCurrent);\n  const newCurrent=fs.readFileSync(path.join(targetCheckpoint,'current.json')),expandedCurrent=Buffer.from(newCurrent.toString('utf8').replaceAll('\\n','\\r\\n'));\n  assert.notEqual(digest(expandedCurrent),digest(newCurrent),'Refusal fixture must actually change bytes');fs.writeFileSync(path.join(targetCheckpoint,'current.json'),expandedCurrent);\n  assert.throws(()=>verifyInitialPublicationIndex(gitBefore,gitAfter,targetCheckpoint,rawRetained,canonicalRetained),/Staged checkpoint bytes differ/,'New native files cannot use the old previous exception');\n  fs.writeFileSync(path.join(targetCheckpoint,'current.json'),newCurrent);\n  let changedEvent={...recovered,corpus:{...recovered.corpus,event:{...recovered.corpus.event,[PIN.uuid+':1']:'0'.repeat(64)}}};\n  assert.throws(()=>verifyRestoredCorpus(incoming,changedEvent,recovery.report,PIN.actor),/Missing\\/changed event/);changedEvent=null;\n  assert.equal(hash(path.join(target,'.git/config')),gitConfigHash);\n  save('initial-index-refusals.json',{status:'passed',cases:['old-strict-verifier','wrong-previous-blob','changed-preserved-pointer','new-current-normalization','unrelated-index-entry','changed-source-event']});\n  const fixtureSummary={incoming_counts:{issues:incoming.pointer.issue_count,events:incoming.pointer.event_count,receipts:incoming.pointer.receipt_count,outcomes:incoming.pointer.attempt_outcome_count},recovered_local_sequence:recovered.pointer.snapshot_sequence,resource_locks_reconstructed:Object.keys(restoredDB.resourceLocks).length};\n  // Actual Windows phases end their processes here. Release last-used fixture\n  // graphs explicitly to reproduce those bounded lifetimes within this one run.\n  originalBefore=null;incoming=null;sourceDB=null;restoredDB=null;\n  // Exercise the later ordinary flush after the sole cleanup mutation.",
+      "occurrences": 1
+    },
+    {
+      "before": "equal(checkpoint(original),originalBefore)",
+      "after": "assert.equal(digest(checkpoint(original)),originalFingerprint)",
+      "occurrences": 2
+    },
+    {
+      "before": "  verifyPublicationIndex(beforeCleanup,indexState(target,'after-final-flush'),targetCheckpoint);",
+      "after": "  const finalGit=indexState(target,'after-final-flush');save('final-staging-reconciliation.json',verifyPublicationIndex(beforeCleanup,finalGit,targetCheckpoint));\n  assert.throws(()=>verifyInitialPublicationIndex(beforeCleanup,finalGit,targetCheckpoint,rawRetained,canonicalRetained),/immutable original tree/,'Initial exception is unavailable for the final generation');\n  assert.equal(hash(path.join(target,'.git/config')),gitConfigHash);recovered=null;",
+      "occurrences": 1
+    },
+    {
+      "before": "scope:'Disposable checkpoint-only recovery and final cleanup publication with exact public original corpus and synthetic accepted-plan shape'",
+      "after": "scope:'Disposable actual-CRLF original recovery, canonical old-generation restore and both native publications with exact 53-object original tree and synthetic accepted-plan shape'",
+      "occurrences": 1
+    },
+    {
+      "before": "    original_counts:{issues:954",
+      "after": "    exec_argv:process.execArgv,node_version:process.version,observed_original_raw_manifest:rawManifest,canonical_original_manifest:originalManifest(false),core_autocrlf:'true',git_config_unchanged:true,\n    original_counts:{issues:954",
+      "occurrences": 1
+    },
+    {
+      "before": "incoming_counts:{issues:incoming.pointer.issue_count,events:incoming.pointer.event_count,receipts:incoming.pointer.receipt_count,outcomes:incoming.pointer.attempt_outcome_count},\n    recovered_local_sequence:recovered.pointer.snapshot_sequence,restore_added_events:1,restore_added_receipts:1,resource_locks_reconstructed:Object.keys(restoredDB.resourceLocks).length,",
+      "after": "incoming_counts:fixtureSummary.incoming_counts,\n    recovered_local_sequence:fixtureSummary.recovered_local_sequence,restore_added_events:1,restore_added_receipts:1,resource_locks_reconstructed:fixtureSummary.resource_locks_reconstructed,",
+      "occurrences": 1
+    },
+    {
+      "before": "original_pointer_preserved_as_previous:true,final_flush_and_restore_passed:true,focused_refusals:4",
+      "after": "original_raw_pointer_preserved_as_previous:true,raw_original_restore_refused:true,canonical_original_restore_passed:true,initial_previous_only_normalization_verified:true,final_flush_and_restore_passed:true,focused_refusals:10",
+      "occurrences": 1
+    }
+  ]
+}

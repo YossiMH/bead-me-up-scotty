@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "reconstructed_pending_independent_review",
+  "old_candidate_bytes_recovered": false,
+  "current_source_regenerated_from": "Exact accepted ff1597/1dd2 history and3c464/a36a publisher plus retained transformation/tool-call text; current source has new identities and explicit graph-lifetime releases.",
+  "old_raw_attempt_files": "Lost when the cloud filesystem changed. Only the following previously observed tool metadata is retained; these are not recreated original receipts.",
+  "attempts": [
+    {
+      "attempt": 1,
+      "started_utc": "2026-11-27T10:40:40.255222+00:00",
+      "duration_ms": 14480,
+      "exit_code": 1,
+      "stderr_sha256": "ac4fdd1d9ef3ce92e4738cba70449ad6231987c64703d828099e5ed4c5c628a0",
+      "observed_failure": "Negative raw-source fixture omitted required --actor and rejected the wrong failure reason.",
+      "accepted": false
+    },
+    {
+      "attempt": 2,
+      "started_utc": "2026-11-27T10:42:03.129437+00:00",
+      "duration_ms": 48016,
+      "exit_code": 1,
+      "stderr_sha256": "d02fe85650d1b50996475e870fac34821fe1da5f91a85b3cd5db372f6fdcca98",
+      "observed_failure": "Negative fixture replaced literal escape text rather than LF bytes, so assert.throws correctly failed when the intended mutation did not occur.",
+      "accepted": false
+    },
+    {
+      "attempt": 3,
+      "started_utc": "2026-11-27T10:43:49.809397+00:00",
+      "duration_ms": 62792,
+      "exit_code": -6,
+      "stderr_sha256": "9509c8e9240a92058f6dd25b9d17abc660bb42c25a62c98e0b10311db4bb37e4",
+      "observed_failure": "Retained stderr showed V8 heap exhaustion at128MiB; the last inspected receipt names included final-check-restore and final-check-status. No complete qualification accepted.",
+      "accepted": false
+    },
+    {
+      "attempt": 4,
+      "started_utc": "2026-11-27T10:46:34.428712+00:00",
+      "duration_ms": 62240,
+      "exit_code": -6,
+      "stderr_sha256": "ada67c3d7077a04379859b30168e6b88793237b184f97e855a42dd8ad4f0e95c",
+      "observed_failure": null,
+      "limitation": "Only process exit metadata/hash was returned before access changed. Stderr text and last command receipts were not inspected; cause and completed phases are unconfirmed.",
+      "accepted": false
+    }
+  ],
+  "current_attempt": 5,
+  "current_actual_result_sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03",
+  "current_actual_source_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+  "current_qualifier_sha256": "b49eadb52032d32e439680af961e392a33f7207d8affebfb0f62e4daaf441d1b",
+  "source_parts_checkpointed_in_V8": true,
+  "pc_executed": false
+}

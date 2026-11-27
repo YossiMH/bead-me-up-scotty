@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T11:12:18.877095+00:00",
+  "scope": "Independent integrity reconstruction and raw snapshot comparison of existing qualification evidence; no native or qualifier execution.",
+  "evidence": {
+    "bytes": 684522,
+    "sha256": "47f9d39a7ab3e076ac8d6cb0554eff429be605eebe1fd3da23133a49916d8cf4"
+  },
+  "parts_verified": 6,
+  "gzip_bytes": 2067289,
+  "gzip_sha256": "139a9cee5921dc7a5d86c89e6f8578cc7fa55c06f28b035343f282419a77a914",
+  "payload_bytes": 6986050,
+  "payload_sha256": "b1128b496c6959a459b57b19c5ef3853fda50421927f93e7338bd64f5d5dc86f",
+  "embedded_files_verified": 215,
+  "embedded_raw_bytes_verified": 5233900,
+  "immutable_git_stdout_verified": {
+    "canonical-blob-3.stdout": {
+      "repository": "YossiMH/bead-rs",
+      "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "path": ".beads/checkpoint/objects/4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d.jsonl",
+      "git_blob": "2420cbad33c4df58a98c17eb3161be02b65cc8bc"
+    },
+    "canonical-blob-4.stdout": {
+      "repository": "YossiMH/bead-rs",
+      "commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "path": ".beads/checkpoint/objects/5711cb1301c4de33554b7df0ea3c9fb7bec4b9cc8108b47108b2fb53fac1936f.jsonl",
+      "git_blob": "ed7e25648c4ce861626c9df0e3d23814597dd9f9"
+    }
+  },
+  "local_files_verified": 1671,
+  "local_raw_bytes_verified": 120336193,
+  "all_hash_indexed_local_files_match_actual_bytes": true,
+  "result": {
+    "bytes": 27250,
+    "sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03"
+  },
+  "command_count": 66,
+  "ordinary_exit_zero": 65,
+  "intentional_raw_restore_refusal_exit": 5,
+  "all198_command_records_retained": true,
+  "outer_duration_ms": 57545,
+  "qualifier_duration_ms": 57213,
+  "node_old_space_mib": 128,
+  "independent_snapshot_comparison": {
+    "all_issue_rows_equal": 1009,
+    "all_issue_scopes_equal": 1009,
+    "table_issue_comparisons": 10090,
+    "resource_lock_owners_preserved": 3,
+    "resource_lock_fencing_null": true,
+    "resource_lock_times_recreated": [
+      {
+        "resource_key": "src/scan",
+        "before_acquired_at": "2026-11-27T10:58:55.227584004Z",
+        "after_acquired_at": "2026-11-27T10:59:22.295886165Z"
+      },
+      {
+        "resource_key": "src/service/checkpoint",
+        "before_acquired_at": "2026-11-27T10:58:55.237194553Z",
+        "after_acquired_at": "2026-11-27T10:59:22.310995158Z"
+      },
+      {
+        "resource_key": "src/service/recovery",
+        "before_acquired_at": "2026-11-27T10:58:55.237194553Z",
+        "after_acquired_at": "2026-11-27T10:59:22.310995158Z"
+      }
+    ],
+    "prior_events_and_receipts_preserved": true,
+    "exactly_one_restore_event_and_receipt_added": true
+  },
+  "retention_limit": "The215 embedded files plus2 immutable Git stdout references retain every command stream/exit and selected top-level audits. Full1671-file fixture content and two complete DB snapshots are locally hash-indexed through this review; exact remote full-snapshot retention or fresh byte-identical reproduction is not claimed.",
+  "pc_executed": false,
+  "actual_task_acceptance": false,
+  "temporary_review_cache": "/tmp/frontend-crlf-review-cache",
+  "cleanup": "Remove only the review cache after this integrity record is retained; coordinate fixture/tool cleanup with root and backend after their retention gates."
+}

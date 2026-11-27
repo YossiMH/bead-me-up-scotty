@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "author-inspections-passed",
+  "author": "/root/backend_audit",
+  "task_scope": "Existing preserve-and-clean execution correction; no product code, PC calls or canonical task-store writes.",
+  "source_frozen": true,
+  "source_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+  "publisher_sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+  "passes": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "scope": "Complete resulting history/publisher source and exact borrowed-envelope comparison",
+      "findings_resolved": [
+        "The observed raw originals require both byte-exact CRLF preservation and a canonical Git-derived native source; no original file/config rewrite occurs before supported init/restore.",
+        "The initial pointer proof permits only preserved original current bytes staged as their exact canonical Git blob. Every other changed file, unrelated index entry and final generation retains strict proof.",
+        "Git configuration is checked before/after each phase and against preserve across all later phases; shared gitState shape is unchanged.",
+        "Every native restore supplies actor, UUID/generation and exact source pins; original DB/sidecar absence is checked again at the mutation boundary.",
+        "Canonical-original verification keeps its full portable corpus/audit checks and explicitly clears large temporary graphs before the continuation check."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "scope": "Independent second author reread of full resulting control flow, publishers, supervisors, qualifier, inert template, runbooks, actual raw evidence and recovery limitations",
+      "conclusions": [
+        "The full inverse records reproduce each complete accepted source exactly:22 history transformations,3 publisher transformations,23 qualifier transformations.",
+        "Both complete supervisor inversions are byte-identical to their accepted originals after only filename/dependency identity substitutions; C# and resource/cleanup bodies are unchanged.",
+        "All 66 actual commands,198 raw stream/exit files,215 embedded artifact records and two immutable original Git stdout references reconcile to the actual successful result.",
+        "All 1,009 issue scopes, original954 corpus and complete history, three resource locks, both native publications, final restore and ten focused refusal cases remain asserted.",
+        "Historical unsuccessful/lost attempts are not promoted into pass results. Run4's abort cause remains unconfirmed. The fresh accepted-candidate run has its own exact invocation/source/stream/result identities.",
+        "The complete1,671-file closure stays local through independent review. The small durable bundle embeds command/audit evidence and references reproducible scenario snapshots by exact hashes without promising fresh byte-identical timestamps/IDs.",
+        "Future Windows phase results, exact ordinary PS5.1 parse and independent acceptance remain pending; all future template receipts/attestations stay unset."
+      ]
+    }
+  ],
+  "qualification": {
+    "status": "passed",
+    "result": "qualification-result.json",
+    "result_sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03",
+    "invocation": "qualification-run-5/invocation.json",
+    "exit": "qualification-run-5/exit.json",
+    "node_version": "v25.2.1",
+    "node_max_old_space_mib": 128,
+    "outer_duration_ms": 57545,
+    "exit_code": 0,
+    "actual_task_acceptance": false
+  },
+  "evidence_contract": {
+    "manifest": "qualification-evidence.json",
+    "manifest_sha256": "47f9d39a7ab3e076ac8d6cb0554eff429be605eebe1fd3da23133a49916d8cf4",
+    "command_count": 66,
+    "raw_command_files": 198,
+    "embedded_files": 215,
+    "immutable_original_git_stdout_files": 2,
+    "fixture_file_count": 1671,
+    "full_snapshots": "Local-only through independent review; exact hashes retained; scenario reproduction is not a byte-identical receipt/ID/time guarantee."
+  },
+  "ordinary_windows_ps51_parse": "Pending root receipt for these exact two supervisor files.",
+  "independent_source_and_actual_qualification_review": "Pending /root/frontend_audit.",
+  "worktree_cleanup": "Ordinary named packet, no new Git worktree registration; exact cloud fixture and successor cleanup in CLEANUP.md.",
+  "pc_executed": false,
+  "canonical_task_mutations": false,
+  "main_or_transfer_pushes_by_author": false
+}
