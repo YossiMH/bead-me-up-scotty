@@ -1,0 +1,114 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "frontend_audit",
+  "review_type": "Independent actual Windows private-index qualification acceptance",
+  "reviewed_utc": "2026-11-27T09:38:42.526951+00:00",
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/index-refresh-qualification-20261127-2889282bfcec/result.json",
+      "bytes": 30994,
+      "sha256": "4e22b2c03c24fb5dac788006fccd03262bf0d73080642cb4a49dfbdccac0ad07"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/index-refresh-qualification-20261127-2889282bfcec/prepared.index",
+      "bytes": 297,
+      "sha256": "0012ba3d018371ea4308ba2790431ce5b5754008329caa3810779a285a78b406"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/index-refresh-qualification-20261127-2889282bfcec/control.index",
+      "bytes": 297,
+      "sha256": "3085f5c703924b89936d5899e46e6cdd9a2fef8c7bc577e0ebcdb2ffd85cfc39"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/index-refresh-qualification-20261127-2889282bfcec/command-local-false.index",
+      "bytes": 297,
+      "sha256": "0012ba3d018371ea4308ba2790431ce5b5754008329caa3810779a285a78b406"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-fixture-execution.json",
+      "bytes": 34181,
+      "sha256": "58e2fd72c0989f53ead1a18c5bfd0b27c28577e83aee1e702e574f0c2d93fd94"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-fixture-command.json",
+      "bytes": 2359,
+      "sha256": "daf6a0c453b2190513596b07061da52319dd07459dea4abcdba08f9b63c7563b"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-fixture-ps51-parse.json",
+      "bytes": 283,
+      "sha256": "83d3da28c4bb09208d2f31907b34a6d27ba42336e4583531d8ee8ee36dc36f2d"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-installer-stage-and-qualification-readback.json",
+      "bytes": 44135,
+      "sha256": "81c445c97c8891646f2743c4322f001be4a501b468b61a04e1bc77bfae73fc44"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/index-refresh-windows-source-review.json",
+      "bytes": 6455,
+      "sha256": "2cdedd7db279e303d4e63d276907883d90a82488e0e6f1829f26869f04a5e94e"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-index-correction-source-review.json",
+      "bytes": 7205,
+      "sha256": "2f1510bbfae5e65e47e8da7d38d600bee4c72973cc536e5f284649e17eba396c"
+    }
+  ],
+  "actual": {
+    "started_utc": "2026-11-27T09:33:36.0201468Z",
+    "finished_utc": "2026-11-27T09:33:40.1015348Z",
+    "git_version": "git version 2.56.0.windows.4",
+    "duration_seconds": 4.08,
+    "peak_total_resident_bytes": 201297920,
+    "minimum_observed_free_physical_bytes": 4235161600,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": []
+  },
+  "checks": [
+    {
+      "name": "exact source, parser and lossless actual receipt",
+      "status": "passed",
+      "detail": "Actual helper SHA 269638d84252ff895cc5790687923a67f16ffa20ee0a650a502d15176935ad0c, Git SHA 20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c and accepted Job helper match the source packet. Windows PowerShell 5.1.26100.9818 AST parse has zero errors. Execution exits 0 with complete stdout, no dropped bytes and empty stderr. Both stdout JSON blocks match the retained parser/result records. The raw 30994-byte disk result SHA 4e22b2c03c24fb5dac788006fccd03262bf0d73080642cb4a49dfbdccac0ad07 equals the lossless stdout result block byte-for-byte and matches the recovered base64 record."
+    },
+    {
+      "name": "complete retained private-index semantics independently reconciled",
+      "status": "passed",
+      "detail": "Actual original-repository commands are only the expected private-index ls-files and immutable baseline ls-tree. All 273 entries are stage zero and exactly match baseline 55f17568be93442abc6e4725d3e159448e0c9ab5. Independently regenerated the complete mode/blob/stage/path stream from the cloud Git baseline: 21155 bytes, SHA 7e884b5e6449345a7f24d36f4adbc6a9206f19611041275b9865c39ec0e93f3d, identical to the actual Windows result. Original index SHA 8b9de62e05335aa677de1a20642f031883bd8a7e7ef6a878dda3337c0d6c9b5f and retained private SHA 13af66e5997b12b75d8ef920eb7e9310968ce5b7b676a1dcc8bc35a46278a887 remain unchanged before/after the comparison and at fixture completion."
+    },
+    {
+      "name": "default behavior reproduced on installed Windows Git",
+      "status": "passed",
+      "detail": "On git version 2.56.0.windows.4 with GIT_OPTIONAL_LOCKS=0 and explicit CRLF text attributes, default diff exits 0 but changes the 297-byte private index from 0012ba3d018371ea4308ba2790431ce5b5754008329caa3810779a285a78b406 to 3085f5c703924b89936d5899e46e6cdd9a2fef8c7bc577e0ebcdb2ffd85cfc39. Full entries and tree 642226cc249fef92114147875d777ad44f7c7979 remain identical."
+    },
+    {
+      "name": "one-command correction preserves exact bytes and refusal",
+      "status": "passed",
+      "detail": "The corrected -c diff.autoRefreshIndex=false diff exits 0 and retains the same 0012ba3d018371ea4308ba2790431ce5b5754008329caa3810779a285a78b406 index bytes through diff, ls-files and write-tree. Full mapping/tree matches the control and untracked count is zero. A deliberate content change produces the sole expected exit 1 while preserving private-index bytes. Original fixture HEAD/index and product indexes remain unchanged."
+    },
+    {
+      "name": "independent raw-index inspection",
+      "status": "passed",
+      "detail": "All three recovered tiny index files rehash to their reported identities and validate as DIRC version 2 with correct trailing SHA-1 checksums. Prepared and corrected files are byte-identical. Control changes are limited to ctime, mtime and cached size for added.txt and tracked.txt; modes, blobs, paths, flags, the .gitattributes entry and index extensions are identical. This directly corroborates the reproduced stat-refresh mechanism."
+    },
+    {
+      "name": "bounded scope and normal owned cleanup",
+      "status": "passed",
+      "detail": "All 22 commands match the reviewed scope: two original-source reads and 20 disposable fixture/version calls, with one intentional changed-content refusal. Of 23 recorded owned children, 22 exit 0 and the expected negative Git exits 1; none is killed by the supervisor. Actual 4.08 seconds, 201297920-byte sampled aggregate peak and 4235161600-byte minimum free satisfy 60-second/256-MiB/1-GiB limits. The outer command admitted only at at least 3 GiB free, stronger than the helper minimum. No cleanup assistance, errors or remaining Job member is recorded."
+    },
+    {
+      "name": "new installer applicability",
+      "status": "passed",
+      "detail": "The qualified command is the sole driver change in independently source-accepted 5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5, with supervisor ebb659ca3f2f53ca81b8eb2ae42ca3f5b57cccfbc4acaff3fdecdcfc2527286c. The same readback confirms both exact new scripts staged at their reviewed lengths/hashes. This qualification satisfies the pending Windows correction gate while preserving every existing installer publication guard."
+    }
+  ],
+  "findings": [],
+  "qualification_accepted": true,
+  "installation_accepted": false,
+  "task_closure_accepted": false,
+  "next_gate": "Root may proceed to the narrowly reviewed fresh installer invocation, exact new-script AST parsing and current admission/preservation checks. The real installation result still requires independent acceptance.",
+  "retention": "Preserve both failed installer attempts and the tiny cloud/Windows qualification evidence through root-owned final cleanup; this receipt authorizes no deletion or replay.",
+  "scope": "Actual focused Git qualification and preserved-index acceptance only; no product execution, configured launch or installation success is claimed."
+}

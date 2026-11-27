@@ -610,8 +610,9 @@
     "script_sha256": "269638d84252ff895cc5790687923a67f16ffa20ee0a650a502d15176935ad0c",
     "source_review_sha256": "2cdedd7db279e303d4e63d276907883d90a82488e0e6f1829f26869f04a5e94e",
     "linux_result": "passed: default diff refreshes stat bytes; command-local false preserves them and still rejects changed content",
-    "windows_ps51_parse": "pending",
-    "windows_execution": "pending"
+    "windows_ps51_parse": "passed",
+    "windows_execution": "passed in4.08seconds; byte-preserving diff still rejects changed content",
+    "actual_review_sha256": "3322f796de72148fe2bf7132921dde7115f86ee9e5340b0eefb0b3803851f009"
   },
   "installation_index_correction": {
     "directory": "20261127/installation-index-correction",
@@ -619,8 +620,25 @@
     "supervisor_sha256": "ebb659ca3f2f53ca81b8eb2ae42ca3f5b57cccfbc4acaff3fdecdcfc2527286c",
     "independent_source_review_sha256": "2f1510bbfae5e65e47e8da7d38d600bee4c72973cc536e5f284649e17eba396c",
     "change": "One command-local diff.autoRefreshIndex=false argument preserves every original strict raw-index guard.",
-    "windows_qualification": "pending actual result acceptance",
-    "actual_installation": "not started",
+    "windows_qualification": "passed and independently accepted",
+    "actual_installation": "passed and independently accepted",
     "output": "F:/Dev/.bead-edit-20261111/install-v9-index-20261127-2889282bfcec"
+  },
+  "actual_installation_completed": {
+    "status": "passed",
+    "directory": "20261127/installation-completed",
+    "result_sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673",
+    "supervisor_result_sha256": "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760",
+    "independent_review_sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e",
+    "duration_seconds": 31.973,
+    "peak_total_resident_bytes": 418521088,
+    "minimum_observed_free_physical_bytes": 2436792320,
+    "cleanup_assisted": false,
+    "remaining_job_members": 0,
+    "preservation_readback_sha256": "56fb00855a15e1c6cc8e0033819efffd3c9b737db2b3bd2f6566dde11a359e8c",
+    "both_remote_mains_verified": true,
+    "application": "stopped",
+    "configured_launch": "pending",
+    "install_task_closure": "pending"
   }
 }

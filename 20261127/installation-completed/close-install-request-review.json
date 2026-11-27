@@ -1,0 +1,178 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "independent": true,
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T09:57:52.776959+00:00",
+  "scope": "Independent request/basis review for exactly one install closure using the unchanged revision9 generic closer. This does not claim the closure has executed.",
+  "evidence": [
+    {
+      "path": "close-install-accepted-20261127.json",
+      "bytes": 1156,
+      "sha256": "f3afe3b11c65eeaf7dce682b0eaef3f56f1924a4ddc3054315a9f68d378a849e"
+    },
+    {
+      "path": "continuation/20261125/revision-9/install-binding/plan.json",
+      "bytes": 419134,
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+    },
+    {
+      "path": "mapping-v9.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    {
+      "path": "continuation/20261127/results/binding-closure/result.json",
+      "bytes": 5859,
+      "sha256": "f3350c8bf03c810402ea0cf80464c2fd1249322b7c73f72715568ef831137775"
+    },
+    {
+      "path": "continuation/20261127/revision-9-execution/record-accepted-tasks-v9.mjs",
+      "bytes": 13438,
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3"
+    },
+    {
+      "path": "continuation/20261127/revision-9-execution/record-accepted-tasks-v9-supervisor.ps1",
+      "bytes": 17282,
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426"
+    },
+    {
+      "path": "reviews/binding-closure-actual-review.json",
+      "bytes": 10100,
+      "sha256": "e86806edd8680adcf8e471c7b2fbdafb4d2ec840203e605baa68647e49f05500"
+    },
+    {
+      "path": "reviews/installation-index-actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    }
+  ],
+  "request": {
+    "key": "install",
+    "id": "beadrs-0bab2976",
+    "expected_revision": 5,
+    "expected_status": "open",
+    "reason_length": 809,
+    "expected_result": {
+      "status": "closed",
+      "revision": 6
+    }
+  },
+  "prerequisites": [
+    {
+      "key": "reconcile",
+      "id": "beadrs-42379588",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "cloud-checks",
+      "id": "beadrs-fa756e78",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-check",
+      "id": "beadrs-08532231",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "status": "closed",
+      "revision": 4
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "status": "closed",
+      "revision": 6
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "status": "closed",
+      "revision": 3
+    },
+    {
+      "key": "checkpoint-repair-review",
+      "id": "beadrs-aee6eabb",
+      "status": "closed",
+      "revision": 3
+    },
+    {
+      "key": "checkpoint-linux-checks",
+      "id": "beadrs-50ff08d3",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "checkpoint-windows-checks",
+      "id": "beadrs-cd3f5a63",
+      "status": "closed",
+      "revision": 3
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "id": "beadrs-0890de3c",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "type-backend-review",
+      "id": "beadrs-83bf86f3",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "type-app-review",
+      "id": "beadrs-bd751f6e",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "type-windows-roundtrip",
+      "id": "beadrs-4cbebb4a",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "status": "closed",
+      "revision": 2
+    }
+  ],
+  "counts_before": {
+    "closed": 47,
+    "open": 8
+  },
+  "expected_counts_after": {
+    "closed": 48,
+    "open": 7
+  },
+  "expected_owned_ready": [
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 3
+    }
+  ],
+  "checks": [
+    "Request hashes bind the unchanged accepted55-task/91-edge revision9 plan and actual materialization. All55 actual continuation IDs from the latest accepted47/8 result exactly match mapping; install is open revision5 and the sole currently ready task.",
+    "All14 install prerequisites are closed. The independent actual installation acceptance supports every factual clause in the proposed reason, including original-file/index/environment preservation, final native/app/runtime/pin, published mains and normal bounded cleanup. The reason explicitly leaves configured launch pending.",
+    "The request contains only install. Simulating its guarded close yields48closed/7open and install revision6. The literal frozen graph then exposes configured-launch revision5 and installed-review revision3 as ready, because both depend directly on install. The installed-review acceptance must still await actual configured-launch evidence. No handoff, configured, review, original-history or cleanup task is closed by this request.",
+    "The generic driver and supervisor are byte-identical to accepted906ac53c/d2bb5362. At execution the driver checks all1009 live records, exact original954 inventory, all55 titles/descriptions/resources and91 edges, no active owner, expected revision/prerequisites, immutable inputs and unfrozen isolated authority. Native dry-run/precommit equality and a guarded single manifest commit precede complete poststate comparison.",
+    "Use a fresh reviewed request/output basename and the existing closer invocation. Actual closure result, request hash, complete returned55-state map and normal cleanup still need reconciliation. The installation review named in the close reason must be durably published before execution."
+  ],
+  "findings": []
+}

@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T09:56:01.923061+00:00",
+  "scope": "Narrow independent acceptance of the concrete configured-launch COM registration command after successful third-installation acceptance. This is invocation preparation, not an actual configured execution result.",
+  "evidence": [
+    {
+      "path": "configured-launch-invocation-index/configured-launch-com-command.actual.json",
+      "bytes": 8028,
+      "sha256": "0f2c62b716477653288a53503fd27b828757d6b2257bbd8547f9774aeb4c59c4"
+    },
+    {
+      "path": "configured-launch-invocation-index/configured-launch-com-command.template.json",
+      "bytes": 7979,
+      "sha256": "41cf0d08ba20e61862fc98d807eb4a11212f9408b2f9c4ceb69cc78ed8a5242d"
+    },
+    {
+      "path": "configured-launch-invocation-index/configured-launch-com-body.template.ps1",
+      "bytes": 6832,
+      "sha256": "3cf13be46cdefb68e55165f296b76455f93b9161869a4f595a47be9a91fbd938"
+    },
+    {
+      "path": "reviews/configured-launch-index-binding-review.json",
+      "bytes": 3771,
+      "sha256": "8df7115d4a56a689890718950cc385dc4144779f4821c75f552dae7f14591526"
+    },
+    {
+      "path": "reviews/configured-launch-com-invocation-review.json",
+      "bytes": 7960,
+      "sha256": "8b2489b885dfd3795a0aa5c616605ba8c58b34642523c754e38ce9562f91a5be"
+    },
+    {
+      "path": "reviews/installation-index-actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    },
+    {
+      "path": "pc-results/install-v9-index-20261127-2889282bfcec/install-result.json",
+      "bytes": 16086,
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+    },
+    {
+      "path": "pc-results/install-v9-index-20261127-2889282bfcec.supervisor/result.json",
+      "bytes": 61457,
+      "sha256": "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760"
+    }
+  ],
+  "checks": [
+    "The concrete8028-byte JSON is byte-for-byte the independently accepted template with exactly its two future result-hash placeholders replaced by the independently accepted raw installation SHAa2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673 and supervisor SHAab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760. No other byte changed; command length remains7007 characters.",
+    "The input paths address the successful install-v9-index-20261127-2889282bfcec attempt and enforce the exact5a638cb4/ebb659ca source pair, inner-to-outer linkage, successful stopped final source/runtime/pin, normal cleanup and accepted resource bounds. All values are supplied by the accepted raw files.",
+    "The previously reviewed direct one-PowerShell task action still pins configured helper8db39140, Job helper2758a6ff and installed native0431a828. It invokes the actual installed batch/default pin against a fresh owned workspace and isolated registry on port43972 with120seconds,512MiB and the helper\u2019s1GiB live guard.",
+    "Fresh admission still requires3GiB twice, expected logged-in user with Explorer session1, free port43972 and absent output/receipt/task. COM task enumeration includes hidden tasks; registration is create-only flag2, Limited run level0, BelowNormal priority7, no trigger and explicit RunEx session flag4/session1.",
+    "An exclusive durable receipt is written after registration and before RunEx. Existing or uncertain attempts require reconciliation. The outer30-second command initiates the separately bounded logged-in task; a launch_requested response is not mistaken for completion.",
+    "The earlier PowerShell5.1 parser acceptance applies to the unchanged exact helper. Actual configured result, parent/session/Exit receipts, scheduled task exit and full cleanup must still be independently reconciled."
+  ],
+  "findings": [],
+  "allowed_next_step": "Root may execute this exact one-shot command after its live admission guards pass and after recording installation closure.",
+  "actual_configured_acceptance": false
+}

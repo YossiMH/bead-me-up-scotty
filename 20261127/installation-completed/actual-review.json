@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T09:55:20.785606+00:00",
+  "scope": "Independent acceptance of the third, one-shot final installation, exact raw execution/inner/supervisor records, preservation readback and user-fork main publication. Configured application execution and original-store history remain separate gates.",
+  "task_acceptance": {
+    "task_id": "beadrs-0bab2976",
+    "expected_revision": 5,
+    "accept_installation_closure": true,
+    "accept_configured_launch_or_installed_review_closure": false
+  },
+  "accepted_source": {
+    "app": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "native": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "driver_sha256": "5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5",
+    "supervisor_sha256": "ebb659ca3f2f53ca81b8eb2ae42ca3f5b57cccfbc4acaff3fdecdcfc2527286c",
+    "native_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "installed_pin": "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr"
+  },
+  "evidence": [
+    {
+      "path": "pc-results/install-v9-index-20261127-2889282bfcec/install-result.json",
+      "bytes": 16086,
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+    },
+    {
+      "path": "pc-results/install-v9-index-20261127-2889282bfcec.supervisor/result.json",
+      "bytes": 61457,
+      "sha256": "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760"
+    },
+    {
+      "path": "pc-results/install-v9-index-20261127-2889282bfcec.supervisor/driver.stdout.log",
+      "bytes": 16088,
+      "sha256": "a13ceff25c3c748622b89bd23ea949dc3d64ebe7f5156593afbf0249cf26653b"
+    },
+    {
+      "path": "pc-results/install-v9-index-20261127-2889282bfcec.supervisor/driver.stderr.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "index-installer-execution.json",
+      "bytes": 67450,
+      "sha256": "5195972159bb9876c9898286685d7b93c704fcdc56c415b069d022fd81ac20c8"
+    },
+    {
+      "path": "index-installer-invocation.json",
+      "bytes": 4211,
+      "sha256": "971cf07db1e234f197b99d8e51c88338dc2ce4f29d836eb4e29350fb570c386a"
+    },
+    {
+      "path": "index-install-raw-readback.json",
+      "bytes": 24235,
+      "sha256": "dd3ad1958f30d44018c8e476e2373ad9fac994cfe554e5eb7635aafd98517f0c"
+    },
+    {
+      "path": "index-install-raw-readback-execution.json",
+      "bytes": 23846,
+      "sha256": "f3375b00fc2cd0ed27f0ecdece353c1c4b301a8045606371a022e8ae4a438d0e"
+    },
+    {
+      "path": "installed-preservation-readback.json",
+      "bytes": 5220,
+      "sha256": "56fb00855a15e1c6cc8e0033819efffd3c9b737db2b3bd2f6566dde11a359e8c"
+    },
+    {
+      "path": "installed-preservation-readback-execution.json",
+      "bytes": 26427,
+      "sha256": "de913498d322645b951e43a3e36da1101efc1b73713ffdbab606da57254f79fe"
+    },
+    {
+      "path": "postinstall-cloud-main-readback.json",
+      "bytes": 261,
+      "sha256": "4a0efb70eae975db5c81ef0ebd82631124df5c373312791b677915c4b62a6be1"
+    },
+    {
+      "path": "install-retry-preservation-reconciliation.json",
+      "bytes": 6988,
+      "sha256": "3e9ebf53930fcfdeb6cf942023ff226239a9618e6a10bb9236e76951191cb300"
+    },
+    {
+      "path": "reviews/installation-index-correction-source-review.json",
+      "bytes": 7205,
+      "sha256": "2f1510bbfae5e65e47e8da7d38d600bee4c72973cc536e5f284649e17eba396c"
+    },
+    {
+      "path": "reviews/index-installer-invocation-review.json",
+      "bytes": 4876,
+      "sha256": "ff95be2e2dd5cb95f49f577a82dc771e2a65596b2f7df3919728251d7b6d6608"
+    },
+    {
+      "path": "reviews/index-refresh-windows-actual-review.json",
+      "bytes": 7847,
+      "sha256": "3322f796de72148fe2bf7132921dde7115f86ee9e5340b0eefb0b3803851f009"
+    }
+  ],
+  "checks": [
+    "Exact raw inner, empty stderr and independently observed supervisor/stdout disk sizes and SHA-256 reconcile. The supervisor extracted losslessly from original execution stdout is byte-identical to the retained disk result; all 64-bit process identities are preserved. Driver stdout is exactly inner result plus CRLF.",
+    "Outer execution exited 0 without stdout/stderr drops or stderr. Preflight admits 3546660864 free bytes and records zero-error PowerShell 5.1.26100.9818 parsing for both exact new scripts. The decoded UTF-16LE child invocation rehashes to the recorded 95e3beaf8e7a3f3e5cbf0f0a3e31cb54a07a4093f21270e01f7419edd1f44fa2 and matches the accepted fixed source/stage/pin/ports/output arguments.",
+    "All nine fixed input paths and hashes match the accepted driver, two identical Job helpers, 15-file preservation manifest, runtime manifest, native executable/provenance and exact accepted stage result/supervisor pair.",
+    "The complete ordered 24-event journal passes both preflights, preserves originals, publishes the byte-exact prepared index under its owned lock, adopts baseline55f1756, fast-forwards both sources, moves the verified runtime, installs/selects the final pin, normally pushes both user-fork mains and completes stopped. No rollback or partial failure is reported.",
+    "Fresh 09:52:16 readback independently matches all 15 original raw source backups and lengths against the retained preinstall baseline. Original app index before/replaced copies both remain26330bytes SHA8b9de62e; prepared index remains27402bytes SHA26acf1c2, proving the corrected private diff preserved the exact accepted bytes. Original env before/replaced copies both remain131bytes SHA43b1936a.",
+    "Fresh final source HEADs are app0309539797fd7d016e2b8fd8bdc0ae9cefc20219 and native2d801ba455b7a722daf644a7615445117d57e8e9, both clean and without index locks. Both .git/config hashes match the actual preinstall observation; their current indexes legitimately changed with the accepted fast-forwards. Separate cloud ls-remote confirms both exact user-fork main tips.",
+    "Final native executable12243456bytes SHA0431a828 and provenance2058bytes SHA21ca90e2 match qualification; old19213824byte pin SHA376537b7 remains. Environment is131bytes SHAf9987d51 and matches the installer\u2019s validated single BEAD_BIN replacement. The source preserves every other environment byte and quotes/comments while its two original backups remain exact.",
+    "The accepted installer rehashes all560 staged runtime files against manifest612790bc immediately before the same-volume directory move. Fresh poststate confirms installed BUILD_IDYIOHeRJTEdlOszyc4LyHr and preserved previous runtime BUILD_IDYHFpYLvHE99qaExIBY8FL. This later metadata read is not represented as a second full560-file rehash.",
+    "The exact two external tray modules retain accepted blobs329e2379/c3a31c8b and SHA4205c86a/39d1f1e6 from the already qualified tray repair. This installation supplies the qualified source/runtime/pin for the separately pending real configured launch.",
+    "Both admission samples exceed3GiB, minimum observed free RAM2436792320bytes remains above1GiB, sampled aggregate peak418521088bytes remains below512MiB, and full supervised duration31.973seconds remains below180seconds. Normal cleanup reports no assistance, errors, killed children or remaining Job members. Fresh poststate finds no relevant Scotty process or listener on either observed port.",
+    "115 owned process identities are retained:114 exit0 and one Git exit1. The accepted driver allows exit1 only for the read-only optional core.hooksPath lookup; its own exit and all required command acceptance are successful. The receipt has no per-Git argument journal, so this review does not claim every child exited0.",
+    "The two earlier failed installation attempts and their exact independent failure/preservation reviews remain retained. Their failures are not rewritten as successful runs; this acceptance applies only to install-v9-index-20261127-2889282bfcec."
+  ],
+  "resource_observation": {
+    "started_utc": "2026-11-27T09:41:28.9704620Z",
+    "finished_utc": "2026-11-27T09:42:00.9455636Z",
+    "duration_seconds": 31.973,
+    "baseline_free_physical_bytes": 3253682176,
+    "immediate_free_physical_bytes": 3223089152,
+    "minimum_observed_free_physical_bytes": 2436792320,
+    "peak_total_resident_bytes": 418521088,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": []
+  },
+  "findings": [],
+  "remaining_acceptance": [
+    "Actual configured batch/default-pin launch with its five scalar edits and real tray Exit.",
+    "Independent installed/configured result acceptance.",
+    "Reviewed handoff descendants and original checkpoint-only history publication/cleanup."
+  ]
+}

@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "frontend_audit",
+  "reviewed_utc": "2026-11-27T09:40:49.154215+00:00",
+  "review_type": "Independent concrete fresh index-corrected installation invocation review",
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/index-installer-invocation.template.json",
+      "bytes": 4185,
+      "sha256": "05f84b2530f13bce33da54541cec61482971cc22a1f2565647a52976ddcfb704"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-installer-invocation.json",
+      "bytes": 4211,
+      "sha256": "971cf07db1e234f197b99d8e51c88338dc2ce4f29d836eb4e29350fb570c386a"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-invocation.json",
+      "bytes": 3417,
+      "sha256": "41e6527403af9914f98dd31d88d020e2ddbec1847511f7627cf966bd0e333ad7"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/install-retry-invocation-review.json",
+      "bytes": 4083,
+      "sha256": "7b6314ea2a663c5dfb097cdb84d70988d6d5a3f8f479d227ec82bfe5c34498aa"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-index-correction-source-review.json",
+      "bytes": 7205,
+      "sha256": "2f1510bbfae5e65e47e8da7d38d600bee4c72973cc536e5f284649e17eba396c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/index-refresh-windows-actual-review.json",
+      "bytes": 7847,
+      "sha256": "3322f796de72148fe2bf7132921dde7115f86ee9e5340b0eefb0b3803851f009"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-private-index-failure-review.json",
+      "bytes": 7954,
+      "sha256": "469c0ecb4ffea76a170ded402035ddd1ae1518addebc2494b0e630955daaac77"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-installer-stage-and-qualification-readback.json",
+      "bytes": 44135,
+      "sha256": "81c445c97c8891646f2743c4322f001be4a501b468b61a04e1bc77bfae73fc44"
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact concrete review binding",
+      "status": "passed",
+      "detail": "The 4211-byte concrete file SHA 971cf07db1e234f197b99d8e51c88338dc2ce4f29d836eb4e29350fb570c386a is exactly the template with its single qualification-review placeholder replaced by accepted actual review 3322f796de72148fe2bf7132921dde7115f86ee9e5340b0eefb0b3803851f009. No placeholder remains. The qualification has actually passed; the field is an audit binding rather than a newly introduced execution mechanism."
+    },
+    {
+      "name": "complete prior-command inverse",
+      "status": "passed",
+      "detail": "Removing the sole 750-character exact-file AST loop and its emitted rows/review field, reversing the new supervisor filename/hash, both fresh output paths and updated failure/source review hashes, and restoring the prior JSON depth option reproduces the entire accepted retry command exactly. Working directory and 195000 ms connector timeout remain unchanged."
+    },
+    {
+      "name": "ordinary exact helper parsing",
+      "status": "passed",
+      "detail": "Before either helper body runs, the loop hashes supervisor ebb659ca3f2f53ca81b8eb2ae42ca3f5b57cccfbc4acaff3fdecdcfc2527286c and driver 5a638cb4ebcfa4e0b37389148f0fd4c73bf64821b99b402dae201373cfdecbd5, then calls Parser.ParseFile and refuses any errors. Output contains only path/hash/zero-error/version rows. No C# or helper body is executed by this parse loop. The later supervisor still revalidates its exact driver and fixed inputs."
+    },
+    {
+      "name": "fresh preflight and accepted parameters retained",
+      "status": "passed",
+      "detail": "Hidden BelowNormal host requires at least 3 GiB free RAM, unchanged absent PORT/BEAD_BIN scopes and .env/.env.production files, free 3000/43972 ports, exact supervisor and absent install-v9-index-20261127-2889282bfcec plus its .supervisor sibling. Job helper path and actual stage hashes 63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c and c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f remain exact."
+    },
+    {
+      "name": "unchanged actual execution and result boundary",
+      "status": "passed",
+      "detail": "Invocation calls the independently accepted supervisor in the same fresh host. Its one required installer child, exact source/runtime/pin guards, 3 GiB initial/immediate and 1 GiB live free floors, 512 MiB aggregate bound, 168-second work/180-second hard limit and exact owned cleanup remain unchanged. Early waiting-for-memory with exit 0 is postponement; actual success still requires full inner/supervisor and installed-state reconciliation."
+    }
+  ],
+  "findings": [],
+  "invocation_accepted": true,
+  "installation_accepted": false,
+  "scope": "This concrete fresh invocation is accepted following the actual Windows correction qualification. It does not claim that installation has run or succeeded; preserve both failed prior attempts and reconcile the complete new actual result."
+}

@@ -1,0 +1,117 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_review",
+  "author": "/root/delivery_audit",
+  "scope": "Non-executable input preparation for the existing eight-phase checkpoint-only helper; no new execution code.",
+  "files": {
+    "01-preserve.request.template.json": {
+      "bytes": 3509,
+      "sha256": "8463fd074f316363a11a23f6f321fe8ec5d7b5b98ee368d04b5e6828f3abf763"
+    },
+    "02-freeze.request.template.json": {
+      "bytes": 3507,
+      "sha256": "3d17e3fd01af5c4f670aa4f423cf5017c195ad79d0fbf369abb51014bba7c1fb"
+    },
+    "03-source-restore.request.template.json": {
+      "bytes": 3515,
+      "sha256": "422e40bde60d5c95d62c8ac670276ef9bc6056e567d14b64c16913701749bf39"
+    },
+    "04-restore-original.request.template.json": {
+      "bytes": 3517,
+      "sha256": "47cead811eb29509519c450da681cbd4e606f8cd19fc4a0191951496ce7b2587"
+    },
+    "05-restore.request.template.json": {
+      "bytes": 3508,
+      "sha256": "ca695df6f2149cd82ebf4441b6a56f3db537fe60eb0f9489598219ac5f4a386c"
+    },
+    "06-close.request.template.json": {
+      "bytes": 3506,
+      "sha256": "67fed5a3e3a0d7d81ed98585edc3f6a315ecc752718105f3394ffdcbfa5b3c85"
+    },
+    "07-final-publish.request.template.json": {
+      "bytes": 3514,
+      "sha256": "c50d10c521f092832181dfe250888445abf2b4d0b38580bb342fe7c39d9efcf3"
+    },
+    "08-final-restore.request.template.json": {
+      "bytes": 3514,
+      "sha256": "df9040737b7a0fedfc88d13a40870aa544e9395ac17d13014529d08c51b7608a"
+    },
+    "README.md": {
+      "bytes": 13739,
+      "sha256": "50779a13ce42bd13da838f9ea636133d5579b0e2f604bf3f9b905816f5c79d22"
+    },
+    "checkpoint-publication.receipt.template.json": {
+      "bytes": 139,
+      "sha256": "ab0576022a4b6c70f87e6196cc7f21dd993bb3730409c29b800ef2dd54fc1d0b"
+    },
+    "input-checklist.json": {
+      "bytes": 19317,
+      "sha256": "5df815324baad521a89d50f5376075b7bdeff7f87eeab705a46ecda341208788"
+    },
+    "original-git-baseline.receipt.template.json": {
+      "bytes": 304,
+      "sha256": "981bb8bfc0b363d8a946ca03e0586e2ed85da381c6be871dd943b7b11111c1fc"
+    }
+  },
+  "baseline_template": {
+    "bytes": 3154,
+    "sha256": "b532e85b0b36869c72032f9b02d3ab85fc3999c6d0d788162746807f0ad2eb35"
+  },
+  "request_deltas": [
+    "phase: null to its fixed accepted phase name",
+    "runtime.qualification.path and sha256: proposed coordination path and accepted exact receipt hash",
+    "runtime.review.path and sha256: proposed coordination path and accepted exact receipt hash"
+  ],
+  "future_values": "Every actual result/head/index/closure observation remains null; every root attestation remains false; supervisor_output null prevents template invocation before output mutation.",
+  "author_inspections": [
+    {
+      "pass": 1,
+      "completed_utc": "2026-11-27T09:52:21.818642+00:00",
+      "complete": true,
+      "findings": [],
+      "focus": [
+        "Full checklist and README read against complete phase control flow and supervisor input checks.",
+        "Eight full JSON requests structurally equal the accepted template after only phase plus two accepted runtime receipt pins.",
+        "All future result paths/hashes, baseline observations, cleanup revisions/reasons and attestations remain unset.",
+        "Exact pin roots, pre-preserve retention absence, coordination-only raw index backup, direct prior phase map and publication boundaries confirmed.",
+        "Accepted sources and runtime receipts rehashed; every payload is UTF-8/LF with no trailing whitespace."
+      ]
+    },
+    {
+      "pass": 2,
+      "completed_utc": "2026-11-27T09:53:06.795583+00:00",
+      "complete": true,
+      "findings": [],
+      "focus": [
+        "Full final payload reread; all twelve file identities equal inspection one with no intervening edits.",
+        "Independently reversed the exact five filled scalar fields of every request to the complete accepted template.",
+        "Reconciled all eight direct prior-result lists against main phase branches, including restore-original corpus in final-publish and final-publish outputs in final-restore.",
+        "Reviewed original-git-baseline field schema, fixed 53-blob tree, observed fork equality, coordination-only index backup and retention through all phases.",
+        "Reviewed cleanup/publication ordering, pre-close revision reuse, permanent freeze protection, null future values and actual-result acceptance ownership.",
+        "Accepted helper/source/qualification/parse identities remain exact; both app draft document hashes remain unchanged."
+      ]
+    }
+  ],
+  "checks": {
+    "eight_complete_template_inverses": "passed",
+    "twelve_payload_identities_equal_across_inspections": true,
+    "known_source_and_receipt_hashes": "passed",
+    "json_utf8_newline_and_whitespace": "passed",
+    "phase_prior_paths_and_order": "passed",
+    "unchanged_app_draft_document_hashes": {
+      "docs/backend-compatibility.md": "48d7d1a5fb42d1b5c73692fb6a7f3866baa8c2d5fde628af38b02d32ebaae32b",
+      "README.md": "f4b0f2b663fc272dd5402847b5d37f0b8eeb02b20ffc6522dc0176c8683f5627"
+    }
+  },
+  "review_requirements": "Independent static preparation review; root still completes and obtains review of each actual request from accepted receipts and fresh state.",
+  "activity": {
+    "pc_calls": false,
+    "task_state_writes": false,
+    "source_edits": false,
+    "phase_execution": false,
+    "product_tests": false,
+    "builds": false,
+    "new_executable_builder": false
+  },
+  "retention": "Private preparation outside the root continuation checkout; preserve these bytes when preparing actual requests. Raw PC index/config/DB and task diagnostics remain on the PC."
+}

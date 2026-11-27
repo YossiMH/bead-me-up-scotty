@@ -1,0 +1,460 @@
+{
+  "schema_version": 1,
+  "status": "prepared_inputs_only",
+  "author": "/root/delivery_audit",
+  "scope": "Eight inert phase requests and exact retained-input checklist for the unchanged accepted checkpoint-only helper. Future observations and root attestations remain unset.",
+  "roots": {
+    "coordination": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+    "retention": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1",
+    "proposed_input_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs"
+  },
+  "accepted_source_files": {
+    "checkpoint-only-handoff-20261127.mjs": {
+      "bytes": 72053,
+      "sha256": "ff1597b37c873888aef55af6c67b39cd29efeb025d007fe11659ccb81a32cc46"
+    },
+    "checkpoint-only-handoff-supervisor-20261127.ps1": {
+      "bytes": 19190,
+      "sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5"
+    },
+    "request.template.json": {
+      "bytes": 3154,
+      "sha256": "b532e85b0b36869c72032f9b02d3ab85fc3999c6d0d788162746807f0ad2eb35"
+    },
+    "README.md": {
+      "bytes": 17756,
+      "sha256": "938ff2196236723c3570e616c9ba8fae08dee672055278c6c27cad6891ca275a"
+    },
+    "source-review.json": {
+      "bytes": 10886,
+      "sha256": "87c181a0a6998e52f4808df03a7d8986791f20c598edf757bf5f71af52d9d605"
+    },
+    "qualification-review.json": {
+      "bytes": 8694,
+      "sha256": "175a63361363a6d6dfaef9bac000fa7325cf10c3226636fe49b1dc1b2e94cc76"
+    },
+    "windows-ps51-parse.json": {
+      "bytes": 497,
+      "sha256": "54a699d087ef848e506e217bd92324deab958a79a550ae5e4b03a42576635e76"
+    },
+    "inputs/runtime-consumer-receipts-review.json": {
+      "bytes": 3893,
+      "sha256": "47cf4723541151a7db1aa580d0c0384fe86dda9e3a64f352fdab286b1907cd7e"
+    }
+  },
+  "known_receipts_requiring_exact_copy": [
+    {
+      "request_field": "runtime.qualification",
+      "source_path": "20261127/checkpoint-only-handoff/inputs/runtime-qualification-accepted.json",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/runtime-qualification-accepted.json",
+      "bytes": 1857,
+      "sha256": "a0adc1eb5ca1707977eedcf42b084b0c55207410d2f8eba349572d68866ee3cc",
+      "stage_before": "preserve",
+      "copy_rule": "Exact raw bytes; require original and destination SHA-256 equality."
+    },
+    {
+      "request_field": "runtime.review",
+      "source_path": "20261127/checkpoint-only-handoff/inputs/runtime-review-accepted.json",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/runtime-review-accepted.json",
+      "bytes": 1014,
+      "sha256": "9e2e68863cc3fa0442b88be4eec6ed0d6aec2e9235e4374658944d7103b44972",
+      "stage_before": "preserve",
+      "copy_rule": "Exact raw bytes; require original and destination SHA-256 equality."
+    }
+  ],
+  "existing_coordination_inputs": [
+    {
+      "field": "plan",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/plan.json",
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+      "read_mode": "direct pinned JSON"
+    },
+    {
+      "field": "materialization",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/materialization-result-v9.json",
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+      "read_mode": "direct pinned JSON"
+    },
+    {
+      "field": "accepted.plan-review",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/plan-review.json",
+      "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+      "required_status": "PASS",
+      "additional_requirements": "accepted:true; continuation_revision:9; read_complete_plan:true; expanded_tasks_read:55; blocking_edges_read:91; plan_sha256 and reviewed_files.plan.json match the exact plan"
+    },
+    {
+      "field": "implicit original inventory",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/inventory-before-node-v3.json",
+      "sha256": null,
+      "read_mode": "existing 954-issue observation; preserve records its actual hash and all later phases recheck it"
+    }
+  ],
+  "future_accepted_inputs": [
+    {
+      "field": "accepted.install",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": true
+    },
+    {
+      "field": "accepted.configured-launch",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": true
+    },
+    {
+      "field": "accepted.installed-review",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": true
+    },
+    {
+      "field": "accepted.backend-text-review",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": true
+    },
+    {
+      "field": "accepted.app-text-review",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": true
+    },
+    {
+      "field": "accepted.original-git-baseline",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": true
+    },
+    {
+      "field": "accepted.cleanup-results",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": false
+    },
+    {
+      "field": "accepted.cleanup-text-review",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": false
+    },
+    {
+      "field": "accepted.checkpoint-publication",
+      "path": null,
+      "sha256": null,
+      "required_status": "passed",
+      "stage_under_coordination_before_preserve": false
+    }
+  ],
+  "original_git_baseline_contract": {
+    "capture_timing": "After successful installation and actual reviewed initial native handoff descendant adoption/publication; before preserve. Preserve the same baseline and raw-index copy for all phases.",
+    "producer": "Root-reviewed documents/native Git publisher actual original-git-baseline.json; producer source/runtime acceptance remains a separate gate.",
+    "required_status": "passed",
+    "remote_repository": "YossiMH/bead-rs",
+    "head": null,
+    "commit": null,
+    "remote_commit": null,
+    "equalities": [
+      "head == remote_commit",
+      "checkpoint_tree == remote_checkpoint_tree == ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+      "index_backup.sha256 == index_sha256 == SHA256(raw copied index)"
+    ],
+    "producer_additional_equality": "commit == head",
+    "remote_objects_verified_required": true,
+    "expected_original_objects": {
+      "count": 53,
+      "bytes": 429072095
+    },
+    "index_backup_path": null,
+    "index_backup_sha256": null,
+    "index_backup_root_must_be": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+    "retention_root_is_not_allowed_for_index_backup": true,
+    "future_observation_status": null
+  },
+  "phases": [
+    {
+      "phase": "preserve",
+      "template": "01-preserve.request.template.json",
+      "supervisor_output_suggestion": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-preserve-20261127-2889282bfcec",
+      "suggestion_is_unclaimed_and_requires_fresh_absence_check": true,
+      "driver_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve",
+      "required_prior_records": [],
+      "extra_accepted_roles": [],
+      "cleanup_revision": null,
+      "close_reason": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "freeze",
+      "template": "02-freeze.request.template.json",
+      "supervisor_output_suggestion": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-freeze-20261127-2889282bfcec",
+      "suggestion_is_unclaimed_and_requires_fresh_absence_check": true,
+      "driver_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze",
+      "required_prior_records": [
+        {
+          "phase": "preserve",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+          "sha256": null
+        }
+      ],
+      "extra_accepted_roles": [],
+      "cleanup_revision": null,
+      "close_reason": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "source-restore",
+      "template": "03-source-restore.request.template.json",
+      "supervisor_output_suggestion": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-source-restore-20261127-2889282bfcec",
+      "suggestion_is_unclaimed_and_requires_fresh_absence_check": true,
+      "driver_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore",
+      "required_prior_records": [
+        {
+          "phase": "preserve",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "freeze",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+          "sha256": null
+        }
+      ],
+      "extra_accepted_roles": [],
+      "cleanup_revision": null,
+      "close_reason": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "restore-original",
+      "template": "04-restore-original.request.template.json",
+      "supervisor_output_suggestion": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-2889282bfcec",
+      "suggestion_is_unclaimed_and_requires_fresh_absence_check": true,
+      "driver_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original",
+      "required_prior_records": [
+        {
+          "phase": "preserve",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "freeze",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "source-restore",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+          "sha256": null
+        }
+      ],
+      "extra_accepted_roles": [],
+      "cleanup_revision": null,
+      "close_reason": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "restore",
+      "template": "05-restore.request.template.json",
+      "supervisor_output_suggestion": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-20261127-2889282bfcec",
+      "suggestion_is_unclaimed_and_requires_fresh_absence_check": true,
+      "driver_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore",
+      "required_prior_records": [
+        {
+          "phase": "preserve",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "freeze",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "source-restore",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "restore-original",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+          "sha256": null
+        }
+      ],
+      "extra_accepted_roles": [],
+      "cleanup_revision": null,
+      "close_reason": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "close",
+      "template": "06-close.request.template.json",
+      "supervisor_output_suggestion": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-close-20261127-2889282bfcec",
+      "suggestion_is_unclaimed_and_requires_fresh_absence_check": true,
+      "driver_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/close",
+      "required_prior_records": [
+        {
+          "phase": "preserve",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "freeze",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "source-restore",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "restore-original",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "restore",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore/result.json",
+          "sha256": null
+        }
+      ],
+      "extra_accepted_roles": [
+        "cleanup-results",
+        "cleanup-text-review",
+        "checkpoint-publication"
+      ],
+      "cleanup_revision": null,
+      "close_reason": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "final-publish",
+      "template": "07-final-publish.request.template.json",
+      "supervisor_output_suggestion": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-publish-20261127-2889282bfcec",
+      "suggestion_is_unclaimed_and_requires_fresh_absence_check": true,
+      "driver_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish",
+      "required_prior_records": [
+        {
+          "phase": "preserve",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "freeze",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "source-restore",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "restore-original",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "close",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/close/result.json",
+          "sha256": null
+        }
+      ],
+      "extra_accepted_roles": [
+        "cleanup-results",
+        "cleanup-text-review",
+        "checkpoint-publication"
+      ],
+      "cleanup_revision": null,
+      "close_reason": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "final-restore",
+      "template": "08-final-restore.request.template.json",
+      "supervisor_output_suggestion": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-restore-20261127-2889282bfcec",
+      "suggestion_is_unclaimed_and_requires_fresh_absence_check": true,
+      "driver_output": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-restore",
+      "required_prior_records": [
+        {
+          "phase": "preserve",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "freeze",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "source-restore",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+          "sha256": null
+        },
+        {
+          "phase": "final-publish",
+          "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+          "sha256": null
+        }
+      ],
+      "extra_accepted_roles": [
+        "cleanup-results",
+        "cleanup-text-review",
+        "checkpoint-publication"
+      ],
+      "cleanup_revision": null,
+      "close_reason": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    }
+  ],
+  "template_guards": {
+    "supervisor_output": null,
+    "all_future_receipt_paths_and_hashes": null,
+    "all_attestations": false,
+    "cleanup_revision": null,
+    "close_reason": null,
+    "non_executable_reason": "The supervisor rejects null supervisor_output at Safe-Path before any output directory creation. The driver additionally requires the actual accepted pins and root attestations."
+  },
+  "retention_constraints": [
+    "Keep retention absent through pre-preserve input staging; preserve creates it exclusively.",
+    "All accepted.* records needed by preserve must already exist under coordination. Pin validates them before creating retention.",
+    "All actual prior result files remain at exact fixed retention/phases/<phase>/result.json paths; referenced outputs and raw logs remain intact.",
+    "Keep the frozen coordination DB/checkpoint, mapping, original inventory, plan/review, coordination-only raw-index backup and pinned inputs through final-restore.",
+    "Keep the final staged runtime, Node, Git and Job/helper files available and hash-identical through all phases.",
+    "No task-store writes in coordination after freeze; after successful reconciled restore-original the original is the sole task writer.",
+    "Keep the original pre-transfer Git commit reachable after final publication and cleanup."
+  ],
+  "activity": {
+    "pc_calls": false,
+    "phase_execution": false,
+    "product_tests": false,
+    "builds": false,
+    "task_writes": false,
+    "source_changes": false
+  }
+}
