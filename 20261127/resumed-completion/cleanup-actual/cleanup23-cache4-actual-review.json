@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Independent actual acceptance of the existing exact23 scheduled-task registration cleanup and exact4 failed-tray-cache cleanup.",
+  "findings": [],
+  "accepted_results": [
+    {
+      "name": "cleanup23-result.json",
+      "bytes": 20911,
+      "sha256": "7449491acde5d69accb3514c223a9fc85b6c2e60008748da236ee5d0e806329b"
+    },
+    {
+      "name": "cache4-result.json",
+      "bytes": 14813,
+      "sha256": "f85fad89f0a8c06ebd29284b056858bd3e1e1d054e659e974dd5525bc2ead654"
+    }
+  ],
+  "execution_receipts": [
+    {
+      "name": "cleanup23-execution.json",
+      "bytes": 48251,
+      "sha256": "a7f222134e6f00591d7ed50373361796a747dfa1503b717c40e052da7fc8b92a",
+      "proposal_id": "-pPIRVdG71ggrzEdEKrSFeLKtbf5tpzbvgsePEaKiPg",
+      "exit_code": 0,
+      "streams_complete": true,
+      "stdout_equals_raw_result_plus_terminal_crlf": true
+    },
+    {
+      "name": "cleanup-cache4-execution.json",
+      "bytes": 35025,
+      "sha256": "9be8a00fb6fc0c14f30f4e1a2c0f6630da6acf30808dff8de0743398c013bd8d",
+      "proposal_id": "p-YdoXnnfopD6MRul_9jxSGuVn7veDOkjqOL4LH1n0U",
+      "exit_code": 0,
+      "streams_complete": true,
+      "stdout_equals_raw_result_plus_terminal_crlf": true
+    }
+  ],
+  "accepted_basis": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "721dd65e4a83e6be256950728f622c2da36d9e52",
+    "paths": [
+      "20261127/scheduled-task-cleanup23/scheduled-task-cleanup23-source-review.json",
+      "20261127/scheduled-task-cleanup23-inputs/inputs-review.json",
+      "20261127/failed-tray-cache-cleanup4/source-review.json",
+      "20261127/failed-tray-cache-cleanup4/request-preparation/independent-review.json"
+    ]
+  },
+  "source_and_request_binding": {
+    "scheduled_tasks": {
+      "helper_sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93",
+      "request_sha256": "47dbdf86148f2852376aa73dc45bffdaa23df86fbcd9eabddb26eae73177671d",
+      "prepared_request_activation": "Changing only the three accepted root attestations from false to true reconstructs the exact1062-byte executed request hash.",
+      "baseline_sha256": "97971b4fb451e6be8839d8ca7e37a8d49f486d1b3b81aaeaf754293d3e7cbd4f"
+    },
+    "failed_caches": {
+      "helper_sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32",
+      "request_sha256": "a53e91d0a1028e01201603dd99fc357712b588bee453890805a6714df85892d7",
+      "prepared_request_activation": "Changing only exclusive_owned_cache_window from false to true reconstructs the exact276-byte executed request hash."
+    }
+  },
+  "actual_checks": [
+    "Both complete execution wrappers exited0 with empty stderr and no dropped bytes. Console stdout equals the independently collected raw result bytes plus one terminal CRLF.",
+    "Scheduled-task result contains exactly the accepted ordered19 original names and4 configured names, unique root task paths,23 final absence confirmations,23 private XML backup identities and no errors.",
+    "All configured success/definition/review input hashes match the accepted prepared request; the three failed configured attempts retain their actual failed/absent-output dispositions.",
+    "Cache result contains exactly the four source-constant paths, byte lengths and hashes, each with matching retained backup identity and both file/directory absence.",
+    "All19 PID/birth pairs exactly match the immutable accepted provenance. Every final observation is absent under the accepted error87 interpretation; no live matching identity remains.",
+    "Raw transport package base64, byte counts and hashes reproduce both result files exactly.",
+    "Both helpers retained their accepted BelowNormal/1GiB free/256MiB RSS/48second work bounds; receipts report positive sample counts, no errors and replay_allowed false."
+  ],
+  "outcomes": {
+    "scheduled_tasks": {
+      "removed": 23,
+      "all_exact_tasks_absent": true,
+      "private_xml_backups": 23,
+      "duration_seconds": 19.504,
+      "peak_helper_resident_bytes": 146268160,
+      "minimum_free_physical_bytes": 4096970752,
+      "retention_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-cleanup23-20261127-2889282bfcec"
+    },
+    "failed_tray_caches": {
+      "removed_files_and_directories": 4,
+      "all_exact_cache_files_and_directories_absent": true,
+      "retained_file_bytes": 14723,
+      "owner_identities_absent": 19,
+      "duration_seconds": 40.728,
+      "peak_helper_resident_bytes": 144338944,
+      "minimum_free_physical_bytes": 1111961600,
+      "retention_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/failed-tray-cache-cleanup4-20261127-2889282bfcec"
+    }
+  },
+  "retention": "Exact request/input copies, private task XML backups, four cache file backups and per-target intent/return/absence records remain in their fixed PC retention directories. This review accepts the retained helper receipts and does not reproduce private XML.",
+  "acceptance_limit": "These two existing cleanup operations are complete. Native history finalization, Git publication/ref cleanup and final cleanup-task closure retain their own actual acceptance.",
+  "activity": "Cloud-only immutable source/request/provenance and actual receipt review; no PC action or additional product test."
+}

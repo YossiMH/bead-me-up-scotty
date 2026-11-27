@@ -1,0 +1,103 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Single independent actual finalizer acceptance and data-only next ordinary restore request/admission review.",
+  "findings": [],
+  "accepted_actuals": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/git-finalization-actual/driver-result.json",
+      "bytes": 14014,
+      "sha256": "8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/git-finalization-actual/supervisor-result.json",
+      "bytes": 9554,
+      "sha256": "bb3ebaa6c2b71731fef317cce1402c1645f55c5c5ae822f8e472f7012036e907"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/git-finalization-execution.json",
+      "bytes": 22905,
+      "sha256": "43f75c8cede278fc8cfa94a974d3ddaea7400169a58a67e183c79525659d4773"
+    }
+  ],
+  "accepted_source_review": {
+    "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/git-finalization-source-request-independent-review.json",
+    "bytes": 11327,
+    "sha256": "2029d549b743a0476e9aea05a5033bb34bd29a2e555a9eed3d536c8349a067d1"
+  },
+  "actual_execution": {
+    "proposal_id": "16PKIRYKIoMadew-itjsHeX84H9VlNPdVw6FmwKY3NQ",
+    "exit_code": 0,
+    "streams_complete": true,
+    "supervisor_stdout_equals_raw_plus_terminal_crlf": true,
+    "request_sha256": "f66e608680bf463486c28a30d24fb8cb140b66211c8a74742d07a44cd99e7151",
+    "driver_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+    "supervisor_sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553",
+    "duration_seconds": 38.859,
+    "peak_total_resident_bytes": 378179584,
+    "aggregate_limit_bytes": 536870912,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "all_recorded_owned_processes_exited_zero_without_supervisor_kill": true
+  },
+  "native_state": {
+    "authority": "F:/Dev/bead-rs",
+    "generation": "gen-e09b2a4118d7bb5f125c5294c0934514",
+    "root_sha256": "9b7297fe4c9563612975aad01c517d3080ba78ef4305040da1c79c5e1daa580b",
+    "local_sequence": 11523,
+    "restore_receipt_id": "restore-18ebf6646e670bc4",
+    "restore_event_identity": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4:11523",
+    "native_replayed": false,
+    "original_native_attempt_retained": "F:\\Dev\\.bead-edit-20261111\\preservation-checkpoint-only-20261127-v1\\phases\\restore-original-v3-retained-before-git-finalization-20261127",
+    "original_database_after_sha256": "438227b2721f26d2c011337ff4c8bc83a8114809a4aa1b9e81bdad4d3b7ffbd6",
+    "native_provenance_output_sha256": "3c1915f88bc82af2d607f1daa3f13d8fd98e0ef1092b1d1a887c20a7ebe2fe21",
+    "raw_current_retained_as_previous": true,
+    "original_canonical_restore_verified": true,
+    "git_publication": "root pending"
+  },
+  "checks": [
+    "Both raw result digests and complete collector package identities independently match the execution and phase result binding. Both passed results name the exact accepted request; successful finalizer uses its distinct supervisor output.",
+    "The actual source/request/supervisor bytes match the existing independent source review. The accepted resume branch preserves all17 original attempt pins, permits only Git children, revalidates the retained native reports/current database/frozen source, and completes its missing tail.",
+    "Actual original before Git, pre-finalization Git/status, original raw index backup and after snapshot hashes equal the retained v3 inputs. The existing9,146,538-byte restored database snapshot is byte-identical in the completed phase.",
+    "The passed source path applies the unchanged staged-only publication verifier after exact stdin index correction, rechecks database equality, and retains all canonical manifest/corpus/inventory/audit/authority outputs. Before/after Git configuration receipts are identical.",
+    "Generation/root/sequence and the original restore receipt/event identities match the completed v3 native operation. The driver explicitly reports native_replayed false; original v3 provenance remains separately bound in outputs.",
+    "Supervisor finished normally within unchanged512MiB/180second bounds,128MiB old-space/4MiB semi-space,3GiB entry/1GiB live floor and BelowNormal priority. Both publication-lock observations are ordinary empty files; no assisted cleanup, errors or residual members."
+  ],
+  "next_restore": {
+    "status": "accepted_for_root_staging_and_execution",
+    "files": [
+      {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/history-restore-verification-20261127-v1.request.json",
+        "bytes": 5268,
+        "sha256": "e63f4f79b94a3bf2fd3bade1233ffc635cab8a5105b8425e0f25ddaaac2ec6b8"
+      },
+      {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/history-restore-verification-admission.ps1",
+        "bytes": 994,
+        "sha256": "8b51ca83285076461864babec0964a3e77576e1ac435b0c1e696eef94d59842a"
+      },
+      {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/history-restore-verification-admission-invocation.json",
+        "bytes": 3617,
+        "sha256": "3fc1c43b6a40026eeb5e14dddf14c4c7c5c54305ac5de70318c3fd397d06acdf"
+      }
+    ],
+    "exact_request_delta": [
+      "phase restore-original -> restore",
+      "supervisor_output -> checkpoint-only-supervision-restore-20261127-v1",
+      "remove resume_restore_original",
+      "remove finalizer-only native_restore_succeeded_index_finalization_only attestation",
+      "bind prior.restore-original to canonical completed result path and exact8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a hash"
+    ],
+    "all_other_request_values_and_serialization_unchanged": true,
+    "admission_delta": "Only phase text, exact request filename and raw request hash change. Decoded UTF16LE EncodedCommand equals the reviewed full PS source. Existing3.5GiB outer deferral,180second/512MiB supervisor and200second broker timeout are unchanged.",
+    "command_characters": 2762,
+    "prior_restore_original_sha256": "8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a",
+    "root_freshness_boundary": "Root owns live writer exclusion and stages the exact request. Existing helper refuses preexisting restore phase/supervisor/disposable target and rechecks original staged state and frozen source; this review does not claim fresh paths were separately observed.",
+    "operation": "Ordinary accepted verification restore into the fresh owned R/restore-check disposable target; current original database, selected checkpoint and staged Git state are required unchanged."
+  },
+  "activity": "Cloud-only source/retained-evidence and request-byte review. No PC call, product build/test, native restore or additional acceptance gate."
+}
