@@ -1,0 +1,77 @@
+{
+  "execute": {
+    "content": [
+      {
+        "type": "text",
+        "text": "RECOVERY_INTERNAL_ERROR: action may be uncertain; inspect status, never replay automatically"
+      }
+    ],
+    "structuredContent": {
+      "error_code": "INVALID_ARGUMENT"
+    },
+    "isError": true
+  },
+  "poll": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"proposal_id\": \"PKVCow4LAz2chWTq1DsQc4s8_RJWkdTqOViHMKTv4Eo\", \"replay_allowed\": false, \"status\": \"open\"}"
+      }
+    ],
+    "structuredContent": {
+      "proposal_id": "PKVCow4LAz2chWTq1DsQc4s8_RJWkdTqOViHMKTv4Eo",
+      "status": "open",
+      "replay_allowed": false
+    },
+    "isError": false
+  },
+  "expires_at_unix": 1795805149.25151,
+  "package_parent_states": [
+    {
+      "path": "F:/",
+      "present": true,
+      "identity": "1222667260:3458764513820542464"
+    },
+    {
+      "path": "F:/Dev",
+      "present": true,
+      "identity": "1222667260:5764607523034587727"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111",
+      "present": true,
+      "identity": "1222667260:6917529027645428952"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+      "present": true,
+      "identity": "1222667260:6917529027645725300"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-task-ref-deletion-20261127-02e8a44557c8-v1",
+      "present": true,
+      "identity": "1222667260:6917529027645970533"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-task-ref-deletion-20261127-02e8a44557c8-v1.supervisor",
+      "present": true,
+      "identity": "1222667260:6917529027645970532"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-scotty-task-ref-deletion-20261127-02e8a44557c8-v1",
+      "present": false,
+      "identity": null
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-scotty-task-ref-deletion-20261127-02e8a44557c8-v1.supervisor",
+      "present": false,
+      "identity": null
+    }
+  ],
+  "observed_refs": {
+    "native_count": 0,
+    "app_count": 86,
+    "app_unchanged": true,
+    "archive": "53f981bce9b13bc9c84d3138c9e99a26c0eb911d"
+  }
+}

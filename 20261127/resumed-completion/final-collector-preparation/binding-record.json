@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "prepared_data_only",
+  "basis": {
+    "file": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/existing-final-collector-basis.json",
+    "bytes": 9245,
+    "sha256": "175daef728c1f1a7399928edea61e6f1321eff895fbe19886506c714d00722ea",
+    "immutable_history_collector": "YossiMH/bead-me-up-scotty@8dfbd35a460fb5f8da289e1ac26119cb213abfa3:20261127/history-phase-receipt-collector/collect-history-phase-receipts-20261127.cjs"
+  },
+  "substitutions": {
+    "supplemental": {
+      "source_unchanged_sha256": "b187a0522251c679efbc22bd8d0a7b621ea3e46c34cf49eecf68479ce78919ca",
+      "from_argument": "restore-original",
+      "to_argument": "final-publish"
+    },
+    "publication": {
+      "from_run": "git-publication-native-checkpoint-initial-20261127-02e8a44557c8-v1",
+      "to_run": "git-publication-native-checkpoint-final-20261127-02e8a44557c8-v1",
+      "occurrences": 2,
+      "from_scope": "native-initial-checkpoint-publication-fixed3-raw",
+      "to_scope": "native-final-checkpoint-publication-fixed3-raw",
+      "scope_occurrences": 2,
+      "source_sha256": "cd80feeaf4045d6fa57b4426b5b478e1a922ed798e81fc337aea9d69bce70074",
+      "source_bytes": 5723,
+      "private_index_handling": "Unchanged: index-after.raw is collected only into root-held private raw package; publish metadata and redacted actual evidence as before."
+    },
+    "guard": {
+      "source_and_invocation_unchanged": true,
+      "source_sha256": "6ec7a70fe4864820b861e25c92f2a7c717276941f119df31e446d1bf9e8dd415"
+    }
+  },
+  "execution": {
+    "supplemental_when": "After accepted final-publish; bind each exact file to final-publish outputs.",
+    "guard_when": "After accepted final-restore, before final native Git publication.",
+    "publication_when": "After final native Git publisher settles; transfer chunks0 and then reported offset/package identity.",
+    "chunk_followups": "Replace only terminal0 - with the last returned next_offset_bytes and package_sha256; stop at next_offset_bytes:null.",
+    "no_staging_required": true
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Exact scope-only publication inverse equals accepted5731-byte6e3dc107 source.",
+        "Supplemental invocation differs only by accepted phase argument; derived source unchanged5907-byteb187.",
+        "Guard source and invocation unchanged."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Decoded generated gzip invocation equals exact final source/hash.",
+        "Saved supplemental invocation inverse equals provided command.",
+        "Saved guard invocation equals provided command.",
+        "Same path/file guards, raw/chunk limits, resource bounds and private-index handling."
+      ],
+      "findings": []
+    }
+  ],
+  "files": [
+    {
+      "file": "final-publish-supplemental-invocation.json",
+      "bytes": 1805,
+      "sha256": "85c8d8786375e019ca14346142e58a712aef62fc94a46848da9a2ed4becf7aa2"
+    },
+    {
+      "file": "final-native-publication-invocation.json",
+      "bytes": 4136,
+      "sha256": "ba4949ecf1bcd63a3e17590d75b608aefeff7563cef3477632c36c5b6b1cd29a"
+    },
+    {
+      "file": "final-native-guard-invocation.json",
+      "bytes": 3352,
+      "sha256": "e6c9cb48b43b6cb4e1b34da1e21e58050be3c967e654a6aa82acbd3d76a9acb4"
+    }
+  ],
+  "new_executor": false,
+  "new_review_gate": false,
+  "pc_actions": false,
+  "ref_actions": false,
+  "bounds": {
+    "raw_collectors": {
+      "node_heap_mib": 64,
+      "own_rss_cap_bytes": 134217728,
+      "free_floor_bytes": 1073741824,
+      "deadline_ms": 15000,
+      "chunk_bytes": 37500,
+      "per_file_cap_bytes": 2097152,
+      "total_raw_cap_bytes": 4194304,
+      "priority": "BelowNormal"
+    },
+    "guard": {
+      "node_heap_mib": 64,
+      "own_rss_cap_bytes": 134217728,
+      "free_floor_bytes": 1073741824,
+      "internal_deadline_ms": 14000,
+      "outer_timeout_ms": 15000,
+      "per_file_cap_bytes": 67108864,
+      "aggregate_read_cap_bytes": 100663296,
+      "read_buffer_bytes": 65536,
+      "git_child_timeout_max_ms": 2000,
+      "git_max_buffer_bytes": 8192,
+      "priority": "BelowNormal"
+    }
+  }
+}

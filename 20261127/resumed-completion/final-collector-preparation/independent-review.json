@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Existing narrow mechanical review of final supplemental, native guard and final publisher collectors.",
+  "findings": [],
+  "basis": {
+    "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/existing-final-collector-basis.json",
+    "bytes": 9245,
+    "sha256": "175daef728c1f1a7399928edea61e6f1321eff895fbe19886506c714d00722ea",
+    "immutable_history_collector": "YossiMH/bead-me-up-scotty@8dfbd35a460fb5f8da289e1ac26119cb213abfa3:20261127/history-phase-receipt-collector/collect-history-phase-receipts-20261127.cjs"
+  },
+  "sources": [
+    {
+      "file": "collect-final-publish-supplemental.cjs",
+      "bytes": 5907,
+      "sha256": "b187a0522251c679efbc22bd8d0a7b621ea3e46c34cf49eecf68479ce78919ca"
+    },
+    {
+      "file": "guard.basis.cjs",
+      "bytes": 4175,
+      "sha256": "6ec7a70fe4864820b861e25c92f2a7c717276941f119df31e446d1bf9e8dd415"
+    },
+    {
+      "file": "collect-final-native-publication-fixed3.cjs",
+      "bytes": 5723,
+      "sha256": "cd80feeaf4045d6fa57b4426b5b478e1a922ed798e81fc337aea9d69bce70074"
+    }
+  ],
+  "invocations": [
+    {
+      "file": "final-publish-supplemental-invocation.json",
+      "bytes": 1805,
+      "sha256": "85c8d8786375e019ca14346142e58a712aef62fc94a46848da9a2ed4becf7aa2",
+      "command_characters": 1385
+    },
+    {
+      "file": "final-native-publication-invocation.json",
+      "bytes": 4136,
+      "sha256": "ba4949ecf1bcd63a3e17590d75b608aefeff7563cef3477632c36c5b6b1cd29a",
+      "command_characters": 3488
+    },
+    {
+      "file": "final-native-guard-invocation.json",
+      "bytes": 3352,
+      "sha256": "e6c9cb48b43b6cb4e1b34da1e21e58050be3c967e654a6aa82acbd3d76a9acb4",
+      "command_characters": 3116
+    }
+  ],
+  "checks": [
+    "Supplemental source is exactly the accepted5907-byte b187 source. Its invocation reverses to the accepted initial command by only final-publish to restore-original in the terminal phase argument. The loader still verifies unchanged installed f0c9 history collector and exact derived b187 identity.",
+    "Guard source is exactly4175-byte6ec7 and its complete invocation object equals the accepted basis. Decoded gzip source is byte-identical.",
+    "Final publisher collector is exactly5723-byte cd80. Reversing precisely two run-path substitutions and two scope substitutions yields the accepted5731-byte6e3d source with no remaining byte changes.",
+    "Decoded final publisher gzip payload equals the saved cd80 source and its embedded identity pin. All invocations keep BelowNormal64MiB Node heap,128MiB own RSS,1GiB free floor,15second outer bounds and unchanged fixed file scope.",
+    "Existing ordinary-path/parent identity/stability checks, deterministic raw-byte hashes and chunk offset/package binding remain unchanged. No writes, database opening or native command are added.",
+    "Final publisher fixed3 collection still includes private index-after.raw inside the root-held raw package. Its contents remain private; public evidence may include only size/hash and redacted results."
+  ],
+  "bounds": {
+    "raw_collectors": {
+      "node_heap_mib": 64,
+      "own_rss_cap_bytes": 134217728,
+      "free_floor_bytes": 1073741824,
+      "deadline_ms": 15000,
+      "chunk_bytes": 37500,
+      "per_file_cap_bytes": 2097152,
+      "total_raw_cap_bytes": 4194304,
+      "priority": "BelowNormal"
+    },
+    "guard": {
+      "node_heap_mib": 64,
+      "own_rss_cap_bytes": 134217728,
+      "free_floor_bytes": 1073741824,
+      "internal_deadline_ms": 14000,
+      "outer_timeout_ms": 15000,
+      "per_file_cap_bytes": 67108864,
+      "aggregate_read_cap_bytes": 100663296,
+      "read_buffer_bytes": 65536,
+      "git_child_timeout_max_ms": 2000,
+      "git_max_buffer_bytes": 8192,
+      "priority": "BelowNormal"
+    }
+  },
+  "execution_scope": {
+    "supplemental_when": "After accepted final-publish; bind each exact file to final-publish outputs.",
+    "guard_when": "After accepted final-restore, before final native Git publication.",
+    "publication_when": "After final native Git publisher settles; transfer chunks0 and then reported offset/package identity.",
+    "chunk_followups": "Replace only terminal0 - with the last returned next_offset_bytes and package_sha256; stop at next_offset_bytes:null.",
+    "no_staging_required": true
+  },
+  "activity": "Cloud-only byte comparison and invocation decoding. No PC calls, helper execution, product tests, source edits, ref writes or added gate."
+}
