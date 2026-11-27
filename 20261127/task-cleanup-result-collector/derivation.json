@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "prepared_source_pending_independent_review",
+  "baseline_source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/configured-installed-closure-collector/collect-configured-installed-closure-20261127.cjs",
+    "bytes": 5474,
+    "sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df"
+  },
+  "baseline_review": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-review.json",
+    "bytes": 1083,
+    "sha256": "67a81878d444b04d75ed6908a26d8a91ecd1c5ba9b5f669eb169e20fe0794f9e"
+  },
+  "source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/task-cleanup-result-collector/collect-task-cleanup-receipts-20261127.cjs",
+    "bytes": 5447,
+    "sha256": "97fb10a0603b832c6a7199b72cb7da40c43e52a2b4bb205720916ec6b297e61b"
+  },
+  "substitutions": [
+    {
+      "old": "const root='F:/Dev/.bead-edit-20261111',coord=root+'/coordination-20261124',run=coord+'/completed-20261127-configured-installed',supervised=coord+'/completed-20261127-configured-installed-supervisor';",
+      "new": "const root='F:/Dev/.bead-edit-20261111',coord=root+'/coordination-20261124',run=coord+'/failed-tray-cache-cleanup4-20261127-2889282bfcec',supervised=coord+'/scheduled-task-cleanup23-20261127-2889282bfcec';",
+      "count": 1
+    },
+    {
+      "old": "configured-installed-closure-fixed2-raw",
+      "new": "task-cleanup-fixed2-raw",
+      "count": 2
+    }
+  ],
+  "complete_forward_and_inverse_exact": true,
+  "fixed_files": [
+    {
+      "role": "failed-tray-caches4",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/failed-tray-cache-cleanup4-20261127-2889282bfcec/result.json",
+      "producer": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/remove-exact-tray-caches4-20261127.ps1",
+        "bytes": 23136,
+        "sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32"
+      },
+      "producer_review": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/root/failed-tray-cache-cleanup4-source-review.json",
+        "bytes": 6187,
+        "sha256": "e680587e299759a8463b3b0ad0a8ee9b5dfd58091f736fbb68b1b15a4d017dd7"
+      }
+    },
+    {
+      "role": "scheduled-tasks23",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-cleanup23-20261127-2889282bfcec/result.json",
+      "producer": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23/remove-exact-scheduled-tasks23-20261127.ps1",
+        "bytes": 27226,
+        "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+      },
+      "producer_review": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/scheduled-task-cleanup23-source-review.json",
+        "bytes": 7863,
+        "sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc"
+      }
+    }
+  ],
+  "unchanged_implementation": [
+    "Seven helper definitions",
+    "Exactly two offset/hash arguments",
+    "Priority, heap, free-memory, RSS and time guards",
+    "Six parent identities and complete held-file/final snapshot read algorithm",
+    "Raw base64 package, deterministic gzip, chunk identity and bounded output",
+    "All catch/exit behavior"
+  ],
+  "invocation": {
+    "standard_compressed_wrapper": true,
+    "gzip_mtime": 0,
+    "compressed_source_bytes": 2297,
+    "compressed_source_sha256": "fdf747115ca8bef3a7ad9b1a097023cb1201db5270bef0a2496861c92fe3fdba",
+    "source_roundtrip_exact": true,
+    "command_characters": 3212,
+    "maximum_continuation_characters": 3290,
+    "first_arguments": [
+      "0",
+      "-"
+    ],
+    "connector_fields": [
+      "command",
+      "cwd",
+      "timeout_ms",
+      "expected_effects"
+    ]
+  },
+  "actual_cleanup": null,
+  "actual_collection": null
+}

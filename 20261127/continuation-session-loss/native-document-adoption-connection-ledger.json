@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "connection_unavailable_before_document_execution",
+  "observation_order_only": true,
+  "tool_timestamps_unavailable": true,
+  "native_document_adoption_attempts": [
+    {
+      "attempt": 1,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "tool call error: tool call failed for `codex_apps/emergency_maintenance.admin_prepare`\n\nCaused by:\n    Mcp error: -32603: MCP request timed out",
+      "error_code": null,
+      "error_type": null,
+      "json_rpc_code": null
+    },
+    {
+      "attempt": 2,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "McpServerError: Connection timed out.",
+      "error_code": "UNAVAILABLE",
+      "error_type": "mcp_network_error",
+      "json_rpc_code": "network_error"
+    },
+    {
+      "attempt": 3,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "tool call error: tool call failed for `codex_apps/emergency_maintenance.admin_prepare`\n\nCaused by:\n    Mcp error: -32603: MCP request timed out",
+      "error_code": null,
+      "error_type": null,
+      "json_rpc_code": null
+    },
+    {
+      "attempt": 4,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "McpServerError: Connection timed out.",
+      "error_code": "UNAVAILABLE",
+      "error_type": "mcp_network_error",
+      "json_rpc_code": "network_error"
+    },
+    {
+      "attempt": 5,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "McpServerError: Connection timed out.",
+      "error_code": "UNAVAILABLE",
+      "error_type": "mcp_network_error",
+      "json_rpc_code": "network_error"
+    },
+    {
+      "attempt": 6,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "McpServerError: Connection timed out.",
+      "error_code": "UNAVAILABLE",
+      "error_type": "mcp_network_error",
+      "json_rpc_code": "network_error"
+    },
+    {
+      "attempt": 7,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "McpServerError: Connection timed out.",
+      "error_code": "UNAVAILABLE",
+      "error_type": "mcp_network_error",
+      "json_rpc_code": "network_error"
+    },
+    {
+      "attempt": 8,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "McpServerError: Connection timed out.",
+      "error_code": "UNAVAILABLE",
+      "error_type": "mcp_network_error",
+      "json_rpc_code": "network_error"
+    },
+    {
+      "attempt": 9,
+      "operation": "admin_prepare",
+      "proposal_id": null,
+      "admin_execute_called": false,
+      "is_error": true,
+      "error": "McpServerError: Session terminated",
+      "error_code": "INVALID_ARGUMENT",
+      "error_type": "json_rpc_error",
+      "json_rpc_code": 32600
+    }
+  ],
+  "final_read_only_poll": {
+    "operation": "admin_poll",
+    "proposal_id": "_Owf26FCEEoZnYPa0te_ikm1IRti9B51l1H97da6Sxc",
+    "is_error": true,
+    "error": "McpServerError: Session terminated",
+    "error_code": "INVALID_ARGUMENT",
+    "json_rpc_code": 32600
+  },
+  "automation": {
+    "id": "Automation_bf044f8d0c5c8191922467e3f48372a8",
+    "title": "Finish beads editing",
+    "is_enabled": true,
+    "schedule": "BEGIN:VEVENT\nDTSTART;TZID=America/Los_Angeles:20261126T134500\nRRULE:FREQ=HOURLY\nEND:VEVENT",
+    "timing_mode": "condition_watch",
+    "default_timezone": "America/Los_Angeles",
+    "last_run_time": "2026-11-27T13:44:54.955456+00:00",
+    "next_run_time": "2026-11-27T06:45:00-08:00",
+    "updated_at": "2026-11-27T13:45:17.693835+00:00"
+  },
+  "privacy_note": "Connection endpoint omitted; exact error text and codes retained."
+}

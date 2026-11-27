@@ -1,0 +1,166 @@
+{
+  "schema_version": 1,
+  "status": "prepared_only_not_executed",
+  "coordination": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+  "retention": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1",
+  "inputs": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs",
+  "phases": [
+    {
+      "phase": "preserve",
+      "preparation_file": "01-preserve.request.prepared.json",
+      "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/history-preserve-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-preserve-20261127-v1",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-preserve-20261127-v1/result.json",
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+      "required_prior_phases": [],
+      "extra_accepted_roles": [],
+      "execution_selector_in_preparation": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "freeze",
+      "preparation_file": "02-freeze.request.prepared.json",
+      "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/history-freeze-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-freeze-20261127-v1",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-freeze-20261127-v1/result.json",
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+      "required_prior_phases": [
+        "preserve"
+      ],
+      "extra_accepted_roles": [],
+      "execution_selector_in_preparation": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "source-restore",
+      "preparation_file": "03-source-restore.request.prepared.json",
+      "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/history-source-restore-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-source-restore-20261127-v1",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-source-restore-20261127-v1/result.json",
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+      "required_prior_phases": [
+        "preserve",
+        "freeze"
+      ],
+      "extra_accepted_roles": [],
+      "execution_selector_in_preparation": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "restore-original",
+      "preparation_file": "04-restore-original.request.prepared.json",
+      "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/history-restore-original-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1/result.json",
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+      "required_prior_phases": [
+        "preserve",
+        "freeze",
+        "source-restore"
+      ],
+      "extra_accepted_roles": [],
+      "execution_selector_in_preparation": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "restore",
+      "preparation_file": "05-restore.request.prepared.json",
+      "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/history-restore-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-20261127-v1",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-20261127-v1/result.json",
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore/result.json",
+      "required_prior_phases": [
+        "preserve",
+        "freeze",
+        "source-restore",
+        "restore-original"
+      ],
+      "extra_accepted_roles": [],
+      "execution_selector_in_preparation": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "close",
+      "preparation_file": "06-close.request.prepared.json",
+      "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/history-close-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-close-20261127-v1",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-close-20261127-v1/result.json",
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/close/result.json",
+      "required_prior_phases": [
+        "preserve",
+        "freeze",
+        "source-restore",
+        "restore-original",
+        "restore"
+      ],
+      "extra_accepted_roles": [
+        "cleanup-results",
+        "cleanup-text-review",
+        "checkpoint-publication"
+      ],
+      "execution_selector_in_preparation": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "final-publish",
+      "preparation_file": "07-final-publish.request.prepared.json",
+      "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/history-final-publish-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-publish-20261127-v1",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-publish-20261127-v1/result.json",
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+      "required_prior_phases": [
+        "preserve",
+        "freeze",
+        "source-restore",
+        "restore-original",
+        "close"
+      ],
+      "extra_accepted_roles": [
+        "cleanup-results",
+        "cleanup-text-review",
+        "checkpoint-publication"
+      ],
+      "execution_selector_in_preparation": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    },
+    {
+      "phase": "final-restore",
+      "preparation_file": "08-final-restore.request.prepared.json",
+      "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/history-final-restore-20261127-v1.request.json",
+      "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-restore-20261127-v1",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-restore-20261127-v1/result.json",
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-restore/result.json",
+      "required_prior_phases": [
+        "preserve",
+        "freeze",
+        "source-restore",
+        "final-publish"
+      ],
+      "extra_accepted_roles": [
+        "cleanup-results",
+        "cleanup-text-review",
+        "checkpoint-publication"
+      ],
+      "execution_selector_in_preparation": null,
+      "actual_request_sha256": null,
+      "actual_driver_result_sha256": null,
+      "actual_supervisor_result_sha256": null
+    }
+  ],
+  "collector_contract": "The exact eight-name enum maps to the same supervisor result and fixed driver result paths. Delivery owns the raw collector; this packet introduces no collector or executor.",
+  "inert_guard": "Every request keeps phase:null. The accepted c0c289 supervisor rejects the unknown phase at line126 before publication-lock checks, path selection or directory creation. Fill only the exact phase in this map when its actual prerequisites/prior results and root attestations are accepted."
+}

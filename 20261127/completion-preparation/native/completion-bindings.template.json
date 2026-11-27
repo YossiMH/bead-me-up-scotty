@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "prepared_only",
+  "executable": false,
+  "purpose": "One future completion append after accepted actual 55/0, history publication and cleanup, preserving the entire earlier native handoff.",
+  "baseline": {
+    "repository": "YossiMH/bead-rs",
+    "commit": "025ebc6a38013402b1936e932c104348aec06fd4",
+    "path": ".marathon/progress.md",
+    "git_blob": "09efdf7b25aeb1a409d87843923c4da5f776dd02",
+    "bytes": 181588,
+    "sha256": "ddd99e39475d51b9d5a096e2e31d28efad951c7546b1dda8cd37b4ac29857779",
+    "historical_state_sha256": "d4c77ba5acd99ffcf5fad21f0dcf8f2dd43966c22c6ee8aa49c0303809dd3b24"
+  },
+  "completion_gate_expected_values": {
+    "closed": 55,
+    "open": 0,
+    "cleanup_task_status": "closed",
+    "meaning": "Acceptance requirements only; no actual final outcome is asserted."
+  },
+  "actual_values": {
+    "PENDING_READBACK_UTC": null,
+    "PENDING_COMPLETION_STATUS": null,
+    "PENDING_CLOSED_COUNT": null,
+    "PENDING_OPEN_COUNT": null,
+    "PENDING_CLEANUP_TASK_STATUS": null,
+    "PENDING_CLEANUP_TASK_REVISION": null,
+    "PENDING_TASK_RESULT_URL": null,
+    "PENDING_TASK_RESULT_SHA256": null,
+    "PENDING_HISTORY_STATUS_AND_SUMMARY": null,
+    "PENDING_FINAL_RESTORE_URL": null,
+    "PENDING_FINAL_RESTORE_SHA256": null,
+    "PENDING_GENERATION_ID": null,
+    "PENDING_ROOT_SHA256": null,
+    "PENDING_PUBLICATION_STATUS": null,
+    "PENDING_CHECKPOINT_COMMIT": null,
+    "PENDING_CHECKPOINT_REMOTE_COMMIT": null,
+    "PENDING_CHECKPOINT_TREE": null,
+    "PENDING_PUBLICATION_RESULT_URL": null,
+    "PENDING_PUBLICATION_RESULT_SHA256": null,
+    "PENDING_CLEANUP_STATUS_AND_SUMMARY": null,
+    "PENDING_CLEANUP_RESULT_URL": null,
+    "PENDING_CLEANUP_RESULT_SHA256": null,
+    "PENDING_REF_STATUS_AND_SUMMARY": null,
+    "PENDING_ARCHIVE_REF": null,
+    "PENDING_ARCHIVE_COMMIT": null,
+    "PENDING_REF_RESULT_URL": null,
+    "PENDING_REF_RESULT_SHA256": null,
+    "PENDING_NATIVE_HEAD": null,
+    "PENDING_APP_HEAD": null,
+    "PENDING_COMPLETION_REVIEW_URL": null,
+    "PENDING_COMPLETION_REVIEW_SHA256": null
+  },
+  "publication": {
+    "future_completed_append_sha256": null,
+    "future_full_native_text_sha256": null,
+    "future_text_review_sha256": null,
+    "future_document_commit": null,
+    "future_windows_adoption_result_sha256": null,
+    "future_windows_adoption_review_sha256": null
+  },
+  "source_inputs": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/native-handoff-final-50/progress.proposed.md",
+      "bytes": 181588,
+      "sha256": "ddd99e39475d51b9d5a096e2e31d28efad951c7546b1dda8cd37b4ac29857779"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/native-handoff-final-50/native-delivery-current-state.md",
+      "bytes": 6660,
+      "sha256": "d4c77ba5acd99ffcf5fad21f0dcf8f2dd43966c22c6ee8aa49c0303809dd3b24"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/reviews/native-handoff-final-text-review.json",
+      "bytes": 16394,
+      "sha256": "1798222c75283975a39de6862941763100c91b313c9b60ea5b3abf7dfae90b40"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/checkpoint-only-handoff-crlf-20261127.mjs",
+      "bytes": 84410,
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/publish-reviewed-git-crlf-20261127.mjs",
+      "bytes": 45087,
+      "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/cloud-worktree-removal-result.json",
+      "bytes": 1194,
+      "sha256": "4300221854af50f1970b73058aa9236ce25a97cc963cee9e3b08f0723c46de02"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/cloud-worktree-removal-actual-review.json",
+      "bytes": 4006,
+      "sha256": "e49a7f985576d0aaedffbdb525ce593f92d11679a503e5b74f96314ad7951f30"
+    }
+  ],
+  "retention": "Retain this ordinary named packet until durable root publication. It creates no worktree and contains no executable request. Preserve actual recovery and rollback bytes according to the separately accepted final inventory."
+}

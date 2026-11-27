@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "status": "uncertain_execute_response",
+  "proposal": {
+    "proposal_id": "wxHgtgTE1573yhwbPbi04ipR5GppJtpAmDt4u02rqvM",
+    "expires_at_unix": 1795788679.907971,
+    "command": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\publish-reviewed-git-crlf-supervisor-20261127.ps1 -InputManifest F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\revision-9\\native-documents-20261127-v1.request.json -InputSha256 227e4889dc252d722b8fb9a94dff643f9bbbb925e6248858389aa80175724791 -TimeoutSeconds 180 -MaxOwnedResidentMiB 512",
+    "cwd": "F:\\Dev",
+    "expected_effects": "Adopt only the independently reviewed native progress document by exact guarded fast-forward to published main. Original index/config/private-file guards, accepted CRLF predictions and source/request hashes are checked before mutation. Preserve the original native checkpoint objects and record the new native baseline where applicable. One hidden BelowNormal supervisor, Node128, 3 GiB entry and 1 GiB live free memory, 512 MiB aggregate, 180 seconds with cleanup reserve. No product build, launch, tests or app private-store access; retain all exact output receipts.",
+    "timeout_ms": 200000,
+    "request_digest": "57294fe7419955a1e50854ee618cb92a0c1048a3863644a1b501d6e3fe940613",
+    "approval": "Use admin_execute with ChatGPT Allow once. No AI reviewer or remembered approval is used."
+  },
+  "execution_called_exactly_once": true,
+  "execute_response": {
+    "error": "McpServerError: Connection timed out.",
+    "error_code": "UNAVAILABLE"
+  },
+  "first_poll": {
+    "error": "McpServerError: Connection timed out.",
+    "error_code": "UNAVAILABLE"
+  },
+  "replay_permitted": false,
+  "next_action": "Read-only admin_poll for this exact proposal until claimed/exited or explicitly expired without a job; reconcile actual output before further document mutations.",
+  "app_document_execution_started": false
+}

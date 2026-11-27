@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "status": "prepared_only",
+  "immutable_template_commit": "cf462e43a1012a75112d943bb17edc84c35b8e67",
+  "template_directory": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-inputs-crlf",
+  "original_templates": [
+    {
+      "file": "01-preserve.request.template.json",
+      "bytes": 3509,
+      "sha256": "4eee6dfe686aed62a0c79b56a5eb792c09956736e894d43be88dde1d86e7aa1a"
+    },
+    {
+      "file": "02-freeze.request.template.json",
+      "bytes": 3507,
+      "sha256": "a5a54eb93303974a7efc379c5d0bf157354744193f1521afaba7eca5fe22b37d"
+    },
+    {
+      "file": "03-source-restore.request.template.json",
+      "bytes": 3515,
+      "sha256": "0387b64ec5f014a5ea5961f5d52946cca117fdd0611255e191f71cc187d575a6"
+    },
+    {
+      "file": "04-restore-original.request.template.json",
+      "bytes": 3517,
+      "sha256": "fe68433bd63f02ce94670a2d239c4985878c973e373cf3a1dc73673be86a79c9"
+    },
+    {
+      "file": "05-restore.request.template.json",
+      "bytes": 3508,
+      "sha256": "3aef8b1f3a293898325d4cf658329430665139f5c4db7eca5b10fc19e637fdf1"
+    },
+    {
+      "file": "06-close.request.template.json",
+      "bytes": 3506,
+      "sha256": "4b8d0aa7b92888a8b87c95f4fe8a9f287fa5d2cca2505f1d4eefd78c69fe7d3c"
+    },
+    {
+      "file": "07-final-publish.request.template.json",
+      "bytes": 3514,
+      "sha256": "5c09ae4c93aaac305ebd9d3282fcd343a865bfa8925620a468a84b2e4057ac50"
+    },
+    {
+      "file": "08-final-restore.request.template.json",
+      "bytes": 3514,
+      "sha256": "a17f217ab91acfaa94d29ea7ad92696953ba50ac8438be8bd7e256c519edcee1"
+    }
+  ],
+  "accepted_preparation_review": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/backend/reviews/history-phase-inputs-crlf-review.json",
+    "sha256": "1634c7573403f8935873a4a400e64f099110ffbb76c1cf20ac4a851b2410d218"
+  },
+  "known_accepted_pins": {
+    "install": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/install-result-accepted.json",
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+    },
+    "configured-launch": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/configured-launch-result.json",
+      "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701"
+    },
+    "installed-review": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/installed-final-review.json",
+      "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b"
+    }
+  },
+  "future_accepted_paths": {
+    "backend-text-review": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/native-documents-adoption-review.json",
+    "app-text-review": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/scotty-documents-adoption-review.json",
+    "original-git-baseline": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1/original-git-baseline.json"
+  },
+  "job_helper": {
+    "path": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/windows-task-job.ps1",
+    "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "basis": "Exact copy recorded in the independently accepted fourth TCP result54e074ed; same copy accepted by both document publisher requests."
+  },
+  "runtime_path_preserved": "F:/Dev/.bead-edit-20261111/stage-artifacts-v9-final-20261125-1151/native/release/bead-checkpoint-2d801ba455b7.exe",
+  "common_future_fields": [
+    "phase execution selector",
+    "backend-text-review SHA256",
+    "app-text-review SHA256",
+    "original-git-baseline SHA256",
+    "root attestations for actual phase admission"
+  ],
+  "later_phase_fields": [
+    "Exact direct prior-result hashes from phase-supervisor-map.json.",
+    "For close/final phases, actual cleanup-results, cleanup-text-review and checkpoint-publication pins.",
+    "For close, bind the live original pre-close cleanup revision and exact accepted reason.",
+    "For final-publish, reuse the accepted close request's original pre-close revision (accepted close result.cleanup_revision minus one) and exact reason; retain those same two values in final-restore. No future successful result is synthesized."
+  ],
+  "current_actual_history_phase_results": null,
+  "activity": {
+    "pc_calls": false,
+    "phase_execution": false,
+    "task_writes": false,
+    "product_code_changes": false,
+    "tests_or_builds": false
+  },
+  "immutable_template_directory": "20261127/history-phase-inputs-crlf",
+  "known_evidence": [
+    {
+      "role": "install",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+      "path": "20261127/installation-completed/result.json",
+      "bytes": 16086,
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+    },
+    {
+      "role": "configured-launch",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "cf1e018022086e0118aa76cd64cdd0d02317850d",
+      "path": "20261127/configured-launch-tcp-actual/result.json",
+      "bytes": 17558,
+      "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701"
+    },
+    {
+      "role": "installed-review",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "3151657df5939a2756d504860d655c058b808828",
+      "path": "20261127/configured-launch-tcp-actual/installed-final-review.json",
+      "bytes": 16318,
+      "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b"
+    }
+  ],
+  "compatibility_source": {
+    "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+    "directory": "20261127/checkpoint-crlf-handoff",
+    "driver_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+    "supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+    "review_sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c"
+  }
+}

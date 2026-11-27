@@ -1,0 +1,150 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_independent_source_review",
+  "author": "/root/frontend_audit",
+  "scope": "Raw transport of exactly the fixed cache4 and cleanup23 result.json files, including missing and failed/partial observations.",
+  "files": {
+    "README.md": {
+      "bytes": 4135,
+      "sha256": "ef1e5dfa066c0402ca8134312b2068f2d96176ee2b049a3e50e1f2925dfa8c36"
+    },
+    "collect-task-cleanup-receipts-20261127.cjs": {
+      "bytes": 5447,
+      "sha256": "97fb10a0603b832c6a7199b72cb7da40c43e52a2b4bb205720916ec6b297e61b"
+    },
+    "derivation.json": {
+      "bytes": 3878,
+      "sha256": "bb0264401470851b0c22cfcbe82b2b6e5170e5b45725da29033129cf6d5f9dd5"
+    },
+    "invocation.json": {
+      "bytes": 3798,
+      "sha256": "5f8e402d1197ce46bea4a685deff434df5e368e82d88ad2dfb2d689bb76e6ea1"
+    }
+  },
+  "baseline_source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/configured-installed-closure-collector/collect-configured-installed-closure-20261127.cjs",
+    "bytes": 5474,
+    "sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df"
+  },
+  "baseline_review": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-review.json",
+    "bytes": 1083,
+    "sha256": "67a81878d444b04d75ed6908a26d8a91ecd1c5ba9b5f669eb169e20fe0794f9e"
+  },
+  "accepted_compressed_wrapper": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-publications-command.json",
+    "bytes": 3819,
+    "sha256": "db0a34ec1241c99f492ffcfe0f9fce3d3fdf6474867c1e3e4076ae8f8f78d3a0"
+  },
+  "producer_bindings": [
+    {
+      "role": "failed-tray-caches4",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/failed-tray-cache-cleanup4-20261127-2889282bfcec/result.json",
+      "producer": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/remove-exact-tray-caches4-20261127.ps1",
+        "bytes": 23136,
+        "sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32"
+      },
+      "producer_review": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/root/failed-tray-cache-cleanup4-source-review.json",
+        "bytes": 6187,
+        "sha256": "e680587e299759a8463b3b0ad0a8ee9b5dfd58091f736fbb68b1b15a4d017dd7"
+      }
+    },
+    {
+      "role": "scheduled-tasks23",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-cleanup23-20261127-2889282bfcec/result.json",
+      "producer": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23/remove-exact-scheduled-tasks23-20261127.ps1",
+        "bytes": 27226,
+        "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+      },
+      "producer_review": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/scheduled-task-cleanup23-source-review.json",
+        "bytes": 7863,
+        "sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc"
+      }
+    }
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "complete_source_read": true,
+      "read": [
+        "Complete accepted baseline and complete candidate source",
+        "Complete README and derivation",
+        "Exact invocation outer code plus complete decoded source and all four connector fields"
+      ],
+      "checks": [
+        "Both complete transformations recover exact original/final bytes",
+        "Both producer source/review identities and fixed output/result filename contracts match",
+        "Existing held-file, missing-file and snapshot behavior remains unchanged",
+        "Source gzip payload roundtrips exactly with a zero timestamp; no result JSON is parsed"
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "complete_source_read": true,
+      "read": [
+        "Complete final source and README again",
+        "Full derivation plus decoded invocation and exact outer arguments"
+      ],
+      "checks": [
+        "All seven helper definitions and full inverse compare exactly",
+        "The small gzip source-wrapper prefix/suffix equals the independently accepted document collector wrapper",
+        "Initial 3,212 and maximum 3,290 command lengths agree with the exact offset/hash contract",
+        "Partial or missing outcomes remain raw observations and never imply successful cleanup",
+        "All actual cleanup and collection fields remain unset"
+      ],
+      "findings": []
+    }
+  ],
+  "checks": {
+    "complete_forward_inverse_exact": true,
+    "substitution_groups": 2,
+    "unchanged_helpers": [
+      "sha",
+      "error",
+      "check",
+      "emit",
+      "stop",
+      "signature",
+      "stat"
+    ],
+    "held_file_parent_resource_and_transport_logic_unchanged": true,
+    "all_basis_files_rehashed_exact": true,
+    "gzip_decodes_to_exact_source": true,
+    "standard_wrapper_same_except_base64_payload": true,
+    "initial_command_characters": 3212,
+    "maximum_continuation_command_characters": 3290,
+    "raw_json_parsing": false
+  },
+  "resource_contract": {
+    "node_heap_mib": 64,
+    "priority": "BelowNormal",
+    "free_memory_bytes": 1073741824,
+    "own_rss_bytes": 134217728,
+    "sampling_ms": 100,
+    "internal_and_outer_deadline_ms": 15000,
+    "per_file_bytes": 2097152,
+    "aggregate_bytes": 4194304,
+    "compressed_chunk_bytes": 37500,
+    "whole_response_characters": 65000
+  },
+  "findings": [],
+  "activity": {
+    "pc_calls": false,
+    "collector_body_execution": false,
+    "product_execution": false,
+    "tests_or_builds": false,
+    "task_store_writes": false,
+    "accepted_source_edits": false,
+    "publication": false
+  },
+  "actual_cleanup": null,
+  "actual_collection": null,
+  "retention": "Ordinary cloud packet directory; root will retain the exact packet and independent review before final cleanup. No PC artifact is created by the collector."
+}

@@ -1,0 +1,237 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "scope": "Independent preparation-only review of eight inert history requests and their fixed receipt map. Each completed actual request and every phase result still requires separate review.",
+  "reviewer": "/root/delivery_audit",
+  "author": "/root/backend_audit",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/backend/history-phase-request-preparation",
+  "reviewed_files": {
+    "01-preserve.request.prepared.json": {
+      "bytes": 4449,
+      "sha256": "efaa3688d94e491b3c66c5243490f53486caaa17464115ff33512aef3fb0d64c"
+    },
+    "02-freeze.request.prepared.json": {
+      "bytes": 4540,
+      "sha256": "4a3076f06cda0f76171570667454e45ab9b69c8546f7484d7de96243c9bfbc41"
+    },
+    "03-source-restore.request.prepared.json": {
+      "bytes": 4639,
+      "sha256": "1d5de4db25e812959cdc90b6db1741d8890446a0855d135ababf531f22dce71e"
+    },
+    "04-restore-original.request.prepared.json": {
+      "bytes": 4740,
+      "sha256": "7703d32b91a348b34b270d0c3bb9930ab075016b182f55c976ceb1f7d20e1982"
+    },
+    "05-restore.request.prepared.json": {
+      "bytes": 4832,
+      "sha256": "1c7484787dbb99e09f5fbefa228d537ac37bd85f51518bfe42c6ba20bea08f7a"
+    },
+    "06-close.request.prepared.json": {
+      "bytes": 4922,
+      "sha256": "47f0fa2817087c3256f102811cfc5aa410abac4070ba30c509de8eadd4d1247b"
+    },
+    "07-final-publish.request.prepared.json": {
+      "bytes": 4928,
+      "sha256": "d2d72222532a2d51df204e7c5ca8c0243a0a475f2f3e73daf88b20d59fe6aa9c"
+    },
+    "08-final-restore.request.prepared.json": {
+      "bytes": 4835,
+      "sha256": "c00d516ba20a47ff50ad4bc1bd981e353908bffb267536eb40e208cd84fc2b16"
+    },
+    "README.md": {
+      "bytes": 9248,
+      "sha256": "5b9528fb5d291b1d3a33bb814c05b31cbe366cba8bff0238cd96d78f1afb92e6"
+    },
+    "input-bindings.json": {
+      "bytes": 6075,
+      "sha256": "1b0ae464b75bc24ca28f8555b4e104817bf39ab4d58985389a78bd935e940183"
+    },
+    "phase-supervisor-map.json": {
+      "bytes": 8968,
+      "sha256": "84c94083f43da03c63be7a8d2206d4dea0a1a6f683dcb36f4c9fee25ac78f9c2"
+    },
+    "author-inspections.json": {
+      "bytes": 12438,
+      "sha256": "addc781c16bc6c2b2aabb3c12d268534cd775e0f5faf67f48c3a4a048100d1ae"
+    }
+  },
+  "accepted_basis": {
+    "original_templates": {
+      "directory": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-inputs-crlf",
+      "commit": "cf462e43a1012a75112d943bb17edc84c35b8e67",
+      "repository_path": "20261127/history-phase-inputs-crlf",
+      "review_sha256": "1634c7573403f8935873a4a400e64f099110ffbb76c1cf20ac4a851b2410d218"
+    },
+    "driver": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/checkpoint-only-handoff-crlf-20261127.mjs",
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+    },
+    "supervisor": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+      "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+    },
+    "collector": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-receipt-collector/collect-history-phase-receipts-20261127.cjs",
+      "sha256": "f0c931ccf0b9dbfd2938c5ff690727c72f333edcc5bcce08ea2670b63bb28b3b",
+      "independent_review_sha256": "c658567a789560b4529183f406425af1ae0f54b88a44aeb50e34721c4a99a2ee"
+    },
+    "actual_inputs": {
+      "backend/history-publication-readiness/inputs/install-result-accepted.json": {
+        "bytes": 16086,
+        "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673",
+        "status": "passed"
+      },
+      "root/tcp-actual/result.json": {
+        "bytes": 17558,
+        "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701",
+        "status": "passed"
+      },
+      "frontend/reviews/installed-final-review.json": {
+        "bytes": 16318,
+        "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b",
+        "status": "passed"
+      }
+    }
+  },
+  "checks": [
+    {
+      "id": "H1",
+      "status": "passed",
+      "detail": "Read the complete shared request, every complete phase-specific difference, full fixed map, provenance and corrected runbook/author record. Independently reconstructed each prepared JSON from the corresponding accepted original and proved exact full-byte forward and inverse equality for all eight."
+    },
+    {
+      "id": "H2",
+      "status": "passed",
+      "detail": "All requests retain the exact accepted schema, source/runtime/Node/Git/plan/materialization/runtime-qualification identities. The runtime stays within the allowed task-root path. The final-directory Job helper is the accepted 2758a6ff copy."
+    },
+    {
+      "id": "H3",
+      "status": "passed",
+      "detail": "Every selector remains null. All five attestations remain false, every prior hash remains null, future adoption/baseline/cleanup/publication hashes remain null, and cleanup revision/reason remain null. Static ordering in the unchanged supervisor rejects null before publication-lock checking, phase path selection and output creation."
+    },
+    {
+      "id": "H4",
+      "status": "passed",
+      "detail": "The three actual accepted roles rehash exactly to the retained passed install, configured and installed-review records. Future document adoption reviews require lowercase passed status and retain exact coordination destinations; source-only text acceptance is not substituted."
+    },
+    {
+      "id": "H5",
+      "status": "passed",
+      "detail": "All eight supervisor directories are immediate coordination children named checkpoint-only-supervision-<phase>-20261127-v1. Both result basenames are result.json. The fixed collector's phase-derived paths agree with the complete map and unchanged supervisor writer."
+    },
+    {
+      "id": "H6",
+      "status": "passed",
+      "detail": "Direct prior lists agree with the accepted baseline checklist and unchanged helper accesses. Both last phases preserve their distinct prior sets; indirect retained outputs remain bound through prior(). The first checkpoint Git publication follows restore-original and restore, and final Git publication follows final-publish and final-restore."
+    },
+    {
+      "id": "H7",
+      "status": "passed",
+      "detail": "Original baseline must come from actual accepted native document adoption. The expected post-document main, original checkpoint tree ff0759095a01edb38ca4bb8aa90fbdb84476e0f7, original 53 objects, remote equality, index hash and coordination-owned raw index copy remain required. Neither a candidate nor pre-adoption index is supplied."
+    },
+    {
+      "id": "H8",
+      "status": "passed",
+      "detail": "The corrected runbook supplies final-publish with the accepted close request's pre-close revision and exact reason, matching the unchanged helper's close-result-minus-one check and published issue check. Final-restore retains the same two bindings without claiming an additional source assertion."
+    },
+    {
+      "id": "H9",
+      "status": "passed",
+      "detail": "The correction changes only one README paragraph and input-bindings.later_phase_fields. Complete metadata inverses reproduce prior ad9ba1aa and 5449edfa hashes. All eight request payloads and map remain exact; final author records two complete correction inspections."
+    },
+    {
+      "id": "H10",
+      "status": "passed",
+      "detail": "Root alone fills, reviews and executes preserve first after actual adoption/baseline acceptance, then each later phase from accepted raw predecessor results. Runtime admission, aggregate memory, live floor, timeout and cleanup limits remain in the unchanged accepted supervisor."
+    }
+  ],
+  "phase_checks": [
+    {
+      "phase": "preserve",
+      "bytes": 4449,
+      "sha256": "efaa3688d94e491b3c66c5243490f53486caaa17464115ff33512aef3fb0d64c",
+      "forward_inverse_bytes_exact": true,
+      "fixed_paths_and_priors": true,
+      "future_nulls_and_attestations_false": true
+    },
+    {
+      "phase": "freeze",
+      "bytes": 4540,
+      "sha256": "4a3076f06cda0f76171570667454e45ab9b69c8546f7484d7de96243c9bfbc41",
+      "forward_inverse_bytes_exact": true,
+      "fixed_paths_and_priors": true,
+      "future_nulls_and_attestations_false": true
+    },
+    {
+      "phase": "source-restore",
+      "bytes": 4639,
+      "sha256": "1d5de4db25e812959cdc90b6db1741d8890446a0855d135ababf531f22dce71e",
+      "forward_inverse_bytes_exact": true,
+      "fixed_paths_and_priors": true,
+      "future_nulls_and_attestations_false": true
+    },
+    {
+      "phase": "restore-original",
+      "bytes": 4740,
+      "sha256": "7703d32b91a348b34b270d0c3bb9930ab075016b182f55c976ceb1f7d20e1982",
+      "forward_inverse_bytes_exact": true,
+      "fixed_paths_and_priors": true,
+      "future_nulls_and_attestations_false": true
+    },
+    {
+      "phase": "restore",
+      "bytes": 4832,
+      "sha256": "1c7484787dbb99e09f5fbefa228d537ac37bd85f51518bfe42c6ba20bea08f7a",
+      "forward_inverse_bytes_exact": true,
+      "fixed_paths_and_priors": true,
+      "future_nulls_and_attestations_false": true
+    },
+    {
+      "phase": "close",
+      "bytes": 4922,
+      "sha256": "47f0fa2817087c3256f102811cfc5aa410abac4070ba30c509de8eadd4d1247b",
+      "forward_inverse_bytes_exact": true,
+      "fixed_paths_and_priors": true,
+      "future_nulls_and_attestations_false": true
+    },
+    {
+      "phase": "final-publish",
+      "bytes": 4928,
+      "sha256": "d2d72222532a2d51df204e7c5ca8c0243a0a475f2f3e73daf88b20d59fe6aa9c",
+      "forward_inverse_bytes_exact": true,
+      "fixed_paths_and_priors": true,
+      "future_nulls_and_attestations_false": true
+    },
+    {
+      "phase": "final-restore",
+      "bytes": 4835,
+      "sha256": "c00d516ba20a47ff50ad4bc1bd981e353908bffb267536eb40e208cd84fc2b16",
+      "forward_inverse_bytes_exact": true,
+      "fixed_paths_and_priors": true,
+      "future_nulls_and_attestations_false": true
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "HPREP-R2",
+      "finding": "The initial runbook mentioned cleanup revision/reason only for close, although final-publish also consumes them.",
+      "resolution": "Final README 5b9528fb and input-bindings 1b0ae464 explicitly require original pre-close revision and exact reason reuse, with final-restore carry-forward. Requests/map unchanged.",
+      "status": "resolved"
+    }
+  ],
+  "findings": [],
+  "remaining_actual_requirements": [
+    "Accepted actual native and app document adoption reviews and exact post-adoption native Git baseline/index.",
+    "Fresh accepted current task state; freeze requires all other 54 tasks closed with cleanup open, unassigned and unclaimed.",
+    "A separately completed and independently reviewed request for each actual phase, pinned to its actual predecessors and root attestations.",
+    "Accepted actual cleanup and first checkpoint publication before close; accepted final restore and final Git publication afterward."
+  ],
+  "verification_limits": {
+    "actual_phase_execution": false,
+    "pc_calls": false,
+    "task_writes": false,
+    "new_tests_or_builds": false,
+    "supplemental_git_object_comparison": "Not repeated: /tmp/scotty was absent in the current executor view. The retained accepted template bytes, their prior independent review, exact derivations and actual receipt hashes were verified directly."
+  }
+}

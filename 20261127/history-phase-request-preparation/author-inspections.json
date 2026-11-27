@@ -1,0 +1,269 @@
+{
+  "schema_version": 1,
+  "status": "passed_preparation_only",
+  "author": "/root/backend_audit",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/backend/history-phase-request-preparation",
+  "scope": "Eight inert data requests with a fixed supervisor/collector path map. Only phase preserve will be completed first after actual document-adoption/baseline acceptance; later phases are completed sequentially from accepted actual prior outputs.",
+  "files": {
+    "01-preserve.request.prepared.json": {
+      "bytes": 4449,
+      "sha256": "efaa3688d94e491b3c66c5243490f53486caaa17464115ff33512aef3fb0d64c"
+    },
+    "02-freeze.request.prepared.json": {
+      "bytes": 4540,
+      "sha256": "4a3076f06cda0f76171570667454e45ab9b69c8546f7484d7de96243c9bfbc41"
+    },
+    "03-source-restore.request.prepared.json": {
+      "bytes": 4639,
+      "sha256": "1d5de4db25e812959cdc90b6db1741d8890446a0855d135ababf531f22dce71e"
+    },
+    "04-restore-original.request.prepared.json": {
+      "bytes": 4740,
+      "sha256": "7703d32b91a348b34b270d0c3bb9930ab075016b182f55c976ceb1f7d20e1982"
+    },
+    "05-restore.request.prepared.json": {
+      "bytes": 4832,
+      "sha256": "1c7484787dbb99e09f5fbefa228d537ac37bd85f51518bfe42c6ba20bea08f7a"
+    },
+    "06-close.request.prepared.json": {
+      "bytes": 4922,
+      "sha256": "47f0fa2817087c3256f102811cfc5aa410abac4070ba30c509de8eadd4d1247b"
+    },
+    "07-final-publish.request.prepared.json": {
+      "bytes": 4928,
+      "sha256": "d2d72222532a2d51df204e7c5ca8c0243a0a475f2f3e73daf88b20d59fe6aa9c"
+    },
+    "08-final-restore.request.prepared.json": {
+      "bytes": 4835,
+      "sha256": "c00d516ba20a47ff50ad4bc1bd981e353908bffb267536eb40e208cd84fc2b16"
+    },
+    "README.md": {
+      "bytes": 9248,
+      "sha256": "5b9528fb5d291b1d3a33bb814c05b31cbe366cba8bff0238cd96d78f1afb92e6"
+    },
+    "input-bindings.json": {
+      "bytes": 6075,
+      "sha256": "1b0ae464b75bc24ca28f8555b4e104817bf39ab4d58985389a78bd935e940183"
+    },
+    "phase-supervisor-map.json": {
+      "bytes": 8968,
+      "sha256": "84c94083f43da03c63be7a8d2206d4dea0a1a6f683dcb36f4c9fee25ac78f9c2"
+    }
+  },
+  "source": {
+    "template_commit": "cf462e43a1012a75112d943bb17edc84c35b8e67",
+    "template_directory": "20261127/history-phase-inputs-crlf",
+    "template_preparation_review_sha256": "1634c7573403f8935873a4a400e64f099110ffbb76c1cf20ac4a851b2410d218",
+    "driver_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+    "supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "coverage": "Read the complete corrected README and input-bindings provenance, then traced all close/final-publish/final-restore cleanup revision/reason uses in the unchanged 1015 helper. Rechecked the complete eleven-file manifest and reused the earlier full request/schema inspections only after all nine unchanged payloads rehashed exactly.",
+      "findings": [],
+      "observations": [
+        "Final-publish must carry the accepted close request's pre-close cleanup_revision, equal to the accepted close result's revision minus one, and the identical close_reason. Its published closed-issue check uses those same values.",
+        "Final-restore retains those two accepted request values according to the existing phase-input procedure; this documentation does not claim an additional source check.",
+        "All eight request bytes and the fixed collector map remain exact. Every phase remains null, all five attestations remain false, and cleanup_revision/close_reason remain null in this preparation.",
+        "The observed runtime path, known actual pins, future adoption/baseline paths and direct prior bindings remain unchanged."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "coverage": "Read the full corrected runbook and provenance again, checked the exact one-paragraph README inverse and the sole later_phase_fields inverse against the prior frozen bytes, and rechecked the unchanged full request/map identities and existing source guard/phase boundaries.",
+      "findings": [],
+      "observations": [
+        "The README reverses exactly to ad9ba1aa by replacing only the reviewed cleanup revision/reason paragraph; the input-bindings record reverses exactly to 5449edfa by restoring only later_phase_fields.",
+        "All nine other payload files retain their accepted prior hashes; the eight requests still have phase:null, unset close values and false attestations.",
+        "Preserve is the only phase root will complete first, after actual adoption reviews and original baseline/index acceptance. The later requests remain preparations for sequential actual bindings.",
+        "No helper source, product code, task state, execution outcome or future receipt was changed or synthesized."
+      ]
+    }
+  ],
+  "resolved_author_findings": [
+    {
+      "id": "HPREP-R1",
+      "status": "resolved_before_final_freeze",
+      "finding": "The initial in-memory output map used supervisor-result.json for the supervisor receipt.",
+      "resolution": "Read the exact c0c289 writer at line279 and delivery's collector; changed the map to <supervisor_output>/result.json before any packet file was written. All request directory values were already correct."
+    },
+    {
+      "id": "HPREP-R2",
+      "reported_by": "/root/delivery_audit",
+      "status": "resolved_before_final_review_freeze",
+      "finding": "The runbook and later_phase_fields mentioned cleanup revision/reason only for close, although final-publish consumes the original pre-close revision and exact reason.",
+      "resolution": "Clarified final-publish's equality to accepted close result.cleanup_revision minus one, exact reason reuse, and retention of both values in final-restore. Changed only README/input-bindings and this author record; all eight prepared requests and the collector map remain exact."
+    }
+  ],
+  "verified": {
+    "phase_records": 8,
+    "immutable_original_templates": 8,
+    "known_immutable_actual_results": 3,
+    "unchanged_source_pair": true,
+    "exact_collector_receipt_names": true,
+    "phase_null_prevents_output_creation": true,
+    "all_future_hashes_unset": true,
+    "root_attestations_false": true,
+    "completed_requests_or_pc_results": 0,
+    "final_publish_reuses_accepted_preclose_revision_and_reason": true,
+    "final_restore_keeps_same_two_request_bindings": true
+  },
+  "phase_checks": [
+    {
+      "phase": "preserve",
+      "original_template": {
+        "bytes": 3509,
+        "sha256": "4eee6dfe686aed62a0c79b56a5eb792c09956736e894d43be88dde1d86e7aa1a"
+      },
+      "preparation": {
+        "bytes": 4449,
+        "sha256": "efaa3688d94e491b3c66c5243490f53486caaa17464115ff33512aef3fb0d64c"
+      },
+      "exact_accepted_schema": true,
+      "runtime_unchanged": true,
+      "all_unapproved_outcomes_unset": true,
+      "supervisor_receipt_path_matches_actual_source": true,
+      "unchanged_fields_inverse": true
+    },
+    {
+      "phase": "freeze",
+      "original_template": {
+        "bytes": 3507,
+        "sha256": "a5a54eb93303974a7efc379c5d0bf157354744193f1521afaba7eca5fe22b37d"
+      },
+      "preparation": {
+        "bytes": 4540,
+        "sha256": "4a3076f06cda0f76171570667454e45ab9b69c8546f7484d7de96243c9bfbc41"
+      },
+      "exact_accepted_schema": true,
+      "runtime_unchanged": true,
+      "all_unapproved_outcomes_unset": true,
+      "supervisor_receipt_path_matches_actual_source": true,
+      "unchanged_fields_inverse": true
+    },
+    {
+      "phase": "source-restore",
+      "original_template": {
+        "bytes": 3515,
+        "sha256": "0387b64ec5f014a5ea5961f5d52946cca117fdd0611255e191f71cc187d575a6"
+      },
+      "preparation": {
+        "bytes": 4639,
+        "sha256": "1d5de4db25e812959cdc90b6db1741d8890446a0855d135ababf531f22dce71e"
+      },
+      "exact_accepted_schema": true,
+      "runtime_unchanged": true,
+      "all_unapproved_outcomes_unset": true,
+      "supervisor_receipt_path_matches_actual_source": true,
+      "unchanged_fields_inverse": true
+    },
+    {
+      "phase": "restore-original",
+      "original_template": {
+        "bytes": 3517,
+        "sha256": "fe68433bd63f02ce94670a2d239c4985878c973e373cf3a1dc73673be86a79c9"
+      },
+      "preparation": {
+        "bytes": 4740,
+        "sha256": "7703d32b91a348b34b270d0c3bb9930ab075016b182f55c976ceb1f7d20e1982"
+      },
+      "exact_accepted_schema": true,
+      "runtime_unchanged": true,
+      "all_unapproved_outcomes_unset": true,
+      "supervisor_receipt_path_matches_actual_source": true,
+      "unchanged_fields_inverse": true
+    },
+    {
+      "phase": "restore",
+      "original_template": {
+        "bytes": 3508,
+        "sha256": "3aef8b1f3a293898325d4cf658329430665139f5c4db7eca5b10fc19e637fdf1"
+      },
+      "preparation": {
+        "bytes": 4832,
+        "sha256": "1c7484787dbb99e09f5fbefa228d537ac37bd85f51518bfe42c6ba20bea08f7a"
+      },
+      "exact_accepted_schema": true,
+      "runtime_unchanged": true,
+      "all_unapproved_outcomes_unset": true,
+      "supervisor_receipt_path_matches_actual_source": true,
+      "unchanged_fields_inverse": true
+    },
+    {
+      "phase": "close",
+      "original_template": {
+        "bytes": 3506,
+        "sha256": "4b8d0aa7b92888a8b87c95f4fe8a9f287fa5d2cca2505f1d4eefd78c69fe7d3c"
+      },
+      "preparation": {
+        "bytes": 4922,
+        "sha256": "47f0fa2817087c3256f102811cfc5aa410abac4070ba30c509de8eadd4d1247b"
+      },
+      "exact_accepted_schema": true,
+      "runtime_unchanged": true,
+      "all_unapproved_outcomes_unset": true,
+      "supervisor_receipt_path_matches_actual_source": true,
+      "unchanged_fields_inverse": true
+    },
+    {
+      "phase": "final-publish",
+      "original_template": {
+        "bytes": 3514,
+        "sha256": "5c09ae4c93aaac305ebd9d3282fcd343a865bfa8925620a468a84b2e4057ac50"
+      },
+      "preparation": {
+        "bytes": 4928,
+        "sha256": "d2d72222532a2d51df204e7c5ca8c0243a0a475f2f3e73daf88b20d59fe6aa9c"
+      },
+      "exact_accepted_schema": true,
+      "runtime_unchanged": true,
+      "all_unapproved_outcomes_unset": true,
+      "supervisor_receipt_path_matches_actual_source": true,
+      "unchanged_fields_inverse": true
+    },
+    {
+      "phase": "final-restore",
+      "original_template": {
+        "bytes": 3514,
+        "sha256": "a17f217ab91acfaa94d29ea7ad92696953ba50ac8438be8bd7e256c519edcee1"
+      },
+      "preparation": {
+        "bytes": 4835,
+        "sha256": "c00d516ba20a47ff50ad4bc1bd981e353908bffb267536eb40e208cd84fc2b16"
+      },
+      "exact_accepted_schema": true,
+      "runtime_unchanged": true,
+      "all_unapproved_outcomes_unset": true,
+      "supervisor_receipt_path_matches_actual_source": true,
+      "unchanged_fields_inverse": true
+    }
+  ],
+  "root_sequence": "Actual adoption/baseline review first; fill and review only preserve; execute and reconcile it; then bind each later phase from retained actual prior results. Delivery owns the four handoff/text closures and fixed raw collector; frontend independently reviews request bindings and actual phase results.",
+  "cleanup": "Keep original published templates and the separate preparation. Cache all new bytes before writing and retain until root verifies durable publication equality. No author worktree exists. A successor must preserve unpublished work and inspect fresh status/registration before removing clean task-owned worktrees through Riftri without force.",
+  "open_findings": [],
+  "independent_review": null,
+  "activity": {
+    "pc_calls": false,
+    "task_store_writes": false,
+    "product_tests": false,
+    "builds": false,
+    "new_executor": false,
+    "phase_execution": false,
+    "ref_changes": false
+  },
+  "previous_author_record": {
+    "bytes": 11782,
+    "sha256": "b4044ab1397e4ba7a406ea65e7739c3bb0ae6ee2528c0fe4f47637ba2d0bef27",
+    "scope": "Initial two inspections preceded independent finding HPREP-R2; the final inspections below supersede that preparation freeze."
+  },
+  "correction_inverse": {
+    "readme_prior_sha256": "ad9ba1aadfe93e0468cbeddda118a52b5dade82ec4c85876d602878c9bae688e",
+    "readme_complete_inverse": true,
+    "input_bindings_prior_sha256": "5449edfa3945e14743c4b91bc23e34ca1f8afb1d4fcffbd50c5ae1bced0ac891",
+    "input_bindings_complete_inverse": true,
+    "unchanged_payload_files": 9
+  }
+}

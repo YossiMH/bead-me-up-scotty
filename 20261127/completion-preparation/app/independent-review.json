@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "preparation_only": true,
+  "completion_accepted": false,
+  "reviewer": "/root/backend_audit",
+  "author": "/root/delivery_audit",
+  "scope": "Independent preparation-only review of the inert app completion block, four declared text operations, null bindings, runbook and author inspections. Actual completion text, publication and adoption require later acceptance.",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/delivery/app-completion-preparation",
+  "reviewed_files": {
+    "README.md": {
+      "bytes": 5467,
+      "sha256": "0dba9a749e0bc51906808986e43182bcb780efdd8f8f31bec9b1850d30a9e278"
+    },
+    "author-inspections.json": {
+      "bytes": 6082,
+      "sha256": "7e74f818cd9c184586502cbdf7ae5546933b3c646566b2d5dd1c61ace79d06c4"
+    },
+    "changes.pending.json": {
+      "bytes": 1653,
+      "sha256": "8847ded06982a0ae5f7bd337c64be0716ded45e1db6999dc6e7ae3e72720ac45"
+    },
+    "compatibility-completion.template.md": {
+      "bytes": 2123,
+      "sha256": "92cf427e4457474dff1f7d3f391f3abad25b9ab5eb40832a70cc6c2ae56c98a1"
+    },
+    "completion-bindings.template.json": {
+      "bytes": 3272,
+      "sha256": "ecc516343285add05917c4d557fea00a0e44a6a3c7be0c899294dc127a0fe5f6"
+    }
+  },
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+    "files": [
+      {
+        "path": "docs/backend-compatibility.md",
+        "bytes": 80782,
+        "sha256": "04fdc705d9b7de7d653644c8cbe3adb9c82dabe806f303360956e1924cbdf06f",
+        "git_blob": "a7600c632422b0c6605f3b609ddb38f79fe4e640",
+        "immutable_git_object_exact": true
+      },
+      {
+        "path": "README.md",
+        "bytes": 25639,
+        "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+        "git_blob": "2f9296f733ab66e04c524c704e783663341213b2",
+        "immutable_git_object_exact": true
+      }
+    ],
+    "accepted_final_text_review_sha256": "b36af077a90948fb4c9a066c1666b1179966b07d44b5b909a121d61441abd715",
+    "actual_main_publication_sha256": "16d6deb98f5472e161eabe857de4ceafd901afd88a7ab09c7025026bbfb85733"
+  },
+  "checks": [
+    {
+      "id": "AC1",
+      "status": "passed",
+      "detail": "Read all five complete frozen files and the original insertion/replacement contexts. Their exact lengths/hashes match the author freeze and payload manifest; both final complete author inspections are present."
+    },
+    {
+      "id": "AC2",
+      "status": "passed",
+      "detail": "The 31 unique Markdown placeholders exactly match the worksheet and native preparation. Every actual value and future publication identity is null. The stated 55/0 and closed cleanup values are acceptance requirements, with no actual final outcome supplied."
+    },
+    {
+      "id": "AC3",
+      "status": "passed",
+      "detail": "All four exact anchors occur once. Complete in-memory forward and reverse application restores both accepted originals byte-for-byte. No resulting product file was written."
+    },
+    {
+      "id": "AC4",
+      "status": "passed",
+      "detail": "Both complete baseline files match their immutable b8caabf9 Git object bytes and recomputed Git blob hashes. The previous final text acceptance and actual main-publication receipt also rehash exactly."
+    },
+    {
+      "id": "AC5",
+      "status": "passed",
+      "detail": "The new completion block is immediately before the old marked state. Two narrow framing substitutions make its 12:58 UTC 50/5 count, five then-open rows, historical pending instructions and all prior qualifications/failed attempts clearly dated. The README adds only its completion link after the existing Windows launch/shutdown reference."
+    },
+    {
+      "id": "AC6",
+      "status": "passed",
+      "detail": "The runbook requires actual original-store close, final restore and checkpoint publication plus exact cleanup/ref outcomes, retained recovery inventory and independent reconciliation. It explicitly separates the earlier cleanup-text gate from the later 55/0 follow-up, avoiding a prerequisite cycle."
+    },
+    {
+      "id": "AC7",
+      "status": "passed",
+      "detail": "Observed heads are pre-update identities; the follow-up commit and actual PC adoption receipts stay external. Intervening accepted text must be preserved, final canonical/Git/CRLF identities recomputed, and the archived transfer boundary retained. The packet introduces no executor or product behavior."
+    }
+  ],
+  "mechanical_evidence": {
+    "placeholder_count": 31,
+    "native_placeholders_exact": true,
+    "all_actual_and_publication_values_null": true,
+    "baseline_files": [
+      {
+        "path": "docs/backend-compatibility.md",
+        "bytes": 80782,
+        "sha256": "04fdc705d9b7de7d653644c8cbe3adb9c82dabe806f303360956e1924cbdf06f",
+        "git_blob": "a7600c632422b0c6605f3b609ddb38f79fe4e640",
+        "immutable_git_object_exact": true
+      },
+      {
+        "path": "README.md",
+        "bytes": 25639,
+        "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+        "git_blob": "2f9296f733ab66e04c524c704e783663341213b2",
+        "immutable_git_object_exact": true
+      }
+    ],
+    "operations": [
+      {
+        "path": "docs/backend-compatibility.md",
+        "kind": "insert_before_exact_anchor",
+        "anchor_exact_once": true
+      },
+      {
+        "path": "docs/backend-compatibility.md",
+        "kind": "replace_exact_once",
+        "anchor_exact_once": true
+      },
+      {
+        "path": "docs/backend-compatibility.md",
+        "kind": "replace_exact_once",
+        "anchor_exact_once": true
+      },
+      {
+        "path": "README.md",
+        "kind": "replace_exact_once",
+        "anchor_exact_once": true
+      }
+    ],
+    "complete_forward_inverse_equal": true,
+    "baseline_review_and_publication_exact": true,
+    "resulting_product_files_written": false
+  },
+  "findings": [],
+  "remaining_actual_requirements": [
+    "Fill only from independently accepted actual 55/0, final generation/restore/publication, exact cleanup/ref and retained-path evidence.",
+    "Preserve any accepted intervening text; read both completed files twice and obtain independent actual text/evidence acceptance.",
+    "Publish and adopt with a fresh reviewed documents request and current source/index/config/private-state observations; retain the new commit and adoption receipts separately."
+  ],
+  "activity": {
+    "pc_calls": false,
+    "task_writes": false,
+    "product_tests_or_builds": false,
+    "completed_product_files_written": false,
+    "ref_changes": false,
+    "new_worktree": false
+  }
+}

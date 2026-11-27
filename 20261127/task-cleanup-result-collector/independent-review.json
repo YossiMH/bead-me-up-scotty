@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "scope": "Independent source and invocation preparation review for the fixed two-cleanup-result raw collector.",
+  "reviewer": "/root/delivery_audit",
+  "author": "/root/frontend_audit",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/frontend/task-cleanup-result-collector",
+  "reviewed_files": {
+    "README.md": {
+      "bytes": 4135,
+      "sha256": "ef1e5dfa066c0402ca8134312b2068f2d96176ee2b049a3e50e1f2925dfa8c36"
+    },
+    "collect-task-cleanup-receipts-20261127.cjs": {
+      "bytes": 5447,
+      "sha256": "97fb10a0603b832c6a7199b72cb7da40c43e52a2b4bb205720916ec6b297e61b"
+    },
+    "derivation.json": {
+      "bytes": 3878,
+      "sha256": "bb0264401470851b0c22cfcbe82b2b6e5170e5b45725da29033129cf6d5f9dd5"
+    },
+    "invocation.json": {
+      "bytes": 3798,
+      "sha256": "5f8e402d1197ce46bea4a685deff434df5e368e82d88ad2dfb2d689bb76e6ea1"
+    },
+    "author-inspections.json": {
+      "bytes": 5962,
+      "sha256": "465c62e2fef710e247403855e043c9b6251867f1dcaaf99d82e5a6b1e375ded0"
+    }
+  },
+  "verified_basis_files": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/configured-installed-closure-collector/collect-configured-installed-closure-20261127.cjs",
+      "bytes": 5474,
+      "sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-review.json",
+      "bytes": 1083,
+      "sha256": "67a81878d444b04d75ed6908a26d8a91ecd1c5ba9b5f669eb169e20fe0794f9e"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-publications-command.json",
+      "bytes": 3819,
+      "sha256": "db0a34ec1241c99f492ffcfe0f9fce3d3fdf6474867c1e3e4076ae8f8f78d3a0"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/remove-exact-tray-caches4-20261127.ps1",
+      "bytes": 23136,
+      "sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/failed-tray-cache-cleanup4-source-review.json",
+      "bytes": 6187,
+      "sha256": "e680587e299759a8463b3b0ad0a8ee9b5dfd58091f736fbb68b1b15a4d017dd7"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23/remove-exact-scheduled-tasks23-20261127.ps1",
+      "bytes": 27226,
+      "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/scheduled-task-cleanup23-source-review.json",
+      "bytes": 7863,
+      "sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc"
+    }
+  ],
+  "checks": [
+    {
+      "id": "C1",
+      "status": "passed",
+      "detail": "Read the complete final source, invocation, derivation, README and author record. Independently applied and reversed the two recorded substitution groups; both entire source byte strings exactly reproduce the accepted baseline and candidate. All seven helpers and the complete held-file, parent, resource, raw packaging, catch and exit logic are unchanged."
+    },
+    {
+      "id": "C2",
+      "status": "passed",
+      "detail": "The only target files are the exact cache4 and cleanup23 result.json files. Both directory literals and result basenames match the unchanged accepted producers' fixed ExpectedOutput checks and Save-Json calls. The retained variable named supervised denotes the second cleanup output only."
+    },
+    {
+      "id": "C3",
+      "status": "passed",
+      "detail": "The collector preserves missing-file observations and reads present files through held handles with before/held/after/final signatures. Parent identities are checked on both sides. It does not parse or regenerate raw JSON, preserving exact 64-bit process ticks, raw byte lengths and SHA256 identities."
+    },
+    {
+      "id": "C4",
+      "status": "passed",
+      "detail": "Exactly two offset/hash arguments retain the accepted canonical decimal, safe integer and lowercase SHA256 rules. A positive offset requires a matching package identity. The stable package excludes changing resource measurements; raw file packages, asynchronous level1 gzip and 37,500-byte compressed chunks retain the original limits."
+    },
+    {
+      "id": "C5",
+      "status": "passed",
+      "detail": "Independent decoding of the invocation's 2,297-byte source gzip reproduces the exact 5,447-byte candidate. Its timestamp is zero. Replacing only the base64 payload makes the complete command identical to the accepted document collector wrapper. Initial and maximum continuation commands are 3,212 and 3,290 characters."
+    },
+    {
+      "id": "C6",
+      "status": "passed",
+      "detail": "The connector object has only command, cwd, timeout_ms and expected_effects. Its command uses the exact quoted Node executable, a 64 MiB heap and initial 0/dash arguments; cwd is F:\\Dev, timeout is 15,000 ms, and effects are a string. One process runs BelowNormal, with 1 GiB initial/live free memory, 128 MiB own RSS and the unchanged 15-second internal deadline."
+    },
+    {
+      "id": "C7",
+      "status": "passed",
+      "detail": "All five final packet files and seven source/review/wrapper basis files rehash exactly. The complete prose clearly separates successful evidence transport from cleanup success, documents missing/partial results, and requires actual request/source/deletion/retention reconciliation without replaying an uncertain cleanup."
+    }
+  ],
+  "resource_limits": {
+    "heap_mib": 64,
+    "priority": "BelowNormal",
+    "initial_and_live_free_bytes": 1073741824,
+    "own_rss_bytes": 134217728,
+    "sampling_ms": 100,
+    "internal_and_outer_ms": 15000,
+    "per_file_bytes": 2097152,
+    "aggregate_raw_bytes": 4194304,
+    "compressed_chunk_bytes": 37500,
+    "whole_response_characters": 65000
+  },
+  "fixed_paths": [
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/failed-tray-cache-cleanup4-20261127-2889282bfcec/result.json",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-cleanup23-20261127-2889282bfcec/result.json"
+  ],
+  "findings": [],
+  "actual_cleanup_acceptance": null,
+  "actual_collection": null,
+  "remaining_requirements": [
+    "Root executes each separately reviewed cleanup request only after its required actual prerequisites and exclusive-window attestations.",
+    "Collect the exact settled attempts; reconcile every raw cleanup result and retained backup/deletion record separately.",
+    "A missing, failed, partial or changing result does not authorize replay or count as cleanup success."
+  ],
+  "activity": {
+    "source_body_execution": false,
+    "pc_calls": false,
+    "product_tests_or_builds": false,
+    "producer_source_changes": false,
+    "task_state_writes": false
+  }
+}
