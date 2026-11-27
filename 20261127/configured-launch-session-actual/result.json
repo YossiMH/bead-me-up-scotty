@@ -1,0 +1,216 @@
+{
+    "schema_version":  1,
+    "status":  "failed",
+    "started_utc":  "2026-11-27T11:32:44.8200843Z",
+    "repository":  "F:\\Dev\\bead-me-up-scotty",
+    "port":  43972,
+    "priority":  "BelowNormal",
+    "node_heap_mib":  128,
+    "timeout_seconds":  120,
+    "owned_resident_limit_mib":  512,
+    "interactive_session_id":  1,
+    "commands":  [
+                     {
+                         "name":  "init",
+                         "exit_code":  0
+                     }
+                 ],
+    "requests":  [
+
+                 ],
+    "cleanup":  "owned handles stopped where possible; the dedicated PowerShell Job reclaims any unobserved descendants on this process exit",
+    "explorer_process_ids":  [
+                                 8504
+                             ],
+    "node_executable":  "C:\\Program Files\\nodejs\\node.exe",
+    "source_sha256":  {
+                          "F:\\Dev\\bead-me-up-scotty\\.env.local":  "f9987d51bd7cf55417d085ec400e56b2cc338a523d4bbf45b908a55dde066cb0",
+                          "F:\\Dev\\bead-me-up-scotty\\scripts\\fixtures\\windows-tray-observer.mjs":  "1d05437e77c42ccf33d700a193d201ce64b63385a20732f466b5ada3128b358c",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray.ps1":  "fc7249848722f4b3fbff6351523a30be5864082288efcca51bd9212867344923",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray.mjs":  "8ae12c3708ed9b1fda8b3f919605a22adccec8c406d9114fb0733a2314158396",
+                          "F:\\Dev\\bead-me-up-scotty\\launch-scotty.bat":  "a343db89360e1bd922da36bd921b17419fc10837e49c6d916ca72f83032004e8",
+                          "F:\\Dev\\bead-me-up-scotty\\scripts\\fixtures\\windows-tray-click.ps1":  "4df81d91044d7d615856dc49fc20cee4dff35c4bc4ae81a23b135cbb56d70937",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\bead-me-up-scotty.mjs":  "f8bbeef1741d6560fc64f6fcf22351b3d22bd580693ce63cbb5e7e5f70817f7c",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray-host.mjs":  "4775f6ed906e042da3ca0bf7995b2d52658b8e70dfbfcb884088e15f95b99ec9",
+                          "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-task-job.ps1":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+                      },
+    "configured_pin":  "F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-0431a828bf95.exe",
+    "binary_sha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "build_id":  "YIOHeRJTEdlOszyc4LyHr",
+    "job_initial_members":  [
+                                58084
+                            ],
+    "job_accounting":  "All members of the exact retained Job at each sample, including console hosts and short native children; PID, birth and process handle retained.",
+    "hard_deadline_exit_code":  124,
+    "minimum_observed_free_physical_bytes":  6413094912,
+    "launch_headroom":  [
+                            {
+                                "minimum_bytes":  3221225472,
+                                "utc":  "2026-11-27T11:32:46.1796180Z",
+                                "available_physical_bytes":  7189151744
+                            }
+                        ],
+    "error":  "All owned Job members exceeded the aggregate resident-memory budget.",
+    "remaining_job_members":  [
+
+                              ],
+    "port_free":  true,
+    "peak_owned_resident_bytes":  495308800,
+    "processes":  [
+                      {
+                          "kind":  "fixture-cli",
+                          "pid":  27184,
+                          "started_utc":  "2026-11-27T11:32:46.0566863Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      },
+                      {
+                          "kind":  "batch",
+                          "pid":  60460,
+                          "started_utc":  "2026-11-27T11:32:46.1852904Z",
+                          "session_id":  1,
+                          "exit_code":  -1
+                      },
+                      {
+                          "kind":  "controller",
+                          "pid":  63984,
+                          "started_utc":  "2026-11-27T11:32:46.2219590Z",
+                          "session_id":  1,
+                          "exit_code":  -1
+                      },
+                      {
+                          "kind":  "tray-host",
+                          "pid":  65328,
+                          "started_utc":  "2026-11-27T11:32:46.3094904Z",
+                          "session_id":  1,
+                          "exit_code":  -1
+                      },
+                      {
+                          "kind":  "tray",
+                          "pid":  54660,
+                          "started_utc":  "2026-11-27T11:32:46.3595914Z",
+                          "session_id":  1,
+                          "exit_code":  -1
+                      },
+                      {
+                          "kind":  "server",
+                          "pid":  58328,
+                          "started_utc":  "2026-11-27T11:32:47.0220714Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      }
+                  ],
+    "job_measurements":  {
+                             "samples":  9,
+                             "peak_resident_bytes":  546582528,
+                             "peak_member_count":  11,
+                             "budget_exceeded":  true,
+                             "cleanup_assisted":  true
+                         },
+    "job_processes":  [
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  0,
+                              "birth_filetime":  134402527660566863,
+                              "process_id":  27184,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:46.0566863Z",
+                              "image":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  9650176,
+                              "birth_filetime":  134402527661852904,
+                              "process_id":  60460,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:46.1852904Z",
+                              "image":  "C:\\Windows\\System32\\cmd.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  8208384,
+                              "birth_filetime":  134402527661971148,
+                              "process_id":  35400,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:46.1971148Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  55005184,
+                              "birth_filetime":  134402527662219590,
+                              "process_id":  63984,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:46.2219590Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  50040832,
+                              "birth_filetime":  134402527663094904,
+                              "process_id":  65328,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:46.3094904Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  106344448,
+                              "birth_filetime":  134402527663595914,
+                              "process_id":  54660,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:46.3595914Z",
+                              "image":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  8192000,
+                              "birth_filetime":  134402527663758524,
+                              "process_id":  21616,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:46.3758524Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  105242624,
+                              "birth_filetime":  134402527670220714,
+                              "process_id":  58328,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:47.0220714Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  7049216,
+                              "birth_filetime":  134402527677936454,
+                              "process_id":  10056,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:47.7936454Z",
+                              "image":  "C:\\Program Files\\Git\\cmd\\git.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  9805824,
+                              "birth_filetime":  134402527678055650,
+                              "process_id":  40152,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:47.8055650Z",
+                              "image":  "C:\\Program Files\\Git\\ucrt64\\bin\\git.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8892416,
+                              "birth_filetime":  134402527677598413,
+                              "process_id":  57096,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T11:32:47.7598413Z",
+                              "image":  "C:\\Windows\\System32\\cmd.exe"
+                          }
+                      ],
+    "cleanup_errors":  [
+                           "All owned Job members exceeded the aggregate resident-memory budget.",
+                           "Owned Job descendants required forced cleanup."
+                       ],
+    "completed_utc":  "2026-11-27T11:32:49.7117191Z"
+}
