@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "independent": true,
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T10:22:27.427138+00:00",
+  "scope": "Actual single install-task closure, reconciled against the accepted revision9 request, exact recovered native result, prior full55-task state, supervisor disk digest and lossless execution output. Configured launch and all later acceptance remain separate.",
+  "recovery": {
+    "raw_native_result_recovered_from_exact_base64_record": true,
+    "supervisor_raw_bytes_recovered_from_complete_stdout_and_confirmed_by_PC_disk_digest": true,
+    "prior_basis_recovered_byte_exact_from_commit": "c6d92ee3370c2488dd499205410629159c53d49c",
+    "json_integer_start_ticks_preserved_by_python_parser": true
+  },
+  "evidence": [
+    {
+      "path": "root/pc-results/coordination-20261124/completed-20261127-install/result.json",
+      "bytes": 5925,
+      "sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+    },
+    {
+      "path": "root/install-closure-execution.json",
+      "bytes": 6896,
+      "sha256": "14fa18854a2bb5c51e4dce863bb6386a92875e8f2d6d10080cc780bc23f23606"
+    },
+    {
+      "path": "root/configured-and-closure-readback.json",
+      "bytes": 13155,
+      "sha256": "75449d6ad9adddbd73538e3f2a75dd74429d8dfa5204d7180bf562f660b7765d"
+    },
+    {
+      "path": "root/configured-and-closure-readback-execution.json",
+      "bytes": 13335,
+      "sha256": "5a69b0357c23740649aaf69c4e3f58fbb21eabab8ea563d4edcefbc7f67539c5"
+    },
+    {
+      "path": "frontend/results/binding-closure-result.json",
+      "bytes": 5859,
+      "sha256": "f3350c8bf03c810402ea0cf80464c2fd1249322b7c73f72715568ef831137775"
+    },
+    {
+      "path": "frontend/published/20261127/installation-completed/close-install-request.json",
+      "bytes": 1156,
+      "sha256": "f3afe3b11c65eeaf7dce682b0eaef3f56f1924a4ddc3054315a9f68d378a849e"
+    },
+    {
+      "path": "frontend/published/20261125/revision-9/install-binding/plan.json",
+      "bytes": 419134,
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+    },
+    {
+      "path": "frontend/published/20261127/results/materialization-v9-result.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    {
+      "path": "frontend/published/20261127/installation-completed/close-install-request-review.json",
+      "bytes": 6071,
+      "sha256": "2b20a57a751e616270a30eb2068f5ed368f683fcf8d37ef2368f6e1649175e86"
+    },
+    {
+      "path": "frontend/reviews/installation-index-actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    }
+  ],
+  "supervisor_result": {
+    "bytes": 5981,
+    "sha256": "419e38fa13e7853b3b977f6cbcba61dbf5b45888a03386fb0d6af5835b2baf51",
+    "status": "passed",
+    "helper_sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3",
+    "supervisor_sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426",
+    "request_sha256": "f3afe3b11c65eeaf7dce682b0eaef3f56f1924a4ddc3054315a9f68d378a849e",
+    "native_result_sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+  },
+  "actual_change": {
+    "before": {
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 5
+    },
+    "after": {
+      "id": "beadrs-0bab2976",
+      "status": "closed",
+      "revision": 6
+    }
+  },
+  "state": {
+    "total_continuation_tasks": 55,
+    "blocking_edges": 91,
+    "before": {
+      "closed": 47,
+      "open": 8
+    },
+    "after": {
+      "closed": 48,
+      "open": 7
+    },
+    "unchanged_other_continuation_rows": 54,
+    "original_954_unchanged": true,
+    "other_stored_fields_unchanged": true,
+    "config_and_checkpoint_pointer_unchanged": true,
+    "owned_ready": [
+      {
+        "key": "configured-launch",
+        "id": "beadrs-c9526055",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "installed-review",
+        "id": "beadrs-47da80ac",
+        "status": "open",
+        "revision": 3
+      }
+    ],
+    "still_open": [
+      {
+        "key": "configured-launch",
+        "id": "beadrs-c9526055",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "installed-review",
+        "id": "beadrs-47da80ac",
+        "status": "open",
+        "revision": 3
+      },
+      {
+        "key": "backend-handoff",
+        "id": "beadrs-1371879c",
+        "status": "open",
+        "revision": 3
+      },
+      {
+        "key": "app-handoff",
+        "id": "beadrs-f0039a6a",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "backend-text-review",
+        "id": "beadrs-30f13b5b",
+        "status": "open",
+        "revision": 3
+      },
+      {
+        "key": "app-text-review",
+        "id": "beadrs-c62c1990",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "preserve-and-clean",
+        "id": "beadrs-3ec972f8",
+        "status": "open",
+        "revision": 5
+      }
+    ]
+  },
+  "execution": {
+    "started_utc": "2026-11-27T10:01:44.2622797Z",
+    "finished_utc": "2026-11-27T10:01:48.7668499Z",
+    "duration_seconds": 4.503,
+    "peak_total_resident_bytes": 231325696,
+    "baseline_free_physical_bytes": 1908695040,
+    "priority": "BelowNormal",
+    "node_heap_mib": 128,
+    "sample_interval_ms": 100,
+    "timeout_seconds": 180,
+    "work_stop_seconds": 168,
+    "owned_process_records": 8,
+    "all_owned_reported_exit_zero": true,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "sampled_minimum_free_memory": "Not separately reported by this closer supervisor; only its accepted guard and recorded admission value are evidenced here."
+  },
+  "checks": [
+    "All55 IDs, statuses and revisions were independently compared with the last accepted47/8 result. Only install beadrs-0bab2976 changes open revision5 to closed revision6; the other54 rows are identical.",
+    "The sole requested close, request hash, helper hash, plan hash and materialization hash match the actual native result and supervisor. The accepted installation review named in the close reason is durably available in c6d92ee.",
+    "The full frozen91-edge graph computes exactly configured-launch revision5 and installed-review revision3 as ready. Their graph readiness does not replace the installed-review requirement for accepted actual configured-launch evidence.",
+    "The complete native result bytes match the retrieved file record and supervisor native-result digest. The complete supervisor output bytes match the separately read PC disk length/hash; the outer transport had no truncation or stderr and exited zero.",
+    "All8 retained owned process records report exit0 without supervisor killing; the result has no assisted cleanup, errors or remaining Job members. Peak aggregate RSS and4.503-second duration remain inside the unchanged closer limits.",
+    "The helper result reports preservation of all original954 records, unrelated stored fields, configuration and checkpoint pointer. This acceptance concerns the guarded isolated task-store close; explicit history flush, original publication and cleanup are still pending."
+  ],
+  "findings": []
+}

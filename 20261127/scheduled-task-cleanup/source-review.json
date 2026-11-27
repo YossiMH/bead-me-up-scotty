@@ -1,0 +1,110 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "independent": true,
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T10:25:19.280153+00:00",
+  "scope": "Complete source and packet review of the fixed twenty-task cleanup preparation, on the exact recovered1458bb7f source. This accepts its static boundary; its future execution prerequisites are unsatisfied after the first configured task failed before producing a result.",
+  "packet_directory": "/workspace/scratch/2889282bfcec/delivery-recovery/20261127/scheduled-task-cleanup",
+  "files": [
+    {
+      "file": "README.md",
+      "bytes": 8687,
+      "sha256": "b9fd67d46408921d9e13837c66b004626dd0604c8776e6d22dc0891da8d7db19"
+    },
+    {
+      "file": "invocation.template.json",
+      "bytes": 1145,
+      "sha256": "83cb601cd1154ee2361f94c46c23020a4cfc5c35a213c87b1def2945c6f0b921"
+    },
+    {
+      "file": "original-task-names.json",
+      "bytes": 1338,
+      "sha256": "27acf8717b5c1e95ecc017d880452adb4a4f8790c8d5cbb6afc3d9dc89d78316"
+    },
+    {
+      "file": "remove-exact-scheduled-tasks-20261127.ps1",
+      "bytes": 21997,
+      "sha256": "1458bb7f968307dacfd0ce0840941b361a869add1a852137ccbc0b54696f71f7"
+    },
+    {
+      "file": "request.template.json",
+      "bytes": 556,
+      "sha256": "7601d8d73297d4317a4e2ef015fde6a5a49a235dde3208a0e9edfec1563b5f70"
+    },
+    {
+      "file": "author-inspections.json",
+      "bytes": 6968,
+      "sha256": "4602c0e03b86223083e9b12dd966dd70cf5d018c360ee3b23c0eb1fbeba7300d"
+    }
+  ],
+  "recovery": {
+    "five_payloads_match_pre_reset_identities": true,
+    "two_complete_fresh_author_inspections": true,
+    "old_interrupted_second_inspection_not_counted": true,
+    "reviewer_read_all_final_six_files_after_recovery": true
+  },
+  "borrowed_source": {
+    "file": "/workspace/scratch/2889282bfcec/recovery/frontend/baseline/checkpoint-only-handoff-supervisor-20261127.ps1",
+    "sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5",
+    "functions": {
+      "Assert-That": {
+        "exact_source_substring_in_accepted_supervisor": true,
+        "bytes": 84,
+        "sha256": "96a41ad1c23cd420413ce47ac59f6f380385e49921a99bd10694ab000aa28406"
+      },
+      "Hash": {
+        "exact_source_substring_in_accepted_supervisor": true,
+        "bytes": 114,
+        "sha256": "25edd8f8224ba7971d28c58d23a6dc5711d26578d6e558ea01c0fadbe455e8db"
+      },
+      "Safe-Path": {
+        "exact_source_substring_in_accepted_supervisor": true,
+        "bytes": 625,
+        "sha256": "04af1eb52c060bcc5d4555be48ac154eb47b236cade8fd9a85fab4e8ecefb281"
+      }
+    }
+  },
+  "checks": {
+    "scope": [
+      "Exactly the19 original names, their order and fixed twentieth configured task match the names manifest and source literals. No wildcard/prefix discovery feeds deletion. Only the root Task Scheduler folder is used.",
+      "The only destructive API is one DeleteTask(exactName,0) call inside the fixed list. No Run, RunEx, Stop, process enumeration, external executable launch or other-process termination exists. Environment.Exit terminates this helper itself.",
+      "The original100788-byte full-definition JSON has a fixed exact path/hash. Complete input bytes are bounded, SHA256-verified and kept open without write/delete sharing. All paths must stay under the owned task root without reparse points."
+    ],
+    "actual_acceptance": [
+      "The request template refuses execution through null actual result/definition/review hashes and false root attestations. Source pins itself; configured creation binds exact helper8db39140, user/session1/create-only/runflags/priority, final native0431 and BUILD_IDYIOHeRJTEdlOszyc4LyHr.",
+      "Configured output must report passed, free port, zero cleanup errors/remaining members and no assisted cleanup or exceeded budget. The exact independently accepted review and one-row full task XML observation are pinned separately. Final filled-request review must establish their same-result/definition binding.",
+      "Administrator visibility is required before GetInstances(0), so the zero-instance condition covers tasks running at other security levels. Every definition must be state3 with zero instances and another state3 observation."
+    ],
+    "exact_deletion": [
+      "Before any deletion, all20 complete live XML strings must equal the pinned definition code-unit-for-code-unit and as UTF8SHA256; exact name/path checks precede them. Full per-task UTF16LE+BOM XML backups are exclusive, durably flushed and read back to the original text. Six exact raw input copies are also retained privately.",
+      "Each deletion first saves an exclusive durable intent, repeats complete XML and idle checks immediately, calls DeleteTask, saves successful-return evidence, then requires exact file-not-found HRESULT0x80070002. Other COM errors remain failures. A durable removed record follows only the successful absence check.",
+      "The final loop verifies all20 names absent and exactly20 recorded removals. A partial or uncertain COM action retains its intent/return/absence records and fixed fresh output blocks replay. No backup/input file is deleted."
+    ],
+    "bounds_and_failure": [
+      "BelowNormal is applied to the current helper. Inputs and Add-Type setup are covered by the70-second outer invocation. A100ms C# timer guards the remaining total60seconds,1GiB live free physical memory and256MiB current-helper RSS once setup finishes; new work stops at48seconds. This is explicitly a current-helper cap, not an aggregate compiler/other-process Job cap.",
+      "The timer owns its own Process handle, uses a lock to serialize measurements/stop, retains interruption code124/125/126/127 best-effort, and exits only this helper if deadlines/pressure cannot be observed normally. A blocked COM call cannot bypass the timer.",
+      "Normal completion releases COM and pinned-input handles, checks the guard again, persists scalar measurements and result with CreateNew+Flush, emits JSON, then stops the timer and disposes the self handle. Errors, failed result persistence, deadline exhaustion or incomplete removal prevent exit0. Actual acceptance must compare disk result, outer exit and any interruption record.",
+      "Outer error summaries use script line/type/HRESULT and omit raw XML/input contents. Full private definition/backups remain on the PC; public result has only names/hashes/counts/times and scalar resource facts."
+    ]
+  },
+  "primary_contract_references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/taskschd/nf-taskschd-itaskfolder-deletetask",
+    "https://learn.microsoft.com/en-us/windows/win32/api/taskschd/nf-taskschd-iregisteredtask-getinstances",
+    "https://learn.microsoft.com/en-us/windows/win32/taskschd/registeredtask-state",
+    "https://learn.microsoft.com/dotnet/api/system.environment.exit"
+  ],
+  "limitations": [
+    "Task Scheduler has no compare-and-delete transaction. The root-owned exclusive registration window plus immediate full-XML/idle checks remains required. Uncertain RPC outcomes need actual state reconciliation; the script never treats them as success.",
+    "Ordinary exact Windows PowerShell5.1 parse, final filled-request review, fresh target-state validation and actual cleanup are still pending. The self-guard has no claimed Windows execution yet.",
+    "Current observed first configured task exited1 and produced no result. This preparation therefore cannot satisfy its passed configured-result input. A future successful separately named retry requires a separately reviewed exact task-set/input extension; do not replay or prematurely delete the failed task."
+  ],
+  "findings": [],
+  "activity": {
+    "pc_calls": false,
+    "product_builds_or_tests": false,
+    "task_registration_changes": false,
+    "cleanup_execution": false
+  }
+}

@@ -1,0 +1,183 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "independent": true,
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T10:30:01.833032+00:00",
+  "record_kind": "Explicit recovered-source acceptance with current applicability boundaries",
+  "scope": "Reaffirm prior complete independent source acceptance after byte-exact recovery of all12 publisher payloads; inspect the two new truthful recovery metadata records and re-prove full supervisor/C# reuse. This is source/preparation acceptance, with first checkpoint publication blocked on the separately reviewed CRLF-original adapter.",
+  "prior_review": {
+    "sha256": "a25f2def7d72b883b0114ec52d7bd8f000d0fe94138c6ebee91ee7c6abfdaabb",
+    "bytes": 13581,
+    "exact_old_review_bytes_recovered": false,
+    "prior_verdict": "passed",
+    "reason_for_new_identity": "The transient filesystem reset erased the original timing-bearing review before publication. The full final source and frozen payload identities survive in conversation/tool records. This newly written review has its own actual hash; no old timestamp or saved bytes are invented."
+  },
+  "files": [
+    {
+      "name": "CLEANUP.md",
+      "bytes": 2311,
+      "sha256": "e162bfb55d405fd9414aae9027ad453daf19f918a5e9a3f46dfda4473e872123",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "README.md",
+      "bytes": 19801,
+      "sha256": "11cef7bcec69524595a90fc7ee7e58ce43ed3cb33045c78d064a78c581acbaf6",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "borrowed-source-comparison.json",
+      "bytes": 6823,
+      "sha256": "04a4476e5fa6f0cba254bb96fe39b8b39f64ca44e555b4870fed87e9896dc906",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "boundaries.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "boundaries.stdout",
+      "bytes": 949,
+      "sha256": "e7d10a3a1b5524a27a10db057db250cb61a8e908905636d0d4c63725980693b6",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "cloud-checks.json",
+      "bytes": 3582,
+      "sha256": "f3fedd5f9247871beba8cb4bb9ebe5661ad2c9ffd2caa32b4221a98614cbef56",
+      "exact_pre_reset_payload": false
+    },
+    {
+      "name": "publish-reviewed-git-20261127.mjs",
+      "bytes": 44539,
+      "sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "publish-reviewed-git-supervisor-20261127.ps1",
+      "bytes": 20098,
+      "sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "request-templates.json",
+      "bytes": 13757,
+      "sha256": "e833d12b8317800228b0909cc2206b1b2e14e09be325a134d43ff389f73a4b89",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "retention-receipt-templates.json",
+      "bytes": 12196,
+      "sha256": "c6547051b3c53d658fe08222c5b7dcd4b407a438f7b4be07bfe381f45da5b941",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "syntax.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "syntax.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "test-publication-boundaries.mjs",
+      "bytes": 7781,
+      "sha256": "f72de18ecd6026575f0ceb1e684dde032c729ec156acade84f2eb0fe50e6e7b6",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "author-inspections.json",
+      "bytes": 6855,
+      "sha256": "32ab5f8561fce530067fdb22ca936a20513d6fc3e6ba8ba3acf3c6727f8f662c",
+      "exact_pre_reset_payload": false
+    }
+  ],
+  "recovery_checks": [
+    "All12 implementation, tests, raw stream, template, README and cleanup payloads reproduce their exact pre-reset byte lengths andSHA256. The corrected driver is44539B3c464a11 and supervisor20098Ba36a79e3.",
+    "The recovered cloud-checks.json and author-inspections.json explicitly distinguish the old unrecovered metadata identities from newly generated provenance. Lost historical process clock fields are null. Original syntax/9-boundary execution results are recovered evidence, not a rerun.",
+    "The supervisor was independently reconstructed from the exact recovered1dd2e70b base. Reapplying all13 recorded inverse replacements reproduces that whole accepted base byte-for-byte, including normalized C#SHA256ddb95006716a6102e9539d5d005c63312929ee2cd92f4928ce1009fa84ce73b4.",
+    "All6 request templates retain null future run paths/HEADs/remote/index values and all4 retention receipt templates retain null actual status. No recovered template asserts an operation has executed.",
+    "Both fresh author recovery inspections are recorded. The old author record2d02faab and old cloud metadata34f90bfd are preserved only as historical references. No new native/product/Windows operation or test execution occurred during this recovery."
+  ],
+  "reaffirmed_source_review": {
+    "common_boundary": [
+      "Only the two fixed original repositories, exact final source ancestors, Git/Node identities and three fixed modes are supported. Input/self/history/review/config/private-state/raw-index hashes, fresh output and no-replay guards bind each concrete attempt.",
+      "Sequential hidden Git commands have per-command/overall deadlines, noninteractive child-only environment, GIT_NO_LAZY_FETCH/GIT_NO_REPLACE_OBJECTS and disabled optional maintenance/commit-graph/FETCH_HEAD/tag side work. Normal hooks and stored configuration are preserved.",
+      "Effective hook.* definitions, including included scopes, are enumerated by key and refused before event-triggering work. Relevant filesystem hooks are separately exact-pinned or absent, and hooks/config/private state are rechecked around mutations.",
+      "Ordinary pushes use exact explicit fork URLs/main or fixed deletion refspecs with --no-follow-tags and --recurse-submodules=no. No broad push, force-main, bypass-hook or persistent config override exists."
+    ],
+    "documents": [
+      "Allowlist is exactly native .marathon/progress.md or app README.md and docs/backend-compatibility.md. Final targets must be reviewed doc-only descendants of qualified installed commits; deletion, executable mode, duplicate paths and unrelated source changes are refused.",
+      "Separate canonical Git blob identities and exact working identities support actual core.autocrlf=true. Git cat-file --filters predicts built-in checkout bytes after external transformations/attributes are refused; raw working bytes are verified after ff and after optional push.",
+      "HEAD/index/checkpoint tree and unrelated entries, private store/config/runtime/environment bytes remain pinned. Native document completion emits an original Git baseline with actual commit==remote, raw index copy and the53 required immutable blob identities totaling429072095B."
+    ],
+    "checkpoint": [
+      "Phase-pair inputs must be restore-original+restore or final-publish+final-restore, with exact retained results, matching original-git-after state, checkpoint-index reconciliation and selected publication manifest. Full current index and all selected file hashes are rechecked before normal commit.",
+      "The unchanged ff1597 pure verifier enforces checkpoint-only AMD delta, exact raw staged blob identities, both current/previous pointers and unrelated entries. Expected write-tree uses an output-private index copy; original raw index stays guarded until ordinary commit.",
+      "Successful receipt requires sole expected parent, whole expected tree, exact changed paths/full logical index, private/config preservation and normal explicit push/readback; it emits passed,generation_id,root_sha256,commit==remote_commit,checkpoint_tree. The actual CRLF-original first-publication exception is deliberately not present in these recovered immutable bytes and remains separately gated below."
+    ],
+    "delete_reviewed_task_refs": [
+      "Exactly86 app task refs and2 native refs match the accepted inventory. Protected main/archive/feature/recovery refs are excluded. The sorted reviewed-ref digest includes every exact current tip.",
+      "App deletion requires an independently accepted actual32-parent archive receipt whose unchanged final transfer tree and ancestry cover every exact86 task tip. Native deletion requires both exact2d801 tips covered by actual native main; no cross-repository parents are used.",
+      "A fresh remote readback checks all target tips and retained refs. One atomic push applies an exact force-with-lease for each explicitly deleted ref, with no follow-tags/submodule broadening. Post-readback requires all target refs absent and retained main/archive unchanged.",
+      "Archive/ref proof remains a concrete future prerequisite; helper source acceptance does not attest future ancestry or perform deletion. Uncertain commit/push/delete outcomes must be reconciled without replay."
+    ],
+    "resource_and_cleanup": [
+      "Full accepted Job/timer/process identity/RSS/stream/cleanup bodies are unchanged. The outer host is included in512MiB aggregate RSS;3GiB admission,1GiB live free memory,100ms sampling,180seconds total168work12cleanup,Node128MiB and BelowNormal remain binding.",
+      "Owned-process cleanup uses exact Job membership plus PID/birth identity. Assisted cleanup, errors or remaining members prevent a passed result. The added minimum-free-memory value is scalar; no live Process objects are serialized."
+    ]
+  },
+  "historical_qualification": {
+    "source_sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+    "test_sha256": "f72de18ecd6026575f0ceb1e684dde032c729ec156acade84f2eb0fe50e6e7b6",
+    "syntax_exit": 0,
+    "boundary_count": 9,
+    "boundary_pass": 9,
+    "boundary_fail": 0,
+    "raw_stdout_bytes": 949,
+    "raw_stdout_sha256": "e7d10a3a1b5524a27a10db057db250cb61a8e908905636d0d4c63725980693b6",
+    "original_node": "v24.22.3",
+    "original_git": "2.56.1",
+    "node_heap_mib": 128,
+    "new_execution": false,
+    "cases": [
+      "NUL-delimited paths with spaces, rename/unmerged refusal",
+      "Native doc allowlist excludes source changes",
+      "Doc deletion/mode/duplicate/foreign-path refusal",
+      "Unrelated staged entries and missing checkpoint pointer refusal",
+      "Protected/missing/invalid task-ref refusal",
+      "Order-independent exact-tip digest",
+      "Complete86-ref Windows argv bound",
+      "Effective included hook-config refusal",
+      "Canonical LF blob and exact filtered CRLF working bytes; later LF-only replacement refused"
+    ]
+  },
+  "current_execution_blockers": [
+    {
+      "scope": "initial original checkpoint publication",
+      "reason": "Actual original selected files are17,088,721-byte CRLF checkouts of17,063,501-byte canonical Git objects. Native ordinary restore preserves old raw current.json as previous.json, while unchanged autocrlf=true stages its canonicalLF blob. The recovered publisher line448 calls ff1597 raw working-byte verification, so it will refuse that legitimate previous.json delta before committing.",
+      "required_resolution": "Keep3c464/ff1597 originals immutable. Use separately reviewed exact-bound history/publisher copies that preserve raw originals and canonical recovery, and apply only the specifically pinned previous.json canonical comparison. Qualify the changed route before first checkpoint publication.",
+      "source_trace": "original-crlf-native-publication-source-trace.json",
+      "source_trace_sha256": "3f9e45b3e2776f6a1b98a74009fef103cfd27307781ec6a68d6890dea75fe54d"
+    },
+    {
+      "scope": "every actual operation",
+      "reason": "Ordinary exact Windows PS5.1 parser acceptance, fully populated independently reviewed request, fresh memory/HEAD/index/private/config/ref observations and actual result reconciliation remain root-owned prerequisites."
+    }
+  ],
+  "cleanup": {
+    "new_worktree_created": false,
+    "retain_current_directory_until_complete_publication_and_hash_comparison": true,
+    "future_agents_must_finish_exact_task_owned_cleanup": true,
+    "historical_tmp_paths": "README/CLEANUP and borrowed metadata intentionally retain original locators; author current_directory identifies the live recovery packet."
+  },
+  "findings": []
+}

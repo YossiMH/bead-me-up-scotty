@@ -1,0 +1,39 @@
+{
+    "status":  "registered_before_run",
+    "task":  "ChatGPT-BeadEditing-Configured-20261127-2889282bfcec",
+    "output":  "F:\\Dev\\.bead-edit-20261111\\configured-v9-final-20261125-1151",
+    "user":  "DESKTOP-NRIGAJU\\YossiMH",
+    "session_id":  1,
+    "created_utc":  "2026-11-27T10:10:39.4839678Z",
+    "replay_allowed":  false,
+    "registration_flags":  2,
+    "run_flags":  4,
+    "run_level":  0,
+    "priority":  7,
+    "free_memory_mib":  7256,
+    "inputs":  [
+                   {
+                       "sha256":  "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae",
+                       "path":  "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-configured-launch-host-memory-20261127.ps1"
+                   },
+                   {
+                       "sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+                       "path":  "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-task-job.ps1"
+                   },
+                   {
+                       "sha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+                       "path":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+                   },
+                   {
+                       "sha256":  "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673",
+                       "path":  "F:\\Dev\\.bead-edit-20261111\\install-v9-index-20261127-2889282bfcec\\install-result.json"
+                   },
+                   {
+                       "sha256":  "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760",
+                       "path":  "F:\\Dev\\.bead-edit-20261111\\install-v9-index-20261127-2889282bfcec.supervisor\\result.json"
+                   }
+               ],
+    "action_path":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "action_arguments":  "-NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File \"F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-configured-launch-host-memory-20261127.ps1\" -BeadExe \"F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe\" -ExpectedSha256 0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a -EvidenceDirectory \"F:\\Dev\\.bead-edit-20261111\\configured-v9-final-20261125-1151\" -Port 43972 -TimeoutSeconds 120 -MaxOwnedResidentMiB 512",
+    "working_directory":  "F:\\Dev\\bead-me-up-scotty"
+}

@@ -1,0 +1,468 @@
+{
+  "schema_version": 1,
+  "template_only": true,
+  "instructions": "Select one inner request. Nulls are unobserved future values, never successful outcomes. Populate from retained actual bytes and independently review the final request before hashing/invoking it. Run IDs and all output directories are fresh; see README.",
+  "templates": {
+    "native_documents": {
+      "schema_version": 1,
+      "phase": "documents",
+      "repository": "native",
+      "run_id": null,
+      "output_directory": null,
+      "supervisor_output": null,
+      "helper_sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+      "supervisor_sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc",
+      "job_helper_path": null,
+      "git": {
+        "path": "C:/Program Files/Git/cmd/git.exe",
+        "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+      },
+      "node": {
+        "path": "C:/Program Files/nodejs/node.exe",
+        "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+      },
+      "expected_head": null,
+      "expected_remote_commit": null,
+      "expected_index_sha256": null,
+      "expected_git_config_sha256": null,
+      "private_state": [
+        {
+          "path": ".beads/config.json",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/.gitignore",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-wal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-shm",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-journal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "accepted_hooks": null,
+      "hook_review": null,
+      "reviews": [
+        {
+          "path": null,
+          "sha256": null
+        }
+      ],
+      "attestations": {
+        "exclusive_repository_writer": null,
+        "reviewed_request": null,
+        "installed_reviews_accepted": null,
+        "document_reviews_accepted": null
+      },
+      "target_commit": null,
+      "document_files": [
+        {
+          "path": ".marathon/progress.md",
+          "mode": "100644",
+          "bytes": null,
+          "sha256": null,
+          "git_blob": null,
+          "working_bytes": null,
+          "working_sha256": null
+        }
+      ],
+      "document_autocrlf": null
+    },
+    "scotty_documents": {
+      "schema_version": 1,
+      "phase": "documents",
+      "repository": "scotty",
+      "run_id": null,
+      "output_directory": null,
+      "supervisor_output": null,
+      "helper_sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+      "supervisor_sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc",
+      "job_helper_path": null,
+      "git": {
+        "path": "C:/Program Files/Git/cmd/git.exe",
+        "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+      },
+      "node": {
+        "path": "C:/Program Files/nodejs/node.exe",
+        "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+      },
+      "expected_head": null,
+      "expected_remote_commit": null,
+      "expected_index_sha256": null,
+      "expected_git_config_sha256": null,
+      "private_state": [
+        {
+          "path": ".env.local",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "accepted_hooks": null,
+      "hook_review": null,
+      "reviews": [
+        {
+          "path": null,
+          "sha256": null
+        }
+      ],
+      "attestations": {
+        "exclusive_repository_writer": null,
+        "reviewed_request": null,
+        "installed_reviews_accepted": null,
+        "document_reviews_accepted": null
+      },
+      "target_commit": null,
+      "document_files": [
+        {
+          "path": "README.md",
+          "mode": "100644",
+          "bytes": null,
+          "sha256": null,
+          "git_blob": null,
+          "working_bytes": null,
+          "working_sha256": null
+        },
+        {
+          "path": "docs/backend-compatibility.md",
+          "mode": "100644",
+          "bytes": null,
+          "sha256": null,
+          "git_blob": null,
+          "working_bytes": null,
+          "working_sha256": null
+        }
+      ],
+      "document_autocrlf": null
+    },
+    "native_checkpoint_initial": {
+      "schema_version": 1,
+      "phase": "checkpoint",
+      "repository": "native",
+      "run_id": null,
+      "output_directory": null,
+      "supervisor_output": null,
+      "helper_sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+      "supervisor_sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc",
+      "job_helper_path": null,
+      "git": {
+        "path": "C:/Program Files/Git/cmd/git.exe",
+        "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+      },
+      "node": {
+        "path": "C:/Program Files/nodejs/node.exe",
+        "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+      },
+      "expected_head": null,
+      "expected_remote_commit": null,
+      "expected_index_sha256": null,
+      "expected_git_config_sha256": null,
+      "private_state": [
+        {
+          "path": ".beads/config.json",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/.gitignore",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-wal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-shm",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-journal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "accepted_hooks": null,
+      "hook_review": null,
+      "reviews": [
+        {
+          "path": null,
+          "sha256": null
+        }
+      ],
+      "attestations": {
+        "exclusive_repository_writer": null,
+        "reviewed_request": null,
+        "installed_reviews_accepted": null,
+        "history_verifications_accepted": null
+      },
+      "checkpoint_stage": "initial",
+      "checkpoint_publication": {
+        "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+        "sha256": null
+      },
+      "checkpoint_verification": {
+        "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore/result.json",
+        "sha256": null
+      },
+      "commit_message": null
+    },
+    "native_checkpoint_final": {
+      "schema_version": 1,
+      "phase": "checkpoint",
+      "repository": "native",
+      "run_id": null,
+      "output_directory": null,
+      "supervisor_output": null,
+      "helper_sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+      "supervisor_sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc",
+      "job_helper_path": null,
+      "git": {
+        "path": "C:/Program Files/Git/cmd/git.exe",
+        "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+      },
+      "node": {
+        "path": "C:/Program Files/nodejs/node.exe",
+        "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+      },
+      "expected_head": null,
+      "expected_remote_commit": null,
+      "expected_index_sha256": null,
+      "expected_git_config_sha256": null,
+      "private_state": [
+        {
+          "path": ".beads/config.json",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/.gitignore",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-wal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-shm",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-journal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "accepted_hooks": null,
+      "hook_review": null,
+      "reviews": [
+        {
+          "path": null,
+          "sha256": null
+        }
+      ],
+      "attestations": {
+        "exclusive_repository_writer": null,
+        "reviewed_request": null,
+        "installed_reviews_accepted": null,
+        "history_verifications_accepted": null
+      },
+      "checkpoint_stage": "final",
+      "checkpoint_publication": {
+        "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+        "sha256": null
+      },
+      "checkpoint_verification": {
+        "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-restore/result.json",
+        "sha256": null
+      },
+      "commit_message": null
+    },
+    "scotty_task_ref_deletion": {
+      "schema_version": 1,
+      "phase": "delete-reviewed-task-refs",
+      "repository": "scotty",
+      "run_id": null,
+      "output_directory": null,
+      "supervisor_output": null,
+      "helper_sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+      "supervisor_sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc",
+      "job_helper_path": null,
+      "git": {
+        "path": "C:/Program Files/Git/cmd/git.exe",
+        "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+      },
+      "node": {
+        "path": "C:/Program Files/nodejs/node.exe",
+        "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+      },
+      "expected_head": null,
+      "expected_remote_commit": null,
+      "expected_index_sha256": null,
+      "expected_git_config_sha256": null,
+      "private_state": [
+        {
+          "path": ".env.local",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "accepted_hooks": null,
+      "hook_review": null,
+      "reviews": [
+        {
+          "path": null,
+          "sha256": null
+        }
+      ],
+      "attestations": {
+        "exclusive_repository_writer": null,
+        "reviewed_request": null,
+        "installed_reviews_accepted": null,
+        "archive_and_cleanup_reviews_accepted": null
+      },
+      "archive_receipt": {
+        "path": null,
+        "sha256": null
+      },
+      "archive_review": {
+        "path": null,
+        "sha256": null
+      }
+    },
+    "native_task_ref_deletion": {
+      "schema_version": 1,
+      "phase": "delete-reviewed-task-refs",
+      "repository": "native",
+      "run_id": null,
+      "output_directory": null,
+      "supervisor_output": null,
+      "helper_sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+      "supervisor_sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc",
+      "job_helper_path": null,
+      "git": {
+        "path": "C:/Program Files/Git/cmd/git.exe",
+        "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+      },
+      "node": {
+        "path": "C:/Program Files/nodejs/node.exe",
+        "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+      },
+      "expected_head": null,
+      "expected_remote_commit": null,
+      "expected_index_sha256": null,
+      "expected_git_config_sha256": null,
+      "private_state": [
+        {
+          "path": ".beads/config.json",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/.gitignore",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-wal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-shm",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-journal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "accepted_hooks": null,
+      "hook_review": null,
+      "reviews": [
+        {
+          "path": null,
+          "sha256": null
+        }
+      ],
+      "attestations": {
+        "exclusive_repository_writer": null,
+        "reviewed_request": null,
+        "installed_reviews_accepted": null,
+        "archive_and_cleanup_reviews_accepted": null
+      },
+      "native_main_receipt": {
+        "path": null,
+        "sha256": null
+      },
+      "native_main_review": {
+        "path": null,
+        "sha256": null
+      }
+    }
+  }
+}

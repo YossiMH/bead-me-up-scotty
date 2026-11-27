@@ -1,0 +1,136 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_review",
+  "author": "/root/delivery_audit",
+  "scope": "Exact cleanup of the nineteen pinned original task registrations and the single accepted configured task; definition backups remain private and retained.",
+  "files": {
+    "README.md": {
+      "bytes": 8687,
+      "sha256": "b9fd67d46408921d9e13837c66b004626dd0604c8776e6d22dc0891da8d7db19"
+    },
+    "invocation.template.json": {
+      "bytes": 1145,
+      "sha256": "83cb601cd1154ee2361f94c46c23020a4cfc5c35a213c87b1def2945c6f0b921"
+    },
+    "original-task-names.json": {
+      "bytes": 1338,
+      "sha256": "27acf8717b5c1e95ecc017d880452adb4a4f8790c8d5cbb6afc3d9dc89d78316"
+    },
+    "remove-exact-scheduled-tasks-20261127.ps1": {
+      "bytes": 21997,
+      "sha256": "1458bb7f968307dacfd0ce0840941b361a869add1a852137ccbc0b54696f71f7"
+    },
+    "request.template.json": {
+      "bytes": 556,
+      "sha256": "7601d8d73297d4317a4e2ef015fde6a5a49a235dde3208a0e9edfec1563b5f70"
+    }
+  },
+  "recovery": {
+    "temporary_filesystem_reset": true,
+    "queued_old_second_inspection": "Failed at its first file read with FileNotFoundError; no author record was written by that invocation.",
+    "five_payloads_reconstructed_from_retained_tool_inputs": true,
+    "all_five_match_pre_reset_lengths_and_sha256": true,
+    "persistent_copy": "/workspace/scratch/2889282bfcec/delivery-recovery/20261127/scheduled-task-cleanup",
+    "two_fresh_complete_post_recovery_inspections": true
+  },
+  "input_basis": {
+    "original_private_file": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-readback-20261127-v1/result.json",
+      "bytes": 100788,
+      "sha256": "97971b4fb451e6be8839d8ca7e37a8d49f486d1b3b81aaeaf754293d3e7cbd4f",
+      "raw_xml_remains_pc_only": true
+    },
+    "compact_readback_identity_recorded_before_reset": {
+      "bytes": 32469,
+      "sha256": "3abf764da4d4f14eab71cdb99ad75958809234d2c7f7ccd2d03045af4ef15249"
+    },
+    "raw_schema": "Root exact retained readback command was read before reset: status passed, tasks array with nineteen exact ordered rows and xml=$task.Xml. The cloud compact summary deliberately removes xml.",
+    "configured_helper_sha256": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae"
+  },
+  "borrowed_functions": {
+    "source_sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5",
+    "functions": {
+      "Assert-That": {
+        "sha256": "96a41ad1c23cd420413ce47ac59f6f380385e49921a99bd10694ab000aa28406",
+        "matches_pre_reset_verbatim_comparison": true
+      },
+      "Hash": {
+        "sha256": "25edd8f8224ba7971d28c58d23a6dc5711d26578d6e558ea01c0fadbe455e8db",
+        "matches_pre_reset_verbatim_comparison": true
+      },
+      "Safe-Path": {
+        "sha256": "04af1eb52c060bcc5d4555be48ac154eb47b236cade8fd9a85fab4e8ecefb281",
+        "matches_pre_reset_verbatim_comparison": true
+      }
+    }
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "completed_utc": "2026-11-27T10:15:14.621408+00:00",
+      "complete": true,
+      "findings": [],
+      "recovery": "All five exact file lengths and SHA-256 values match the completed pre-reset first inspection. This is a fresh complete read after reconstruction.",
+      "focus": [
+        "Complete source and associated prose/templates read; fixed original nineteen names plus configured task only.",
+        "Exact locked raw-input checks and private complete XML backups before any deletion.",
+        "Whole XML ordinal/UTF-8 equality and ready/zero-instance/ready checks repeated immediately for each exact deletion.",
+        "Durable intended/returned/absent records; exact missing-task HRESULT; no broad selection or replay.",
+        "Current-process timer and file/COM handle lifetime; 1GiB/256MiB/48s/60s and outer70s boundaries.",
+        "Future configured inputs stay null, root attestations false, PS5.1 parse and actual deletion remain pending."
+      ]
+    },
+    {
+      "pass": 2,
+      "completed_utc": "2026-11-27T10:16:02.499935+00:00",
+      "complete": true,
+      "findings": [],
+      "focus": [
+        "Full final five-file source/prose reread and exact byte equality with first post-recovery inspection.",
+        "Rechecked every mutation/exception/finally path and the lack of task activation or other-process control.",
+        "Compared complete full-XML backup/text/hash and action/receipt/result/review contracts to the retained pre-reset source inspection.",
+        "Reviewed administrator instance visibility, missing-task HRESULT, private raw-input locks, template refusal and per-task durable deletion records.",
+        "Reviewed C# timer ownership/disposal, work versus hard deadline, ordinary completion and explicit uncertain-RPC reconciliation.",
+        "Verified all three borrowed function hashes match the earlier completed verbatim comparison, and no recovered payload was modified."
+      ]
+    }
+  ],
+  "verification": {
+    "static_source_and_contract_review": "passed",
+    "known_names_and_recovered_payload_identities": "passed",
+    "json_utf8_lf_and_whitespace": "passed",
+    "ordinary_windows_powershell_5_1_ast_parse": "pending_root_exact_staged_parse",
+    "new_monitor_target_runtime": "pending_actual_root_operation",
+    "actual_task_removal": "not_executed"
+  },
+  "outer_execution_contract": {
+    "timeout_ms": 70000,
+    "covers": "Input and Add-Type setup plus the whole actual invocation. Root must preserve the existing executor bound.",
+    "helper_hard_seconds": 60,
+    "work_seconds": 48,
+    "live_free_bytes": 1073741824,
+    "helper_resident_cap_bytes": 268435456,
+    "sample_interval_ms": 100,
+    "termination_scope": "Environment.Exit affects this helper only. No task Run/Stop or other-process enumeration/termination path exists."
+  },
+  "remaining_inputs": [
+    "Exact configured creation receipt hash",
+    "Accepted actual configured result hash",
+    "Accepted complete private configured task XML observation path/hash",
+    "Independent configured review path/hash",
+    "Root exclusive-registration-window and configured-acceptance attestations",
+    "Fresh task/output state and exact Windows PS5.1 parser acceptance"
+  ],
+  "limitations": [
+    "Task Scheduler provides no atomic compare-definition-and-delete call; the root-owned exclusive registration window and immediate full-XML/idle rechecks bound the remaining race.",
+    "A hard exit or uncertain COM result needs actual task-state reconciliation using the durable intended/returned/absent records.",
+    "Full XML and raw backups remain private on the PC; outward error summaries omit input contents."
+  ],
+  "activity": {
+    "pc_calls": false,
+    "task_or_repository_mutations": false,
+    "product_tests": false,
+    "builds": false
+  },
+  "maintainer_audit": "Complete maintainer-ready post-process and two consecutive clean complete code/prose inspections on these exact recovered bytes."
+}

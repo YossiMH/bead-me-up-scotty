@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "record_kind": "author recovery and complete final reinspection",
+  "author": "backend_audit",
+  "completed_utc": "2026-11-27T10:28:01.046453+00:00",
+  "current_directory": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet",
+  "historical_directory": "/tmp/beads-2889282bfcec/git-publication-packet",
+  "historical_author_record": {
+    "bytes": 12501,
+    "sha256": "2d02faabb247a2db9c8f5d28212797931ba414c4d54fc96d44a8a9f64348edbe",
+    "exact_bytes_recovered": false
+  },
+  "historical_independent_review": {
+    "bytes": 13581,
+    "sha256": "a25f2def7d72b883b0114ec52d7bd8f000d0fe94138c6ebee91ee7c6abfdaabb",
+    "meaning": "Prior source acceptance; the exact old JSON was lost and is not represented as a new actual file."
+  },
+  "runtime_pair_durable_commit": "b69023e6cae61a18699abc140798c00b8e381438",
+  "files": [
+    {
+      "name": "CLEANUP.md",
+      "bytes": 2311,
+      "sha256": "e162bfb55d405fd9414aae9027ad453daf19f918a5e9a3f46dfda4473e872123",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "README.md",
+      "bytes": 19801,
+      "sha256": "11cef7bcec69524595a90fc7ee7e58ce43ed3cb33045c78d064a78c581acbaf6",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "borrowed-source-comparison.json",
+      "bytes": 6823,
+      "sha256": "04a4476e5fa6f0cba254bb96fe39b8b39f64ca44e555b4870fed87e9896dc906",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "boundaries.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "boundaries.stdout",
+      "bytes": 949,
+      "sha256": "e7d10a3a1b5524a27a10db057db250cb61a8e908905636d0d4c63725980693b6",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "cloud-checks.json",
+      "bytes": 3582,
+      "sha256": "f3fedd5f9247871beba8cb4bb9ebe5661ad2c9ffd2caa32b4221a98614cbef56",
+      "exact_pre_reset_payload": false
+    },
+    {
+      "name": "publish-reviewed-git-20261127.mjs",
+      "bytes": 44539,
+      "sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "publish-reviewed-git-supervisor-20261127.ps1",
+      "bytes": 20098,
+      "sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "request-templates.json",
+      "bytes": 13757,
+      "sha256": "e833d12b8317800228b0909cc2206b1b2e14e09be325a134d43ff389f73a4b89",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "retention-receipt-templates.json",
+      "bytes": 12196,
+      "sha256": "c6547051b3c53d658fe08222c5b7dcd4b407a438f7b4be07bfe381f45da5b941",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "syntax.stderr",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "syntax.stdout",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "exact_pre_reset_payload": true
+    },
+    {
+      "name": "test-publication-boundaries.mjs",
+      "bytes": 7781,
+      "sha256": "f72de18ecd6026575f0ceb1e684dde032c729ec156acade84f2eb0fe50e6e7b6",
+      "exact_pre_reset_payload": true
+    }
+  ],
+  "complete_author_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "scope": "Full recovered driver, supervisor, nine-test source, both template sets, README and CLEANUP reinspection against original tool-call source and the retained final hashes.",
+      "checks": [
+        "All12 payloads reproduce every prior byte/size/SHA exactly, including the complete44539-byte driver and all real nine-test output.",
+        "Three fixed mode boundaries, exact86/2 ref names, reviewed-tip digest, phase-pair and index/selected-manifest contracts remain unchanged.",
+        "Configured hook query/refusal, explicit fetch maintenance/graph suppression and separate Git/working document identities remain present.",
+        "Raw document checks remain before and after optional push; no config override or generic raw-normalization waiver was introduced.",
+        "Six request templates retain null future observations and attestations; retention receipt templates assert no unperformed success."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "scope": "Complete second recovery inspection of unchanged source/resource semantics, evidence provenance, current cleanup location and remaining actual-state gates.",
+      "checks": [
+        "All13 full supervisor inverse transforms reconstruct original1dd2e70b; the accepted C# Job/timer/member/identity/RSS/stream/cleanup bodies are unchanged.",
+        "Hidden BelowNormal, Node128 MiB, aggregate512 MiB,3 GiB start,1 GiB live and180-second/12-second cleanup envelope remain exact.",
+        "The historical syntax/9-check exit0 and four raw streams are recovered evidence; missing clock fields are null, not guessed. No test run was repeated.",
+        "The two newly generated JSON records openly distinguish exact payload recovery from reconstructed provenance; previous record hashes remain historical only.",
+        "CLEANUP and borrowed source metadata retain historical /tmp locators. The live packet is now current_directory under persistent workspace recovery and must be retained until complete remote publication comparison.",
+        "No PC call, task mutation, source/config write in either product repository, branch deletion or Git publication was made by this recovery."
+      ],
+      "findings": []
+    }
+  ],
+  "current_applicability_limit": {
+    "status": "pending separate history adaptation",
+    "observation": "The original four selected checkpoint files are actual CRLF checkout variants totaling17088721 bytes, so the old ff1597 history entry point is inapplicable. Preserve its immutable source and all recovered publisher payloads.",
+    "required_next_scope": "Separately reviewed history recovery must preserve raw CRLF originals and canonical LF Git semantics, and narrowly bind the initial outgoing previous.json raw-to-Git identity. Corresponding initial checkpoint publisher compatibility needs review before that mode is used.",
+    "unaffected_mode": "The recovered documents mode already handles exact reviewed built-in CRLF working bytes. All actual operation requests and Windows parse gates remain root-owned."
+  },
+  "cleanup": "No new worktree was created. Preserve this exact current recovery directory until root publishes and compares all files; successors must retain unresolved attempt evidence and finish exact task-owned cleanup.",
+  "open_findings": []
+}

@@ -1,0 +1,437 @@
+{
+  "schema_version": 1,
+  "template_only": true,
+  "instructions": "Null status/identity/coverage fields represent future actual evidence. Keep the final transfer tip unchanged between archive acceptance and deletion. Retain actual receipts/reviews under coordination; publish later completion records separately.",
+  "reviewed_refs_sha256_definition": "SHA256 of canonical UTF-8 JSON array: rows sorted by ref using ASCII string order, object keys sorted, no trailing LF. Each row has exactly ref and sha. Use exported reviewedRefsDigest(rows).",
+  "templates": {
+    "scotty_archive_receipt": {
+      "schema_version": 1,
+      "status": null,
+      "repository": "YossiMH/bead-me-up-scotty",
+      "archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+      "archive_commit": null,
+      "tree_sha": null,
+      "transfer_commit": null,
+      "parents": [
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null,
+        null
+      ],
+      "reviewed_refs": [
+        {
+          "ref": "refs/heads/task/artifact-stage-checks-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/artifact-stage-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/browser-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/browser-retain-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/build-transfer-20261111",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-candidate-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-helper-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-linux-build-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-linux-build-20261125-v2",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-linux-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-linux-full-suite-20261125-v2",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-red-build-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-red-build-20261125-v2",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-red-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-red-diagnose-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-red-streams-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-build-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-build-20261125-v2",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-build-20261125-v3",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-build-20261125-v4",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-build-20261125-v5",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-compiler-probe-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-compiler-proposal-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-final-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-final-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-final-resume-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-job-diagnostic-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-job-proposal-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-packet-20261125-v2",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-packet-20261125-v3",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-packet-20261125-v4",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-packet-20261125-v5",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-resume-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-simple-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-startup-diagnostic-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-startup-proposal-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-v8-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/checkpoint-windows-v9-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/coordination-type-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-linux-build-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-linux-build-v2-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-linux-build-v2-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-linux-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-linux-check-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-linux-check-v2-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-linux-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-producers-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-windows-build-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-final-windows-check-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-linux-oracle-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-lock-linux-build-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-lock-linux-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-lock-linux-check-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-maintenance-red-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-maintenance-red-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-repair-linux-build-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-repair-linux-check-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-repair-linux-check-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-repair-producers-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/native-repair-windows-build-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/revision6-helpers-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/revision6-wrappers-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/runtime-manifest-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/runtime-manifest-recovery-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/scotty-finish-20261124",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/tray-launch-probe-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/tray-launch-probe-draft-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/tray-windows-host-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/tray-wrapper-parse-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/tray-wrapper-parse-20261125-v2",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-app-checks-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-app-red-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-binding-checks-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-binding-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-binding-v8-checks-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-binding-v8-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-binding-v9-checks-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-binding-v9-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-native-red-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-native-red-packet-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-windows-packet-v8-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-windows-packet-v9-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-windows-roundtrip-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/windows-check-runner-v8-20261125",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/windows-check-runner-v9-20261125",
+          "sha": null
+        }
+      ],
+      "all_refs_covered": null,
+      "remote_ref_verified": null
+    },
+    "scotty_archive_actual_review": {
+      "schema_version": 1,
+      "status": null,
+      "accepted": null,
+      "archive_receipt_sha256": null,
+      "archive_commit": null,
+      "reviewed_refs_sha256": null,
+      "all_refs_covered": null,
+      "open_findings": null
+    },
+    "native_main_retention_receipt": {
+      "schema_version": 1,
+      "status": null,
+      "repository": "YossiMH/bead-rs",
+      "main_commit": null,
+      "reviewed_refs": [
+        {
+          "ref": "refs/heads/task/bead-finish-20261124",
+          "sha": null
+        },
+        {
+          "ref": "refs/heads/task/type-file-20261125",
+          "sha": null
+        }
+      ],
+      "all_refs_covered": null,
+      "remote_main_verified": null
+    },
+    "native_main_actual_review": {
+      "schema_version": 1,
+      "status": null,
+      "accepted": null,
+      "main_receipt_sha256": null,
+      "main_commit": null,
+      "reviewed_refs_sha256": null,
+      "all_refs_covered": null,
+      "open_findings": null
+    }
+  }
+}

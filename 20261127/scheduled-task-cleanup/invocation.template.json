@@ -1,0 +1,6 @@
+{
+  "command": "powershell.exe -NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File \"F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\remove-exact-scheduled-tasks-20261127.ps1\" -InputManifest \"__REVIEWED_ACTUAL_REQUEST_PATH__\" -InputSha256 \"__REVIEWED_ACTUAL_REQUEST_SHA256__\"",
+  "cwd": "F:\\Dev",
+  "timeout_ms": 70000,
+  "expected_effects": "After exact source/request verification and accepted configured launch, delete only the nineteen pinned original task registrations and the one exact accepted configured task. Compare complete original XML to the pinned private baseline and configured XML to its accepted private readback; require all ready with zero instances, retain private raw input/XML backups, recheck each definition and idle state immediately before DeleteTask, retain exact attempt/return/absence records. No task run/stop, other-process termination, repository mutation or file cleanup. One BelowNormal PowerShell helper with 1 GiB start/live memory floor, 256 MiB helper RSS, 48-second work stop and 60-second hard guard; outer 70-second bound also covers setup."
+}

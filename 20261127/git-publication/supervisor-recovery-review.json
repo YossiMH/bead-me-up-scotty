@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Exact recovery of previously reviewed supervisor bytes; no new implementation or execution.",
+  "base": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/baseline/checkpoint-only-handoff-supervisor-20261127.ps1",
+    "bytes": 19190,
+    "sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5"
+  },
+  "base_recovery_commit": "YossiMH/bead-me-up-scotty@c6d92ee3370c2488dd499205410629159c53d49c",
+  "candidate": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet/publish-reviewed-git-supervisor-20261127.ps1",
+    "bytes": 20098,
+    "sha256": "a36a79e39e593016a6db050293a6e91908b3a7e4cd2d9f992a96764efc5e0abc"
+  },
+  "full_round_trip_exact": true,
+  "normalized_csharp_sha256": "ddb95006716a6102e9539d5d005c63312929ee2cd92f4928ce1009fa84ce73b4",
+  "candidate_to_original_transformations": [
+    {
+      "candidate": "GitPublication20261127Inspector",
+      "original": "CheckpointOnly20261127Inspector",
+      "occurrences": 11
+    },
+    {
+      "candidate": "# Root-owned supervisor for one reviewed Git publication. The exact helper performs work.",
+      "original": "# Root-owned supervisor for one checkpoint phase. The exact helper performs work.",
+      "occurrences": 1
+    },
+    {
+      "candidate": "'Git publication work deadline expired.'",
+      "original": "'Checkpoint phase work deadline expired.'",
+      "occurrences": 1
+    },
+    {
+      "candidate": "        $free=[CheckpointOnly20261127Inspector]::AvailablePhysical()\n        if(-not $Result.Contains('minimum_observed_free_physical_bytes') -or $free -lt $Result.minimum_observed_free_physical_bytes){$Result['minimum_observed_free_physical_bytes']=$free}\n        Assert-That ($free -ge 1GB) 'Foreground memory pressure: stop the owned phase.'",
+      "original": "        Assert-That ([CheckpointOnly20261127Inspector]::AvailablePhysical() -ge 1GB) 'Foreground memory pressure: stop the owned phase.'",
+      "occurrences": 1
+    },
+    {
+      "candidate": "    Assert-That ((Get-Item -LiteralPath $InputManifest).Length -le 1MB) 'Request exceeds 1 MiB.'\n",
+      "original": "",
+      "occurrences": 1
+    },
+    {
+      "candidate": "@('documents','checkpoint','delete-reviewed-task-refs')",
+      "original": "@('preserve','freeze','source-restore','restore-original','restore','close','final-publish','final-restore')",
+      "occurrences": 1
+    },
+    {
+      "candidate": "$binary=Safe-Path $manifest.git.path",
+      "original": "$binary=Safe-Path $manifest.runtime.path",
+      "occurrences": 1
+    },
+    {
+      "candidate": "'publish-reviewed-git-20261127.mjs'",
+      "original": "'checkpoint-only-handoff-20261127.mjs'",
+      "occurrences": 1
+    },
+    {
+      "candidate": "$repository+'\\git-publication-'",
+      "original": "$repository+'\\checkpoint-only-supervision-'",
+      "occurrences": 2
+    },
+    {
+      "candidate": "    Assert-That ($binary -eq 'C:\\Program Files\\Git\\cmd\\git.exe') 'Expected the observed Git path.'\n    Assert-That ($manifest.git.sha256 -eq '20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c') 'Expected the observed Git executable.'\n    Assert-That ((Hash $binary)-eq $manifest.git.sha256) 'Git executable differs.'\n    $history=Safe-Path 'F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/checkpoint-only-handoff-20261127.mjs'\n    Assert-That ((Hash $history)-eq 'ff1597b37c873888aef55af6c67b39cd29efeb025d007fe11659ccb81a32cc46') 'Accepted history verifier differs.'\n",
+      "original": "    Assert-That ($manifest.runtime.sha256 -eq '0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a') 'Expected the exact final native runtime.'\n    Assert-That ($manifest.runtime.source_commit -eq '2d801ba455b7a722daf644a7615445117d57e8e9') 'Expected the exact final native source.'\n    Assert-That ((Hash $binary)-eq $manifest.runtime.sha256) 'Native executable differs.'\n",
+      "occurrences": 1
+    },
+    {
+      "candidate": "    $PhaseDirectory=Safe-Path $manifest.output_directory\n    Assert-That ($PhaseDirectory.StartsWith($repository+'\\checkpoint-only-supervision-',[StringComparison]::OrdinalIgnoreCase)) 'Unexpected Git output path.'\n    Assert-That (([IO.Path]::GetDirectoryName($PhaseDirectory))-eq $repository) 'Git output must be an immediate coordination child.'\n    Assert-That ($EvidenceDirectory -eq $PhaseDirectory+'.supervisor') 'Supervisor output differs from the exact Git attempt.'\n    Assert-That (-not(Test-Path -LiteralPath $PhaseDirectory)) 'Existing Git attempt; reconcile without replay.'\n",
+      "original": "    $PhaseDirectory=Safe-Path (Join-Path 'F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases' $Phase)\n",
+      "occurrences": 1
+    },
+    {
+      "candidate": "'At least 3 GiB free physical RAM is required before Git publication.'",
+      "original": "'At least 3 GiB free physical RAM is required before checkpoint work.'",
+      "occurrences": 1
+    },
+    {
+      "candidate": "'Could not start Git publication helper.'",
+      "original": "'Could not start checkpoint helper.'",
+      "occurrences": 1
+    }
+  ]
+}

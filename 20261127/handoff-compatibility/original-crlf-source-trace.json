@@ -1,0 +1,137 @@
+{
+  "schema_version": 1,
+  "status": "source_trace_complete",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T10:26:39.839374+00:00",
+  "qualified_native_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "scope": "Read-only trace of the supported Ready restore and publication path with original checkpoint bytes expanded to CRLF. This is a source conclusion and exact Git-byte/observed-hash comparison, not runtime qualification of a modified history helper.",
+  "actual_observation": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-and-closure-readback.json",
+    "sha256": "75449d6ad9adddbd73538e3f2a75dd74429d8dfa5204d7180bf562f660b7765d",
+    "utc": "2026-11-27T10:17:26.6178952Z"
+  },
+  "selected_original_files": [
+    {
+      "path": "current.json",
+      "canonical_git_bytes": 893,
+      "canonical_git_sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+      "canonical_lf_count": 27,
+      "canonical_carriage_returns": 0,
+      "observed_windows_bytes": 920,
+      "observed_windows_sha256": "ccb1abde721af7a7fedbf3302d0143bd12e332cee47530d05f6c3515b3338b0a",
+      "exact_LF_to_CRLF_equivalence": true
+    },
+    {
+      "path": "previous.json",
+      "canonical_git_bytes": 892,
+      "canonical_git_sha256": "820306f78385f060d91409d58c3134959dbff90984292ffd23c297e104a28c73",
+      "canonical_lf_count": 27,
+      "canonical_carriage_returns": 0,
+      "observed_windows_bytes": 919,
+      "observed_windows_sha256": "3ced2fb2fb98fbbac359640b82fc496eb41d8deae04b20389639eea39a8f7cc1",
+      "exact_LF_to_CRLF_equivalence": true
+    },
+    {
+      "path": "objects/4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d.jsonl",
+      "canonical_git_bytes": 8569277,
+      "canonical_git_sha256": "4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d",
+      "canonical_lf_count": 12636,
+      "canonical_carriage_returns": 0,
+      "observed_windows_bytes": 8581913,
+      "observed_windows_sha256": "b6cc30c51074894b6a7248aabbec1c5f59e9b593610ec38bccdd7852eacf55b4",
+      "exact_LF_to_CRLF_equivalence": true
+    },
+    {
+      "path": "objects/5711cb1301c4de33554b7df0ea3c9fb7bec4b9cc8108b47108b2fb53fac1936f.jsonl",
+      "canonical_git_bytes": 8492439,
+      "canonical_git_sha256": "5711cb1301c4de33554b7df0ea3c9fb7bec4b9cc8108b47108b2fb53fac1936f",
+      "canonical_lf_count": 12530,
+      "canonical_carriage_returns": 0,
+      "observed_windows_bytes": 8504969,
+      "observed_windows_sha256": "d9cd655cf5e8a7b54cc62a11f1ffad4bb93e587ba2d16a43f8d988ef42a449c0",
+      "exact_LF_to_CRLF_equivalence": true
+    }
+  ],
+  "source_identities": [
+    {
+      "path": "src/main.rs",
+      "bytes": 233810,
+      "sha256": "d4b1ab9d02b186615cfd3f65dbb8d98366fad11d00065bbfe65ce7604612a3e0",
+      "equals_qualified_commit_blob": true
+    },
+    {
+      "path": "src/cli_checkpoint_guard.rs",
+      "bytes": 7902,
+      "sha256": "4b11cc1d5648d85817317dade0099717c55b6ec2824e93cb96bc92cfc0475a0e",
+      "equals_qualified_commit_blob": true
+    },
+    {
+      "path": "src/service/checkpoint.rs",
+      "bytes": 467664,
+      "sha256": "f860195328ef19049d87aa3904ef04de518889e9d289b57b00f0fcf4413e366c",
+      "equals_qualified_commit_blob": true
+    },
+    {
+      "path": "src/service/git_stage.rs",
+      "bytes": 18907,
+      "sha256": "e2cbd2423eb73fba4a0d038bda9a0108e732dad01e119fa7d30613882361c420",
+      "equals_qualified_commit_blob": true
+    },
+    {
+      "path": "src/service/git.rs",
+      "bytes": 44753,
+      "sha256": "12193c24d091df02b06a6502bb0ceb95b4452771d8904120d61d9426eb90648e",
+      "equals_qualified_commit_blob": true
+    },
+    {
+      "path": "src/service/secret_maintenance.rs",
+      "bytes": 3206,
+      "sha256": "1bf9a3805a0d6e4cd48f51ac41e9ddfcdf216b2877836c722555ac03438357b7",
+      "equals_qualified_commit_blob": true
+    }
+  ],
+  "conclusions": [
+    {
+      "location": "src/cli_checkpoint_guard.rs:policy/acquire; src/main.rs:publication_probe and publish_committed_state",
+      "finding": "After no-auto-flush init creates an empty Ready database, an ordinary explicit restore arms the pre-dispatch publication probe. Recovery still acquires the workspace operation lock and rejects Git conflicts, but it skips require_writable and the covered>=live shortcut. Its successful new restore event advances sequence from0 and reaches ordinary forensic publication."
+    },
+    {
+      "location": "src/main.rs:cmd_restore; src/service/checkpoint.rs:verify_restore_source",
+      "finding": "The specified incoming source is fully verified before initialization/activation and again across staging. Source content-addressed root hashes use raw file bytes. The old original CRLF generation cannot be used directly as that verified source because its object rawSHA256 differs from the pointer/name."
+    },
+    {
+      "location": "src/service/checkpoint.rs:read_previous_generation at554; read_pointer_referenced_files at9840",
+      "finding": "The outgoing target current pointer is parsed as JSON and contributes its referenced path set, mode and root path. This reader does not verify the outgoing root raw hash. CRLF whitespace is parseable. The normal publication path has no redaction/quarantine reset request."
+    },
+    {
+      "location": "src/service/checkpoint.rs:publish_forensic_checkpoint_inner at8177\u20138205",
+      "finding": "Ordinary publication copies the complete old current.json file to a temporary previous file and durably replaces previous.json. This preserves old current pointer raw CRLF bytes exactly. The outgoing reference set is retained by path."
+    },
+    {
+      "location": "src/service/checkpoint.rs:publication object creation and retention at8230\u20138313",
+      "finding": "A new recovery summary event/receipt makes the restored current root different. The old current selected CRLF object remains by its retained path. The actual unchanged123-byte workspace config has no forced mode, so adaptive publication selects set-v2; its transition explicitly retains the outgoing old root. Objects not referenced by the new generation or outgoing current are tombstoned, including the former previous generation if it is otherwise unreferenced. Therefore preserve both original selected generations before this phase."
+    },
+    {
+      "location": "src/service/git_stage.rs:stage_published_checkpoint_with; src/service/checkpoint.rs:forensic_checkpoint_status_inner",
+      "finding": "Ordinary native publication stages the complete current+previous retained file set through Git add under stored configuration. Git cleans CRLF old pointer/object bytes back to their canonical LF blobs. Checkpoint status verifies the new current root/state; its Git reachability probe does not assert that an old previous root is natively restorable from its raw working bytes."
+    },
+    {
+      "location": "src/service/checkpoint.rs:verify_content_addressed_file at2556; existing ff1597 history verifyPromotedPrevious/verifyPublicationIndex",
+      "finding": "Direct native verification/restoration of the old local CRLF previous generation still fails rawSHA256. Existing history checkpoint() and raw staged-blob equality cannot simply be applied unchanged to that old pointer/object. The separately preserved canonical LF Git generation is the valid restore verification source."
+    }
+  ],
+  "narrow_helper_requirements": [
+    "Preserve all four actual raw CRLF files exclusively with exact observed hashes before first native open, and keep existing configuration/raw index/Git ancestry/immutable53-object retention proofs.",
+    "Materialize the four canonical LF files only from exact immutable Git blobs into a fresh owned retained directory; prove every observed CRLF file equals the exact LF-to-CRLF expansion of its canonical blob, and run supported native source verification/restore against this canonical retained generation.",
+    "Keep current original working files and core.autocrlf=true untouched until native init+restore. Reconcile the new canonical current generation, full1009 corpus and native audit/locks exactly as before.",
+    "For the first promotion, compare previous pointer and selected retained object raw bytes to the preserved original raw files. Verify the canonical counterpart independently; do not claim that raw local old previous is directly restorable.",
+    "Any staged-byte compatibility rule must be narrowly pinned to the old CRLF previous pointer/retained original objects and their already-verified canonical Git blobs. All new native current-generation bytes and unrelated index entries keep strict raw proof.",
+    "Qualify the exact revised helper route with the already-qualified binary in a disposable fixture that reproduces raw CRLF originals, unchanged autocrlf=true, ordinary publication, canonical-retention restore proof and both subsequent publication/restore stages."
+  ],
+  "activity": {
+    "pc_calls": false,
+    "repository_mutation": false,
+    "native_execution": false,
+    "new_product_builds_or_tests": false
+  }
+}

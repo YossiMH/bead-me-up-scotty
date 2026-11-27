@@ -639,6 +639,31 @@
     "both_remote_mains_verified": true,
     "application": "stopped",
     "configured_launch": "pending",
-    "install_task_closure": "pending"
+    "install_task_closure": {
+      "status": "passed",
+      "review_sha256": "5fe7cfb2ed7466d339c455d33417796ee175d89b73abef7cd438fa0e343662f9",
+      "closed_total": 48,
+      "open_total": 7,
+      "result_sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+    }
+  },
+  "configured_launch_first_attempt": {
+    "status": "failed_before_output_directory",
+    "directory": "20261127/configured-launch-first-attempt",
+    "task_result": 1,
+    "task_state": 3,
+    "running_instances": 0,
+    "result_file_exists": false,
+    "actual_success_claimed": false,
+    "next_action": "Reconcile early installed-source CRLF hash preflight and retain outer stdout/stderr before a fresh separately reviewed attempt."
+  },
+  "original_checkpoint_actual_checkout": {
+    "canonical_git_bytes": 17063501,
+    "actual_raw_bytes": 17088721,
+    "files": 4,
+    "all_exact_crlf_variants_verified": true,
+    "trace_sha256": "3f9e45b3e2776f6a1b98a74009fef103cfd27307781ec6a68d6890dea75fe54d",
+    "old_history_entry_point_applicable": false,
+    "supported_native_restore_route": "Preserve exact raw originals plus separately verified canonical Git generation; qualify the narrow raw previous.json/Git normalization reconciliation before actual history execution."
   }
 }

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "record_kind": "explicit recovery of previously observed qualification evidence",
+  "original_record_sha256": "34f90bfda9fa4feb7301a745405cf4faad2a1ac28c5b3840c6caaca540b9158d",
+  "original_record_bytes": 2254,
+  "original_record_exact_bytes_recovered": false,
+  "reason": "The transient /tmp filesystem reset before publication. Its full timing-bearing JSON was not printed; those exact timing fields are left unknown. Source/test/raw stream bytes and their frozen hashes were printed and were reconstructed exactly.",
+  "evidence_basis": [
+    "The original final qualification tool call ran syntax then the nine focused checks, exited0, printed the complete949-byte boundary stdout and the final source/test/stream identities.",
+    "All12 payload hashes match the pre-reset final freeze that frontend independently accepted under reviewa25f2def7d72b883b0114ec52d7bd8f000d0fe94138c6ebee91ee7c6abfdaabb.",
+    "This receipt records recovery, not a new execution. No product/native/Git publication operation or test rerun was performed."
+  ],
+  "node_version_at_original_check": "v24.22.3",
+  "git_version_at_original_check": "git version 2.56.1",
+  "node_heap_mib": 128,
+  "boundary_tests": 9,
+  "boundary_pass": 9,
+  "boundary_fail": 0,
+  "checks": [
+    {
+      "name": "syntax",
+      "historical_command": [
+        "node",
+        "--check",
+        "publish-reviewed-git-20261127.mjs"
+      ],
+      "historical_exit_code": 0,
+      "historical_cwd": "/tmp/beads-2889282bfcec/git-publication-packet",
+      "historical_started_utc": null,
+      "historical_process_duration_seconds": null,
+      "stdout": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet/syntax.stdout",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet/syntax.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    },
+    {
+      "name": "boundaries",
+      "historical_command": [
+        "node",
+        "--max-old-space-size=128",
+        "--test",
+        "test-publication-boundaries.mjs"
+      ],
+      "historical_exit_code": 0,
+      "historical_cwd": "/tmp/beads-2889282bfcec/git-publication-packet",
+      "historical_started_utc": null,
+      "historical_process_duration_seconds": null,
+      "stdout": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet/boundaries.stdout",
+        "bytes": 949,
+        "sha256": "e7d10a3a1b5524a27a10db057db250cb61a8e908905636d0d4c63725980693b6"
+      },
+      "stderr": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet/boundaries.stderr",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    }
+  ],
+  "checked_source_files": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet/publish-reviewed-git-20261127.mjs",
+      "bytes": 44539,
+      "sha256": "3c464a11e13ab56d540175448994eeccb2577ca0875d59f37f57c459185301e1"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/git-publication-packet/test-publication-boundaries.mjs",
+      "bytes": 7781,
+      "sha256": "f72de18ecd6026575f0ceb1e684dde032c729ec156acade84f2eb0fe50e6e7b6"
+    }
+  ],
+  "new_test_execution": false,
+  "windows_execution": false,
+  "recovered_utc": "2026-11-27T10:28:01.045278+00:00"
+}
