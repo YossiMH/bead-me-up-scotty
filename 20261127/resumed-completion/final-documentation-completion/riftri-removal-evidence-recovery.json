@@ -1,0 +1,31 @@
+{
+  "schema_version": 1,
+  "status": "recovered_existing_evidence",
+  "reviewer": "/root/review_scotty",
+  "bounded_source_read": "The721dd65e cloud-cleanup-inventory README/inventory identifies the exact historical receipt. The receipt was fetched once and rehashed; no old graph or qualification was rerun.",
+  "second_confirmed_removal": {
+    "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/721dd65e4a83e6be256950728f622c2da36d9e52/20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json",
+    "bytes": 3390,
+    "sha256": "1518bcfd3e2d596c806608901da5b80d9003b9fa77db0b5f375d19715bf06e2f",
+    "target": "/tmp/beads-2889282bfcec/history-checkpoint-only",
+    "manager": "Riftri exec",
+    "exit_code": 0,
+    "force": false,
+    "path_absent": true,
+    "registration_absent": true,
+    "published_commit": "473530433d66206ec6ba8a9980c9ed4bd0e12848",
+    "equal_authored_files": 11,
+    "verified_utc": "2026-11-27T08:28:52.956047+00:00",
+    "ordering_note": "The whole-subtree precheck failed on those two added review files; the subsequent non-force removal ran before the corrected authored-file-only comparison. The worktree had already been confirmed clean and its complete author commit remains retained. This receipt records the later completed exact-file reconciliation and path/registration absence."
+  },
+  "previous_confirmed_removal": {
+    "target": "/tmp/beads-2889282bfcec/continuation",
+    "receipt_sha256": "4300221854af50f1970b73058aa9236ce25a97cc963cee9e3b08f0723c46de02",
+    "review_sha256": "e49a7f985576d0aaedffbdb525ce593f92d11679a503e5b74f96314ad7951f30"
+  },
+  "scope": "These are two specifically evidenced non-force Riftri removals. Other former task paths remain classified by recorded reset absence or missing historical removal evidence. No new linked worktree was created for this documentation preparation.",
+  "accepted_cleanup_aggregate": "Do not alter accepted866424 aggregate or its already executed close reason. Its one continuation-removal fact remains true; this separately retained older receipt supports the broader two-removal final handoff statement.",
+  "pc_calls": false,
+  "ref_actions": false,
+  "new_tests_or_gates": false
+}
