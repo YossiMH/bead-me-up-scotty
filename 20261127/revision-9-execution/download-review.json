@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "frontend_audit",
+  "reviewed_utc": "2026-11-27T06:26:39.007670+00:00",
+  "scope": "Independent source and immutable binding review of the narrow two-archive downloader; acceptance for root Windows parser check and bounded execution. Runtime acceptance remains pending.",
+  "candidate": {
+    "path": "/tmp/beads-2889282bfcec/transfer-work/download-qualified-artifacts-20261127.ps1",
+    "bytes": 22726,
+    "sha256": "47a281fa05a244c4898de725aa1a9bbcc84eb1f325c8ffda9c39d7745b6fab78"
+  },
+  "reviewed_files": {
+    "download-qualified-artifacts-20261127.ps1": "47a281fa05a244c4898de725aa1a9bbcc84eb1f325c8ffda9c39d7745b6fab78",
+    "README.md": "5302e35be72df6005e0c878723da50cceb54931b107edff1429b5e9a863d8bf6",
+    "author-inspections.json": "93f382f01a9585175f17f5cd9e8d43a3bbcb139b67e708263d2ee81ad78b5bc0",
+    "borrowed-methods.json": "c6fe094a168f12f80b63628fb2a50101dc1617098cb831cf2f1a659efb4fef39",
+    "immutable-staging-manifest.json": "748033e9e89c9f8cf6225b48530e5db6b47594f00b807048f62f561f28e69c3b",
+    "accepted-invocations.json": "420cb751b807e00d14358466ce461d75432377a6fd6cd8641138d6c7be7f95b4"
+  },
+  "checks": [
+    {
+      "name": "complete_candidate_source_and_instructions_read",
+      "result": "pass"
+    },
+    {
+      "name": "all_fixed_artifact_ids_runs_names_heads_byte_counts_and_digests_match_retained_qualification",
+      "result": "pass"
+    },
+    {
+      "name": "six_immutable_stage_files_match_exact_git_objects_sizes_and_hashes",
+      "result": "pass"
+    },
+    {
+      "name": "archive_stage_install_and_configured_launch_bindings_preserved",
+      "result": "pass"
+    },
+    {
+      "name": "eight_accepted_functions_and_embedded_job_inspector_verbatim",
+      "result": "pass"
+    },
+    {
+      "name": "authenticated_gh_binary_stdout_sequential_transfer",
+      "result": "pass",
+      "detail": "Uses raw StandardOutput.BaseStream, 64 KiB reusable buffer, fixed API endpoints, no shell text redirection or automatic extraction."
+    },
+    {
+      "name": "prewrite_stdout_bound_and_complete_size_hash_verification",
+      "result": "pass",
+      "detail": "Checks exact response bound before every write; final promotion requires EOF on both pipes, child exit 0, exact bytes and SHA-256."
+    },
+    {
+      "name": "metadata_and_error_stream_bounded",
+      "result": "pass",
+      "detail": "Metadata capped at 64 KiB; stderr discarded through a 4 KiB reusable buffer and aborted above 64 KiB per command. Credentials and redirect URLs are not read into command receipts."
+    },
+    {
+      "name": "exclusive_claim_partial_preservation_and_no_replay",
+      "result": "pass"
+    },
+    {
+      "name": "resource_guards_preserved",
+      "result": "pass",
+      "detail": "BelowNormal; 1 GiB baseline and live free RAM; 512 MiB aggregate owned resident cap; 168-second work stop; 180-second independent Job deadline; asynchronous pipe reads continue resource checks."
+    },
+    {
+      "name": "owned_process_cleanup_retained_and_pass_requires_clean_exit",
+      "result": "pass"
+    },
+    {
+      "name": "both_author_inspections_bind_exact_revised_candidate",
+      "result": "pass"
+    },
+    {
+      "name": "reviewed_correction_is_only_source_delta",
+      "result": "pass"
+    }
+  ],
+  "resolved_findings": [
+    {
+      "id": "D1",
+      "original_candidate_sha256": "e60b8ab5f60d0786db469d303324a284d65bb989bfbf470703776e8e9c175c9b",
+      "description": "The new gh runner redundantly set PriorityClass after accepted ownership refresh, allowing a fast exiting gh invocation to fail at that unguarded setter.",
+      "resolution": "Removed the duplicate setter. The unchanged accepted Refresh-Owned method retains priority handling and its exited-process race treatment. Reconstructing the removed line yields the exact original candidate hash."
+    }
+  ],
+  "findings": [],
+  "pending": [
+    "Windows PowerShell 5.1 parser result on these exact bytes.",
+    "Actual bounded transfer result: exit 0, status passed, both files passed, no cleanup errors or assisted cleanup, no remaining owned Job members."
+  ],
+  "execution_notes": [
+    "Preserve and reconcile any existing delivery/download attempt; do not lower resource guards or replay automatically.",
+    "Root retains PC execution ownership and current approved process-only invocation.",
+    "Installer still requires actual task/tray prerequisites and a fresh observed port inventory."
+  ],
+  "product_execution_performed_by_reviewer": false,
+  "runtime_accepted": false
+}

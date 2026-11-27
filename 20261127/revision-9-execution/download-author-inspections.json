@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "scope": "Narrow two-archive authenticated PC transfer preparation",
+  "author": "/root/delivery_audit",
+  "files": [
+    {
+      "path": "download-qualified-artifacts-20261127.ps1",
+      "bytes": 22726,
+      "sha256": "47a281fa05a244c4898de725aa1a9bbcc84eb1f325c8ffda9c39d7745b6fab78"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4652,
+      "sha256": "5302e35be72df6005e0c878723da50cceb54931b107edff1429b5e9a863d8bf6"
+    },
+    {
+      "path": "immutable-staging-manifest.json",
+      "bytes": 9325,
+      "sha256": "748033e9e89c9f8cf6225b48530e5db6b47594f00b807048f62f561f28e69c3b"
+    },
+    {
+      "path": "accepted-invocations.json",
+      "bytes": 4231,
+      "sha256": "420cb751b807e00d14358466ce461d75432377a6fd6cd8641138d6c7be7f95b4"
+    },
+    {
+      "path": "borrowed-methods.json",
+      "bytes": 755,
+      "sha256": "c6fe094a168f12f80b63628fb2a50101dc1617098cb831cf2f1a659efb4fef39"
+    }
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "inspection": "Complete source/prose inspection after the PriorityClass correction: validated all final fixed artifact inputs and output paths, metadata and raw-byte boundaries, inherited path/Job/resource/deadline/cleanup logic, pending-pipe ownership, partial-file refusal, hashes/exit acceptance and every invocation. Checked all declarations and retained evidence. Parser and runtime verification remain pending."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "inspection": "Second complete inspection of the same corrected revision, including all script and associated prose: traced fast gh exit, successful downloads, expired or changed metadata, oversized/truncated response, command failure, blocked pipes, memory/deadline interruption, existing attempts and cleanup. Exact reconstruction confirms the redundant setter is the sole script change; inspected its interaction with the unchanged race-aware ownership method. No new finding."
+    }
+  ],
+  "mechanical_checks": {
+    "json_documents_parsed": 3,
+    "eight_inherited_powershell_functions_verbatim": true,
+    "embedded_job_inspector_verbatim": true,
+    "trailing_whitespace": 0,
+    "candidate_placeholders": 0,
+    "accepted_helpers_modified": false
+  },
+  "pending": [
+    "Independent source inspection",
+    "Root Windows PowerShell parser check",
+    "Actual bounded Windows transfer with exact-byte and cleanup receipt"
+  ],
+  "runtime_acceptance": false,
+  "pc_calls": 0,
+  "git_result": "Private task intermediates handed to root for reviewed shared-branch retention; no product source or accepted helper changed.",
+  "correction": {
+    "previous_sha256": "e60b8ab5f60d0786db469d303324a284d65bb989bfbf470703776e8e9c175c9b",
+    "finding": "A redundant PriorityClass setter after Refresh-Owned could race a short-lived gh process.",
+    "repair": "Removed that setter. The unchanged accepted Refresh-Owned method retains priority ownership and its exited-process handling.",
+    "other_script_changes": 0
+  }
+}

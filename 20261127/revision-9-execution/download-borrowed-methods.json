@@ -1,0 +1,21 @@
+{
+  "source_commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+  "source_path": "20261125/revision-9/artifact-stage/stage-artifacts-supervisor-20261125.ps1",
+  "source_sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+  "verbatim_methods": [
+    "Assert-That",
+    "Hash",
+    "Task-Path",
+    "Safe-Path",
+    "Quote-Argument",
+    "Refresh-Owned",
+    "Sample-Budget",
+    "Stop-Owned",
+    "Scotty20261125ArchiveInspector"
+  ],
+  "cleanup_changes": [
+    "Removed original driver stream loop; each gh pipe is owned and completed by Invoke-GhBytes.",
+    "Replace the old Child disposal with reusable metadata buffer disposal."
+  ],
+  "candidate_sha256": "47a281fa05a244c4898de725aa1a9bbcc84eb1f325c8ffda9c39d7745b6fab78"
+}
