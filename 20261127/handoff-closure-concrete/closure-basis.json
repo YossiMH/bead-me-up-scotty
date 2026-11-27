@@ -1,0 +1,371 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_independent_request_review",
+  "purpose": "Close the four completed initial documentation and text-review tasks after accepted main publication and actual Windows adoption. Original history restoration, checkpoint publication and final cleanup remain required under preserve-and-clean.",
+  "request": {
+    "file": "close-handoffs-accepted-20261127.json",
+    "bytes": 3708,
+    "sha256": "29a88a793bd240f725c982ec12076f65a6a3f8215d79a9293f780948743f428c"
+  },
+  "inputs": {
+    "request_template": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-preparation/close-handoffs.request.template.json",
+      "bytes": 618,
+      "sha256": "ed52ba5e3912ab0c933ee229fb9b85baf9fb60cd3cf031d096322a3e73331b7d"
+    },
+    "plan": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-inputs/plan.json",
+      "bytes": 419134,
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+    },
+    "materialization": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-inputs/materialization-v9-result.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    "closer": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-inputs/record-accepted-tasks-v9.mjs",
+      "bytes": 13438,
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3"
+    },
+    "supervisor": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-inputs/record-accepted-tasks-v9-supervisor.ps1",
+      "bytes": 17282,
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426"
+    },
+    "last_closure": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-actual/result.json",
+      "bytes": 5964,
+      "sha256": "6b0cbed2c93a5e517a50fb6e10f98382ff8cc480edff2336c97c96ff332f8a73"
+    },
+    "last_closure_supervisor": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-actual/supervisor-result.json",
+      "bytes": 7947,
+      "sha256": "e06e2ee20a9eb2de44053808f25a8a89b180b7517d93744b40520f362b70c316"
+    },
+    "last_closure_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-installed-closure-actual-review.json",
+      "bytes": 9093,
+      "sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5"
+    },
+    "native_text_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/reviews/native-handoff-final-text-review.json",
+      "bytes": 16394,
+      "sha256": "1798222c75283975a39de6862941763100c91b313c9b60ea5b3abf7dfae90b40"
+    },
+    "app_text_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/reviews/app-handoff-final-text-review.json",
+      "bytes": 24264,
+      "sha256": "b36af077a90948fb4c9a066c1666b1179966b07d44b5b909a121d61441abd715"
+    },
+    "native_text_author": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/native-handoff-final-50/author-inspections.json",
+      "bytes": 6246,
+      "sha256": "99882bc5f4b8a20b17f519997978e9f00f0ad456b80329995436ca838efa125f"
+    },
+    "app_text_author": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/app-handoff-final/author-inspections.json",
+      "bytes": 10302,
+      "sha256": "cfaa51393228b4ff853228fc77f8afd6465f54ee0ddd55fd3115077c5c248be9"
+    },
+    "main_publication": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/initial-handoff-main-publication.json",
+      "bytes": 1026,
+      "sha256": "16d6deb98f5472e161eabe857de4ceafd901afd88a7ab09c7025026bbfb85733"
+    },
+    "native_adoption_result": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/native-result.json",
+      "bytes": 28812,
+      "sha256": "2b104eaa94ccdc6c18ba95d0ce90f72b91421a4918ad534cdcd7224902f33d52"
+    },
+    "native_adoption_supervisor": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/native-supervisor-result.json",
+      "bytes": 20427,
+      "sha256": "3f6f73919f70fecb07d3071240aad2316baca41f183906fdf535ae8a57fe83b3"
+    },
+    "app_adoption_result": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/app-result.json",
+      "bytes": 26387,
+      "sha256": "b3328088e56fb39b48ea59a6f83862b78cd21b01ec1b49b7e314702d883a1261"
+    },
+    "app_adoption_supervisor": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/app-supervisor-result.json",
+      "bytes": 19578,
+      "sha256": "3240f270689d2e18f3c9b61755e0ea31f86f180f3e9be43993aa6cc4d68dd0fc"
+    },
+    "original_git_baseline": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/original-git-baseline.json",
+      "bytes": 1347,
+      "sha256": "44f268e069e6eac889cdda068d00734dbc62eff53c7723184d5a95886b917e97"
+    },
+    "original_git_index": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/index-after.raw",
+      "bytes": 73044,
+      "sha256": "f3137ef0e0e450241aa7e5559915838ec25e5d153731639301b46615726c369f"
+    },
+    "adoption_collection_integrity": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/collection-integrity.json",
+      "bytes": 2107,
+      "sha256": "0634e81fdfff091d87c39ecab81df372f31d0b1018ab920f1119ef6a7e204006"
+    },
+    "native_adoption_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/native-documents-adoption-review.json",
+      "bytes": 16524,
+      "sha256": "7971876adafd855dc9770e462a3ebe0b8dcfa3b1a5dcdae467274974556c6166"
+    },
+    "app_adoption_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/scotty-documents-adoption-review.json",
+      "bytes": 14287,
+      "sha256": "ee3cc2717e3a3ce4ec0fcd5a739b1f6126c58c2d7616d3f678561676a15bea9a"
+    }
+  },
+  "writing_rules": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "path": "20261125/revision-6/writing-rules.json",
+    "bytes": 1900,
+    "sha256": "f3868d4b51635ac291b7af3b9fef48c969e1a344e4cbbb7c3604ddae0af49f68",
+    "application": "The four new closure reasons use plain descriptions and exclude the prohibited terms and rhetorical patterns. Exact file names and command names are preserved."
+  },
+  "original_request_preserved": true,
+  "request_changes": "Only the four null reason values in the accepted template are replaced. The schema, accepted plan and materialization hashes, root-writer attestation, task order, keys and 3/5/3/5 revisions remain exact.",
+  "plan": {
+    "continuation_revision": 9,
+    "tasks": 55,
+    "blocking_edges": 91,
+    "total_issues": 1009,
+    "original_issues": 954,
+    "graph_changes": 0,
+    "new_tasks": 0
+  },
+  "before": {
+    "status": "independently_accepted_actual_observation",
+    "closed": 50,
+    "open": 5,
+    "source": "inputs.last_closure",
+    "review": "inputs.last_closure_review",
+    "subsequent_task_mutation_reported": false,
+    "configured_launch": {
+      "id": "beadrs-c9526055",
+      "status": "closed",
+      "revision": 6
+    },
+    "installed_review": {
+      "id": "beadrs-47da80ac",
+      "status": "closed",
+      "revision": 4
+    }
+  },
+  "order": [
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "before": {
+        "id": "beadrs-1371879c",
+        "status": "open",
+        "revision": 3
+      },
+      "after_expected": {
+        "id": "beadrs-1371879c",
+        "status": "closed",
+        "revision": 4
+      },
+      "prerequisites": [
+        "configured-launch",
+        "installed-review"
+      ],
+      "position": 1,
+      "completion_records": [
+        "inputs.native_text_author",
+        "inputs.native_text_review",
+        "inputs.main_publication",
+        "inputs.native_adoption_result",
+        "inputs.native_adoption_supervisor",
+        "inputs.native_adoption_review",
+        "inputs.original_git_baseline"
+      ]
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "before": {
+        "id": "beadrs-f0039a6a",
+        "status": "open",
+        "revision": 5
+      },
+      "after_expected": {
+        "id": "beadrs-f0039a6a",
+        "status": "closed",
+        "revision": 6
+      },
+      "prerequisites": [
+        "configured-launch",
+        "installed-review"
+      ],
+      "position": 2,
+      "completion_records": [
+        "inputs.app_text_author",
+        "inputs.app_text_review",
+        "inputs.main_publication",
+        "inputs.app_adoption_result",
+        "inputs.app_adoption_supervisor",
+        "inputs.app_adoption_review"
+      ]
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "before": {
+        "id": "beadrs-30f13b5b",
+        "status": "open",
+        "revision": 3
+      },
+      "after_expected": {
+        "id": "beadrs-30f13b5b",
+        "status": "closed",
+        "revision": 4
+      },
+      "prerequisites": [
+        "backend-handoff"
+      ],
+      "position": 3,
+      "completion_records": [
+        "inputs.native_text_author",
+        "inputs.native_text_review",
+        "inputs.native_adoption_review"
+      ]
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "before": {
+        "id": "beadrs-c62c1990",
+        "status": "open",
+        "revision": 5
+      },
+      "after_expected": {
+        "id": "beadrs-c62c1990",
+        "status": "closed",
+        "revision": 6
+      },
+      "prerequisites": [
+        "app-handoff"
+      ],
+      "position": 4,
+      "completion_records": [
+        "inputs.app_text_author",
+        "inputs.app_text_review",
+        "inputs.app_adoption_review"
+      ]
+    }
+  ],
+  "dependency_order": {
+    "already_closed": [
+      "configured-launch",
+      "installed-review"
+    ],
+    "satisfied_earlier_in_request": {
+      "backend-text-review": "backend-handoff",
+      "app-text-review": "app-handoff"
+    },
+    "all_six_accepted_prerequisite_relationships_satisfied": true
+  },
+  "completed_document_adoptions": {
+    "native": {
+      "status": "passed",
+      "independently_accepted": true,
+      "commit": "025ebc6a38013402b1936e932c104348aec06fd4",
+      "local_head_equals_remote_main": true,
+      "changed_files": [
+        {
+          "path": ".marathon/progress.md",
+          "canonical_bytes": 181588,
+          "canonical_sha256": "ddd99e39475d51b9d5a096e2e31d28efad951c7546b1dda8cd37b4ac29857779",
+          "git_blob": "09efdf7b25aeb1a409d87843923c4da5f776dd02",
+          "working_bytes": 184390,
+          "working_sha256": "048ca417cbec4682d443669e19c08ca50bdfabd9d7be5e70db0a7ec0b8add2eb"
+        }
+      ],
+      "index_sha256": "f3137ef0e0e450241aa7e5559915838ec25e5d153731639301b46615726c369f",
+      "original_checkpoint_tree": "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+      "tracked_checkpoint_paths": 53,
+      "unique_checkpoint_blobs": 52,
+      "original_database_and_sidecars_remain_absent": true,
+      "post_adoption_git_baseline_retained": true,
+      "supervisor_seconds": 7.018,
+      "peak_total_resident_bytes": 226181120,
+      "cleanup_assisted": false,
+      "cleanup_errors": [],
+      "remaining_job_members": []
+    },
+    "app": {
+      "status": "passed",
+      "independently_accepted": true,
+      "commit": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+      "local_head_equals_remote_main": true,
+      "changed_files": [
+        {
+          "path": "README.md",
+          "canonical_bytes": 25639,
+          "canonical_sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+          "git_blob": "2f9296f733ab66e04c524c704e783663341213b2",
+          "working_bytes": 26153,
+          "working_sha256": "69bfeee55036bb14e22948899e74f687b6e6deda765929cd9c6185410e2dd01b"
+        },
+        {
+          "path": "docs/backend-compatibility.md",
+          "canonical_bytes": 80782,
+          "canonical_sha256": "04fdc705d9b7de7d653644c8cbe3adb9c82dabe806f303360956e1924cbdf06f",
+          "git_blob": "a7600c632422b0c6605f3b609ddb38f79fe4e640",
+          "working_bytes": 82074,
+          "working_sha256": "4be8aab04b85a99c193b42afd61b6f0f7a9f311668a0bd8fb5a34c7222e7e1b5"
+        }
+      ],
+      "index_sha256": "af34dccf7686601e19860c393dc4cb45452b0c0546389b5e0a0238b19bda8cf5",
+      "environment_file_preserved": true,
+      "supervisor_seconds": 6.05,
+      "peak_total_resident_bytes": 231137280,
+      "cleanup_assisted": false,
+      "cleanup_errors": [],
+      "remaining_job_members": []
+    }
+  },
+  "expected_after": {
+    "closed": 54,
+    "open": 1,
+    "remaining": [
+      {
+        "key": "preserve-and-clean",
+        "id": "beadrs-3ec972f8",
+        "status": "open",
+        "revision": 5
+      }
+    ],
+    "unchanged_other_task_summaries": 51,
+    "original_records": 954,
+    "actual_result": false,
+    "root_must_collect_and_review_actual_result": true
+  },
+  "live_checks_in_unchanged_closer": [
+    "Require the exact accepted revision-9 plan, mapping, native executable and request bytes, with no authority-freeze marker.",
+    "Read all 1009 issues; compare all 954 original records, all 55 task titles/descriptions/resource keys, and all 91 directed blocking edges with the accepted records.",
+    "Require the four tasks to remain open and unassigned at revisions 3/5/3/5, and resolve prerequisites in the exact request order.",
+    "Require four semantic changes in the dry run, unchanged full precommit inventory, and unchanged preserved config/checkpoint pointer and input hashes.",
+    "Commit one four-operation manifest, then require exactly the four status/revision changes and preservation of every other stored task field and original record.",
+    "Retain the actual result and ready list. Fresh output creation is exclusive; reconcile any uncertain attempt before another mutation."
+  ],
+  "execution": {
+    "actor": "root",
+    "started": false,
+    "request_independent_review": null,
+    "actual_closure_result": null,
+    "actual_closure_supervisor": null,
+    "actual_closure_review": null
+  },
+  "pending_work": [
+    "preserve-and-clean remains open at revision 5; the eight original-history phases and their actual reviews are still required.",
+    "Initial checkpoint publication must precede the exact reviewed branch deletions. The archive must retain the accepted commit until both repository deletions and readbacks finish.",
+    "Exact scheduled-task and cache cleanup, final checkpoint publication/restoration and the final completion text retain their separate accepted requests and results.",
+    "The published documents retain their dated 50/5 snapshot. A later accepted completion addition will record final results."
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "accepted_plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+  "materialization_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+  "root_is_sole_state_writer": true,
+  "tasks": [
+    {
+      "key": "backend-handoff",
+      "revision": 3,
+      "reason": "Appended the accepted native continuation record to .marathon/progress.md while preserving the earlier entries. Commit 025ebc6a38013402b1936e932c104348aec06fd4 is published on YossiMH/bead-rs main and the actual Windows document adoption passed at that same commit. The text records supported editing, revision and audit behavior, the installed bead-0431a828bf95.exe binary, actual checks, earlier failures, recovery paths and the observed 50-closed/5-open task state. The adopted canonical and CRLF document bytes match the independently accepted final text. The original checkpoint tree and all 53 tracked checkpoint files were verified, and the new original-repository Git baseline and index copy were retained. Original history restoration and final cleanup remain assigned to preserve-and-clean."
+    },
+    {
+      "key": "app-handoff",
+      "revision": 5,
+      "reason": "Updated README.md and docs/backend-compatibility.md in commit b8caabf90652598f889f0b0bbc4e66d1b20a1877, published it on YossiMH/bead-me-up-scotty main and completed the guarded Windows document adoption at that commit. The independently accepted text explains editable fields, typed dependencies, stale-write recovery, the installed native pin and runtime, production launch before frontend development, real tray Exit, rollback and retained recovery files. It records the passed installed launch and the earlier failures accurately, with the observed 50-closed/5-open task state. The adopted canonical Git blobs and exact CRLF working bytes match both reviewed files. Original history restoration and final cleanup remain pending under preserve-and-clean."
+    },
+    {
+      "key": "backend-text-review",
+      "revision": 3,
+      "reason": "The independent final native text review 1798222c75283975a39de6862941763100c91b313c9b60ea5b3abf7dfae90b40 passed for commit 025ebc6a38013402b1936e932c104348aec06fd4 after the author completed two full inspections. The reviewer read the full appended record and surrounding instructions, checked the retained source and actual result records, preserved historical entries, verified final editing and installed tray claims, and checked recovery instructions and truthful pending work. The exact .marathon/progress.md canonical hash ddd99e39475d51b9d5a096e2e31d28efad951c7546b1dda8cd37b4ac29857779 was published and adopted on Windows with its reviewed CRLF bytes. The historical 50/5 snapshot remains dated; history restoration and cleanup still require their own completed results."
+    },
+    {
+      "key": "app-text-review",
+      "revision": 5,
+      "reason": "The independent final app text review b36af077a90948fb4c9a066c1666b1179966b07d44b5b909a121d61441abd715 passed for commit b8caabf90652598f889f0b0bbc4e66d1b20a1877 after the author's two complete inspections. The reviewer checked the full README and changed compatibility instructions against exact source, build, installation and Windows results, including editable fields, dependency direction and kinds, uncertain-write handling, production launch, development behavior, real Exit, rollback and recovery. Both exact reviewed files were published and adopted on Windows with their accepted canonical and CRLF identities. Historical failures and the dated 50/5 task snapshot remain accurate, and original history restoration and cleanup remain explicitly pending."
+    }
+  ]
+}

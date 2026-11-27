@@ -1,0 +1,243 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "frontend_audit",
+  "reviewed_at_utc": "2026-11-27T14:50:31.446396+00:00",
+  "scope": "Independent request/basis acceptance for closing the four completed initial handoff and text-review tasks through the unchanged revision-9 native closer. Actual closure and the expected 54/1 state require separate raw-result acceptance.",
+  "packet": {
+    "README.md": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-concrete/README.md",
+      "bytes": 2059,
+      "sha256": "4e4a5463ac865565a8a00148c003f213411f4da78369e6714ba865ab14bf4b94"
+    },
+    "author-inspections.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-concrete/author-inspections.json",
+      "bytes": 4369,
+      "sha256": "6e22262a1cd7ed4ae217bb488202890718beaf844faecdfe2f741add4971d0f5"
+    },
+    "close-handoffs-accepted-20261127.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-concrete/close-handoffs-accepted-20261127.json",
+      "bytes": 3708,
+      "sha256": "29a88a793bd240f725c982ec12076f65a6a3f8215d79a9293f780948743f428c"
+    },
+    "closure-basis.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-concrete/closure-basis.json",
+      "bytes": 14940,
+      "sha256": "af66ed4b02b910092a00b7bad309a59b6c402aacf813607df2607d4e73c2fb81"
+    }
+  },
+  "basis_inputs_rehashed": 22,
+  "critical_inputs": {
+    "request_template": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-preparation/close-handoffs.request.template.json",
+      "bytes": 618,
+      "sha256": "ed52ba5e3912ab0c933ee229fb9b85baf9fb60cd3cf031d096322a3e73331b7d"
+    },
+    "plan": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-inputs/plan.json",
+      "bytes": 419134,
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+    },
+    "materialization": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-inputs/materialization-v9-result.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    "closer": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-inputs/record-accepted-tasks-v9.mjs",
+      "bytes": 13438,
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3"
+    },
+    "supervisor": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-inputs/record-accepted-tasks-v9-supervisor.ps1",
+      "bytes": 17282,
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426"
+    },
+    "last_closure": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-actual/result.json",
+      "bytes": 5964,
+      "sha256": "6b0cbed2c93a5e517a50fb6e10f98382ff8cc480edff2336c97c96ff332f8a73"
+    },
+    "last_closure_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-installed-closure-actual-review.json",
+      "bytes": 9093,
+      "sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5"
+    },
+    "native_text_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/reviews/native-handoff-final-text-review.json",
+      "bytes": 16394,
+      "sha256": "1798222c75283975a39de6862941763100c91b313c9b60ea5b3abf7dfae90b40"
+    },
+    "app_text_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/reviews/app-handoff-final-text-review.json",
+      "bytes": 24264,
+      "sha256": "b36af077a90948fb4c9a066c1666b1179966b07d44b5b909a121d61441abd715"
+    },
+    "native_adoption_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/native-documents-adoption-review.json",
+      "bytes": 16524,
+      "sha256": "7971876adafd855dc9770e462a3ebe0b8dcfa3b1a5dcdae467274974556c6166"
+    },
+    "app_adoption_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/scotty-documents-adoption-review.json",
+      "bytes": 14287,
+      "sha256": "ee3cc2717e3a3ce4ec0fcd5a739b1f6126c58c2d7616d3f678561676a15bea9a"
+    },
+    "original_git_baseline": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/original-git-baseline.json",
+      "bytes": 1347,
+      "sha256": "44f268e069e6eac889cdda068d00734dbc62eff53c7723184d5a95886b917e97"
+    },
+    "original_git_index": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/documents-adoption-actual/index-after.raw",
+      "bytes": 73044,
+      "sha256": "f3137ef0e0e450241aa7e5559915838ec25e5d153731639301b46615726c369f"
+    }
+  },
+  "checks": [
+    {
+      "name": "exact_packet_and_derivation",
+      "passed": true,
+      "evidence": "Read all four final packet files. Independently rehashed all 22 basis inputs and all three author-manifest payloads. Replacing only the four completion reasons with null reproduces all 618 bytes of the accepted ed52ba5e template. The request schema, plan/mapping pins, sole-writer attestation, task order and revisions are unchanged."
+    },
+    {
+      "name": "current_accepted_task_state",
+      "passed": true,
+      "evidence": "The exact accepted 6b0cbed2 last closure and a158adc4 actual review contain 55 unique task summaries, with 50 closed and 5 open. The requested four are open at revisions 3,5,3,5. Configured launch and installed review are already closed at revisions 6 and 4. The mapping IDs and current states match the basis row by row."
+    },
+    {
+      "name": "ordered_dependencies",
+      "passed": true,
+      "evidence": "Checked the immutable revision-9 plan: both handoff tasks depend on the already closed configured-launch and installed-review tasks; each text-review task depends on its handoff, which is earlier in this same request. All six prerequisite relationships are satisfied in the accepted order. There are no graph edits or new task IDs."
+    },
+    {
+      "name": "completed_work_and_reasons",
+      "passed": true,
+      "evidence": "Each reason was read against the accepted final text, author inspections, cloud main publication and the new independent actual Windows adoption reviews. The native reason binds published/adopted 025ebc6a and the retained native checkpoint Git baseline; the app reason binds published/adopted b8caabf9 and both exact reviewed documents. The text-review reasons cite the exact independent review identities. Their 800/756/780/762-character lengths satisfy the existing 40-to-4096 contract. Historical 50/5 is explicitly described as an observation; history restoration and cleanup remain pending."
+    },
+    {
+      "name": "native_checkpoint_claim_scope",
+      "passed": true,
+      "evidence": "The 53 tracked checkpoint files in the reason refer to the accepted Git tree/index verification. The basis separately records 52 unique blob identities. The accepted actual review independently parsed every raw native index entry and preserves the existing absence of SQLite/sidecars. The original raw CRLF checkpoint preservation and supported restore remain future work under preserve-and-clean."
+    },
+    {
+      "name": "unchanged_native_closer_guards",
+      "passed": true,
+      "evidence": "Rehashed the exact 906ac53c closer and d2bb5362 supervisor and reread the relevant request, closeOperations, precommit and postcommit paths. They bind the exact revision-9 plan/mapping/native source inputs, require no authority freeze marker, compare all 954 original rows and all 55 task descriptions/resource keys/91 directed edges, enforce live open/unassigned state and revisions, and resolve prerequisites in order. A dry-run and unchanged full inventory/input check precede the single native commit. The postcheck permits only the requested status/revision and native update-time changes while preserving other stored fields and originals."
+    },
+    {
+      "name": "expected_state_and_boundary",
+      "passed": true,
+      "evidence": "Independently applied only the four status/revision increments to the accepted summary in memory: backend-handoff 3\u21924, app-handoff 5\u21926, backend-text-review 3\u21924 and app-text-review 5\u21926. Expected result is 54 closed/1 open, with all 51 other summaries unchanged. Preserve-and-clean remains open at revision 5. This is an expected result; no task mutation was executed by this review."
+    }
+  ],
+  "ordered_changes": [
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "before": {
+        "id": "beadrs-1371879c",
+        "status": "open",
+        "revision": 3
+      },
+      "after_expected": {
+        "id": "beadrs-1371879c",
+        "status": "closed",
+        "revision": 4
+      },
+      "prerequisites": [
+        "configured-launch",
+        "installed-review"
+      ]
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "before": {
+        "id": "beadrs-f0039a6a",
+        "status": "open",
+        "revision": 5
+      },
+      "after_expected": {
+        "id": "beadrs-f0039a6a",
+        "status": "closed",
+        "revision": 6
+      },
+      "prerequisites": [
+        "configured-launch",
+        "installed-review"
+      ]
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "before": {
+        "id": "beadrs-30f13b5b",
+        "status": "open",
+        "revision": 3
+      },
+      "after_expected": {
+        "id": "beadrs-30f13b5b",
+        "status": "closed",
+        "revision": 4
+      },
+      "prerequisites": [
+        "backend-handoff"
+      ]
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "before": {
+        "id": "beadrs-c62c1990",
+        "status": "open",
+        "revision": 5
+      },
+      "after_expected": {
+        "id": "beadrs-c62c1990",
+        "status": "closed",
+        "revision": 6
+      },
+      "prerequisites": [
+        "app-handoff"
+      ]
+    }
+  ],
+  "expected_after": {
+    "closed": 54,
+    "open": 1,
+    "remaining": [
+      {
+        "key": "preserve-and-clean",
+        "id": "beadrs-3ec972f8",
+        "status": "open",
+        "revision": 5
+      }
+    ],
+    "unchanged_other_task_summaries": 51,
+    "original_records": 954,
+    "actual_result": false,
+    "root_must_collect_and_review_actual_result": true
+  },
+  "decision": {
+    "request_accepted_for_root_application": true,
+    "accepted_request_sha256": "29a88a793bd240f725c982ec12076f65a6a3f8215d79a9293f780948743f428c",
+    "source_change_required": false,
+    "new_task_or_dependency_change": false,
+    "actual_task_mutation_accepted_by_this_record": false,
+    "current_accepted_counts": {
+      "closed": 50,
+      "open": 5
+    },
+    "expected_counts_after_success": {
+      "closed": 54,
+      "open": 1
+    }
+  },
+  "findings": [],
+  "next_steps": [
+    "Root publishes/stages the exact accepted request and uses the unchanged supervisor with an exclusive fresh output name and exact request hash.",
+    "Collect the raw driver and supervisor results with preserved 64-bit ticks. Independently reconcile the four revisions, all 51 other summaries, all 954 original records, full task content/edges, resource limits and owned cleanup before treating 54/1 as actual.",
+    "Only the separate original-history handoff may close preserve-and-clean. Initial/final checkpoint publication, archive/ref and scheduled-task/cache cleanup, and final completion text remain required."
+  ]
+}

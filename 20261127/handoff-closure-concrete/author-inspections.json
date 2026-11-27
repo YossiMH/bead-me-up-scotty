@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "author": "delivery_audit",
+  "purpose": "Final author inspections of the exact four-task request, its recorded results and root execution instructions.",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/delivery/handoff-closure-concrete",
+  "files": [
+    {
+      "file": "close-handoffs-accepted-20261127.json",
+      "bytes": 3708,
+      "sha256": "29a88a793bd240f725c982ec12076f65a6a3f8215d79a9293f780948743f428c"
+    },
+    {
+      "file": "closure-basis.json",
+      "bytes": 14940,
+      "sha256": "af66ed4b02b910092a00b7bad309a59b6c402aacf813607df2607d4e73c2fb81"
+    },
+    {
+      "file": "README.md",
+      "bytes": 2059,
+      "sha256": "4e4a5463ac865565a8a00148c003f213411f4da78369e6714ba865ab14bf4b94"
+    }
+  ],
+  "derivation": {
+    "original_template_bytes": 618,
+    "original_template_sha256": "ed52ba5e3912ab0c933ee229fb9b85baf9fb60cd3cf031d096322a3e73331b7d",
+    "changed_values": 4,
+    "only_changed_values": "tasks[0..3].reason: null to the four concrete completion reasons",
+    "complete_inverse_byte_equal": true,
+    "original_template_preserved": true,
+    "closer_and_supervisor_unchanged": true
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "complete": true,
+      "files_read": [
+        "close-handoffs-accepted-20261127.json",
+        "closure-basis.json",
+        "README.md"
+      ],
+      "description": "Read every new reason, basis field and instruction. Reconciled published document identities, exact canonical/CRLF bytes, both completed Windows adoptions and their independent final reviews. Rechecked the accepted mapping, all four current revisions, six ordered prerequisites, expected 54/1 and preservation of the other 51 task summaries plus all 954 original records. Original history and cleanup remain pending. No unresolved finding."
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "complete": true,
+      "completed_utc": "2026-11-27T14:47:21.932857+00:00",
+      "same_final_bytes": true,
+      "files_read": [
+        "close-handoffs-accepted-20261127.json",
+        "closure-basis.json",
+        "README.md"
+      ],
+      "description": "Read the complete same final files again. Confirmed each reason states only completed initial documentation work; the actual 50/5 observation stays dated, while 54/1 is explicitly expected until the separate closer result is reviewed. Checked exact task keys and IDs, 3/5/3/5 to 4/6/4/6 increments, root-only application, unchanged helper safeguards, pending actual-result fields and the full future preservation/cleanup sequence. No unresolved finding."
+    }
+  ],
+  "static_checks": {
+    "input_files_rehashed": 22,
+    "input_bytes_and_hashes_match": true,
+    "accepted_plan_tasks": 55,
+    "accepted_blocking_edges": 91,
+    "accepted_total_issues": 1009,
+    "unique_request_tasks": 4,
+    "ordered_prerequisite_comparisons": 6,
+    "expected_closed": 54,
+    "expected_open": 1,
+    "expected_unchanged_other_task_summaries": 51,
+    "expected_unchanged_original_records": 954,
+    "original_full_template_recovered_by_reversing_four_values": true,
+    "request_reasons_meet_existing_40_to_4096_character_contract": true,
+    "writing_rules_source_sha256": "f3868d4b51635ac291b7af3b9fef48c969e1a344e4cbbb7c3604ddae0af49f68",
+    "prohibited_word_or_phrase_matches_in_new_reasons": 0,
+    "final_utf8_lf_and_whitespace_check": "passed",
+    "native_adoption_review_sha256": "7971876adafd855dc9770e462a3ebe0b8dcfa3b1a5dcdae467274974556c6166",
+    "app_adoption_review_sha256": "ee3cc2717e3a3ce4ec0fcd5a739b1f6126c58c2d7616d3f678561676a15bea9a"
+  },
+  "resolved_author_findings": [
+    {
+      "id": "H4-A1",
+      "resolution": "The native reason names 53 tracked checkpoint files. The basis separately records their 52 unique blob identities, matching the accepted actual review. Corrected before both final complete inspections."
+    }
+  ],
+  "open_findings": [],
+  "independent_request_review": null,
+  "activity": {
+    "pc_calls": 0,
+    "task_mutations": 0,
+    "product_tests_or_builds": 0,
+    "source_changes": 0
+  },
+  "next_step": "Frontend independently reviews these exact request/basis bytes. Root then publishes, stages and applies the accepted request with the unchanged closer, and retains both actual results for separate reconciliation."
+}
