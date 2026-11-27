@@ -1,0 +1,112 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Static author inspections of the exact native-only transfer continuation and its README. Runtime acceptance remains pending.",
+  "candidate": {
+    "path": "20261127/native-download-continuation/continue-native-artifact-20261127.ps1",
+    "bytes": 28373,
+    "sha256": "cdf562a85d9ee07761a59d9247f8212ee4a42b5d625baf8926007110039e358e"
+  },
+  "readme": {
+    "path": "20261127/native-download-continuation/README.md",
+    "bytes": 5440,
+    "sha256": "23b28f59a5fa1c1d64b5508d5d4a759218566a64f4f52073e246e4ab3ca7cfbe"
+  },
+  "accepted_source": {
+    "path": "20261127/powershell51/download-qualified-artifacts-20261127-ps51.ps1",
+    "bytes": 22728,
+    "sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
+    "base_commit": "60e5181d1f3b92983dd24e9533b85daa4124cc5c",
+    "unchanged_functions": [
+      "Assert-That",
+      "Hash",
+      "Task-Path",
+      "Safe-Path",
+      "Quote-Argument",
+      "Refresh-Owned",
+      "Sample-Budget",
+      "Stop-Owned",
+      "Invoke-GhBytes"
+    ],
+    "embedded_job_inspector_unchanged": true,
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "predecessor": {
+    "result_path": "F:/Dev/.bead-edit-20261111/downloads-v9-final-20261125-1151.supervisor/result.json",
+    "result_bytes": 11444,
+    "result_sha256": "a8219c011bdf2abe056679efefc100f6967ec67139a9ac12109e8c78da243778",
+    "directory_readback_bytes": 303,
+    "directory_readback_sha256": "2ce8df173b023eaa50351698129e8246eb2e327fec8a5581def9ee914b90851f",
+    "raw_files_independently_rehashed": true,
+    "required_directory_inventory": [
+      {
+        "name": "scotty-15003467178.zip",
+        "bytes": 7056005,
+        "sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d"
+      },
+      {
+        "name": "bead-15014634952.zip.partial",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+      }
+    ],
+    "native_final_required_absent": true,
+    "old_claim_and_supervisor_preserved": true,
+    "unrelated_old_receipt_hashes_required": false
+  },
+  "inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "complete_source_and_readme_read": true,
+      "findings": [],
+      "checks": [
+        "Compared the full candidate diff with the exact accepted PowerShell 5.1 source. All nine pre-existing functions and the embedded C# Job inspector match byte-for-byte.",
+        "Confirmed the exact recovered predecessor result and directory inventory hashes, the completed app record, failed native command exit 1 with zero stdout and 128 counted stderr bytes, and clean prior owned-process cleanup.",
+        "Confirmed that only the native artifact remains in the transfer list. The app is never downloaded again; its exact local bytes are held read-only throughout the attempt.",
+        "Confirmed fixed fresh attempt, claim and evidence paths; all must be absent. Predecessor validation occurs before claim creation and before any gh invocation.",
+        "Confirmed unchanged metadata identity, producer, expiry, size and digest checks; exclusive fresh partial creation; raw binary streaming; bound-before-write behavior; and no stderr or credentials retained.",
+        "Confirmed native partial size and SHA-256 verification, immediate predecessor inventory recheck, non-overwriting final move, and exact three-file final inventory with both final archive hashes.",
+        "Confirmed unchanged resource thresholds, sequential BelowNormal execution, owned Job cleanup, work and hard deadlines, and no unsupported PowerShell unsigned aliases.",
+        "Confirmed README acceptance criteria and exact worktree cleanup guidance match the source."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "complete_source_and_readme_read": true,
+      "findings": [],
+      "checks": [
+        "Repeated a complete final-source read and inspected failure paths separately from the normal transfer path; no source changes were made between the two clean passes.",
+        "Traced missing or changed predecessor files, mismatched prior outcome, an unexpected original directory entry, an existing native final, and existing continuation paths to refusal before any new transfer.",
+        "Traced metadata mismatch or expiry, child nonzero exit, overlong output, short output, and hash mismatch to a failed receipt with the new partial preserved. Old receipt, app and empty partial handles remain read-only until cleanup.",
+        "Traced a destination appearing before promotion to a failed non-overwriting move; no generalized retry, overwrite, deletion, or reset path exists.",
+        "Traced transfer timeout and resource interruption through the unchanged pipe and owned-process cleanup. Assisted cleanup, remaining owned members, cleanup errors, aggregate overage or elapsed overrun cannot yield overall acceptance.",
+        "Confirmed that a passed per-artifact result alone cannot imply final success: both-final verification and the reused-app after-transfer status are set only after the final full inventory and hashes pass.",
+        "Confirmed pinned inputs are registered immediately after opening and disposed in finally, with disposal failure recorded as an overall cleanup failure.",
+        "Repeated byte identity and whitespace checks, rehashed the raw predecessor evidence, and confirmed the final candidate and README identities shown in this receipt."
+      ]
+    }
+  ],
+  "execution_limits": {
+    "priority": "BelowNormal",
+    "baseline_free_gib": 1,
+    "live_free_gib": 1,
+    "aggregate_resident_mib": 512,
+    "work_stop_seconds": 168,
+    "hard_deadline_seconds": 180,
+    "replay_allowed": false
+  },
+  "pending": [
+    "Independent review of these exact packet bytes.",
+    "Exact-file Windows PowerShell 5.1 parsing by root.",
+    "One bounded native-only execution and review of its complete result and final hashes by root."
+  ],
+  "retention": {
+    "worktree": "/tmp/beads-2889282bfcec/native-download-continuation",
+    "branch": "task/native-download-continuation-2889282bfcec",
+    "parent_repository": "/tmp/beads-2889282bfcec/scotty",
+    "author_push_performed": false,
+    "cleanup": "Future agents must preserve the reviewed packet and any unpublished work, then remove only this exact clean worktree through the existing Riftri exec route without force. Preserve its branch until the packet is durably retained."
+  }
+}
