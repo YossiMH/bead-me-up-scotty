@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "passed_snapshot_preparation_only",
+  "author": "/root/backend_audit",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/backend/archive-readiness-20261127",
+  "scope": "Fresh read-only provisional archive readiness for exactly 86 app and two native task refs; no actual archive or deletion acceptance.",
+  "files": {
+    "README.md": {
+      "bytes": 5326,
+      "sha256": "b54d2784f8f0b7867cd3e6190bdd2d5ccf9420525ce6f2cad9b4a08fedf3337b"
+    },
+    "graph-proof.json": {
+      "bytes": 56140,
+      "sha256": "28167f9a58cfa4454059d38ff817b50d57d03be9d1e65d5692d44a3dd52d7e84"
+    },
+    "local-object-availability.json": {
+      "bytes": 7338,
+      "sha256": "011f2dd2d5d32e23046ada4917dbc06d0428d4393578086fbedcc5b93e2abe4a"
+    },
+    "native-main-commit-readback.json": {
+      "bytes": 1359,
+      "sha256": "db3caa84f6f730712a8362e8757e0ab781dcdbaedd37481bab838c49c01e1732"
+    },
+    "observed-refs.json": {
+      "bytes": 13853,
+      "sha256": "54abd5de72af78cabea948520dc121a95c85c1e1f9c4445d103572f78b9c509d"
+    },
+    "readiness.json": {
+      "bytes": 6892,
+      "sha256": "905954e2884b40e8709461f79e8cd0049aae9aa34e46dcbdf72104858a6c6402"
+    },
+    "remote-readback.json": {
+      "bytes": 45027,
+      "sha256": "782d99c6478f97058d11725a74ff2bbeb872afd80c54dfb5a434de73074b9ad6"
+    }
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "coverage": "Read the full exact publisher allowlist and retained inventory/preparation, all fresh remote ref records, complete parent-set/coverage computation and runbook. Compared every observed ref with the fixed source names and previous tips; reviewed the original graph/approach acceptance as a preparation boundary. After the narrow parent-count correction, read the complete corrected runbook/readiness and compared its fresh-count gate with the unchanged publisher's receipt.parents.length===32 and unique-parent checks.",
+      "findings": [],
+      "observations": [
+        "The exact 86/2 live name sets match. All other 85 app tips remain unchanged; only transfer advanced from 42f540 to the provisional 9d346625.",
+        "The existing Scotty clone contains all needed app commits. Git --independent returns transfer plus the same 31 additional parents; all 86 ref witnesses are covered by the complete 640-node parent graph.",
+        "The chosen 32 parents are pairwise independent, and the earlier transfer is an ancestor of the provisional one. The exact tree 8d9692cc belongs to the provisional transfer.",
+        "The native main object was missing locally; its immutable GitHub commit response proves both 2d801 task tips are its sole parent. This is scoped to observed main 025eb."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "coverage": "Read the complete finalized readiness/runbook and rechecked every seven-file payload identity, all 86 coverage witnesses, compressed graph integrity, exact source allowlists and canonical list digests. Reviewed all pending actual fields and the final remote recheck procedure. Completed another full corrected metadata read and verified that the single README paragraph and two freshness fields reverse exactly to the prior frozen bytes.",
+      "findings": [],
+      "observations": [
+        "Raw GET bodies reproduce both exact observed lists and main/archive observations. All future final-transfer/archive/deletion values remain null, and readiness is explicitly snapshot-only.",
+        "The compressed rev-list stdout rehashes exactly; its complete 640-node graph has every parent present. The repository is not shallow, has no grafts, and all graph commands disabled replacements and lazy fetch.",
+        "Independent graph reconstruction verifies pairwise parent independence and every recorded ref-to-parent ancestry witness. The publisher's sorted canonical digest convention is preserved separately from file hashes.",
+        "Root must repeat the five exact live-ref/main/archive GETs after final transfer publication and regenerate parents/tree/coverage. Actual archive creation/ref readback and independent acceptance precede exact leased deletion.",
+        "The packet changes no refs, creates no worktree and claims no cleanup completion. Actual receipt retention must respect the final archived transfer boundary.",
+        "A final parent count other than32 requires separate review; this packet does not permit silently adapting the accepted publisher contract."
+      ]
+    }
+  ],
+  "verified": {
+    "app_refs": 86,
+    "native_refs": 2,
+    "unchanged_other_app_tips": 85,
+    "independent_parents": 32,
+    "additional_parents": 31,
+    "complete_graph_nodes": 640,
+    "app_coverage_witnesses": 86,
+    "native_exact_parent_witnesses": 2,
+    "local_fetches": 0,
+    "actual_archive_created": false,
+    "actual_refs_deleted": false,
+    "accepted_exact_parent_count": 32,
+    "parent_count_correction_complete_inverse": true
+  },
+  "independent_review": null,
+  "freshness": "The provisional transfer 9d346625, its tree and all readback values must be replaced/rechecked after the last actual transfer publication. This is not the final archive receipt or deletion request.",
+  "retention": "Keep the named packet and raw observations until root verifies durable publication. No author worktree exists; preserve original repositories and retained recovery evidence.",
+  "activity": {
+    "pc_calls": false,
+    "task_store_writes": false,
+    "remote_mutations": false,
+    "local_ref_updates": false,
+    "new_worktrees": false,
+    "product_tests_or_builds": false
+  },
+  "previous_author_record_sha256": "3a64a90e42c86efed1425a70a017ce443a2c6974ed4a29e35302ee9a8531551a",
+  "resolved_author_findings": [
+    {
+      "id": "ARCHIVE-PARENT-COUNT",
+      "status": "resolved_before_independent_freeze",
+      "finding": "The first runbook draft told root to recompute a minimal final parent set without explicitly restating the accepted publisher's fixed32-parent gate.",
+      "resolution": "Added the exact32 unique-parent requirement, transfer first, and separate-review requirement for a changed count to README and readiness freshness metadata. All five raw observation/graph/object records remain byte-identical."
+    }
+  ]
+}

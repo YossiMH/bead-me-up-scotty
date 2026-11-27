@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "status": "prepared_snapshot_only",
+  "author": "/root/backend_audit",
+  "observed_readback_processed_utc": "2026-11-27T14:06:32.277Z",
+  "scope": "Fresh read-only readiness snapshot for the publisher's exact 86 app and 2 native task refs. Actual archive creation and deletion remain root-owned future work.",
+  "publisher": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/publish-reviewed-git-crlf-20261127.mjs",
+    "bytes": 45087,
+    "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13"
+  },
+  "source_inventory": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/archive-preparation/reviewed-refs.json",
+    "bytes": 10948,
+    "sha256": "9651b0b5c3e1657a76a093209715f13e0980c692bc7478ca42a398743802a30c"
+  },
+  "prior_preparation": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/archive-preparation/parents-pending.json",
+    "sha256": "231f3235ce4b567d0de2d1bb7d280855e3a385d8e6ebc35a7afd229b31958ca7",
+    "transfer": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+    "additional_parent_count": 31
+  },
+  "observed": {
+    "app_ref_count": 86,
+    "native_ref_count": 2,
+    "fixed_name_sets_exact": true,
+    "other_85_app_tips_unchanged": true,
+    "only_changed_app_ref": {
+      "ref": "refs/heads/task/build-transfer-20261111",
+      "previous_sha": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+      "observed_sha": "9d34662501095f50536221c9850478f5f65fa9e3"
+    },
+    "native_refs": [
+      {
+        "ref": "refs/heads/task/bead-finish-20261124",
+        "sha": "2d801ba455b7a722daf644a7615445117d57e8e9"
+      },
+      {
+        "ref": "refs/heads/task/type-file-20261125",
+        "sha": "2d801ba455b7a722daf644a7615445117d57e8e9"
+      }
+    ],
+    "main_heads": {
+      "scotty": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+      "native": "025ebc6a38013402b1936e932c104348aec06fd4"
+    },
+    "archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+    "archive_ref_absent": true,
+    "reviewed_refs_digest": {
+      "scotty": "1e67d26e1c307e4e2e8af76f9c2f93f67c19b11666efc837e3b06d87decae19a",
+      "native": "9b2fc7f35aa8018e6252a0fe0929dabafce797e3a17606ed0f238e10121345bf",
+      "old_scotty": "ec80de4f71364eca6b306653ef9c39f6a44321cd8b41e3e1f12cf7c5860f90ea"
+    }
+  },
+  "snapshot_graph": {
+    "provisional_transfer": "9d34662501095f50536221c9850478f5f65fa9e3",
+    "exact_transfer_tree": "8d9692cc4f4e3dad57d3b84c4baef1543d6c1eb5",
+    "parent_count": 32,
+    "additional_parent_count": 31,
+    "parents": [
+      "9d34662501095f50536221c9850478f5f65fa9e3",
+      "09c66f0563f86c90b1a588b829115b3aec356010",
+      "107b49cb690ffc1a8bbd591bbec1bc2412b4962c",
+      "1a5096a6cfe91096497aa02c3d1dbd56abed3f1e",
+      "1b2f9a2da3d5f4a64d71e58bc159b0ae22f27f6d",
+      "1c4b9b35fcf6c00f522849be037432de90e8ea6a",
+      "2168ee51f06ea5b498bbbc7b00a833f19581fb26",
+      "311b299868b27886ba9002dcd27c66dc252d4505",
+      "36a86233907052b4e22f49f5ab570a4f0dacf5c6",
+      "3847da49b76a8526f3d9621d77be8f7e70d5334b",
+      "3bb89f6a3f47da4cba49a448b7e8ba05cb15981d",
+      "3d8a0ff0d6eca4edb8ba9fa2951fd4afbea9a7ad",
+      "3db3742bfb91e3b38cf35535fa95403f2de3a093",
+      "457ae66a702f9515e8255bab0837fa51993acdb4",
+      "4855e53de5d74d6d16fbfc934ddcfcfdf8a23f78",
+      "5753653247952185fef0b8c2c83ecacb6bbb190a",
+      "5b930b7d0ff152eb2a0f80e24e278033399f46cd",
+      "6b9a796690729037cd8a959cf1afd858711f8404",
+      "6f57eee5cf24b65c59dafe49502d3a2b4a6d9d7e",
+      "7f01716a3fb628f2d2c89e8f9ab53d472dede697",
+      "93f47da2a5110da7f2a3266bceac9f5d31c8b375",
+      "a0b0a6ae2bc179b4dc40f95ba44890e37e9069b8",
+      "b52da105df70b9b019bedece85848a9d9817504d",
+      "ba6ebdb4c20da1d7b8d0266ef3e5e97f90fcba1d",
+      "bb2b16edb91b5c22553ce1badd87a4dc59a05b94",
+      "cdb79305ec07c52ff9a3f2995af6fc1d27780043",
+      "d1bc227388e8c6a162639a45d9b8d52618ff710b",
+      "d32fb4a6db5b5f19f6501795542dcaea971ff1ca",
+      "e5cea420faa1804c8b13ffeab77d5248e818395f",
+      "e86bd323a010fd3b7825472306d6f80c954b5764",
+      "ea2deb25060a3f163550c44ce572e831312b321b",
+      "f5c055381acc8ef24b2a3c1cfa2c11c950c25060"
+    ],
+    "same_31_additional_parents_as_prior": true,
+    "all_86_observed_app_tips_covered": true,
+    "pairwise_independent_parents": true,
+    "minimal_among_observed_tips": true,
+    "complete_commit_graph_nodes": 640,
+    "prior_transfer_is_ancestor": true,
+    "native_task_tips_are_exact_parent_of_observed_native_main": true,
+    "nodes": 640,
+    "all_parents_present": true,
+    "old_transfer_ancestor_of_provisional": true,
+    "shallow_command": [
+      "git",
+      "--no-optional-locks",
+      "-C",
+      "/tmp/beads-2889282bfcec/scotty",
+      "rev-parse",
+      "--is-shallow-repository"
+    ],
+    "shallow_stdout": "false\n",
+    "shallow_stderr": "",
+    "shallow_exit": 0,
+    "grafts_absent": true,
+    "git_no_replace_objects": "1",
+    "git_no_lazy_fetch": "1"
+  },
+  "files": {
+    "graph-proof.json": {
+      "bytes": 56140,
+      "sha256": "28167f9a58cfa4454059d38ff817b50d57d03be9d1e65d5692d44a3dd52d7e84"
+    },
+    "local-object-availability.json": {
+      "bytes": 7338,
+      "sha256": "011f2dd2d5d32e23046ada4917dbc06d0428d4393578086fbedcc5b93e2abe4a"
+    },
+    "native-main-commit-readback.json": {
+      "bytes": 1359,
+      "sha256": "db3caa84f6f730712a8362e8757e0ab781dcdbaedd37481bab838c49c01e1732"
+    },
+    "observed-refs.json": {
+      "bytes": 13853,
+      "sha256": "54abd5de72af78cabea948520dc121a95c85c1e1f9c4445d103572f78b9c509d"
+    },
+    "remote-readback.json": {
+      "bytes": 45027,
+      "sha256": "782d99c6478f97058d11725a74ff2bbeb872afd80c54dfb5a434de73074b9ad6"
+    }
+  },
+  "freshness_boundary": {
+    "provisional": true,
+    "final_transfer_commit": null,
+    "final_transfer_tree": null,
+    "final_live_ref_list": null,
+    "final_minimal_parent_set": null,
+    "final_native_main": null,
+    "final_remote_readback_sha256": null,
+    "required_replacement": "After the last transfer publication, root must repeat the exact live-ref/main/archive readback and regenerate the parent/tree/coverage proof. This snapshot cannot be relabeled as final or used as an accepted archive receipt.",
+    "accepted_publisher_exact_parent_count": 32,
+    "review_required_if_recomputed_count_differs": true
+  },
+  "actual_archive": {
+    "archive_commit": null,
+    "receipt_sha256": null,
+    "independent_review_sha256": null,
+    "remote_ref_verified": null
+  },
+  "actual_deletion": {
+    "app_result_sha256": null,
+    "native_result_sha256": null,
+    "independent_review_sha256": null
+  },
+  "activity": {
+    "pc_calls": false,
+    "network_reads": "Six GitHub GETs only; no local object fetch was needed.",
+    "new_worktrees": false,
+    "ref_updates": false,
+    "archive_commit_created": false,
+    "branch_deletion": false,
+    "product_tests_or_builds": false
+  }
+}

@@ -1,0 +1,79 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Independent source and invocation delta review of fixed-six document publication reconciliation collector; actual collection and repository adoption remain unaccepted until raw observation.",
+  "reviewer": "frontend_audit",
+  "reviewed_at_utc": "2026-11-27T14:28:01.565456+00:00",
+  "inputs": {
+    "source": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-reconciliation.cjs",
+      "bytes": 5745,
+      "sha256": "84bcf18a73f0f6e5dad19e919786b8ddca3e33763c5b91954d34a3b2596b4a25"
+    },
+    "invocation": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-reconciliation-command.json",
+      "bytes": 3877,
+      "sha256": "97cfb481361636410007237a776a954131a8734862f736155943610080d68e5c"
+    },
+    "author_record": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-reconciliation-author.json",
+      "bytes": 747,
+      "sha256": "54d1774a299cdca8d4861488a9e8d12bd083259a859f0d1ccc9087ff2787b2a8"
+    },
+    "accepted_source_basis": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-publications.cjs",
+      "bytes": 5652,
+      "sha256": "ad4f82861ee2dd57ccb00e2715cba0c17fa03a52e1ca3d0e128f7ac774fae152"
+    },
+    "accepted_basis_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/document-publications-collector-review.json",
+      "bytes": 5801,
+      "sha256": "ac900a904afaffffe503643a0732665c5c46b055e1d4e31e3331fcf44493f8c3"
+    }
+  },
+  "method": "Read the complete 43-line candidate and author record; independently inspected the complete unified diff, mechanically reversed its sole insertion, decompressed the invocation payload, and compared the complete wrapper and scalar invocation fields against the accepted prior collector. No collector body or PC command was executed.",
+  "checks": [
+    {
+      "name": "exact_delta",
+      "passed": true,
+      "evidence": "Removing the sole 93-byte parent_states serialization insertion reproduces all 5,652 bytes of accepted ad4f82861ee2dd57ccb00e2715cba0c17fa03a52e1ca3d0e128f7ac774fae152. No path, filesystem call, resource check, read guard, error path, compression or chunk control was changed."
+    },
+    {
+      "name": "directory_observation",
+      "passed": true,
+      "evidence": "The added array serializes the existing eight fixed parentStates entries in their original order. Each entry contains path, Boolean presence and the previously captured device:inode string, or null. Existing lstat checks refuse symlinks and non-directory objects, and existing final checks require every identity/presence to remain unchanged."
+    },
+    {
+      "name": "fixed_files_and_privacy",
+      "passed": true,
+      "evidence": "The same six files remain native driver result, native supervisor result, native original-git-baseline, native index-after.raw, app driver result and app supervisor result. There are no additional reads, directory enumerations, children, writes, app private-store accesses or repository mutation."
+    },
+    {
+      "name": "raw_integrity",
+      "passed": true,
+      "evidence": "File bytes remain raw base64 with exact length and SHA-256, held-file pre/during/post/final signatures and explicit missing records. The collector does not parse result JSON, preserving 64-bit PowerShell process identity ticks."
+    },
+    {
+      "name": "stable_package_and_chunks",
+      "passed": true,
+      "evidence": "Parent identities are stable strings, with no time or memory measurements inserted into the gzip payload. The package digest covers the additional metadata. An expected old package hash cannot authorize continuation of the changed package; positive offsets still require the exact new package hash. Dynamic resource measurements remain only in the outer transport record."
+    },
+    {
+      "name": "bounds_unchanged",
+      "passed": true,
+      "evidence": "Windows-only BelowNormal Node64; 1 GiB initial/live free memory, 128 MiB own RSS, 100 ms sampler and 15-second deadline; 2 MiB per-file and 4 MiB total raw caps; 37,500-byte compressed chunks and 65,000-character whole-line cap. All are byte-identical to the accepted basis."
+    },
+    {
+      "name": "concrete_invocation",
+      "passed": true,
+      "evidence": "The decoded gzip/base64 payload equals the exact 5,745-byte candidate. After replacing only encoded source payloads, old and new command strings are identical. The new command is 3,328 characters; cwd F:\\Dev, timeout_ms 15000, and scalar expected_effects accurately describe the sole additional serialized metadata. Four supported tool fields only."
+    }
+  ],
+  "findings": [],
+  "acceptance_boundary": [
+    "Accepted to execute once as the bounded read-only reconciliation operation after root publishes and verifies these exact bytes.",
+    "An expired mutation proposal with no job result is not proof that no mutation occurred. This collector supplies observed fixed receipt and parent-directory states only.",
+    "A surviving native attempt directory with absent or incomplete receipts is a partial-attempt signal. Keep adoption unresolved and inspect only the specific necessary retained state before any new mutation.",
+    "Even absent directories and receipts are not a standalone claim that original Git/private state is unchanged. Actual publication acceptance still requires the reviewed request, successful guarded publisher result, supervisor cleanup, exact native baseline/raw-index evidence where applicable, and current result reconciliation."
+  ]
+}

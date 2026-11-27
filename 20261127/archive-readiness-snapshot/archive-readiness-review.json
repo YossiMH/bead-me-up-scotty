@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "preparation_only": true,
+  "actual_archive_accepted": false,
+  "actual_deletions_accepted": false,
+  "reviewer": "/root/delivery_audit",
+  "author": "/root/backend_audit",
+  "scope": "Independent review of the exact provisional 9d346625 task-ref readiness snapshot. This is not an actual archive receipt, deletion request or final current-tip acceptance.",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/backend/archive-readiness-20261127",
+  "reviewed_files": {
+    "README.md": {
+      "bytes": 5326,
+      "sha256": "b54d2784f8f0b7867cd3e6190bdd2d5ccf9420525ce6f2cad9b4a08fedf3337b"
+    },
+    "graph-proof.json": {
+      "bytes": 56140,
+      "sha256": "28167f9a58cfa4454059d38ff817b50d57d03be9d1e65d5692d44a3dd52d7e84"
+    },
+    "local-object-availability.json": {
+      "bytes": 7338,
+      "sha256": "011f2dd2d5d32e23046ada4917dbc06d0428d4393578086fbedcc5b93e2abe4a"
+    },
+    "native-main-commit-readback.json": {
+      "bytes": 1359,
+      "sha256": "db3caa84f6f730712a8362e8757e0ab781dcdbaedd37481bab838c49c01e1732"
+    },
+    "observed-refs.json": {
+      "bytes": 13853,
+      "sha256": "54abd5de72af78cabea948520dc121a95c85c1e1f9c4445d103572f78b9c509d"
+    },
+    "readiness.json": {
+      "bytes": 6892,
+      "sha256": "905954e2884b40e8709461f79e8cd0049aae9aa34e46dcbdf72104858a6c6402"
+    },
+    "remote-readback.json": {
+      "bytes": 45027,
+      "sha256": "782d99c6478f97058d11725a74ff2bbeb872afd80c54dfb5a434de73074b9ad6"
+    },
+    "author-inspections.json": {
+      "bytes": 6287,
+      "sha256": "c7aa4b7f5b0b292aea3284379260863bc475b3d0ca1e9409b7ebb4814669f7a1"
+    }
+  },
+  "accepted_publisher": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/publish-reviewed-git-crlf-20261127.mjs",
+    "bytes": 45087,
+    "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13"
+  },
+  "snapshot": {
+    "transfer_commit": "9d34662501095f50536221c9850478f5f65fa9e3",
+    "transfer_tree": "8d9692cc4f4e3dad57d3b84c4baef1543d6c1eb5",
+    "main_heads": {
+      "scotty": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+      "native": "025ebc6a38013402b1936e932c104348aec06fd4"
+    },
+    "app_refs": 86,
+    "native_refs": 2,
+    "unchanged_other_app_tips": 85,
+    "unique_app_tip_commits": 64,
+    "archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+    "archive_absent_in_retained_response": true
+  },
+  "independent_verification": {
+    "complete_graph_nodes": 640,
+    "decoded_graph_bytes": 54407,
+    "decoded_graph_sha256": "582f85ddd5ad6d3cefbd9b1b4e49aaadfbb45b05c9a2f8945a0f26d858e5fbb3",
+    "complete_parent_closure": true,
+    "acyclic": true,
+    "minimal_independent_tip_count": 32,
+    "same_additional_parents_as_prior": 31,
+    "coverage_witnesses_checked": 86,
+    "native_exact_parent_witnesses": 2,
+    "full_decoded_graph_equals_independent_immutable_git_read": true,
+    "git_no_lazy_fetch": true,
+    "git_no_replace_objects": true,
+    "not_shallow": true,
+    "grafts_absent": true,
+    "canonical_ref_list_digests": {
+      "scotty": "1e67d26e1c307e4e2e8af76f9c2f93f67c19b11666efc837e3b06d87decae19a",
+      "native": "9b2fc7f35aa8018e6252a0fe0929dabafce797e3a17606ed0f238e10121345bf",
+      "old_scotty": "ec80de4f71364eca6b306653ef9c39f6a44321cd8b41e3e1f12cf7c5860f90ea"
+    },
+    "snapshot_object_availability": {
+      "app_snapshot_objects": 66,
+      "native_snapshot_objects": 2,
+      "complete_snapshot_availability_records_reconcile": true
+    }
+  },
+  "checks": [
+    {
+      "id": "A1",
+      "status": "passed",
+      "detail": "Read the complete final README, readiness and author record, exact observed ref lists, API response records, graph command identities and producer deletion contract. Rehashed all eight packet files and the accepted publisher, prior inventory and parent preparation."
+    },
+    {
+      "id": "A2",
+      "status": "passed",
+      "detail": "Parsed every retained app/native matching-ref row and matched it to the compact observed lists. Their exact 86/2 names equal the publisher's fixed allowlists, with no duplicate, missing or additional row in those responses. Only the transfer tip differs from the prior 86-app inventory; the other 85 tips remain exact."
+    },
+    {
+      "id": "A3",
+      "status": "passed",
+      "detail": "Recomputed all three canonical sorted [{ref,sha}] digests using the unchanged publisher's convention. They match readiness separately from the raw JSON-file hashes. Both main responses and the empty planned-archive response match the recorded snapshot."
+    },
+    {
+      "id": "A4",
+      "status": "passed",
+      "detail": "Decoded and hashed the entire compressed rev-list stdout; all 640 unique commits have complete parent closure and no cycle. Independently recomputed the maximal observed-tip set, obtaining exactly the same 32 pairwise-independent parents. The provisional transfer is first, the other 31 match prior preparation, and the prior transfer is an ancestor."
+    },
+    {
+      "id": "A5",
+      "status": "passed",
+      "detail": "Checked all 86 ref-to-parent witnesses, including exact tip, selected covering parent and number of covering parents. Every selected parent is an observed tip and lies outside every other selected parent's ancestry. This proves the minimum parent set among the recorded observed tips."
+    },
+    {
+      "id": "A6",
+      "status": "passed",
+      "detail": "A read-only Git rev-list over the exact immutable observed tips reproduced every decoded graph byte. The provisional transfer tree re-read as 8d9692cc. Replacements and lazy fetching were disabled; the current object clone was non-shallow with no grafts. No worktree or ref was created."
+    },
+    {
+      "id": "A7",
+      "status": "passed",
+      "detail": "The complete initial object-availability records reconcile: all 66 requested app commits existed, while native main was recorded missing and native 2d801 existed. The retained immutable GitHub commit response gives native 025eb the sole parent 2d801, covering both exact native task refs at that observed main."
+    },
+    {
+      "id": "A8",
+      "status": "passed",
+      "detail": "The corrected runbook and freshness record require exactly 32 unique final parents with final transfer first; a changed recomputed count requires separate review. Every actual final-tip/tree/readback/archive/deletion field remains null. The author records two complete corrected inspections."
+    },
+    {
+      "id": "A9",
+      "status": "passed",
+      "detail": "The accepted deletion branch requires actual passed retention/review records, the exact fixed ref set/digest, accepted local/remote main, exact retained archive commit, per-ref expected-tip leases and atomic deletion. It verifies the complete expected remote state before deletion and only retained refs afterward, with source/index/config preserved."
+    }
+  ],
+  "findings": [],
+  "mandatory_execution_order_and_guards": [
+    "Finish and independently accept both actual PC document adoptions, their handoff/text closures, supported original native history restoration and the initial checkpoint publication before task-branch deletion, as required by the accepted cleanup task and root's execution order.",
+    "After the final intended transfer publication, obtain a fresh exact 86-app/2-native tip snapshot, both mains and planned archive absence. Recompute final transfer tree, complete coverage and exactly 32 unique parents in a separate final preparation; the current provisional snapshot cannot be relabeled.",
+    "Create the one archive-only commit with the final transfer first and its exact tree. Retain actual commit/ref readback and independently accept all final tip coverage plus current native-main ancestry before forming either deletion request.",
+    "Keep refs/heads/archive/bead-editing-complete-20261127 at the exact independently accepted 32-parent archive commit until both guarded repository deletions and their remote readbacks finish. Do not advance transfer or the archive ref during that interval.",
+    "Use only the accepted fixed allowlists, current expected-tip leases and root's separately reviewed requests. Any changed tip/main/archive, timeout or uncertain result requires actual reconciliation before another mutation.",
+    "Retain actual archive/deletion evidence outside the frozen transfer interval. Later completion evidence or an archive descendant requires a separate deliberate publication after both deletion readbacks; this preparation authorizes neither.",
+    "Preserve main, unrelated refs, original repositories and the reviewed recovery/rollback retention inventory."
+  ],
+  "freshness": {
+    "provisional": true,
+    "root_reports_transfer_has_advanced": true,
+    "current_remote_snapshot_reviewed": false,
+    "final_transfer_commit": null,
+    "final_parent_set": null,
+    "actual_archive_receipt_sha256": null,
+    "actual_deletion_review_sha256": null
+  },
+  "activity": {
+    "pc_calls": false,
+    "new_worktrees": false,
+    "local_ref_updates": false,
+    "remote_mutations": false,
+    "object_fetches": false,
+    "product_tests_or_builds": false
+  }
+}

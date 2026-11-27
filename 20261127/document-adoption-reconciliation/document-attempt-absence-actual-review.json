@@ -1,0 +1,175 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Independent acceptance of bounded actual fixed-output absence reconciliation following the expired native document adoption proposal. This permits a fresh execution of the exact accepted guarded publisher request; it is not adoption or original-repository preservation acceptance.",
+  "reviewer": "frontend_audit",
+  "reviewed_at_utc": "2026-11-27T14:30:14.961751+00:00",
+  "inputs": {
+    "execution": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/document-reconciliation-execution.json",
+      "bytes": 6988,
+      "sha256": "532bf74e78c09c781e3c155c1a08140e45e8d70d2c9852d52c5edf83295051fc"
+    },
+    "transport_envelope": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/document-reconciliation-envelope.json",
+      "bytes": 2288,
+      "sha256": "6ac853886a9a74de1bd1ae0c7fca9eba0773f9ba2fa98756d86c939178d39e34"
+    },
+    "exact_raw_payload": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/document-reconciliation-payload.json",
+      "bytes": 1907,
+      "sha256": "c1a5d8bdd530f727f9469fa51bc785bbc324f6307f3d3ce6255cd4ad98f940c2"
+    },
+    "collector_source": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-reconciliation.cjs",
+      "bytes": 5745,
+      "sha256": "84bcf18a73f0f6e5dad19e919786b8ddca3e33763c5b91954d34a3b2596b4a25"
+    },
+    "collector_invocation": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-reconciliation-command.json",
+      "bytes": 3877,
+      "sha256": "97cfb481361636410007237a776a954131a8734862f736155943610080d68e5c"
+    },
+    "collector_source_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/document-reconciliation-collector-review.json",
+      "bytes": 5618,
+      "sha256": "0ab094be72190e8646804f7a3612dd11eb67daeec43258758b9f30e422771d93"
+    },
+    "publisher_driver": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/publish-reviewed-git-crlf-20261127.mjs",
+      "bytes": 45087,
+      "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13"
+    },
+    "publisher_supervisor": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "bytes": 20108,
+      "sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52"
+    }
+  },
+  "observed": {
+    "proposal_id": "U19hCquQsUtPc5HsW-39xeQrCsT1jF__zKa01DbWkFM",
+    "job_id": "j1795789695190-31932-15691091752931493451",
+    "started_utc": "2026-11-27T14:28:15.371000+00:00",
+    "finished_utc": "2026-11-27T14:28:15.532000+00:00",
+    "outer_duration_ms": 161,
+    "reader_duration_ms": 8,
+    "peak_rss_bytes": 38457344,
+    "minimum_free_bytes": 8947269632,
+    "resource_samples": 24,
+    "exit_code": 0,
+    "stderr_bytes": 0,
+    "transport_dropped_bytes": 0,
+    "gzip_bytes": 381,
+    "gzip_sha256": "b028cafa286b6a772dee7aaace17a288d93c8c02505c4e657ee057bd646c9c23",
+    "uncompressed_bytes": 1907,
+    "uncompressed_sha256": "c1a5d8bdd530f727f9469fa51bc785bbc324f6307f3d3ce6255cd4ad98f940c2",
+    "parent_states": [
+      {
+        "path": "F:/",
+        "present": true,
+        "identity": "1222667260:3458764513820542464"
+      },
+      {
+        "path": "F:/Dev",
+        "present": true,
+        "identity": "1222667260:5764607523034587727"
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111",
+        "present": true,
+        "identity": "1222667260:6917529027645428952"
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+        "present": true,
+        "identity": "1222667260:6917529027645725300"
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1",
+        "present": false,
+        "identity": null
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1.supervisor",
+        "present": false,
+        "identity": null
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-scotty-documents-20261127-2889282bfcec",
+        "present": false,
+        "identity": null
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-scotty-documents-20261127-2889282bfcec.supervisor",
+        "present": false,
+        "identity": null
+      }
+    ],
+    "files": [
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1/result.json",
+        "present": false
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1.supervisor/result.json",
+        "present": false
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1/original-git-baseline.json",
+        "present": false
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1/index-after.raw",
+        "present": false
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-scotty-documents-20261127-2889282bfcec/result.json",
+        "present": false
+      },
+      {
+        "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-scotty-documents-20261127-2889282bfcec.supervisor/result.json",
+        "present": false
+      }
+    ]
+  },
+  "checks": [
+    {
+      "name": "exact_invocation_and_transport",
+      "passed": true,
+      "evidence": "All four executed proposal fields equal the accepted concrete invocation. One proposal/job is reconciled to exited status 0. Exact stdout length, zero dropped bytes, empty stderr, parsed envelope equality, base64 decoding, gzip decompression, compressed/uncompressed lengths and all recorded digests match."
+    },
+    {
+      "name": "fixed_directory_and_file_absence",
+      "passed": true,
+      "evidence": "All four exact native/app driver/supervisor output directories are absent. Their four outer ancestors are ordinary directories with stable string identities under the unchanged double-check logic. Every one of the six fixed result/baseline/index files is explicitly absent. No partial output directory is concealed by receipt absence."
+    },
+    {
+      "name": "bounded_actual_read",
+      "passed": true,
+      "evidence": "The actual single Node v25.2.1 reader reports BelowNormal, 64 MiB heap, 8 ms reader duration, 38,457,344-byte peak RSS, 8,947,269,632-byte minimum free memory, and 24 resource samples. The broker duration is 161 ms with no output loss."
+    },
+    {
+      "name": "producer_entry_order",
+      "passed": true,
+      "evidence": "Re-read the exact b86a74ad supervisor and 7d8be720 driver entry and completion paths. The supervisor first asserts both attempt directories absent and creates its .supervisor directory before starting Node. The driver creates its output directory before any Git command. Neither normal completion nor failure/cleanup deletes these output directories."
+    },
+    {
+      "name": "fresh_guards_remain_required",
+      "passed": true,
+      "evidence": "The accepted supervisor still refuses existing output directories and rehashes the request, helper, verifier, Job, Git and Node. The accepted driver rechecks expected HEAD/index/config/private files, reviewed text and exact remote state before ordinary guarded adoption. No prior proposal is replayed or existing attempt overwritten."
+    }
+  ],
+  "findings": [],
+  "decision": {
+    "fresh_guarded_attempt_permitted": true,
+    "native_documents_adoption_accepted": false,
+    "app_documents_adoption_accepted": false,
+    "original_repository_state_independently_rechecked_by_this_reader": false,
+    "task_closure_allowed": false,
+    "reason": "The previously uncertain proposal has been reported expired and the exact output paths now show no durable supervisor or driver attempt. The source ordering and retained-directory behavior reconcile the specific partial-attempt concern. A new proposal may run the unchanged guarded publisher request; the guard checks and actual successful receipts remain necessary for adoption acceptance."
+  },
+  "limitations": [
+    "This read observes only the fixed evidence paths and their eight ancestors. It does not read HEAD, index, configuration, document contents or private store, and it makes no independent unchanged-repository claim.",
+    "The historical expired proposal is not replayed. The subsequent prepare11 internal error/no proposal is parent-reported context and is not treated as an executed command or runtime result in this acceptance."
+  ]
+}
