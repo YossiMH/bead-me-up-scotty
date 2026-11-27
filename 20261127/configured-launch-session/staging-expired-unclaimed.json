@@ -1,0 +1,51 @@
+{
+  "prepare": {
+    "content": [
+      {
+        "type": "text",
+        "text": "{\"approval\": \"Use admin_execute with ChatGPT Allow once. No AI reviewer or remembered approval is used.\", \"command\": \"\\\"C:\\\\Program Files\\\\nodejs\\\\node.exe\\\" --max-old-space-size=64 -e \\\"const fs=require('node:fs'),https=require('node:https'),os=require('node:os'),crypto=require('node:crypto'),path=require('node:path');os.setPriority(0,os.constants.priority.PRIORITY_BELOW_NORMAL);const root='F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151',items=[{'n':'windows-configured-launch-host-session-20261127.ps1','s':'windows-configured-launch-host-session-20261127.ps1','h':'33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4','b':49366},{'n':'configured-launch-session-com-body-20261127.ps1','s':'configured-launch-com-body.ps1','h':'5adb4140150174e89e5d90c2a887fb27224e845f79d014b89266b187e0ca7fae','b':7789},{'n':'configured-launch-session-inner-action-20261127.ps1','s':'inner-action-parser-input.ps1','h':'d76984e03fc94022ee7102bcc3763ea28100a402a837cdcf1db8a43873a3aacd','b':936},{'n':'configured-launch-session-source-review.json','s':'source-review.json','h':'5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0','b':8080}],out=[];const hash=b=>crypto.createHash('sha256').update(b).digest('hex');function check(){if(os.freemem()<1073741824||process.memoryUsage().rss>134217728)throw Error('Resource condition not met')}const timer=setTimeout(()=>{console.error('Transfer deadline');process.exit(124)},60000);async function get(i){return new Promise((resolve,reject)=>{const req=https.get('https://raw.githubusercontent.com/YossiMH/bead-me-up-scotty/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-session/'+i.s,res=>{if(res.statusCode!==200){res.resume();req.destroy(Error('Unexpected response'));return}let n=0;const chunks=[];res.on('data',b=>{try{check();n+=b.length;if(n>i.b)throw Error('Size limit');chunks.push(b)}catch(e){req.destroy(e)}});res.on('end',()=>resolve(Buffer.concat(chunks)));res.on('error',reject)});req.setTimeout(20000,()=>req.destroy(Error('Request timeout')));req.on('error',reject)})}(async()=>{try{check();for(const i of items){const p=path.join(root,i.n);if(fs.existsSync(p))throw Error('Destination exists; reconcile');for(let q=path.dirname(p);q.length>3;q=path.dirname(q))if(fs.lstatSync(q).isSymbolicLink())throw Error('Linked ancestor')}for(const i of items){check();const b=await get(i);check();if(b.length!==i.b||hash(b)!==i.h)throw Error('File differs');const p=path.join(root,i.n);fs.writeFileSync(p,b,{flag:'wx'});if(hash(fs.readFileSync(p))!==i.h)throw Error('Readback differs');out.push({path:p,bytes:b.length,sha256:i.h})}console.log(JSON.stringify({status:'staged',staged:out,free_memory_mib:Math.round(os.freemem()/1048576),own_rss:process.memoryUsage().rss}))}catch(e){console.error(e.message);console.log(JSON.stringify({status:'stopped',completed:out}));process.exitCode=1}finally{clearTimeout(timer)}})();\\\"\", \"cwd\": \"F:\\\\Dev\", \"expected_effects\": \"Stage exactly the independently reviewed retained-session configured helper, outer registration parser input, derived936-byte inner parser input and source review from immutable717acefc into four fresh task-owned files. Verify lengths/SHA before exclusive creation/readback. BelowNormal Node64MiB,ownRSS128MiB,1GiB initial/live free,60sec total/20sec requests. No child processes, script execution, task registration, source/config/index/database changes or app launch.\", \"expires_at_unix\": 1795778053.6251662, \"proposal_id\": \"PSRt1bEhDnue-clRPmMjqMGfYlTI-uiM8Y6OVm0PUmk\", \"request_digest\": \"c3a8615139c9f31e585c7bd8032412a7a0c055a19cc1079acab4d99dc2a75951\", \"timeout_ms\": 70000}"
+      }
+    ],
+    "structuredContent": {
+      "proposal_id": "PSRt1bEhDnue-clRPmMjqMGfYlTI-uiM8Y6OVm0PUmk",
+      "expires_at_unix": 1795778053.6251662,
+      "command": "\"C:\\Program Files\\nodejs\\node.exe\" --max-old-space-size=64 -e \"const fs=require('node:fs'),https=require('node:https'),os=require('node:os'),crypto=require('node:crypto'),path=require('node:path');os.setPriority(0,os.constants.priority.PRIORITY_BELOW_NORMAL);const root='F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151',items=[{'n':'windows-configured-launch-host-session-20261127.ps1','s':'windows-configured-launch-host-session-20261127.ps1','h':'33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4','b':49366},{'n':'configured-launch-session-com-body-20261127.ps1','s':'configured-launch-com-body.ps1','h':'5adb4140150174e89e5d90c2a887fb27224e845f79d014b89266b187e0ca7fae','b':7789},{'n':'configured-launch-session-inner-action-20261127.ps1','s':'inner-action-parser-input.ps1','h':'d76984e03fc94022ee7102bcc3763ea28100a402a837cdcf1db8a43873a3aacd','b':936},{'n':'configured-launch-session-source-review.json','s':'source-review.json','h':'5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0','b':8080}],out=[];const hash=b=>crypto.createHash('sha256').update(b).digest('hex');function check(){if(os.freemem()<1073741824||process.memoryUsage().rss>134217728)throw Error('Resource condition not met')}const timer=setTimeout(()=>{console.error('Transfer deadline');process.exit(124)},60000);async function get(i){return new Promise((resolve,reject)=>{const req=https.get('https://raw.githubusercontent.com/YossiMH/bead-me-up-scotty/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/configured-launch-session/'+i.s,res=>{if(res.statusCode!==200){res.resume();req.destroy(Error('Unexpected response'));return}let n=0;const chunks=[];res.on('data',b=>{try{check();n+=b.length;if(n>i.b)throw Error('Size limit');chunks.push(b)}catch(e){req.destroy(e)}});res.on('end',()=>resolve(Buffer.concat(chunks)));res.on('error',reject)});req.setTimeout(20000,()=>req.destroy(Error('Request timeout')));req.on('error',reject)})}(async()=>{try{check();for(const i of items){const p=path.join(root,i.n);if(fs.existsSync(p))throw Error('Destination exists; reconcile');for(let q=path.dirname(p);q.length>3;q=path.dirname(q))if(fs.lstatSync(q).isSymbolicLink())throw Error('Linked ancestor')}for(const i of items){check();const b=await get(i);check();if(b.length!==i.b||hash(b)!==i.h)throw Error('File differs');const p=path.join(root,i.n);fs.writeFileSync(p,b,{flag:'wx'});if(hash(fs.readFileSync(p))!==i.h)throw Error('Readback differs');out.push({path:p,bytes:b.length,sha256:i.h})}console.log(JSON.stringify({status:'staged',staged:out,free_memory_mib:Math.round(os.freemem()/1048576),own_rss:process.memoryUsage().rss}))}catch(e){console.error(e.message);console.log(JSON.stringify({status:'stopped',completed:out}));process.exitCode=1}finally{clearTimeout(timer)}})();\"",
+      "cwd": "F:\\Dev",
+      "expected_effects": "Stage exactly the independently reviewed retained-session configured helper, outer registration parser input, derived936-byte inner parser input and source review from immutable717acefc into four fresh task-owned files. Verify lengths/SHA before exclusive creation/readback. BelowNormal Node64MiB,ownRSS128MiB,1GiB initial/live free,60sec total/20sec requests. No child processes, script execution, task registration, source/config/index/database changes or app launch.",
+      "timeout_ms": 70000,
+      "request_digest": "c3a8615139c9f31e585c7bd8032412a7a0c055a19cc1079acab4d99dc2a75951",
+      "approval": "Use admin_execute with ChatGPT Allow once. No AI reviewer or remembered approval is used."
+    },
+    "isError": false
+  },
+  "execute": {
+    "content": [
+      {
+        "type": "text",
+        "text": "McpServerError: Connection timed out."
+      }
+    ],
+    "structuredContent": {
+      "error": "McpServerError: Connection timed out.",
+      "error_code": "UNAVAILABLE",
+      "error_data": {
+        "type": "mcp_network_error",
+        "code": "network_error",
+        "message": "Connection timed out.",
+        "url": "https://tunnel-service.gateway.unified-0.internal.api.openai.org/v1/mcp/tunnel_6aa23b51ee848191b0769eb57fd97eba"
+      }
+    },
+    "isError": true
+  },
+  "open": {
+    "proposal_id": "PSRt1bEhDnue-clRPmMjqMGfYlTI-uiM8Y6OVm0PUmk",
+    "status": "open",
+    "replay_allowed": false
+  },
+  "expired": {
+    "proposal_id": "PSRt1bEhDnue-clRPmMjqMGfYlTI-uiM8Y6OVm0PUmk",
+    "status": "expired",
+    "replay_allowed": false
+  },
+  "replayed": false
+}

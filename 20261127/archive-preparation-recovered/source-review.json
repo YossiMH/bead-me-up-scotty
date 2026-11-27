@@ -1,0 +1,78 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T11:22:47.413Z",
+  "scope": "Prepared archive-only parent/tree approach and independent read-only verification of its dated snapshot.",
+  "approach_accepted": true,
+  "actual_archive_accepted": false,
+  "accepted": false,
+  "all_refs_covered": false,
+  "actual_ref_deletion_accepted": false,
+  "findings": [],
+  "preparation": {
+    "path": "archive-preparation/parents-pending.json",
+    "bytes": 14293,
+    "sha256": "231f3235ce4b567d0de2d1bb7d280855e3a385d8e6ebc35a7afd229b31958ca7",
+    "status": "prepared-only",
+    "transfer_commit": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+    "source_tree": "33d62b980ccf61c44ee89dff76cc84eba424c3dc",
+    "archive_ref": "refs/heads/archive/bead-editing-complete-20261127"
+  },
+  "retained_observation": {
+    "file": "task-refs-observation.json",
+    "bytes": 45142,
+    "sha256": "dac89c7d57d1622362c708393a2be3df85c94b074a71c3d3dbf57fc3efe56c79"
+  },
+  "reviewed_refs": {
+    "file": "reviewed-refs.json",
+    "bytes": 10948,
+    "sha256": "9651b0b5c3e1657a76a093209715f13e0980c692bc7478ca42a398743802a30c",
+    "canonical_digest": "ec80de4f71364eca6b306653ef9c39f6a44321cd8b41e3e1f12cf7c5860f90ea"
+  },
+  "independent_graph_proof": {
+    "file": "archive-parent-graph-inspection.json",
+    "bytes": 33279,
+    "sha256": "c53c0f746730d66a9bb27d7cb0ad1438410043058108496e78935e8d5a0dc058"
+  },
+  "dated_snapshot_checks": {
+    "exact_named_app_refs": 86,
+    "distinct_tips": 64,
+    "independent_parents": 32,
+    "ancestry_commits": 623,
+    "all86_observed_tips_in_parent_closure": true,
+    "first_parent_is_transfer": true,
+    "parent_set_equals_git_merge_base_independent": true,
+    "exact_transfer_tree_verified": true,
+    "exact_publisher_scotty_allowlist": true,
+    "no_native_parents": true
+  },
+  "approach_review": [
+    "One explicitly archive-only commit can retain all observed task histories through its32 parent pointers while using the exact final transfer tree. It requires one fixed archival ref and no source tree merge.",
+    "The first parent remains the final transfer commit; the31 additional independent tips belong to the same app repository. The commit message and receipt must describe retention, avoiding a claim that their code trees have been integrated.",
+    "Every ancestor commit, tree and blob reachable through those parents remains reachable through the archive branch. The retained86-ref mapping preserves the association between old names and exact tips.",
+    "The actual product main and protected feature/recovery refs remain outside the deletion set. This archive commit is never merged into product main.",
+    "The two native task refs are separate. Their history must be proven reachable from the accepted native main and handled by the publisher's native mode; app archive parent pointers cannot cross repositories."
+  ],
+  "independent_method": [
+    "Compared preparation rows with the86-row retained API observation and exact reviewed-ref file.",
+    "Compared all86 names against the fixed accepted publisher allowlist; verified uniqueness and64 distinct observed commit tips.",
+    "Used three local read-only Git object commands with optional writes, lazy fetch and replacement objects disabled: exact transfer tree lookup, merge-base --independent, and rev-list of all32 parents.",
+    "Verified the precise32-parent set and all623 ancestry commits; every observed tip is in the complete parent closure.",
+    "No new Git objects, refs, worktrees, commit or deletion were created by this review."
+  ],
+  "required_actual_creation_and_acceptance": [
+    "Refresh the exact86 live tip snapshot after the final transfer publications. The dated42f540 snapshot is already superseded by later transfer descendants and cannot authorize final creation/deletion.",
+    "Recompute the independent parents and exact final transfer tree from the refreshed immutable objects. The current publisher requires exactly32 unique parents with transfer first; a different count requires an explicit reviewed adjustment.",
+    "Create only refs/heads/archive/bead-editing-complete-20261127 if absent. Keep the actual created commit tree byte-identical to the final transfer tree and its ordered parents exactly the reviewed list.",
+    "Read back the actual commit object and remote fixed archive ref; independently prove all86 final observed tips are ancestors of that archive commit and retain the exact receipt/hash.",
+    "Prepare a separate actual archive review with accepted=true, all_refs_covered=true, archive_commit, archive_receipt_sha256 and the canonical digest of the final86 rows. This preparation review deliberately cannot satisfy that consumer gate.",
+    "Before deletion, the accepted publisher must reobserve exact main/archive/task refs, preserve local/index/config/hook state, and push only the fixed86 explicit deletions atomically with an expected-tip lease for every ref. Its after-read must show exact retained main/archive and no targeted refs.",
+    "Handle the two native refs independently with an accepted native-main ancestry receipt and unchanged exact main; leave main/feature/recovery refs untouched."
+  ],
+  "source_snapshot_freshness": "Root reported later transfer717ace and then de71118c225936b8ca6eac4be5db306eff19219b; this review accepts the bounded approach and the dated snapshot proof only.",
+  "pc_executed": false,
+  "network_fetches_or_ref_writes_by_reviewer": false,
+  "product_tests_or_builds_run": false
+}
+

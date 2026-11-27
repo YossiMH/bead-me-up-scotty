@@ -1,0 +1,255 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_review",
+  "author": "/root/delivery_audit",
+  "scope": "Fixed22-task cleanup preparation:19 exact original registrations,2 preserved failed configured attempts,1 future accepted configured session attempt.",
+  "files": {
+    "README.md": {
+      "bytes": 10448,
+      "sha256": "c2e79f333098d9e2766ac1750c3cf3699284cacbc5fd6430061c354c88d402a0"
+    },
+    "invocation.template.json": {
+      "bytes": 1281,
+      "sha256": "25ecd810afe281c27992d4274c11d13cfef0c42df29d0ff656773343dff764d8"
+    },
+    "remove-exact-scheduled-tasks22-20261127.ps1": {
+      "bytes": 25332,
+      "sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414"
+    },
+    "request.template.json": {
+      "bytes": 608,
+      "sha256": "b29bd6cfeacaab2e080a3e748a27ada78c0932f65d855b5d4bcef49769bc5c91"
+    },
+    "source-delta.json": {
+      "bytes": 11635,
+      "sha256": "9063b08367bbb3352f243bced9f7847234ad32e1bc015b54cc59f6b231ab48c6"
+    },
+    "task-names.json": {
+      "bytes": 2426,
+      "sha256": "36aa1d7a14e2b58d87d091bae843e510568337b3a6d50a1972db67fe8665e170"
+    }
+  },
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "717667dd46d5d27cb6708120429927bbadd57b5e",
+    "directory": "20261127/scheduled-task-cleanup",
+    "helper_sha256": "1458bb7f968307dacfd0ce0840941b361a869add1a852137ccbc0b54696f71f7",
+    "independent_source_review_sha256": "a927b9338950131e67f5f805586649365210b102c6a74de4c2d9e8b46b6040ea",
+    "complete_immutable_recovery": true,
+    "all_payload_text_retained_in_serializable_store": true
+  },
+  "actual_inputs": {
+    "original_definition_file": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-readback-20261127-v1/result.json",
+      "bytes": 100788,
+      "sha256": "97971b4fb451e6be8839d8ca7e37a8d49f486d1b3b81aaeaf754293d3e7cbd4f",
+      "raw_xml_pc_only": true
+    },
+    "failed_first_creation": {
+      "bytes": 2571,
+      "sha256": "435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd",
+      "fresh_recovered_file_hash_checked": true
+    },
+    "failed_second_creation": {
+      "bytes": 3868,
+      "sha256": "dca8d968ad1df097eb56baf80bede0c1453894974a6cdea4b4f6b29f9d5164e6",
+      "fresh_recovered_file_hash_checked": true
+    },
+    "failed_second_result": {
+      "bytes": 4404,
+      "sha256": "4068f777aeb3e7b5d29cd9f7ce3918a4c0eda44b8a9a6f0344157d6b085ff183",
+      "status": "failed"
+    },
+    "second_failure_review": {
+      "bytes": 6459,
+      "sha256": "82695323d385d933f650dfee0d3a92f80a37f595b8001d7a3402b8cdf6083a22"
+    },
+    "third_helper": {
+      "bytes": 49366,
+      "sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+      "source_review_sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0",
+      "actual_result": null
+    }
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "completed_utc": "2026-11-27T11:05:56.192822+00:00",
+      "complete": true,
+      "findings": [],
+      "files": {
+        "README.md": {
+          "bytes": 10448,
+          "sha256": "c2e79f333098d9e2766ac1750c3cf3699284cacbc5fd6430061c354c88d402a0"
+        },
+        "invocation.template.json": {
+          "bytes": 1281,
+          "sha256": "25ecd810afe281c27992d4274c11d13cfef0c42df29d0ff656773343dff764d8"
+        },
+        "remove-exact-scheduled-tasks22-20261127.ps1": {
+          "bytes": 25332,
+          "sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414"
+        },
+        "request.template.json": {
+          "bytes": 608,
+          "sha256": "b29bd6cfeacaab2e080a3e748a27ada78c0932f65d855b5d4bcef49769bc5c91"
+        },
+        "source-delta.json": {
+          "bytes": 11635,
+          "sha256": "9063b08367bbb3352f243bced9f7847234ad32e1bc015b54cc59f6b231ab48c6"
+        },
+        "task-names.json": {
+          "bytes": 2426,
+          "sha256": "36aa1d7a14e2b58d87d091bae843e510568337b3a6d50a1972db67fe8665e170"
+        }
+      },
+      "full_source_inverse_exact": true,
+      "source_replacements": 12,
+      "all_functions_unchanged": [
+        "Assert-That",
+        "Hash",
+        "Safe-Path",
+        "Hash-Bytes",
+        "Read-PinnedJson",
+        "Save-Bytes",
+        "Save-Json",
+        "Release-Com",
+        "Check-Budget",
+        "Check-Task",
+        "Require-Absent"
+      ],
+      "csharp_sha256": "ecf8a90d776e20a782019aafe84322b84c09fc3bd0d812e895f1dd68ccea6f54",
+      "complete_deletion_and_finally_tail_unchanged_except_22_count": true,
+      "raw_input_copies": 9,
+      "fixed_names": 22,
+      "future_pins_null_attestations_false": true,
+      "activity": "Static source, JSON, prose and inverse comparison only.",
+      "focus": [
+        "Read complete final helper, source delta, names manifest, invocation, incomplete request and README.",
+        "Verified fixed19+3 names/order and independent handling of both failed attempts versus future successful third acceptance.",
+        "Reconciled exact known failure/creation inputs, helper versions, paths and readback schema; all future pins remain null and all three root attestations false.",
+        "Reviewed all locked inputs, full XML ordinal/UTF8 comparisons, ready/zero-instance checks, nine private copies and22 complete XML backups.",
+        "Reviewed each exact deletion/intent/return/absence step, partial failure/no replay, self-only resource guard and complete cleanup/exit paths."
+      ]
+    },
+    {
+      "pass": 2,
+      "completed_utc": "2026-11-27T11:06:45.840914+00:00",
+      "complete": true,
+      "findings": [],
+      "files": {
+        "README.md": {
+          "bytes": 10448,
+          "sha256": "c2e79f333098d9e2766ac1750c3cf3699284cacbc5fd6430061c354c88d402a0"
+        },
+        "invocation.template.json": {
+          "bytes": 1281,
+          "sha256": "25ecd810afe281c27992d4274c11d13cfef0c42df29d0ff656773343dff764d8"
+        },
+        "remove-exact-scheduled-tasks22-20261127.ps1": {
+          "bytes": 25332,
+          "sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414"
+        },
+        "request.template.json": {
+          "bytes": 608,
+          "sha256": "b29bd6cfeacaab2e080a3e748a27ada78c0932f65d855b5d4bcef49769bc5c91"
+        },
+        "source-delta.json": {
+          "bytes": 11635,
+          "sha256": "9063b08367bbb3352f243bced9f7847234ad32e1bc015b54cc59f6b231ab48c6"
+        },
+        "task-names.json": {
+          "bytes": 2426,
+          "sha256": "36aa1d7a14e2b58d87d091bae843e510568337b3a6d50a1972db67fe8665e170"
+        }
+      },
+      "full_source_inverse_exact": true,
+      "source_replacements": 12,
+      "all_functions_unchanged": [
+        "Assert-That",
+        "Hash",
+        "Safe-Path",
+        "Hash-Bytes",
+        "Read-PinnedJson",
+        "Save-Bytes",
+        "Save-Json",
+        "Release-Com",
+        "Check-Budget",
+        "Check-Task",
+        "Require-Absent"
+      ],
+      "csharp_sha256": "ecf8a90d776e20a782019aafe84322b84c09fc3bd0d812e895f1dd68ccea6f54",
+      "complete_deletion_and_finally_tail_unchanged_except_22_count": true,
+      "raw_input_copies": 9,
+      "fixed_names": 22,
+      "future_pins_null_attestations_false": true,
+      "activity": "Static source, JSON, prose and inverse comparison only.",
+      "focus": [
+        "Re-read all final six payloads and confirmed byte equality with the first complete clean inspection.",
+        "Reversed all12 source substitutions to the accepted entire1458bb7f helper; all11 functions and full C# monitor remain byte-identical.",
+        "Compared complete COM connection, private XML backup, deletion, final absence and finally tail, with only its exact removal count changed.",
+        "Confirmed both failed attempts remain failed and retained, the first output must remain absent, and the second pinned result must have completed owned cleanup.",
+        "Reviewed the exact three-task definition/creation/action/outcome mappings, future successful review/result bindings, fresh output and ordinary PS5.1/final-request/actual-execution gates."
+      ]
+    }
+  ],
+  "verification": {
+    "full_source_inverse_exact": true,
+    "unchanged_functions": [
+      "Assert-That",
+      "Hash",
+      "Safe-Path",
+      "Hash-Bytes",
+      "Read-PinnedJson",
+      "Save-Bytes",
+      "Save-Json",
+      "Release-Com",
+      "Check-Budget",
+      "Check-Task",
+      "Require-Absent"
+    ],
+    "csharp_sha256": "ecf8a90d776e20a782019aafe84322b84c09fc3bd0d812e895f1dd68ccea6f54",
+    "deletion_and_finally_tail_unchanged_except_count": true,
+    "original19_names_unchanged": true,
+    "exact_total_names": 22,
+    "nine_private_input_copies": true,
+    "known_creation_hashes_match_recovered_bytes": true,
+    "json_utf8_lf_whitespace": "passed",
+    "future_pins_null_attestations_false": true,
+    "ordinary_windows_powershell_5_1_parse": null,
+    "complete_three_configured_definition_readback": null,
+    "third_configured_result": null,
+    "filled_request_review": null,
+    "actual_cleanup_result": null
+  },
+  "execution_contract": {
+    "root_only": true,
+    "one_new_powershell_process": true,
+    "outer_timeout_ms": 70000,
+    "current_process_priority": "BelowNormal",
+    "start_and_live_free_floor_bytes": 1073741824,
+    "own_resident_ceiling_bytes": 268435456,
+    "work_stop_seconds": 48,
+    "hard_limit_seconds": 60,
+    "sample_interval_ms": 100,
+    "exact_delete_api": "ITaskFolder.DeleteTask(exactName,0)",
+    "task_activation": false,
+    "other_process_termination": false,
+    "raw_backup_deletion": false
+  },
+  "limitations": [
+    "No atomic Task Scheduler compare-and-delete operation exists. Root's exclusive registration window and immediate whole-XML/idle rechecks remain mandatory.",
+    "A partial deletion, hard guard interruption or uncertain COM return requires actual state reconciliation from private intent/return/absence records; occupied output is not a replay slot.",
+    "The first failed attempt has no result file; its exact creation and fresh absence/full-definition observation remain distinct from the second exact failed result.",
+    "This preparation does not establish third configured success, task removal or history completion. The original20-task packet is preserved."
+  ],
+  "maintainer_audit": "Two consecutive clean complete final code/prose inspections; exact preserved resource, ownership and deletion boundary. No product testing or builds.",
+  "activity": {
+    "pc_calls": false,
+    "task_registrations_changed": false,
+    "repository_or_native_state_writes": false,
+    "product_tests": false,
+    "builds": false,
+    "publication": false
+  }
+}

@@ -1,0 +1,124 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T11:20:43.777Z",
+  "scope": "Independent complete source and preparation review of the fixed22-registration cleanup extension; actual configured success, filled request, Windows parser and cleanup execution remain separate.",
+  "source_acceptance": true,
+  "actual_cleanup_acceptance": false,
+  "actual_task_acceptance": false,
+  "findings": [],
+  "packet_directory": "20261127/scheduled-task-cleanup22",
+  "identities": {
+    "helper": {
+      "file": "remove-exact-scheduled-tasks22-20261127.ps1",
+      "bytes": 25332,
+      "sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414"
+    },
+    "author": {
+      "file": "author-inspections.json",
+      "bytes": 10662,
+      "sha256": "b79cb77c594c63347e0a2031b9a36091e8fdd40a7a1aa4ed8d0be319cb9bffc8"
+    },
+    "readme": {
+      "file": "README.md",
+      "bytes": 10448,
+      "sha256": "c2e79f333098d9e2766ac1750c3cf3699284cacbc5fd6430061c354c88d402a0"
+    },
+    "delta": {
+      "file": "source-delta.json",
+      "bytes": 11635,
+      "sha256": "9063b08367bbb3352f243bced9f7847234ad32e1bc015b54cc59f6b231ab48c6"
+    },
+    "request": {
+      "file": "request.template.json",
+      "bytes": 608,
+      "sha256": "b29bd6cfeacaab2e080a3e748a27ada78c0932f65d855b5d4bcef49769bc5c91"
+    },
+    "invocation": {
+      "file": "invocation.template.json",
+      "bytes": 1281,
+      "sha256": "25ecd810afe281c27992d4274c11d13cfef0c42df29d0ff656773343dff764d8"
+    },
+    "names": {
+      "file": "task-names.json",
+      "bytes": 2426,
+      "sha256": "36aa1d7a14e2b58d87d091bae843e510568337b3a6d50a1972db67fe8665e170"
+    }
+  },
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "717667dd46d5d27cb6708120429927bbadd57b5e",
+    "path": "20261127/scheduled-task-cleanup/remove-exact-scheduled-tasks-20261127.ps1",
+    "bytes": 21997,
+    "sha256": "1458bb7f968307dacfd0ce0840941b361a869add1a852137ccbc0b54696f71f7",
+    "accepted_source_review_sha256": "a927b9338950131e67f5f805586649365210b102c6a74de4c2d9e8b46b6040ea"
+  },
+  "complete_comparisons": {
+    "all6_payload_manifest_entries_verified": true,
+    "complete_author_passes": 2,
+    "source_substitutions": 12,
+    "entire_forward_exact": true,
+    "entire_inverse_exact": true,
+    "all11_function_bodies_exact": true,
+    "complete_csharp_exact": true,
+    "csharp_sha256": "ecf8a90d776e20a782019aafe84322b84c09fc3bd0d812e895f1dd68ccea6f54",
+    "complete_com_connection_deletion_and_finally_tail_exact_except_final22_count": true,
+    "original19_names_and_order_exact": true,
+    "total_names_unique": 22,
+    "future_pins_null": true,
+    "all3_attestations_false": true,
+    "invocation_placeholders_blocked": true
+  },
+  "input_contract_review": [
+    "The original19 complete definitions remain pinned to the private100,788-byte SHA97971b4fb451e6be8839d8ca7e37a8d49f486d1b3b81aaeaf754293d3e7cbd4f readback. Exact name/order and full XML remain required.",
+    "Both failed configured attempts keep fixed distinct task/helper/creation identities. The first output directory must remain absent; the second exact failed result and normal owned cleanup must match.",
+    "The two known creation receipts were independently reread and hashed:2571B435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd and3868Bdca8d968ad1df097eb56baf80bede0c1453894974a6cdea4b4f6b29f9d5164e6. Their required registration/action fields match the new validation.",
+    "The exact second failed result4404B4068f777aeb3e7b5d29cd9f7ce3918a4c0eda44b8a9a6f0344157d6b085ff183 was independently rehashed and reconciles the strict error, free port, no assistance/errors and empty remaining members.",
+    "Future third success must bind helper33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4, exact native0431 pin and installed BUILD_ID, successful independent review, free port and normal cleanup without exceeded budget.",
+    "The future private three-row readback must be ordered first/second/session, with last results1/1/0, each ready and idle, complete XML, exact creation action, Limited interactive session1 settings and no substituted helper.",
+    "All accepted raw inputs stay open without write/delete sharing. Future result/review/creation/definition hashes must be filled only from actual retained evidence and independently reviewed together."
+  ],
+  "deletion_review": [
+    "Only the fixed19 original names plus the fixed3 configured names can reach DeleteTask; no wildcard discovery or prefix deletion is present.",
+    "Elevated visibility is required. Before any deletion, every live exact registration must match the complete retained XML ordinally and by UTF8 SHA256, be ready, have zero instances and still be ready after that query.",
+    "Nine exclusive durable raw input copies and22 complete UTF16LE-with-BOM XML backups are written and read back before deletion; raw private backups remain retained.",
+    "Each deletion is preceded by a flushed intent record and immediate full XML/idle recheck, followed by exact DeleteTask(name,0), a returned-success record, exact FILE_NOT_FOUND absence proof and a deleted record.",
+    "A final pass must prove all22 exact names absent and22 completed records. Any uncertain return, changed/recreated task, partial deletion, output collision, cleanup/resource failure or missing observation keeps failure status.",
+    "Only registrations are removed. Existing creation/results/logs/native fixtures/definitions and private input/XML backups are preserved.",
+    "Task Scheduler offers no atomic compare-and-delete. The reviewed actual request must attest root's exclusive task-registration window; the immediate rechecks and partial intent/return records remain material."
+  ],
+  "resource_contract": {
+    "one_powershell_host": true,
+    "priority": "BelowNormal",
+    "entry_and_live_free_floor_bytes": 1073741824,
+    "own_resident_cap_bytes": 268435456,
+    "work_stop_seconds": 48,
+    "hard_deadline_seconds": 60,
+    "outer_timeout_ms": 70000,
+    "sampler_interval_ms": 100,
+    "guard": "Unchanged C# timer observes only the current helper and free physical RAM; hard interruption exits only this process, including when a COM call blocks.",
+    "hard_exit_codes": {
+      "deadline": 124,
+      "free_memory": 125,
+      "own_rss": 126,
+      "observation_unavailable": 127
+    },
+    "setup": "Input validation is bounded and must finish within30 seconds before the unchanged guard starts with the remaining60-second budget; the outer70-second invocation also covers setup.",
+    "other_process_termination": false,
+    "task_activation_or_stop": false
+  },
+  "remaining_gates": [
+    "Publish exact frozen source, metadata and this review; verify staged hashes and ordinary Windows PowerShell5.1 parse.",
+    "Observe and independently accept the third configured attempt, with its exact creation/result and normal cleanup.",
+    "Retain one complete private readback of all three configured definitions/outcomes and verify all22 registrations are idle and unchanged.",
+    "Fill and independently review the exact actual request, review/result/definition cross-binding and exclusive-registration/failed-retention attestations.",
+    "Execute the fresh fixed attempt once and reconcile raw result, outer exit, durable per-task records and all22 actual absence checks before accepting cleanup."
+  ],
+  "fresh_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-cleanup22-20261127-2889282bfcec",
+  "cleanup_and_replay": "Occupied output consumes the attempt. A successor must inspect retained intent/return/absence records and current exact task state before any separately reviewed continuation. No broad cleanup or automatic replay is authorized by this preparation.",
+  "pc_executed": false,
+  "product_tests_or_builds_run": false,
+  "mutations_performed_by_reviewer": false
+}
+

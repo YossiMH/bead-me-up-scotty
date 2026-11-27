@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "717667dd46d5d27cb6708120429927bbadd57b5e",
+    "path": "20261127/scheduled-task-cleanup/remove-exact-scheduled-tasks-20261127.ps1",
+    "sha256": "1458bb7f968307dacfd0ce0840941b361a869add1a852137ccbc0b54696f71f7",
+    "source_review_sha256": "a927b9338950131e67f5f805586649365210b102c6a74de4c2d9e8b46b6040ea"
+  },
+  "helper_sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414",
+  "replacements": [
+    {
+      "old": "# Removes only the fixed twenty completed task registrations after exact XML and idle checks.",
+      "new": "# Removes only the fixed twenty-two completed task registrations after exact XML and idle checks.",
+      "count": 1
+    },
+    {
+      "old": "'scheduled-task-cleanup-20261127-2889282bfcec'",
+      "new": "'scheduled-task-cleanup22-20261127-2889282bfcec'",
+      "count": 1
+    },
+    {
+      "old": "$ConfiguredName='ChatGPT-BeadEditing-Configured-20261127-2889282bfcec'\n$CreationPath=Join-Path $TaskRoot 'configured-task-20261127-2889282bfcec.json'\n$ConfiguredResultPath=Join-Path $TaskRoot 'configured-v9-final-20261125-1151\\result.json'\n$ConfiguredHelperSha='8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae'",
+      "new": "$FailedFirstName='ChatGPT-BeadEditing-Configured-20261127-2889282bfcec'\n$FailedFirstCreationPath=Join-Path $TaskRoot 'configured-task-20261127-2889282bfcec.json'\n$FailedFirstCreationSha='435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd'\n$FailedFirstOutput=Join-Path $TaskRoot 'configured-v9-final-20261125-1151'\n$FailedSecondName='ChatGPT-BeadEditing-ConfiguredCRLF-20261127-2889282bfcec'\n$FailedSecondCreationPath=Join-Path $TaskRoot 'configured-task-crlf-20261127-2889282bfcec.json'\n$FailedSecondCreationSha='dca8d968ad1df097eb56baf80bede0c1453894974a6cdea4b4f6b29f9d5164e6'\n$FailedSecondResultPath=Join-Path $TaskRoot 'configured-v9-crlf-20261127-2889282bfcec\\result.json'\n$FailedSecondResultSha='4068f777aeb3e7b5d29cd9f7ce3918a4c0eda44b8a9a6f0344157d6b085ff183'\n$ConfiguredName='ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec'\n$CreationPath=Join-Path $TaskRoot 'configured-task-session-20261127-2889282bfcec.json'\n$ConfiguredResultPath=Join-Path $TaskRoot 'configured-v9-session-20261127-2889282bfcec\\result.json'\n$ConfiguredHelperSha='33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4'",
+      "count": 1
+    },
+    {
+      "old": "expected_task_count=20",
+      "new": "expected_task_count=22",
+      "count": 1
+    },
+    {
+      "old": "    Assert-That ($manifest.attestations.exclusive_task_registration_window -eq $true -and $manifest.attestations.configured_launch_accepted -eq $true) 'Actual root acceptance and exclusive task-registration window are required.'",
+      "new": "    Assert-That ($manifest.attestations.exclusive_task_registration_window -eq $true -and $manifest.attestations.configured_launch_accepted -eq $true -and $manifest.attestations.failed_configured_attempts_retained -eq $true) 'Actual root acceptance, retained failed attempts and exclusive task-registration window are required.'",
+      "count": 1
+    },
+    {
+      "old": "    $creation=Read-PinnedJson $CreationPath $manifest.configured.creation_sha256 65536",
+      "new": "    $failedFirstCreation=Read-PinnedJson $FailedFirstCreationPath $FailedFirstCreationSha 2571\n    $failedSecondCreation=Read-PinnedJson $FailedSecondCreationPath $FailedSecondCreationSha 3868\n    $failedSecondResult=Read-PinnedJson $FailedSecondResultPath $FailedSecondResultSha 4404\n    Assert-That (-not(Test-Path -LiteralPath $FailedFirstOutput)) 'The first failed configured output must remain absent.'\n    Assert-That ($failedSecondResult.value.status -ceq 'failed' -and $failedSecondResult.value.error -ceq 'Owned fixture-cli is outside the interactive Explorer session.') 'The second configured failure record differs.'\n    Assert-That ($failedSecondResult.value.port_free -eq $true -and @($failedSecondResult.value.cleanup_errors).Count -eq 0 -and @($failedSecondResult.value.remaining_job_members).Count -eq 0 -and $failedSecondResult.value.job_measurements.cleanup_assisted -eq $false) 'The retained second failure lacks completed owned cleanup.'\n    $creation=Read-PinnedJson $CreationPath $manifest.configured.creation_sha256 65536",
+      "count": 1
+    },
+    {
+      "old": "    $created=$creation.value\n    Assert-That ($created.status -ceq 'registered_before_run' -and $created.task -ceq $ConfiguredName -and $created.user -ceq 'DESKTOP-NRIGAJU\\YossiMH' -and $created.session_id -eq 1) 'Configured creation receipt differs.'\n    Assert-That ($created.registration_flags -eq 2 -and $created.run_flags -eq 4 -and $created.run_level -eq 0 -and $created.priority -eq 7) 'Configured registration contract differs.'\n    $helperInput=@($created.inputs|Where-Object{$_.path -ceq (Join-Path $TaskRoot 'final-installation-v9-20261125-1151\\windows-configured-launch-host-memory-20261127.ps1')})\n    Assert-That ($helperInput.Count -eq 1 -and $helperInput[0].sha256 -ceq $ConfiguredHelperSha) 'Configured creation was not bound to the accepted helper.'\n    Assert-That ($definition.value.status -ceq 'passed' -and @($definition.value.tasks).Count -eq 1) 'Expected one accepted configured task definition.'\n    $configuredRow=@($definition.value.tasks)[0]\n    Assert-That ($configuredRow.name -ceq $ConfiguredName -and $configuredRow.path -ceq ('\\'+$ConfiguredName) -and @($configuredRow.actions).Count -eq 1) 'Configured definition identity differs.'\n    $action=@($configuredRow.actions)[0]\n    Assert-That ($action.type -eq 0 -and $action.path -ceq $created.action_path -and $action.arguments -ceq $created.action_arguments -and $action.working_directory -ceq $created.working_directory) 'Configured definition differs from its accepted creation action.'\n    Assert-That ($configuredRow.principal.run_level -eq 0 -and $configuredRow.principal.logon_type -eq 3 -and $configuredRow.settings.priority -eq 7 -and $configuredRow.settings.hidden -eq $true -and $configuredRow.settings.enabled -eq $true -and $configuredRow.settings.execution_time_limit -ceq 'PT2M30S' -and $configuredRow.settings.multiple_instances -eq 2) 'Configured task settings differ.'\n",
+      "new": "    Assert-That ($definition.value.status -ceq 'passed' -and @($definition.value.tasks).Count -eq 3) 'Expected all three exact configured task definitions.'\n    $configuredRows=@($definition.value.tasks)\n    $configuredSpecs=@(\n        @{name=$FailedFirstName;created=$failedFirstCreation.value;helper='windows-configured-launch-host-memory-20261127.ps1';helper_sha256='8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae';last_result=1},\n        @{name=$FailedSecondName;created=$failedSecondCreation.value;helper='windows-configured-launch-host-crlf-20261127.ps1';helper_sha256='f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880';last_result=1},\n        @{name=$ConfiguredName;created=$creation.value;helper='windows-configured-launch-host-session-20261127.ps1';helper_sha256=$ConfiguredHelperSha;last_result=0}\n    )\n    for($i=0;$i -lt $configuredSpecs.Count;$i++){\n        $spec=$configuredSpecs[$i];$created=$spec.created;$row=$configuredRows[$i]\n        Assert-That ($created.status -ceq 'registered_before_run' -and $created.task -ceq $spec.name -and $created.user -ceq 'DESKTOP-NRIGAJU\\YossiMH' -and $created.session_id -eq 1) 'Configured creation receipt differs.'\n        Assert-That ($created.registration_flags -eq 2 -and $created.run_flags -eq 4 -and $created.run_level -eq 0 -and $created.priority -eq 7) 'Configured registration contract differs.'\n        $helperPath=Join-Path $TaskRoot ('final-installation-v9-20261125-1151\\'+$spec.helper)\n        $helperInput=@($created.inputs|Where-Object{$_.path -ceq $helperPath})\n        Assert-That ($helperInput.Count -eq 1 -and $helperInput[0].sha256 -ceq $spec.helper_sha256) 'Configured creation was not bound to its accepted helper.'\n        Assert-That ($row.name -ceq $spec.name -and $row.path -ceq ('\\'+$spec.name) -and @($row.actions).Count -eq 1 -and $row.last_result -eq $spec.last_result) 'Configured definition identity or completed outcome differs.'\n        $action=@($row.actions)[0]\n        Assert-That ($action.type -eq 0 -and $action.path -ceq $created.action_path -and $action.arguments -ceq $created.action_arguments -and $action.working_directory -ceq $created.working_directory) 'Configured definition differs from its accepted creation action.'\n        Assert-That ($row.principal.run_level -eq 0 -and $row.principal.logon_type -eq 3 -and $row.settings.priority -eq 7 -and $row.settings.hidden -eq $true -and $row.settings.enabled -eq $true -and $row.settings.execution_time_limit -ceq 'PT2M30S' -and $row.settings.multiple_instances -eq 2) 'Configured task settings differ.'\n    }\n",
+      "count": 1
+    },
+    {
+      "old": "    $rows=@($baseline.value.tasks)+@($configuredRow);$names=@($OriginalNames)+@($ConfiguredName)",
+      "new": "    $rows=@($baseline.value.tasks)+$configuredRows;$names=@($OriginalNames)+@($FailedFirstName,$FailedSecondName,$ConfiguredName)",
+      "count": 1
+    },
+    {
+      "old": "replay_allowed=$false;task_count=20",
+      "new": "replay_allowed=$false;task_count=22",
+      "count": 1
+    },
+    {
+      "old": "    foreach($item in @(@{name='request.json';pin=$manifestPin},@{name='original-definitions.json';pin=$baseline},@{name='configured-creation.json';pin=$creation},@{name='configured-definition.json';pin=$definition},@{name='configured-result.json';pin=$configured},@{name='configured-review.json';pin=$review})){",
+      "new": "    foreach($item in @(@{name='request.json';pin=$manifestPin},@{name='original-definitions.json';pin=$baseline},@{name='configured-first-failed-creation.json';pin=$failedFirstCreation},@{name='configured-second-failed-creation.json';pin=$failedSecondCreation},@{name='configured-second-failed-result.json';pin=$failedSecondResult},@{name='configured-creation.json';pin=$creation},@{name='configured-definitions.json';pin=$definition},@{name='configured-result.json';pin=$configured},@{name='configured-review.json';pin=$review})){",
+      "count": 1
+    },
+    {
+      "old": "    $Result['retained_inputs']=@(@{path=$BaselinePath;sha256=$BaselineSha},@{path=$CreationPath;sha256=$creation.sha256},@{path=$definition.path;sha256=$definition.sha256},@{path=$ConfiguredResultPath;sha256=$configured.sha256},@{path=$review.path;sha256=$review.sha256})",
+      "new": "    $Result['retained_inputs']=@(@{path=$BaselinePath;sha256=$BaselineSha},@{path=$FailedFirstCreationPath;sha256=$failedFirstCreation.sha256},@{path=$FailedSecondCreationPath;sha256=$failedSecondCreation.sha256},@{path=$FailedSecondResultPath;sha256=$failedSecondResult.sha256},@{path=$CreationPath;sha256=$creation.sha256},@{path=$definition.path;sha256=$definition.sha256},@{path=$ConfiguredResultPath;sha256=$configured.sha256},@{path=$review.path;sha256=$review.sha256})\n    $Result['failed_configured_attempts']=@(@{task=$FailedFirstName;last_result=1;output_absent=$true;creation_sha256=$FailedFirstCreationSha},@{task=$FailedSecondName;last_result=1;result_status='failed';creation_sha256=$FailedSecondCreationSha;result_sha256=$FailedSecondResultSha})",
+      "count": 1
+    },
+    {
+      "old": "    Assert-That ($Removed.Count -eq 20) 'The exact requested task set was not removed.'",
+      "new": "    Assert-That ($Removed.Count -eq 22) 'The exact requested task set was not removed.'",
+      "count": 1
+    }
+  ]
+}
