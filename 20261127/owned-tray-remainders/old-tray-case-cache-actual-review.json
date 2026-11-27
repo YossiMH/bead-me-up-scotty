@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T13:05:08.729114+00:00",
+  "scope": "Exact old TrayHost case-log transport, process-identity provenance and current two-cache observation; preparation evidence for a separate guarded cleanup.",
+  "evidence": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/old-tray-case-actual/exit-processes.jsonl",
+      "bytes": 2344,
+      "sha256": "71ba621bd3a2dab5f23decdbb2a631d9eb3f63ee29ccf2a550a9183a429dba8e"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/old-tray-case-raw-package.json",
+      "bytes": 3931,
+      "sha256": "3b0d1903201a15137158473c90984fcd47bb848adf62da820f4dc5c38894949a"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/old-tray-case-collector-envelope.json",
+      "bytes": 3814,
+      "sha256": "b3666da2a118309013960da8535f004c05132be27333e84945681f85cc8ca29f"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/old-tray-case-collector-execution.json",
+      "bytes": 4124,
+      "sha256": "0962859d02621d3cf92c6aab6dc88bddacb708611e3735b5a774e0e3e64a7290"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/old-tray-host-result.json",
+      "bytes": 14492,
+      "sha256": "0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/old-tray-remainders-readback.json",
+      "bytes": 5026,
+      "sha256": "88496756e0cdac0b32f090a925fd5c8551ac9c64238cbbd142359c1939c7db65"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/old-tray-remainders-execution.json",
+      "bytes": 5229,
+      "sha256": "c682f4a0a43cf5e4987ac8a65cb3d7b6a8f58c18e9fd094d18bd56b41ce15d97"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/read-old-tray-remainders.cjs",
+      "bytes": 3848,
+      "sha256": "9cda077def9c9fce2f44baf975ce29c0f20c0d1163d0bd99c0fa9b5e49d01b6e"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/read-old-tray-remainders-binding-review.json",
+      "bytes": 691,
+      "sha256": "cae7d3d0400918729724dd476c6ebc125ca1541aace47b7c1f8fa7642d1ce8cd"
+    }
+  ],
+  "selected_directory": "F:/Dev/.bead-edit-20261111/tray-host-check-20261127-2889282bfcec/temp/scotty-tray-smoke-0445c3dd6ae7452d8dc3fe847ab3860c",
+  "immediate_names": [
+    "scotty-tray-smoke-0445c3dd6ae7452d8dc3fe847ab3860c"
+  ],
+  "parent_loss_log_present": false,
+  "recorded_process_ids": {
+    "controller": 10920,
+    "tray_host": 10496,
+    "tray": 52040,
+    "server": 7696
+  },
+  "owned_cache_files": [
+    {
+      "path": "C:/Users/YossiMH/AppData/Local/bead-me-up-scotty/tray/session-LEmh0Z",
+      "present": true,
+      "entries": [
+        {
+          "name": "windows-tray.ps1",
+          "bytes": 4921,
+          "sha256": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb"
+        }
+      ]
+    },
+    {
+      "path": "C:/Users/YossiMH/AppData/Local/bead-me-up-scotty/tray-smoke/session-cPU56F",
+      "present": true,
+      "entries": [
+        {
+          "name": "windows-tray-click.ps1",
+          "bytes": 2355,
+          "sha256": "b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9"
+        }
+      ]
+    }
+  ],
+  "checks": [
+    "The complete gzip package and fixed exit log reproduce every retained raw byte and hash; parent-loss log absence is explicit. Exactly one matching GUID directory was observed under the exact old temp path.",
+    "All three recorded child PIDs and their observation windows match the retained original Job birth times and images. Parent relationships point to the original controller10920 and tray host10496. Raw large birth values were handled as Python integers.",
+    "The exact observed cache paths are derived from that old process log, including -File and -FixtureDirectory; no directory search or guessed path was used.",
+    "Fresh readback shows exactly one expected file in each exact directory. Old tray bytes are4921/SHA46c98de9 and click bytes2355/SHAb065d88b, distinct from the current Session CRLF copies.",
+    "The old metadata reader differs from the accepted6414 source only by the two exact directory names; complete byte inversion passes. Its separate embedded old-result gzip reproduces the same14492-byte0974 receipt. Both read-only calls exited0 without dropped output or stderr."
+  ],
+  "read_resources": {
+    "case_collector_ms": 10,
+    "case_collector_peak_rss": 49467392,
+    "case_collector_minimum_free": 3859980288,
+    "cache_metadata_ms": 12,
+    "cache_metadata_own_rss": 43782144,
+    "cache_metadata_free": 6213705728
+  },
+  "findings": [],
+  "acceptance_limit": "The earlier TrayHost run remains failed. These records establish ownership and exact file identities, not a fresh process-exit check or completed deletion. The four-cache cleanup must independently recheck both failed-run PID/birth sets, exact ordinary ancestors/files, sole directory entries, lengths and hashes immediately before mutation. Only the four fixed cache directories/files are in that later scope."
+}

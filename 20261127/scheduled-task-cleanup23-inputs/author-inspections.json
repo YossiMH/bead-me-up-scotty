@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "status": "prepared_actual_input_request_pending_root_attestations",
+  "author": "/root/delivery_audit",
+  "prepared_utc": "2026-11-27 13:00:49 UTC",
+  "scope": "Five actual values filled in the accepted fixed23 cleanup request. The unchanged helper and every original/failure binding are retained; all root attestations remain false.",
+  "files": {
+    "request.prepared.json": {
+      "bytes": 1065,
+      "sha256": "e3795a9ff1eb235599043ffc9438e1babd62ab5e0e32b83518b89b3c2834940d"
+    },
+    "README.md": {
+      "bytes": 6014,
+      "sha256": "ee156e1029c4cce39f5e5c653460086d2114ddd835921e885ff55c8314bf23ab"
+    }
+  },
+  "baseline": {
+    "request_template": {
+      "bytes": 703,
+      "sha256": "82602c4c1153805e38c28e71cf9155eaa00f8eb6c293abeef95f2109efdb0586"
+    },
+    "helper": {
+      "bytes": 27226,
+      "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+    },
+    "independent_source_review": {
+      "bytes": 7863,
+      "sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc"
+    }
+  },
+  "derivation": {
+    "only_changed_json_paths": [
+      "configured.creation_sha256",
+      "configured.definition.sha256",
+      "configured.result_sha256",
+      "configured.review.path",
+      "configured.review.sha256"
+    ],
+    "reverse_to_template_exact": true,
+    "source_unchanged": true,
+    "target_count": 23,
+    "all_attestations_false": true
+  },
+  "actual_inputs": [
+    {
+      "commit": "cf1e018022086e0118aa76cd64cdd0d02317850d",
+      "path": "20261127/configured-launch-tcp-actual/configured-task-tcp-20261127-2889282bfcec.json",
+      "bytes": 3857,
+      "sha256": "35be7aaa5fdf9555a11ab5cb88dc1c1ccb76433247677bc4c7698361c9a525b4"
+    },
+    {
+      "commit": "cf1e018022086e0118aa76cd64cdd0d02317850d",
+      "path": "20261127/configured-launch-tcp-actual/result.json",
+      "bytes": 17558,
+      "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701"
+    },
+    {
+      "commit": "3151657df5939a2756d504860d655c058b808828",
+      "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b"
+    },
+    {
+      "commit": "3151657df5939a2756d504860d655c058b808828",
+      "path": "20261127/configured-launch-tcp-actual/configured-four-task-actual-review.json",
+      "bytes": 4615,
+      "sha256": "5e843314800e717560dbe4825ee888892a6c440631d15e151b899951881efe51"
+    }
+  ],
+  "private_definition": {
+    "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/configured-task-readback-20261127-v3/result.json",
+    "bytes": 21481,
+    "sha256": "e3324f17e074de8af9fde5f726b5c57ebd25e28b183de74cb648d5999e859326",
+    "authority": "Root's exact retained collector identity and the accepted independent full non-XML metadata comparison.",
+    "full_xml_read_or_uploaded_by_author": false,
+    "states": [
+      3,
+      3,
+      3,
+      3
+    ],
+    "running_instances": [
+      0,
+      0,
+      0,
+      0
+    ],
+    "last_results": [
+      1,
+      1,
+      1,
+      0
+    ]
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "complete": true,
+      "read": [
+        "Complete prepared request and README.",
+        "Unchanged helper's request/attestation/input/result/creation/definition validation and exact deletion contract.",
+        "Complete independent four-task metadata review."
+      ],
+      "checked": "All source pins and four actual inputs, private definition identity, exact targets, retained failures, future root conditions, fresh output and existing bounded invocation."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "complete": true,
+      "read": [
+        "Complete final request and README again.",
+        "All four immutable Git evidence blobs and exact source/template identities."
+      ],
+      "checked": "Five-value-only inverse to the accepted template, unchanged source/output/attestations, current four task outcomes/idle state, accepted review schema, no XML disclosure, no premature final execution claim."
+    }
+  ],
+  "findings": [],
+  "remaining_gates": [
+    "Independent preparation/completed-request acceptance.",
+    "Exact helper staging and ordinary Windows PowerShell5.1 parse.",
+    "Root confirms input bytes, retained failed attempts and a fresh exclusive registration window, then records the three true attestations in a distinct final request.",
+    "One bounded root-owned operation and exact per-task/final absence/result acceptance."
+  ],
+  "activity": {
+    "data_and_runbook_only": true,
+    "pc_calls": false,
+    "task_deletion": false,
+    "source_edits": false,
+    "product_tests": false,
+    "builds": false,
+    "publication": false
+  }
+}

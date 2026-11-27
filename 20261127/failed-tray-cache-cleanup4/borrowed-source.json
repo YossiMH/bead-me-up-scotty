@@ -1,0 +1,80 @@
+{
+  "schema_version": 1,
+  "status": "source_preparation",
+  "baseline": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23/remove-exact-scheduled-tasks23-20261127.ps1",
+    "bytes": 27226,
+    "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+  },
+  "functions": [
+    {
+      "name": "Assert-That",
+      "exact": true,
+      "bytes": 84,
+      "sha256": "96a41ad1c23cd420413ce47ac59f6f380385e49921a99bd10694ab000aa28406"
+    },
+    {
+      "name": "Hash",
+      "exact": true,
+      "bytes": 114,
+      "sha256": "25edd8f8224ba7971d28c58d23a6dc5711d26578d6e558ea01c0fadbe455e8db"
+    },
+    {
+      "name": "Safe-Path",
+      "exact": true,
+      "bytes": 625,
+      "sha256": "04af1eb52c060bcc5d4555be48ac154eb47b236cade8fd9a85fab4e8ecefb281"
+    },
+    {
+      "name": "Hash-Bytes",
+      "exact": true,
+      "bytes": 213,
+      "sha256": "f44a5786be009573c972fe07721a42e311e5f21b2f21f6463d87240ece3f8599"
+    },
+    {
+      "name": "Read-PinnedJson",
+      "exact": true,
+      "bytes": 1083,
+      "sha256": "34880e33e67f8ba9753e2a128a16b6936a009155a3616b76a438c12e99f144fb"
+    },
+    {
+      "name": "Save-Bytes",
+      "exact": true,
+      "bytes": 250,
+      "sha256": "f6e3bba1531859d091d0b6a293fbef044dd2593b7604c88257ccaf4cddcb4ac1"
+    },
+    {
+      "name": "Save-Json",
+      "exact": true,
+      "bytes": 150,
+      "sha256": "c7b0d1399a63a461775f478e6aea86635a11b2b703a76641027c7b1794b27e45"
+    },
+    {
+      "name": "Check-Budget",
+      "exact": true,
+      "bytes": 182,
+      "sha256": "4e9f91606d8d972d1447fbc6f56c52be94106c0245b98dda822606fbd631fea6"
+    }
+  ],
+  "guard": {
+    "complete_csharp_prefix_exact": true,
+    "bytes": 3041,
+    "sha256": "ecf8a90d776e20a782019aafe84322b84c09fc3bd0d812e895f1dd68ccea6f54",
+    "class_name_unchanged": true
+  },
+  "birth_method": {
+    "baseline": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/configured-tcp/windows-configured-launch-host-tcp-20261127.ps1",
+      "bytes": 53569,
+      "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+    },
+    "exact": true,
+    "bytes": 404,
+    "sha256": "780c2bd77fb3a18c1a9ffde57979aeb939bbd519748c1c589c10f8dfed86a842"
+  },
+  "new_logic": [
+    "Read-only PID/birth handle adapter with zero-duration process wait and explicit absence/reuse/exited states.",
+    "Four fixed cache constants; bounded sole-entry and ordinary ancestor/file checks; held exact byte reads; raw backups; exact unlink and nonrecursive empty directory removal.",
+    "Fixed failed-result hash/count/type validation; all 19 identities rechecked before each unlink; exclusive one-shot records."
+  ]
+}

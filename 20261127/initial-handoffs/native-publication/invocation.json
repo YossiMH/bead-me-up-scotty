@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "concrete_request_bound_to_root_confirmed_main_and_attestations",
+  "program": "C:/Windows/System32/WindowsPowerShell/v1.0/powershell.exe",
+  "arguments": [
+    "-NoLogo",
+    "-NoProfile",
+    "-NonInteractive",
+    "-ExecutionPolicy",
+    "Bypass",
+    "-WindowStyle",
+    "Hidden",
+    "-File",
+    "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/publish-reviewed-git-crlf-supervisor-20261127.ps1",
+    "-InputManifest",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/native-documents-20261127-v1.request.json",
+    "-InputSha256",
+    "227e4889dc252d722b8fb9a94dff643f9bbbb925e6248858389aa80175724791",
+    "-TimeoutSeconds",
+    "180",
+    "-MaxOwnedResidentMiB",
+    "512"
+  ],
+  "working_directory": "F:/Dev",
+  "derived_pending_field": "InputSha256 binds the exact completed request bytes; all four attestations were explicitly confirmed by root after native main update/readback.",
+  "supervisor_sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52",
+  "helper_path": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/publish-reviewed-git-crlf-20261127.mjs",
+  "helper_sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+  "history_import": {
+    "path": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/checkpoint-only-handoff-crlf-20261127.mjs",
+    "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+  },
+  "job_helper": {
+    "path": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/windows-task-job.ps1",
+    "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "bounds": {
+    "baseline_free_bytes": 3221225472,
+    "live_free_bytes": 1073741824,
+    "aggregate_resident_bytes": 536870912,
+    "total_seconds": 180,
+    "cleanup_reserve_seconds": 12,
+    "node_heap_mib": 128,
+    "hidden": true,
+    "priority": "BelowNormal"
+  }
+}

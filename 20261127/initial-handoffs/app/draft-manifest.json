@@ -1,0 +1,730 @@
+{
+  "schema_version": 1,
+  "status": "prepared_final_text_pending_independent_review",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "base_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "plan_revision": 9,
+  "target_paths": [
+    "docs/backend-compatibility.md",
+    "README.md"
+  ],
+  "current_state_section": {
+    "start": "<!-- delivery-state:start -->",
+    "end": "<!-- delivery-state:end -->",
+    "separate_file": "delivery-state.md",
+    "task_snapshot_utc": "2026-11-27T12:58:09.9490539Z",
+    "latest_launch_observation_utc": "2026-11-27T12:29:14.0648154Z",
+    "later_actual_updates_confined_to_this_section": true,
+    "latest_source_preparation_ref": "cf462e43a1012a75112d943bb17edc84c35b8e67",
+    "final_current_state_accepted": {
+      "scope": "Observed50/5 task snapshot",
+      "review": {
+        "path": "20261127/configured-installed-closure/configured-installed-closure-actual-review.json",
+        "bytes": 9093,
+        "sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5",
+        "status": "passed"
+      },
+      "immutable_ref": "78dc8f4fe17df16a82c0063b9fbac7642fd53039",
+      "all_delivery_tasks_complete": false
+    }
+  },
+  "recovery": {
+    "provenance": "Regenerated from immutable revision-9 draft and final app source after filesystem loss. The lost unpublished 335c5c/ecec71/040ab766 payloads were not recovered or represented as these bytes.",
+    "draft_ref": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+    "draft_path": "20261125/revision-9/app-continuation-draft.json",
+    "draft_sha256": "169ab1f278de728a5789e3ac4dcbe8d643f86b62b2f5ff4d255b4c8536daa025",
+    "base_document_content_sha256": "128035c955c7c0c240d4d5cb709f97e30e6bd3bbc659de6c1c892666a7d6b3e5",
+    "base_published_document_sha256": "3564de23de0ca506e2725bf5bcedea19722f0f90a377b4abbe1201d412de94a4",
+    "base_readme_sha256": "03647a12b3ea2a8ff8a50019267a9d936db20695acbd3653d3132376ea0a9b70",
+    "old_unpublished_acceptance_reused": false,
+    "all_final_payload_texts_cached": true,
+    "current_derivation": "Twenty exact replacements in the accepted regenerated delivery-state section: five TCP preparation, four raw actual-result, five accepted-review/current-definition and six actual50/5 task-state changes. One additional recorded correction updates the dated section's forward reference to the now-accepted configured launch. All other historical text and the complete README remain byte-identical."
+  },
+  "files": {
+    "README.md": {
+      "bytes": 25639,
+      "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+      "git_blob": "2f9296f733ab66e04c524c704e783663341213b2",
+      "predicted_crlf_worktree": {
+        "bytes": 26153,
+        "sha256": "69bfeee55036bb14e22948899e74f687b6e6deda765929cd9c6185410e2dd01b",
+        "observation": "derived from canonical LF bytes; actual PC working bytes must match before publication"
+      }
+    },
+    "changes.json": {
+      "bytes": 76640,
+      "sha256": "30942949f4caf09907e3a07d3d3d4250884e14ab5e76c4622518e10bd76bb642"
+    },
+    "delivery-state.md": {
+      "bytes": 20443,
+      "sha256": "3c4e64b5491b2511b51fcbd49707dc3b3429eeffd872baac747afd95ef14833f"
+    },
+    "docs/backend-compatibility.md": {
+      "bytes": 80782,
+      "sha256": "04fdc705d9b7de7d653644c8cbe3adb9c82dabe806f303360956e1924cbdf06f",
+      "git_blob": "a7600c632422b0c6605f3b609ddb38f79fe4e640",
+      "predicted_crlf_worktree": {
+        "bytes": 82074,
+        "sha256": "4be8aab04b85a99c193b42afd61b6f0f7a9f311668a0bd8fb5a34c7222e7e1b5",
+        "observation": "derived from canonical LF bytes; actual PC working bytes must match before publication"
+      }
+    }
+  },
+  "actual_evidence": {
+    "immutable_transfer_ref": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "files": {
+      "20261127/results/materialization-v9-review.json": {
+        "bytes": 3639,
+        "sha256": "1d677f5eab5457194484c413de9d98d2006eab37971737111500a7af1a05ce02"
+      },
+      "20261127/results/tray-runspace-result.json": {
+        "bytes": 37543,
+        "sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36"
+      },
+      "20261127/results/tray-runspace-actual-review.json": {
+        "bytes": 24623,
+        "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729"
+      },
+      "20261127/results/artifact-stage-actual/stage-result.json": {
+        "bytes": 2341,
+        "sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c"
+      },
+      "20261127/results/artifact-stage-actual/supervisor-result.json": {
+        "bytes": 4366,
+        "sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f"
+      },
+      "20261127/results/artifact-stage-actual-review.json": {
+        "bytes": 11746,
+        "sha256": "9a7fc088fea62f24dc2c5ea7eda213ea968f54c5c9bbc0c4b411459f4035060c"
+      },
+      "20261127/installation-completed/result.json": {
+        "bytes": 16086,
+        "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+      },
+      "20261127/installation-completed/supervisor-result.json": {
+        "bytes": 61457,
+        "sha256": "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760"
+      },
+      "20261127/installation-completed/actual-review.json": {
+        "bytes": 8792,
+        "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+      },
+      "20261127/installation-completed/closure/result.json": {
+        "bytes": 5925,
+        "sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+      },
+      "20261127/installation-completed/closure/actual-review.json": {
+        "bytes": 7348,
+        "sha256": "5fe7cfb2ed7466d339c455d33417796ee175d89b73abef7cd438fa0e343662f9"
+      },
+      "20261127/configured-launch-first-attempt/creation-receipt.json": {
+        "bytes": 2571,
+        "sha256": "435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd"
+      },
+      "20261127/configured-launch-crlf-actual/independent-review.json": {
+        "bytes": 6459,
+        "sha256": "82695323d385d933f650dfee0d3a92f80a37f595b8001d7a3402b8cdf6083a22"
+      },
+      "20261127/configured-launch-session/source-review.json": {
+        "bytes": 8080,
+        "sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0"
+      },
+      "20261127/checkpoint-only-handoff/worktree-publication-and-cleanup.json": {
+        "bytes": 3390,
+        "sha256": "1518bcfd3e2d596c806608901da5b80d9003b9fa77db0b5f375d19715bf06e2f"
+      }
+    }
+  },
+  "current_status": {
+    "total_tasks": 55,
+    "blocking_edges": 91,
+    "total_issues": 1009,
+    "original_issues": 954,
+    "closed": 50,
+    "open": 5,
+    "installed": true,
+    "configured_launch_accepted": true,
+    "installed_review_complete": true,
+    "docs_published": false,
+    "history_handoff_complete": false,
+    "cleanup_complete": false,
+    "configured_check_passed": true,
+    "ready_task_keys": [
+      "backend-handoff",
+      "app-handoff"
+    ],
+    "remaining_open": [
+      {
+        "key": "backend-handoff",
+        "id": "beadrs-1371879c",
+        "revision": 3
+      },
+      {
+        "key": "app-handoff",
+        "id": "beadrs-f0039a6a",
+        "revision": 5
+      },
+      {
+        "key": "backend-text-review",
+        "id": "beadrs-30f13b5b",
+        "revision": 3
+      },
+      {
+        "key": "app-text-review",
+        "id": "beadrs-c62c1990",
+        "revision": 5
+      },
+      {
+        "key": "preserve-and-clean",
+        "id": "beadrs-3ec972f8",
+        "revision": 5
+      }
+    ]
+  },
+  "production": {
+    "app_source": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "native_source": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7"
+  },
+  "current_preparation": {
+    "configured": {
+      "immutable_ref": "cf462e43a1012a75112d943bb17edc84c35b8e67",
+      "path": "20261127/configured-launch-tcp",
+      "helper_sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1",
+      "source_review_sha256": "4c26f4fc6188dc141808c3b5597926eff3aa1d626f01c89a12251f43270643fe",
+      "task_name": "ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec",
+      "source_preparation_accepted": true,
+      "actual_result": {
+        "immutable_ref": "cf1e018022086e0118aa76cd64cdd0d02317850d",
+        "path": "20261127/configured-launch-tcp-actual/result.json",
+        "bytes": 17558,
+        "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701",
+        "status": "passed",
+        "independent_acceptance": {
+          "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+          "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+          "bytes": 12544,
+          "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+          "status": "passed"
+        }
+      },
+      "actual_review": {
+        "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+        "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+        "bytes": 12544,
+        "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+        "status": "passed"
+      },
+      "actual_outcome": "passed",
+      "retained_session_preparation": {
+        "helper_sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+        "source_review_sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0",
+        "task_name": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+        "latest_preflight": {
+          "status": "waiting_for_memory",
+          "free_memory_mib": 3017,
+          "task_created": false,
+          "source": "Exact retained root execution receipt, independently read for exit0/77-byte stdout/empty stderr and no dropped output.",
+          "stdout": "{\"status\":\"waiting_for_memory\",\"free_memory_mib\":3017,\"task_created\":false}\r\n",
+          "receipt": {
+            "ref": "2a62978c93befa9a08566765344320e45ffbcb2c",
+            "path": "20261127/configured-launch-session/memory-deferred-execution.json",
+            "bytes": 476,
+            "sha256": "b285c08fd58e1324a40dfffe8c2206392fc576984a5c4f4f67c26839956f01cc",
+            "started_ms": 1795778441219,
+            "finished_ms": 1795778457709
+          }
+        }
+      },
+      "retained_session_failure": {
+        "status": "failed",
+        "started_utc": "2026-11-27T11:32:44.8200843Z",
+        "completed_utc": "2026-11-27T11:32:49.7117191Z",
+        "duration_seconds": 4.8916348,
+        "result_bytes": 11603,
+        "result_sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358",
+        "creation_sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9",
+        "independent_failure_review_sha256": "dc3b886175ef051803f5f18073a0abccb1e275e08aaeba6657a36cb40aaabfd5",
+        "aggregate_peak_bytes": 546582528,
+        "aggregate_limit_bytes": 536870912,
+        "completed_http_checks_recorded": 0,
+        "cleanup_assisted": true,
+        "remaining_job_members": [],
+        "port_free": true,
+        "session_identity_repair_passed": true,
+        "precise_failing_instruction": null,
+        "first_request_sent": null
+      },
+      "actual_observations": {
+        "started_utc": "2026-11-27T12:29:05.5483981Z",
+        "completed_utc": "2026-11-27T12:29:14.0648154Z",
+        "duration_seconds": 8.5164173,
+        "completed_http_requests": 6,
+        "http_statuses": [
+          200,
+          201,
+          200,
+          201,
+          200,
+          200
+        ],
+        "verified_fields": [
+          "title",
+          "description",
+          "priority",
+          "issue_type",
+          "notes"
+        ],
+        "native_invocations": 28,
+        "tray": {
+          "clicked": true,
+          "disposed": true,
+          "menuText": "Exit",
+          "iconVisible": true
+        },
+        "copied_tray_helper_removed": true,
+        "aggregate_peak_bytes": 515334144,
+        "aggregate_limit_bytes": 536870912,
+        "minimum_observed_free_physical_bytes": 2253275136,
+        "cleanup_assisted": false,
+        "cleanup_errors": [],
+        "remaining_job_members": [],
+        "port_free": true,
+        "independent_review": {
+          "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+          "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+          "bytes": 12544,
+          "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+          "status": "passed"
+        }
+      }
+    },
+    "history": {
+      "immutable_ref": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "path": "20261127/checkpoint-crlf-handoff",
+      "helper_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+      "supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+      "qualification_sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03",
+      "source_and_qualification_review_sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c",
+      "author_sha256": "4b9599b7cd488ec204e53bd7e9cfa0305d62009dafd6ed63ea909ac9bc798730",
+      "ordinary_windows_supervisor_parse": {
+        "status": "passed",
+        "observed_utc": "2026-11-27T12:22:50Z",
+        "source": {
+          "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+          "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+          "bytes": 12544,
+          "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+          "status": "passed"
+        },
+        "scope": "The two history/publication supervisors parsed with zero errors in the accepted batch; actual phase execution remains pending."
+      }
+    },
+    "cleanup": {
+      "exact_task_count": 23,
+      "helper_sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93",
+      "source_review_sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc",
+      "source_preparation_accepted": true,
+      "expected_configured_last_results": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "planned_definition_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/configured-task-readback-20261127-v3/result.json",
+      "actual_definition_sha256": "e3324f17e074de8af9fde5f726b5c57ebd25e28b183de74cb648d5999e859326",
+      "ordinary_windows_parse": null,
+      "actual_request": null,
+      "actual_result": null,
+      "actual_definition_bytes": 21481,
+      "actual_definition_review": {
+        "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+        "path": "20261127/configured-launch-tcp-actual/configured-four-task-actual-review.json",
+        "bytes": 4615,
+        "sha256": "5e843314800e717560dbe4825ee888892a6c440631d15e151b899951881efe51",
+        "status": "passed"
+      },
+      "observed_configured_last_results": [
+        1,
+        1,
+        1,
+        0
+      ]
+    },
+    "ref_cleanup": {
+      "app_ref_count": 86,
+      "native_ref_count": 2,
+      "archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+      "independent_parent_count": 32,
+      "inventory": {
+        "ref": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+        "path": "20261127/archive-preparation-recovered/reviewed-refs.json",
+        "bytes": 10948,
+        "sha256": "9651b0b5c3e1657a76a093209715f13e0980c692bc7478ca42a398743802a30c"
+      },
+      "approach_review": {
+        "bytes": 5560,
+        "sha256": "ef4cc2d9c01a1e2fcf6a36074f00b9bd7d3515d856fb5db213ce1a8a707e9d24",
+        "approach_accepted": true,
+        "actual_archive_accepted": false
+      },
+      "final_tips_require_refresh": true,
+      "actual_archive_and_deletions": null
+    }
+  },
+  "pending": {
+    "independent_text_review": null,
+    "actual_configured_result": {
+      "immutable_ref": "cf1e018022086e0118aa76cd64cdd0d02317850d",
+      "path": "20261127/configured-launch-tcp-actual/result.json",
+      "bytes": 17558,
+      "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701",
+      "status": "passed",
+      "independent_acceptance": {
+        "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+        "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+        "bytes": 12544,
+        "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+        "status": "passed"
+      }
+    },
+    "actual_configured_review": {
+      "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+      "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+      "status": "passed"
+    },
+    "actual_installed_review": {
+      "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+      "path": "20261127/configured-launch-tcp-actual/installed-final-review.json",
+      "bytes": 16318,
+      "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b",
+      "status": "passed"
+    },
+    "configured_and_installed_task_closures": {
+      "immutable_ref": "78dc8f4fe17df16a82c0063b9fbac7642fd53039",
+      "result": {
+        "path": "20261127/configured-installed-closure/result.json",
+        "bytes": 5964,
+        "sha256": "6b0cbed2c93a5e517a50fb6e10f98382ff8cc480edff2336c97c96ff332f8a73"
+      },
+      "supervisor": {
+        "path": "20261127/configured-installed-closure/supervisor-result.json",
+        "bytes": 7947,
+        "sha256": "e06e2ee20a9eb2de44053808f25a8a89b180b7517d93744b40520f362b70c316"
+      },
+      "review": {
+        "path": "20261127/configured-installed-closure/configured-installed-closure-actual-review.json",
+        "bytes": 9093,
+        "sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5",
+        "status": "passed"
+      },
+      "finished_utc": "2026-11-27T12:58:09.9490539Z",
+      "closed": 50,
+      "open": 5,
+      "transitions": [
+        {
+          "key": "configured-launch",
+          "id": "beadrs-c9526055",
+          "before_revision": 5,
+          "after_revision": 6
+        },
+        {
+          "key": "installed-review",
+          "id": "beadrs-47da80ac",
+          "before_revision": 3,
+          "after_revision": 4
+        }
+      ],
+      "remaining_open": [
+        {
+          "key": "backend-handoff",
+          "id": "beadrs-1371879c",
+          "revision": 3
+        },
+        {
+          "key": "app-handoff",
+          "id": "beadrs-f0039a6a",
+          "revision": 5
+        },
+        {
+          "key": "backend-text-review",
+          "id": "beadrs-30f13b5b",
+          "revision": 3
+        },
+        {
+          "key": "app-text-review",
+          "id": "beadrs-c62c1990",
+          "revision": 5
+        },
+        {
+          "key": "preserve-and-clean",
+          "id": "beadrs-3ec972f8",
+          "revision": 5
+        }
+      ]
+    },
+    "actual_document_publication": null,
+    "post_handoff_original_git_baseline": null,
+    "history_phase_receipts": null,
+    "actual_scheduled_task_cleanup": null,
+    "remaining_worktree_and_branch_cleanup": null,
+    "final_delivery_acceptance": null,
+    "final_current_state": {
+      "finished_utc": "2026-11-27T12:58:09.9490539Z",
+      "closed": 50,
+      "open": 5,
+      "review": {
+        "path": "20261127/configured-installed-closure/configured-installed-closure-actual-review.json",
+        "bytes": 9093,
+        "sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5",
+        "status": "passed"
+      },
+      "immutable_ref": "78dc8f4fe17df16a82c0063b9fbac7642fd53039"
+    },
+    "actual_tcp_result": {
+      "immutable_ref": "cf1e018022086e0118aa76cd64cdd0d02317850d",
+      "path": "20261127/configured-launch-tcp-actual/result.json",
+      "bytes": 17558,
+      "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701",
+      "status": "passed",
+      "independent_acceptance": {
+        "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+        "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+        "bytes": 12544,
+        "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+        "status": "passed"
+      }
+    },
+    "actual_tcp_review": {
+      "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+      "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+      "status": "passed"
+    },
+    "accepted_50_closed_snapshot": {
+      "finished_utc": "2026-11-27T12:58:09.9490539Z",
+      "closed": 50,
+      "open": 5,
+      "review": {
+        "path": "20261127/configured-installed-closure/configured-installed-closure-actual-review.json",
+        "bytes": 9093,
+        "sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5",
+        "status": "passed"
+      },
+      "immutable_ref": "78dc8f4fe17df16a82c0063b9fbac7642fd53039"
+    }
+  },
+  "scope": {
+    "text_only": true,
+    "product_code_changed": false,
+    "pc_execution": false,
+    "task_writes": false,
+    "app_main_modified": false,
+    "publication": false
+  },
+  "review_requirements": [
+    "Read both complete final proposed documents and the retained dated qualification.",
+    "Verify full inverse transformations to the immutable baselines and exact predicted CRLF working identities.",
+    "Reconcile accepted source/build/tray/staging/installation/configured/installed and actual50/5 closure identities; keep document publication, original history and cleanup acceptance tied to their separate actual records.",
+    "Verify the twenty current-state transformations and the one explicitly recorded historical forward-reference correction, with all other historical text and the complete README unchanged."
+  ],
+  "review_corrections": [
+    {
+      "id": "A1",
+      "source": "/root/backend_audit",
+      "finding": "The retained November25 link targeted a task branch slated for eventual cleanup.",
+      "resolution": "Replaced it with the exact immutable717acefc revision9 permalink and label."
+    },
+    {
+      "id": "A2",
+      "source": "/root/backend_audit",
+      "finding": "The current state needed to distinguish the later accepted archive route from historical shared-transfer preservation instructions.",
+      "resolution": "Added the conditional exact86-app/two-native ref route, fresh final tip/parent/tree proof, independently accepted archive coverage and only then atomic expected-tip deletions; actual archive and deletions remain pending."
+    },
+    {
+      "id": "A-FINAL-1",
+      "source": "author final complete text inspection",
+      "finding": "The dated November25 section's forward reference still called the configured check remaining after the accepted actual pass and task closure.",
+      "resolution": "Correct only that forward reference to the accepted tray, installation and configured-launch outcomes; all substantive historical qualification and the README remain unchanged."
+    }
+  ],
+  "accepted_preparation_baseline": {
+    "commit": "cf462e43a1012a75112d943bb17edc84c35b8e67",
+    "directory": "20261127/app-handoff-preparation",
+    "document_sha256": "884dc86db10a577eb1071f4dd19e5958ed9ff2dbf0304e0c4575f9d7ad6ecdaf",
+    "readme_sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+    "state_sha256": "282e53eda97d8754267da360c9412c054e6a01e03d45b7783c5778a1b33115cf",
+    "changes_sha256": "e52442d2f47639efa464c04461e241d56a2566eff6bcef9443cceddc8ea30ad5",
+    "manifest_sha256": "65e7f54e4c33f232647fcfd26e097fca6fafd519c0dfa0bc5b26776df973865e",
+    "source_review_sha256": "8f07b25306bd2732ba5aedf58d6d0d7c2d902bb46f13113301a011537ac4d757"
+  },
+  "additional_evidence": {
+    "immutable_ref": "cf462e43a1012a75112d943bb17edc84c35b8e67",
+    "files": {
+      "20261127/configured-launch-session-actual/result.json": {
+        "bytes": 11603,
+        "sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358"
+      },
+      "20261127/configured-launch-session-actual/task-creation.json": {
+        "bytes": 3901,
+        "sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9"
+      },
+      "20261127/configured-launch-session-actual/configured-session-failure-review.json": {
+        "bytes": 12911,
+        "sha256": "dc3b886175ef051803f5f18073a0abccb1e275e08aaeba6657a36cb40aaabfd5"
+      },
+      "20261127/configured-launch-tcp/windows-configured-launch-host-tcp-20261127.ps1": {
+        "bytes": 53569,
+        "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+      },
+      "20261127/configured-launch-tcp/configured-tcp-source-review.json": {
+        "bytes": 10985,
+        "sha256": "4c26f4fc6188dc141808c3b5597926eff3aa1d626f01c89a12251f43270643fe"
+      }
+    },
+    "cleanup_preparation": {
+      "helper": {
+        "bytes": 27226,
+        "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+      },
+      "source_review": {
+        "bytes": 7863,
+        "sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc"
+      },
+      "immutable_publication_ref": null
+    },
+    "actual_tcp": {
+      "result": {
+        "immutable_ref": "cf1e018022086e0118aa76cd64cdd0d02317850d",
+        "path": "20261127/configured-launch-tcp-actual/result.json",
+        "bytes": 17558,
+        "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701",
+        "status": "passed",
+        "independent_acceptance": {
+          "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+          "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+          "bytes": 12544,
+          "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+          "status": "passed"
+        }
+      },
+      "creation": {
+        "path": "20261127/configured-launch-tcp-actual/configured-task-tcp-20261127-2889282bfcec.json",
+        "bytes": 3857,
+        "sha256": "35be7aaa5fdf9555a11ab5cb88dc1c1ccb76433247677bc4c7698361c9a525b4",
+        "publication_ref": "cf1e018022086e0118aa76cd64cdd0d02317850d"
+      },
+      "independent_configured_review": {
+        "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+        "path": "20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+        "bytes": 12544,
+        "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+        "status": "passed"
+      },
+      "independent_installed_review": {
+        "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+        "path": "20261127/configured-launch-tcp-actual/installed-final-review.json",
+        "bytes": 16318,
+        "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b",
+        "status": "passed"
+      },
+      "four_task_metadata_review": {
+        "immutable_ref": "3151657df5939a2756d504860d655c058b808828",
+        "path": "20261127/configured-launch-tcp-actual/configured-four-task-actual-review.json",
+        "bytes": 4615,
+        "sha256": "5e843314800e717560dbe4825ee888892a6c440631d15e151b899951881efe51",
+        "status": "passed"
+      }
+    },
+    "configured_installed_closure": {
+      "immutable_ref": "78dc8f4fe17df16a82c0063b9fbac7642fd53039",
+      "result": {
+        "path": "20261127/configured-installed-closure/result.json",
+        "bytes": 5964,
+        "sha256": "6b0cbed2c93a5e517a50fb6e10f98382ff8cc480edff2336c97c96ff332f8a73"
+      },
+      "supervisor": {
+        "path": "20261127/configured-installed-closure/supervisor-result.json",
+        "bytes": 7947,
+        "sha256": "e06e2ee20a9eb2de44053808f25a8a89b180b7517d93744b40520f362b70c316"
+      },
+      "review": {
+        "path": "20261127/configured-installed-closure/configured-installed-closure-actual-review.json",
+        "bytes": 9093,
+        "sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5",
+        "status": "passed"
+      },
+      "finished_utc": "2026-11-27T12:58:09.9490539Z",
+      "closed": 50,
+      "open": 5,
+      "transitions": [
+        {
+          "key": "configured-launch",
+          "id": "beadrs-c9526055",
+          "before_revision": 5,
+          "after_revision": 6
+        },
+        {
+          "key": "installed-review",
+          "id": "beadrs-47da80ac",
+          "before_revision": 3,
+          "after_revision": 4
+        }
+      ],
+      "remaining_open": [
+        {
+          "key": "backend-handoff",
+          "id": "beadrs-1371879c",
+          "revision": 3
+        },
+        {
+          "key": "app-handoff",
+          "id": "beadrs-f0039a6a",
+          "revision": 5
+        },
+        {
+          "key": "backend-text-review",
+          "id": "beadrs-30f13b5b",
+          "revision": 3
+        },
+        {
+          "key": "app-text-review",
+          "id": "beadrs-c62c1990",
+          "revision": 5
+        },
+        {
+          "key": "preserve-and-clean",
+          "id": "beadrs-3ec972f8",
+          "revision": 5
+        }
+      ]
+    }
+  },
+  "final_update_boundary": {
+    "allowed_text_region": "<!-- delivery-state:start --> through <!-- delivery-state:end -->",
+    "observed_snapshot_accepted": true,
+    "fifty_closed_claim_currently_accepted": true,
+    "final_text_review_pending": true,
+    "final_publication_ready": false,
+    "remaining_delivery_records": [
+      "Exact accepted document publication/adoption and the two handoff/text-review closures.",
+      "Actual original-store history and both checkpoint publications.",
+      "Actual scheduled-task, archive/ref and worktree cleanup and final delivery acceptance."
+    ]
+  },
+  "accepted_tcp_pending_preparation": {
+    "directory": "/workspace/scratch/2889282bfcec/recovery/delivery/app-handoff-tcp-pending",
+    "document_sha256": "1a0cfab655d2d06ff66a94bbb74967c9abae271e19886d4e3772b4ba3f5e1837",
+    "state_sha256": "6d373accf5a770417f140f2cdbf643753d531692df25773cacbc9737d54be111",
+    "changes_sha256": "a744feb76df30785d286769ea444e6401f960cf062c12dda21efde27c60ab599",
+    "manifest_sha256": "48f77e39d410ba388da6dcf8af8a0bc8165fa9c6f55dbba1845ab4aa44cd4264",
+    "review_sha256": "7a53e612bb7b020a3aec3d31a4ce1aada4c9b3244cee4441c59d6602fd292ab4",
+    "immutable_publication_ref": null
+  },
+  "author_inspections": "author-inspections.json"
+}

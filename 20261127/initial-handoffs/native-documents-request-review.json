@@ -1,0 +1,163 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T13:23:31.192538+00:00",
+  "scope": "Independent binding review of the exact concrete native documentation adoption request and structured invocation against the previously accepted CRLF publisher, actual published target, final text review and retained PC guards.",
+  "accepted_files": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/native-document-publication-ready/native-documents-20261127-v1.request.json",
+      "bytes": 3524,
+      "sha256": "227e4889dc252d722b8fb9a94dff643f9bbbb925e6248858389aa80175724791"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/native-document-publication-ready/invocation.json",
+      "bytes": 1967,
+      "sha256": "4670b5f2ff452c00bf37462acf8d2cf1e2990935e05b65c539596f25793e0955"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/native-document-publication-ready/author-inspections.json",
+      "bytes": 5336,
+      "sha256": "b4094be28ed9c31d3ce05750121d4ab750172888a57add8c0c3ef1fc6a31c4be"
+    }
+  ],
+  "prepared_basis": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/native-document-publication-request/native-documents.request.prepared.json",
+      "bytes": 3220,
+      "sha256": "691fc2002450192f982a7dbb1553f08fb5078a3b04ac08ad6a650653711bee2c"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/native-document-publication-request/invocation.prepared.json",
+      "bytes": 1879,
+      "sha256": "dddf7823658cfc3fc8f1e26483112792656f2f59ca32772ad4184f7dba17623b"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/native-document-publication-request/author-inspections.json",
+      "bytes": 4447,
+      "sha256": "066b419cf7726388989c55ef5bc097702ac2aa0169d6b08f5566acde8ac69166"
+    }
+  ],
+  "source_binding": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/publish-reviewed-git-crlf-20261127.mjs",
+      "bytes": 45087,
+      "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "bytes": 20108,
+      "sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/checkpoint-crlf-compatibility/checkpoint-only-handoff-crlf-20261127.mjs",
+      "bytes": 84410,
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+    }
+  ],
+  "evidence": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/reviews/native-handoff-final-text-review.json",
+      "bytes": 16394,
+      "sha256": "1798222c75283975a39de6862941763100c91b313c9b60ea5b3abf7dfae90b40"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/native-main-readback-for-publication.json",
+      "bytes": 684,
+      "sha256": "aeb694b4dba492126201d1e45f191dfcf145031c1bd7ab39cbd1795d1bfccb44"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/native-handoff-final-50/progress.proposed.md",
+      "bytes": 181588,
+      "sha256": "ddd99e39475d51b9d5a096e2e31d28efad951c7546b1dda8cd37b4ac29857779"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/installation-completed/preservation-readback.json",
+      "bytes": 5220,
+      "sha256": "56fb00855a15e1c6cc8e0033819efffd3c9b737db2b3bd2f6566dde11a359e8c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/handoff-compatibility/readback.json",
+      "bytes": 3482,
+      "sha256": "4d4d4f64399f623c0b72cd68dad09e8e1e0b0f054ad4fd1c55fffc9b1689d745"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/installed-final-review.json",
+      "bytes": 16318,
+      "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b"
+    }
+  ],
+  "exact_document": {
+    "path": ".marathon/progress.md",
+    "mode": "100644",
+    "bytes": 181588,
+    "sha256": "ddd99e39475d51b9d5a096e2e31d28efad951c7546b1dda8cd37b4ac29857779",
+    "git_blob": "09efdf7b25aeb1a409d87843923c4da5f776dd02",
+    "working_bytes": 184390,
+    "working_sha256": "048ca417cbec4682d443669e19c08ca50bdfabd9d7be5e70db0a7ec0b8add2eb"
+  },
+  "checks": [
+    {
+      "name": "Exact prepared-request delta",
+      "status": "passed",
+      "changed_paths": [
+        "expected_remote_commit",
+        "reviews[2].sha256",
+        "attestations.exclusive_repository_writer",
+        "attestations.reviewed_request",
+        "attestations.installed_reviews_accepted",
+        "attestations.document_reviews_accepted",
+        "target_commit",
+        "document_files[0].bytes",
+        "document_files[0].sha256",
+        "document_files[0].git_blob",
+        "document_files[0].working_bytes",
+        "document_files[0].working_sha256"
+      ],
+      "establishes": "Only the twelve previously null document/commit/review/attestation values changed. Replacing them with null reproduces the complete 3,220-byte prepared request. Invocation changes are only its derived request hash and two descriptive status fields."
+    },
+    {
+      "name": "Final text and published main",
+      "status": "passed",
+      "establishes": "The complete accepted 1798222c text review binds native candidate025ebc6a, sole parent2d801 and only .marathon/progress.md changed. Canonical bytes, SHA-256, Git blob and predicted built-in CRLF bytes were independently recomputed from the exact reviewed file. The separately retained backend GitHub GET observation returns the same main target and binds this request hash; root also explicitly confirmed its expected-head update/readback."
+    },
+    {
+      "name": "PC source and private-state guards",
+      "status": "passed",
+      "establishes": "Expected local main2d801, raw index9fea and Git configcabe match the dated09:52 installed-preservation record. Exact config123/5eca, ignore136/d479, four absent SQLite paths, autocrlf=true and empty hooks/attributes match the09:54 compatibility observation. These are preserved expected guards; current validity is checked by the unchanged publisher before mutation."
+    },
+    {
+      "name": "Accepted reviews and request authority",
+      "status": "passed",
+      "establishes": "The three coordination review paths bind actual configured ebe3, installed b3bd and final native text1798 bytes with accepted status. Root explicitly supplied all four true attestations. No additional user approval is required for this already authorized documentation adoption."
+    },
+    {
+      "name": "Unchanged executable contract",
+      "status": "passed",
+      "establishes": "Driver7d8be720, supervisorb86a74ad and history import1015fa58 rehash exactly. Fixed Node/Git/Job-helper identities, run/output/request paths and hidden structured invocation match their accepted schemas. The exact request SHA227e4889 is passed to the supervisor."
+    },
+    {
+      "name": "Mutation scope and downstream baseline",
+      "status": "passed",
+      "establishes": "Remote main already equals target, so the accepted documents route fetches only that immutable fork commit, verifies one allowed changed path and exact built-in checkout bytes, and performs ordinary merge --ff-only. It preserves stored configuration/private state, full unrelated index entries and checkpoint Git tree. A passed native operation emits actual original-git-baseline.json and index-after.raw only after the retained53-object type/size verification and exact main readback."
+    }
+  ],
+  "resource_contract": {
+    "baseline_free_bytes": 3221225472,
+    "live_free_bytes": 1073741824,
+    "aggregate_resident_bytes": 536870912,
+    "total_seconds": 180,
+    "cleanup_reserve_seconds": 12,
+    "node_heap_mib": 128,
+    "hidden": true,
+    "priority": "BelowNormal"
+  },
+  "findings": [],
+  "acceptance_limit": "This accepts the concrete request and invocation for root-owned staging and one bounded PC operation. It does not establish current output absence, successful PC fast-forward, actual post-adoption document/index/private bytes or a completed handoff task. The source rechecks all live guards and refuses an existing attempt. Preserve and independently reconcile its actual result, supervisor and generated original-history baseline before closure.",
+  "actual_execution_accepted": false
+}

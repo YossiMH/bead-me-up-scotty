@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root",
+  "reviewed_utc": "2026-11-27T13:19:51.044278+00:00",
+  "scope": "Independent complete source and concrete four-cache target review; actual parser, final exclusive-window assertion and deletion remain pending.",
+  "files": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/README.md",
+      "bytes": 8543,
+      "sha256": "3a0142acf581e15ce02de22d6568f0cb31cb984eb83b984f4cec430420e4bcca"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/author-inspections.json",
+      "bytes": 6036,
+      "sha256": "3530587cc241744770e0b01876eaf329b26971eb83e892188e50ba81d4f38790"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/borrowed-source.json",
+      "bytes": 2702,
+      "sha256": "c26d94ee00a0b07f5fce7f208a0b3d89a261703ad385aa7b10af934364518e3d"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/fixed-identity-provenance.json",
+      "bytes": 3726,
+      "sha256": "81c5789ad2aec4f21c039298c7f253cbfa9f3cc62b7de7f709502dd00c8f23cb"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/invocation.template.json",
+      "bytes": 1099,
+      "sha256": "99958ed7b19b23c153c663655492e00fbbaa09a1ae505eff71df96bb9e1c5a58"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/remove-exact-tray-caches4-20261127.ps1",
+      "bytes": 23136,
+      "sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/request.template.json",
+      "bytes": 277,
+      "sha256": "0edc381cbe41395bc8087ac1adb1b89decfdadae16fcf9ae4620ca37de008b27"
+    }
+  ],
+  "source_sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32",
+  "author_sha256": "3530587cc241744770e0b01876eaf329b26971eb83e892188e50ba81d4f38790",
+  "complete_source_read": true,
+  "findings": [],
+  "checks": [
+    "All four exact cache directories, sole filenames, raw byte lengths and SHA-256 values match the independently accepted Session and old TrayHost observations. No other cache or shared root is enumerated.",
+    "Both raw failed results match their immutable hashes and expected budget failure/assisted cleanup/empty Job result. Python integer parsing confirms exactly eight plus eleven positive PID/FILETIME pairs; the helper requires exact Int64 births before invariant string conversion.",
+    "All eight borrowed full functions, complete 3041-byte C# self-resource block and exact 404-byte held-handle Birth method independently compare byte-for-byte to accepted cleanup23/TCP sources.",
+    "The native adapter requests only query-limited plus synchronize rights, validates a held handle PID and its creation FILETIME, and uses a zero-duration process wait. A different birth is PID reuse; a matching unsignaled identity refuses. Every held handle closes. No target priority, privilege, signal or termination action is present.",
+    "Only OpenProcess error87 is accepted as absence with a fixed valid access mask, noninherited handle and validated positive PID; all unknown/access errors refuse. This is an explicit implementation interpretation and is not a claim that the OpenProcess documentation lists every missing-PID case.",
+    "All nineteen identities are rechecked at preflight, before each unlink and at final completion. Ordinary path/file checks reject reparse points and extra entries. File reads hold read-only streams, require exact size/hash and repeat the sole-entry/path check.",
+    "Both failed-result copies and all four exact file backups are written with CreateNew and Flush(true), then rehashed before the first unlink. Intent, unlink-return, and deletion/absence records are retained separately.",
+    "Each mutation deletes one exact file, verifies its absence, requires its exact directory to be ordinary and empty, and removes that directory nonrecursively. There is no broad scan, recursive removal or app task-store access.",
+    "The exclusive cache window and immediate revalidation are required because the helper does not lock the entire parent namespace; fresh output blocks replay after any partial attempt.",
+    "The self-resource envelope remains BelowNormal,1GiB admission/live free memory,256MiB host RSS,48second work/60second hard/70second outer bounds. Add-Type remains the established PowerShell setup, followed by a new resource/time check before output creation; the runtime may perform normal type compilation.",
+    "The request cannot select targets and remains blocked by its false exclusive-window flag. The invocation remains blocked by its unfilled request hash.",
+    "No product tests, builds or PC operation were performed by this review. Ordinary Windows PowerShell5.1 parse and actual execution must be recorded separately."
+  ],
+  "primary_api_sources": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-openprocess",
+      "used_for": "Requested rights, null/error reporting and handle closure contract."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes",
+      "used_for": "Query-limited rights and exact64-bit creation FILETIME."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/synchapi/nf-synchapi-waitforsingleobject",
+      "used_for": "SYNCHRONIZE access, zero-duration return and process signaled/non-signaled result meanings."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/procthread/process-security-and-access-rights",
+      "used_for": "Exact0x00100000 SYNCHRONIZE and0x1000 query-limited flags."
+    }
+  ],
+  "actual_execution": null,
+  "decision": "Accept the exact source and fixed target preparation. Root may stage/parse it and complete its sole attestation only within the accepted final cleanup order."
+}

@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "status": "frozen_preparation_pending_independent_review_and_windows_parse",
+  "author": "/root/frontend_audit",
+  "frozen_utc": "2026-11-27T13:17:51.894976+00:00",
+  "files": {
+    "remove-exact-tray-caches4-20261127.ps1": {
+      "bytes": 23136,
+      "sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32"
+    },
+    "request.template.json": {
+      "bytes": 277,
+      "sha256": "0edc381cbe41395bc8087ac1adb1b89decfdadae16fcf9ae4620ca37de008b27"
+    },
+    "invocation.template.json": {
+      "bytes": 1099,
+      "sha256": "99958ed7b19b23c153c663655492e00fbbaa09a1ae505eff71df96bb9e1c5a58"
+    },
+    "README.md": {
+      "bytes": 8543,
+      "sha256": "3a0142acf581e15ce02de22d6568f0cb31cb984eb83b984f4cec430420e4bcca"
+    },
+    "borrowed-source.json": {
+      "bytes": 2702,
+      "sha256": "c26d94ee00a0b07f5fce7f208a0b3d89a261703ad385aa7b10af934364518e3d"
+    },
+    "fixed-identity-provenance.json": {
+      "bytes": 3726,
+      "sha256": "81c5789ad2aec4f21c039298c7f253cbfa9f3cc62b7de7f709502dd00c8f23cb"
+    }
+  },
+  "scope": "A one-shot root-executed cleanup of four exact observed failed-run cache files and their empty directories. No product change, broad filesystem enumeration, task operation or process termination is included.",
+  "source_reuse": {
+    "eight_complete_ps_functions_exact": true,
+    "complete_3041_byte_guard_prefix_exact": true,
+    "complete_404_byte_birth_method_exact": true,
+    "proof": "borrowed-source.json"
+  },
+  "evidence": [
+    {
+      "path": "failed-tray-cache-readback-review.json",
+      "bytes": 3502,
+      "sha256": "85a13ba4d513f76714f5cfb9471ed394e65e4b4eefc4170ccafc54730c1336ec"
+    },
+    {
+      "path": "old-tray-case-cache-actual-review.json",
+      "bytes": 5169,
+      "sha256": "4f3e668be043a2c17e128bef454675f6178203965292855c98cbc15f259895c5"
+    },
+    {
+      "path": "root/old-tray-host-result.json",
+      "bytes": 14492,
+      "sha256": "0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370"
+    },
+    {
+      "path": "root/configured-session-actual/result.json",
+      "bytes": 11603,
+      "sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358"
+    }
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "status": "clean",
+      "read": "Complete final PowerShell source, complete new C# adapter, all eight borrowed functions and guard, request, invocation, README, borrow record and nineteen exact provenance rows.",
+      "checked": [
+        "Four fixed directories/names/bytes/hashes against the two accepted actual readbacks.",
+        "Two fixed failed-result hashes, eight plus eleven exact integer PID/birth rows, no binary64 identity acceptance.",
+        "Minimum read-only process rights, PID/birth equality, signaled matching exit, reused-PID and absent-PID handling, fail-closed access/unknown errors and all CloseHandle paths.",
+        "Fresh output, all raw backups before mutation, bounded sole-entry reads, ordinary ancestors/files, intent and return records, exact File.Delete and nonrecursive empty-directory deletion.",
+        "Unchanged 1 GiB / 256 MiB / 48 s / 60 s / 100 ms envelope, initial setup budget, resource stop, final failure propagation and preserved partial output."
+      ]
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "status": "clean",
+      "read": "Complete unchanged final source and README again, final request/invocation, complete byte-comparison proof and all nineteen provenance identities.",
+      "checked": [
+        "Repeated full source/control-flow reading from admission through finally and exit.",
+        "Machine equality for all eight accepted functions, the full guard block and the exact Birth method.",
+        "Only one explicit file-delete call and one empty-directory-delete call; no wildcard, recursive deletion, process-list enumeration, explicit child launch or other-process kill.",
+        "False preparation attestation and blocked request-hash placeholder; fixed output/source binding and only four request/tool argument keys.",
+        "Every input/source/README hash, exact local evidence identities, same final code after first read, no future parse or runtime success claim."
+      ]
+    }
+  ],
+  "pre_freeze_clarifications": [
+    "PID parsing accepts exact Int32 or Int64 values in the positive Int32 range; FILETIME births remain exact Int64 before invariant string conversion. This was resolved before both complete final source reads.",
+    "README says process checks precede initial cache backups; raw pinned input backups are recorded earlier. The final sentence was re-read after this precision correction."
+  ],
+  "static_inspection": {
+    "passed": true,
+    "exact_source_copies_checked": true,
+    "json_payloads_parsed": true,
+    "fixed_identity_count": 19,
+    "fixed_cache_count": 4,
+    "fixed_cache_bytes": 14723,
+    "pc_executions": 0,
+    "product_tests": 0,
+    "builds": 0,
+    "runtime_compilation": false
+  },
+  "limits": {
+    "initial_and_live_free_bytes": 1073741824,
+    "self_resident_bytes": 268435456,
+    "work_seconds": 48,
+    "hard_seconds": 60,
+    "outer_seconds": 70,
+    "sample_interval_ms": 100,
+    "priority": "BelowNormal",
+    "initial_cim_timeout_seconds": 5
+  },
+  "remaining_gates": [
+    "Independent frozen-source acceptance.",
+    "Exact staged source and ordinary Windows PowerShell 5.1 parse.",
+    "Root establishes the exclusive four-cache window and independently retains/reviews a distinct true-attestation request and exact invocation.",
+    "One root-owned execution and complete raw backup, process-boundary, mutation, resource and final absence reconciliation."
+  ],
+  "findings": [],
+  "cleanup_note": "This is an ordinary small packet directory, not a linked Git worktree. Retain its exact source, reviews and actual results in the project transfer history before later cloud cleanup. Existing failed run directories, raw results and shared local-app-data cache roots remain retained."
+}

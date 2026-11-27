@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "author": "/root/delivery_audit",
+  "scope": "Final authored app handoff text for the independently accepted installed delivery and actual 50-closed/5-open continuation snapshot. Publication/adoption, remaining task closures, original history and cleanup require their own actual receipts.",
+  "directory": "/workspace/scratch/2889282bfcec/recovery/delivery/app-handoff-final",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "base_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+  "target_paths": [
+    "docs/backend-compatibility.md",
+    "README.md"
+  ],
+  "files": {
+    "docs/backend-compatibility.md": {
+      "bytes": 80782,
+      "sha256": "04fdc705d9b7de7d653644c8cbe3adb9c82dabe806f303360956e1924cbdf06f"
+    },
+    "README.md": {
+      "bytes": 25639,
+      "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27"
+    },
+    "delivery-state.md": {
+      "bytes": 20443,
+      "sha256": "3c4e64b5491b2511b51fcbd49707dc3b3429eeffd872baac747afd95ef14833f"
+    },
+    "changes.json": {
+      "bytes": 76640,
+      "sha256": "30942949f4caf09907e3a07d3d3d4250884e14ab5e76c4622518e10bd76bb642"
+    },
+    "draft-manifest.json": {
+      "bytes": 30830,
+      "sha256": "18d575ba179a96e1037be4b5074667f4dd01820b02dfe428df9d76edd1f21710"
+    }
+  },
+  "source_derivation": {
+    "revision9_draft": {
+      "ref": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+      "path": "20261125/revision-9/app-continuation-draft.json",
+      "sha256": "169ab1f278de728a5789e3ac4dcbe8d643f86b62b2f5ff4d255b4c8536daa025",
+      "content_sha256": "128035c955c7c0c240d4d5cb709f97e30e6bd3bbc659de6c1c892666a7d6b3e5"
+    },
+    "original_readme_sha256": "03647a12b3ea2a8ff8a50019267a9d936db20695acbd3653d3132376ea0a9b70",
+    "accepted_regenerated": {
+      "commit": "cf462e43a1012a75112d943bb17edc84c35b8e67",
+      "directory": "20261127/app-handoff-preparation",
+      "document_sha256": "884dc86db10a577eb1071f4dd19e5958ed9ff2dbf0304e0c4575f9d7ad6ecdaf",
+      "readme_sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+      "state_sha256": "282e53eda97d8754267da360c9412c054e6a01e03d45b7783c5778a1b33115cf",
+      "changes_sha256": "e52442d2f47639efa464c04461e241d56a2566eff6bcef9443cceddc8ea30ad5",
+      "manifest_sha256": "65e7f54e4c33f232647fcfd26e097fca6fafd519c0dfa0bc5b26776df973865e",
+      "source_review_sha256": "8f07b25306bd2732ba5aedf58d6d0d7c2d902bb46f13113301a011537ac4d757"
+    },
+    "original_transform_counts": {
+      "documentation": 31,
+      "readme": 3
+    },
+    "current_state_transforms": 20,
+    "extra_historical_forward_reference_corrections": 1,
+    "complete_forward_and_inverse": true,
+    "all_other_historical_text_and_readme_preserved": true,
+    "recovery": "The published regenerated preparation is the retained baseline. Lost unpublished earlier payloads are not represented as recovered."
+  },
+  "resolved_findings": [
+    {
+      "id": "A-FINAL-1",
+      "finding": "The dated November25 section's forward reference still called the configured check remaining after the accepted actual pass and task closure.",
+      "resolution": "Correct only that forward reference to the accepted tray, installation and configured-launch outcomes; all substantive historical qualification and the README remain unchanged.",
+      "old": "The November 27 delivery section records the subsequent tray and installation\nacceptance and the remaining configured check.",
+      "new": "The November 27 delivery section records the subsequent tray, installation\nand configured-launch acceptance.",
+      "resolved_before_final_two_clean_inspections": true
+    },
+    {
+      "id": "A-FINAL-M1",
+      "finding": "Three duplicate raw-result metadata entries still carried a null nested acceptance field even though the separate configured review was populated.",
+      "resolution": "Each duplicate now points to the same exact accepted ebe3a62e review; documentation and all source/runtime identities are unchanged."
+    }
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "coverage": "After resolving the stale historical forward reference, read the complete final 1,292-line compatibility document and 514-line README, the separate 295-line state copy, and the full derivation/manifest. Reconciled each current outcome with the actual source/result and independent acceptance pins.",
+      "findings": [],
+      "observations": [
+        "The production launch instructions select the installed0431 pin, use launch-scotty.bat --no-open and retain normal tray Exit behavior. Build instructions remain scoped to source updates; backend/capability, ownership, mutation-recovery and long-type rules preserve their earlier accepted content.",
+        "The installation, three retained earlier tray cases, final default-launch pass and separate installed review keep their own source/runtime/result identities. The failed first configured attempt's error remains unknown; the Session memory failure makes no unsupported statement about the first request.",
+        "The actual TCP result and its independent acceptance support all six HTTP outcomes, five scalar fields,28 native calls, visible real Exit/disposal and bounded normal cleanup. The accepted Next server exit1 during requested shutdown is retained rather than generalized into an all-process zero claim.",
+        "The actual50/5 closure replaces the former current48/7 state. Exact remaining task IDs/revisions and original954 preservation are stated, while the dated closure sequence remains history.",
+        "The corrected November25 forward reference now points to accepted configured-launch results. Original history phases, documentation publication, exact scheduled-task cleanup and final archive/worktree/ref cleanup remain pending."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "coverage": "Completed a second complete read of both final documents and packet after the final clause correction. Rechecked the source/installation/launch/task/history boundaries, then recomputed the complete original31/3 transformations, all20 state transformations and the single historical-clause inverse.",
+      "findings": [],
+      "observations": [
+        "Both complete forward/inverse derivations reproduce the exact immutable draft/README baselines. The accepted regenerated document is recovered by reversing the current-state section and the one recorded historical clause; every other historical byte and the entire README are unchanged.",
+        "Rehashed all five final payloads. The canonical Git blobs and predicted CRLF working byte lengths/hashes agree with the manifest; predictions are labeled and are not claimed as actual PC checkout observations.",
+        "All30 deduplicated immutable evidence pins match their Git object bytes. All17 current-state GitHub commit links resolve to the required blob/tree objects with lazy fetch disabled.",
+        "The raw configured result54e074ed, configuredebe3a62e, installedb3bdf099 and actual closure6b0cbed2/e06e2ee2/a158adc4 records remain separate and agree with the current text. Exactly five open rows remain; the two handoff tasks are ready at the observed snapshot.",
+        "The full private Scheduler XML remains on the PC. Cleanup requires live equality, exact names and idle states again; archive coverage and task/worktree removal are never inferred from preparation, a reset or absent scratch paths.",
+        "Final metadata consistently fills accepted configured/installed/task observations and leaves actual document adoption, original-history and cleanup receipts unset. No open text finding remains."
+      ]
+    }
+  ],
+  "checks": {
+    "complete_document_reads_per_pass": 2,
+    "compatibility_document_lines": 1292,
+    "readme_lines": 514,
+    "state_copy_lines": 295,
+    "full_original_forward_inverse": {
+      "documentation": 31,
+      "readme": 3
+    },
+    "full_state_forward_inverse": 20,
+    "one_extra_historical_clause_inverse": true,
+    "all_other_historical_and_readme_bytes_exact": true,
+    "immutable_evidence_pins_exact": 30,
+    "current_state_immutable_links_resolved": 17,
+    "final_payloads_rehashed": 5,
+    "canonical_and_predicted_crlf_exact": true,
+    "actual_50_5_and_future_delivery_flags_consistent": true
+  },
+  "publication_files": {
+    "docs/backend-compatibility.md": {
+      "bytes": 80782,
+      "sha256": "04fdc705d9b7de7d653644c8cbe3adb9c82dabe806f303360956e1924cbdf06f",
+      "git_blob": "a7600c632422b0c6605f3b609ddb38f79fe4e640",
+      "predicted_crlf_worktree": {
+        "bytes": 82074,
+        "sha256": "4be8aab04b85a99c193b42afd61b6f0f7a9f311668a0bd8fb5a34c7222e7e1b5",
+        "observation": "derived from canonical LF bytes; actual PC working bytes must match before publication"
+      }
+    },
+    "README.md": {
+      "bytes": 25639,
+      "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+      "git_blob": "2f9296f733ab66e04c524c704e783663341213b2",
+      "predicted_crlf_worktree": {
+        "bytes": 26153,
+        "sha256": "69bfeee55036bb14e22948899e74f687b6e6deda765929cd9c6185410e2dd01b",
+        "observation": "derived from canonical LF bytes; actual PC working bytes must match before publication"
+      }
+    }
+  },
+  "candidate_reported_by_root": {
+    "commit": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+    "base_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "tree": "b320571367badf47aa0739903de855b9b5ece8c4",
+    "main_updated_in_this_record": false,
+    "independent_candidate_review_pending": true
+  },
+  "actual_task_snapshot": {
+    "closed": 50,
+    "open": 5,
+    "finished_utc": "2026-11-27T12:58:09.9490539Z",
+    "result_sha256": "6b0cbed2c93a5e517a50fb6e10f98382ff8cc480edff2336c97c96ff332f8a73",
+    "review_sha256": "a158adc4bca44efcce1bcef152816b7ffd55790bc31526a99444ea57929447c5"
+  },
+  "open_findings": [],
+  "independent_final_text_review": null,
+  "cleanup": "Ordinary named cloud draft packet, with no author worktree registration. Retain the accepted preparations and exact final files until root confirms durable publication equality. The root coordinator alone publishes/adopts documents, mutates native task state and executes PC history/cleanup."
+}

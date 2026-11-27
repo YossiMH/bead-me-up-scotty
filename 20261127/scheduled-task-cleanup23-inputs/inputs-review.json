@@ -1,0 +1,92 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T13:10:13.849884+00:00",
+  "scope": "Independent preparation review of the five actual input values for the unchanged exact 23-task registration cleanup. The separately completed root attestation request and actual deletion remain later gates.",
+  "packet": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23-inputs/request.prepared.json",
+      "bytes": 1065,
+      "sha256": "e3795a9ff1eb235599043ffc9438e1babd62ab5e0e32b83518b89b3c2834940d"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23-inputs/README.md",
+      "bytes": 6014,
+      "sha256": "ee156e1029c4cce39f5e5c653460086d2114ddd835921e885ff55c8314bf23ab"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23-inputs/author-inspections.json",
+      "bytes": 4817,
+      "sha256": "1b632e10879d1ccd0bd6cbc2d69601733976be81e092959eef1c239fb9f01144"
+    }
+  ],
+  "unchanged_baseline": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23/request.template.json",
+      "bytes": 703,
+      "sha256": "82602c4c1153805e38c28e71cf9155eaa00f8eb6c293abeef95f2109efdb0586"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/scheduled-task-cleanup23/remove-exact-scheduled-tasks23-20261127.ps1",
+      "bytes": 27226,
+      "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/scheduled-task-cleanup23-source-review.json",
+      "bytes": 7863,
+      "sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc"
+    }
+  ],
+  "actual_evidence": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/tcp-actual/configured-task-tcp-20261127-2889282bfcec.json",
+      "bytes": 3857,
+      "sha256": "35be7aaa5fdf9555a11ab5cb88dc1c1ccb76433247677bc4c7698361c9a525b4"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/tcp-actual/result.json",
+      "bytes": 17558,
+      "sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-four-task-actual-review.json",
+      "bytes": 4615,
+      "sha256": "5e843314800e717560dbe4825ee888892a6c440631d15e151b899951881efe51"
+    }
+  ],
+  "private_definition": {
+    "path": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\configured-task-readback-20261127-v3\\result.json",
+    "bytes": 21481,
+    "sha256": "e3324f17e074de8af9fde5f726b5c57ebd25e28b183de74cb648d5999e859326",
+    "uploaded_or_read_full_xml_in_cloud": false
+  },
+  "checks": [
+    "Exactly five previously null template values are filled: the fourth creation hash, complete private four-task definition hash, fourth result hash, and accepted configured review path/hash. Reversing those five values reproduces the complete original 703-byte template exactly.",
+    "The fourth creation, result and independent acceptance bytes match the actual raw TCP packet and the accepted configured review. The passed review schema is accepted by the unchanged consumer. Its copied PC path is exactly the intended checkpoint-only input path.",
+    "The complete private definition file identity is 21,481 bytes with SHA e3324f17e074de8af9fde5f726b5c57ebd25e28b183de74cb648d5999e859326. The prior independent review reconciles all four action, principal and setting records, ready state, zero instances and outcomes 1/1/1/0. Full XML remains private and is verified again by the cleanup helper.",
+    "The helper, exact output, 19 original names plus four configured names, historical failure inputs and resource contract are unchanged. All three attestations remain false, and the consumer refuses this prepared request before creating an output directory.",
+    "Both complete author reads, final payload hashes and the README agree with the preparation-only scope. The actual successful TCP execution is retained separately from its three failed predecessors."
+  ],
+  "future_execution_contract": {
+    "root_attestations_remaining": {
+      "exclusive_task_registration_window": false,
+      "configured_launch_accepted": false,
+      "failed_configured_attempts_retained": false
+    },
+    "helper_priority": "BelowNormal",
+    "initial_and_live_free_bytes": 1073741824,
+    "self_resident_cap_bytes": 268435456,
+    "work_seconds": 48,
+    "hard_self_seconds": 60,
+    "outer_seconds": 70,
+    "requires": "Exact staged helper and ordinary PS5.1 parse, root input/retention/window observations, a distinct accepted all-true request, fresh output, one execution and complete per-task/final absence reconciliation."
+  },
+  "findings": [],
+  "acceptance_limit": "This accepts the frozen actual-input preparation. No registration deletion or live exclusive-window observation is inferred from the false attestations. The final filled request must preserve every target, path and hash."
+}
