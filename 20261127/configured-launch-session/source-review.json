@@ -1,0 +1,160 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T11:04:30.901573+00:00",
+  "scope": "Independent source and fresh invocation acceptance for the third configured attempt; actual configured-launch acceptance remains pending.",
+  "files": {
+    "windows-configured-launch-host-session-20261127.ps1": {
+      "bytes": 49366,
+      "sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4"
+    },
+    "author-inspections.json": {
+      "bytes": 11544,
+      "sha256": "0f1c57b674577a6b69ffaa24b0f3ca8255b43f098b366c201dbb29afc6cfcca0"
+    },
+    "configured-launch-com-body.ps1": {
+      "bytes": 7789,
+      "sha256": "5adb4140150174e89e5d90c2a887fb27224e845f79d014b89266b187e0ca7fae"
+    },
+    "README.md": {
+      "bytes": 9178,
+      "sha256": "24b284848427c3c0a9dd7bb8f478b31c4dda63e11a9d953b7731d68436ea7a35"
+    },
+    "source-and-command-delta.json": {
+      "bytes": 5693,
+      "sha256": "88a036e443048ec0989f169ab5a301ddbd940d6af9ecbb5589f1e936050b1eea"
+    },
+    "configured-launch-com-command.json": {
+      "bytes": 9073,
+      "sha256": "d67cdc36331e38faf109586b7f2f5839baa483ae5264baa1e6854f87c40a08ea"
+    }
+  },
+  "baseline": {
+    "commit": "717667dd46d5d27cb6708120429927bbadd57b5e",
+    "helper_bytes": 48944,
+    "helper_sha256": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880",
+    "command_sha256": "a349d8d7e36730590a0818cca4eb6f4cee262faab5bd2df3891215644ea9aae2",
+    "prior_source_review_sha256": "b9d5a3b354966488cfb9aa8b58a8b89da35dc69f0848cb1d261d850477e2a581",
+    "method": "Reuse the fully accepted baseline; independently inspect both changed functions and surrounding observation/cleanup control flow, the complete invocation and packet prose, and invert every declared edit to verify all other bytes."
+  },
+  "failure_basis": {
+    "result_bytes": 4404,
+    "result_sha256": "4068f777aeb3e7b5d29cd9f7ce3918a4c0eda44b8a9a6f0344157d6b085ff183",
+    "independent_review_sha256": "82695323d385d933f650dfee0d3a92f80a37f595b8001d7a3402b8cdf6083a22",
+    "published_commit": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+    "observed_relation": "Same PID 45124 and exact birth 134402500253322259; retained Job session 1 and native exit 0, late managed role session null. No app launch or HTTP/tray check had started."
+  },
+  "source_comparison": {
+    "status": "passed",
+    "exact_inverse_fragments": 2,
+    "full_baseline_recovered": true,
+    "changed_functions": [
+      "Register-JobProcess",
+      "Add-Owned"
+    ],
+    "unchanged_functions": [
+      "Initialize-OwnedJob",
+      "Refresh-JobProcesses",
+      "Measure-OwnedJob",
+      "Assert-LaunchHeadroom",
+      "Complete-OwnedJob",
+      "Save-JobEvidence",
+      "Assert-That",
+      "Hash",
+      "Safe-Path",
+      "Quote-Argument",
+      "Test-PortFree",
+      "Read-Lines",
+      "Get-TrayCacheEvidence",
+      "Observe-Record",
+      "Observe-Processes",
+      "Check-Budget",
+      "Wait-Until",
+      "Native",
+      "Api"
+    ],
+    "embedded_csharp_identical": true,
+    "embedded_observer_identical": true,
+    "embedded_csharp_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+    "embedded_observer_sha256": "d00ec76b77ee45d56781a7166f5869963714f1e642090380dad7ed286674d3a3",
+    "all_other_bytes_identical": true
+  },
+  "identity_review": {
+    "status": "passed",
+    "register_session": "Read managed SessionId once, require the exact existing interactive session, and store that same validated scalar.",
+    "priority_race": "The held Job handle still requires exact birth and membership. A priority setter failure is swallowed only when that exact held process has exited; a live-process failure rethrows.",
+    "role_identity": "Add-Owned holds the original handle, validates its PID through the accepted C# Birth method, then requires exactly one Job record with the same PID and full birth timestamp. Start/session scalars come from that validated record; exact session equality is checked again.",
+    "cleanup_ownership": "The original Process enters Owned before registration; accepted failure cleanup retains ownership if any identity assertion refuses. Separate Job accounting handles remain independently retained and disposed.",
+    "no_missing_identity_fallback": true,
+    "no_new_native_api": true,
+    "no_change_to_job_sampling_or_kill_scope": true,
+    "remaining_limit": "A direct child that exits before any valid Job snapshot is captured still refuses. This prevents false success and may stop a sufficiently fast command; this review does not claim elimination of every rapid-exit refusal."
+  },
+  "invocation_review": {
+    "status": "passed",
+    "exact_inverse_substitutions": 5,
+    "command_characters": 7770,
+    "readable_body_compact_inverse_exact": true,
+    "other_command_fields_unchanged": true,
+    "task": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+    "output": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec",
+    "creation_receipt": "F:/Dev/.bead-edit-20261111/configured-task-session-20261127-2889282bfcec.json",
+    "fresh_output_stdout_stderr_receipt_task_required": true,
+    "registration_flags": 2,
+    "run_flags": 4,
+    "run_level": 0,
+    "session_id": 1,
+    "priority": 7,
+    "one_powershell_host": true,
+    "same_process_stream_capture_and_exit_propagation_unchanged": true,
+    "exclusive_creation_receipt_flushed_before_single_RunEx": true,
+    "all_seven_input_hashes_bound": true,
+    "installed_source_pin_runtime_checks_unchanged": true,
+    "first_and_second_failed_attempts_preserved": true
+  },
+  "derived_inner_parser_input": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-session-inner-action.ps1",
+    "bytes": 936,
+    "sha256": "d76984e03fc94022ee7102bcc3763ea28100a402a837cdcf1db8a43873a3aacd",
+    "rendered_literal_expression_exact": true,
+    "status": "passed",
+    "method": "Independently tokenized only PowerShell single-quoted literals, doubled apostrophes and the exact fixed variable whitelist in action.Arguments. Rendered the action, removed only its outer -Command quotes, and matched every byte of the 936-byte parser input. No PowerShell evaluation occurred.",
+    "parser_input_only": true,
+    "independent_launch_authorized": false
+  },
+  "unchanged_execution_contract": {
+    "helper_total_seconds": 120,
+    "cleanup_reserve_seconds": 12,
+    "aggregate_owned_limit_bytes": 536870912,
+    "live_free_floor_bytes": 1073741824,
+    "registration_and_immediate_app_launch_floor_bytes": 3221225472,
+    "node_heap_mib": 128,
+    "hidden_below_normal": true,
+    "five_scalar_API_and_CLI_roundtrips": true,
+    "real_icon_exit_and_disposal": true,
+    "normal_owned_process_and_cache_cleanup": true,
+    "port_43972_free_at_completion": true,
+    "forced_cleanup_cannot_pass": true
+  },
+  "author_packet": {
+    "two_complete_clean_final_inspections_verified": true,
+    "all_manifest_hashes_recomputed": true,
+    "README_and_delta_read": true,
+    "limitations_and_future_gates_truthful": true
+  },
+  "byte_comparison_record": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-session-byte-comparison.json",
+    "bytes": 2188,
+    "sha256": "f05aa279c91d3794fa8fb131d44565681afb772513b007a8e294f807e1075b05"
+  },
+  "findings": [],
+  "remaining_gates": [
+    "Root stages and ordinarily parses exact 33c6 helper, 5adb outer body and d769 inner action with Windows PowerShell 5.1.",
+    "Fresh root-owned admission and identity checks, then one new bounded configured execution.",
+    "Complete raw result/stream/HTTP/native/tray/process/memory and final scheduled-task definition/state reconciliation before configured or installed task acceptance.",
+    "Separate fixed 22-task cleanup source/request/result acceptance before removing the 19 baseline tasks plus all 3 configured registrations."
+  ],
+  "actual_configured_acceptance": false,
+  "reviewer_activity": "Cloud static source/byte and retained-result review; no PC operation or product run."
+}

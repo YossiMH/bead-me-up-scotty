@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_review",
+  "author": "/root/delivery_audit",
+  "scope": "Narrow retained-session observation correction and fresh third configured-launch invocation; actual configured acceptance remains pending.",
+  "files": {
+    "README.md": {
+      "bytes": 9178,
+      "sha256": "24b284848427c3c0a9dd7bb8f478b31c4dda63e11a9d953b7731d68436ea7a35"
+    },
+    "configured-launch-com-body.ps1": {
+      "bytes": 7789,
+      "sha256": "5adb4140150174e89e5d90c2a887fb27224e845f79d014b89266b187e0ca7fae"
+    },
+    "configured-launch-com-command.json": {
+      "bytes": 9073,
+      "sha256": "d67cdc36331e38faf109586b7f2f5839baa483ae5264baa1e6854f87c40a08ea"
+    },
+    "source-and-command-delta.json": {
+      "bytes": 5693,
+      "sha256": "88a036e443048ec0989f169ab5a301ddbd940d6af9ecbb5589f1e936050b1eea"
+    },
+    "windows-configured-launch-host-session-20261127.ps1": {
+      "bytes": 49366,
+      "sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4"
+    }
+  },
+  "recovery": {
+    "source_repository": "YossiMH/bead-me-up-scotty",
+    "immutable_ref": "717667dd46d5d27cb6708120429927bbadd57b5e",
+    "baseline_helper_sha256": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880",
+    "baseline_command_sha256": "a349d8d7e36730590a0818cca4eb6f4cee262faab5bd2df3891215644ea9aae2",
+    "exact_remote_recovery": true,
+    "payloads_retained_in_serializable_store": true,
+    "app_draft_recovery_claimed": false
+  },
+  "basis": {
+    "failed_result": {
+      "bytes": 4404,
+      "sha256": "4068f777aeb3e7b5d29cd9f7ce3918a4c0eda44b8a9a6f0344157d6b085ff183",
+      "status": "failed"
+    },
+    "failed_creation": {
+      "bytes": 3868,
+      "sha256": "dca8d968ad1df097eb56baf80bede0c1453894974a6cdea4b4f6b29f9d5164e6"
+    },
+    "independent_failure_review": {
+      "bytes": 6459,
+      "sha256": "82695323d385d933f650dfee0d3a92f80a37f595b8001d7a3402b8cdf6083a22",
+      "commit": "42f540b0938b88abcefb3f37a0664ded7e2b6bcb",
+      "directory": "20261127/configured-launch-crlf-actual"
+    },
+    "actual_identity": {
+      "pid": 45124,
+      "birth_filetime": "134402500253322259",
+      "started_utc": "2026-11-27T10:47:05.3322259Z",
+      "role_session_id": null,
+      "retained_job_session_id": 1,
+      "role_exit_code": 0,
+      "job_exit_code": 0
+    }
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "completed_utc": "2026-11-27T11:00:19.046029+00:00",
+      "complete": true,
+      "findings": [],
+      "files": {
+        "README.md": {
+          "bytes": 9178,
+          "sha256": "24b284848427c3c0a9dd7bb8f478b31c4dda63e11a9d953b7731d68436ea7a35"
+        },
+        "configured-launch-com-body.ps1": {
+          "bytes": 7789,
+          "sha256": "5adb4140150174e89e5d90c2a887fb27224e845f79d014b89266b187e0ca7fae"
+        },
+        "configured-launch-com-command.json": {
+          "bytes": 9073,
+          "sha256": "d67cdc36331e38faf109586b7f2f5839baa483ae5264baa1e6854f87c40a08ea"
+        },
+        "source-and-command-delta.json": {
+          "bytes": 5693,
+          "sha256": "88a036e443048ec0989f169ab5a301ddbd940d6af9ecbb5589f1e936050b1eea"
+        },
+        "windows-configured-launch-host-session-20261127.ps1": {
+          "bytes": 49366,
+          "sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4"
+        }
+      },
+      "source_inverse_exact": true,
+      "command_inverse_exact": true,
+      "command_characters": 7770,
+      "changed_functions": [
+        "Register-JobProcess",
+        "Add-Owned"
+      ],
+      "unchanged_functions": [
+        "Initialize-OwnedJob",
+        "Refresh-JobProcesses",
+        "Measure-OwnedJob",
+        "Assert-LaunchHeadroom",
+        "Complete-OwnedJob",
+        "Save-JobEvidence",
+        "Assert-That",
+        "Hash",
+        "Safe-Path",
+        "Quote-Argument",
+        "Test-PortFree",
+        "Read-Lines",
+        "Get-TrayCacheEvidence",
+        "Observe-Record",
+        "Observe-Processes",
+        "Check-Budget",
+        "Wait-Until",
+        "Native",
+        "Api"
+      ],
+      "csharp_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+      "observer_sha256": "d00ec76b77ee45d56781a7166f5869963714f1e642090380dad7ed286674d3a3",
+      "actual_failure_reconciled": true,
+      "source_activity": "Static full-source/command/prose inspection; no PowerShell execution or product checks.",
+      "focus": [
+        "Read complete source, invocation, delta and prose against the exact observed failure and immutable accepted baseline.",
+        "Matched the original handle's PID and C# birth to exactly one retained Job snapshot; retained strict interactive session equality.",
+        "Inspected early exit before any snapshot, priority-set exit race, duplicate/missing record refusal, handle ownership and complete failure cleanup.",
+        "Read all other short native observation paths and preserved their existing successful close receipts and live lookup handling.",
+        "Reviewed fresh third task/output/receipt/logs and the unchanged one-host COM/stream, source/pin/runtime and resource boundaries."
+      ]
+    },
+    {
+      "pass": 2,
+      "completed_utc": "2026-11-27T11:00:52.882746+00:00",
+      "complete": true,
+      "findings": [],
+      "files": {
+        "README.md": {
+          "bytes": 9178,
+          "sha256": "24b284848427c3c0a9dd7bb8f478b31c4dda63e11a9d953b7731d68436ea7a35"
+        },
+        "configured-launch-com-body.ps1": {
+          "bytes": 7789,
+          "sha256": "5adb4140150174e89e5d90c2a887fb27224e845f79d014b89266b187e0ca7fae"
+        },
+        "configured-launch-com-command.json": {
+          "bytes": 9073,
+          "sha256": "d67cdc36331e38faf109586b7f2f5839baa483ae5264baa1e6854f87c40a08ea"
+        },
+        "source-and-command-delta.json": {
+          "bytes": 5693,
+          "sha256": "88a036e443048ec0989f169ab5a301ddbd940d6af9ecbb5589f1e936050b1eea"
+        },
+        "windows-configured-launch-host-session-20261127.ps1": {
+          "bytes": 49366,
+          "sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4"
+        }
+      },
+      "source_inverse_exact": true,
+      "command_inverse_exact": true,
+      "command_characters": 7770,
+      "changed_functions": [
+        "Register-JobProcess",
+        "Add-Owned"
+      ],
+      "unchanged_functions": [
+        "Initialize-OwnedJob",
+        "Refresh-JobProcesses",
+        "Measure-OwnedJob",
+        "Assert-LaunchHeadroom",
+        "Complete-OwnedJob",
+        "Save-JobEvidence",
+        "Assert-That",
+        "Hash",
+        "Safe-Path",
+        "Quote-Argument",
+        "Test-PortFree",
+        "Read-Lines",
+        "Get-TrayCacheEvidence",
+        "Observe-Record",
+        "Observe-Processes",
+        "Check-Budget",
+        "Wait-Until",
+        "Native",
+        "Api"
+      ],
+      "csharp_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+      "observer_sha256": "d00ec76b77ee45d56781a7166f5869963714f1e642090380dad7ed286674d3a3",
+      "actual_failure_reconciled": true,
+      "source_activity": "Static full-source/command/prose inspection; no PowerShell execution or product checks.",
+      "focus": [
+        "Re-read the complete final helper and associated command/body/delta/README, including full unchanged observer and cleanup bodies.",
+        "Recovered the entire baseline helper by the two inverse substitutions and previous command by its five inverse substitutions; complete final file hashes match pass1.",
+        "Confirmed all19 other PowerShell functions, full C# inspector and full JavaScript observer are byte-identical.",
+        "Confirmed missing/null/ambiguous/wrong-session identity still refuses; no expected-session fallback or new native API was added.",
+        "Reconciled the exact failed result/creation/review identities, durable predecessor preservation and all future parser/runtime/cleanup gates."
+      ]
+    }
+  ],
+  "verification": {
+    "source_inverse_exact": true,
+    "command_inverse_exact": true,
+    "readable_body_inverse_exact": true,
+    "changed_functions": [
+      "Register-JobProcess",
+      "Add-Owned"
+    ],
+    "unchanged_functions": [
+      "Initialize-OwnedJob",
+      "Refresh-JobProcesses",
+      "Measure-OwnedJob",
+      "Assert-LaunchHeadroom",
+      "Complete-OwnedJob",
+      "Save-JobEvidence",
+      "Assert-That",
+      "Hash",
+      "Safe-Path",
+      "Quote-Argument",
+      "Test-PortFree",
+      "Read-Lines",
+      "Get-TrayCacheEvidence",
+      "Observe-Record",
+      "Observe-Processes",
+      "Check-Budget",
+      "Wait-Until",
+      "Native",
+      "Api"
+    ],
+    "csharp_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+    "observer_sha256": "d00ec76b77ee45d56781a7166f5869963714f1e642090380dad7ed286674d3a3",
+    "json_utf8_lf_whitespace": "passed",
+    "actual_failure_identity_reconciled": true,
+    "ordinary_windows_powershell_5_1_ast_parse": null,
+    "third_configured_result": null,
+    "third_configured_acceptance": null
+  },
+  "invocation": {
+    "task": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+    "helper": "windows-configured-launch-host-session-20261127.ps1",
+    "output": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec",
+    "creation_receipt": "F:/Dev/.bead-edit-20261111/configured-task-session-20261127-2889282bfcec.json",
+    "command_characters": 7770,
+    "outer_timeout_ms": 30000,
+    "helper_timeout_seconds": 120,
+    "cleanup_reserve_seconds": 12,
+    "maximum_aggregate_resident_bytes": 536870912,
+    "live_free_floor_bytes": 1073741824,
+    "immediate_app_launch_free_bytes": 3221225472,
+    "one_powershell_host": true,
+    "registration_flags": 2,
+    "run_flags": 4,
+    "session_id": 1,
+    "run_level": 0,
+    "priority": 7
+  },
+  "remaining": [
+    "Independent source/command review and exact staged WindowsPowerShell5.1 AST parse.",
+    "Fresh root PC state checks and at least3GiB free at both registration gates and app launch.",
+    "One actual new configured attempt with separately retained logs/result/task XML and independent acceptance.",
+    "Later fixed22-task cleanup extension with all three configured definitions and exact creation/result/review bindings."
+  ],
+  "limitations": [
+    "A direct child that exits before any validated Job snapshot exists still causes explicit refusal; no unobserved session is inferred.",
+    "The baseline source header mentions -File; the accepted COM invocation deliberately calls the same script with & inside its sole PowerShell -Command host to retain both streams.",
+    "This is operational-helper preparation and does not close configured-launch or installed-review."
+  ],
+  "primary_references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocesstimes",
+    "https://learn.microsoft.com/en-us/windows/win32/api/processthreadsapi/nf-processthreadsapi-getprocessid",
+    "https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process.sessionid?view=netframework-4.8.1",
+    "https://learn.microsoft.com/en-us/dotnet/api/system.diagnostics.process.hasexited?view=netframework-4.8.1"
+  ],
+  "activity": {
+    "pc_calls": false,
+    "product_tests": false,
+    "builds": false,
+    "task_state_writes": false,
+    "publication": false
+  },
+  "maintainer_audit": "Two complete clean author inspections of final exact payloads; all actual execution and source acceptance remain separately recorded."
+}

@@ -1,0 +1,72 @@
+{
+  "status": "passed",
+  "files": {
+    "windows-configured-launch-host-session-20261127.ps1": {
+      "bytes": 49366,
+      "sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4"
+    },
+    "author-inspections.json": {
+      "bytes": 11544,
+      "sha256": "0f1c57b674577a6b69ffaa24b0f3ca8255b43f098b366c201dbb29afc6cfcca0"
+    },
+    "configured-launch-com-body.ps1": {
+      "bytes": 7789,
+      "sha256": "5adb4140150174e89e5d90c2a887fb27224e845f79d014b89266b187e0ca7fae"
+    },
+    "README.md": {
+      "bytes": 9178,
+      "sha256": "24b284848427c3c0a9dd7bb8f478b31c4dda63e11a9d953b7731d68436ea7a35"
+    },
+    "source-and-command-delta.json": {
+      "bytes": 5693,
+      "sha256": "88a036e443048ec0989f169ab5a301ddbd940d6af9ecbb5589f1e936050b1eea"
+    },
+    "configured-launch-com-command.json": {
+      "bytes": 9073,
+      "sha256": "d67cdc36331e38faf109586b7f2f5839baa483ae5264baa1e6854f87c40a08ea"
+    }
+  },
+  "source_inverse_exact": true,
+  "source_fragments": 2,
+  "command_inverse_exact": true,
+  "command_substitutions": 5,
+  "body_inverse_exact": true,
+  "command_characters": 7770,
+  "changed_functions": [
+    "Register-JobProcess",
+    "Add-Owned"
+  ],
+  "unchanged_functions": [
+    "Initialize-OwnedJob",
+    "Refresh-JobProcesses",
+    "Measure-OwnedJob",
+    "Assert-LaunchHeadroom",
+    "Complete-OwnedJob",
+    "Save-JobEvidence",
+    "Assert-That",
+    "Hash",
+    "Safe-Path",
+    "Quote-Argument",
+    "Test-PortFree",
+    "Read-Lines",
+    "Get-TrayCacheEvidence",
+    "Observe-Record",
+    "Observe-Processes",
+    "Check-Budget",
+    "Wait-Until",
+    "Native",
+    "Api"
+  ],
+  "csharp_exact": true,
+  "observer_exact": true,
+  "csharp_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+  "observer_sha256": "d00ec76b77ee45d56781a7166f5869963714f1e642090380dad7ed286674d3a3",
+  "inner_action": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-session-inner-action.ps1",
+    "bytes": 936,
+    "sha256": "d76984e03fc94022ee7102bcc3763ea28100a402a837cdcf1db8a43873a3aacd",
+    "rendered_literal_expression_exact": true
+  },
+  "author_passes": 2,
+  "all_manifest_hashes_exact": true
+}

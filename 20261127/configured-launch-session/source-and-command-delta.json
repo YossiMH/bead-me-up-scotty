@@ -1,0 +1,51 @@
+{
+  "schema_version": 1,
+  "source_baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "717667dd46d5d27cb6708120429927bbadd57b5e",
+    "path": "20261127/configured-launch-crlf/windows-configured-launch-host-crlf-20261127.ps1",
+    "sha256": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880"
+  },
+  "source_replacements": [
+    {
+      "old": "        Assert-That ($held.SessionId -eq $SessionId) 'An owned Job descendant is outside the existing interactive session.'\n        $held.PriorityClass = [Diagnostics.ProcessPriorityClass]::BelowNormal\n        $entry = @{ process = $held; process_id = $held.Id; birth_filetime = $birth\n            started_utc = [DateTime]::FromFileTimeUtc($birth).ToString('o'); session_id = $held.SessionId",
+      "new": "        $heldSessionId = $held.SessionId\n        Assert-That ($heldSessionId -eq $SessionId) 'An owned Job descendant is outside the existing interactive session.'\n        try { $held.PriorityClass = [Diagnostics.ProcessPriorityClass]::BelowNormal } catch { if (-not $held.HasExited) { throw } }\n        $entry = @{ process = $held; process_id = $held.Id; birth_filetime = $birth\n            started_utc = [DateTime]::FromFileTimeUtc($birth).ToString('o'); session_id = $heldSessionId"
+    },
+    {
+      "old": "    $entry.started_utc=$Process.StartTime.ToUniversalTime().ToString('o');$entry.session_id=$Process.SessionId\n    Assert-That ($Process.SessionId -eq $SessionId) ('Owned '+$Kind+' is outside the interactive Explorer session.')",
+      "new": "    $birth=[Scotty20261125TrayJobInspector]::Birth($Process.Handle,$entry.process_id)\n    $registered=@($JobOwned|Where-Object{$_.process_id -eq $entry.process_id -and $_.birth_filetime -eq $birth})\n    Assert-That ($registered.Count -eq 1) ('Owned '+$Kind+' lacks one validated retained Job identity; an early exit cannot supply session proof.')\n    $entry.started_utc=$registered[0].started_utc;$entry.session_id=$registered[0].session_id\n    Assert-That ($entry.session_id -eq $SessionId) ('Owned '+$Kind+' is outside the interactive Explorer session.')"
+    }
+  ],
+  "command_baseline": {
+    "path": "20261127/configured-launch-crlf/configured-launch-com-command.json",
+    "sha256": "a349d8d7e36730590a0818cca4eb6f4cee262faab5bd2df3891215644ea9aae2"
+  },
+  "command_replacements": [
+    {
+      "old": "ChatGPT-BeadEditing-ConfiguredCRLF-20261127-2889282bfcec",
+      "new": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec"
+    },
+    {
+      "old": "configured-v9-crlf-20261127-2889282bfcec",
+      "new": "configured-v9-session-20261127-2889282bfcec"
+    },
+    {
+      "old": "configured-task-crlf-20261127-2889282bfcec.json",
+      "new": "configured-task-session-20261127-2889282bfcec.json"
+    },
+    {
+      "old": "windows-configured-launch-host-crlf-20261127.ps1",
+      "new": "windows-configured-launch-host-session-20261127.ps1"
+    },
+    {
+      "old": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880",
+      "new": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4"
+    }
+  ],
+  "expected_effects_replacement": {
+    "old": "After independent source and ordinary PowerShell 5.1 parser acceptance, verify the exact CRLF-bound configured helper, Job helper, installed native pin, both exact CRLF tray module hashes and successful third-installation receipts. Require fresh output, stdout, stderr, receipt and task; the expected logged-in user with Explorer session 1; free port 43972; and 3 GiB available physical memory twice. Use Schedule.Service COM create-only flag 2 and RunEx session flag 4 for one Limited hidden BelowNormal task. Its sole PowerShell host calls the reviewed helper in the same process, preserves its exit code and redirects both PowerShell output streams to new sibling logs, including pre-output failures. The helper keeps its 120-second, 512 MiB, 1 GiB live, 128 MiB Node heap and immediate 3 GiB launch guards. It exercises the installed batch/default pin, five scalar edits and real tray Exit in a new owned fixture and leaves the application stopped. Preserve the failed predecessor task and receipt. Retain this task, receipt and logs for exact result reconciliation and later owned cleanup; never replay this command after registration or an uncertain outcome.",
+    "new": "After independent source and ordinary PowerShell 5.1 parser acceptance, verify the exact session-record configured helper, Job helper, installed native pin, both exact CRLF tray module hashes and successful third-installation receipts. Require fresh output, stdout, stderr, receipt and task; the expected logged-in user with Explorer session 1; free port 43972; and 3 GiB available physical memory twice. Use Schedule.Service COM create-only flag 2 and RunEx session flag 4 for one Limited hidden BelowNormal task. Its sole PowerShell host calls the reviewed helper in the same process, preserves its exit code and redirects both PowerShell output streams to new sibling logs, including pre-output failures. The helper keeps its 120-second, 512 MiB, 1 GiB live, 128 MiB Node heap and immediate 3 GiB launch guards. It exercises the installed batch/default pin, five scalar edits and real tray Exit in a new owned fixture and leaves the application stopped. Preserve both failed predecessor tasks, receipts, results and logs. Retain this task, receipt and logs for exact result reconciliation and later owned cleanup; never replay this command after registration or an uncertain outcome."
+  },
+  "command_characters": 7770,
+  "readable_body_inverse": "Remove LF characters from the body to recover the compact text between the unchanged outer -Command quotes."
+}
