@@ -1,0 +1,238 @@
+--- accepted-a137.mjs
++++ checkpoint-only-handoff-crlf-20261127.mjs
+@@ -7,7 +7,7 @@
+ 
+ // Root-only recovery for the observed checkpoint-only CRLF original.
+ // Prior existing-database and LF-only helpers remain immutable and inapplicable.
+-// Imports expose read-only verifiers for disposable cloud qualification.
++// Imports expose verifiers and exact index reconciliation for disposable cloud qualification.
+ export const PIN = Object.freeze({
+   original: 'F:/Dev/bead-rs',
+   isolated: 'F:/Dev/.bead-edit-20261111/coordination-20261124',
+@@ -489,6 +489,81 @@
+   return {...verifyPublicationIndexInternal(before,after,checkpointDirectory,true),original_previous_normalization:{path:'.beads/checkpoint/previous.json',raw:proof.raw_previous_pointer,canonical_git_blob:ORIGINAL_CHECKOUT['current.json'].blob,canonical_sha256:ORIGINAL_CHECKOUT['current.json'].canonical_sha256,canonical_bytes:ORIGINAL_CHECKOUT['current.json'].canonical_bytes,raw_retention_manifest_sha256:digest(originalManifest(true)),canonical_retention_manifest_sha256:proof.canonical_manifest_sha256}};
+ }
+ 
++// Native publication may exceed Windows argv limits while staging its complete
++// path set. Feed verified paths and exact index records through bounded stdin.
++export function reconcileRawCheckpointIndex(before,current,checkpointDirectory,currentFiles,git,output,canonicalOriginalDirectory=null) {
++  assert.equal(before.status,'','Index reconciliation requires a clean checkpoint baseline');
++  for(const key of ['head','checkpoint_tree','entries','index_path'])equal(current[key],before[key],'Staging baseline changed: '+key);
++  const prefix='.beads/checkpoint/',selected=selectedManifest(checkpointDirectory),paths=new Map();
++  const safe=name=>{
++    assert.ok(name.startsWith(prefix),'Unexpected staging path');
++    const relative=name.slice(prefix.length);
++    assert.match(relative,/^[a-z0-9][a-z0-9/.-]*$/);
++    assert.ok(relative.split('/').every(part=>part && part!=='.' && part!=='..'));
++    return relative;
++  };
++  for(const item of current.status.split('\0').filter(Boolean)) {
++    const code=item.slice(0,2),name=item.slice(3),relative=safe(name);
++    assert.equal(item[2],' ');assert.ok([' M','M ','A ','AM','MM','??',' D','D '].includes(code),'Unexpected checkpoint status: '+code);
++    assert.ok(!paths.has(name),'Duplicate checkpoint staging path');
++    const file=path.join(checkpointDirectory,...relative.split('/')),deleted=code.includes('D');
++    if(deleted) {
++      const prior=before.index_entries[name],tree=before.entries[relative];
++      assert.ok(prior && tree && prior.mode==='100644' && tree.mode==='100644');
++      assert.equal(prior.blob,tree.blob,'Deleted checkpoint index differs from retained HEAD');
++      assert.ok(!selected[relative],'Publication deleted a selected checkpoint artifact');
++      assert.equal(fs.existsSync(file),false,'Checkpoint deletion is not already absent');
++      paths.set(name,{path:name,relative,deleted:true,prior_blob:prior.blob});
++    } else {
++      assert.ok(Object.hasOwn(currentFiles,relative) || relative==='previous.json','Pending path is outside verified publication');
++      const data=bytes(file),item={path:name,relative,deleted:false,bytes:data.length,sha256:digest(data),source:file};
++      if(relative==='previous.json' && canonicalOriginalDirectory!==null) {
++        const observed=ORIGINAL_CHECKOUT['current.json'];
++        assert.equal(item.bytes,observed.raw_bytes);assert.equal(item.sha256,observed.raw_sha256);
++        item.source=path.join(canonicalOriginalDirectory,'current.json');
++        assert.equal(ordinary(item.source).size,observed.canonical_bytes);assert.equal(hashFile(item.source),observed.canonical_sha256);
++        item.blob=observed.blob;item.original_previous_normalization=true;
++      } else {
++        if(Object.hasOwn(currentFiles,relative))equal({bytes:item.bytes,sha256:item.sha256},currentFiles[relative],'Verified publication file changed');
++        item.blob=createHash('sha1').update('blob '+data.length+'\0').update(data).digest('hex');
++      }
++      paths.set(name,item);
++    }
++  }
++  assert.ok(paths.size>0 && paths.size<=4096);assert.ok(paths.has(prefix+'current.json') && paths.has(prefix+'previous.json'));
++  for(const name of new Set([...Object.keys(before.index_entries),...Object.keys(current.index_entries)])) {
++    if(canonical(before.index_entries[name])===canonical(current.index_entries[name]))continue;
++    assert.ok(paths.has(name),'Native staging changed an unrequested index path: '+name);
++    if(current.index_entries[name])assert.equal(current.index_entries[name].mode,'100644');
++  }
++  const ordered=[...paths.values()].sort((a,b)=>a.path<b.path?-1:a.path>b.path?1:0);
++  const backup=path.join(output,'checkpoint-index-before-staging.raw');
++  assert.equal(hashFile(current.index_path),current.index_sha256);copy(current.index_path,backup);
++  assert.equal(hashFile(backup),current.index_sha256,'Index backup differs');
++  const input=(name,text)=>{const file=path.join(output,name),fd=fs.openSync(file,'wx');try{fs.writeFileSync(fd,text);fs.fsyncSync(fd);}finally{fs.closeSync(fd);}return file;};
++  const attributes=input('checkpoint-stage-attributes.stdin',ordered.map(item=>item.path+'\0').join(''));
++  const attrs=git(['check-attr','--all','-z','--stdin'],'checkpoint-stage-attributes',attributes).split('\0');
++  assert.equal(attrs.pop(),'');assert.equal(attrs.length%3,0);
++  for(let i=0;i<attrs.length;i+=3)if(['filter','working-tree-encoding','text','eol','ident'].includes(attrs[i+1]))assert.ok(['unset','unspecified'].includes(attrs[i+2]),'Git transformation prevents exact checkpoint staging');
++  const expected={...current.index_entries};
++  for(const item of ordered)if(item.deleted)delete expected[item.path];else expected[item.path]={mode:'100644',blob:item.blob};
++  save(path.join(output,'checkpoint-index-staging-attempt.json'),{status:'started',replay_allowed:false,index_before_stage:current.index_sha256,index_backup:backup,paths:ordered.map(({source,...item})=>item)});
++  const writes=ordered.filter(item=>!item.deleted),objectInput=input('checkpoint-stage-object-paths.stdin',writes.map(item=>{
++    assert.ok(!/[\r\n"\\]/.test(item.source.replaceAll('\\','/')));return item.source.replaceAll('\\','/')+'\n';
++  }).join(''));
++  const blobs=git(['hash-object','-w','--no-filters','--stdin-paths'],'checkpoint-stage-objects',objectInput).trimEnd().split(/\r?\n/);
++  assert.equal(blobs.length,writes.length);
++  for(let i=0;i<writes.length;i++)assert.equal(blobs[i],writes[i].blob,'Git object differs from exact verified bytes');
++  equal(selectedManifest(checkpointDirectory),selected,'Selected checkpoint changed before index staging');
++  for(const item of ordered)if(item.deleted)assert.equal(fs.existsSync(path.join(checkpointDirectory,...item.relative.split('/'))),false);
++  assert.equal(hashFile(current.index_path),current.index_sha256,'Index changed before exact staging');
++  const indexInput=input('checkpoint-stage-index.stdin',ordered.map(item=>(item.deleted?'0 '+'0'.repeat(40):'100644 '+item.blob)+'\t'+item.path+'\0').join(''));
++  git(['update-index','-z','--index-info'],'checkpoint-stage-index',indexInput);
++  equal(selectedManifest(checkpointDirectory),selected,'Index staging changed selected working checkpoint bytes');
++  return {status:'completed',strategy:'bounded stdin with exact raw blobs and index-info',changed_paths:ordered.map(item=>item.path),index_before_stage:current.index_sha256,index_backup_sha256:hashFile(backup),expected_index_entries_sha256:digest(sorted(expected)),working_files_written:false};
++}
++
++
+ async function main() {
+   assert.equal(process.platform,'win32');assert.equal(process.version,'v25.2.1');
+   assert.equal(process.argv.length,5,'Expected request path, exact request hash and absolute deadline milliseconds');
+@@ -548,7 +623,51 @@
+     fs.mkdirSync(PIN.retention);fs.mkdirSync(path.join(PIN.retention,'phases'));
+   }
+   ordinary(PIN.retention,true);ordinary(path.join(PIN.retention,'phases'),true);
+-  const output=path.join(PIN.retention,'phases',phase);fs.mkdirSync(output,{recursive:false});
++  const output=path.join(PIN.retention,'phases',phase);
++  const finalization=request.resume_restore_original||null;
++  let retainedAttempt=null;
++  if(finalization) {
++    assert.equal(phase,'restore-original');
++    assert.equal(request.attestations?.native_restore_succeeded_index_finalization_only,true);
++    const retained=path.join(PIN.retention,'phases','restore-original-v3-retained-before-git-finalization-20261127');
++    assert.equal(path.resolve(finalization.retained_phase),path.resolve(retained));
++    ordinary(output,true);assert.equal(fs.existsSync(retained),false,'Retained native attempt destination must be absent');
++    assert.equal(fs.existsSync(path.join(PIN.retention,'published')),false,'Published retention already exists');
++    for(const name of ['result.json','checkpoint-index-reconciliation.json','authority-transfer-complete.json'])assert.equal(fs.existsSync(path.join(output,name)),false,'Native attempt crossed the reviewed finalization boundary');
++    const required=['request.json','failure.json','original-git-before.json','original-git-after.json','after.json',
++      'restore-original.started.json','restore-original.exit.json','restore-original.stdout','restore-original.stderr',
++      'status.started.json','status.exit.json','status.stdout','status.stderr','inventory.started.json','inventory.exit.json','inventory.stdout','inventory.stderr'];
++    equal(Object.keys(finalization.source_files).sort(),required.sort(),'Finalization source file set differs');
++    for(const name of required) {
++      const item=finalization.source_files[name],file=path.join(output,name);
++      assert.ok(Number.isSafeInteger(item.bytes) && item.bytes>=0 && item.bytes<=MAX_FILE);assert.match(item.sha256,HASH);
++      assert.equal(ordinary(file).size,item.bytes);assert.equal(hashFile(file),item.sha256,'Native attempt evidence changed: '+name);
++    }
++    assert.equal(finalization.source_files['request.json'].sha256,'cea2607f98bd6ce036e3429ed122a20addc9e8f73faf8bac67d3dc941e4c2625');
++    assert.equal(finalization.source_files['failure.json'].sha256,'fe16d6689c1b6bd58fe4430fc3d6b13ddeb54ffd42416179ea9205d3e8d9a1db');
++    const nativeRequest=readJSON(path.join(output,'request.json'));
++    assert.equal(nativeRequest.phase,'restore-original');assert.equal(nativeRequest.helper_sha256,'a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773');
++    assert.equal(nativeRequest.supervisor_sha256,'8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553');
++    equal(nativeRequest.runtime,runtime);equal(nativeRequest.plan,request.plan);equal(nativeRequest.materialization,request.materialization);
++    for(const name of ['preserve','freeze','source-restore'])equal(nativeRequest.prior[name],request.prior[name],'Finalization selected a different source phase');
++    assert.equal(path.resolve(finalization.source_supervisor.path),path.resolve(nativeRequest.supervisor_output,'result.json'));
++    assert.equal(finalization.source_supervisor.sha256,'24a7be22ec3f6fb9b3e745a556c369a4646f05dd1deb23106192760698f8432e');
++    const supervisor=pin(finalization.source_supervisor);
++    assert.equal(supervisor.status,'failed');assert.equal(supervisor.phase,'restore-original');assert.equal(supervisor.driver_exit_code,1);
++    assert.equal(supervisor.input_manifest_sha256,finalization.source_files['request.json'].sha256);
++    assert.equal(supervisor.binary_sha256,runtime.sha256);assert.equal(supervisor.max_total_resident_mib,512);
++    assert.equal(supervisor.node_heap_mib,128);assert.equal(supervisor.node_semi_space_mib,4);
++    assert.ok(supervisor.peak_total_resident_bytes<=512*1024*1024);assert.equal(supervisor.cleanup_assisted,false);
++    equal(supervisor.remaining_job_members,[]);equal(supervisor.cleanup_errors,[]);
++    const failure=readJSON(path.join(output,'failure.json'));assert.equal(failure.status,'failed');assert.equal(failure.phase,'restore-original');assert.equal(failure.replay_allowed,false);
++    assert.match(failure.error,/Checkpoint publication has unstaged, untracked or conflicted changes/);
++    fs.renameSync(output,retained);ordinary(retained,true);
++    for(const name of required)assert.equal(hashFile(path.join(retained,name)),finalization.source_files[name].sha256,'Retained native attempt differs');
++    retainedAttempt={phase_path:retained,source_files:finalization.source_files,source_supervisor:finalization.source_supervisor,
++      native_request_sha256:finalization.source_files['request.json'].sha256,native_helper_sha256:nativeRequest.helper_sha256,
++      operation:'Finalize the completed native restore through exact Git staging and retained publication receipts; no native commands'};
++  }
++  fs.mkdirSync(output,{recursive:false});
+   const write=(name,value)=>save(path.join(output,name),value);
+   const prior=name=>{
+     assert.ok(PHASES.indexOf(name)>=0 && PHASES.indexOf(name)<PHASES.indexOf(phase));
+@@ -574,6 +693,7 @@
+   env.GIT_OPTIONAL_LOCKS='0';
+   env.TEMP=env.TMP=path.join(output,'temp');fs.mkdirSync(env.TEMP);
+   const run=(cwd,args,label,json=true,options={})=>{
++    assert.ok(!finalization || options.git===true,'Native commands are prohibited during completed-restore finalization');
+     const program=options.git?request.git:runtime;
+     checkTime();assert.equal(hashFile(program.path),program.sha256);
+     const started=new Date().toISOString();
+@@ -777,6 +897,61 @@
+     }
+     // Every later phase is downstream of a successful current-source restore.
+     prior('source-restore');
++    if(phase==='restore-original' && finalization) {
++      const nativeFile=name=>{
++        assert.ok(Object.hasOwn(finalization.source_files,name));const file=path.join(retainedAttempt.phase_path,name);
++        assert.equal(hashFile(file),finalization.source_files[name].sha256);return file;
++      };
++      const nativeJSON=name=>readJSON(nativeFile(name));
++      const gitBefore=nativeJSON('original-git-before.json');
++      equal(gitBefore,kept('source-restore','original-git-after.json'),'Retained pre-restore Git state differs');
++      copy(nativeFile('original-git-before.json'),path.join(output,'original-git-before.json'));
++      const preStage=gitState('original-git-before-finalization');
++      equal(preStage,nativeJSON('original-git-after.json'),'Completed native restore Git state changed before finalization');
++      assert.equal(preStage.index_sha256,gitBefore.index_sha256,'The observed failed staging attempt changed the index');
++      const completed=(label,args)=>{
++        const started=nativeJSON(label+'.started.json'),exit=nativeJSON(label+'.exit.json');
++        equal(started.args,args);equal(exit.args,args);assert.equal(started.cwd,PIN.original);assert.equal(exit.cwd,PIN.original);
++        assert.equal(started.executable,runtime.path);assert.equal(started.binary_sha256,runtime.sha256);
++        assert.equal(started.request_sha256,retainedAttempt.native_request_sha256);assert.equal(exit.started,started.started);
++        assert.equal(exit.status,0);assert.equal(exit.signal,null);assert.equal(exit.error,null);
++        const start=Date.parse(started.started),end=Date.parse(exit.ended);assert.ok(Number.isFinite(start) && Number.isFinite(end) && end>=start);
++        return {value:nativeJSON(label+'.stdout'),window:{started_ms:start,finished_ms:end}};
++      };
++      subsetCorpus(kept('preserve','original-corpus.json'),source.corpus);
++      const restored=completed('restore-original',['restore','--source',sourcePath,'--generation',source.pointer.generation_id,'--actor',PIN.actor,'--prefix','beadrs','--format','json']);
++      const report=restored.value;verifyRestoreReport(report,source,PIN.actor);
++      const cp=checkpoint(originalCheckpoint);
++      assert.equal(cp.pointer.generation_id,'gen-e09b2a4118d7bb5f125c5294c0934514');
++      assert.equal(cp.pointer.active_root.sha256,'9b7297fe4c9563612975aad01c517d3080ba78ef4305040da1c79c5e1daa580b');
++      statusAligned(completed('status',['sync','status','--format','json']).value,cp.pointer);
++      const audit=verifyRestoredCorpus(source,cp,report,PIN.actor);
++      assert.notEqual(cp.pointer.generation_id,checkpoint(originalCanonicalPath).pointer.generation_id);
++      const promoted=verifyOriginalRawPromotion(originalCheckpoint,originalRawPath,originalCanonicalPath,gitBefore.entries);
++      const after=await snapshot(originalDB,'after');equal(after,nativeJSON('after.json'),'Completed restored database changed');
++      verifyRestoredDatabase(frozenDB,after,cp,restored.window);
++      const inventory=completed('inventory',['list','--all','--json']).value;verifyPlan(inventory,plan,mapping,baseline);
++      equal(inventoryMap(inventory),inventoryMap(kept('freeze','inventory.json')),'Restored original inventory differs from frozen source');
++      assert.equal(hashFile(originalConfig),preserved.original_hashes.config);assert.equal(hashFile(originalIgnore),preserved.original_hashes.gitignore);
++      freezeCheck();equal(await databaseSnapshot(isolatedDB),frozenDB,'Completed restore finalization changed frozen source');
++      write('native-restore-provenance.json',retainedAttempt);
++      const staging=reconcileRawCheckpointIndex(gitBefore,preStage,originalCheckpoint,cp.files,git,output,originalCanonicalPath);
++      write('checkpoint-index-staging.json',staging);
++      const gitAfter=gitState('original-git-after');assert.equal(digest(gitAfter.index_entries),staging.expected_index_entries_sha256);
++      write('checkpoint-index-reconciliation.json',verifyInitialPublicationIndex(gitBefore,gitAfter,originalCheckpoint,originalRawPath,originalCanonicalPath));
++      equal(await databaseSnapshot(originalDB),after,'Git finalization changed the restored database');
++      const directory=path.join(PIN.retention,'published');fs.mkdirSync(directory);
++      const retained=retainCheckpoint(originalCheckpoint,path.join(directory,'checkpoint'));
++      write('published-corpus.json',cp.corpus);write('published-manifest.json',retained.manifest);write('inventory.json',inventory);
++      write('previous-generation-diagnostic.json',retained.previous_verification);write('restore-audit.json',audit);
++      write('retained-original-generation.json',promoted);
++      write('authority-transfer-complete.json',{authority:PIN.original,isolated:PIN.isolated,isolated_frozen:true,
++        restore_receipt:audit.receipt,restore_event_identity:audit.event_identity,local_sequence:after.local_sequence,checkpoint_published:true,git_publication:'root pending',native_attempt:retainedAttempt.phase_path});
++      finish({authority:PIN.original,generation:cp.pointer.generation_id,root_sha256:cp.pointer.active_root.sha256,
++        checkpoint_path:path.join(directory,'checkpoint'),checkpoint_manifest_sha256:digest(retained.manifest),local_sequence:after.local_sequence,
++        restore_receipt:audit.receipt,restore_event_identity:audit.event_identity,original_raw_current_retained_as_previous:true,original_previous_natively_restorable:false,original_canonical_restore_verified:true,git_publication:'root pending',native_attempt:retainedAttempt.phase_path,native_replayed:false});return;
++    }
++
+     if(phase==='restore-original') {
+       requireAbsentDatabase(path.dirname(originalDB));
+       const gitBefore=gitState('original-git-before',true);
+@@ -813,7 +988,9 @@
+       equal(inventoryMap(inventory),inventoryMap(kept('freeze','inventory.json')),'Restored original inventory differs from frozen source');
+       assert.equal(hashFile(originalConfig),preserved.original_hashes.config);assert.equal(hashFile(originalIgnore),preserved.original_hashes.gitignore);
+       freezeCheck();equal(await databaseSnapshot(isolatedDB),frozenDB,'Original restore changed frozen source');
+-      const gitAfter=gitState('original-git-after');
++      const staging=reconcileRawCheckpointIndex(gitBefore,gitState('original-git-before-staging'),originalCheckpoint,cp.files,git,output,originalCanonicalPath);
++      write('checkpoint-index-staging.json',staging);
++      const gitAfter=gitState('original-git-after');assert.equal(digest(gitAfter.index_entries),staging.expected_index_entries_sha256);
+       write('checkpoint-index-reconciliation.json',verifyInitialPublicationIndex(gitBefore,gitAfter,originalCheckpoint,originalRawPath,originalCanonicalPath));
+       const directory=path.join(PIN.retention,'published');fs.mkdirSync(directory);
+       const retained=retainCheckpoint(originalCheckpoint,path.join(directory,'checkpoint'));
+@@ -865,7 +1042,9 @@
+       const retained=retainCheckpoint(originalCheckpoint,path.join(directory,'checkpoint'));
+       write('published-corpus.json',cp.corpus);write('published-manifest.json',retained.manifest);write('inventory.json',inventory);write('previous-generation-diagnostic.json',retained.previous_verification);
+       assert.equal(hashFile(originalConfig),preserved.original_hashes.config);freezeCheck();
+-      const gitAfter=gitState('original-git-after');
++      const staging=reconcileRawCheckpointIndex(gitBefore,gitState('original-git-before-staging'),originalCheckpoint,cp.files,git,output);
++      write('checkpoint-index-staging.json',staging);
++      const gitAfter=gitState('original-git-after');assert.equal(digest(gitAfter.index_entries),staging.expected_index_entries_sha256);
+       write('checkpoint-index-reconciliation.json',verifyPublicationIndex(gitBefore,gitAfter,originalCheckpoint));
+       finish({authority:PIN.original,generation:cp.pointer.generation_id,root_sha256:cp.pointer.active_root.sha256,checkpoint_path:path.join(directory,'checkpoint'),checkpoint_manifest_sha256:digest(retained.manifest),local_sequence:after.local_sequence,git_publication:'root pending'});return;
+     }

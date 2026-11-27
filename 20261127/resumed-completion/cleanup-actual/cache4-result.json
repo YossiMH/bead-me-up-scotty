@@ -1,0 +1,259 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "started_utc":  "2026-11-27T17:37:35.6673868Z",
+    "input_sha256":  "a53e91d0a1028e01201603dd99fc357712b588bee453890805a6714df85892d7",
+    "expected_cache_count":  4,
+    "expected_identity_count":  19,
+    "removed":  [
+                    {
+                        "path":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-EQDYF7\\windows-tray.ps1",
+                        "directory_absent":  true,
+                        "utc":  "2026-11-27T17:38:13.3706424Z",
+                        "directory":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-EQDYF7",
+                        "run":  "configured-session",
+                        "backup_file":  "01-windows-tray.ps1",
+                        "sha256":  "fc7249848722f4b3fbff6351523a30be5864082288efcca51bd9212867344923",
+                        "bytes":  5042,
+                        "file_absent":  true
+                    },
+                    {
+                        "path":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-0KObLb\\windows-tray-click.ps1",
+                        "directory_absent":  true,
+                        "utc":  "2026-11-27T17:38:13.9813439Z",
+                        "directory":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-0KObLb",
+                        "run":  "configured-session",
+                        "backup_file":  "02-windows-tray-click.ps1",
+                        "sha256":  "4df81d91044d7d615856dc49fc20cee4dff35c4bc4ae81a23b135cbb56d70937",
+                        "bytes":  2405,
+                        "file_absent":  true
+                    },
+                    {
+                        "path":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-LEmh0Z\\windows-tray.ps1",
+                        "directory_absent":  true,
+                        "utc":  "2026-11-27T17:38:14.4432083Z",
+                        "directory":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-LEmh0Z",
+                        "run":  "old-tray-host",
+                        "backup_file":  "03-windows-tray.ps1",
+                        "sha256":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+                        "bytes":  4921,
+                        "file_absent":  true
+                    },
+                    {
+                        "path":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-cPU56F\\windows-tray-click.ps1",
+                        "directory_absent":  true,
+                        "utc":  "2026-11-27T17:38:15.4924732Z",
+                        "directory":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-cPU56F",
+                        "run":  "old-tray-host",
+                        "backup_file":  "04-windows-tray-click.ps1",
+                        "sha256":  "b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9",
+                        "bytes":  2355,
+                        "file_absent":  true
+                    }
+                ],
+    "errors":  [
+
+               ],
+    "replay_allowed":  false,
+    "priority":  "BelowNormal",
+    "baseline_free_required_bytes":  1073741824,
+    "live_free_required_bytes":  1073741824,
+    "max_helper_resident_bytes":  268435456,
+    "work_seconds":  48,
+    "hard_seconds":  60,
+    "sample_interval_ms":  100,
+    "process_actions":  "Read-only handles for the 19 pinned PID/birth identities; the resource timer can exit only this helper.",
+    "retained_inputs":  [
+                            {
+                                "run":  "old-tray-host",
+                                "path":  "F:\\Dev\\.bead-edit-20261111\\tray-host-check-20261127-2889282bfcec\\result.json",
+                                "bytes":  14492,
+                                "sha256":  "0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370"
+                            },
+                            {
+                                "run":  "configured-session",
+                                "path":  "F:\\Dev\\.bead-edit-20261111\\configured-v9-session-20261127-2889282bfcec\\result.json",
+                                "bytes":  11603,
+                                "sha256":  "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358"
+                            }
+                        ],
+    "last_identity_check":  [
+                                {
+                                    "run":  "old-tray-host",
+                                    "wait_result":  0,
+                                    "process_id":  34876,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402346858946862",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "old-tray-host",
+                                    "wait_result":  0,
+                                    "process_id":  49324,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402346859092864",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "old-tray-host",
+                                    "wait_result":  0,
+                                    "process_id":  10920,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402346862601804",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "old-tray-host",
+                                    "wait_result":  0,
+                                    "process_id":  10496,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402346863209348",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "old-tray-host",
+                                    "wait_result":  0,
+                                    "process_id":  52040,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402346863649984",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "old-tray-host",
+                                    "wait_result":  0,
+                                    "process_id":  40220,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402346862670644",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "old-tray-host",
+                                    "wait_result":  0,
+                                    "process_id":  31328,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402346863790754",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "old-tray-host",
+                                    "wait_result":  0,
+                                    "process_id":  7696,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402346872515276",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  27184,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527660566863",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  60460,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527661852904",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  35400,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527661971148",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  63984,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527662219590",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  65328,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527663094904",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  54660,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527663595914",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  21616,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527663758524",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  58328,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527670220714",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  10056,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527677936454",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  40152,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527678055650",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                },
+                                {
+                                    "run":  "configured-session",
+                                    "wait_result":  0,
+                                    "process_id":  57096,
+                                    "observed_birth_filetime":  null,
+                                    "expected_birth_filetime":  "134402527677598413",
+                                    "state":  "absent",
+                                    "open_error":  87
+                                }
+                            ],
+    "all_exact_cache_files_and_directories_absent":  true,
+    "peak_helper_resident_bytes":  144338944,
+    "minimum_free_physical_bytes":  1111961600,
+    "resource_samples":  321,
+    "duration_seconds":  40.728,
+    "finished_utc":  "2026-11-27T17:38:16.5162386Z"
+}

@@ -12,7 +12,11 @@ The third restore-original attempt completed the native restore, status, and inv
 
 The completed native state must be finalized without repeating native mutation. Retain the failed v3 phase directory under an exact new sibling, preserve its supervisor directory, and create a fresh canonical restore-original receipt directory through a reviewed explicit resume/finalizer mode. Verify the pinned successful native outputs/current state, stage only the exact checkpoint delta with the established raw/canonical rules, and complete the existing retention/audit/result tail. The promoted previous.json keeps its 920 working bytes while using the original canonical current-pointer Git blob `fb204445a6a7b15f494b189839dddde2b84b139f`; every other changed entry uses exact working bytes. Do not weaken the staged-only verifier or claim authority transfer before its result is accepted.
 
-The operational driver also needs the same exact staging step in final-publish. The accepted a137 driver has no reconciliation helper and currently assumes native staging. Its native environment already explicitly prepends the verified Git cmd directory; missing Git PATH is not an established diagnosis. A bounded read-only diagnostic collection is gathering exact status and native stderr. Author: finish_preparation; native contract analysis: review_bead_rs; independent source review: review_scotty.
+The observed cause is Windows argument-length error 206 in native automatic Git staging. The exact v3 status contains 397 unique checkpoint paths: 2 modified pointers, 49 already-absent historical objects, and 346 new set files. The completed native state remains intact.
+
+The explicit finalizer and final-publish staging correction are now independently accepted in `resumed-completion/git-finalization`. History helper is `2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b` (101,801 bytes); memory supervisor stays `8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553`. The concrete finalization request is `f66e608680bf463486c28a30d24fb8cb140b66211c8a74742d07a44cd99e7151` (8,186 bytes), with all 17 retained-file pins matched to a fresh read-only observation. The new supervisor output is `checkpoint-only-supervision-restore-original-finalization-20261127-v1`; the old v3 supervisor stays intact. The successor publisher pair is `74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7` / `08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9`, binding the new helper under `checkpoint-only-inputs/git-finalization`.
+
+Independent review `git-finalization-source-request-independent-review.json` is 11,327 bytes/SHA-256 `2029d549b743a0476e9aea05a5033bb34bd29a2e555a9eed3d536c8349a067d1`. Focused real-Git fixtures passed the 397-path initial and seven-path subsequent publication, the unchanged verifiers, and three pre-mutation rejection cases; maximum Git argv was 263 bytes. Root is publishing and staging the exact five-file packet before one admitted finalizer invocation. No actual finalizer success is claimed yet. After acceptance, the ordinary restore verification request must use the successor helper/supervisor and remove the finalizer-only resume field/attestation.
 
 Evidence: `resumed-completion/restore-original-v3-execution.json`, `restore-original-v3-supervisor-stdout.json`, redacted `restore-original-v3-probe-public.json`, and `restore-original-v3-index-boundary-analysis.json`. Probe configuration bodies are omitted. Original failed phase/result absence and unstaged state are recorded accurately.
 
@@ -24,7 +28,7 @@ The earlier two interrupted partial restores and their independently accepted pr
 - `interrupted-restore-original-20261127-155752`
 - `interrupted-restore-original-20261127-165019`
 
-Preserve both packages, their receipts, original/frozen sources, configuration/index copies, and the successful v3 database/checkpoint. Never replay consumed or uncertain administrator actions. The fixed4 diagnostic proposal `uEVxjqGk1SXQWHP2IxXC2lSAKHAn5Jac7wtzZqQPPf0` returned an internal uncertainty error and remains reserved; do not replay it. A later diagnostic preparation timed out before execution and a distinct fixed5 read-only proposal is now being observed by root.
+Preserve both packages, their receipts, original/frozen sources, configuration/index copies, and the successful v3 database/checkpoint. Never replay consumed or uncertain administrator actions. The fixed4 diagnostic proposal `uEVxjqGk1SXQWHP2IxXC2lSAKHAn5Jac7wtzZqQPPf0` returned an internal uncertainty error and remains reserved; do not replay it. The distinct fixed5 diagnostic collection completed successfully; both exact compressed chunks and the 17-file hash-only observation are retained in this handoff.
 
 ## Remaining completion sequence
 
@@ -32,9 +36,11 @@ The preserve, freeze, and source-restore phases are accepted. The frozen source 
 
 Complete and review the explicit Git finalizer; run the existing restore verification phase; publish the initial native checkpoint; finish exact owned cleanup and archive/ref work; then close, final-publish, final-restore, final native checkpoint publication, and final documentation adoption. Carry the pre-close revision and identical reason into final-publish. Do not mutate the original native store or Git state between close, final-publish, and final-restore.
 
-Both exact cleanup helpers and requests are already staged, parsed, and independently reviewed, but unexecuted:
-- 23 exact scheduled registrations, with XML backups, zero-instance checks, immediate identity recheck.
-- Four exact failed tray cache directories, with process/birth checks and file backups. Preserve shared cache roots and runtime files.
+Both exact cleanup operations have now passed, with independent actual review in progress:
+- All 23 exact scheduled registrations were removed and verified absent after idle/identity checks; XML backups and mutation receipts are retained. Raw result: 20,911 bytes/SHA-256 `7449491acde5d69accb3514c223a9fc85b6c2e60008748da236ee5d0e806329b`.
+- All four exact failed tray cache files and their empty directories were removed after process/birth checks; original cache bytes are backed up and shared roots/runtime files remain. Raw result: 14,813 bytes/SHA-256 `f85fad89f0a8c06ebd29284b056858bd3e1e1d054e659e974dd5525bc2ead654`.
+
+Their exact raw results are under `resumed-completion/cleanup-actual`. Never replay either cleanup invocation.
 
 The request hashes remain cleanup23 `47dbdf86148f2852376aa73dc45bffdaa23df86fbcd9eabddb26eae73177671d` and cache4 `a53e91d0a1028e01201603dd99fc357712b588bee453890805a6714df85892d7`. Source hashes and exact invocation preparations are in `resumed-completion/cleanup-preparation`. Root owns these names until sequential cleanup settles.
 

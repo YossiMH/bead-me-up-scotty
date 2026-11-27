@@ -1,0 +1,54 @@
+{
+  "schema_version": 1,
+  "status": "author_inspections_passed_pending_independent_acceptance",
+  "author": "/root/finish_preparation",
+  "helper": {
+    "bytes": 101801,
+    "sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+    "baseline_sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773"
+  },
+  "observed_cause": {
+    "native_restore": "successful and durable",
+    "automatic_git_staging": "Windows os error206: filename or extension too long",
+    "unstaged_paths": 397,
+    "new_files": 346,
+    "modified_pointers": 2,
+    "already_absent_historical_objects": 49,
+    "source_supervisor_sha256": "24a7be22ec3f6fb9b3e745a556c369a4646f05dd1deb23106192760698f8432e"
+  },
+  "author_inspection_1": {
+    "status": "passed",
+    "focus": "Exact staging ownership and preservation",
+    "findings": [],
+    "checks": [
+      "The complete a137 source is recovered byte for byte by undoing only the declared fragments, comment, run prohibition and two staging hooks. All existing corpus, database, raw-promotion and strict index validators remain unchanged.",
+      "Initial positive paths must belong to the validated current closure or previous.json. Deletions must already be absent, match pre-publication HEAD/index entries, and fall outside the current/previous selected closure. No working deletion or write is performed.",
+      "The raw current index is retained before any index change. hash-object --no-filters --stdin-paths and update-index -z --index-info carry exact path data through bounded stdin. Unrelated entries are preserved and complete expected index entries are checked afterwards.",
+      "Only the exact preserved raw previous pointer may use the exact canonical original-current Git blob. Every other staged positive entry uses exact working bytes."
+    ]
+  },
+  "author_inspection_2": {
+    "status": "passed",
+    "focus": "Native-attempt finalization, request and consumer coherence",
+    "findings": [],
+    "checks": [
+      "The whole failed v3 phase is renamed to one exact absent sibling after all17 file pins, v3 request/helper/failure and raw supervisor identity/ownership checks. The old supervisor output remains untouched.",
+      "The fresh canonical phase carries the new helper/request and explicit retained-native provenance. Its execution path prohibits all native children, reuses pinned completed reports, and rechecks full current database/checkpoint/source/inventory invariants.",
+      "The supplied source-files map exactly equals the root read-only17-file observation; the raw supervisor10541-byte file has the expected24a7be22 hash.",
+      "The history supervisor remains byte-identical8bd43e; both publisher successors invert exactly to7db314/596abe after only the history path and hash substitutions. Completed publication and later verification phases use the same successor helper.",
+      "The request inverses exactly to the accepted v3 request after removing the explicit finalization object/attestation and reverting only helper hash and supervisor output. Admission retains the accepted resource bounds and changes only fixed path/name/hash data."
+    ]
+  },
+  "focused_qualification": {
+    "status": "passed",
+    "result_sha256": "7494bff0ae55e63ce4e000e7899261fa890a49dec56096cbf917949c7f71db0a",
+    "source_sha256": "cabbef892b8f07dcd75ef7443f421a7af8d2c223587162d10eb065930c104b22",
+    "runtime": "Node25.2.1; Git2.56.1 on Linux",
+    "initial_paths": 397,
+    "subsequent_publication_paths": 7,
+    "pre_mutation_rejections": 3,
+    "maximum_git_argv_bytes": 263,
+    "scope": "Real Git object/index/status operations use the exact original checkpoint tree metadata and the already-existing synthetic continuation checkpoint. Historical deleted blobs are omitted; accepted clean pre-publication status is a supplied prerequisite. This does not claim a Windows finalizer execution."
+  },
+  "resource_contract": "Existing512MiB aggregate,128MiB old space,4MiB semi-space,3.5GiB outer admission,3GiB supervisor start,1GiB live floor,180s internal deadline retained. No additional memory benchmark or product test was run."
+}
