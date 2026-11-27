@@ -1,0 +1,156 @@
+{
+  "schema_version": 1,
+  "reviewer": "delivery_audit",
+  "review_kind": "independent_source_and_binding_review",
+  "status": "pass",
+  "task_key": "type-install-binding-review",
+  "scope": "The frozen bounded installer supervisor, its complete README and author inspections, compared with the accepted archive supervisor, final installation binding and unchanged installer/stager contracts.",
+  "files": [
+    {
+      "path": "20261127/installation-execution/windows-install-supervisor-20261127.ps1",
+      "bytes": 23753,
+      "sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751"
+    },
+    {
+      "path": "20261127/installation-execution/README.md",
+      "bytes": 9387,
+      "sha256": "2a8389b112839f76b1d39311c9e94b3a8424c740e9d7499163dda745f7fb9867"
+    },
+    {
+      "path": "20261127/installation-execution/author-inspections.json",
+      "bytes": 5896,
+      "sha256": "6565cb9a932024e28371d25c15d310f6c81d5673e71e275a62717f771ad1589c"
+    }
+  ],
+  "independently_verified_baselines": {
+    "archive_supervisor": {
+      "commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+      "path": "20261125/revision-9/artifact-stage/stage-artifacts-supervisor-20261125.ps1",
+      "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb"
+    },
+    "powershell51_archive_supervisor": {
+      "path": "stage-artifacts-supervisor-20261127.ps1",
+      "sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d"
+    },
+    "unchanged_installer": {
+      "commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
+      "path": "20261125/revision-9/install-binding/windows-install-tray-host-20261125.ps1",
+      "bytes": 34632,
+      "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+      "complete_source_read": true,
+      "local_copy_matches_immutable_git_blob": true
+    },
+    "stager": {
+      "commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+      "path": "20261125/revision-9/artifact-stage/stage-artifacts-20261125.ps1",
+      "sha256": "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+      "consumed_receipt_fields_compared_with_producer": true
+    },
+    "final_binding": {
+      "path": "20261125/revision-9/final-installation/binding.json",
+      "fixed_sources_runtime_native_inputs_and_destinations_compared": true
+    }
+  },
+  "mechanical_comparison": {
+    "unchanged_functions": [
+      "Assert-That",
+      "Hash",
+      "Task-Path",
+      "Safe-Path",
+      "Quote-Argument",
+      "Refresh-Owned",
+      "Stop-Owned"
+    ],
+    "sample_budget_equal_except_two_error_messages": true,
+    "removed_unused_function": "Hash-Bytes",
+    "embedded_job_declaration_byte_identical": true,
+    "complete_finally_block_identical_except_uint64_sentinel": true,
+    "powershell_uint64_sentinel_references": 2,
+    "powershell_ulong_alias_references": 0
+  },
+  "fixed_binding": {
+    "source_commits": {
+      "scotty": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+      "backend": "2d801ba455b7a722daf644a7615445117d57e8e9"
+    },
+    "delivery_directory": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151",
+    "stage_directory": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151",
+    "installation_directory": "F:\\Dev\\.bead-edit-20261111\\install-v9-final-20261125-1151",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "preservation_manifest_sha256": "70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362",
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "runtime_expanded_bytes": 27426391,
+    "native_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "native_metadata_sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5",
+    "stage_request_sha256": "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9"
+  },
+  "reviewed_behavior": [
+    {
+      "area": "Exact staging acceptance",
+      "conclusion": "Root supplies the independently accepted raw hashes of the actual stage result and its supervisor result. The wrapper verifies those bytes, producer/helper hashes, request, source identities, runtime count/size/build, all five installer inputs, successful exit, normal cleanup and resource limits before creating installation evidence. The consumed field names match the existing producers."
+    },
+    {
+      "area": "Immutable installer and repeated input checks",
+      "conclusion": "The wrapper invokes the accepted installer without changing its bytes. It verifies the original and sibling Job helpers, preservation manifest, runtime manifest, native executable and provenance at preparation, immediately before launch and after success. StageNextDirectory is deliberately not treated as a retained file because the installer moves that directory into the installed runtime location."
+    },
+    {
+      "area": "Port arguments and command construction",
+      "conclusion": "ScottyPorts is mandatory, bounded to valid integers and required to contain unique values. The generated command uses a literal PowerShell integer array; all other interpolated arguments are fixed accepted paths or hexadecimal source/hash values. This preserves a multi-port inventory through the single child PowerShell invocation. The literal invocation and hash are retained before startup. Root must derive the values from fresh PC observations."
+    },
+    {
+      "area": "Process ownership and nested Jobs",
+      "conclusion": "A separate child process allows the unchanged installer to initialize its own static Job helper. The outer accepted Job enumeration accounts for its descendants, including processes in nested child Jobs. Retained process handles, session checks, priority handling, kill-on-close ownership and cleanup are unchanged. No additional application or browser process is introduced by the wrapper."
+    },
+    {
+      "area": "Resource controls",
+      "conclusion": "The supervisor requires 3 GiB available at baseline and immediately before installer launch. Its accepted sampler retains the live 1 GiB floor, aggregate 512 MiB resident bound including the supervisor, 100-millisecond interval and 168-second work deadline. The unchanged timer limits the invocation to 180 seconds; the existing cleanup reserve and assisted-cleanup failure rules remain. The child retains the installer's 45-second command bound."
+    },
+    {
+      "area": "Mutation and publication boundary",
+      "conclusion": "The unchanged installer performs its existing source/index/baseline preservation checks, records mutation phases, adopts the preserved 15-file source baseline, fast-forwards both sources, swaps the qualified runtime, copies/selects the exact native pin and performs both ordinary main pushes. The wrapper retains that complete behavior and leaves task/tray prerequisite acceptance and source-object availability with root before invocation."
+    },
+    {
+      "area": "Interrupted installation",
+      "conclusion": "Both installation and supervisor output directories must be absent. Any later failure preserves output, literal invocation, installer phase records, original source/index/environment backups and previous runtime. A timeout or memory refusal cannot become success, and there is no automatic replay or source/index rollback. Root must inspect the retained mutation phase before attempting any continuation."
+    },
+    {
+      "area": "Success binding",
+      "conclusion": "The wrapper requires child exit zero and an actual passed/stopped installation receipt, checks both requested/final source heads, selected native pin and bytes, installed BUILD_ID, original helper and consumed input hashes, then records the installation-result hash. Final cleanup can still revoke pass for assisted termination, remaining members, stream errors, elapsed-time excess or a recorded aggregate peak above the limit."
+    },
+    {
+      "area": "Documentation and author records",
+      "conclusion": "The complete README accurately distinguishes root's current observations from fixed accepted inputs, explains the installer's normal main pushes, describes bounded source-object retrieval as a separate operation when needed, preserves existing origin mappings and records cleanup obligations. Its source-derived default/explicit port and next-50-port behavior matches the accepted CLI. Both complete clean author inspections bind the frozen files and leave exact Windows parsing and execution pending."
+    }
+  ],
+  "primary_platform_reference": {
+    "url": "https://learn.microsoft.com/en-us/windows/win32/api/winnt/ns-winnt-jobobject_basic_process_id_list",
+    "read_for_this_review": true,
+    "supported_claim": "The process-ID list of a nested Job includes the processes associated with that Job and its child Jobs."
+  },
+  "findings": [],
+  "decision": "Pass for publication and exact Windows PowerShell 5.1 parsing. Root may execute the reviewed supervisor once after accepting its actual staging receipts, tray/task prerequisites and fresh PC preflight.",
+  "runtime_acceptance": {
+    "status": "pending",
+    "required_inputs_from_root": [
+      "Accepted raw SHA-256 values of the actual stage and stage-supervisor receipts.",
+      "Fresh observed unique Scotty port inventory and verified source/process/preservation baselines.",
+      "Required local Git objects and ancestry, with both local and user-fork main still at the preinstallation baselines.",
+      "Absent installation and supervisor output directories and sufficient current memory."
+    ],
+    "required_result": "Exact-file parser acceptance, connector/child exits zero, supervisor and installer passed, exact source/runtime/native receipt identities, no assisted cleanup/errors/remaining owned processes, followed by independent actual review.",
+    "installation_or_publication_success_claimed": false
+  },
+  "review_method": {
+    "complete_supervisor_read": true,
+    "complete_readme_and_author_record_read": true,
+    "complete_accepted_installer_read": true,
+    "immutable_git_objects_read_with_lazy_fetch_disabled": true,
+    "local_hash_and_static_source_comparisons_only": true,
+    "product_or_accepted_helper_edits": 0,
+    "product_tests_or_builds": 0,
+    "pc_calls": 0,
+    "task_state_writes": 0
+  }
+}

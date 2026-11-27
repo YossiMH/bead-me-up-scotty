@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "candidate_prepared",
+  "author": "/root/backend_audit",
+  "task_key": "type-install-binding",
+  "files": {
+    "README.md": {
+      "sha256": "2a8389b112839f76b1d39311c9e94b3a8424c740e9d7499163dda745f7fb9867",
+      "bytes": 9387
+    },
+    "windows-install-supervisor-20261127.ps1": {
+      "sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751",
+      "bytes": 23753
+    }
+  },
+  "base_commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+  "worktree": "/tmp/beads-2889282bfcec/closure-v9",
+  "branch": "task/closure-v9-20261127",
+  "original_supervisor": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+    "path": "20261125/revision-9/artifact-stage/stage-artifacts-supervisor-20261125.ps1",
+    "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb"
+  },
+  "unchanged_installer": {
+    "path": "20261125/revision-9/install-binding/windows-install-tray-host-20261125.ps1",
+    "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0"
+  },
+  "static_checks": {
+    "unchanged_functions": [
+      "Assert-That",
+      "Hash",
+      "Task-Path",
+      "Safe-Path",
+      "Quote-Argument",
+      "Refresh-Owned",
+      "Stop-Owned"
+    ],
+    "sampler_changes": "Only installation-specific error text; resident/time/live-free behavior remains exact.",
+    "embedded_declaration": "byte-identical",
+    "complete_finally_block": "Byte-identical except the final minimum-memory sentinel uses the Windows PowerShell 5.1 uint64 name.",
+    "fixed_sources_paths_hashes": "Matched against complete accepted final-installation binding and original installer/stager source.",
+    "git_diff_cached_check": 0,
+    "powershell_legacy_ulong_references": 0,
+    "powershell_uint64_sentinel_references": 2,
+    "new_product_tests": 0,
+    "new_builds": 0,
+    "pc_calls": 0,
+    "native_state_writes": 0
+  },
+  "behavior": [
+    "One hidden child PowerShell process invokes the byte-identical accepted installer. Separate runtimes preserve both existing Job helpers without a duplicate static Enter call.",
+    "Require accepted actual stage and stage-supervisor result hashes and reconcile their success, helper/source/runtime/input identities, process cleanup and resource limits before creating installation outputs.",
+    "Hash all fixed inputs before preparation, immediately before child start and after success. Verify both original and sibling Job helper identities.",
+    "Require baseline and immediate 3 GiB free RAM, live 1 GiB free RAM, 512 MiB total owned resident memory, 168-second work stop and 180-second hard deadline with existing owned cleanup.",
+    "Require new installer and supervisor directories, retain the literal child invocation and command/phase results, and fail on assisted or incomplete cleanup.",
+    "Transmit the unique observed integer ports as a literal PowerShell array using an encoded command; all other interpolated values are fixed accepted identities.",
+    "Bind success to the actual installation-result hash, both requested/final source heads, final installed native pin/hash, runtime BUILD_ID and original input hashes.",
+    "Keep source fetch, prior task/tray acceptance and fresh observed port inventory as root-owned prerequisites. Run the already monitored configured-launch helper directly afterward."
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean",
+      "revision": "Both final files at the hashes above.",
+      "checks": "Read complete final supervisor and README against the original archive supervisor, complete immutable installer, stager output construction and final installation binding. Traced every fixed path/hash, two actual receipt hashes, exact five stage inputs, mandatory observed ports, new output refusal, retained invocation, nested process Jobs, memory/time/cleanup limits and successful-result conditions. Reconciled every consumed receipt field with its actual producer source and all source/pin/runtime values with the accepted final binding."
+    },
+    {
+      "pass": 2,
+      "result": "clean",
+      "revision": "The same two final file hashes.",
+      "checks": "Repeated complete code and prose inspection after removing the unused hash helper and arbitrary port-count restriction and correcting the nested-Job documentation. Examined failure-before-start, mid-install interruption and post-result failure paths; retained original phase/rollback semantics; checked literal integer-array transport and absence of a third PowerShell host or product launch. Reconfirmed unchanged inherited process/declaration/finally code, PS5.1 uint64 spelling, no speculative mode or new dependency, exact source-object/port prerequisites, explicit parser gap and future-agent Riftri cleanup."
+    }
+  ],
+  "maintainer_postprocess_read_after_checks": true,
+  "required_before_execution": [
+    "Independent complete static review.",
+    "Ordinary Windows PowerShell 5.1 parser check of the exact staged supervisor.",
+    "Accepted actual stage/supervisor receipts and their original byte hashes.",
+    "Accepted task/tray prerequisites, exact local Git objects/baselines and fresh observed port inventory."
+  ],
+  "powershell_runtime_status": "No PowerShell runtime is available in this cloud environment; no new parser, declaration compilation, Windows test or actual installation result is claimed. The embedded declaration is unchanged from its accepted compiled source.",
+  "publication": "Root owns publication to the existing permitted transfer branch after review; no push or main update by this author.",
+  "cleanup": "After exact publication and completed use, remove the clean /tmp/beads-2889282bfcec/closure-v9 worktree through Riftri. If this process ends early, a future agent must reconcile unpublished changes and finish cleanup."
+}
