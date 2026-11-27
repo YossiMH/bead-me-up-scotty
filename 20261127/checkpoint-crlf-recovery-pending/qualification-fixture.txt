@@ -1,0 +1,39 @@
+  const target=makeWorkspace('checkpoint-only-original'),targetCheckpoint=path.join(target,'.beads/checkpoint');
+  git(target,['init','--quiet'],'target-git-init');git(target,['config','user.name','Checkpoint qualification'],'target-git-name');git(target,['config','user.email','checkpoint-qualification@example.invalid'],'target-git-email');
+  git(target,['config','core.autocrlf','true'],'target-git-autocrlf');
+  const objectDirectory=fs.realpathSync(path.join(repository,'.git/objects'));assert.ok(fs.statSync(objectDirectory).isDirectory());
+  fs.writeFileSync(path.join(target,'.git/objects/info/alternates'),objectDirectory+'\n',{flag:'wx'});
+  fs.writeFileSync(path.join(target,'.beads/.gitignore'),'beads.db*\ncheckpoint/publish.lock\n');
+  fs.writeFileSync(path.join(target,'unrelated.txt'),'Unrelated Git entry must survive native recovery.\n');
+  git(target,['add','--','.beads/config.json','.beads/.gitignore','unrelated.txt'],'target-git-add-unrelated');
+  // Reuse the exact complete original checkpoint tree without checking out or
+  // building unrelated product source. All 53 immutable blobs are present.
+  git(target,['read-tree','--prefix=.beads/checkpoint/',PIN.originalCheckpointTree],'target-read-original-tree');
+  git(target,['checkout-index','--all','--force'],'target-checkout-original-tree');
+  git(target,['commit','--quiet','-m','Preserve exact original checkpoint fixture'],'target-git-commit');
+  const gitBefore=indexState(target,'before');assert.equal(gitBefore.checkpoint_tree,PIN.originalCheckpointTree);
+  assert.equal(Object.keys(gitBefore.entries).length,53);fs.copyFileSync(gitBefore.index_path,path.join(output,'original-index'));
+  const gitConfigHash=hash(path.join(target,'.git/config')),rawManifest=verifyOriginalCheckout(targetCheckpoint);
+  const rawRetained=path.join(output,'original-raw-retained'),canonicalRetained=path.join(output,'original-canonical-retained');
+  fs.mkdirSync(rawRetained);fs.mkdirSync(canonicalRetained);let selectedNumber=0;
+  for(const [relative,item] of Object.entries(ORIGINAL_CHECKOUT)){
+    const rawFile=path.join(rawRetained,relative),canonicalFile=path.join(canonicalRetained,relative);
+    fs.mkdirSync(path.dirname(rawFile),{recursive:true});fs.mkdirSync(path.dirname(canonicalFile),{recursive:true});
+    fs.copyFileSync(path.join(targetCheckpoint,relative),rawFile);
+    const label='canonical-blob-'+(++selectedNumber);git(target,['cat-file','blob',item.blob],label);fs.copyFileSync(path.join(output,label+'.stdout'),canonicalFile);
+  }
+  save('original-retention-proof.json',verifyOriginalRetention(rawRetained,canonicalRetained,gitBefore.entries));
+  {
+    let canonicalOriginal=checkpoint(canonicalRetained);equal(canonicalOriginal,originalBefore);
+    let canonicalPrevious=checkpoint(canonicalRetained,'previous.json');save('canonical-previous.json',{pointer:canonicalPrevious.pointer,files:canonicalPrevious.files});canonicalPrevious=null;
+    const rejectedTarget=makeWorkspace('raw-original-refusal');
+    const rawError=run(rejectedTarget,['restore','--source',rawRetained,'--generation',PIN.originalGeneration,'--actor',PIN.restoreActor,'--prefix','beadrs','--format','json'],'raw-original-restore-refused',{json:false,expectFailure:true});
+    assert.match(rawError,/hash|checksum|digest|content.addressed/i);requireAbsentDatabase(path.join(rejectedTarget,'.beads'));
+    const canonicalTarget=makeWorkspace('canonical-original-restore-check');
+    const canonicalRestoration=nativeRestore(canonicalTarget,canonicalRetained,canonicalOriginal,PIN.restoreActor,'canonical-original-restore');
+    let canonicalRestored=checkpoint(path.join(canonicalTarget,'.beads/checkpoint'));
+    save('canonical-original-audit.json',verifyRestoredCorpus(canonicalOriginal,canonicalRestored,canonicalRestoration.report,PIN.restoreActor));
+    aligned(canonicalTarget,canonicalRestored,'canonical-original-status');
+    canonicalOriginal=null;canonicalRestored=null;
+  }
+  equal(verifyOriginalCheckout(targetCheckpoint),rawManifest);equal(indexState(target,'after-canonical-check'),gitBefore);assert.equal(hash(path.join(target,'.git/config')),gitConfigHash);

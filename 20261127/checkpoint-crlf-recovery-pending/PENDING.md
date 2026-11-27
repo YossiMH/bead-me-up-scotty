@@ -1,0 +1,5 @@
+# CRLF recovery candidate
+
+These recovered helper sources are unfinished. Qualification and independent review are pending. They are not authorization to execute any Windows history or Git mutation. The existing installed product source remains app 0309539797fd7d016e2b8fd8bdc0ae9cefc20219 and native 2d801ba455b7a722daf644a7615445117d57e8e9.
+
+The cloud executor restarted again after the earlier continuation was recovered. The previous temporary continuation and unpublished app draft are absent in the new environment; no explicit removal is claimed. Root recovered the published transfer tip 717667dd46d5d27cb6708120429927bbadd57b5e into /tmp/beads-2889282bfcec/scotty and created /tmp/beads-2889282bfcec/continuation through Riftri. Future agents must publish any new files and remove that worktree with Riftri when finished or after an interrupted process. The native fixture clone is /tmp/beads-2889282bfcec/native. Retain PC backups and coordination/history inputs until the final handoff is complete.

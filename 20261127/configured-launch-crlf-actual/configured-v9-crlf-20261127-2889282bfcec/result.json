@@ -1,0 +1,80 @@
+{
+    "schema_version":  1,
+    "status":  "failed",
+    "started_utc":  "2026-11-27T10:47:04.4957523Z",
+    "repository":  "F:\\Dev\\bead-me-up-scotty",
+    "port":  43972,
+    "priority":  "BelowNormal",
+    "node_heap_mib":  128,
+    "timeout_seconds":  120,
+    "owned_resident_limit_mib":  512,
+    "interactive_session_id":  1,
+    "commands":  [
+
+                 ],
+    "requests":  [
+
+                 ],
+    "cleanup":  "owned handles stopped where possible; the dedicated PowerShell Job reclaims any unobserved descendants on this process exit",
+    "explorer_process_ids":  [
+                                 8504
+                             ],
+    "node_executable":  "C:\\Program Files\\nodejs\\node.exe",
+    "source_sha256":  {
+                          "F:\\Dev\\bead-me-up-scotty\\.env.local":  "f9987d51bd7cf55417d085ec400e56b2cc338a523d4bbf45b908a55dde066cb0",
+                          "F:\\Dev\\bead-me-up-scotty\\scripts\\fixtures\\windows-tray-observer.mjs":  "1d05437e77c42ccf33d700a193d201ce64b63385a20732f466b5ada3128b358c",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray.ps1":  "fc7249848722f4b3fbff6351523a30be5864082288efcca51bd9212867344923",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray.mjs":  "8ae12c3708ed9b1fda8b3f919605a22adccec8c406d9114fb0733a2314158396",
+                          "F:\\Dev\\bead-me-up-scotty\\launch-scotty.bat":  "a343db89360e1bd922da36bd921b17419fc10837e49c6d916ca72f83032004e8",
+                          "F:\\Dev\\bead-me-up-scotty\\scripts\\fixtures\\windows-tray-click.ps1":  "4df81d91044d7d615856dc49fc20cee4dff35c4bc4ae81a23b135cbb56d70937",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\bead-me-up-scotty.mjs":  "f8bbeef1741d6560fc64f6fcf22351b3d22bd580693ce63cbb5e7e5f70817f7c",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray-host.mjs":  "4775f6ed906e042da3ca0bf7995b2d52658b8e70dfbfcb884088e15f95b99ec9",
+                          "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-task-job.ps1":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+                      },
+    "configured_pin":  "F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-0431a828bf95.exe",
+    "binary_sha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "build_id":  "YIOHeRJTEdlOszyc4LyHr",
+    "job_initial_members":  [
+                                61248
+                            ],
+    "job_accounting":  "All members of the exact retained Job at each sample, including console hosts and short native children; PID, birth and process handle retained.",
+    "hard_deadline_exit_code":  124,
+    "minimum_observed_free_physical_bytes":  4103970816,
+    "error":  "Owned fixture-cli is outside the interactive Explorer session.",
+    "remaining_job_members":  [
+
+                              ],
+    "port_free":  true,
+    "peak_owned_resident_bytes":  128475136,
+    "processes":  [
+                      {
+                          "kind":  "fixture-cli",
+                          "pid":  45124,
+                          "started_utc":  "2026-11-27T10:47:05.3322259Z",
+                          "session_id":  null,
+                          "exit_code":  0
+                      }
+                  ],
+    "job_measurements":  {
+                             "samples":  2,
+                             "peak_resident_bytes":  131555328,
+                             "peak_member_count":  1,
+                             "budget_exceeded":  false,
+                             "cleanup_assisted":  false
+                         },
+    "job_processes":  [
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  0,
+                              "birth_filetime":  134402500253322259,
+                              "process_id":  45124,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T10:47:05.3322259Z",
+                              "image":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+                          }
+                      ],
+    "cleanup_errors":  [
+
+                       ],
+    "completed_utc":  "2026-11-27T10:47:05.5389705Z"
+}

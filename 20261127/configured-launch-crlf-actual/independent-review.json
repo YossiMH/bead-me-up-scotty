@@ -1,0 +1,132 @@
+{
+  "schema_version": 1,
+  "review_status": "passed",
+  "configured_execution_status": "failed",
+  "configured_acceptance": false,
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T10:57:42.971326+00:00",
+  "scope": "Independent reconciliation of the second configured-launch attempt and source-local process identity failure; this is not configured task acceptance.",
+  "helper": {
+    "path": "20261127/configured-launch-crlf/windows-configured-launch-host-crlf-20261127.ps1",
+    "commit": "717667dd46d5d27cb6708120429927bbadd57b5e",
+    "bytes": 48944,
+    "sha256": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880"
+  },
+  "inputs": {
+    "parse-execution.json": {
+      "bytes": 1979,
+      "sha256": "a81fdc3990c912d11fa4ef4d1d470353fbf8c4bd82a02938f4faa75272d6909f"
+    },
+    "configured-v9-crlf-20261127-2889282bfcec.stdout.log": {
+      "bytes": 8814,
+      "sha256": "0b78fa196dd53d92437a435f6fea87ee3baed9c3282c733a8465a5c53cd71f6b"
+    },
+    "execution-execution.json": {
+      "bytes": 24065,
+      "sha256": "1c553bde4cec65407c150836d1b4870bf95547bf67fdc653f612d323436996ed"
+    },
+    "configured-v9-crlf-20261127-2889282bfcec.stderr.log": {
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    "configured-task-crlf-20261127-2889282bfcec.json": {
+      "bytes": 3868,
+      "sha256": "dca8d968ad1df097eb56baf80bede0c1453894974a6cdea4b4f6b29f9d5164e6"
+    },
+    "staging-execution.json": {
+      "bytes": 1400,
+      "sha256": "7d6a618580e97c991fee21de9251c11a6a044b047fadb203052d5d3c3f11a05f"
+    },
+    "launch-execution.json": {
+      "bytes": 3763,
+      "sha256": "cb783cefb31168685d5216369d277aa777845b223d57f0c0d923270c82bf6bc6"
+    },
+    "configured-v9-crlf-20261127-2889282bfcec/result.json": {
+      "bytes": 4404,
+      "sha256": "4068f777aeb3e7b5d29cd9f7ce3918a4c0eda44b8a9a6f0344157d6b085ff183"
+    }
+  },
+  "raw_recovery": {
+    "status": "passed",
+    "complete_file_records": 4,
+    "each_base64_decodes_to_exact_retained_file": true,
+    "length_and_sha256_match_pc_records": true,
+    "result_stdout_relation": "Exact UTF-16LE BOM encoding of the UTF-8 result text followed by CRLF; 8814 bytes; empty stderr. No text reconstruction was used for raw result identity.",
+    "readback_utc": "2026-11-27T10:54:14.715Z"
+  },
+  "registration_and_parser": {
+    "status": "passed",
+    "task": "ChatGPT-BeadEditing-ConfiguredCRLF-20261127-2889282bfcec",
+    "creation_receipt_status": "registered_before_run",
+    "one_launch_receipt_status": "launch_requested",
+    "receipt_fields_match_except_status_and_run_instance": true,
+    "session_id": 1,
+    "registration_flags": 2,
+    "run_flags": 4,
+    "run_level": 0,
+    "admission_free_mib": 4117,
+    "all_three_exact_ps51_inputs_zero_parse_errors": true,
+    "powershell_version": "5.1.26100.9818",
+    "parser_stderr": "Only retained CLIXML Preparing modules progress; the nested PowerShell exit is 0 and all parsed error counts are 0.",
+    "final_scheduled_task_state_and_definition": "Awaiting root final observation; not inferred from registration or helper result."
+  },
+  "observed_failure": {
+    "error": "Owned fixture-cli is outside the interactive Explorer session.",
+    "role_process": {
+      "kind": "fixture-cli",
+      "pid": 45124,
+      "started_utc": "2026-11-27T10:47:05.3322259Z",
+      "session_id": null,
+      "exit_code": 0
+    },
+    "job_process": {
+      "exit_code": 0,
+      "peak_resident_bytes": 0,
+      "birth_filetime": 134402500253322259,
+      "process_id": 45124,
+      "session_id": 1,
+      "started_utc": "2026-11-27T10:47:05.3322259Z",
+      "image": "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+    },
+    "identity_reconciliation": "Exact same retained PID and 100 ns birth timestamp; native image is the installed 0431 pin, Job session is 1, and both held process records report exit 0. The later role SessionId read is null.",
+    "source_boundary": "Native init starts in the fresh task-owned native-workspace. Add-Owned registers the child with Job accounting, then re-reads managed StartTime/SessionId. That later SessionId equality fails before Native records its command or the installed batch/controller starts.",
+    "inference": "The retained identity rules out a different interactive session for this observed child and supports the short-lived-process metadata race diagnosis.",
+    "batch_controller_server_tray_or_api_reached": false,
+    "commands_recorded": 0,
+    "requests_recorded": 0
+  },
+  "resource_and_cleanup": {
+    "status": "passed_for_this_failed_attempt",
+    "started_utc": "2026-11-27T10:47:04.4957523Z",
+    "completed_utc": "2026-11-27T10:47:05.5389705Z",
+    "elapsed_seconds": 1.0432182,
+    "node_heap_mib": 128,
+    "owned_limit_mib": 512,
+    "live_free_floor_bytes": 1073741824,
+    "minimum_observed_free_bytes": 4103970816,
+    "role_peak_bytes": 128475136,
+    "aggregate_job_peak_bytes": 131555328,
+    "job_samples": 2,
+    "budget_exceeded": false,
+    "cleanup_assisted": false,
+    "remaining_job_members": [],
+    "cleanup_errors": [],
+    "port_free": true,
+    "no_product_functional_success_claim": true
+  },
+  "repair_review_requirements": [
+    "Preserve strict PID, birth, exact Job membership and interactive-session identity. Use a captured matching identity for short-lived children instead of a late managed SessionId reread.",
+    "Inspect Register-JobProcess duplicate SessionId reads and priority assignment for the same exit race. A priority-set exception may be tolerated only for that exact already-exited held process.",
+    "Handle or explicitly refuse a direct child that exits before any verified identity is captured; no missing or inferred identity may silently pass as an observed session.",
+    "Preserve all API/CLI, real tray Exit, process/cache/port cleanup and resource assertions; freeze separately named helper and fresh one-shot task/output/logs before ordinary PS5.1 parse and bounded actual run."
+  ],
+  "continuation": {
+    "configured_task_remains_open": true,
+    "installed_review_remains_pending": true,
+    "preserve_first_and_second_attempts": true,
+    "never_replay_existing_tasks_or_output_paths": true,
+    "cleanup_future_fixed_task_count": 22,
+    "new_attempt_requires_independent_source_and_actual_result_reviews": true
+  },
+  "execution_by_reviewer": "Cloud read-only source/evidence reconciliation only."
+}
