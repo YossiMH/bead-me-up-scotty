@@ -2,7 +2,7 @@
 
 The installed editing features and Windows tray checks are accepted. Both guarded documentation adoptions on the PC have now passed independent review. Native main and the original native working copy are at `025ebc6a38013402b1936e932c104348aec06fd4`; app main and the original app working copy are at `b8caabf90652598f889f0b0bbc4e66d1b20a1877`.
 
-The canonical continuation remains **50 closed / 5 open** until the newly accepted four-task request is actually applied. All 954 original issues remain preserved. Root session `2889282bfcec` owns PC commands and native writes while it is active.
+The canonical continuation remains **50 closed / 5 open** until the newly accepted four-task request is actually applied. All 954 original issues remain preserved. Root session `02e8a44557c8` is continuing the user’s new request and now serializes PC commands and native writes. The read-only observation at 15:05 UTC found both prior closure output directories absent and no running closer, history, or Git publication helper. The accepted closure request and both document-adoption reviews are already staged with their expected hashes; inspect actual results after the one-shot closure before advancing.
 
 ## Immediate next action
 
