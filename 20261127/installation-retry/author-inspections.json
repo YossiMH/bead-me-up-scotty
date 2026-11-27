@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "author": "/root/delivery_audit",
+  "recorded_utc": "2026-11-27T09:06:38.789781+00:00",
+  "task_key": "install",
+  "scope": "A separately named two-literal installer correction after the first actual preflight refusal, plus three matching supervisor bindings for one fresh attempt.",
+  "files": [
+    {
+      "path": "windows-install-tray-host-retry-20261127.ps1",
+      "bytes": 34680,
+      "sha256": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638"
+    },
+    {
+      "path": "windows-install-supervisor-retry-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d"
+    },
+    {
+      "path": "README.md",
+      "bytes": 9277,
+      "sha256": "7956d0b1c491f1d0b2c0bd6262e0b47884337b58d8613c34d36b7c314177217a"
+    }
+  ],
+  "immutable_baselines": {
+    "transfer_commit": "8bc000b3230bb641f2fb505c9e3c2ae12cd81063",
+    "files": [
+      {
+        "path": "20261125/revision-9/install-binding/windows-install-tray-host-20261125.ps1",
+        "bytes": 34632,
+        "sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0"
+      },
+      {
+        "path": "20261127/installation-execution/windows-install-supervisor-20261127.ps1",
+        "bytes": 23753,
+        "sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751"
+      }
+    ]
+  },
+  "exact_substitutions": {
+    "driver": [
+      {
+        "before": "[IO.File]::Replace($temporary,$destination,$null)",
+        "after": "[IO.File]::Replace($temporary,$destination,[System.Management.Automation.Language.NullString]::Value)"
+      },
+      {
+        "before": "origin='https://github.com/jedarden/bead-rs.git'",
+        "after": "origin='git@github.com:jedarden/bead-rs.git'"
+      }
+    ],
+    "supervisor": [
+      {
+        "before": "windows-install-tray-host-20261125.ps1",
+        "after": "windows-install-tray-host-retry-20261127.ps1"
+      },
+      {
+        "before": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+        "after": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638"
+      },
+      {
+        "before": "install-v9-final-20261125-1151",
+        "after": "install-v9-retry-20261127-2889282bfcec"
+      }
+    ]
+  },
+  "actual_basis": [
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-first-attempt-failure-review.json",
+      "bytes": 9228,
+      "sha256": "5da64d48592579de484e79f6310cecd8b558a9ec236d98e13be5baabc399f41b"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-remotes-readback.json",
+      "bytes": 858,
+      "sha256": "b99671e35d0cdbf8fc4d29db58fb176f88002b524ce6ffeecfefa4a410065143"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-state-reconciliation.json",
+      "bytes": 9367,
+      "sha256": "3861e51b1e46a2200be54c11c749292dd08d961bde6d7685152bd9ee17ca91fd"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/nullstring-fixture-stdout.json",
+      "bytes": 1460,
+      "sha256": "f71476f3269000faa4ca6eb62345b9591292f8e0905c2e295504151172180ac3"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-nullstring-qualification-review.json",
+      "bytes": 2546,
+      "sha256": "4be3ab740a2201af0b1ec065750f339d27f9cabeccadca17eb46432aa6fbbded"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/stage-artifacts-v9-final-20261125-1151/stage-result.json",
+      "bytes": 2341,
+      "sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/stage-artifacts-v9-final-20261125-1151.supervisor/result.json",
+      "bytes": 4366,
+      "sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f"
+    }
+  ],
+  "failure_scope": {
+    "original_attempt_status": "failed",
+    "installation_accepted": false,
+    "primary_error": "Repository origin differs.",
+    "secondary_error": "PowerShell $null produced an invalid File.Replace backup path during result saving.",
+    "mutation_phase_reached": false,
+    "observed_native_origin": "git@github.com:jedarden/bead-rs.git",
+    "remote_observation_utc": "2026-11-27T08:58:14.3356718Z",
+    "post_attempt_preservation": "Independent review confirms exact original HEADs, raw indexes, fifteen app source files/statuses, Git configs, environment and old pin. The output contains only owner and two result files, with no backup/mutation phase.",
+    "original_output_directory": "F:\\Dev\\.bead-edit-20261111\\install-v9-final-20261125-1151",
+    "preserve_failed_output_and_original_helpers": true
+  },
+  "actual_compatibility_check": {
+    "status": "passed",
+    "utc": "2026-11-27T08:59:32.9505573Z",
+    "powershell_version": "5.1.26100.9818",
+    "exact_argument": "[System.Management.Automation.Language.NullString]::Value",
+    "old_failure_reproduced": true,
+    "successive_json_replacements": 3,
+    "scope": "Root-executed disposable file replacement only; independently reviewed. It does not establish actual installation success."
+  },
+  "static_comparison": [
+    {
+      "kind": "driver",
+      "bytes": 34680,
+      "sha256": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638",
+      "normalized_original_sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+      "csharp_blocks_unchanged": 1,
+      "final_lf": true,
+      "cr_count_unchanged": true
+    },
+    {
+      "kind": "supervisor",
+      "bytes": 23767,
+      "sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d",
+      "normalized_original_sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751",
+      "csharp_blocks_unchanged": 1,
+      "final_lf": true,
+      "cr_count_unchanged": true
+    }
+  ],
+  "consecutive_complete_author_inspections": [
+    {
+      "sequence": 1,
+      "status": "clean",
+      "scope": "Read both complete accepted source files, all failure/remote/compatibility records, both exact candidate diffs and the complete README. Reverse the two driver substitutions and three supervisor substitutions to recover both originals byte-for-byte.",
+      "checked": [
+        "Strict origin still compares one observed literal; app origin and explicit HTTPS user-fork targets remain exact.",
+        "Only the result writer receives true-null; first-result Move and both real index/environment backup paths remain unchanged.",
+        "Fresh filenames and output pair preserve the failed attempt and refuse collisions.",
+        "All accepted stage/product/source/preservation identities, process ownership and resource bounds remain intact."
+      ],
+      "findings": []
+    },
+    {
+      "sequence": 2,
+      "status": "clean",
+      "scope": "Read the full final driver and supervisor, including all preflight, mutation, publication, failure and final cleanup control flow. Reconcile final files and README against actual accepted input records and the first inspection, including the exact generated child invocation.",
+      "checked": [
+        "All functions and C# declarations are unchanged except the single Save-Result argument; both C# bodies compare exactly.",
+        "Supervisor complete normalized bytes, including budget sampling, owned handles, hard timer, streams and finally block, reproduce the accepted original.",
+        "3 GiB baseline/immediate, 1 GiB live, 512 MiB aggregate, 100 ms sampling, 168/180-second deadlines, 12-second cleanup reserve and BelowNormal remain unchanged.",
+        "Final source/runtime/native/manifest/Job hashes and the two actual stage receipt hashes match retained files; documentation invocation binds this exact new supervisor.",
+        "Full-name NullString is supported by the target actual fixture; exact new-script PS5.1 parsing and installation remain future acceptance gates.",
+        "Original failed files and accepted baselines are retained; no product repository, task state or remote configuration was edited."
+      ],
+      "findings": []
+    }
+  ],
+  "execution_binding": {
+    "delivery_directory": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151",
+    "output_directory": "F:\\Dev\\.bead-edit-20261111\\install-v9-retry-20261127-2889282bfcec",
+    "supervisor_output_directory": "F:\\Dev\\.bead-edit-20261111\\install-v9-retry-20261127-2889282bfcec.supervisor",
+    "new_output_paths_must_be_absent": true,
+    "scotty_ports": "Fresh observed unique integer array supplied by root; README uses 3000 and 43972 only if freshly reconfirmed.",
+    "root_only_execution_and_publication": true
+  },
+  "pending": [
+    "Independent source review of this exact packet.",
+    "Root verifies staged hashes and ordinary Windows PowerShell 5.1 AST parsing of both new scripts.",
+    "Fresh original-state/process/port/path checks and 3 GiB memory admission before root invokes one fresh attempt.",
+    "Actual successful installation result/log acceptance, then configured launch and installed review."
+  ],
+  "preparation_actions": "Private file writes, full source inspections and exact static comparisons. Existing product source, scripts and failed attempt remain unchanged.",
+  "retention": "Root publishes this packet on the existing transfer branch. No new linked worktree exists. Failed attempts, the tiny fixture and any retry/rollback outputs remain owned inputs for final reconciliation and cleanup.",
+  "findings": []
+}

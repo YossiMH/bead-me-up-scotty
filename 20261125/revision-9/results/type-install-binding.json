@@ -168,11 +168,11 @@
   },
   "task_closer_bound_to_actual_mapping": true,
   "pending": [
-    "Apply the accepted two-task preparation closure request once, then run installation with fresh headroom and port checks.",
-    "Run reviewed installation, configured launch and installed review with fresh memory and port checks.",
+    "Run the separately reviewed corrected installer after current memory and port checks; retain the failed first attempt.",
+    "Accept the actual configured launch and installed review.",
     "Publish handoffs, preserve native history through the accepted supported restore route, and finish owned cleanup."
   ],
-  "native_mutations": 111,
+  "native_mutations": 113,
   "worktree_cleanup": {
     "status": "pending",
     "latest_probe": {
@@ -218,7 +218,7 @@
       ]
     }
   },
-  "updated_utc": "2026-11-27T08:45:05.964730+00:00",
+  "updated_utc": "2026-11-27T09:08:28.358643+00:00",
   "previous_status": {
     "commit": "d02907bfc521bb49a478bc1e82877405484e91d3",
     "sha256": "c1338e963ca1a2b4caaa1b868f72e05411fb217c7ae3fd36987afa84d085cd86"
@@ -305,22 +305,22 @@
   "remaining_active_cloud_execution": true,
   "assignment_complete": false,
   "latest_continuation": {
-    "checked_utc": "2026-11-27T08:22:26.950765+00:00",
+    "checked_utc": "2026-11-27T09:01:55.954605+00:00",
     "source_status": "Both final commit objects and all four required ancestry relationships are present locally. Fresh readback confirms original HEADs and indexes, fifteen original app files, private env and old pin. Native source is clean.",
     "pc_command_access": "Emergency Maintenance command access works through fresh prepared one-shot actions; root owns sequential execution.",
     "task_mapping": "Revision 9 completed and independently reviewed: 55 tasks, 91 edges, 1009 issues, and all954 original records retained.",
     "mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
-    "task_closure": "Three accepted tray/candidate tasks closed at08:07:26, after the previously accepted27 closures; actual readback has45 closed and10 open. Independent actual review passed.",
+    "task_closure": "Both preparation tasks closed at08:47:30 and independently accepted;47 of55 tasks are closed, with install ready at revision5.",
     "tray": "Exit, parent-loss and restart75-exit all passed in the logged-in Windows session and are independently accepted. Peak aggregate518172672 bytes; no assisted cleanup or remaining Job members.",
     "download": "Both final ZIPs are downloaded and SHA256-verified. The native-only continuation passed and is independently accepted. The original interrupted download remains retained.",
-    "installation": "The final executable, metadata and all560 runtime files were staged successfully and independently accepted. Installation has not run.",
+    "installation": "First actual attempt stopped during backend repository validation before any source/index/runtime/pin publication. Exact original state was independently confirmed unchanged. SSH origin spelling and the reporting null-backup conversion require a separately reviewed corrected copy.",
     "source_fetch": "The original fetch reached the180-second bound while serializing live Process objects in progress logs. Both commits arrived; no fetch replay is needed. The two-line logging correction passed static review but was not executed. Large original process graphs remain private on the PC.",
     "history": "The checkpoint-only route is independently accepted, including full128MiB qualification and exact WindowsPS5.1 parsing. All actual history phases remain pending.",
-    "next_action": "Apply the two-task accepted preparation closures, then run the reviewed installer when at least3GiB is freshly available. Use corrected configured helper8db39140 after installation acceptance.",
+    "next_action": "Run the separately reviewed corrected installer into a new output directory when at least3GiB is freshly available. Use corrected configured helper8db39140 after installation acceptance.",
     "active_session": "Root /workspace/scratch/2889282bfcec owns PC execution and task-store writes. Other continuations must respect this active session and retained attempt markers.",
     "assignment_complete": false
   },
-  "pc_action_summary": "Revision9 materialization and30 accepted task closures completed;45 of55 tasks are closed. Real tray checks, both final ZIPs and final560-file runtime staging passed. Both final source commits are present while original source/index/private state remains unchanged. Installation and configured launch remain pending.",
+  "pc_action_summary": "Revision9 materialization and32 accepted task closures completed;47 of55 tasks are closed. Real tray checks, both final ZIPs and final560-file runtime staging passed. First install stopped before source changes; original state is confirmed unchanged. Corrected installation, configured launch, handoffs, native history and cleanup remain.",
   "actual_accepted_cloud_closure": {
     "status": "passed",
     "independent_result_review": "passed",
@@ -356,7 +356,7 @@
     "directory": "20261127/installation-execution",
     "wrapper_sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751",
     "review_sha256": "d37ef1f38dcfd21d224b0c130ff3b0099f3aca68f2d5bd1faf00a938cc232e69",
-    "actual_execution": "pending"
+    "actual_execution": "First attempt failed before source mutation; retained at20261127/installation-first-attempt."
   },
   "actual_tray_check": {
     "schema_version": 1,
@@ -538,6 +538,47 @@
     "sha256": "22207219443c00a6ef1dd53829efb9ff97a782c6a1b8409441619bd53e317c99",
     "request_path": "20261127/results/close-binding-accepted-20261127.json",
     "request_sha256": "5dceebdcac2bea85720b2820f4dc8c755f5d51590dba1a2640216c32a749ef43",
-    "actual_closure": "pending"
+    "actual_closure": {
+      "status": "passed",
+      "result_path": "20261127/results/binding-closure/result.json",
+      "result_sha256": "f3350c8bf03c810402ea0cf80464c2fd1249322b7c73f72715568ef831137775",
+      "review_path": "20261127/results/binding-closure-actual-review.json",
+      "review_sha256": "e86806edd8680adcf8e471c7b2fbdafb4d2ec840203e605baa68647e49f05500",
+      "closed_total": 47,
+      "open_total": 8,
+      "install_ready_revision": 5
+    }
+  },
+  "actual_installation_first_attempt": {
+    "status": "failed",
+    "proposal_id": "JizTwAjBACy6-WJllOLJLg9XIDAOgPJlSq9fC2wuc6k",
+    "directory": "20261127/installation-first-attempt",
+    "duration_seconds": 9.083,
+    "peak_total_resident_bytes": 398761984,
+    "minimum_free_physical_bytes": 6176772096,
+    "cleanup_assisted": false,
+    "remaining_job_members": 0,
+    "primary_error": "Repository origin differs.",
+    "cause": "Expected upstream HTTPS spelling differs from existing exact SSH spelling for the same jedarden/bead-rs repository.",
+    "secondary_error": "Windows PowerShell string conversion turned the null File.Replace backup argument into an illegal empty path.",
+    "original_state_unchanged": true,
+    "replay_allowed": false,
+    "independent_review_sha256": "5da64d48592579de484e79f6310cecd8b558a9ec236d98e13be5baabc399f41b",
+    "nullstring_fixture": "passed on WindowsPowerShell5.1; original error reproduced and three successive true-null replacements passed"
+  },
+  "installation_retry_preparation": {
+    "directory": "20261127/installation-retry",
+    "driver_sha256": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638",
+    "supervisor_sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d",
+    "output": "F:/Dev/.bead-edit-20261111/install-v9-retry-20261127-2889282bfcec",
+    "changes": "Exactly two driver literals: observed native SSH origin and true-null result replacement. Exactly three supervisor execution bindings.",
+    "author_inspections": "two complete clean passes",
+    "independent_source_review": {
+      "status": "passed",
+      "path": "20261127/installation-retry/source-review.json",
+      "sha256": "9667058382358a6ac24f73f6afe40d576d30816d7c05b38b78a22c2c53279342"
+    },
+    "windows_ps51_parse": "pending",
+    "actual_execution": "not started"
   }
 }

@@ -1,0 +1,122 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/frontend_audit",
+  "independent": true,
+  "reviewed_utc": "2026-11-27T09:07:55.264940+00:00",
+  "scope": "Source and runbook acceptance of the separately named installer compatibility copy and exact fresh supervisor. Actual target parsing, fresh admission and one real installation remain pending.",
+  "files": [
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-tray-host-retry-20261127.ps1",
+      "bytes": 34680,
+      "sha256": "c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-supervisor-retry-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/README.md",
+      "bytes": 9277,
+      "sha256": "7956d0b1c491f1d0b2c0bd6262e0b47884337b58d8613c34d36b7c314177217a"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/author-inspections.json",
+      "bytes": 9418,
+      "sha256": "e05f8a32bdcdb0b7775d3dbf729f6969a1109af6b45d74e0f21bbc02451cff4d"
+    }
+  ],
+  "normalized_source_comparison": [
+    {
+      "component": "driver",
+      "full_inverse_equals_original": true,
+      "original_sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+      "substitutions": 2,
+      "csharp_blocks_exact": 1
+    },
+    {
+      "component": "supervisor",
+      "full_inverse_equals_original": true,
+      "original_sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751",
+      "substitutions": 3,
+      "csharp_blocks_exact": 1
+    }
+  ],
+  "accepted_actual_basis": [
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-first-attempt-failure-review.json",
+      "bytes": 9228,
+      "sha256": "5da64d48592579de484e79f6310cecd8b558a9ec236d98e13be5baabc399f41b"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-nullstring-qualification-review.json",
+      "bytes": 2546,
+      "sha256": "4be3ab740a2201af0b1ec065750f339d27f9cabeccadca17eb46432aa6fbbded"
+    }
+  ],
+  "checks": [
+    {
+      "name": "minimal driver correction",
+      "status": "passed",
+      "detail": "Only the backend expected origin literal and Save-Result third File.Replace argument differ. The observed origin remains on disk as git@github.com:jedarden/bead-rs.git. Its existing exact equality check remains. App origin, explicit HTTPS YossiMH user-fork publication URLs, source refs and remote-main before/after checks are unchanged."
+    },
+    {
+      "name": "qualified null-string argument",
+      "status": "passed",
+      "detail": "The full System.Management.Automation.Language.NullString.Value form is exactly the target PS5.1 argument independently qualified by the retained real fixture. First-result File.Move and both real index/environment replacement backup paths remain unchanged. The corrected logger can preserve subsequent success/failure phase records instead of masking the primary outcome."
+    },
+    {
+      "name": "fresh attempt binding",
+      "status": "passed",
+      "detail": "Supervisor changes exactly the driver filename, required driver SHA256 and fresh install-v9-retry-20261127-2889282bfcec basename. Both scripts remain beside the exact existing Job helper and preservation manifest. The install directory and .supervisor sibling must be absent; both original failed output paths remain intact. The old scripts cannot silently select the new attempt."
+    },
+    {
+      "name": "full inherited safety and semantics",
+      "status": "passed",
+      "detail": "Full inverse comparisons recover both accepted originals, including all unchanged C# bodies. Original fifteen-file checks, native/app HEAD and index guards, protected-state allowlists, exact stage runtime/pin/provenance, private source/index/env/runtime backups, atomic index/environment publication, ordinary source fast-forwards/pushes and final stopped-app checks all remain exact."
+    },
+    {
+      "name": "resource and failure envelope",
+      "status": "passed",
+      "detail": "The supervisor retains hidden BelowNormal execution, 3 GiB baseline/immediate and 1 GiB live free memory, 512 MiB aggregate owned RSS, 100 ms sampling, 168-second work stop, 180-second hard deadline and 12-second cleanup reserve. Per-command 45-second limit, retained owned handles, nested Job behavior, stream bounds and final cleanup are unchanged. Partial/failed outcomes require reconciliation; no automatic replay or rollback was added."
+    },
+    {
+      "name": "runbook and author evidence",
+      "status": "passed",
+      "detail": "Read complete README and complete final author record. Independently rehashed all three author-bound files and every actual-basis input. Both complete clean author inspections bind the final scripts. Exact invocation arguments, stage receipt hashes, final source/runtime/pin identities, fresh port/admission observations and future configured helper 8db39140 agree."
+    },
+    {
+      "name": "primary documentation",
+      "status": "passed",
+      "detail": "Read the two cited Microsoft API pages. NullString is documented for supplying null to .NET string parameters and lists the PowerShell 5.1 reference package. File.Replace explicitly permits null for the backup filename. The actual target qualification remains the concrete runtime evidence."
+    }
+  ],
+  "primary_references": [
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.management.automation.language.nullstring?view=powershellsdk-7.6.0",
+      "fact": "NullString supplies a .NET string null and is listed in Microsoft.PowerShell.5.1.ReferenceAssemblies."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/dotnet/api/system.io.file.replace?view=netframework-4.8.1",
+      "fact": "The destination backup filename may be null."
+    }
+  ],
+  "findings": [],
+  "execution_binding": {
+    "delivery_directory": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151",
+    "output_directory": "F:\\Dev\\.bead-edit-20261111\\install-v9-retry-20261127-2889282bfcec",
+    "supervisor_output_directory": "F:\\Dev\\.bead-edit-20261111\\install-v9-retry-20261127-2889282bfcec.supervisor",
+    "new_output_paths_must_be_absent": true,
+    "scotty_ports": "Fresh observed unique integer array supplied by root; README uses 3000 and 43972 only if freshly reconfirmed.",
+    "root_only_execution_and_publication": true
+  },
+  "remaining_gates": [
+    "Root stages and rehashes both exact new scripts, then performs ordinary Windows PowerShell 5.1 AST parsing.",
+    "Root refreshes original preservation, source/remote, settings/ports/process and fresh-output observations and obtains 3 GiB admission before invoking one fresh attempt.",
+    "Actual driver and supervisor results plus streams must be independently reconciled before installation is accepted.",
+    "Configured-launch and installed review remain separate tasks using the final pin/runtime and corrected memory-guarded helper."
+  ],
+  "reviewer_actions": "Cloud reads, exact static comparisons and primary API documentation lookup only. No PC, product execution, task write, source change or publication."
+}

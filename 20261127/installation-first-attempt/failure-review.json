@@ -1,0 +1,165 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted_for": "failure diagnosis and post-attempt preservation reconciliation only",
+  "installation_status": "failed",
+  "installation_accepted": false,
+  "replay_allowed": false,
+  "reviewer": "/root/frontend_audit",
+  "independent": true,
+  "reviewed_utc": "2026-11-27T09:00:49.008706+00:00",
+  "task_key": "install",
+  "task_closure_accepted": false,
+  "scope": "Independently reconcile the exact first installer attempt, its masked primary failure, owned cleanup and later unchanged repository/private-file observations. This result cannot satisfy successful installation or installed-review gates.",
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/final-install-execution.json",
+      "bytes": 16836,
+      "sha256": "58d84c18a58eb2adf7fdcd395e098beaf5bca806eddb00e8d2fd27891f7af205"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-final-20261125-1151/install-result.json",
+      "bytes": 1845,
+      "sha256": "8bc653867bc45b95841dd6dacbf975921742e853e5da05ec73e1949d4ef27ea0"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-final-20261125-1151/install-result.json.next",
+      "bytes": 2075,
+      "sha256": "7c4d9c43b61309e9bb906938b7413462fe158b5d2a6e50e739c9682024a20ca8"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-final-20261125-1151.supervisor/result.json",
+      "bytes": 15158,
+      "sha256": "6c7e747ad61c24e84efe2f815d7daf2e31732bcedb576a2759f12cad015b83e3"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-final-20261125-1151.supervisor/driver.stdout.log",
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-final-20261125-1151.supervisor/driver.stderr.log",
+      "bytes": 902,
+      "sha256": "92f1be0a34aa1fb4a2be9a2360b9d004ddfb4cbb96d754be5406a8856d636efb"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-failure-readback.json",
+      "bytes": 25956,
+      "sha256": "bfe2b95cbd4270568bbe9dcc6bab91a51c81e810998dc4491f37116340570f08"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-state-reconciliation.json",
+      "bytes": 9367,
+      "sha256": "3861e51b1e46a2200be54c11c749292dd08d961bde6d7685152bd9ee17ca91fd"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-state-reconciliation-execution.json",
+      "bytes": 8517,
+      "sha256": "1827555c972c6e7c2fef572f170af931572b24842a930752f8e639ae22bb60ed"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-remotes-readback.json",
+      "bytes": 858,
+      "sha256": "b99671e35d0cdbf8fc4d29db58fb176f88002b524ce6ffeecfefa4a410065143"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-remotes-readback-execution.json",
+      "bytes": 1153,
+      "sha256": "e2fe8d452a66335268143b428558a83c683002d24b84f5209601f17b8c9f3d12"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/source-preservation-reconciliation.json",
+      "bytes": 6343,
+      "sha256": "e40cabdc94cda8b2d7e0fb5afeb6482a8b602e0afe0ba5e12e56131c28280bb0"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/source-readiness-actual-review.json",
+      "bytes": 3862,
+      "sha256": "e8f24813534c20c1e670e52f1e4ac1d31a7b7ef3cf75463bb99cc69fc3698e8e"
+    }
+  ],
+  "accepted_executed_inputs": {
+    "installer_sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+    "supervisor_sha256": "d6c96c814c3b92cba0ec3cf10f9342bf0d80e17f599bb14067a753fc15e33751",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "stage_result_sha256": "63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c",
+    "stage_supervisor_result_sha256": "c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f"
+  },
+  "actual_execution": {
+    "status": "failed",
+    "started_utc": "2026-11-27T08:51:28.5665675Z",
+    "finished_utc": "2026-11-27T08:51:37.6509758Z",
+    "duration_seconds": 9.083,
+    "driver_exit_code": 1,
+    "baseline_free_physical_bytes": 6753914880,
+    "immediate_free_physical_bytes": 6747033600,
+    "minimum_observed_free_physical_bytes": 6176772096,
+    "peak_total_resident_bytes": 398761984,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": []
+  },
+  "transport": {
+    "execution_exit_code": 1,
+    "stdout_bytes": 15398,
+    "stderr_bytes": 0,
+    "dropped_bytes": 0,
+    "records": "Complete stdout contains the preliminary preflight plus the exact logical failed supervisor result. Decoded child invocation matches the accepted installer, products, stage inputs and ports. Raw driver stdout is empty; complete driver stderr is retained."
+  },
+  "failure": {
+    "primary_error": "Repository origin differs.",
+    "location": "windows-install-tray-host-20261125.ps1 line 281, backend iteration, before repository_preflight is recorded for the backend",
+    "persisted_preceding_event": "Only the app repository_preflight event was committed to install-result.json; it records original app HEAD and user-fork remote main 459a74537cbbe1dff521c6fc7ad1ce3ec2890683.",
+    "expected_native_origin": "https://github.com/jedarden/bead-rs.git",
+    "actual_native_origin": "git@github.com:jedarden/bead-rs.git",
+    "actual_native_fork": "git@github.com:YossiMH/bead-rs.git",
+    "remote_observation_utc": "2026-11-27T08:58:14.3356718Z",
+    "meaning": "The local native origin refers to the same upstream repository using SSH. The exact-string guard refused the observed spelling. No remote change is required; the fixed explicit HTTPS user-fork publication URLs are separate.",
+    "secondary_error": "Save-Result calls File.Replace(temporary,destination,$null) after the destination exists. That invocation throws The path is not of a legal form during failure recording/finally and prevents normal final stdout, obscuring the primary error. The exact pending result independently retains the primary refusal.",
+    "secondary_correction_gate": "Root will qualify the narrowly corrected null-string argument on a disposable PS5.1 file replacement before a separately named corrected installer is accepted."
+  },
+  "preservation": {
+    "before_utc": "2026-11-27T08:20:38.2621441Z",
+    "after_utc": "2026-11-27T08:57:07.6961223Z",
+    "source_and_private_comparison": "The complete parsed repos, preserved_files, preserved_private_files, settings, environment_files and relevant_processes values are identical before and after the attempt. This includes both exact HEADs/raw index hashes, required candidate ancestry, all fifteen byte/hash records and their exact dirty-status inventory, existing .env.local, old native pin and both Git config hashes.",
+    "git_config_scope": "Git config equality is between retained 08:20:38 and 08:57:07 observations. No separately retained pre-fetch config comparison is asserted.",
+    "native_status_clean": true,
+    "original_app_status": "Same four modified and eleven untracked files; no newly staged source.",
+    "required_ports_free": [
+      3000,
+      43972
+    ],
+    "relevant_processes_remaining": [],
+    "installer_output_inventory": [
+      {
+        "name": "install-result.json",
+        "bytes": 1845
+      },
+      {
+        "name": "install-result.json.next",
+        "bytes": 2075
+      },
+      {
+        "name": "task-owner.txt",
+        "bytes": 26
+      }
+    ],
+    "control_flow": "The primary refusal precedes source/index/config backup creation and all index adoption, source fast-forward, runtime swap, pin copy/selection and remote push operations. No preservation_ready or later mutation event appears. The output contains only the two result files and owner marker; no backup directory or mutation record exists.",
+    "product_not_started": true
+  },
+  "resource_assessment": "The 9.083-second failed run stayed below 512 MiB aggregate with more than 3 GiB baseline/immediate and more than 1 GiB observed live free memory. All fifteen sampled owned identities exited. The outer Job used no assisted cleanup, recorded no cleanup errors and ended empty. The sampled Git exit 1 alone is not diagnosed as an error because missing optional configuration may validly return 1.",
+  "decision": "Failure and unchanged-state reconciliation PASS; installation FAILED. Keep the original attempt immutable. A separately named, independently reviewed compatibility copy may correct only the observed native origin literal and null-backup argument, with fresh one-shot output/supervisor bindings and all remaining product, preservation, push and resource guards intact. Its actual result remains a future gate.",
+  "findings": [
+    {
+      "kind": "primary strict preflight mismatch",
+      "resolved_by_this_review": false,
+      "next": "Review the separately named exact observed-origin correction."
+    },
+    {
+      "kind": "secondary result-writer compatibility defect",
+      "resolved_by_this_review": false,
+      "next": "Qualify and review the narrow PS5.1 null-string correction."
+    }
+  ],
+  "reviewer_actions": "Cloud file reads and exact comparisons only; no replay, product execution, PC action, repository edit or ref mutation."
+}

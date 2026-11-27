@@ -1,0 +1,303 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "scope": "Actual root-owned guarded closure of the two independently accepted revision 9 binding preparation tasks.",
+  "inputs": {
+    "plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "actual_materialization_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "previous_actual_state": {
+      "path": "20261127/results/tray-candidate-closure/result.json",
+      "bytes": 5893,
+      "sha256": "244fbb32b77bdcf3f860101a8ec6d2664717635a69116e62a0cbdf50d94e2e1f"
+    },
+    "request": {
+      "path": "20261127/results/close-binding-accepted-20261127.json",
+      "bytes": 2078,
+      "sha256": "5dceebdcac2bea85720b2820f4dc8c755f5d51590dba1a2640216c32a749ef43"
+    },
+    "request_basis": {
+      "path": "20261127/results/close-binding-basis-20261127.json",
+      "bytes": 6772,
+      "sha256": "b4ea1f1c0168c2611911aeca4e471a3cec99bb9c686070b0d1e8c0dc3e2a0496"
+    },
+    "combined_preparation_acceptance": {
+      "path": "20261127/results/type-install-binding-final-review.json",
+      "bytes": 20991,
+      "sha256": "22207219443c00a6ef1dd53829efb9ff97a782c6a1b8409441619bd53e317c99"
+    },
+    "driver_sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3",
+    "supervisor_sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "raw_results": {
+    "native": {
+      "path": "20261127/results/binding-closure/result.json",
+      "bytes": 5859,
+      "sha256": "f3350c8bf03c810402ea0cf80464c2fd1249322b7c73f72715568ef831137775"
+    },
+    "supervisor": {
+      "path": "20261127/results/binding-closure/supervisor-result.json",
+      "bytes": 7392,
+      "sha256": "e56b972e4a6ecfab62b996f6867284f9a67ac1ab10a114319f51e93a679aaea3"
+    },
+    "transport": {
+      "complete_stdout_bytes": 7394,
+      "stderr_bytes": 0,
+      "connector_exit_code": 0,
+      "dropped_bytes": 0,
+      "byte_comparison": "Outer stdout equals the exact separately retained7392-byte supervisor file followed by one CRLF. The native result hash equals the supervisor binding. Both raw files have independently recomputed sizes and SHA256 values.",
+      "private_execution_receipt_sha256": "a3e543eb50655958a85878a9810c6c1ddc5697e8a36ed16c8fb24285e38ac973"
+    }
+  },
+  "actual_changes": [
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "before": {
+        "id": "beadrs-86f1e737",
+        "status": "open",
+        "revision": 1
+      },
+      "after": {
+        "id": "beadrs-86f1e737",
+        "status": "closed",
+        "revision": 2
+      }
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "before": {
+        "id": "beadrs-261d621c",
+        "status": "open",
+        "revision": 1
+      },
+      "after": {
+        "id": "beadrs-261d621c",
+        "status": "closed",
+        "revision": 2
+      }
+    }
+  ],
+  "dependency_order": [
+    {
+      "key": "type-install-binding",
+      "prerequisites": [
+        "type-app-checks",
+        "checkpoint-windows-build"
+      ],
+      "all_closed_before_this_operation": true
+    },
+    {
+      "key": "type-install-binding-review",
+      "prerequisites": [
+        "type-install-binding"
+      ],
+      "all_closed_before_this_operation": true
+    }
+  ],
+  "all_55_ids_match_actual_mapping": true,
+  "counts_before": {
+    "closed": 45,
+    "open": 10
+  },
+  "counts_after": {
+    "closed": 47,
+    "open": 8
+  },
+  "other_53_statuses_and_revisions_unchanged": true,
+  "remaining_open_tasks": [
+    {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "status": "open",
+      "revision": 5
+    }
+  ],
+  "only_owned_ready_task": {
+    "key": "install",
+    "id": "beadrs-0bab2976",
+    "title": "Install and publish the accepted app and native tool",
+    "revision": 5
+  },
+  "install_prerequisites": [
+    {
+      "key": "reconcile",
+      "id": "beadrs-42379588",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "cloud-checks",
+      "id": "beadrs-fa756e78",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-check",
+      "id": "beadrs-08532231",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "status": "closed",
+      "revision": 4
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "status": "closed",
+      "revision": 6
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "status": "closed",
+      "revision": 3
+    },
+    {
+      "key": "checkpoint-repair-review",
+      "id": "beadrs-aee6eabb",
+      "status": "closed",
+      "revision": 3
+    },
+    {
+      "key": "checkpoint-linux-checks",
+      "id": "beadrs-50ff08d3",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "checkpoint-windows-checks",
+      "id": "beadrs-cd3f5a63",
+      "status": "closed",
+      "revision": 3
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "id": "beadrs-0890de3c",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "type-backend-review",
+      "id": "beadrs-83bf86f3",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "type-app-review",
+      "id": "beadrs-bd751f6e",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "type-windows-roundtrip",
+      "id": "beadrs-4cbebb4a",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "status": "closed",
+      "revision": 2
+    }
+  ],
+  "preservation": {
+    "original_954_unchanged": true,
+    "other_stored_fields_unchanged": true,
+    "configuration_and_checkpoint_pointer_unchanged": true,
+    "evidence_basis": "The exact accepted driver reports successful complete stored-field and original-inventory comparisons. This independent review additionally compares every returned continuation ID, status and revision with the preceding actual state, accepted plan, actual mapping and exact request. Raw full-inventory reproduction is not claimed.",
+    "checkpoint_publication": "Explicit flush and checked publication remain required."
+  },
+  "actual_execution": {
+    "started_utc": "2026-11-27T08:47:21.4030071Z",
+    "finished_utc": "2026-11-27T08:47:30.1854947Z",
+    "duration_seconds": 8.78,
+    "baseline_free_physical_bytes": 1166614528,
+    "peak_total_resident_bytes": 225300480,
+    "timeout_seconds": 180,
+    "work_stop_seconds": 168,
+    "priority": "BelowNormal",
+    "node_heap_mib": 128,
+    "max_total_resident_mib": 512,
+    "sample_interval_ms": 100,
+    "driver_exit_code": 0,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "replay_allowed": false
+  },
+  "owned_process_summary": {
+    "retained_handles": 11,
+    "all_recorded_exit_codes_zero": true,
+    "all_killed_by_supervisor_false": true,
+    "all_have_recorded_pid_and_start_identity": true,
+    "one_fast_exit_name_and_session_unavailable": 1
+  },
+  "independent_checks": [
+    "Read both complete raw results, complete execution output, exact request and basis, accepted preparation review and previous complete actual continuation state. Recomputed all source/request/plan/mapping/result identities.",
+    "Only type-install-binding and type-install-binding-review changed, each open revision1 to closed revision2. All53 other returned states/revisions are unchanged. Both requested reasons bind the exact final independent preparation review.",
+    "Simulated the exact author-then-review order against the accepted plan prerequisites. The first task depends on already closed type-app-checks and checkpoint-windows-build; the second depends on the first requested closure.",
+    "Counted47 closed and8 open tasks. All14 install prerequisites are closed, and install beadrs-0bab2976 is the sole returned owned-ready task at revision5. No installation/configured/handoff/cleanup task was closed.",
+    "Matched zero exits and exact raw transport equality. All11 retained owned handles exited zero without forced cleanup; one very short-lived member has unavailable name/session fields while its PID/start identity and exit are retained. Final Job membership is empty.",
+    "The8.78-second elapsed result and225300480-byte peak satisfy the accepted180-second and512MiB bounds. Baseline1166614528 bytes exceeds the coordination operation's1GiB admission requirement; this is not an app-installation3GiB observation."
+  ],
+  "findings": [],
+  "decision": "PASS for the actual two-task closure. Current observed state is47 closed/8 open; install is ready at revision5. Actual installation still requires fresh3GiB headroom and the accepted preservation/process/port/attempt checks. Configured launch, installed review, handoff/text and original-history/cleanup remain open.",
+  "reviewer_actions": {
+    "local_reads_and_static_comparisons_only": true,
+    "tests": 0,
+    "builds": 0,
+    "pc_calls": 0,
+    "native_state_writes": 0
+  }
+}

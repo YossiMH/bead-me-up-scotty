@@ -1,0 +1,49 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "/root/frontend_audit",
+  "independent": true,
+  "reviewed_utc": "2026-11-27T09:03:00.666730+00:00",
+  "scope": "Actual narrow Windows PowerShell 5.1 file-replacement compatibility check; this is not an installer run.",
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/nullstring-fixture-command.json",
+      "bytes": 2681,
+      "sha256": "6e4051a4e4668333cf089109d51b8789755255c66c62deb400261adc78e8c334"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/nullstring-fixture-execution.json",
+      "bytes": 1970,
+      "sha256": "e38421a34cd429851470ff18e85cf05f3b193350af8a93ded9cbe1dadf36b2e2"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/nullstring-fixture-stdout.json",
+      "bytes": 1460,
+      "sha256": "f71476f3269000faa4ca6eb62345b9591292f8e0905c2e295504151172180ac3"
+    }
+  ],
+  "checks": [
+    {
+      "name": "complete actual output",
+      "status": "passed",
+      "detail": "Exact retained stdout bytes equal execution stdout, with exit 0, zero stderr and no dropped bytes. Its observed PS version is 5.1.26100.9818, at 2026-11-27T08:59:32.9505573Z."
+    },
+    {
+      "name": "reproduced defect",
+      "status": "passed",
+      "detail": "Read exact command: a fresh task-owned directory receives tiny before/after files. File.Replace(source,destination,$null) reproduces the illegal-path exception, and both original destination and source content are checked unchanged."
+    },
+    {
+      "name": "qualified exact correction",
+      "status": "passed",
+      "detail": "The same source/destination are replaced with [System.Management.Automation.Language.NullString]::Value. The destination becomes after and the source disappears. Three further successive JSON replacements then each read back the intended sequence, remove the temporary input and retain distinct SHA256 values."
+    },
+    {
+      "name": "scope and ownership",
+      "status": "passed",
+      "detail": "The probe accesses only its fresh task-owned fixture. It runs hidden BelowNormal after the 1 GiB admission check, under the retained 30-second execution timeout; it invokes no native product or repository operations. Ordinary fresh input files and output remain available for later owned cleanup."
+    }
+  ],
+  "conclusion": "The exact full-name NullString argument is qualified on the target PS5.1 runtime. It supports review of the separately named installer correction; original failed attempt and primary remote-origin refusal remain unchanged.",
+  "findings": []
+}
