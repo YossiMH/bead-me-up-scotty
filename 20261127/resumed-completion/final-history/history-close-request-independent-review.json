@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Existing independent acceptance of the completed cleanup-close request and admission after actual cleanup publication.",
+  "findings": [],
+  "files": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/final-history/history-close-20261127-v1.request.json",
+      "bytes": 6778,
+      "sha256": "c84244fb4273028df2daa94db1f589504bb878db38fc28781d88120648b05555"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/final-history/history-close-admission.ps1",
+      "bytes": 977,
+      "sha256": "12b72aae9907919c72990c4a6c77f658154c0f8852ae72b69ff501ff7040d7cf"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/final-history/history-close-admission-invocation.json",
+      "bytes": 3388,
+      "sha256": "02dcc695aca9d05dfb7eecc08acc7f9c6f2e7e6a00cc585c3bad646b23298a29"
+    }
+  ],
+  "accepted_cleanup_records": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/cleanup-closure-preparation/cleanup-results-accepted.json",
+      "bytes": 15432,
+      "sha256": "866424a608939f8021526fd8d2ba0dfeb60fb94755f2dc65550f1ae263e4e9d7"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/cleanup-closure-preparation/cleanup-text-review-accepted.json",
+      "bytes": 6344,
+      "sha256": "9e4df7c68a2052eda2973776d1631121f8e543a93a4e2d0020de05a09c66124b"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/cleanup-closure-preparation/cleanup-shared-context-accepted.json",
+      "bytes": 2265,
+      "sha256": "66c971794309de41acf9fb632597691e9a5e88e93c557501a5be126ea9dad7e1"
+    }
+  ],
+  "cleanup_handoff_publication": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+    "commit": "4bb1da1eca425790633fb5fdb7ccab7625f7f090",
+    "prior_cleanup_actual_publication": "08737e740b6445dcad2fc7a6d6ffb60adb987889",
+    "reported_by": "/root",
+    "scope": "Accepted cleanup aggregate/text/shared context and updated CURRENT published via successful root CAS."
+  },
+  "shared": {
+    "cleanup_id": "beadrs-3ec972f8",
+    "pre_close_revision": 5,
+    "expected_post_close_revision": 6,
+    "close_reason": "Completed the requested bead editing and Scotty tray work with accepted native and UI qualification. Preserved the 954 original issues and 55 continuation tasks, restored and verified the combined native history, and published its initial checkpoint to native main at 4c2e842beac30e3663a3816722430659befad7ee. Removed the exact 23 scheduled tasks and four failed tray caches with retained backups, removed the linked continuation worktree through Riftri, and retained the recovery records and published handoff. The accepted archive and ref-cleanup receipts document retention of task history and removal of the two native and 86 Scotty task refs. The other 54 continuation tasks are closed; this closes the remaining preservation and cleanup task. Final checkpoint publication and disposable restore verification follow this close.",
+    "close_reason_sha256": "e0ea269a1d466a871bd78bfebb23e45ed3a7e1b16025b84fa6e75062eeef3406",
+    "close_reason_characters": 832,
+    "initial_checkpoint_publication": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-initial-20261127-02e8a44557c8-v1/result.json",
+      "sha256": "adf4f74a91e403f1629096aab3a4e60196cde8d4f60953c3239203ac1486617b"
+    }
+  },
+  "helper_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+  "supervisor_sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553",
+  "prior_phase_bindings": {
+    "preserve": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+      "sha256": "cd0ef5d40bdf9e7bd34af52c7e0c46867ef702ad21be385d58a8ae0199b78dd7"
+    },
+    "freeze": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+      "sha256": "ac743406703ee2ced9c35456032debbddb981ffb05957865a30ffabf943c4521"
+    },
+    "source-restore": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+      "sha256": "ae8c1d41f9805cdd02b7270d3a2b5a0c26808e8b251a26a300bccba43dc1de52"
+    },
+    "restore-original": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+      "sha256": "8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a"
+    },
+    "restore": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore/result.json",
+      "sha256": "8b8fe224216dcd0b7f11f32d3ea87bd24899d23061cebd24831143ab2a7fc239"
+    },
+    "close": {
+      "path": null,
+      "sha256": null
+    },
+    "final-publish": {
+      "path": null,
+      "sha256": null
+    }
+  },
+  "checks": [
+    "The completed request reverses exactly to the frozen close template by resetting only phase, three actual accepted receipt hashes, existing root attestations, revision and reason. All five actual prior phase pins, runtime/plan/mapping/qualification inputs, helper/supervisor identities and paths remain unchanged.",
+    "The two passed cleanup consumer records and accepted shared context bind all existing cleanup actuals, both retention proofs, exact native2/Scotty86 deletion and the empty final remote arrays. They retain authoritative revision5 and exact shared reason e0ea269a.",
+    "Root confirmed accepted aggregate/text/shared context plus CURRENT were published and read back at archive4bb1da1e, following actual cleanup publication08737e74. The existing cleanup_handoffs_published attestation now has concrete support.",
+    "The admission body equals the accepted frozen close admission with only its request-hash placeholder bound. Decoding the invocation UTF16LE EncodedCommand reproduces that body exactly; working directory slash spelling resolves to the same F:/Dev.",
+    "Existing3.5GiB outer deferral, BelowNormal priority,3second CIM query,180second/512MiB supervisor and200second outer bound remain unchanged. No automatic retry or additional command is introduced.",
+    "Accepted close source validates unchanged original database/checkpoint state, open/unclaimed/unblocked cleanup revision5, then performs one revision-fenced close with dry-run and no automatic flush. It checks only that issue and one closed event changed, expects revision6, and preserves original Git/configuration state.",
+    "The same pre-close revision5 and exact reason remain required for final-publish and final-restore; this acceptance does not claim those subsequent operations completed."
+  ],
+  "execution_boundary": "Root stages exact accepted cleanup records and c84244fb request, retains the exclusive native writer window, and runs the existing admission. Reconcile any actual failure before another mutation attempt.",
+  "activity": "Cloud-only exact byte/context/source-contract review; no PC/ref action, helper or product changes, new test or additional gate."
+}
