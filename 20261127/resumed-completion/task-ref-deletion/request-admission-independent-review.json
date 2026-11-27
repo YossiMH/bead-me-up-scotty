@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_scotty",
+  "scope": "Existing independent acceptance of the two completed data-only deletion requests/admissions and six exact stager bindings.",
+  "findings": [],
+  "requests": [
+    {
+      "repository": "native",
+      "request": {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/task-ref-deletion/native-task-ref-deletion-20261127-02e8a44557c8-v1.request.json",
+        "bytes": 3411,
+        "sha256": "64844e88ea56d3caa1cbf86fbbaf517db4ef71f7e0c972e2e57a28e138dab9bb"
+      },
+      "admission": {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/task-ref-deletion/native-task-ref-deletion-admission.ps1",
+        "bytes": 1008,
+        "sha256": "77d288cdc218ac6010e2e291e285a7abd19a3b759b017095b603331f7c036c4c"
+      },
+      "invocation": {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/task-ref-deletion/native-task-ref-deletion-admission-invocation.json",
+        "bytes": 3712,
+        "sha256": "4614932f41487fcd3998c5a7a8e2cee06bb7bdf5046c5f486f97858801ad74f3"
+      },
+      "command_characters": 2798,
+      "exact_template_binding": true,
+      "exact_admission_form": true,
+      "encoded_command_equals_source": true,
+      "retention_receipt_sha256": "a468d6496a58572a151e9f9ae6bd8fd8d2a3b64432ae7c0b57a5ca3e8ffe9d0e",
+      "retention_review_sha256": "aa3d5ba12708b949fd18a3b2be816b95599956415cc3546dbf34177b3f9c634b",
+      "reviewed_refs": 2
+    },
+    {
+      "repository": "scotty",
+      "request": {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/task-ref-deletion/scotty-task-ref-deletion-20261127-02e8a44557c8-v1.request.json",
+        "bytes": 2586,
+        "sha256": "a1ced820d63316588cf526a1240ed10e2a1e2464d051b0a885b707d834ac4f0e"
+      },
+      "admission": {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/task-ref-deletion/scotty-task-ref-deletion-admission.ps1",
+        "bytes": 1008,
+        "sha256": "6662f3f3aa783c900fef2cbe999c57f5ad7c66addd77133c21f8715d9b131a76"
+      },
+      "invocation": {
+        "path": "/tmp/beads-02e8a44557c8-git-finalization/post-finalization-preparation/task-ref-deletion/scotty-task-ref-deletion-admission-invocation.json",
+        "bytes": 3733,
+        "sha256": "72e70353c60e374538759aeaf46881a693f44aec88b6ce500e7941aed2bab5be"
+      },
+      "command_characters": 2798,
+      "exact_template_binding": true,
+      "exact_admission_form": true,
+      "encoded_command_equals_source": true,
+      "retention_receipt_sha256": "7603a117f7b25e6f693b71ef0dffd2cfdd118a8f4d6e3354c811aa250042c78e",
+      "retention_review_sha256": "f31aa4800efbc4ce68e017e0cf085ce1e941d81efba98d6dc327619b05cabfd2",
+      "reviewed_refs": 86
+    }
+  ],
+  "guard_evidence": {
+    "native_post_publication_guards_sha256": "a3446b7cbcb9f922a92c4ad552f470569f98291759e641ec80505065961295d5",
+    "native_initial_publication_actual_review_sha256": "e358c2cfbd5e26c6d291c43c6d9ef498e9d28af9f2574f9dd9671c6351985307",
+    "scotty_document_adoption_actual_review_sha256": "ee3cc2717e3a3ce4ec0fcd5a739b1f6126c58c2d7616d3f678561676a15bea9a",
+    "archive_and_native_retention_actual_review_sha256": "f42de6e841247941b0eed90200d1af28c158513cc21abb17752a45e506557418"
+  },
+  "checks": [
+    "Both requests equal accepted prepared templates with only phase, actual main/index/config/private/hooks, retention pins/reviews and supported root attestations filled. Run IDs, output paths and helper/runtime identities remain exact.",
+    "Native preserves all six accepted private rows, including existing zero-byte WAL and 32768-byte SHM. Scotty private guard scope remains only .env.local.",
+    "Both admissions reconstruct the accepted initial-publisher admission after only phase, request path and SHA substitutions. UTF16LE EncodedCommand exactly matches PS source.",
+    "BelowNormal priority, 3.5 GiB outer free-memory deferral, 180-second/512 MiB supervisor limits and 200-second connector timeout remain unchanged.",
+    "Six staging entries bind the exact two requests and four independently accepted retention files at existing allowed destinations.",
+    "Unchanged publisher retains exact per-ref leases, atomic deletion, fresh pre/post remote readback, retained main/archive checks and unchanged source/index/config/private/hook guards."
+  ],
+  "freshness_boundary": "Root owns the exclusive repository-writer window and keeps final transfer 8dfbd35a and founding archive 53f981bc fixed through both deletions. The unchanged publisher rechecks current refs and source guards before mutation and refuses output-directory reuse; this review does not claim a separate fresh output-path observation.",
+  "completion_boundary": "Both deletion outcomes and post-readbacks remain pending actual acceptance.",
+  "activity": "Cloud-only template/source/accepted-receipt inspection. No PC/ref/index action or new product test."
+}

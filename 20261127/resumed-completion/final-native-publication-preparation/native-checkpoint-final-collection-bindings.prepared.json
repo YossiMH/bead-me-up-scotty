@@ -1,0 +1,140 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "basis": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "8dfbd35a460fb5f8da289e1ac26119cb213abfa3",
+    "directory": "20261127/resumed-completion/initial-native-publication",
+    "request_sha256": "bb0a69b2c05f8eb95d0e564c57d7a62bb43ea5531088b32c153c132e4f9fb180",
+    "admission_sha256": "b1139268e8d39aa2ba68f35db58af2332855a6479e5d22d048994b88bd974df0",
+    "invocation_sha256": "4078afc6e355ed54239731e8290950a03fc51c559021c0d2d939be08297650d5"
+  },
+  "helper_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+  "supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+  "history_helper_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+  "known_parent_commit": "4c2e842beac30e3663a3816722430659befad7ee",
+  "request_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/native-checkpoint-final-20261127-02e8a44557c8-v1.request.json",
+  "review_input_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/final-restore-actual-review.json",
+  "phase_actuals": [
+    {
+      "phase": "final-publish",
+      "driver": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+      "supervisor": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-publish-20261127-v1/result.json",
+      "driver_sha256": null,
+      "supervisor_sha256": null
+    },
+    {
+      "phase": "final-restore",
+      "driver": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-restore/result.json",
+      "supervisor": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-restore-20261127-v1/result.json",
+      "driver_sha256": null,
+      "supervisor_sha256": null
+    }
+  ],
+  "supplemental_files": [
+    {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/original-git-before.json",
+      "expected_sha256_source": "final-publish result.outputs[\"original-git-before.json\"]",
+      "sha256": null
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/original-git-after.json",
+      "expected_sha256_source": "final-publish result.outputs[\"original-git-after.json\"]",
+      "sha256": null
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/checkpoint-index-reconciliation.json",
+      "expected_sha256_source": "final-publish result.outputs[\"checkpoint-index-reconciliation.json\"]",
+      "sha256": null
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/published-manifest.json",
+      "expected_sha256_source": "final-publish result.outputs[\"published-manifest.json\"]",
+      "sha256": null
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/git-configuration-before.json",
+      "expected_sha256_source": "final-publish result.outputs[\"git-configuration-before.json\"]",
+      "sha256": null
+    }
+  ],
+  "native_guard": {
+    "when": "After accepted final-restore, before final Git publication.",
+    "method": "Reuse the accepted bounded native guard observation and fixed-file collector control flow; no native CLI or database opening is needed.",
+    "required_fields": [
+      "branch",
+      "head",
+      "index_sha256",
+      "git_config_sha256",
+      "private_state",
+      "hooks",
+      "configured_hook_keys",
+      "fsmonitor"
+    ],
+    "exact_private_paths": [
+      ".beads/config.json",
+      ".beads/.gitignore",
+      ".beads/beads.db",
+      ".beads/beads.db-wal",
+      ".beads/beads.db-shm",
+      ".beads/beads.db-journal"
+    ],
+    "private_row_fields": [
+      "path",
+      "exists",
+      "bytes",
+      "sha256"
+    ],
+    "hashes_only": [
+      ".git/index",
+      ".git/config",
+      ".beads/config.json",
+      ".beads/.gitignore",
+      ".beads/beads.db",
+      ".beads/beads.db-wal",
+      ".beads/beads.db-shm",
+      ".beads/beads.db-journal"
+    ],
+    "raw_private_file_transfer_required": false,
+    "receipt_sha256": null
+  },
+  "binding_checks": [
+    "Raw final-publish and final-restore driver results are passed and their corresponding ordinary supervisor results match exact request/result hashes and existing resource limits.",
+    "Final-publish.generation/root_sha256 equal final-restore.verified_generation/verified_root_sha256; runtime/plan/mapping and2f0f helper pins match accepted history.",
+    "Final-publish original-git-after.json equals both final-restore original Git receipts; current fresh guard index/head/config matches this staged state.",
+    "Final-publish original-git-before.json head equals4c2e842b; changed-path reconciliation matches exact final checkpoint changes, with no unrelated change. Do not assume the earlier397-path set or a fixed final path count.",
+    "Copy all six fresh private_state rows exactly, including actual absent versus present-empty sidecars. Do not reuse initial DB/WAL/SHM identities.",
+    "Copy actual hooks. If empty, accepted_hooks remains[] and hook_review is null as before. Existing publisher hook handling remains unchanged.",
+    "Use the separately accepted final-restore actual review as the immutable reviews input; the concrete publisher request review can then bind this completed request without circular hashes."
+  ],
+  "activation": {
+    "phase": "checkpoint",
+    "checkpoint_stage": "final",
+    "future_fields": [
+      "expected_index_sha256",
+      "expected_git_config_sha256",
+      "private_state",
+      "accepted_hooks",
+      "reviews[0].sha256",
+      "checkpoint_publication.sha256",
+      "checkpoint_verification.sha256"
+    ],
+    "attestations": "Existing four root flags become true only after actual facts and accepted review.",
+    "request_hash": "Hash the exact completed JSON bytes, replace the one admission placeholder, encode UTF-16LE and preserve200second outer/180second inner/512MiB/3.5GiB outer deferral.",
+    "concrete_request_review": "/root/finish_preparation"
+  },
+  "author_inspection": {
+    "accepted_initial_bytes_match": true,
+    "request_common_field_inverse": true,
+    "admission_literal_inverse": true,
+    "phase_and_commands_inert": true,
+    "new_source_or_executor": false,
+    "new_tests_or_gates": false
+  },
+  "post_publication_actual_collection": {
+    "driver": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-final-20261127-02e8a44557c8-v1/result.json",
+    "supervisor": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-final-20261127-02e8a44557c8-v1.supervisor/result.json",
+    "required": "Exact driver/supervisor bytes and complete settled wrapper, as for initial publication.",
+    "private_index": "The helper retains index-after.raw. Size/hash are sufficient for review; keep raw content private."
+  }
+}

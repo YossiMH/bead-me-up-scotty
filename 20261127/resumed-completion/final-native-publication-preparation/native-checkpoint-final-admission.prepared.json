@@ -1,0 +1,17 @@
+{
+  "status": "prepared",
+  "command": null,
+  "cwd": "F:\\Dev",
+  "timeout_ms": 200000,
+  "request_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/native-checkpoint-final-20261127-02e8a44557c8-v1.request.json",
+  "request_sha256": null,
+  "admission_template": "native-checkpoint-final-admission.prepared.ps1",
+  "admission_sha256": "ed177a93ed234680c7cfa6d51782119339e16d50fb59297f5bc30a7acbdf9e4a",
+  "command_encoding": "Replace the one request hash placeholder, then UTF-16LE Base64 encode the complete admission body under the unchanged PowerShell EncodedCommand prefix.",
+  "expected_effects": "Publish only the already verified final native checkpoint from current main4c2e842b, preserving private state and using unchanged74a publisher/08af supervisor.",
+  "preconditions": [
+    "Accepted actual final-publish and final-restore results bind the same final generation/root and all55 closed continuation tasks.",
+    "Fresh post-final-restore native guard rows, staged Git state and hooks are bound to the completed request; the existing concrete request review is accepted.",
+    "Root stages the exact completed request and final-restore actual review, retains the exclusive writer window, and supplies the existing attestations when true."
+  ]
+}
