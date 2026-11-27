@@ -1,0 +1,173 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_root_review",
+  "root_is_sole_state_writer": true,
+  "request": {
+    "path": "20261127/results/close-tray-candidate-accepted-20261127.json",
+    "sha256": "48935647c78bfe1f75f4c1f0d7e1a046324735f0bf1123e577e181f8b987b52f",
+    "bytes": 2490
+  },
+  "plan": {
+    "path": "20261125/revision-9/plan.json",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "bytes": 419134,
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522"
+  },
+  "actual_mapping": {
+    "path": "20261127/results/materialization-v9-result.json",
+    "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "bytes": 11930
+  },
+  "last_actual_state": {
+    "path": "20261127/results/closure-v9.json",
+    "sha256": "2eb8a4a62adbbadb2659bb8b080e973ed06c9f468b7d40ba968cc4423f32c749",
+    "bytes": 7430
+  },
+  "reviews": [
+    {
+      "path": "20261127/results/tray-runspace-actual-review.json",
+      "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729",
+      "bytes": 24623
+    },
+    {
+      "path": "20261127/results/tray-repair-final-review.json",
+      "sha256": "22783d2693e0ec706ebfa979ac01250dfa3e6d515305bd4a335c949586ffb23b",
+      "bytes": 6362
+    },
+    {
+      "path": "20261127/results/candidate-final-review.json",
+      "sha256": "966f7f2165a1bde5f5676cde3bb88f61a5469b32314bde6a6acd380900722957",
+      "bytes": 12147
+    }
+  ],
+  "requested_order_and_guards": [
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "before": {
+        "id": "beadrs-ea7bc5dd",
+        "status": "open",
+        "revision": 3
+      },
+      "expected_after": {
+        "status": "closed",
+        "revision": 4
+      },
+      "prerequisites": [
+        {
+          "key": "tray-diagnose",
+          "id": "beadrs-9422c821",
+          "already_closed_or_prior_requested": true
+        },
+        {
+          "key": "tray-repair",
+          "id": "beadrs-417f998c",
+          "already_closed_or_prior_requested": true
+        },
+        {
+          "key": "tray-repair-checks",
+          "id": "beadrs-22b44782",
+          "already_closed_or_prior_requested": true
+        }
+      ]
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "before": {
+        "id": "beadrs-a7df9f15",
+        "status": "open",
+        "revision": 2
+      },
+      "expected_after": {
+        "status": "closed",
+        "revision": 3
+      },
+      "prerequisites": [
+        {
+          "key": "tray-repair",
+          "id": "beadrs-417f998c",
+          "already_closed_or_prior_requested": true
+        },
+        {
+          "key": "installer-repair",
+          "id": "beadrs-f588ab27",
+          "already_closed_or_prior_requested": true
+        }
+      ]
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "before": {
+        "id": "beadrs-ba8cbd23",
+        "status": "open",
+        "revision": 5
+      },
+      "expected_after": {
+        "status": "closed",
+        "revision": 6
+      },
+      "prerequisites": [
+        {
+          "key": "plan-review",
+          "id": "beadrs-3f06f163",
+          "already_closed_or_prior_requested": true
+        }
+      ]
+    }
+  ],
+  "expected_counts_after_success": {
+    "closed": 45,
+    "open": 10,
+    "tasks": 55,
+    "edges": 91,
+    "total_issues": 1009
+  },
+  "other_continuation_tasks_to_preserve": 52,
+  "original_records_to_preserve": 954,
+  "excluded_binding_tasks": [
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "observed_status": "open",
+      "observed_revision": 1
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "observed_status": "open",
+      "observed_revision": 1
+    }
+  ],
+  "binding_hold": "The template matches the unchanged history helper, but root confirmed that the original repository contains a checkpoint and has no SQLite DB or sidecars. That helper is inapplicable because it hashes an existing database and requires an existing-database merge/backup. Backend is preparing a separately reviewed supported checkpoint-only recovery route. These two tasks are absent from this executable close request.",
+  "invocation": {
+    "unchanged_driver_path": "20261127/revision-9-execution/record-accepted-tasks-v9.mjs",
+    "driver_sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3",
+    "unchanged_supervisor_path": "20261127/revision-9-execution/record-accepted-tasks-v9-supervisor.ps1",
+    "supervisor_sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426",
+    "suggested_new_output_name": "completed-20261127-tray-candidate",
+    "requirements": [
+      "Root publishes and verifies these exact review/request bytes before invocation.",
+      "Root reconciles fresh output/supervisor attempt paths, isolated authority not frozen and current native state; no prior uncertain attempt is replayed.",
+      "Use the unchanged accepted supervisor with the exact new request hash, fresh output and existing resource limits.",
+      "The driver rechecks all 1009 rows, 55 descriptions and 91 edges, exact original 954 records, all prerequisites and these current revisions before one guarded manifest commit.",
+      "Root retains and independently reconciles the actual result before reporting any task closed."
+    ]
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "method": "Read complete request and basis against the three final reviews, exact mapping and last actual state; compared all reasons, task IDs/revisions, prerequisites and exclusions."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "method": "Re-read final request schema and order against the unchanged closer validation/transaction contract. Checked all reasons are 40–4096 characters, each requested task remains open in the retained actual result, and only the three accepted tasks are selected."
+    }
+  ],
+  "native_state_written_by_reviewer": false
+}

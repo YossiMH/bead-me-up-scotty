@@ -1,0 +1,458 @@
+{
+  "status": "passed",
+  "continuation_revision": 9,
+  "source_store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+  "original_issues": 954,
+  "total_issues": 1009,
+  "tasks": {
+    "plan-review": "beadrs-3f06f163",
+    "reconcile": "beadrs-42379588",
+    "cloud-checks": "beadrs-fa756e78",
+    "browser-prepare": "beadrs-0b3a11f9",
+    "browser-runner-review": "beadrs-37f8c2bb",
+    "browser-check": "beadrs-08532231",
+    "tray-diagnose": "beadrs-9422c821",
+    "windows-tray": "beadrs-ea7bc5dd",
+    "candidate-review": "beadrs-ba8cbd23",
+    "install": "beadrs-0bab2976",
+    "configured-launch": "beadrs-c9526055",
+    "installed-review": "beadrs-47da80ac",
+    "backend-handoff": "beadrs-1371879c",
+    "app-handoff": "beadrs-f0039a6a",
+    "backend-text-review": "beadrs-30f13b5b",
+    "app-text-review": "beadrs-c62c1990",
+    "preserve-and-clean": "beadrs-3ec972f8",
+    "tray-repair": "beadrs-417f998c",
+    "tray-repair-checks": "beadrs-22b44782",
+    "installer-repair": "beadrs-f588ab27",
+    "tray-repair-review": "beadrs-a7df9f15",
+    "checkpoint-tests": "beadrs-940d77c6",
+    "checkpoint-red-build": "beadrs-0eaf8a73",
+    "checkpoint-red-checks": "beadrs-ce0423c1",
+    "checkpoint-tests-review": "beadrs-b1038d26",
+    "checkpoint-repair": "beadrs-b72dc0dc",
+    "checkpoint-linux-build": "beadrs-9c6d0088",
+    "checkpoint-windows-build": "beadrs-70721b6a",
+    "checkpoint-linux-checks": "beadrs-50ff08d3",
+    "checkpoint-windows-checks": "beadrs-cd3f5a63",
+    "checkpoint-repair-review": "beadrs-aee6eabb",
+    "checkpoint-full-suite": "beadrs-0890de3c",
+    "type-plan-review": "beadrs-59794133",
+    "type-backend-tests": "beadrs-aae3f903",
+    "type-backend-red-build": "beadrs-f0af3211",
+    "type-backend-red": "beadrs-9b877e7d",
+    "type-backend-tests-review": "beadrs-3d6a4f90",
+    "type-backend-change": "beadrs-6ba949cd",
+    "type-backend-checks": "beadrs-7454daee",
+    "type-backend-review": "beadrs-83bf86f3",
+    "type-app-tests": "beadrs-0ba2e5ba",
+    "type-app-red": "beadrs-12630573",
+    "type-app-tests-review": "beadrs-e19b45c3",
+    "type-app-change": "beadrs-23215060",
+    "type-app-checks": "beadrs-96c08619",
+    "type-app-review": "beadrs-bd751f6e",
+    "type-windows-roundtrip": "beadrs-4cbebb4a",
+    "type-install-binding": "beadrs-86f1e737",
+    "type-install-binding-review": "beadrs-261d621c",
+    "windows-plan-review": "beadrs-4d20040a",
+    "windows-checkpoint-tests-review": "beadrs-fd1bdb83",
+    "windows-checkpoint-repair": "beadrs-9a124cf2",
+    "windows-maintenance-red-build": "beadrs-7163da63",
+    "windows-maintenance-red": "beadrs-1058323a",
+    "windows-test-fixtures": "beadrs-ecdd626a"
+  },
+  "blocking_edges": 91,
+  "description_updates": 15,
+  "reopens": 3,
+  "new_creates": 23,
+  "dependency_additions": 40,
+  "plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+  "base_plan_sha256": "80b7381aa09378cf14d7bff2862de30afa11fa9041a914c8fef240dcbd18ab4c",
+  "plan_review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+  "manifest_sha256": "9b60140b78caa1af963bbc13a2e0dd7fa893ed942e26a512cadd54f35cc77c72",
+  "binary_sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+  "helper_sha256": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686",
+  "original_inventory_unchanged": true,
+  "unrelated_stored_fields_unchanged": true,
+  "previous_close_history_preserved": true,
+  "complete_descriptions_match": true,
+  "complete_edges_match": true,
+  "config_and_checkpoint_pointer_unchanged": true,
+  "reopened": {
+    "checkpoint-linux-build": "beadrs-9c6d0088",
+    "checkpoint-linux-checks": "beadrs-50ff08d3",
+    "checkpoint-full-suite": "beadrs-0890de3c"
+  },
+  "owned_ready": [
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "title": "Check the Windows tray and Exit action",
+      "revision": 3
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "title": "Review the recovered implementation and results",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "title": "Review the tray repair and exact installer allowance",
+      "revision": 2
+    },
+    {
+      "key": "type-plan-review",
+      "id": "beadrs-59794133",
+      "title": "Review the complete type input correction plan",
+      "revision": 1
+    },
+    {
+      "key": "windows-plan-review",
+      "id": "beadrs-4d20040a",
+      "title": "Review the Windows checkpoint continuation",
+      "revision": 1
+    }
+  ],
+  "continuation": [
+    {
+      "key": "plan-review",
+      "id": "beadrs-3f06f163",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "reconcile",
+      "id": "beadrs-42379588",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "cloud-checks",
+      "id": "beadrs-fa756e78",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-prepare",
+      "id": "beadrs-0b3a11f9",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-runner-review",
+      "id": "beadrs-37f8c2bb",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-check",
+      "id": "beadrs-08532231",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "tray-diagnose",
+      "id": "beadrs-9422c821",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair",
+      "id": "beadrs-417f998c",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair-checks",
+      "id": "beadrs-22b44782",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "installer-repair",
+      "id": "beadrs-f588ab27",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-tests",
+      "id": "beadrs-940d77c6",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-red-build",
+      "id": "beadrs-0eaf8a73",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-red-checks",
+      "id": "beadrs-ce0423c1",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-tests-review",
+      "id": "beadrs-b1038d26",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-repair",
+      "id": "beadrs-b72dc0dc",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-linux-build",
+      "id": "beadrs-9c6d0088",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "checkpoint-windows-build",
+      "id": "beadrs-70721b6a",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-linux-checks",
+      "id": "beadrs-50ff08d3",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "checkpoint-windows-checks",
+      "id": "beadrs-cd3f5a63",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-repair-review",
+      "id": "beadrs-aee6eabb",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "id": "beadrs-0890de3c",
+      "status": "open",
+      "revision": 4
+    },
+    {
+      "key": "type-plan-review",
+      "id": "beadrs-59794133",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-backend-tests",
+      "id": "beadrs-aae3f903",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-backend-red-build",
+      "id": "beadrs-f0af3211",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-backend-red",
+      "id": "beadrs-9b877e7d",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-backend-tests-review",
+      "id": "beadrs-3d6a4f90",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-backend-change",
+      "id": "beadrs-6ba949cd",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-backend-checks",
+      "id": "beadrs-7454daee",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-backend-review",
+      "id": "beadrs-83bf86f3",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-app-tests",
+      "id": "beadrs-0ba2e5ba",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-app-red",
+      "id": "beadrs-12630573",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-app-tests-review",
+      "id": "beadrs-e19b45c3",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-app-change",
+      "id": "beadrs-23215060",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-app-checks",
+      "id": "beadrs-96c08619",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-app-review",
+      "id": "beadrs-bd751f6e",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-windows-roundtrip",
+      "id": "beadrs-4cbebb4a",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "windows-plan-review",
+      "id": "beadrs-4d20040a",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "windows-checkpoint-tests-review",
+      "id": "beadrs-fd1bdb83",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "windows-checkpoint-repair",
+      "id": "beadrs-9a124cf2",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "windows-maintenance-red-build",
+      "id": "beadrs-7163da63",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "windows-maintenance-red",
+      "id": "beadrs-1058323a",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "windows-test-fixtures",
+      "id": "beadrs-ecdd626a",
+      "status": "open",
+      "revision": 1
+    }
+  ],
+  "output_directory": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\materialization-v9",
+  "temporary_directory": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\temp-materialize-v9",
+  "current_accepted_plan": {
+    "path": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\revision-9\\plan.json",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+  },
+  "publication": "Explicit flush and checked Git publication remain required.",
+  "completed_utc": "2026-11-27T06:11:47.851Z"
+}

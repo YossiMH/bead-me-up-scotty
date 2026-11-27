@@ -1,0 +1,595 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "continuation_revision": 9,
+  "task_key": "windows-tray",
+  "scope": "Complete actual logged-in Windows tray run using the accepted runspace wrapper and unchanged original smoke driver, including retained streams and process/resource/cleanup receipts.",
+  "plan": {
+    "path": "20261125/revision-9/plan.json",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "bytes": 419134,
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522"
+  },
+  "materialization": {
+    "path": "20261127/results/materialization-v9-result.json",
+    "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "bytes": 11930
+  },
+  "actual_result": {
+    "path": "20261127/results/tray-runspace-result.json",
+    "sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36",
+    "bytes": 37543
+  },
+  "exact_result_readback": {
+    "original_bytes": 37543,
+    "sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36",
+    "raw_utf8_equal": true
+  },
+  "accepted_source_review": {
+    "path": "20261127/tray-runspace/source-review.json",
+    "sha256": "5d98207c5927aa49931b0cb5ede780a937a901ebd009e894f97850373dadfcc2",
+    "bytes": 9118
+  },
+  "wrapper": {
+    "path": "20261127/tray-runspace/windows-tray-smoke-runspace-20261127.ps1",
+    "sha256": "5119d47a4eaf69933594940217d8a16f9d3934eb014cd8caf04e54b3487c23c5",
+    "bytes": 62483,
+    "actual_pc_staged_bytes_match": true
+  },
+  "parser_and_process_exit": {
+    "ordinary_windows_powershell_parser_errors": 0,
+    "parsed_files": 4,
+    "started_utc": "2026-11-27T07:13:56.6350805Z",
+    "scheduled_task": "ChatGPT-BeadEditing-TrayRunspace-20261127-2889282bfcec",
+    "actual_action": "-NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-tray-smoke-runspace-20261127.ps1 -RepositoryPath F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty -EvidenceDirectory F:\\Dev\\.bead-edit-20261111\\tray-runspace-check-20261127-2889282bfcec -NodePath \"C:\\Program Files\\nodejs\\node.exe\" -BeadBin F:\\Dev\\.bead-edit-20261111\\stage-v6\\backend\\bead-editing-539cdd0.exe -SourceRevision 5232c8b94804064ab71af571ee28797667bd72bd -Port 43971 -TimeoutSeconds 180 -NodeHeapMiB 128 -MaxOwnedResidentMiB 512",
+    "action_executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "last_run_utc": "2026-11-27T07:13:56.0000000Z",
+    "last_task_result": 0,
+    "state": 3,
+    "state_meaning": "ready",
+    "followup_observed_utc": "2026-11-27T07:31:22.1672951Z",
+    "relevant_scotty_processes_remaining": 0,
+    "policy_scope": "Root-approved process-only ExecutionPolicy Bypass on the downloaded unsigned outer wrapper; the production helper arguments retain their ordinary flags."
+  },
+  "source_binding": {
+    "tested_source": "5232c8b94804064ab71af571ee28797667bd72bd",
+    "final_app_source": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "all_eight_runtime_and_fixture_files_byte_identical": true,
+    "files": [
+      {
+        "path": "bin/server-controller.mjs",
+        "sha256": "89bc2e928407d195c512597e3e315f5005d4723763968d1dbb93ff950e89ceb5",
+        "equal_at_both_commits": true
+      },
+      {
+        "path": "bin/windows-tray-host.mjs",
+        "sha256": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+        "equal_at_both_commits": true
+      },
+      {
+        "path": "bin/windows-tray.mjs",
+        "sha256": "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+        "equal_at_both_commits": true
+      },
+      {
+        "path": "bin/windows-tray.ps1",
+        "sha256": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+        "equal_at_both_commits": true
+      },
+      {
+        "path": "scripts/fixtures/windows-tray-click.ps1",
+        "sha256": "b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9",
+        "equal_at_both_commits": true
+      },
+      {
+        "path": "scripts/fixtures/windows-tray-observer.mjs",
+        "sha256": "a46859f6582fd1d248e4548c7a6d1f00673ab9541c77ed045930aa231c5b45de",
+        "equal_at_both_commits": true
+      },
+      {
+        "path": "scripts/serve.mjs",
+        "sha256": "a66b3e7d24499e5c4ce8f24d64b0acd54a90717dab613bc74cb63527e7ef0865",
+        "equal_at_both_commits": true
+      },
+      {
+        "path": "scripts/test-windows-tray-smoke.ps1",
+        "sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+        "equal_at_both_commits": true
+      }
+    ],
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "staged_product_scope": {
+    "repository": "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty",
+    "base_archive_source": "f47fd7adef41e989072d5fa8c39160681aa6fd2a",
+    "three_file_patch_source": "38c21a77b4e875d75e17ee68683846601df33591",
+    "nine_file_host_patch_source": "5232c8b94804064ab71af571ee28797667bd72bd",
+    "nine_patch_files": "six guarded replacements and three exclusive creations, as recorded by the retained passed stage receipt",
+    "stage_receipt": {
+      "path": "20261127/results/prior-tray-stage-result.json",
+      "sha256": "ccc8bad44e9c17e07bd51eee1886ec951daa13f321ee4f56c401e6fca681a49e",
+      "bytes": 29659
+    },
+    "protected_before_after_equal": true,
+    "runtime_files": 230,
+    "build_id": "Eox2_s2VuIuWWAISvMqKK",
+    "next_version": "16.3.8",
+    "native_sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+    "qualification": "This existing archive stage qualifies unchanged tray behavior. Final native 0431a828 and the separate 560-file runtime retain their own platform/build qualification and still require installation."
+  },
+  "actual_execution": {
+    "started_utc": "2026-11-27T07:13:57.2208121Z",
+    "completed_utc": "2026-11-27T07:14:12.7033775Z",
+    "elapsed_seconds": 15.483,
+    "port": 43971,
+    "priority": "BelowNormal",
+    "timeout_seconds": 180,
+    "node_heap_mib": 128,
+    "owned_resident_limit_mib": 512,
+    "live_free_required_bytes": 1073741824,
+    "minimum_observed_free_physical_bytes": 4348432384,
+    "interactive_session_id": 1,
+    "user_interactive": true,
+    "explorer_process_ids": [
+      8504
+    ],
+    "launch_headroom": [
+      {
+        "minimum_bytes": 3221225472,
+        "utc": "2026-11-27T07:13:58.5363629Z",
+        "available_physical_bytes": 4988411904
+      },
+      {
+        "minimum_bytes": 3221225472,
+        "utc": "2026-11-27T07:14:08.4113170Z",
+        "available_physical_bytes": 5080883200
+      }
+    ],
+    "driver_copy": {
+      "sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+      "removed": true,
+      "source": "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty\\scripts\\test-windows-tray-smoke.ps1",
+      "executed": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-driver-54acdf4e908246b996f798a501b796cc\\test-windows-tray-smoke.ps1"
+    },
+    "driver_runspace": {
+      "host_process_id": 10912,
+      "script_sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+      "invocation_state": "Completed",
+      "cancellation_requested": false,
+      "environment_restored": true,
+      "console_error_restored": true,
+      "disposed": true,
+      "stdout_path": "F:\\Dev\\.bead-edit-20261111\\tray-runspace-check-20261127-2889282bfcec\\existing-smoke\\stdout.log",
+      "stderr_path": "F:\\Dev\\.bead-edit-20261111\\tray-runspace-check-20261127-2889282bfcec\\existing-smoke\\stderr.log",
+      "pipeline_errors_path": "F:\\Dev\\.bead-edit-20261111\\tray-runspace-check-20261127-2889282bfcec\\existing-smoke\\pipeline-errors.log",
+      "had_errors": false
+    },
+    "job_measurements": {
+      "samples": 61,
+      "peak_resident_bytes": 518172672,
+      "peak_member_count": 10,
+      "budget_exceeded": false,
+      "cleanup_assisted": false
+    },
+    "measurements": {
+      "max_live_servers": 1,
+      "heartbeat_utc": "/Date(1795763652368)/",
+      "peak_resident_bytes": 518172672
+    },
+    "cleanup": "all_owned_processes_exited",
+    "remaining_job_members": [],
+    "cleanup_errors": []
+  },
+  "peak_budget_margin_bytes": 18698240,
+  "cases": [
+    {
+      "hostPid": 46208,
+      "action": "exit",
+      "trayPid": 38756,
+      "result": "pass",
+      "helperScriptSha256": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+      "cachedScriptsRemoved": true,
+      "serverPid": 44564,
+      "controllerPid": 53548,
+      "executedScript": "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-83waVU\\windows-tray-click.ps1",
+      "port": 43971,
+      "helperScript": "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-NwVgwf\\windows-tray.ps1",
+      "memory_start": {
+        "freeBytes": 4917309440,
+        "minimumBytes": 3221225472,
+        "checkedAt": 1795763638773
+      }
+    },
+    {
+      "hostPid": 22788,
+      "action": "parent-loss",
+      "trayPid": 49020,
+      "result": "pass",
+      "helperScriptSha256": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+      "cachedScriptsRemoved": true,
+      "serverPid": 8428,
+      "controllerPid": 7508,
+      "executedScript": "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-zDS99Y\\windows-tray.ps1",
+      "port": 43971,
+      "helperScript": "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-zDS99Y\\windows-tray.ps1",
+      "memory_start": {
+        "freeBytes": 4600389632,
+        "minimumBytes": 3221225472,
+        "checkedAt": 1795763646566
+      }
+    },
+    {
+      "memory_start": {
+        "freeBytes": 4984406016,
+        "minimumBytes": 3221225472,
+        "checkedAt": 1795763648470
+      },
+      "hostPid": 11460,
+      "action": "restart75-exit",
+      "trayPid": 34440,
+      "serverPids": [
+        43696,
+        47356
+      ],
+      "icon": {
+        "clicked": true,
+        "disposed": true,
+        "menuText": "Exit",
+        "iconVisible": true
+      },
+      "controllerPid": 37044,
+      "cache": {
+        "fixture_sha256": "b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9",
+        "helper_script": "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-8DHJfJ\\windows-tray.ps1",
+        "helper_sha256": "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+        "host_sha256": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+        "removed": true,
+        "host_script": "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty\\bin\\windows-tray-host.mjs",
+        "host_pid": 11460,
+        "executed_script": "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-kXV3mW\\windows-tray-click.ps1"
+      },
+      "firstExitCode": 75,
+      "port": 43971,
+      "result": "pass",
+      "helperCount": 1
+    }
+  ],
+  "direct_controller_ownership": [
+    {
+      "case": "exit",
+      "pid": 53548,
+      "parent_pid": 10912,
+      "free_bytes_before_controller": 4917309440
+    },
+    {
+      "case": "parent-loss",
+      "pid": 7508,
+      "parent_pid": 10912,
+      "free_bytes_before_controller": 4600389632
+    },
+    {
+      "case": "restart75-exit",
+      "pid": 37044,
+      "parent_pid": 10912,
+      "free_bytes_before_controller": 4984406016
+    }
+  ],
+  "process_reconciliation": {
+    "role_processes": [
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 53548,
+        "started_utc": "2026-11-27T07:13:58.7015676Z",
+        "session_id": 1,
+        "kind": "controller"
+      },
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 46208,
+        "started_utc": "2026-11-27T07:13:58.8374610Z",
+        "session_id": 1,
+        "kind": "tray-host"
+      },
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 38756,
+        "started_utc": "2026-11-27T07:13:58.9023292Z",
+        "session_id": 1,
+        "kind": "tray"
+      },
+      {
+        "exit_code": 1,
+        "priority": "BelowNormal",
+        "process_id": 44564,
+        "started_utc": "2026-11-27T07:14:01.0896347Z",
+        "session_id": 1,
+        "kind": "server"
+      },
+      {
+        "exit_code": -1,
+        "priority": "BelowNormal",
+        "process_id": 7508,
+        "started_utc": "2026-11-27T07:14:06.4637661Z",
+        "session_id": 1,
+        "kind": "controller"
+      },
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 22788,
+        "started_utc": "2026-11-27T07:14:06.5815280Z",
+        "session_id": 1,
+        "kind": "tray-host"
+      },
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 49020,
+        "started_utc": "2026-11-27T07:14:06.6321769Z",
+        "session_id": 1,
+        "kind": "tray"
+      },
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 8428,
+        "started_utc": "2026-11-27T07:14:07.0430863Z",
+        "session_id": 1,
+        "kind": "server"
+      },
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 37044,
+        "started_utc": "2026-11-27T07:14:08.4148932Z",
+        "session_id": 1,
+        "kind": "controller"
+      },
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 11460,
+        "started_utc": "2026-11-27T07:14:08.4834607Z",
+        "session_id": 1,
+        "kind": "tray-host"
+      },
+      {
+        "exit_code": 0,
+        "priority": "BelowNormal",
+        "process_id": 34440,
+        "started_utc": "2026-11-27T07:14:08.5353154Z",
+        "session_id": 1,
+        "kind": "tray"
+      },
+      {
+        "exit_code": 75,
+        "priority": "BelowNormal",
+        "process_id": 43696,
+        "started_utc": "2026-11-27T07:14:09.0459250Z",
+        "session_id": 1,
+        "kind": "server"
+      },
+      {
+        "exit_code": 1,
+        "priority": "BelowNormal",
+        "process_id": 47356,
+        "started_utc": "2026-11-27T07:14:11.0980946Z",
+        "session_id": 1,
+        "kind": "server"
+      }
+    ],
+    "job_process_count": 22,
+    "identity_observation_count": 12,
+    "all_role_processes_in_owned_job_with_matching_birth_session_and_exit": true,
+    "all_identity_observations_match_process_name_creation_and_recorded_start_window": true,
+    "nonzero_exits": [
+      {
+        "pid": 44564,
+        "image": "C:\\Program Files\\nodejs\\node.exe",
+        "exit_code": 1
+      },
+      {
+        "pid": 7508,
+        "image": "C:\\Program Files\\nodejs\\node.exe",
+        "exit_code": -1
+      },
+      {
+        "pid": 43696,
+        "image": "C:\\Program Files\\nodejs\\node.exe",
+        "exit_code": 75
+      },
+      {
+        "pid": 47356,
+        "image": "C:\\Program Files\\nodejs\\node.exe",
+        "exit_code": 1
+      },
+      {
+        "pid": 52316,
+        "image": "C:\\Windows\\System32\\cmd.exe",
+        "exit_code": 128
+      },
+      {
+        "pid": 23564,
+        "image": "C:\\Program Files\\Git\\cmd\\git.exe",
+        "exit_code": 128
+      },
+      {
+        "pid": 19252,
+        "image": "C:\\Program Files\\Git\\ucrt64\\bin\\git.exe",
+        "exit_code": 128
+      }
+    ],
+    "interpretation": [
+      "The parent-loss controller was intentionally killed and retained exit -1; this is the action under test.",
+      "The first restart server retained the required exit 75; its actual receipt matches PID 43696, and the same single tray host/helper remained while one replacement server started.",
+      "The first Exit case server and final replacement server retained exit 1 after requested Windows shutdown. The accepted driver requires that they stop and that their controllers complete successfully; it does not require a zero code for those terminated server children.",
+      "Three additional cmd/Git processes retained exit 128. The review preserves those values and makes no all-child-zero claim. All required case assertions, smoke/runspace completion, controller outcomes, scheduler exit and owned cleanup passed; the complete retained streams contain no unhandled product error."
+    ]
+  },
+  "retained_raw_files": {
+    "directory": "20261127/results/tray-runspace-raw",
+    "file_count": 21,
+    "files": [
+      {
+        "path": "existing-smoke/pipeline-errors.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "existing-smoke/stderr.log",
+        "bytes": 147,
+        "sha256": "c8c56801e62c4bc9392bad9e00d47748da3b5e6fa137333bf4ee4512f919d614",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "existing-smoke/stdout.log",
+        "bytes": 1808,
+        "sha256": "b73a2f7fc834efe1e4e53e54746b2a8d908d18c07f6cf109366fa661beb10b55",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "restart/controller.json",
+        "bytes": 160,
+        "sha256": "6f5e6d3d479f045493691dbb2b444ebc9e7d7d76ce531ed6c7d32f265ab459a6",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "restart/icon-receipt.json",
+        "bytes": 74,
+        "sha256": "794bebb806b55ef5c82508eeeb07eff38ce8c03520a0fc7e92d9b8afa709887a",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "restart/memory-start.json",
+        "bytes": 76,
+        "sha256": "8b64c18f9ea9b49fbe5092673327fcfe58a279680d9ed0bbca8028c9e35ab1a3",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "restart/processes.jsonl",
+        "bytes": 2526,
+        "sha256": "9cd1b8222b3b2f18f7ceb5147bf205a2de8680afe37abf63236bf98b407fb415",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "restart/restart-receipt.json",
+        "bytes": 27,
+        "sha256": "7e67dd27a0e24cd3bab3bf0e8e7c519ffecfb9cbd2b065f5558b58a35cc69559",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "restart/stderr.log",
+        "bytes": 0,
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "restart/stdout.log",
+        "bytes": 400,
+        "sha256": "36d5e0eccfe60631b0b7284f6293d75185bfb65b21f5fe562a9b3de1dbdb74fb",
+        "receipt_match": "independently matched base64/size/hash readback"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/exit/controller.json",
+        "bytes": 159,
+        "sha256": "f60e0ba8bc4bd94e1449f888cbc72ffc67c7d632238c84709cad96ae1644a3a5",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/exit/icon-receipt.json",
+        "bytes": 74,
+        "sha256": "794bebb806b55ef5c82508eeeb07eff38ce8c03520a0fc7e92d9b8afa709887a",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/exit/memory-start.json",
+        "bytes": 76,
+        "sha256": "c55be968fb42af84bfcb1d3c9c57f6ba9df22e2b09e30f89f31a13fc9c3830a7",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/exit/processes.jsonl",
+        "bytes": 2353,
+        "sha256": "d837b7355492b126186e7a7fd0cdd87c2f1346d5743da5d9877a139e98cf874e",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/exit/stderr.log",
+        "bytes": 2,
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/exit/stdout.log",
+        "bytes": 159,
+        "sha256": "651d4828b209edb4adb8e48ca79f38d06e472ee016824ea054f98f4f23c9a9a8",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/parent-loss/controller.json",
+        "bytes": 159,
+        "sha256": "04d81fd04fce2bb592f901a650593b5c29a90dd50efde523f73660cc89230a7f",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/parent-loss/memory-start.json",
+        "bytes": 76,
+        "sha256": "4cb136f7d3c3b7eb4b94ed719536c4a5ae96af2a82b7615682d0ef7cbee53463",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/parent-loss/processes.jsonl",
+        "bytes": 1884,
+        "sha256": "1b4a870fe26c5bf2e8bd5126785151d4715cf4476cd4dab73ffd8bda853a4ecb",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/parent-loss/stderr.log",
+        "bytes": 2,
+        "sha256": "7eb70257593da06f682a3ddda54a9d260d4fc514f645237f5ca74b08f8da61a6",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      },
+      {
+        "path": "temp/scotty-tray-smoke-8de410caa612424a9685bf6fc1ef0eb7/parent-loss/stdout.log",
+        "bytes": 158,
+        "sha256": "179237342f755778a218678ae03587c6599fb3ba764cdae882366b0358d4a0d7",
+        "receipt_match": "root recovered and hash-verified the PC bytes; reviewer read and hashed the retained copy"
+      }
+    ],
+    "stream_assessment": "Read all 21 files. Existing-smoke stdout is the complete two-case success JSON; its stderr contains only the evidence-directory line and pipeline errors are empty. Both original case stderr files contain only CRLF. Restart stdout records two ready servers separated by the self-update/relaunch message; restart stderr is empty. Original ANSI/mojibake output bytes are retained without normalization."
+  },
+  "required_criteria": {
+    "real_notify_icon_exit_clicked_and_disposed": true,
+    "parent_loss_host_helper_cache_cleanup": true,
+    "code75_one_replacement_with_one_live_server_and_one_tray": true,
+    "exit_after_restart_prevents_further_restart": true,
+    "same_original_controller_identity_reaches_production_helper": true,
+    "immediate_3gib_launch_headroom": true,
+    "live_1gib_floor_and_512mib_aggregate_limit": true,
+    "normal_runspace_completion_and_restoration": true,
+    "no_assisted_cleanup_no_remaining_job_members": true,
+    "test_ran_in_owned_archive_stage_with_scoped_registry": true
+  },
+  "historical_failures_preserved": [
+    {
+      "sha256": "0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370",
+      "status": "failed",
+      "reason": "Earlier wrapper exceeded 512 MiB at 557076480 bytes before any completed case; assisted owned cleanup was recorded."
+    },
+    {
+      "sha256": "0bf193b489bb7046e3beae9f275bfaafd33ebfb55d8699632130d05a748ad251",
+      "status": "failed",
+      "reason": "Historical source-38 detached-PowerShell startup failure; no accepted actual tray case."
+    }
+  ],
+  "findings": [],
+  "decision": "PASS. The windows-tray task may close at observed revision 3 using its actual mapped ID beadrs-ea7bc5dd. This accepts the recorded tray run and does not certify the later installed configured-launch task.",
+  "review_method": "Read and reconcile already retained results, all new raw streams and source bindings; no new product test or PC operation by this reviewer."
+}

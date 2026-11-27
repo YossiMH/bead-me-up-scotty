@@ -1,0 +1,645 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "started_utc":  "2026-11-27T07:13:57.2208121Z",
+    "repository":  "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty",
+    "source_revision_reported":  "5232c8b94804064ab71af571ee28797667bd72bd",
+    "port":  43971,
+    "priority":  "BelowNormal",
+    "timeout_seconds":  180,
+    "node_heap_mib":  128,
+    "owned_resident_limit_mib":  512,
+    "live_free_required_bytes":  1073741824,
+    "minimum_observed_free_physical_bytes":  4348432384,
+    "interactive_session_id":  1,
+    "cases":  [
+                  {
+                      "hostPid":  46208,
+                      "action":  "exit",
+                      "trayPid":  38756,
+                      "result":  "pass",
+                      "helperScriptSha256":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+                      "cachedScriptsRemoved":  true,
+                      "serverPid":  44564,
+                      "controllerPid":  53548,
+                      "executedScript":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-83waVU\\windows-tray-click.ps1",
+                      "port":  43971,
+                      "helperScript":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-NwVgwf\\windows-tray.ps1",
+                      "memory_start":  {
+                                           "freeBytes":  4917309440,
+                                           "minimumBytes":  3221225472,
+                                           "checkedAt":  1795763638773
+                                       }
+                  },
+                  {
+                      "hostPid":  22788,
+                      "action":  "parent-loss",
+                      "trayPid":  49020,
+                      "result":  "pass",
+                      "helperScriptSha256":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+                      "cachedScriptsRemoved":  true,
+                      "serverPid":  8428,
+                      "controllerPid":  7508,
+                      "executedScript":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-zDS99Y\\windows-tray.ps1",
+                      "port":  43971,
+                      "helperScript":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-zDS99Y\\windows-tray.ps1",
+                      "memory_start":  {
+                                           "freeBytes":  4600389632,
+                                           "minimumBytes":  3221225472,
+                                           "checkedAt":  1795763646566
+                                       }
+                  },
+                  {
+                      "memory_start":  {
+                                           "freeBytes":  4984406016,
+                                           "minimumBytes":  3221225472,
+                                           "checkedAt":  1795763648470
+                                       },
+                      "hostPid":  11460,
+                      "action":  "restart75-exit",
+                      "trayPid":  34440,
+                      "serverPids":  [
+                                         43696,
+                                         47356
+                                     ],
+                      "icon":  {
+                                   "clicked":  true,
+                                   "disposed":  true,
+                                   "menuText":  "Exit",
+                                   "iconVisible":  true
+                               },
+                      "controllerPid":  37044,
+                      "cache":  {
+                                    "fixture_sha256":  "b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9",
+                                    "helper_script":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-8DHJfJ\\windows-tray.ps1",
+                                    "helper_sha256":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+                                    "host_sha256":  "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+                                    "removed":  true,
+                                    "host_script":  "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty\\bin\\windows-tray-host.mjs",
+                                    "host_pid":  11460,
+                                    "executed_script":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-kXV3mW\\windows-tray-click.ps1"
+                                },
+                      "firstExitCode":  75,
+                      "port":  43971,
+                      "result":  "pass",
+                      "helperCount":  1
+                  }
+              ],
+    "cleanup":  "all_owned_processes_exited",
+    "identity_observations":  [
+                                  {
+                                      "observed_utc":  "2026-11-27T07:13:58.9919400Z",
+                                      "kind":  "controller",
+                                      "recorded_pid":  53548,
+                                      "process_id":  53548,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:13:58.7015676Z",
+                                      "birth_ms":  1795763638701,
+                                      "recorded_started_after":  1795763638477.737,
+                                      "recorded_at":  1795763638753,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:13:59.2993246Z",
+                                      "kind":  "tray-host",
+                                      "recorded_pid":  46208,
+                                      "process_id":  46208,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:13:58.8374610Z",
+                                      "birth_ms":  1795763638837,
+                                      "recorded_started_after":  1795763638804,
+                                      "recorded_at":  1795763638843,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:13:59.4728810Z",
+                                      "kind":  "tray",
+                                      "recorded_pid":  38756,
+                                      "process_id":  38756,
+                                      "command":  "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                      "expected_name":  "powershell",
+                                      "actual_name":  "powershell",
+                                      "creation_time_utc":  "2026-11-27T07:13:58.9023292Z",
+                                      "birth_ms":  1795763638902,
+                                      "recorded_started_after":  1795763638899,
+                                      "recorded_at":  1795763638916,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:01.1693472Z",
+                                      "kind":  "server",
+                                      "recorded_pid":  44564,
+                                      "process_id":  44564,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:14:01.0896347Z",
+                                      "birth_ms":  1795763641089,
+                                      "recorded_started_after":  1795763641087,
+                                      "recorded_at":  1795763641092,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:06.6066029Z",
+                                      "kind":  "controller",
+                                      "recorded_pid":  7508,
+                                      "process_id":  7508,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:14:06.4637661Z",
+                                      "birth_ms":  1795763646463,
+                                      "recorded_started_after":  1795763646266.6772,
+                                      "recorded_at":  1795763646565,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:06.8098306Z",
+                                      "kind":  "tray-host",
+                                      "recorded_pid":  22788,
+                                      "process_id":  22788,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:14:06.5815280Z",
+                                      "birth_ms":  1795763646581,
+                                      "recorded_started_after":  1795763646577,
+                                      "recorded_at":  1795763646586,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:07.0214223Z",
+                                      "kind":  "tray",
+                                      "recorded_pid":  49020,
+                                      "process_id":  49020,
+                                      "command":  "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                      "expected_name":  "powershell",
+                                      "actual_name":  "powershell",
+                                      "creation_time_utc":  "2026-11-27T07:14:06.6321769Z",
+                                      "birth_ms":  1795763646632,
+                                      "recorded_started_after":  1795763646628,
+                                      "recorded_at":  1795763646645,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:07.4268740Z",
+                                      "kind":  "server",
+                                      "recorded_pid":  8428,
+                                      "process_id":  8428,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:14:07.0430863Z",
+                                      "birth_ms":  1795763647043,
+                                      "recorded_started_after":  1795763647039,
+                                      "recorded_at":  1795763647046,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:08.6533989Z",
+                                      "kind":  "tray-host",
+                                      "recorded_pid":  11460,
+                                      "process_id":  11460,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:14:08.4834607Z",
+                                      "birth_ms":  1795763648483,
+                                      "recorded_started_after":  1795763648479,
+                                      "recorded_at":  1795763648488,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:08.9331466Z",
+                                      "kind":  "tray",
+                                      "recorded_pid":  34440,
+                                      "process_id":  34440,
+                                      "command":  "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                      "expected_name":  "powershell",
+                                      "actual_name":  "powershell",
+                                      "creation_time_utc":  "2026-11-27T07:14:08.5353154Z",
+                                      "birth_ms":  1795763648535,
+                                      "recorded_started_after":  1795763648532,
+                                      "recorded_at":  1795763648551,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:09.3723117Z",
+                                      "kind":  "server",
+                                      "recorded_pid":  43696,
+                                      "process_id":  43696,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:14:09.0459250Z",
+                                      "birth_ms":  1795763649045,
+                                      "recorded_started_after":  1795763649043,
+                                      "recorded_at":  1795763649050,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T07:14:11.2414609Z",
+                                      "kind":  "server",
+                                      "recorded_pid":  47356,
+                                      "process_id":  47356,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T07:14:11.0980946Z",
+                                      "birth_ms":  1795763651098,
+                                      "recorded_started_after":  1795763651095,
+                                      "recorded_at":  1795763651099,
+                                      "has_exited":  false
+                                  }
+                              ],
+    "user_interactive":  true,
+    "boundaries":  {
+                       "consoles":  "An external preload sets windowsHide on owned Node child launches.",
+                       "forms":  "Real NotifyIcon, real ExitItem.PerformClick and normal helper disposal.",
+                       "registry":  "Each case uses its own XDG_CONFIG_HOME.",
+                       "restart":  "An external preload exits the actual Next child with code 75 after HTTP readiness; no update/build command."
+                   },
+    "explorer_process_ids":  [
+                                 8504
+                             ],
+    "next_version":  "16.3.8",
+    "build_id":  "Eox2_s2VuIuWWAISvMqKK",
+    "source_sha256":  {
+                          "scripts\\fixtures\\windows-tray-observer.mjs":  "a46859f6582fd1d248e4548c7a6d1f00673ab9541c77ed045930aa231c5b45de",
+                          "scripts\\test-windows-tray-smoke.ps1":  "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+                          "scripts\\fixtures\\windows-tray-click.ps1":  "b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9",
+                          "bin\\windows-tray.ps1":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+                          "bin\\windows-tray.mjs":  "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+                          "bin\\server-controller.mjs":  "89bc2e928407d195c512597e3e315f5005d4723763968d1dbb93ff950e89ceb5",
+                          "scripts\\serve.mjs":  "a66b3e7d24499e5c4ce8f24d64b0acd54a90717dab613bc74cb63527e7ef0865",
+                          "bin\\windows-tray-host.mjs":  "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd"
+                      },
+    "evidence_directory":  "F:\\Dev\\.bead-edit-20261111\\tray-runspace-check-20261127-2889282bfcec",
+    "job_initial_members":  [
+                                10912
+                            ],
+    "job_accounting":  "All members of the exact retained Job at each sample, including console hosts and short native children; PID, birth and process handle retained.",
+    "hard_deadline_exit_code":  124,
+    "job_helper_sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "driver_copy":  {
+                        "sha256":  "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+                        "removed":  true,
+                        "source":  "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty\\scripts\\test-windows-tray-smoke.ps1",
+                        "executed":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-driver-54acdf4e908246b996f798a501b796cc\\test-windows-tray-smoke.ps1"
+                    },
+    "driver_runspace":  {
+                            "host_process_id":  10912,
+                            "script_sha256":  "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+                            "invocation_state":  "Completed",
+                            "cancellation_requested":  false,
+                            "environment_restored":  true,
+                            "console_error_restored":  true,
+                            "disposed":  true,
+                            "stdout_path":  "F:\\Dev\\.bead-edit-20261111\\tray-runspace-check-20261127-2889282bfcec\\existing-smoke\\stdout.log",
+                            "stderr_path":  "F:\\Dev\\.bead-edit-20261111\\tray-runspace-check-20261127-2889282bfcec\\existing-smoke\\stderr.log",
+                            "pipeline_errors_path":  "F:\\Dev\\.bead-edit-20261111\\tray-runspace-check-20261127-2889282bfcec\\existing-smoke\\pipeline-errors.log",
+                            "had_errors":  false
+                        },
+    "launch_headroom":  [
+                            {
+                                "minimum_bytes":  3221225472,
+                                "utc":  "2026-11-27T07:13:58.5363629Z",
+                                "available_physical_bytes":  4988411904
+                            },
+                            {
+                                "minimum_bytes":  3221225472,
+                                "utc":  "2026-11-27T07:14:08.4113170Z",
+                                "available_physical_bytes":  5080883200
+                            }
+                        ],
+    "remaining_job_members":  [
+
+                              ],
+    "processes":  [
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  53548,
+                          "started_utc":  "2026-11-27T07:13:58.7015676Z",
+                          "session_id":  1,
+                          "kind":  "controller"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  46208,
+                          "started_utc":  "2026-11-27T07:13:58.8374610Z",
+                          "session_id":  1,
+                          "kind":  "tray-host"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  38756,
+                          "started_utc":  "2026-11-27T07:13:58.9023292Z",
+                          "session_id":  1,
+                          "kind":  "tray"
+                      },
+                      {
+                          "exit_code":  1,
+                          "priority":  "BelowNormal",
+                          "process_id":  44564,
+                          "started_utc":  "2026-11-27T07:14:01.0896347Z",
+                          "session_id":  1,
+                          "kind":  "server"
+                      },
+                      {
+                          "exit_code":  -1,
+                          "priority":  "BelowNormal",
+                          "process_id":  7508,
+                          "started_utc":  "2026-11-27T07:14:06.4637661Z",
+                          "session_id":  1,
+                          "kind":  "controller"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  22788,
+                          "started_utc":  "2026-11-27T07:14:06.5815280Z",
+                          "session_id":  1,
+                          "kind":  "tray-host"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  49020,
+                          "started_utc":  "2026-11-27T07:14:06.6321769Z",
+                          "session_id":  1,
+                          "kind":  "tray"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  8428,
+                          "started_utc":  "2026-11-27T07:14:07.0430863Z",
+                          "session_id":  1,
+                          "kind":  "server"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  37044,
+                          "started_utc":  "2026-11-27T07:14:08.4148932Z",
+                          "session_id":  1,
+                          "kind":  "controller"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  11460,
+                          "started_utc":  "2026-11-27T07:14:08.4834607Z",
+                          "session_id":  1,
+                          "kind":  "tray-host"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  34440,
+                          "started_utc":  "2026-11-27T07:14:08.5353154Z",
+                          "session_id":  1,
+                          "kind":  "tray"
+                      },
+                      {
+                          "exit_code":  75,
+                          "priority":  "BelowNormal",
+                          "process_id":  43696,
+                          "started_utc":  "2026-11-27T07:14:09.0459250Z",
+                          "session_id":  1,
+                          "kind":  "server"
+                      },
+                      {
+                          "exit_code":  1,
+                          "priority":  "BelowNormal",
+                          "process_id":  47356,
+                          "started_utc":  "2026-11-27T07:14:11.0980946Z",
+                          "session_id":  1,
+                          "kind":  "server"
+                      }
+                  ],
+    "job_measurements":  {
+                             "samples":  61,
+                             "peak_resident_bytes":  518172672,
+                             "peak_member_count":  10,
+                             "budget_exceeded":  false,
+                             "cleanup_assisted":  false
+                         },
+    "job_processes":  [
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  56578048,
+                              "birth_filetime":  134402372387015676,
+                              "process_id":  53548,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:13:58.7015676Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8675328,
+                              "birth_filetime":  134402372387067518,
+                              "process_id":  10612,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:13:58.7067518Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  56279040,
+                              "birth_filetime":  134402372388374610,
+                              "process_id":  46208,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:13:58.8374610Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  113491968,
+                              "birth_filetime":  134402372389023292,
+                              "process_id":  38756,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:13:58.9023292Z",
+                              "image":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8654848,
+                              "birth_filetime":  134402372389170869,
+                              "process_id":  44944,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:13:58.9170869Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  1,
+                              "peak_resident_bytes":  113422336,
+                              "birth_filetime":  134402372410896347,
+                              "process_id":  44564,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:01.0896347Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  56918016,
+                              "birth_filetime":  134402372464637661,
+                              "process_id":  7508,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:06.4637661Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  55709696,
+                              "birth_filetime":  134402372465815280,
+                              "process_id":  22788,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:06.5815280Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  106323968,
+                              "birth_filetime":  134402372466321769,
+                              "process_id":  49020,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:06.6321769Z",
+                              "image":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8683520,
+                              "birth_filetime":  134402372464716535,
+                              "process_id":  55560,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:06.4716535Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8650752,
+                              "birth_filetime":  134402372466474828,
+                              "process_id":  12524,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:06.6474828Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  112508928,
+                              "birth_filetime":  134402372470430863,
+                              "process_id":  8428,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:07.0430863Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  56844288,
+                              "birth_filetime":  134402372484148932,
+                              "process_id":  37044,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:08.4148932Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8687616,
+                              "birth_filetime":  134402372484215878,
+                              "process_id":  14044,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:08.4215878Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  55885824,
+                              "birth_filetime":  134402372484834607,
+                              "process_id":  11460,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:08.4834607Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  107544576,
+                              "birth_filetime":  134402372485353154,
+                              "process_id":  34440,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:08.5353154Z",
+                              "image":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8663040,
+                              "birth_filetime":  134402372485613813,
+                              "process_id":  49592,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:08.5613813Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  75,
+                              "peak_resident_bytes":  112648192,
+                              "birth_filetime":  134402372490459250,
+                              "process_id":  43696,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:09.0459250Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  1,
+                              "peak_resident_bytes":  112930816,
+                              "birth_filetime":  134402372510980946,
+                              "process_id":  47356,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:11.0980946Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  128,
+                              "peak_resident_bytes":  8880128,
+                              "birth_filetime":  134402372514039864,
+                              "process_id":  52316,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:11.4039864Z",
+                              "image":  "C:\\Windows\\System32\\cmd.exe"
+                          },
+                          {
+                              "exit_code":  128,
+                              "peak_resident_bytes":  7057408,
+                              "birth_filetime":  134402372514216031,
+                              "process_id":  23564,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:11.4216031Z",
+                              "image":  "C:\\Program Files\\Git\\cmd\\git.exe"
+                          },
+                          {
+                              "exit_code":  128,
+                              "peak_resident_bytes":  8114176,
+                              "birth_filetime":  134402372514323874,
+                              "process_id":  19252,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T07:14:11.4323874Z",
+                              "image":  "C:\\Program Files\\Git\\ucrt64\\bin\\git.exe"
+                          }
+                      ],
+    "measurements":  {
+                         "max_live_servers":  1,
+                         "heartbeat_utc":  "\/Date(1795763652368)\/",
+                         "peak_resident_bytes":  518172672
+                     },
+    "cleanup_errors":  [
+
+                       ],
+    "completed_utc":  "2026-11-27T07:14:12.7033775Z",
+    "elapsed_seconds":  15.483
+}

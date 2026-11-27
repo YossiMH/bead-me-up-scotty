@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "actual_execution": "logged-in Windows session",
+  "result_sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36",
+  "started_utc": "2026-11-27T07:13:57.2208121Z",
+  "completed_utc": "2026-11-27T07:14:12.7033775Z",
+  "elapsed_seconds": 15.483,
+  "case_results": [
+    {
+      "action": "exit",
+      "result": "pass"
+    },
+    {
+      "action": "parent-loss",
+      "result": "pass"
+    },
+    {
+      "action": "restart75-exit",
+      "result": "pass"
+    }
+  ],
+  "job_measurements": {
+    "samples": 61,
+    "peak_resident_bytes": 518172672,
+    "peak_member_count": 10,
+    "budget_exceeded": false,
+    "cleanup_assisted": false
+  },
+  "remaining_job_members": 0,
+  "cleanup": "all_owned_processes_exited",
+  "cleanup_errors": [],
+  "driver_runspace": {
+    "script_sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+    "invocation_state": "Completed",
+    "cancellation_requested": false,
+    "environment_restored": true,
+    "console_error_restored": true,
+    "disposed": true,
+    "had_errors": false
+  },
+  "source_revision_reported": "5232c8b94804064ab71af571ee28797667bd72bd",
+  "independent_actual_review": "pending"
+}

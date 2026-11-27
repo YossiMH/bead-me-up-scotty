@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "continuation_revision": 9,
+  "task_key": "candidate-review",
+  "scope": "Combined pre-installation acceptance of exact final native editing, app editing, production runtime, browser behavior, repaired tray and checked installer inputs.",
+  "plan": {
+    "path": "20261125/revision-9/plan.json",
+    "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "bytes": 419134,
+    "commit": "e97773b478bd0b916eb40c5d09bc79368bfd7522"
+  },
+  "materialization": {
+    "path": "20261127/results/materialization-v9-result.json",
+    "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "bytes": 11930
+  },
+  "accepted_candidate": {
+    "native_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_tree": "509d6222300b84b16041a8366a8b6ae4c28ccc98",
+    "native_windows_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "native_windows_bytes": 12243456,
+    "native_metadata_sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5",
+    "installed_basename": "bead-0431a828bf95.exe",
+    "app_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "app_tree": "84bb66cde1832ad8d30b63773efb77c952787b94",
+    "runtime_files": 560,
+    "runtime_expanded_bytes": 27426391,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_inner_zip_sha256": "a4da62f8feadadd6a510eb2d1b0c1ab17d4a769c65e346664ba4885087b7a220",
+    "installer_sha256": "3c7e2b5ccbe5d31b32a236d9b336feffa868ffc12bbf8ee2db2e9d9f3ad214c0",
+    "configured_launcher_sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e"
+  },
+  "accepted_evidence": {
+    "native_final": {
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676",
+      "bytes": 18086,
+      "commit": "7d30c840514d318a4588d979a90c20bcf07d8734"
+    },
+    "native_linux": {
+      "path": "20261125/revision-9/results/native-linux-qualification-review.json",
+      "sha256": "5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf",
+      "bytes": 19043,
+      "commit": "6e70133a8e70e374e6b0b7e1931f8c829b113021"
+    },
+    "native_windows": {
+      "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+      "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae",
+      "bytes": 27661,
+      "commit": "60df4701ad68eafcf34f3f614087c41e57fa44f8"
+    },
+    "app_final": {
+      "path": "20261125/revision-9/results/type-app-review.json",
+      "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e",
+      "bytes": 10323,
+      "commit": "46785d535d046f044d6dc3c65487da6f3076953c"
+    },
+    "app_real_windows_http": {
+      "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+      "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b",
+      "bytes": 14106,
+      "commit": "76a04b979a372b51bcb0d0bbffa52f4105b1a541"
+    },
+    "runtime_inventory": {
+      "path": "20261125/revision-9/results/app-runtime-inventory-review.json",
+      "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525",
+      "bytes": 7530,
+      "commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f"
+    },
+    "browser": {
+      "path": "20261125/browser-result-review.json",
+      "sha256": "3caeb542f211d1dccebe75fff7e364b7d3d6e9a90d87f406ee28c93533b71741",
+      "bytes": 10164
+    },
+    "tray_repair": {
+      "path": "20261127/results/tray-repair-final-review.json",
+      "sha256": "22783d2693e0ec706ebfa979ac01250dfa3e6d515305bd4a335c949586ffb23b",
+      "bytes": 6362
+    },
+    "actual_tray": {
+      "path": "20261127/results/tray-runspace-actual-review.json",
+      "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729",
+      "bytes": 24623
+    },
+    "original_installer_and_wrapper_review": {
+      "path": "20261125/revision-6/results/tray-wrappers-v6-review.json",
+      "sha256": "30049f5537aee149b845dbebd2b59dbadfb5cabb52fd77bd7dd1e3312c7e7696",
+      "bytes": 13792
+    },
+    "bounded_installer_supervisor": {
+      "path": "20261127/installation-execution/source-review.json",
+      "sha256": "d37ef1f38dcfd21d224b0c130ff3b0099f3aca68f2d5bd1faf00a938cc232e69",
+      "bytes": 10445
+    },
+    "final_artifact_binding": {
+      "path": "20261125/revision-9/results/final-installation-binding-review.json",
+      "sha256": "9d427fdae7f05e8ca873031630852e26a8e67f0fe859c03e101522c81dc116aa",
+      "bytes": 16657
+    },
+    "recovered_prior_state": {
+      "path": "20261124/results/reconcile.json",
+      "sha256": "c4e4cc80475ec19d9adf41cdf6eab72d036bb44fd192741edabba7b2c835b5e3",
+      "bytes": 11317
+    }
+  },
+  "native_acceptance": {
+    "affected_checks_passed": 95,
+    "full_suite_passed": 1913,
+    "full_suite_failed": 0,
+    "existing_ignored": 8,
+    "test_harnesses": 145,
+    "doctests": "passed as retained in the accepted full-suite review",
+    "windows_ordinary_tests_passed": 98,
+    "windows_core": 25,
+    "windows_editing": 73,
+    "windows_ordinary_conformance_passed": 12,
+    "windows_smoke_commands": 55,
+    "smoke_zero_exits": 54,
+    "expected_stale_exit_4": 1,
+    "per_platform_restores": 4,
+    "per_platform_full_comparisons": 6,
+    "original_issues_preserved": 954,
+    "events_preserved": 11264,
+    "receipts_preserved": 5,
+    "outcomes_preserved": 413,
+    "characterization": {
+      "invocations": 12,
+      "green": 10,
+      "caught_red": 2,
+      "meaning": "The deliberate eight-row out-of-band deletion characterization retains its two expected assertion failures; it is separate from the ordinary passing suites.",
+      "exact_caught_assertions": [
+        "publication 0 added 1789455 new blob bytes, budget is 262144",
+        "assertion left == right failed: shard coverage lost records left392 right400"
+      ]
+    },
+    "reviewed_behaviors": [
+      "Atomic multi-scalar edits and revision/claim fencing",
+      "Closed-issue edit behavior and atomic priority reasons/audit events",
+      "Long description, notes and custom type inputs through bounded files",
+      "Optional literal-true issue-type-file capability negotiation",
+      "Both fs2 contention predicates corrected and qualified on final source",
+      "Same-UUID recovery, complete record preservation and selected current/previous generation behavior"
+    ]
+  },
+  "app_acceptance": {
+    "tests_passed": 115,
+    "tests_failed": 0,
+    "lint_build_typescript_diff_checks_exit_zero": true,
+    "actual_windows_run": 45606372926,
+    "actual_windows_job": 139178170464,
+    "real_http_patch_requests": 1,
+    "custom_type_characters": 40000,
+    "custom_type_utf8_bytes": 50000,
+    "exact_type_roundtrip_sha_verified": true,
+    "http_revision_change": [
+      2,
+      3
+    ],
+    "native_revision_change": [
+      4,
+      5
+    ],
+    "claim_epoch_retained": 1,
+    "assignee_preserved": true,
+    "priority_audit_matches_final_revision": true,
+    "temporary_files_and_server_cleanup_verified": true,
+    "reviewed_behaviors": [
+      "Only literal true enables issue-type-file; absent, false or malformed optional capability preserves the remaining valid edit capabilities.",
+      "Shared 8192-byte argv accounting measures UTF-8 type/description/notes. Old binaries retain short-type fallback and reject unsupported long type before mutation.",
+      "Acquired credentials, expected revisions, atomic priority reasons and request-owned file cleanup remain enforced; uncertain writes are not retried automatically.",
+      "Retained UI recovery, dependency direction/kind, lifecycle, assignment, labels, comments, checklists and read-only behavior remain consistent with the accepted specification."
+    ]
+  },
+  "browser_bridge": {
+    "accepted_source": "38c21a77b4e875d75e17ee68683846601df33591",
+    "accepted_run": 45517446104,
+    "accepted_job": 138880435097,
+    "native_commands": 38,
+    "http_outcomes": 37,
+    "real_browser_flows": 3,
+    "screenshots_previously_retained": 10,
+    "traces_previously_retained": 3,
+    "result": "All three retained flows passed; expected HTTP refusals and injected post-write failures are included, with no repeated mutation or browser page error.",
+    "source_comparison": "Compared browser-tested source 38c21a77 to final app 030953. UI components, API routes, serve and server-controller are unchanged. The changed native adapters and tray modules have separate final-source and actual Windows acceptance.",
+    "retention_limit": "Reuse the complete accepted browser result review and its recorded original evidence hashes. The old artifact and original scratch paths are not asserted to be currently downloadable."
+  },
+  "independent_source_reconciliation": [
+    "Reread the accepted native editing specification and final native/app reviews, real Windows roundtrip review, runtime inventory review, browser review and complete tray evidence.",
+    "Matched all thirteen final native reviewed source hashes to final 2d801, all four final app adapter/document hashes and Git blobs to final 030953, and both source trees.",
+    "Matched all nine reviewed tray repair files at source 5232 and final 030953, including all eight files measured by the actual logged-in run.",
+    "The two current-session agents previously inspected native and app sources read-only. Their messages point to the retained independent product reviews used here; no separate unrecorded review artifact is invented.",
+    "The 560-file final runtime is bound to final app 030953 and its own build/inventory acceptance. The 230-file archived runtime used for the unchanged tray check is recorded separately.",
+    "The complete checked installer source and its new bounded supervisor preserve the fifteen original dirty files, original indexes, old pin/runtime/configuration recovery and checked normal publication. Their actual installation behavior remains a later task."
+  ],
+  "preserved_qualifications": [
+    "The native full suite retains eight existing ignores. Characterization GREEN/RED observations are not added to ordinary success totals.",
+    "The app retains one existing lint warning, the recorded Node-version recommendation and existing npm/Turbopack warnings; the accepted checks exited zero.",
+    "Four original Windows capture stdout bodies include truncation markers. Complete qualification/readback checks cited by the accepted review remain the basis; missing raw text is not reconstructed.",
+    "Earlier /var/tmp raw logs and an unflushed historical task graph were lost, as the accepted reconcile record states. This review reuses valid later retained evidence and does not claim those deleted records are present.",
+    "All earlier failed tray attempts stay failed. The successful lighter run has its own exact source, raw receipt and resource accounting."
+  ],
+  "remaining_delivery_work": [
+    "Bounded exact archive transfer and validated staging",
+    "Actual final-source installation/publication",
+    "Configured launch against the installed final native pin and fresh runtime",
+    "Independent installed review and canonical handoffs",
+    "Separately completed installation/history binding review for the confirmed checkpoint-only original repository",
+    "Original-store history preservation and supported recovery, checkpoint publication/restore, final task cleanup and owned worktree cleanup"
+  ],
+  "findings": [],
+  "decision": "PASS for the exact pre-installation product candidate. After windows-tray and tray-repair-review acceptance, candidate-review may close as beadrs-ba8cbd23 at observed revision 5. Installation, configured launch, history merge and both incomplete binding tasks are excluded from this decision.",
+  "review_method": "Retained independent product/platform reviews and source/actual-result comparisons; no product tests, builds or PC calls by this reviewer."
+}

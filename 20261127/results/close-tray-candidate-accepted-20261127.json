@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "accepted_plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+  "materialization_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+  "root_is_sole_state_writer": true,
+  "tasks": [
+    {
+      "key": "windows-tray",
+      "revision": 3,
+      "reason": "The exact accepted lighter tray wrapper completed all three real logged-in Windows actions: Exit, original-controller loss, and exit-75 restart followed by Exit. Complete raw streams, icon/cache disposal, direct controller identities, source hashes, parser and scheduler exit reconcile. Peak owned resident memory was 518172672 bytes within 512 MiB, with no assisted cleanup or remaining processes. Earlier failed attempts remain failed. Independent review: YossiMH/bead-me-up-scotty:20261127/results/tray-runspace-actual-review.json; SHA256 8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729."
+    },
+    {
+      "key": "tray-repair-review",
+      "revision": 2,
+      "reason": "Independent combined PASS accepts the exact two-module repair and checked installer/wrappers. The 39 retained Linux checks, two hosted real Windows Forms cases and three actual logged-in PC actions pass. All nine reviewed repair files remain byte-identical in final app 0309539797fd7d016e2b8fd8bdc0ae9cefc20219. Original source/config/index/runtime preservation checks remain intact; installed configured launch remains a later task. Independent review: YossiMH/bead-me-up-scotty:20261127/results/tray-repair-final-review.json; SHA256 22783d2693e0ec706ebfa979ac01250dfa3e6d515305bd4a335c949586ffb23b."
+    },
+    {
+      "key": "candidate-review",
+      "revision": 5,
+      "reason": "Independent combined pre-installation PASS accepts native 2d801ba455b7a722daf644a7615445117d57e8e9, app 0309539797fd7d016e2b8fd8bdc0ae9cefc20219, native SHA256 0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a and the qualified 560-file runtime. Final native/app/platform and real Windows HTTP reviews, unchanged browser behavior, repaired tray and checked installer inputs reconcile. Existing ignores, characterization REDs and historical unavailable logs retain their recorded qualifications. Installation, configured launch, history and incomplete binding tasks remain open. Independent review: YossiMH/bead-me-up-scotty:20261127/results/candidate-final-review.json; SHA256 966f7f2165a1bde5f5676cde3bb88f61a5469b32314bde6a6acd380900722957."
+    }
+  ]
+}
