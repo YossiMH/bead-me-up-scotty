@@ -1,0 +1,127 @@
+{
+  "schema_version": 1,
+  "status": "completed_for_existing_independent_request_review",
+  "author": "/root/review_bead_rs",
+  "basis": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "8dfbd35a460fb5f8da289e1ac26119cb213abfa3",
+    "initial_request_sha256": "bb0a69b2c05f8eb95d0e564c57d7a62bb43ea5531088b32c153c132e4f9fb180",
+    "initial_admission_sha256": "b1139268e8d39aa2ba68f35db58af2332855a6479e5d22d048994b88bd974df0",
+    "unchanged_publisher_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+    "unchanged_supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+    "unchanged_history_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b"
+  },
+  "files": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-native-publication-preparation/native-checkpoint-final-20261127-02e8a44557c8-v1.request.json",
+      "bytes": 3422,
+      "sha256": "d644d3be608d283c2368daec37878b1c333dc0fb8072c6756a31ee9832648a39"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-native-publication-preparation/native-checkpoint-final-admission.ps1",
+      "bytes": 992,
+      "sha256": "bb7962dcf9da40694b0af59dca41f71796e7f812d1300b2e0a5a6ef410e8e4d2"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-native-publication-preparation/native-checkpoint-final-admission-invocation.json",
+      "bytes": 3812,
+      "sha256": "5a8325430f906c6007e1548472659ac2e5366272102082f87633c4ad3862b337"
+    }
+  ],
+  "actual_phases": {
+    "final_publish": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+      "sha256": "0732b04aa7acdd61079edb9dd78ce24cd28e9e3da00e0e4636f433359a2775be"
+    },
+    "final_restore": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-restore/result.json",
+      "sha256": "cedb7e8f42265963a96e3af45a7b8af598da894b421d3dacee837e2a3c7e1e02"
+    }
+  },
+  "separate_review": {
+    "source": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-history-restore-actual/actual-review.json",
+    "stage_destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/final-restore-actual-review.json",
+    "bytes": 4239,
+    "sha256": "a624fe7468b9541fe02a48287c291c89b6d15ce6a14b5b3c7e4fac80e9917758"
+  },
+  "native_guard": {
+    "artifact": "20261127/resumed-completion/final-history-restore-actual/native-publication-guards.json",
+    "bytes": 1323,
+    "sha256": "d85a40ae53125d62e36cb9036c3365fb024d1a1d6d9a9682ba2429a17070f790",
+    "execution_artifact": "20261127/resumed-completion/final-history-restore-actual/native-publication-guards-execution.json",
+    "execution_bytes": 4114,
+    "execution_sha256": "7e720ee6964f5ea11e1f332128a130ea6dcc15caa2cb18fef8a42cd762a94edf"
+  },
+  "supplemental_files": {
+    "original-git-before.json": {
+      "bytes": 219610,
+      "sha256": "da332fdce72e80c34c153fcba966d8ac8e0095126fc9b2b230415ab798013e26",
+      "artifact": "20261127/resumed-completion/final-history-publish-actual/original-git-before.json"
+    },
+    "original-git-after.json": {
+      "bytes": 220455,
+      "sha256": "2aeb94acffd724b4c5c36d3f4571a300bc41764f39db26736e147cbcf6999928",
+      "artifact": "20261127/resumed-completion/final-history-publish-actual/original-git-after.json"
+    },
+    "checkpoint-index-reconciliation.json": {
+      "bytes": 738,
+      "sha256": "ed7b76148ab12fb95e3b0cca1977d88c5fed32476da339ac60c30ad61d457dc3",
+      "artifact": "20261127/resumed-completion/final-history-publish-actual/checkpoint-index-reconciliation.json"
+    },
+    "published-manifest.json": {
+      "bytes": 67672,
+      "sha256": "2971f585309c02206a7c55eb358312987911c037253a7d670fecab9f97b63cb1",
+      "artifact": "20261127/resumed-completion/final-history-publish-actual/published-manifest.json"
+    },
+    "git-configuration-before.json": {
+      "bytes": 123,
+      "sha256": "994872f3dc9ef9499512b371b19ca8ef7f73831b9b954c33273781b6e983ae7b",
+      "artifact": "20261127/resumed-completion/final-history-publish-actual/git-configuration-before.json"
+    }
+  },
+  "bound_staging": {
+    "head": "4c2e842beac30e3663a3816722430659befad7ee",
+    "index_sha256": "eb84c1cb7d53a59ec6fa823936db931f1993f44221bc45ae1452b729ba52e278",
+    "git_config_sha256": "cabe1e42547b2d4e3e4440120c754e902a9ed42ae4a328350283a79e451b5330",
+    "exact_changed_paths": [
+      ".beads/checkpoint/current.json",
+      ".beads/checkpoint/objects/4f5571a1823810366d4a3274c9231604913905c6334c380bf116b110ae5d486d.jsonl",
+      ".beads/checkpoint/previous.json",
+      ".beads/checkpoint/set/manifest-gen-b0dbb36610c8c0737ec852537da42eff.json",
+      ".beads/checkpoint/set/shard/b822f5f2817e916c243458c0de12fc999e2252841795f27481e8cc923f27f238.jsonl",
+      ".beads/checkpoint/set/tail/c825e1c0ed99fb83afdbd1639c35b6a0c6d0d96b7c96ef0fe34cbddfd2012d18.jsonl"
+    ],
+    "change_counts": {
+      "modified": 2,
+      "deleted": 1,
+      "added": 3
+    },
+    "manifest_files": 351,
+    "manifest_total_bytes": 9396305,
+    "manifest_semantic_sha256": "d28cabde27498cde2a56eb03368d361ccdc9a3dbc4800f4030e238f5364a0d0e"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "checks": [
+        "Final0732 publication andcedb verification have identical b0db generation/25eb root and Git2aeb state; all55 continuation tasks closed and1009 total issues verified.",
+        "All five supplemental raw hashes equal0732 outputs. Independently recomputed exact six-path staged delta and canonical351-file manifest digest; non-index Git fields/unrelated entries preserved.",
+        "Fresh guard d85 was observed after final restore and exactly matches staged head/index/config. All six private rows and empty hook state copied directly, including present0-byte WAL andpresent32768-byte SHM."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "checks": [
+        "Completed request inverse preserves every initial bb0a field outside run/stage/actual phase/review/index/private-state/commit-message data substitutions; unchanged publisher/supervisor sources and runtime paths.",
+        "Admission inverse reproduces accepted initial b113 byte-for-byte after only filename/hash substitutions. Encoded UTF16LE command decodes exactly to saved992-byte admission.",
+        "Saved request,admission,invocation and separate4239-byte a624 review reproduce their exact hashes. Separate review predates and contains no final publisher request hash, avoiding a circular input."
+      ],
+      "findings": []
+    }
+  ],
+  "command_characters": 2758,
+  "limits": "Unchanged BelowNormal,3.5GiB outer memory deferral,180second512MiB supervisor and200second outer broker.",
+  "root_execution_boundary": "After finish_preparation's existing concrete request acceptance, root publishes/stages this exact request and a624 review and uses the existing exclusive writer window. Publisher rechecks all original state/remote main/hook guards before mutation.",
+  "activity": "Cloud-only data binding and literal identity inspection; no PC/ref action, helper source change, product test or additional gate."
+}

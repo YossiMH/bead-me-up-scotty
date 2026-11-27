@@ -1,0 +1,65 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Separate existing final-restore actual acceptance; this immutable review is suitable as the final native publisher's accepted review input.",
+  "findings": [],
+  "actuals": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-history-restore-actual/driver-result.json",
+      "bytes": 10813,
+      "sha256": "cedb7e8f42265963a96e3af45a7b8af598da894b421d3dacee837e2a3c7e1e02"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-history-restore-actual/supervisor-result.json",
+      "bytes": 7715,
+      "sha256": "c4cbec0dbb49863450a8a454ad665295540cecbea5993595397f7b80edfac9e4"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/final-history-restore-actual/execution.json",
+      "bytes": 18753,
+      "sha256": "f51b4f336372df8e6de58b2d2035b23c58a535ff0b43b52d5322c31778205d72"
+    }
+  ],
+  "accepted_request": {
+    "sha256": "d471c281917aaceb32e4309304bcb3a3893023cbea0763040ae05a8bc69b1ef9",
+    "review_artifact": "20261127/resumed-completion/final-history-publish-actual/actual-and-final-restore-request-review.json",
+    "review_sha256": "326c5ae43cfc06ca284972faf1c2ab83e4a667b1103905485b7fa1e601997945",
+    "helper_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+    "supervisor_sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553"
+  },
+  "verified": {
+    "proposal_id": "yp_m69wkgSFgM0SrsCAcJM6Yz_pr8iwB3tJ3DvpvZvw",
+    "authority": "F:/Dev/bead-rs",
+    "generation": "gen-b0dbb36610c8c0737ec852537da42eff",
+    "root_sha256": "25eb42214ef4f3635f161db8b728fbf270014d315f8da12640db1a025d953f97",
+    "continuation_tasks": 55,
+    "total_issues": 1009,
+    "cleanup_closed": true,
+    "disposable_target": "F:\\Dev\\.bead-edit-20261111\\preservation-checkpoint-only-20261127-v1\\final-restore-check",
+    "final_publication_result_sha256": "0732b04aa7acdd61079edb9dd78ce24cd28e9e3da00e0e4636f433359a2775be",
+    "unchanged_git_receipt_sha256": "2aeb94acffd724b4c5c36d3f4571a300bc41764f39db26736e147cbcf6999928",
+    "unchanged_git_configuration_sha256": "994872f3dc9ef9499512b371b19ca8ef7f73831b9b954c33273781b6e983ae7b",
+    "restored_database_sha256": "58f76c937d21419c48a1190ebd69d97b5e8c4e50ab0c0dd8c91af2248137402f",
+    "restore_audit_sha256": "4795a5b3a2222724e37c1051afa988dedd13ca899a522296ad8ec5241fe15419"
+  },
+  "resources": {
+    "duration_seconds": 21.637,
+    "peak_total_resident_bytes": 392335360,
+    "baseline_free_physical_bytes": 6639550464,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "all_recorded_owned_processes_exit0": true
+  },
+  "checks": [
+    "Exact driver/supervisor bytes match the accepted d471 request and complete exit0 execution. Wrapper stdout equals supervisor plus terminal CRLF, with empty stderr and no drops; supervisor binds cedb7e8f exactly.",
+    "Explicit final result reports55 continuation tasks,1009 total issues and cleanup_closed=true. Verified b0db generation/25eb root equal accepted final-publish0732.",
+    "Passing unchanged source restores into the fresh exact owned disposable target, validates complete checkpoint corpus/database/restore audit/inventory, and checks original database and selected checkpoint remain equal to accepted final-publish before and after.",
+    "Both original Git receipts are exactly2aeb94ac, matching final-publish post-stage state; configuration receipts remain994872f3. Frozen source and selected retained checkpoint guards also passed.",
+    "Supervisor finished normally within accepted limits; all10 recorded owned processes exited0, no supervisor kills/cleanup assistance/errors/residual members, and ordinary empty publication locks remained."
+  ],
+  "boundary": "This is the separate final disposable-history verification acceptance. Final Git publication is still the next existing operation; no future publisher request or result hash is included here.",
+  "activity": "Cloud-only existing source/raw-byte/actual acceptance; no PC/ref action, source change, product test or additional gate."
+}

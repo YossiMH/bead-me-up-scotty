@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "phase": "checkpoint",
+  "repository": "native",
+  "run_id": "native-checkpoint-final-20261127-02e8a44557c8-v1",
+  "output_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-final-20261127-02e8a44557c8-v1",
+  "supervisor_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-final-20261127-02e8a44557c8-v1.supervisor",
+  "helper_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+  "supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+  "job_helper_path": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/windows-task-job.ps1",
+  "git": {
+    "path": "C:/Program Files/Git/cmd/git.exe",
+    "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+  },
+  "node": {
+    "path": "C:/Program Files/nodejs/node.exe",
+    "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+  },
+  "expected_head": "4c2e842beac30e3663a3816722430659befad7ee",
+  "expected_remote_commit": "4c2e842beac30e3663a3816722430659befad7ee",
+  "expected_index_sha256": "eb84c1cb7d53a59ec6fa823936db931f1993f44221bc45ae1452b729ba52e278",
+  "expected_git_config_sha256": "cabe1e42547b2d4e3e4440120c754e902a9ed42ae4a328350283a79e451b5330",
+  "private_state": [
+    {
+      "path": ".beads/config.json",
+      "exists": true,
+      "bytes": 123,
+      "sha256": "5eca31e8f37cc9a6ff178452c20d11f10396e0a8835f94777705ed67dc63a3da"
+    },
+    {
+      "path": ".beads/.gitignore",
+      "exists": true,
+      "bytes": 136,
+      "sha256": "d4794ae941343d9f3b2ad69497c9f41541186e927a55d338973ef642c396ce0e"
+    },
+    {
+      "path": ".beads/beads.db",
+      "exists": true,
+      "bytes": 10383360,
+      "sha256": "aed4846cdfd52eb6d6341c24add54d41b95e17e4d8e079f0d54e77d07782c420"
+    },
+    {
+      "path": ".beads/beads.db-wal",
+      "exists": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".beads/beads.db-shm",
+      "exists": true,
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    {
+      "path": ".beads/beads.db-journal",
+      "exists": false,
+      "bytes": null,
+      "sha256": null
+    }
+  ],
+  "accepted_hooks": [],
+  "hook_review": null,
+  "reviews": [
+    {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization/final-restore-actual-review.json",
+      "sha256": "a624fe7468b9541fe02a48287c291c89b6d15ce6a14b5b3c7e4fac80e9917758"
+    }
+  ],
+  "attestations": {
+    "exclusive_repository_writer": true,
+    "reviewed_request": true,
+    "installed_reviews_accepted": true,
+    "history_verifications_accepted": true
+  },
+  "checkpoint_stage": "final",
+  "checkpoint_publication": {
+    "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+    "sha256": "0732b04aa7acdd61079edb9dd78ce24cd28e9e3da00e0e4636f433359a2775be"
+  },
+  "checkpoint_verification": {
+    "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-restore/result.json",
+    "sha256": "cedb7e8f42265963a96e3af45a7b8af598da894b421d3dacee837e2a3c7e1e02"
+  },
+  "commit_message": "Preserve completed bead task history and cleanup closure"
+}
