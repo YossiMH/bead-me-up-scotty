@@ -1,0 +1,8 @@
+{
+  "status": "failed",
+  "phase": "restore-original",
+  "utc": "2026-11-27T17:16:39.288Z",
+  "error": "AssertionError [ERR_ASSERTION]: Checkpoint publication has unstaged, untracked or conflicted changes\n    at file:///F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/checkpoint-only-handoff-crlf-20261127.mjs:474:12\n    at Array.map (<anonymous>)\n    at verifyPublicationIndexInternal (file:///F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/checkpoint-only-handoff-crlf-20261127.mjs:473:57)\n    at verifyInitialPublicationIndex (file:///F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/checkpoint-only-handoff-crlf-20261127.mjs:489:14)\n    at main (file:///F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/checkpoint-only-handoff-crlf-20261127.mjs:817:52)\n    at async file:///F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/checkpoint-only-handoff-crlf-20261127.mjs:937:87",
+  "replay_allowed": false,
+  "instruction": "Inspect retained attempts and actual live state. Preserve original and frozen source. Root must review an explicit reconciliation phase before any repeated mutation."
+}

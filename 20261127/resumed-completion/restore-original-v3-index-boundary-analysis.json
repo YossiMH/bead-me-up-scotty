@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "status": "static_boundary_diagnosed_actual_staging_pending",
+  "author": "/root/review_bead_rs",
+  "evidence": [
+    {
+      "file": "restore-original-v3-probe-data.json",
+      "bytes": 37620,
+      "sha256": "77684c01c3da26ae41288867cdb243ccf8ff0ff47c8528b430313aecda1e23ef"
+    },
+    {
+      "file": "restore-original-v3-execution.json",
+      "bytes": 25031,
+      "sha256": "dbdc0a87cf05f2c203951e3fba910319231d5e6073d4df8de5994a7ed7608bc1"
+    },
+    {
+      "file": "restore-original-v3-supervisor-stdout.json",
+      "bytes": 10543,
+      "sha256": "7f602f052593f58de3e6ce1b5fac5bc9bb56b1d1a942db26efca5de6396de59c"
+    }
+  ],
+  "private_probe_policy": "Only its file digest and selected safe metadata are copied here. Raw configuration and complete private probe remain private.",
+  "settled_boundary": {
+    "native_restore_exit": 0,
+    "native_status_exit": 0,
+    "native_inventory_exit": 0,
+    "failed_validation": "verifyInitialPublicationIndex -> verifyPublicationIndexInternal line474",
+    "native_restore_receipt": "restore-18ebf6646e670bc4",
+    "selected_generation": "gen-e09b2a4118d7bb5f125c5294c0934514",
+    "selected_root_sha256": "9b7297fe4c9563612975aad01c517d3080ba78ef4305040da1c79c5e1daa580b",
+    "issues": 1009,
+    "events": 11523,
+    "receipts": 7,
+    "attempt_outcomes": 413,
+    "local_sequence": 11523,
+    "original_database_bytes": 10375168,
+    "wal_shm_journal": "absent",
+    "original_git_index_sha256": "f3137ef0e0e450241aa7e5559915838ec25e5d153731639301b46615726c369f",
+    "original_git_index_bytes": 73044,
+    "index_still_equals_pre_restore_baseline": true,
+    "published_retention_directory": "absent",
+    "phase_result": "absent",
+    "authority_transfer_complete": "absent"
+  },
+  "exact_guard": {
+    "history_helper_sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773",
+    "lines": "453-489",
+    "status_regex": "^[AMD]  ",
+    "requires": "The staged A/M/D path set equals the exact before-to-after index delta and includes both current.json and previous.json. Immutable head/checkpoint tree/entries/index path and unrelated index entries remain unchanged.",
+    "diagnosis": "Current and previous checkpoint bytes changed while the raw Git index did not. The helper requires staged checkpoint output. Exact status rows and any native stderr staging explanation are being collected by root."
+  },
+  "required_representation": {
+    "previous_json_working_bytes": 920,
+    "previous_json_working_sha256": "ccb1abde721af7a7fedbf3302d0143bd12e332cee47530d05f6c3515b3338b0a",
+    "previous_json_staged_blob": "fb204445a6a7b15f494b189839dddde2b84b139f",
+    "previous_json_canonical_bytes": 893,
+    "previous_json_canonical_sha256": "f1a2009037599216140c8a6832480e4d869d596f8001c29a6fc0f1788f42aa43",
+    "other_changed_entries": "Git blob SHA1 of exact working bytes, as checked by the unchanged verifier."
+  },
+  "minimal_finalization": [
+    "Bind the settled v3 request/supervisor, unchanged pre-stage index, exact failed phase files and current native checkpoint. Retain both earlier recovery packages.",
+    "Reconcile only the exact observed checkpoint path set under the existing writer/resource guards. Preserve the current raw index first; leave working checkpoint bytes, database, configuration and HEAD unchanged.",
+    "Keep the pre-finalization original-git-after.json bytes under a distinct retained receipt name before creating a canonical post-stage original-git-after.json. Preserve the failed original request/logs/failure and explicit finalizer request/supervisor provenance.",
+    "Run the unchanged verifyInitialPublicationIndex against genuine before/post-stage state, including its exact previous-pointer canonicalization exception. Do not relax its staged-only predicate.",
+    "Revalidate read-only original DB against retained after.json and frozen source; reuse the accepted report/corpus/restore/database/promotion validators. Retain the current selected checkpoint and write the originally uncompleted tail outputs: reconciliation, published-corpus, published-manifest, inventory, previous-generation diagnostic, restore-audit, retained-original-generation, authority-transfer-complete and result.",
+    "The completed canonical result must transparently distinguish the original failed supervisory attempt from successful finalization. It must bind actual finalized output hashes and keep original v3/a137 provenance, as well as finalizer provenance.",
+    "Resume the existing restore verification phase against this completed canonical result; no init, native restore, flush, close or database quarantine belongs in finalization."
+  ],
+  "downstream_constraints": {
+    "publisher_sha256": "7db3143e5982cf0bec76c2f3d641976d078e176cfcba89b8d8e191c996654ff2",
+    "publisher_source_commit": "34474ecfb41f8845fb2302782e774286cef6c9c9",
+    "publisher_lines": "433-452",
+    "canonical_phase_result": "R/phases/restore-original/result.json",
+    "required_output_names": [
+      "request.json",
+      "original-git-before.json",
+      "original-git-after.json",
+      "checkpoint-index-reconciliation.json",
+      "published-manifest.json",
+      "after.json",
+      "inventory.json"
+    ],
+    "request_helper_sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773",
+    "verification_git_receipts": "Both later restore original-git-before and original-git-after equal the finalized restore-original original-git-after receipt.",
+    "implementation_owner": "/root/finish_preparation",
+    "independent_reviewer": "/root/review_scotty"
+  },
+  "activity": "Cloud-only source/evidence diagnosis. No PC/ref writes, native commands, product tests or operational helper edits."
+}
