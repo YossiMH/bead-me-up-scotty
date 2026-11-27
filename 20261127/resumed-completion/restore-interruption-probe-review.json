@@ -1,0 +1,27 @@
+{
+  "schema_version": 1,
+  "status": "passed_for_read_only_reconciliation",
+  "author": "/root/review_bead_rs",
+  "independent_reviewer": "/root",
+  "source_sha256": "c385ffc388dffe9648f6bf0a51ee0c7e5cb1ba2b65ffcfd727652f2c1e9afa02",
+  "source_bytes": 5093,
+  "findings": [],
+  "scope": "Fixed owned interruption markers and original native metadata; no SQL, native command, process creation, write, rename or database copy.",
+  "bounds": {
+    "entries": 150,
+    "raw_file_and_total_bytes": 32768,
+    "hash_file_bytes": 2097152,
+    "output_bytes": 65000,
+    "heap_mib": 64,
+    "rss_mib": 128,
+    "minimum_free_gib": 1,
+    "deadline_seconds": 15
+  },
+  "checks": [
+    "Only ordinary fixed parents and files are read; path and file signatures are rechecked.",
+    "Native database files, sidecars, locks and large snapshots receive metadata checks only.",
+    "Raw small files are preserved with exact base64 and SHA-256; omitted content is explicit.",
+    "BelowNormal and existing resource guards remain active. Root holds the serialized writer window."
+  ],
+  "pc_executed": false
+}

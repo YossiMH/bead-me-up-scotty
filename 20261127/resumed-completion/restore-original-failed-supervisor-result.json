@@ -1,0 +1,193 @@
+{
+    "schema_version":  1,
+    "status":  "failed",
+    "phase":  "restore-original",
+    "started_utc":  "2026-11-27T15:57:52.5119541Z",
+    "timeout_seconds":  180,
+    "work_stop_seconds":  168,
+    "max_total_resident_mib":  512,
+    "baseline_free_required_gib":  3,
+    "minimum_free_during_work_gib":  1,
+    "node_heap_mib":  128,
+    "priority":  "BelowNormal",
+    "sample_interval_ms":  100,
+    "cleanup_errors":  [
+                           "Recorded aggregate resident peak exceeded limit."
+                       ],
+    "cleanup_assisted":  true,
+    "owned_processes":  [
+                            {
+                                "peak_resident_bytes":  359976960,
+                                "pid":  48592,
+                                "exit_code":  -1,
+                                "start_ticks":  639313918750486532,
+                                "name":  "node",
+                                "session_id":  0,
+                                "killed_by_supervisor":  true
+                            },
+                            {
+                                "peak_resident_bytes":  7503872,
+                                "pid":  57860,
+                                "exit_code":  -1,
+                                "start_ticks":  639313918750557518,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  true
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  67032,
+                                "exit_code":  0,
+                                "start_ticks":  639313918752728445,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  42768,
+                                "exit_code":  0,
+                                "start_ticks":  639313918752605807,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  8216576,
+                                "pid":  37020,
+                                "exit_code":  0,
+                                "start_ticks":  639313918789445697,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  6311936,
+                                "pid":  61748,
+                                "exit_code":  0,
+                                "start_ticks":  639313918789341188,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  59436,
+                                "exit_code":  0,
+                                "start_ticks":  639313918790876906,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  68232,
+                                "exit_code":  0,
+                                "start_ticks":  639313918790749543,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  58776,
+                                "exit_code":  0,
+                                "start_ticks":  639313918792354549,
+                                "name":  null,
+                                "session_id":  null,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  34848,
+                                "exit_code":  0,
+                                "start_ticks":  639313918794002498,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  54072,
+                                "exit_code":  0,
+                                "start_ticks":  639313918793851385,
+                                "name":  null,
+                                "session_id":  null,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  64908,
+                                "exit_code":  0,
+                                "start_ticks":  639313918799993629,
+                                "name":  null,
+                                "session_id":  null,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  60352,
+                                "exit_code":  0,
+                                "start_ticks":  639313918803716094,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  57412,
+                                "exit_code":  0,
+                                "start_ticks":  639313918803626773,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  6311936,
+                                "pid":  9672,
+                                "exit_code":  0,
+                                "start_ticks":  639313918806717330,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  46481408,
+                                "pid":  48980,
+                                "exit_code":  -1,
+                                "start_ticks":  639313918822166968,
+                                "name":  "bead-checkpoint-2d801ba455b7",
+                                "session_id":  0,
+                                "killed_by_supervisor":  true
+                            }
+                        ],
+    "publication_lock_initial":  {
+                                     "present":  false
+                                 },
+    "input_manifest":  "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\revision-9\\checkpoint-only-inputs\\history-restore-original-20261127-v1.request.json",
+    "input_manifest_sha256":  "5d8a7d3a02666da373fb7a85867af6dec5f2381b5110b5f0c33a7269ae4bca9a",
+    "binary":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe",
+    "binary_sha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "node":  "C:\\Program Files\\nodejs\\node.exe",
+    "node_sha256":  "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa",
+    "session_id":  0,
+    "baseline_free_physical_bytes":  5901254656,
+    "state":  "finished",
+    "hard_deadline_exit_code":  124,
+    "driver_pid":  48592,
+    "command":  [
+                    "C:\\Program Files\\nodejs\\node.exe",
+                    "--max-old-space-size=128",
+                    "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\checkpoint-only-handoff-crlf-20261127.mjs",
+                    "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\revision-9\\checkpoint-only-inputs\\history-restore-original-20261127-v1.request.json",
+                    "5d8a7d3a02666da373fb7a85867af6dec5f2381b5110b5f0c33a7269ae4bca9a",
+                    "1795795230507"
+                ],
+    "error":  "System.Management.Automation.RuntimeException: Aggregate task resident memory exceeded its budget.",
+    "remaining_job_members":  [
+
+                              ],
+    "peak_total_resident_bytes":  537399296,
+    "duration_seconds":  15.01,
+    "finished_utc":  "2026-11-27T15:58:07.5221164Z"
+}
