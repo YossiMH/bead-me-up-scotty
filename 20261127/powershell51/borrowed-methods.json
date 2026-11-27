@@ -1,0 +1,23 @@
+{
+  "source_commit": "83a648b7cda046c9bcc47e3b79f908933499b866",
+  "source_path": "20261125/revision-9/artifact-stage/stage-artifacts-supervisor-20261125.ps1",
+  "source_sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+  "verbatim_methods": [
+    "Assert-That",
+    "Hash",
+    "Task-Path",
+    "Safe-Path",
+    "Quote-Argument",
+    "Refresh-Owned",
+    "Sample-Budget",
+    "Stop-Owned",
+    "Scotty20261125ArchiveInspector"
+  ],
+  "cleanup_changes": [
+    "Removed original driver stream loop; each gh pipe is owned and completed by Invoke-GhBytes.",
+    "Replace the old Child disposal with reusable metadata buffer disposal.",
+    "Use the Windows PowerShell 5.1 UInt64 type accelerator in final minimum-memory accounting."
+  ],
+  "candidate_sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
+  "candidate_path": "download-qualified-artifacts-20261127-ps51.ps1"
+}

@@ -1,6 +1,28 @@
 # Final editing and tray continuation — 2026-11-25
 
-## Current result
+## Continuation on 2026-11-27
+
+Read `20261125/revision-9/results/type-install-binding.json` at the latest transfer
+branch head before acting. It supersedes the older access and resume observations
+below. The direct revision 9 transition succeeded: 55 tasks, 91 dependencies and
+1,009 issues, with the original 954 preserved. The new mapping-bound closer then
+closed 27 accepted development tasks; 42 tasks are closed and 13 remain open.
+Do not replay either operation.
+
+All original final installation inputs are staged and hash-verified. The first
+actual tray check stopped at the existing 512 MiB process-memory limit and left
+no owned process running. A smaller wrapper is being prepared. The first download
+helper stopped before creating output because of a Windows PowerShell 5.1 type
+alias. Use only the separately reviewed compatibility copies and invocation
+bindings in `20261127/powershell51` after their ordinary parser checks pass.
+The original helpers and failed results remain retained.
+
+Root in `/workspace/scratch/2889282bfcec` currently owns PC execution and task
+writes. Future agents must reconcile this active session and all saved attempt
+markers before starting overlapping work. Installation, the configured launcher,
+final native-history publication and cleanup remain unfinished.
+
+## Earlier result and fixed delivery contract
 
 The implementation and hosted qualification are complete for app source
 `0309539797fd7d016e2b8fd8bdc0ae9cefc20219` and native source

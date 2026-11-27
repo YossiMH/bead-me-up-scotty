@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "execution_policy": "Use only root-confirmed process-only approval; no machine/user policy mutation.",
+  "downloader": {
+    "local_source": "/tmp/beads-2889282bfcec/transfer-work/download-qualified-artifacts-20261127-ps51.ps1",
+    "pc_destination": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\download-qualified-artifacts-20261127-ps51.ps1",
+    "sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
+    "bytes": 22728,
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "arguments": [
+      "-NoLogo",
+      "-NoProfile",
+      "-NonInteractive",
+      "-WindowStyle",
+      "Hidden",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-File",
+      "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\download-qualified-artifacts-20261127-ps51.ps1",
+      "-JobHelperPath",
+      "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-host-execution-20261125\\windows-task-job.ps1"
+    ]
+  },
+  "stage": {
+    "local_source": "/tmp/beads-2889282bfcec/transfer-work/stage-artifacts-supervisor-20261127.ps1",
+    "pc_destination": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\stage-artifacts-supervisor-20261127.ps1",
+    "sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d",
+    "bytes": 17488,
+    "accepted_original_path": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\stage-artifacts-supervisor-20261125.ps1",
+    "accepted_original_sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+    "change": "Two PowerShell ulong aliases become uint64; embedded C# and all other bytes are unchanged.",
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "arguments": [
+      "-NoLogo",
+      "-NoProfile",
+      "-NonInteractive",
+      "-WindowStyle",
+      "Hidden",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-File",
+      "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\stage-artifacts-supervisor-20261127.ps1",
+      "-JobHelperPath",
+      "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-host-execution-20261125\\windows-task-job.ps1",
+      "-StagerPath",
+      "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\stage-artifacts-20261125.ps1",
+      "-StagerSha256",
+      "bdf5323e125e49193fdecd8e44d126a1f9e7746797a33c9fc0967b1546d69ea1",
+      "-RequestPath",
+      "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\artifact-stage-request.json",
+      "-RequestSha256",
+      "9908164d28852fdb0bdfc8fd33c0f0632620b7adbbfbb031f67d1bea8ffd67b9"
+    ]
+  },
+  "install": {
+    "path": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-install-tray-host-20261125.ps1",
+    "fixed_parameters": {
+      "ScottySourceCommit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+      "BackendSourceCommit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "PreservationManifest": "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\pc-preservation-raw.json",
+      "OutputDirectory": "F:\\Dev\\.bead-edit-20261111\\install-v9-final-20261125-1151"
+    },
+    "runtime_parameters": {
+      "RuntimeManifest": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\manifests\\scotty-runtime.json",
+      "StageNextDirectory": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\runtime\\.next",
+      "BeadExe": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe",
+      "BeadSha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+      "BeadProvenance": "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe.metadata.json"
+    },
+    "required_dynamic_parameter": "ScottyPorts: supply the fresh observed relevant port inventory.",
+    "outer_limits": "Root supplies bounded execution; installer has no full aggregate/deadline monitor."
+  },
+  "configured_launch": {
+    "executable": "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+    "arguments": [
+      "-NoLogo",
+      "-NoProfile",
+      "-NonInteractive",
+      "-WindowStyle",
+      "Hidden",
+      "-ExecutionPolicy",
+      "Bypass",
+      "-File",
+      "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-configured-launch-host-20261125.ps1",
+      "-BeadExe",
+      "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe",
+      "-ExpectedSha256",
+      "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+      "-EvidenceDirectory",
+      "F:\\Dev\\.bead-edit-20261111\\configured-v9-final-20261125-1151",
+      "-Port",
+      "43972",
+      "-TimeoutSeconds",
+      "120",
+      "-MaxOwnedResidentMiB",
+      "512"
+    ]
+  }
+}

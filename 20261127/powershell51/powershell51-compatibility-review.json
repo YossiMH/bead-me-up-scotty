@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/backend_audit",
+  "scope": "Exact Windows PowerShell 5.1 UInt64 compatibility correction and associated invocation bindings.",
+  "author_record": {
+    "path": "powershell51-compatibility-author.json",
+    "sha256": "4563eb15f5a7ab00b19653569d77858e6c6d3ba68e466b866cb14d1b6a167927",
+    "two_complete_clean_inspections": true
+  },
+  "reviewed_files": {
+    "download-qualified-artifacts-20261127-ps51.ps1": {
+      "sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
+      "bytes": 22728
+    },
+    "stage-artifacts-supervisor-20261127.ps1": {
+      "sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d",
+      "bytes": 17488
+    },
+    "accepted-invocations.json": {
+      "sha256": "7ea09db6ec2807f1f7ce9d5bc55ca9ae0a66ea297327ad875915886adc75e181",
+      "bytes": 4929
+    },
+    "borrowed-methods.json": {
+      "sha256": "67559d5f78e965567f8f797afbcc6c48bbd9326fbde5a85edfd80bc5c0b21f50",
+      "bytes": 923
+    },
+    "README.md": {
+      "sha256": "32048deea8dedcf0da20c28074a0253d67bd091fa55dc28bbaf8db18db474999",
+      "bytes": 5642
+    }
+  },
+  "preserved_baselines": {
+    "download-qualified-artifacts-20261127.ps1": {
+      "sha256": "47a281fa05a244c4898de725aa1a9bbcc84eb1f325c8ffda9c39d7745b6fab78",
+      "preserved": true
+    },
+    "stage-artifacts-supervisor-20261125.ps1": {
+      "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+      "preserved": true
+    },
+    "immutable-staging-manifest.json": {
+      "sha256": "748033e9e89c9f8cf6225b48530e5db6b47594f00b807048f62f561f28e69c3b",
+      "preserved": true
+    }
+  },
+  "checks": [
+    "Read the complete corrected downloader, the complete accepted archive supervisor and its exact changed sites, and all final invocation, README, borrowed-method and author records. Recomputed every named file SHA-256 and byte count.",
+    "Each script contains exactly two PowerShell [uint64] references and zero PowerShell [ulong] references. Reversing precisely those two substitutions reproduces the full accepted downloader SHA47a281fa05a244c4898de725aa1a9bbcc84eb1f325c8ffda9c39d7745b6fab78 or archive supervisor SHA616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb byte for byte.",
+    "Both changes preserve the unsigned64-bit MaxValue sentinel at initialization and at the final minimum-memory receipt comparison. C# ulong remains unchanged. Every embedded declaration, process-identity check, budget sample, timeout, byte limit, archive identity and cleanup branch remains exact.",
+    "The first downloader type resolution occurs at top-level line16 before its try block, Job entry, children, claims, directories or downloads. The reported failure is consistent with no downloader-created output; root must still reconcile actual PC attempt state.",
+    "The corrected downloader has a fresh -ps51 filename. The failed original downloader bytes and the original accepted supervisor and immutable helper manifest remain preserved. Final invocation bindings point to the new names and exact hashes while retaining the same stager/request and fixed download destinations.",
+    "The original final-installation source/runtime/native parameters remain exact. The dynamic observed port inventory and missing outer installer budget control remain explicit; this small correction supplies no installation acceptance.",
+    "Two complete author inspections bind the same final five candidate file hashes. No additional source change or new product/runtime test is needed for this token-only correction."
+  ],
+  "findings": [],
+  "verdict": "PASS for the exact two separately named compatibility copies and their bindings. Root may publish, parse the staged copies with ordinary Windows PowerShell 5.1 and execute once after actual attempt reconciliation and existing resource checks.",
+  "remaining": [
+    "Ordinary Windows PowerShell parser and actual bounded downloader execution.",
+    "Independent exact transfer-result acceptance, then separately bounded staging and its acceptance.",
+    "Installer/tray/configured prerequisites and guarded installation remain pending."
+  ],
+  "reviewer_tests": 0,
+  "reviewer_builds": 0,
+  "reviewer_pc_calls": 0,
+  "reviewer_database_writes": 0
+}

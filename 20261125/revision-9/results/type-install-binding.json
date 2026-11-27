@@ -166,15 +166,14 @@
     "result_path": "20261127/results/materialization-v9.json",
     "review_path": "20261127/results/materialization-v9-review.json"
   },
-  "task_closer_bound_to_actual_mapping": false,
+  "task_closer_bound_to_actual_mapping": true,
   "pending": [
-    "Finish the actual mapping-bound closer and record already accepted cloud results in dependency order.",
-    "Reconcile partial final installer input staging; download and verify the two exact archives through the bounded transfer helper.",
-    "Run actual logged-in-session tray Exit/restart checks, complete checked installation, configured launch and installed review.",
-    "Publish accurate canonical handoffs, original native history and final task closure; finish task-owned worktree and temporary-branch cleanup."
+    "Complete independent reconciliation of the actual 27-task closure.",
+    "Finish the reviewed Windows PowerShell compatibility correction, then download and stage the two exact Windows archives.",
+    "Complete the smaller tray-test wrapper, then run actual logged-in-session tray Exit, parent-loss and restart checks.",
+    "Complete reviewed installation, configured launch and installed review, then publish handoffs and original native history and finish task-owned cleanup."
   ],
-  "native_mutations": 81,
-  "pc_actions": 3,
+  "native_mutations": 108,
   "worktree_cleanup": {
     "status": "pending",
     "latest_probe": {
@@ -194,10 +193,10 @@
       "next_action": "Verify status, registration and unpublished commits; preserve later work and remove only this task worktree through Riftri. The closer author has a separate registered worktree whose cleanup is also required."
     }
   },
-  "updated_utc": "2026-11-27T06:24:21.369890+00:00",
+  "updated_utc": "2026-11-27T06:47:20.012787+00:00",
   "previous_status": {
-    "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
-    "sha256": "59d9dc58f3c52aa71e8350aa0212e9ce2dd3aae43b524d49cf84f48e5238e94d"
+    "commit": "5614839e9e6c47dfcf923f1ceabb708bd752ebbb",
+    "sha256": "54835605ad344b8bc85d2bba0c2c907dff9feab2310ba9e782c6768e7c57f276"
   },
   "final_measured_packet": {
     "commit": "70819afe79e783d0db2b10a299155cbeda470d1e",
@@ -281,16 +280,40 @@
   "remaining_active_cloud_execution": true,
   "assignment_complete": false,
   "latest_continuation": {
-    "checked_utc": "2026-11-27T06:24:21.369890+00:00",
+    "checked_utc": "2026-11-27T06:47:20.012787+00:00",
     "source_status": "Accepted app 0309539 and native 2d801ba remain unchanged. Both PC source checkouts still match installer baselines; the fifteen original app changes remain present.",
     "pc_command_access": "Emergency Maintenance command execution is available in this session. Use the accepted bounded task helpers and reconcile each actual result.",
     "task_mapping": "Revision 9 completed and independently reviewed: 55 tasks, 91 edges and 1009 issues; all original 954 records retained.",
     "mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
-    "installation": "pending; final helper-file transfer stopped at its live memory check and needs exact file readback before resuming",
-    "tray": "pending; no test process started. The scheduled-task creation interface returned an error; the COM alternative then stopped before registration at its memory check.",
-    "next_action": "Complete the reviewed closer and bounded download helper while finishing the existing staged-file transfer. Resume actual tray checks when the launch memory condition is met; then follow the existing checked installer, configured launch, history and cleanup procedure.",
+    "installation": "All original final installer/staging inputs and the Job helper are staged and hash-verified. The downloaded build archives and actual installation remain pending.",
+    "tray": "The actual logged-in-session test stopped after 3.284 seconds at 557076480 bytes aggregate RSS. All owned Job members exited; no case completed. The separate smoke-driver PowerShell and console account for about 126 MiB; a reviewed runspace variant is being prepared. Preserve the failed result and scheduled task record.",
+    "next_action": "Use only independently reviewed compatibility copies after their staged hashes and ordinary parser checks pass. Run download/staging sequentially while completing the lighter tray wrapper and bounded installer wrapper. Preserve all failed attempts.",
     "prior_cloud_worktree_cleanup": "The absent previous continuation worktree registration was removed through Riftri and its absence was verified.",
-    "assignment_complete": false
+    "assignment_complete": false,
+    "task_closure": "The mapping-bound closer completed all 27 requested transitions; 42 of 55 tasks are now closed and 13 remain open. Independent actual-result reconciliation is in progress.",
+    "download": "The first downloader failed at initialization because Windows PowerShell 5.1 does not recognize [ulong]. Readback confirmed no download, claim or output directory was created. The separately named [uint64] compatibility copies passed independent review; use 20261127/powershell51/accepted-invocations.json after staged hash and parser checks.",
+    "active_session": "Root /workspace/scratch/2889282bfcec owns current PC execution and task-store writes; other continuations must respect this active session and retained attempt markers."
   },
-  "pc_action_summary": "Revision 9 inputs staged, direct task transition completed and independently accepted. Final installer input staging started; partial files require readback before continuation. No app or tray test has started."
+  "pc_action_summary": "Revision 9 task transition and 27 accepted-cloud-task closures completed. Original 954 issues preserved. Final immutable helpers staged. Real tray attempt stopped at the aggregate 512 MiB cap with no owned processes left; downloader compatibility failure occurred before output creation. Source installation remains pending.",
+  "actual_accepted_cloud_closure": {
+    "status": "passed",
+    "independent_result_review": "pending",
+    "closed_this_request": 27,
+    "closed_total": 42,
+    "open_total": 13,
+    "result_sha256": "2eb8a4a62adbbadb2659bb8b080e973ed06c9f468b7d40ba968cc4423f32c749",
+    "supervisor_result_sha256": "0a552d0cebf444c6fb3c62a51867a0afe72b4fee670f5e44c935d0ba50da1b23",
+    "duration_seconds": 1.726,
+    "peak_total_resident_bytes": 255275008,
+    "cleanup_assisted": false,
+    "remaining_job_members": 0,
+    "result_path": "20261127/results/closure-v9.json"
+  },
+  "windows_powershell_51_compatibility": {
+    "status": "source_review_passed",
+    "directory": "20261127/powershell51",
+    "downloader_sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
+    "stage_supervisor_sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d",
+    "actual_parser_and_execution": "pending"
+  }
 }

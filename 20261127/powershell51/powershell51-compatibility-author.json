@@ -1,0 +1,107 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_review",
+  "author": "/root/delivery_audit",
+  "created_utc": "2026-11-27T06:48:20.716218+00:00",
+  "scope": "Two PowerShell 5.1 type-alias corrections in each of two separately named scripts; exact accepted behavior and original files are preserved.",
+  "files": {
+    "download-qualified-artifacts-20261127-ps51.ps1": {
+      "sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
+      "bytes": 22728
+    },
+    "stage-artifacts-supervisor-20261127.ps1": {
+      "sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d",
+      "bytes": 17488
+    },
+    "accepted-invocations.json": {
+      "sha256": "7ea09db6ec2807f1f7ce9d5bc55ca9ae0a66ea297327ad875915886adc75e181",
+      "bytes": 4929
+    },
+    "borrowed-methods.json": {
+      "sha256": "67559d5f78e965567f8f797afbcc6c48bbd9326fbde5a85edfd80bc5c0b21f50",
+      "bytes": 923
+    },
+    "README.md": {
+      "sha256": "32048deea8dedcf0da20c28074a0253d67bd091fa55dc28bbaf8db18db474999",
+      "bytes": 5642
+    }
+  },
+  "baselines": {
+    "download-qualified-artifacts-20261127.ps1": {
+      "sha256": "47a281fa05a244c4898de725aa1a9bbcc84eb1f325c8ffda9c39d7745b6fab78",
+      "preserved": true
+    },
+    "stage-artifacts-supervisor-20261125.ps1": {
+      "sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+      "preserved": true
+    },
+    "immutable-staging-manifest.json": {
+      "sha256": "748033e9e89c9f8cf6225b48530e5db6b47594f00b807048f62f561f28e69c3b",
+      "preserved": true
+    }
+  },
+  "exact_changes": [
+    {
+      "file": "download-qualified-artifacts-20261127-ps51.ps1",
+      "from_sha256": "47a281fa05a244c4898de725aa1a9bbcc84eb1f325c8ffda9c39d7745b6fab78",
+      "substitution": "[ulong] -> [uint64]",
+      "occurrences": 2,
+      "sites": [
+        "MinimumFree initialization",
+        "MinimumFree final receipt sentinel comparison"
+      ],
+      "reverse_substitution_reproduces_all_original_bytes": true
+    },
+    {
+      "file": "stage-artifacts-supervisor-20261127.ps1",
+      "from_sha256": "616db975e60be07d5804975af2b2f2eb17b2e57eee91a97971fb931b36a038eb",
+      "substitution": "[ulong] -> [uint64]",
+      "occurrences": 2,
+      "sites": [
+        "MinimumFree initialization",
+        "MinimumFree final receipt sentinel comparison"
+      ],
+      "reverse_substitution_reproduces_all_original_bytes": true
+    }
+  ],
+  "embedded_csharp_byte_identical": true,
+  "failure_boundary": {
+    "reported_error": "Unable to find type [ulong].",
+    "first_reference_line": 16,
+    "first_reference": "Top-level MinimumFree initialization, outside the later try/finally block.",
+    "claim_creation_line": 268,
+    "source_conclusion": "A type-resolution failure at that first reference stops before Job entry, any child process, claim creation, download/evidence directory creation or output write. The later finally block has not been entered, explaining the absence of its result receipt.",
+    "actual_attempt_state": "Root separately reconciles actual PC state before a fresh invocation. The failed original remains retained."
+  },
+  "compatibility_inspection": [
+    "Enumerated PowerShell type expressions outside the embedded C# and read both full scripts. The two UInt64 sentinel references are the only corrected aliases.",
+    "Inspected constructor syntax, ordered dictionaries, generic collections, typed buffers, async Stream/Task calls, process/environment APIs, JSON conversion and cleanup methods for another PowerShell 5.1 compatibility issue; no additional source defect was identified.",
+    "All functions, embedded declarations, archive/request identities, paths, size/hash checks, inherited authentication, byte streaming, deadlines, resource gates and owned cleanup remain identical to their accepted baselines.",
+    "The downloader and stage invocations bind the fresh filenames and exact new hashes. The immutable accepted helper manifest, actual stager, installer, configured-launch helper and original scripts remain unchanged."
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean",
+      "revision": "All five file hashes above.",
+      "checks": "Inspected the complete corrected scripts and associated prose/bindings against the accepted originals. Traced UInt64 MaxValue initialization, minimum-free sampling and final receipt comparison; preserved embedded C# ulong. Reviewed every execution boundary through Job entry, archive metadata/raw byte transfer, request/stager invocation and cleanup. Checked the fresh filenames, hashes and unchanged immutable inputs."
+    },
+    {
+      "pass": 2,
+      "result": "clean",
+      "revision": "The same five file hashes.",
+      "checks": "Repeated complete code/prose inspection after the last filename and invocation change. Reverse-substituting exactly two aliases reconstructs each full accepted original byte-for-byte. Rechecked every PowerShell type and relevant runtime API, failure-before-output ordering, original-file retention, attempt reconciliation, complete argument lists and resource/cleanup behavior. No further correction or source expansion is needed."
+    }
+  ],
+  "maintainer_postprocess_read_after_change": true,
+  "validation_scope": {
+    "static_byte_and_binding_comparisons": "passed",
+    "new_product_tests": 0,
+    "builds": 0,
+    "pc_calls": 0,
+    "powershell_runtime_execution": "pending root-owned execution",
+    "independent_review": "pending backend_audit"
+  },
+  "next_action": "Publish the reviewed compatibility files and bind the fresh names/hashes. Root verifies staged bytes and attempt state, parses the exact scripts, then invokes the downloader once under its unchanged limits. Stage only after accepted exact download results.",
+  "publication_owner": "root"
+}
