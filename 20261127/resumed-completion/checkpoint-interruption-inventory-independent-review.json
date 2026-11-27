@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "reviewer": "/root",
+  "status": "passed_independent_read_only_probe_and_reconciliation_review",
+  "helper_sha256": "1d60f4a4c2ae02d76eb570b3d11d60e81e80c271bf8b65a8fe957223e136ceee",
+  "proposal_id": "_f63VRSHJIn1FzSP-HyhJuhDQiahj2GFuLCHpIRAO78",
+  "actual": {
+    "exit_code": 0,
+    "stderr": "",
+    "stdout_dropped": 0,
+    "stderr_dropped": 0,
+    "elapsed_ms": 17,
+    "peak_rss_bytes": 51392512,
+    "minimum_free_bytes": 9604841472,
+    "observed_entries": 55,
+    "observed_files": 54,
+    "baseline_files": 53,
+    "missing_baseline_paths": [],
+    "extra_files": [
+      {
+        "path": "publish.lock",
+        "bytes": 0,
+        "kind": "regular-file"
+      }
+    ]
+  },
+  "checks": [
+    "Exact fixed original checkpoint root; no file-content reads, child processes, SQL, native CLI or mutation.",
+    "Ordinary ancestors and every observed file/directory stable under final metadata rechecks.",
+    "Count, depth, output, BelowNormal priority, 64 MiB heap, 128 MiB RSS, 1 GiB free floor and 15-second bounds enforced.",
+    "Both exact 102337-byte pre-init/after-init Git-state records share SHA256 9a10be2f5be17561e3bfe1df14c12fd81cd696101aa8516191cb5be64e060cc7 with the preceding accepted source-restore records."
+  ],
+  "conclusion": "No checkpoint payload retention/reset is needed. Retain the three attempt-created native database files and the failed phase/supervisor directories through the independently reviewed preserving action. No recovery mutation or new native restore has executed.",
+  "findings": []
+}
