@@ -1,0 +1,229 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "independent": true,
+  "reviewer": "/root/delivery_audit",
+  "scope": "Independent task-plan and preparation acceptance of the exact separately named checkpoint-only native-history route for the observed absent original database.",
+  "candidate": {
+    "commit": "473530433d66206ec6ba8a9980c9ed4bd0e12848",
+    "directory": "20261127/checkpoint-only-handoff",
+    "files": {
+      "CLEANUP.md": {
+        "bytes": 724,
+        "sha256": "a055123ec9eb42367f0d6de235c8c6a96a0dfac425fd5cdc14c3411d76180e5b"
+      },
+      "README.md": {
+        "bytes": 17756,
+        "sha256": "938ff2196236723c3570e616c9ba8fae08dee672055278c6c27cad6891ca275a"
+      },
+      "author-inspections.json": {
+        "bytes": 8675,
+        "sha256": "e4608624ceac2133e27add99691829bfbd7cae6b62601d3f4f47d6a41fb7f99d"
+      },
+      "checkpoint-only-handoff-20261127.mjs": {
+        "bytes": 72053,
+        "sha256": "ff1597b37c873888aef55af6c67b39cd29efeb025d007fe11659ccb81a32cc46"
+      },
+      "checkpoint-only-handoff-supervisor-20261127.ps1": {
+        "bytes": 19190,
+        "sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5"
+      },
+      "original-checkpoint-only-observation.json": {
+        "bytes": 815,
+        "sha256": "e85b13c68ed63cf6408f6dfacb137fb526240e808bc87aa0dc76a5b1a20e4491"
+      },
+      "qualification-command.json": {
+        "bytes": 1812,
+        "sha256": "9d8a349cbaf872b80bfa9eeee12c6d1643caea7cc859f75c30668f424d1fb96e"
+      },
+      "qualification-evidence.json": {
+        "bytes": 4095940,
+        "sha256": "1dedb942c301f8158470956b87f1b956feedd364e2c29cc84b767e2d6222bd94"
+      },
+      "qualification-result.json": {
+        "bytes": 21172,
+        "sha256": "7eac9a62016f91aade7e8a63f5c709784879ae901b33ca4bc9f0e368cc5a505f"
+      },
+      "qualify-checkpoint-only.mjs": {
+        "bytes": 14807,
+        "sha256": "5023568ee13227573a660274ea0f531748273e6828ebd6fb1ac8e9cb40d617bb"
+      },
+      "request.template.json": {
+        "bytes": 3154,
+        "sha256": "b532e85b0b36869c72032f9b02d3ab85fc3999c6d0d788162746807f0ad2eb35"
+      }
+    }
+  },
+  "source_review": {
+    "path": "20261127/checkpoint-only-handoff/source-review.json",
+    "bytes": 10886,
+    "sha256": "87c181a0a6998e52f4808df03a7d8986791f20c598edf757bf5f71af52d9d605"
+  },
+  "actual_qualification_review": {
+    "path": "20261127/checkpoint-only-handoff/qualification-review.json",
+    "bytes": 8694,
+    "sha256": "175a63361363a6d6dfaef9bac000fa7325cf10c3226636fe49b1dc1b2e94cc76"
+  },
+  "ordinary_windows_parse": {
+    "receipt": {
+      "path": "20261127/checkpoint-only-handoff/windows-powershell51-parse.json",
+      "bytes": 497,
+      "sha256": "54a699d087ef848e506e217bd92324deab958a79a550ae5e4b03a42576635e76"
+    },
+    "observed_utc": "2026-11-27T08:27:59.3755011Z",
+    "version": "5.1.26100.9818",
+    "supervisor_sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5",
+    "supervisor_bytes": 19190,
+    "parse_errors": 0,
+    "script_executed": false,
+    "embedded_declarations_compiled_in_this_parse": false,
+    "native_commands": 0,
+    "transport": "The complete emitted JSON parses to the retained receipt; the outer command exited zero with empty stderr and no dropped output. The retained JSON is a parsed rendering, not a claimed byte-identical raw stdout file."
+  },
+  "plan_and_state": {
+    "plan": {
+      "path": "20261125/revision-9/plan.json",
+      "bytes": 419134,
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+    },
+    "plan_review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+    "actual_mapping": {
+      "path": "20261127/results/materialization-v9-result.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    "materialization_review": {
+      "path": "20261127/results/materialization-v9-review.json",
+      "bytes": 3639,
+      "sha256": "1d677f5eab5457194484c413de9d98d2006eab37971737111500a7af1a05ce02"
+    },
+    "latest_actual_state": {
+      "path": "20261127/results/tray-candidate-closure/result.json",
+      "bytes": 5893,
+      "sha256": "244fbb32b77bdcf3f860101a8ec6d2664717635a69116e62a0cbdf50d94e2e1f"
+    },
+    "counts": {
+      "original_issues": 954,
+      "total_issues": 1009,
+      "tasks": 55,
+      "blocking_edges": 91,
+      "closed_tasks": 45,
+      "open_tasks": 10
+    },
+    "binding_records": [
+      {
+        "key": "type-install-binding",
+        "id": "beadrs-86f1e737",
+        "status": "open",
+        "revision": 1,
+        "prerequisites": [
+          "type-app-checks",
+          "checkpoint-windows-build"
+        ]
+      },
+      {
+        "key": "type-install-binding-review",
+        "id": "beadrs-261d621c",
+        "status": "open",
+        "revision": 1,
+        "prerequisites": [
+          "type-install-binding"
+        ]
+      }
+    ],
+    "dependency_interpretation": "Both binding tasks accept prepared helpers and their independent reviews. Install directly depends on type-install-binding-review. Actual installed and initial handoff receipts are required before history phase execution, not before preparation, avoiding a dependency cycle."
+  },
+  "applicability": {
+    "observation": {
+      "path": "20261127/checkpoint-only-handoff/original-checkpoint-only-observation.json",
+      "bytes": 815,
+      "sha256": "e85b13c68ed63cf6408f6dfacb137fb526240e808bc87aa0dc76a5b1a20e4491"
+    },
+    "original_repository": "F:/Dev/bead-rs",
+    "absent_paths": [
+      "beads.db",
+      "beads.db-wal",
+      "beads.db-shm",
+      "beads.db-journal"
+    ],
+    "original_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4",
+    "original_generation": "gen-a569f746bbb268015d996c8ed4c76f57",
+    "original_snapshot_sequence": 29609,
+    "original_counts": {
+      "issues": 954,
+      "events": 11264,
+      "receipts": 5,
+      "outcomes": 413
+    },
+    "old_template_limitation_resolved": "The old existing-database backup/merge route cannot operate on a nonexistent original SQLite file. The separate route initializes only the missing empty database using the supported native command, then invokes normal explicit-recovery restore and publication with complete original/incoming corpus and audit reconciliation.",
+    "old_driver_sha256": "179d21533c64ac39783ddc556056d249f8100b10743f82e8f7a33f72a83a1341",
+    "old_supervisor_sha256": "56e89ba3bf1ecca995dbdb2c992d2baa6167d0271d2bbcbc28852552cdb81161",
+    "original_recovery": {
+      "checkpoint_tree": "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+      "raw_git_objects": 53,
+      "raw_git_object_bytes": 429072095,
+      "selected_files": 4,
+      "selected_bytes": 17063501
+    }
+  },
+  "independent_checks": [
+    "Read the complete final README, template, author inspections, original observation, qualification command and independent qualification/source reviews. Read the driver constants, absence guard, complete plan verifier, request/pin checks and every actual phase branch, plus the supervisor admission/result/cleanup path.",
+    "Rehashed all eleven frozen files against author and independent source-review maps, then compared each exact published blob at473530433d66206ec6ba8a9980c9ed4bd0e12848. Both complete clean author inspections bind those same bytes. The old driver/supervisor remain unchanged.",
+    "Matched actual revision9 plan/mapping,1009 issues and91 directed edges. Both binding tasks remain open at revision1; type-app-checks and checkpoint-windows-build are already closed. Binding review follows binding, and install follows its review.",
+    "The template has null phase/output/cleanup fields, false attestations and null future runtime/prerequisite/prior evidence. Invalid phase is rejected before output creation by supervisor and driver. No future outcome is fabricated.",
+    "Every actual phase requires exact final Windows runtime qualification/review, accepted revision9 plan, actual install/configured/installed review, initial backend/app text reviews, root attestations and a post-install/post-handoff Git baseline backed by matching remote original checkpoint objects and a private raw-index copy.",
+    "Preserve retains the original selected current/previous closure, config, ignore file, raw index and complete Git checkpoint inventory. Absence is checked through prerequisites and immediately before native init. Original native opening follows preservation and an accepted disposable source restore.",
+    "Freeze requires all54 tasks preceding cleanup closed with exact title/description/ID/edges. It retains all954 original records and each original event/receipt/outcome in the1009-issue source, establishes the recognized freeze marker, and rejects later isolated database/checkpoint drift.",
+    "No-auto-flush init must prove zero semantic state and unchanged original config/checkpoint/HEAD/index/tree. Normal Ready-workspace restore uses native explicit-recovery publication for the older covered29609 pointer. The accepted same-byte128MiB qualification exercises this exact case and preserves the outgoing current pointer as previous.",
+    "Original restore compares all incoming canonical records, all1009 issue scopes, reconstructed resource-lock ownership/timestamps and exactly one native restore event/receipt before recording authority transfer. Native checkpoint index changes are reconciled with actual file/Git blob identities, while unrelated index entries and HEAD remain exact.",
+    "Original-owned cleanup close requires actual cleanup/publication/handoff receipts, current cleanup revision and a one-operation dry-run/commit. Only cleanup and its one closed event may change. Final publication and a separate disposable restore verify all55 tasks closed before root performs final checked Git publication.",
+    "Exclusive phase output creation, pinned prior outputs and retained mutation intent/failure prevent automatic replay. An uncertain initialized/restored original fails the absence precondition; root must reconcile it explicitly. Root retains all task-state writes and publication authority.",
+    "Consumed complete independent source/runtime acceptance and actual40.611-second128MiB qualification. The exact frozen19190-byte supervisor now passes ordinary Windows PowerShell5.1.26100.9818 parsing with zero errors. Embedded declarations retain prior unchanged-body compile qualification; this parser did not compile or execute them."
+  ],
+  "qualification_scope": {
+    "final_linux_binary_sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c",
+    "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "node_heap_mib": 128,
+    "duration_ms": 40611,
+    "commands": 51,
+    "all_exit_codes_zero": true,
+    "complete_raw_streams": 153,
+    "fixture_issues": 1009,
+    "incoming_events": 11465,
+    "restored_events": 11466,
+    "incoming_receipts": 6,
+    "restored_receipts": 7,
+    "outcomes": 413,
+    "resource_locks": 3,
+    "focused_refusals": 4,
+    "actual_pc_task_or_history_execution": false
+  },
+  "resource_contract": {
+    "sequential": true,
+    "priority": "BelowNormal",
+    "hidden": true,
+    "baseline_free_gib": 3,
+    "live_free_gib": 1,
+    "aggregate_owned_resident_mib": 512,
+    "node_heap_mib": 128,
+    "overall_seconds": 180,
+    "cleanup_reserve_seconds": 12,
+    "only_exact_job_members_stopped": true
+  },
+  "findings": [],
+  "decision": {
+    "checkpoint_only_preparation_accepted": true,
+    "task_dependency_interpretation_accepted": true,
+    "actual_pc_history_execution_accepted": false,
+    "actual_installation_accepted": false,
+    "scope": "This accepts the missing history component for final binding preparation. The combined binding decision must also name every exact current installation/configured-launch component. Actual phase requests retain all future evidence/current-state gates."
+  },
+  "reviewer_actions": {
+    "local_reads_and_static_comparisons_only": true,
+    "tests": 0,
+    "builds": 0,
+    "pc_calls": 0,
+    "native_task_writes": 0
+  }
+}

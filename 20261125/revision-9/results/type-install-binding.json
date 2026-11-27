@@ -168,7 +168,7 @@
   },
   "task_closer_bound_to_actual_mapping": true,
   "pending": [
-    "Accept the separate checkpoint-only history preparation for the observed absent original database and close the two preparation tasks.",
+    "Accept the configured-launch live-memory correction and exact PS5.1 parse, finish combined preparation acceptance, and close its two tasks.",
     "Run reviewed installation, configured launch and installed review with fresh memory and port checks.",
     "Publish handoffs, preserve native history through the accepted supported restore route, and finish owned cleanup."
   ],
@@ -212,13 +212,13 @@
         {
           "path": "/tmp/beads-2889282bfcec/history-checkpoint-only",
           "branch": "task/history-checkpoint-only-20261127",
-          "status": "Clean frozen author worktree; remove through Riftri after all eleven exact files are retained remotely and equality is verified.",
+          "status": "Removed through Riftri without force; all eleven authored files match published4735304; path and registration absence verified.",
           "author_commit": "dad3688ea00e5829d91fdd952d9c7c0f1c467a1e"
         }
       ]
     }
   },
-  "updated_utc": "2026-11-27T08:22:26.950765+00:00",
+  "updated_utc": "2026-11-27T08:31:52.797773+00:00",
   "previous_status": {
     "commit": "d02907bfc521bb49a478bc1e82877405484e91d3",
     "sha256": "c1338e963ca1a2b4caaa1b868f72e05411fb217c7ae3fd36987afa84d085cd86"
@@ -501,8 +501,31 @@
     "supervisor_sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5",
     "actual_cloud_qualification": "passed under128MiB heap in40.611seconds",
     "qualification_review_sha256": "175a63361363a6d6dfaef9bac000fa7325cf10c3226636fe49b1dc1b2e94cc76",
-    "source_and_plan_review": "pending final independent reviews",
-    "windows_ps51_parse": "pending exact staged AST-only parse",
+    "source_and_plan_review": {
+      "status": "passed",
+      "source_review_sha256": "87c181a0a6998e52f4808df03a7d8986791f20c598edf757bf5f71af52d9d605",
+      "preparation_review_sha256": "147e31b3936bbb0f78307bf583039b855e21ec4bea3e415b525fc929deb6097d"
+    },
+    "windows_ps51_parse": {
+      "status": "passed",
+      "path": "20261127/checkpoint-only-handoff/windows-ps51-parse.json",
+      "sha256": "54a699d087ef848e506e217bd92324deab958a79a550ae5e4b03a42576635e76"
+    },
     "execution": "not started; future request fields remain null/false"
+  },
+  "configured_launch_live_memory_correction": {
+    "original_helper_sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+    "finding": "The original helper has3GiB immediate launch checks and512MiB/time sampling but no live1GiB free-memory floor. Earlier statements of that floor were inaccurate.",
+    "candidate_path": "20261127/configured-launch-memory/windows-configured-launch-host-memory-20261127.ps1",
+    "candidate_sha256": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae",
+    "change": "Three lines in Check-Budget reuse the existing native getter, retain a scalar minimum and require1GiB free. All other bytes are unchanged.",
+    "author_inspections": "two complete clean passes",
+    "independent_review": {
+      "status": "passed",
+      "path": "20261127/configured-launch-memory/source-review.json",
+      "sha256": "79e40e25cd438a7a20d37883e0051a3da5d11efd96fcae274bcc592744194db7"
+    },
+    "windows_parse": "pending",
+    "execution": "not started"
   }
 }

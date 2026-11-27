@@ -1,0 +1,35 @@
+{
+  "status": "passed",
+  "author": "/root",
+  "original_path": "20261125/revision-9/install-binding/windows-configured-launch-host-20261125.ps1",
+  "original_sha256": "ed256f992d8398eb07f00d1991b1ee24245ce537ab2973222ca71efbd4dda51e",
+  "candidate_path": "20261127/configured-launch-memory/windows-configured-launch-host-memory-20261127.ps1",
+  "candidate_sha256": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae",
+  "candidate_bytes": 48944,
+  "change": "Three lines at the start of Check-Budget call the existing native memory getter, retain its minimum observed value and require at least1GiB free.",
+  "complete_candidate_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "checks": [
+        "Compared complete final copy to accepted original; removing the exact insertion recovers all original bytes and SHA256.",
+        "Read memory getter, existing3GiB launch check, every Check-Budget caller, native/HTTP wait loops, failure handling and owned cleanup together.",
+        "The new assertion executes only after the existing inspector type is initialized and leaves cleanup outside the memory floor."
+      ]
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "checks": [
+        "Repeated complete byte comparison and exact insertion count; original file remains unmodified.",
+        "Checked PS5.1 syntax conventions against existing ordered dictionary Contains and native getter use; no new type or process.",
+        "Reconciled all fixed native/source/port/output values and existing120-second,512MiB,128MiB and3GiB constraints; measured minimum is a scalar only.",
+        "Final source review and exact Windows AST parse remain prerequisites for configured execution; no actual launch is claimed."
+      ]
+    }
+  ],
+  "actual_windows_parse": "pending",
+  "actual_execution": "pending"
+}
