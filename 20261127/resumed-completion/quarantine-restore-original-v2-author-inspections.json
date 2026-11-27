@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "status": "passed_author_static_derivation_inspections",
+  "author": "/root/review_bead_rs",
+  "operation": "retain-interrupted-restore-original-20261127-v2",
+  "files": [
+    {
+      "name": "quarantine-restore-original-20261127-v2.cjs",
+      "bytes": 21619,
+      "sha256": "c32bef5991b7d063372aa494c0ed8b13701de2c1ac1649facf439f8ca6d360c2"
+    },
+    {
+      "name": "quarantine-restore-original-v2.request.prepared.json",
+      "bytes": 2470,
+      "sha256": "e86f9dc7f791ab8e03c9f1fb12a27e001f291883cfe4a630d58ab6b76b4ac73d"
+    },
+    {
+      "name": "quarantine-restore-original-v2-invocation.prepared.json",
+      "bytes": 1599,
+      "sha256": "f0f60ea054f5f18c47467a9a0c45e76029644093bf6556e557ac570b4d283f3a"
+    },
+    {
+      "name": "quarantine-restore-original-v2-pins.prepared.json",
+      "bytes": 8159,
+      "sha256": "e166cc47abf539ae1efc2a98e25a6a9ce062238e6994830edbb694f72a566297"
+    }
+  ],
+  "accepted_baseline": {
+    "source": {
+      "name": "quarantine-restore-original-20261127.cjs",
+      "bytes": 21615,
+      "sha256": "92bfd912e3c4a9b174c77eb08cab6bdff6df43f99fbdfc0866b2eb7dfe23bd63"
+    },
+    "independent_source_review": {
+      "name": "quarantine-restore-original-independent-review.json",
+      "bytes": 5768,
+      "sha256": "b1f9ae5662e7a42bf153a24f1d3443708b1ff579349a893bcf41e7626d2ccdc8"
+    },
+    "actual_recovery_review": {
+      "name": "quarantine-restore-original-actual-review.json",
+      "bytes": 5654,
+      "sha256": "6a51f26431280e79fbb718b8509badd703a71a0e45164d85056d909489d68511"
+    },
+    "prior_retention_remains": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752"
+  },
+  "whole_source_inverse": {
+    "method": "Replace only the derivative const PIN JSON line with the accepted baseline line.",
+    "reconstructed_every_original_byte": true,
+    "reconstructed_sha256": "92bfd912e3c4a9b174c77eb08cab6bdff6df43f99fbdfc0866b2eb7dfe23bd63",
+    "body_and_control_flow_changed": false,
+    "changed_pin_paths": [
+      "/database_files/0/destination",
+      "/database_files/0/mtime_ns",
+      "/database_files/1/destination",
+      "/database_files/1/mtime_ns",
+      "/database_files/2/destination",
+      "/database_files/2/mtime_ns",
+      "/evidence/2/sha256",
+      "/evidence/3/sha256",
+      "/evidence/4/sha256",
+      "/evidence/5/bytes",
+      "/evidence/5/sha256",
+      "/helper_path",
+      "/inventory_sha256",
+      "/old_proposal_id",
+      "/old_request_sha256",
+      "/operation",
+      "/probe_sha256",
+      "/quarantine",
+      "/request_path",
+      "/targets/0/destination",
+      "/targets/0/mtime_ns",
+      "/targets/1/destination",
+      "/targets/1/mtime_ns",
+      "/targets/2/destination",
+      "/targets/2/mtime_ns",
+      "/targets/3/destination",
+      "/targets/4/destination"
+    ]
+  },
+  "actual_evidence": {
+    "failed_execution": {
+      "name": "restore-original-v2-failed-execution.json",
+      "bytes": 23835,
+      "sha256": "4eca5b41faf7b6c1f4905a088146c2624458195833834d89e407ef620edb3d95"
+    },
+    "raw_failed_supervisor": {
+      "name": "restore-original-v2-failed-supervisor-result.json",
+      "bytes": 10006,
+      "sha256": "00c1f721d2845581d4de5014e0b195cb9711e45eb387749632f5e00c8412a1b6"
+    },
+    "private_probe_digest_only": {
+      "name": "restore-original-v2-interruption-probe-data.json",
+      "bytes": 28326,
+      "sha256": "18448d9ea5b46a7f1d526394d1373e4bf49dad6515fefe32705fd12d54286e23"
+    },
+    "checkpoint_inventory": {
+      "name": "restore-original-v2-inventory-actual.json",
+      "bytes": 14734,
+      "sha256": "430a3d8613bf464f1f121ac648df9239fd41d2fcb8aa34b9d3a58209b86237c0"
+    },
+    "failed_proposal_id": "SMxgXIPKm-d0LJ_JogjrVHYpG3OwxW2XO2Rc1ibxsAk",
+    "failed_request_sha256": "7d18a7444b818a9f5b136514da63804cd2e26c0787a5d81f4899645af08c54be",
+    "failure": "Recorded aggregate resident peak exceeded the unchanged512MiB limit; native restore interrupted after successful empty initialization.",
+    "peak_total_resident_bytes": 540721152,
+    "duration_seconds": 21.087,
+    "remaining_job_members": [],
+    "cleanup_assisted": true,
+    "checkpoint_rows": 55,
+    "checkpoint_rows_identical_to_first_reconciliation": true,
+    "checkpoint_rows_sha256": "1d29aa194ee0979d887240c8fd625b902ce93e2668f249b2ce0da642b8e1c371",
+    "all_six_protected_file_hashes_and_sizes_match_previous_accepted_pins": true,
+    "database_metadata": [
+      {
+        "name": "beads.db",
+        "source": "F:/Dev/bead-rs/.beads/beads.db",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db",
+        "kind": "file",
+        "bytes": "413696",
+        "mtime_ns": "1795798230007407400"
+      },
+      {
+        "name": "beads.db-wal",
+        "source": "F:/Dev/bead-rs/.beads/beads.db-wal",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-wal",
+        "kind": "file",
+        "bytes": "8499592",
+        "mtime_ns": "1795798238929844100"
+      },
+      {
+        "name": "beads.db-shm",
+        "source": "F:/Dev/bead-rs/.beads/beads.db-shm",
+        "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-shm",
+        "kind": "file",
+        "bytes": "32768",
+        "mtime_ns": "1795798240558062500"
+      }
+    ],
+    "accepted_original_git_before_and_after_init": {
+      "bytes_each": 102337,
+      "expected_sha256": "9a10be2f5be17561e3bfe1df14c12fd81cd696101aa8516191cb5be64e060cc7",
+      "binding": "Unchanged exact hash from accepted source-restore before/after records. The unchanged helper verifies both new attempt receipts on the PC before any mutation."
+    },
+    "privacy": "Private probe and native configuration bytes are not reproduced in this author packet."
+  },
+  "inspection_passes": [
+    {
+      "pass": 1,
+      "focus": "Exact source derivation and bounded preservation",
+      "status": "clean",
+      "findings": [],
+      "checks": [
+        "Only the embedded PIN line changed; whole-source inverse equals accepted source.",
+        "Operation/helper/request names and fresh165019 retention are internally bound.",
+        "Exactly the same three database and two failed-directory renames; prior155752 retention is outside all targets.",
+        "All resource, create-new, streaming identity, before/intent/done receipt, refusal-on-reuse and postcondition logic is unchanged."
+      ]
+    },
+    {
+      "pass": 2,
+      "focus": "Actual interrupted boundary and invocation binding",
+      "status": "clean",
+      "findings": [],
+      "checks": [
+        "Recomputed candidate/request/invocation, raw supervisor, private probe and metadata inventory hashes.",
+        "All55 inventory rows equal first accepted reconciliation; row digest independently recomputed.",
+        "Six protected hashes/sizes and three exact database sizes/new mtimes match actual read-only probe.",
+        "Init exit0, new exact empty-init/native-start marker bytes and failed supervisor pins are bound; successful result/authority/published paths remain absent.",
+        "Request helper and invocation helper/request hashes match; same64MiB heap,128MiB RSS,1GiB free,15s bounds."
+      ]
+    }
+  ],
+  "findings": [],
+  "root_controlled_boundary": "Parent owns uninterrupted original native-writer exclusion, exact staging, publication, and a single approved execution; the helper refuses any evidence/path drift or retention reuse.",
+  "activity": "Cloud-only static data derivation and source/evidence inspection. No helper body, PC action, native command, build, product test, or ref write executed."
+}

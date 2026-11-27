@@ -1,0 +1,173 @@
+{
+  "operation": "retain-interrupted-restore-original-20261127-v2",
+  "task": "F:/Dev/.bead-edit-20261111",
+  "retention": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1",
+  "phase": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original",
+  "supervisor": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1",
+  "inputs": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs",
+  "original": "F:/Dev/bead-rs",
+  "quarantine": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019",
+  "helper_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/quarantine-restore-original-20261127-v2.cjs",
+  "request_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/quarantine-restore-original-20261127-v2.request.json",
+  "old_request_sha256": "7d18a7444b818a9f5b136514da63804cd2e26c0787a5d81f4899645af08c54be",
+  "old_proposal_id": "SMxgXIPKm-d0LJ_JogjrVHYpG3OwxW2XO2Rc1ibxsAk",
+  "runtime_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+  "original_head": "025ebc6a38013402b1936e932c104348aec06fd4",
+  "original_checkpoint_tree": "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+  "original_index_sha256": "f3137ef0e0e450241aa7e5559915838ec25e5d153731639301b46615726c369f",
+  "inventory_sha256": "430a3d8613bf464f1f121ac648df9239fd41d2fcb8aa34b9d3a58209b86237c0",
+  "inventory_rows_sha256": "1d29aa194ee0979d887240c8fd625b902ce93e2668f249b2ce0da642b8e1c371",
+  "probe_sha256": "18448d9ea5b46a7f1d526394d1373e4bf49dad6515fefe32705fd12d54286e23",
+  "database_files": [
+    {
+      "name": "beads.db",
+      "source": "F:/Dev/bead-rs/.beads/beads.db",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db",
+      "kind": "file",
+      "bytes": "413696",
+      "mtime_ns": "1795798230007407400"
+    },
+    {
+      "name": "beads.db-wal",
+      "source": "F:/Dev/bead-rs/.beads/beads.db-wal",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-wal",
+      "kind": "file",
+      "bytes": "8499592",
+      "mtime_ns": "1795798238929844100"
+    },
+    {
+      "name": "beads.db-shm",
+      "source": "F:/Dev/bead-rs/.beads/beads.db-shm",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-shm",
+      "kind": "file",
+      "bytes": "32768",
+      "mtime_ns": "1795798240558062500"
+    }
+  ],
+  "protected_files": [
+    {
+      "path": "F:/Dev/bead-rs/.beads/checkpoint/current.json",
+      "bytes": "920",
+      "sha256": "ccb1abde721af7a7fedbf3302d0143bd12e332cee47530d05f6c3515b3338b0a"
+    },
+    {
+      "path": "F:/Dev/bead-rs/.beads/checkpoint/previous.json",
+      "bytes": "919",
+      "sha256": "3ced2fb2fb98fbbac359640b82fc496eb41d8deae04b20389639eea39a8f7cc1"
+    },
+    {
+      "path": "F:/Dev/bead-rs/.beads/config.json",
+      "bytes": "123",
+      "sha256": "5eca31e8f37cc9a6ff178452c20d11f10396e0a8835f94777705ed67dc63a3da"
+    },
+    {
+      "path": "F:/Dev/bead-rs/.git/config",
+      "bytes": "377",
+      "sha256": "cabe1e42547b2d4e3e4440120c754e902a9ed42ae4a328350283a79e451b5330"
+    },
+    {
+      "path": "F:/Dev/bead-rs/.beads/.gitignore",
+      "bytes": "136",
+      "sha256": "d4794ae941343d9f3b2ad69497c9f41541186e927a55d338973ef642c396ce0e"
+    },
+    {
+      "path": "F:/Dev/bead-rs/.git/index",
+      "bytes": "73044",
+      "sha256": "f3137ef0e0e450241aa7e5559915838ec25e5d153731639301b46615726c369f"
+    }
+  ],
+  "evidence": [
+    {
+      "name": "original_git_before",
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/original-git-before.json",
+      "bytes": 102337,
+      "sha256": "9a10be2f5be17561e3bfe1df14c12fd81cd696101aa8516191cb5be64e060cc7"
+    },
+    {
+      "name": "original_git_after_init",
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/original-git-after-init.json",
+      "bytes": 102337,
+      "sha256": "9a10be2f5be17561e3bfe1df14c12fd81cd696101aa8516191cb5be64e060cc7"
+    },
+    {
+      "name": "init.exit.json",
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/init.exit.json",
+      "bytes": 241,
+      "sha256": "16292deb815938a66abad1a928c97d956cb3292ae0a481c39e9d618803f96f39"
+    },
+    {
+      "name": "initialized-empty-database.json",
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/initialized-empty-database.json",
+      "bytes": 3375,
+      "sha256": "3b8636804a4bb56d341f89ea5e9b6bd7cfc1431ccb67e39fa129d19a69a63cc9"
+    },
+    {
+      "name": "restore-original.started.json",
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/restore-original.started.json",
+      "bytes": 708,
+      "sha256": "736d62bac9a6c52e0732208aba00fa6de43756dfce2bbafef40d94477228e96e"
+    },
+    {
+      "name": "failed_supervisor",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1/result.json",
+      "bytes": 10006,
+      "sha256": "00c1f721d2845581d4de5014e0b195cb9711e45eb387749632f5e00c8412a1b6"
+    },
+    {
+      "name": "accepted_preserve",
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+      "bytes": 13658,
+      "sha256": "cd0ef5d40bdf9e7bd34af52c7e0c46867ef702ad21be385d58a8ae0199b78dd7"
+    },
+    {
+      "name": "accepted_freeze",
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+      "bytes": 12639,
+      "sha256": "ac743406703ee2ced9c35456032debbddb981ffb05957865a30ffabf943c4521"
+    },
+    {
+      "name": "accepted_source_restore",
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+      "bytes": 13811,
+      "sha256": "ae8c1d41f9805cdd02b7270d3a2b5a0c26808e8b251a26a300bccba43dc1de52"
+    }
+  ],
+  "targets": [
+    {
+      "name": "beads.db",
+      "source": "F:/Dev/bead-rs/.beads/beads.db",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db",
+      "kind": "file",
+      "bytes": "413696",
+      "mtime_ns": "1795798230007407400"
+    },
+    {
+      "name": "beads.db-wal",
+      "source": "F:/Dev/bead-rs/.beads/beads.db-wal",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-wal",
+      "kind": "file",
+      "bytes": "8499592",
+      "mtime_ns": "1795798238929844100"
+    },
+    {
+      "name": "beads.db-shm",
+      "source": "F:/Dev/bead-rs/.beads/beads.db-shm",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-shm",
+      "kind": "file",
+      "bytes": "32768",
+      "mtime_ns": "1795798240558062500"
+    },
+    {
+      "name": "failed-phase",
+      "source": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/failed-phase",
+      "kind": "directory"
+    },
+    {
+      "name": "failed-supervisor",
+      "source": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/failed-supervisor",
+      "kind": "directory"
+    }
+  ]
+}

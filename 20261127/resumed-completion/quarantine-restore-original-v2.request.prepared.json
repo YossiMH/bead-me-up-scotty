@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "operation": "retain-interrupted-restore-original-20261127-v2",
+  "helper_sha256": "c32bef5991b7d063372aa494c0ed8b13701de2c1ac1649facf439f8ca6d360c2",
+  "quarantine": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019",
+  "old_proposal_id": "SMxgXIPKm-d0LJ_JogjrVHYpG3OwxW2XO2Rc1ibxsAk",
+  "inventory_sha256": "430a3d8613bf464f1f121ac648df9239fd41d2fcb8aa34b9d3a58209b86237c0",
+  "probe_sha256": "18448d9ea5b46a7f1d526394d1373e4bf49dad6515fefe32705fd12d54286e23",
+  "targets": [
+    {
+      "name": "beads.db",
+      "source": "F:/Dev/bead-rs/.beads/beads.db",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db",
+      "kind": "file",
+      "bytes": "413696",
+      "mtime_ns": "1795798230007407400"
+    },
+    {
+      "name": "beads.db-wal",
+      "source": "F:/Dev/bead-rs/.beads/beads.db-wal",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-wal",
+      "kind": "file",
+      "bytes": "8499592",
+      "mtime_ns": "1795798238929844100"
+    },
+    {
+      "name": "beads.db-shm",
+      "source": "F:/Dev/bead-rs/.beads/beads.db-shm",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/original-db/beads.db-shm",
+      "kind": "file",
+      "bytes": "32768",
+      "mtime_ns": "1795798240558062500"
+    },
+    {
+      "name": "failed-phase",
+      "source": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/failed-phase",
+      "kind": "directory"
+    },
+    {
+      "name": "failed-supervisor",
+      "source": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1",
+      "destination": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019/failed-supervisor",
+      "kind": "directory"
+    }
+  ],
+  "attestations": {
+    "exclusive_native_writer_window": true,
+    "old_job_terminated": true,
+    "no_new_original_writes_since_probe": true,
+    "retention_reset_approved": true
+  }
+}
