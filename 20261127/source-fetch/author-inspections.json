@@ -1,0 +1,47 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "author": "root",
+  "candidate": {
+    "path": "20261127/source-fetch/fetch-source-objects-20261127.ps1",
+    "sha256": "8496473a3ebb06d5b21db6d4690dca7c03cf044f1f232860774475c18bcdf944",
+    "bytes": 24349
+  },
+  "readme_sha256": "fb2bcd6ca0a2a6b13b9d259a3fa4ad343bf3afb2a221e1ef9efe1a93f3d890d2",
+  "base_sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
+  "checks": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "complete_file_inspected": true,
+      "focus": "Exact commands, file bindings, original HEAD/index and 15-file preservation checks, ref/status/config/pin equality, bounded stdout/stderr and ancestry."
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "complete_file_inspected": true,
+      "focus": "Failures and interruption, immutable attempt claim, no branch/FETCH_HEAD writes, explicit commit-graph and maintenance suppression, unchanged Job inspector/timer/cleanup, deterministic ordered snapshots and string handling."
+    }
+  ],
+  "mechanical_comparisons": {
+    "unchanged_base_functions": [
+      "Assert-That",
+      "Hash",
+      "Task-Path",
+      "Safe-Path",
+      "Quote-Argument",
+      "Refresh-Owned",
+      "Stop-Owned"
+    ],
+    "embedded_Csharp_unchanged": true,
+    "sampler_change": "messages only",
+    "stream_runner_change": "Git executable/name and disabled interactive prompting only"
+  },
+  "findings": [],
+  "pending": [
+    "Independent source review",
+    "Exact-file Windows PowerShell5.1 parse",
+    "One bounded actual fetch and full result acceptance"
+  ],
+  "success_not_claimed": true
+}

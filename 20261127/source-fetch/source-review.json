@@ -1,0 +1,134 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "frontend_audit",
+  "scope": "Independent static review of the final frozen source-fetch helper, README and author inspections. This accepts the source packet; Windows parsing and actual transfer acceptance remain pending.",
+  "candidate": {
+    "path": "20261127/source-fetch/fetch-source-objects-20261127.ps1",
+    "bytes": 24349,
+    "sha256": "8496473a3ebb06d5b21db6d4690dca7c03cf044f1f232860774475c18bcdf944"
+  },
+  "packet": [
+    {
+      "path": "20261127/source-fetch/README.md",
+      "bytes": 2605,
+      "sha256": "fb2bcd6ca0a2a6b13b9d259a3fa4ad343bf3afb2a221e1ef9efe1a93f3d890d2"
+    },
+    {
+      "path": "20261127/source-fetch/author-inspections.json",
+      "bytes": 1641,
+      "sha256": "4dc1f43af463c2e9d396e378d89ccb3ac7285ffe71c8803c64c4067cd4aef833"
+    }
+  ],
+  "accepted_baseline": {
+    "path": "20261127/powershell51/download-qualified-artifacts-20261127-ps51.ps1",
+    "commit": "60e5181d1f3b92983dd24e9533b85daa4124cc5c",
+    "bytes": 22728,
+    "sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "findings": [],
+  "resolved_before_final_freeze": [
+    {
+      "issue": "Configured post-fetch commit-graph writing is independent of automatic maintenance and could add avoidable work.",
+      "resolution": "The final exact fetch command includes --no-write-commit-graph and --no-auto-maintenance. These options are documented by the upstream git-fetch manual and were verified in the frozen source."
+    }
+  ],
+  "checks": [
+    {
+      "name": "Final packet and author inspections",
+      "status": "passed",
+      "detail": "Read the complete final 383-line helper and its README, independently rehashed all three files, and matched the author receipt to the frozen candidate and README. Both author inspections passed on this final identity."
+    },
+    {
+      "name": "Baseline equivalence",
+      "status": "passed",
+      "detail": "Compared the full source diff with the exact accepted PowerShell 5.1 downloader. Assert-That, Hash, Task-Path, Safe-Path, Quote-Argument, Refresh-Owned and Stop-Owned are byte-identical. Sample-Budget changes only its two diagnostic messages. The complete embedded C# Job inspector and final cleanup block are byte-identical."
+    },
+    {
+      "name": "Narrow operation and source identities",
+      "status": "passed",
+      "detail": "The two fixed repositories fetch only app commit 0309539797fd7d016e2b8fd8bdc0ae9cefc20219 and native commit 2d801ba455b7a722daf644a7615445117d57e8e9 from their fixed user forks. These match the accepted final-installation manifest. There is no checkout, merge, reset, commit, branch update, build or product execution."
+    },
+    {
+      "name": "Observed baseline bindings",
+      "status": "passed",
+      "detail": "Independently read the retained existing project preflight observations. They match both original HEADs and raw-index SHA-256 values, the exact Git executable path/hash, and the observation that both final candidate objects were absent. Only project-relevant facts from these private observations are retained here."
+    },
+    {
+      "name": "App preservation manifest",
+      "status": "passed",
+      "detail": "Independently rehashed the 5,232-byte manifest to 70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362 and inspected all 15 file records. The helper requires that exact manifest and each corresponding current app file's byte count and SHA-256 before and after fetching."
+    },
+    {
+      "name": "Preserved repository state",
+      "status": "passed",
+      "detail": "Each Snapshot requires the fixed current HEAD and raw index, records HEAD/index/config/FETCH_HEAD file states, hashes refs and porcelain status, and records app .env.local and the old native executable pin. Ordered before/after snapshots must match exactly. Native status must remain empty. Optional Git locks are disabled on the read commands."
+    },
+    {
+      "name": "Fetch scope and background work",
+      "status": "passed",
+      "detail": "The command uses an exact SHA with no destination refspec and disables tags, submodule recursion, FETCH_HEAD writing, commit-graph writing and automatic maintenance. It also sets gc.auto=0, maintenance.auto=false and pack.threads=1. The retained after-state comparison verifies unchanged refs and FETCH_HEAD."
+    },
+    {
+      "name": "Ancestry and object checks",
+      "status": "passed",
+      "detail": "After each successful fetch, rev-parse requires the exact candidate commit identity. Every listed original or accepted intermediate source must be an ancestor of that candidate through a successful merge-base --is-ancestor command. Any nonzero result fails the operation."
+    },
+    {
+      "name": "Bounded noninteractive child execution",
+      "status": "passed",
+      "detail": "The adapted Git runner preserves the accepted asynchronous pipe and ownership structure. Child argv is quoted directly with UseShellExecute false; input closes immediately; terminal and credential prompting are disabled. Output is bounded before each write, and stderr is counted and discarded with a 64 KiB cap. Credentials and error bodies are not printed."
+    },
+    {
+      "name": "Resource and deadline preservation",
+      "status": "passed",
+      "detail": "The final helper retains BelowNormal priority, 1 GiB baseline/live free-memory requirements, a 512 MiB aggregate resident cap, 168-second work deadline and 180-second hard owned-Job deadline. Fetches run sequentially with 45-second limits; local Git reads have 10-second limits. The hard timer uses no additional process."
+    },
+    {
+      "name": "Failure and cleanup semantics",
+      "status": "passed",
+      "detail": "A failed child, preservation mismatch, ancestry failure, resource refusal or deadline leaves the overall result failed. Retained owned handles authorize cleanup solely within the Job. Assisted cleanup, remaining members, cleanup errors or excess recorded resources prevent acceptance. Exit zero is selected only from the final passed overall result."
+    },
+    {
+      "name": "Attempt retention and restart behavior",
+      "status": "passed",
+      "detail": "The fixed fresh source-objects attempt, claim and supervisor paths must all be absent. The claim uses CreateNew and replay is disabled. Interrupted attempts retain evidence and any objects already fetched for reconciliation; the helper has no retry or cleanup path that deletes existing repository data."
+    },
+    {
+      "name": "Compatibility and handoff",
+      "status": "passed",
+      "detail": "The final source uses canonical uint64 PowerShell types and retains the accepted Windows PowerShell 5.1 constructs. The README describes the same operation, limits and acceptance requirements and records future-agent cleanup of the existing Riftri-managed continuation worktree."
+    }
+  ],
+  "observation_bindings": [
+    {
+      "purpose": "Original project HEADs and raw indexes",
+      "retained_private_file": "pc-preflight.json",
+      "bytes": 18230,
+      "sha256": "da79a0fcf1ed24c26302b0f85724c5767dabc2001d2c9b5a0717d64a3e3011f7"
+    },
+    {
+      "purpose": "Observed Git executable and missing final candidate objects",
+      "retained_private_file": "install-preflight-and-tray-task.json",
+      "bytes": 2445,
+      "sha256": "aff31ec4e14bbd738b37605e09760757f7f55c3189e06093f402e97ea6339570"
+    }
+  ],
+  "primary_documentation": [
+    {
+      "url": "https://git-scm.com/docs/git-fetch",
+      "supports": "Explicit suppression of FETCH_HEAD writes, tag following, commit-graph writing and automatic maintenance."
+    },
+    {
+      "url": "https://git-scm.com/docs/git-config",
+      "supports": "maintenance.auto and fetch.writeCommitGraph are separate settings."
+    }
+  ],
+  "pending_execution_gates": [
+    "Root verifies these exact staged hashes and obtains a clean Windows PowerShell 5.1 parse.",
+    "Root executes the single bounded attempt with the qualified Job helper.",
+    "Actual acceptance reconciles the complete final result, both passed source records, ancestry, identical before/after snapshots, resource observations, zero exit and clean owned-process cleanup."
+  ],
+  "runtime_success_claimed": false
+}
