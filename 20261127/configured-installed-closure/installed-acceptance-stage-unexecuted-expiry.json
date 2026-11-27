@@ -1,0 +1,20 @@
+{
+  "attempt": {
+    "proposal_id": "GVUHpszv6jaHzvATITDEeCzKHKD1MjW-VbqKz1HaXD8",
+    "status": "expired",
+    "replay_allowed": false
+  },
+  "execute_response": {
+    "content": [
+      {
+        "type": "text",
+        "text": "RECOVERY_INTERNAL_ERROR: action may be uncertain; inspect status, never replay automatically"
+      }
+    ],
+    "structuredContent": {
+      "error_code": "INVALID_ARGUMENT"
+    },
+    "isError": true
+  },
+  "note": "Execute returned internal error; poll remained open then explicitly expired with no job. A new proposal was prepared only after this terminal read. The expired proposal was never replayed."
+}

@@ -1,0 +1,6 @@
+{
+  "command": "powershell.exe -NoLogo -NoProfile -NonInteractive -WindowStyle Hidden -ExecutionPolicy Bypass -File F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\record-accepted-tasks-v9-supervisor.ps1 -JobHelperPath C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-host-execution-20261125\\windows-task-job.ps1 -RequestPath F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\revision-9\\checkpoint-only-inputs\\close-configured-installed-accepted-20261127.json -RequestSha256 b320e4f81d810d0e22c47544e3160cafa509fb3e3f1ef8a5e1ec2517843f3849 -OutputName completed-20261127-configured-installed",
+  "cwd": "F:\\Dev",
+  "expected_effects": "Apply the independently accepted published two-task request once through the unchanged v9 closer/supervisor. Bind actual plan/mapping/all55tasks/dependencies/current revisions; close only configured-launch beadrs-c9526055 rev5 to6 and installed-review beadrs-47da80ac rev3 to4 after accepted installed default-pin editing and actual tray Exit. Preserve954original records and53other task states. Fresh completed-20261127-configured-installed output, no auto flush/original-store access. Root sole state writer; hidden BelowNormal Node128MiB,1GiB initial free,512MiB aggregate,180sec exact owned cleanup. Expected50closed/5open; original history and cleanup remain pending.",
+  "timeout_ms": 200000
+}

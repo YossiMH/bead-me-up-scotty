@@ -1,0 +1,201 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T13:02:03.926151+00:00",
+  "scope": "Independent acceptance of the actual revision-9 two-task closure from the exact driver/supervisor bytes, complete raw transport, accepted request and preceding 48/7 state.",
+  "actual_state": {
+    "continuation_revision": 9,
+    "tasks": 55,
+    "blocking_edges": 91,
+    "total_issues": 1009,
+    "original_issues_preserved": 954,
+    "closed": 50,
+    "open": 5,
+    "transitions": [
+      {
+        "key": "configured-launch",
+        "id": "beadrs-c9526055",
+        "before_revision": 5,
+        "after_revision": 6
+      },
+      {
+        "key": "installed-review",
+        "id": "beadrs-47da80ac",
+        "before_revision": 3,
+        "after_revision": 4
+      }
+    ],
+    "other53_task_summaries_exact": true,
+    "driver_complete_stored_fields_preservation_passed": true,
+    "config_and_checkpoint_pointer_unchanged": true,
+    "ready_tasks": [
+      {
+        "id": "beadrs-1371879c",
+        "title": "Update the backend continuation record",
+        "revision": 3
+      },
+      {
+        "id": "beadrs-f0039a6a",
+        "title": "Update the app usage and continuation record",
+        "revision": 5
+      }
+    ],
+    "remaining_open": [
+      {
+        "key": "backend-handoff",
+        "id": "beadrs-1371879c",
+        "revision": 3
+      },
+      {
+        "key": "app-handoff",
+        "id": "beadrs-f0039a6a",
+        "revision": 5
+      },
+      {
+        "key": "backend-text-review",
+        "id": "beadrs-30f13b5b",
+        "revision": 3
+      },
+      {
+        "key": "app-text-review",
+        "id": "beadrs-c62c1990",
+        "revision": 5
+      },
+      {
+        "key": "preserve-and-clean",
+        "id": "beadrs-3ec972f8",
+        "revision": 5
+      }
+    ]
+  },
+  "evidence": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-actual/result.json",
+      "bytes": 5964,
+      "sha256": "6b0cbed2c93a5e517a50fb6e10f98382ff8cc480edff2336c97c96ff332f8a73"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-actual/supervisor-result.json",
+      "bytes": 7947,
+      "sha256": "e06e2ee20a9eb2de44053808f25a8a89b180b7517d93744b40520f362b70c316"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-execution.json",
+      "bytes": 9001,
+      "sha256": "cff5ea18be94eedc853db7d2d827a2601130d8a51596e26c705a9b3fe2d8fe92"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-raw-package.json",
+      "bytes": 19095,
+      "sha256": "0c88fd41392a2c7f9f0fb13ea812f942ab4ba411029d46c3ff30d8362fe4446f"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-envelope.json",
+      "bytes": 6931,
+      "sha256": "fa1dd27347a61f074f12b82b784fd27d0452b423de5e19bc5c1eee5ee749e27e"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-execution.json",
+      "bytes": 7232,
+      "sha256": "fbbb96c1f7144f33abffbdfa3a997335ad513f48fbc71c7945a0c104a7562ccc"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/close-configured-installed-invocation.json",
+      "bytes": 1360,
+      "sha256": "86bfaf24ae2f55a999e3e3fce8e37213def1f70b47d7fe3995e952cf2b4c9704"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/close-configured-installed-accepted-20261127.json",
+      "bytes": 2045,
+      "sha256": "b320e4f81d810d0e22c47544e3160cafa509fb3e3f1ef8a5e1ec2517843f3849"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/close-configured-installed-request-review.json",
+      "bytes": 6153,
+      "sha256": "ae6d7f2761b08e18d0c0b6e2c44fc80944ca3d9070c1e9486baab9b2bac42917"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/installed-final-review.json",
+      "bytes": 16318,
+      "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/installation-completed/closure/result.json",
+      "bytes": 5925,
+      "sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/results/materialization-v9-result.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-review.json",
+      "bytes": 1083,
+      "sha256": "67a81878d444b04d75ed6908a26d8a91ecd1c5ba9b5f669eb169e20fe0794f9e"
+    }
+  ],
+  "checks": [
+    "Both fixed raw files are present and exactly match the decoded gzip package, byte counts and SHA-256. The 19095-byte package and every raw file were independently hashed with Python; all 64-bit start_ticks remain exact integers.",
+    "The original closure execution exits zero without stderr or dropped output. Its stdout is exactly the 7947-byte supervisor result plus CRLF. The supervisor names the exact 5964-byte native result hash and reports driver exit zero.",
+    "Driver, supervisor, Job helper, Node binary, exact command/request path, fresh output name, accepted plan and actual mapping identities match the reviewed fixed inputs. The old qualified coordination tool remains the task-state executor; it is not misidentified as the installed final product pin.",
+    "Exactly configured-launch beadrs-c9526055 revision 5 to 6 and installed-review beadrs-47da80ac revision 3 to 4 transition from open to closed. All other 53 complete returned id/status/revision summaries equal the prior accepted result.",
+    "The hash-bound unchanged driver reports successful complete original 954-row and other stored-field preservation, exact graph validation, and unchanged configuration/checkpoint pointer. This review accepts those executor assertions; it does not claim a new cloud read of the private live store.",
+    "All 12 retained owned process identities exited zero without supervisor kills. Two very short-lived rows have null name/session metadata; their exact PID/start-tick and exit evidence remain retained. Cleanup assistance is false, cleanup errors and remaining Job members are empty.",
+    "The observed 254861312-byte aggregate peak is below 512 MiB, the 4419260416-byte baseline exceeds the one-GiB admission guard, and 10.56 seconds is below the 180-second hard/168-second work limits. The receipt does not report a separate minimum-live-free-memory value.",
+    "Complete closure collection exited zero without drops and preserved exact raw bytes. The successful transport is evidence collection only; it did not perform another task-state mutation."
+  ],
+  "resource_observation": {
+    "started_utc": "2026-11-27T12:57:59.3875098Z",
+    "finished_utc": "2026-11-27T12:58:09.9490539Z",
+    "duration_seconds": 10.56,
+    "priority": "BelowNormal",
+    "node_heap_mib": 128,
+    "timeout_seconds": 180,
+    "work_stop_seconds": 168,
+    "max_total_resident_mib": 512,
+    "baseline_free_physical_bytes": 4419260416,
+    "peak_total_resident_bytes": 254861312,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": []
+  },
+  "collector_observation": {
+    "schema_version": 1,
+    "status": "complete",
+    "encoding": "gzip+base64",
+    "scope": "configured-installed-closure-fixed2-raw",
+    "offset_bytes": 0,
+    "chunk_bytes": 4217,
+    "chunk_sha256": "91a3200a0b8b54438c42271388b706788512f34fe3c6ddc3282a02845e35c627",
+    "total_bytes": 4217,
+    "package_sha256": "91a3200a0b8b54438c42271388b706788512f34fe3c6ddc3282a02845e35c627",
+    "next_offset_bytes": null,
+    "uncompressed_bytes": 19095,
+    "uncompressed_sha256": "0c88fd41392a2c7f9f0fb13ea812f942ab4ba411029d46c3ff30d8362fe4446f",
+    "raw_file_bytes": 13911,
+    "node": "v25.2.1",
+    "priority": "BelowNormal",
+    "node_heap_mib": 64,
+    "elapsed_ms": 12,
+    "peak_rss_bytes": 43134976,
+    "minimum_free_bytes": 4968054784,
+    "resource_samples": 20
+  },
+  "findings": [],
+  "decision": "PASS. Canonical isolated continuation now has 50 closed and 5 open tasks. Backend/app handoff tasks are ready; both text-review tasks and preserve-and-clean remain open. Original checkpoint publication, reviewed handoffs and final cleanup are still pending.",
+  "checkpoint_publication": "Explicit flush and checked publication remain required. No original-store authority switch or publication is inferred from this closure.",
+  "reviewer_actions": {
+    "pc_calls": 0,
+    "product_checks_or_builds": 0,
+    "task_mutations": 0,
+    "git_ref_changes": 0
+  }
+}

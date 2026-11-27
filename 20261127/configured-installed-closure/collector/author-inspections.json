@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "status": "passed_author_preparation",
+  "author": "/root/frontend_audit",
+  "utc": "2026-11-27T12:56:35.119524+00:00",
+  "scope": "Fixed two-file raw closure receipt collection; no product check or actual closure acceptance",
+  "source_sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4057,
+      "sha256": "4839b11ca0a6f35c8d62bc0ab4fefab52d7ecdba782a321d7c11f5270df2ce40"
+    },
+    {
+      "path": "collect-configured-installed-closure-20261127.cjs",
+      "bytes": 5474,
+      "sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df"
+    },
+    {
+      "path": "derivation.json",
+      "bytes": 1891,
+      "sha256": "ed2055a250c637312a391dd091c3fdd0333f6335229b4e77341d57bd6c6855ef"
+    },
+    {
+      "path": "invocation.json",
+      "bytes": 8089,
+      "sha256": "e00022b68c4391c21edd23d9ceebef7da87589767719881153f067cff619287b"
+    }
+  ],
+  "complete_final_author_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "findings": [],
+      "checks": [
+        "Read the complete final source, README and all three substitution groups; checked the exact root-assigned coordination/output paths and complete parent metadata list.",
+        "Mechanically reversed the entire source to the accepted TCP collector hash 98e491ed; all resource, file identity, transport and exit behavior remained exact.",
+        "Decoded the complete invocation base64 and matched every source byte. Verified exact Node path, 64 MiB heap, trailing 0 - arguments, 7415-character command and only four supported tool fields.",
+        "Cloud node --check exited 0 with empty stdout and stderr; the collector itself was not executed."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "findings": [],
+      "checks": [
+        "Re-read the complete unchanged final source and rechecked the rendered command prefix, suffix and all four tool arguments.",
+        "Traced both fixed result paths, absent-file metadata, six parent identity guards, two-MiB per-file/four-MiB total caps and exact held-file reads/final snapshot checks.",
+        "Rechecked BelowNormal verification, one-GiB initial/live floor, 128-MiB own RSS, 100-ms sampler, 15-second bounds and failure exits.",
+        "Confirmed raw JSON never parses or rewrites birth ticks; stable gzip package excludes dynamic metrics, continuation requires full-package identity, and payload/whole-line caps remain unchanged.",
+        "Rehashed every final payload and confirmed source, command, derivation and README identities remain frozen."
+      ]
+    }
+  ],
+  "mechanical_checks": {
+    "complete_inverse_exact": true,
+    "embedded_source_exact": true,
+    "supported_invocation_fields": [
+      "command",
+      "cwd",
+      "timeout_ms",
+      "expected_effects"
+    ],
+    "command_characters": 7415,
+    "syntax_exit": 0,
+    "syntax_stdout": "",
+    "syntax_stderr": ""
+  },
+  "independent_review": null,
+  "actual_pc_execution": null,
+  "actual_closure_result": null,
+  "retention": "Ordinary cloud packet directory. Root retains exact files in transfer history before removal; collector creates no PC artifact."
+}

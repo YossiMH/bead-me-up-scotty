@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root",
+  "source_sha256": "0907a7aaadf00495c627a59e968637edf5dc326a7f4fb2aee8c50234657db196",
+  "base_source_sha256": "4ccf8c429f3acd2bda6c48dda06f543f8ef5024847fdd2e899035d0ed1e6549d",
+  "complete_inverse_matches": true,
+  "only_changes": [
+    "fixed destination root",
+    "immutable source prefix",
+    "six exact item records"
+  ],
+  "items": [
+    {
+      "n": "close-configured-installed-accepted-20261127.json",
+      "s": "close-configured-installed-accepted-20261127.json",
+      "h": "b320e4f81d810d0e22c47544e3160cafa509fb3e3f1ef8a5e1ec2517843f3849",
+      "b": 2045
+    },
+    {
+      "n": "configured-launch-result.json",
+      "s": "result.json",
+      "h": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701",
+      "b": 17558
+    },
+    {
+      "n": "configured-tcp-actual-review.json",
+      "s": "configured-tcp-actual-review.json",
+      "h": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b",
+      "b": 12544
+    },
+    {
+      "n": "installed-final-review.json",
+      "s": "installed-final-review.json",
+      "h": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b",
+      "b": 16318
+    },
+    {
+      "n": "configured-four-task-actual-review.json",
+      "s": "configured-four-task-actual-review.json",
+      "h": "5e843314800e717560dbe4825ee888892a6c440631d15e151b899951881efe51",
+      "b": 4615
+    },
+    {
+      "n": "close-configured-installed-request-review.json",
+      "s": "close-configured-installed-request-review.json",
+      "h": "ae6d7f2761b08e18d0c0b6e2c44fc80944ca3d9070c1e9486baab9b2bac42917",
+      "b": 6153
+    }
+  ],
+  "checks": [
+    "Complete source re-read and inverse match accepted TCP downloader code. All changed data records recomputed from exact published accepted local bytes; destination exists from accepted receipt6 staging.",
+    "Decoded invocation equals complete source and command fits8191. No changes to operations/resource checks/network/wx/readback behavior. Two complete inspections finished, no findings."
+  ],
+  "command_characters": 4871,
+  "findings": []
+}
