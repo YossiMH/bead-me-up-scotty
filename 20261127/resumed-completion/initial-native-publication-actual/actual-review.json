@@ -1,0 +1,91 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Existing independent actual acceptance of the initial native checkpoint Git publication.",
+  "findings": [],
+  "accepted_inputs": {
+    "request_sha256": "bb0a69b2c05f8eb95d0e564c57d7a62bb43ea5531088b32c153c132e4f9fb180",
+    "publisher_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+    "publisher_supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+    "history_helper_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+    "request_review": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "ref": "65399d2a",
+      "path": "20261127/resumed-completion/restore-verification-actual/actual-and-initial-publication-request-review.json",
+      "sha256": "e6a1395e622dd0eba5a962d5bfd1b32b204e429da2e0d0ed0a57b80b64f642d8"
+    },
+    "publication_phase": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+      "sha256": "8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a"
+    },
+    "verification_phase": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore/result.json",
+      "sha256": "8b8fe224216dcd0b7f11f32d3ea87bd24899d23061cebd24831143ab2a7fc239"
+    }
+  },
+  "actual_receipts": [
+    {
+      "artifact": "20261127/resumed-completion/initial-native-publication-actual/driver-result.json",
+      "bytes": 67162,
+      "sha256": "adf4f74a91e403f1629096aab3a4e60196cde8d4f60953c3239203ac1486617b"
+    },
+    {
+      "artifact": "20261127/resumed-completion/initial-native-publication-actual/supervisor-result.json",
+      "bytes": 27361,
+      "sha256": "2558e0a1b55a3f137612e3b1de026795f8383ffb3293e12eb7cdc4ee78e36237"
+    },
+    {
+      "artifact": "20261127/resumed-completion/initial-native-publication-execution.json",
+      "bytes": 63043,
+      "sha256": "57034638b8b57de6d7368b3ab63413cc37671a95ccbaef428060bc97ed192425"
+    }
+  ],
+  "publication": {
+    "proposal_id": "zEJCIzGZGPT5uCVQcOY37xIiPtA8ZeQicO5cWDgQhQI",
+    "exit_code": 0,
+    "repository": "YossiMH/bead-rs",
+    "checkpoint_stage": "initial",
+    "commit": "4c2e842beac30e3663a3816722430659befad7ee",
+    "remote_commit": "4c2e842beac30e3663a3816722430659befad7ee",
+    "parent_commit": "025ebc6a38013402b1936e932c104348aec06fd4",
+    "checkpoint_tree": "32885dc8df86ccb85c873042b9f8762006b487b6",
+    "commit_tree": "bb3ea386201c16f32ca955037b71880d73b5391a",
+    "generation_id": "gen-e09b2a4118d7bb5f125c5294c0934514",
+    "root_sha256": "9b7297fe4c9563612975aad01c517d3080ba78ef4305040da1c79c5e1daa580b",
+    "changed_paths": 397,
+    "index_sha256": "b3710e4ce27893e64f86cffc9e317b58b63937a789fd0dab15bcaef90a080036",
+    "replay_allowed": false
+  },
+  "private_index": {
+    "bytes": 122813,
+    "sha256": "b3710e4ce27893e64f86cffc9e317b58b63937a789fd0dab15bcaef90a080036",
+    "retained_pc_path": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\git-publication-native-checkpoint-initial-20261127-02e8a44557c8-v1\\index-after.raw",
+    "content_publication_allowed": false
+  },
+  "resources": {
+    "duration_seconds": 13.004,
+    "peak_total_resident_bytes": 381784064,
+    "baseline_free_physical_bytes": 5741297664,
+    "minimum_observed_free_physical_bytes": 4948566016,
+    "priority": "BelowNormal",
+    "timeout_seconds": 180,
+    "work_stop_seconds": 168,
+    "max_total_resident_mib": 512,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": []
+  },
+  "checks": [
+    "Raw driver, supervisor and private index size/hash identities match the recovered actuals; the exited0 wrapper carries the exact supervisor bytes plus terminal CRLF, with empty stderr and no dropped streams.",
+    "Driver/supervisor bind the already accepted bb0a request,74a publisher,08af supervisor and2f0f history helper. The8618 publication and8b8 verification inputs, generation and root are unchanged.",
+    "The397 unique changed paths are confined to the checkpoint and include current/previous. Accepted publisher control flow revalidates exact prior staged reconciliation and selected manifest before commit, enforces a single parent and expected tree, and requires identical committed path changes and clean committed/final status.",
+    "The before Git receipt hash is the accepted finalizer/restore bad5f1e8; committed and final Git receipts have the same da332fdc hash. The final status stdout hash is empty. The remote-after-push stdout hash independently reconstructs from4c2e842b plus refs/heads/main; checkpoint-tree stdout independently reconstructs from32885dc8.",
+    "All55 command receipt quartets and230 output hashes are bound. Accepted source rechecks Git configuration, all six private file rows, selected checkpoint files and hook state around publication. Any nonzero Git configuration lookup in supervisor process tracking is handled by the already reviewed exits[0,1] contract; the driver passed all required command statuses.",
+    "Final index backup hash matches both result index fields and the actual122813-byte private file. This review exposes only its digest,size and retained path.",
+    "The supervisor finished normally under the existing resource/deadline contract. No process was supervisor-killed, no cleanup assistance or residual member remained, and both publication lock observations stayed ordinary empty files."
+  ],
+  "activity": "Cloud-only existing receipt/source review. No PC execution, product test, source change or ref write.",
+  "boundary": "Initial native checkpoint publication is accepted. Final cleanup closure, final checkpoint publication and final disposable restore verification remain subsequent operations."
+}

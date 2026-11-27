@@ -1,0 +1,76 @@
+{
+  "status": "post_initial_publication_actual_guards_ready",
+  "source_initial_request": {
+    "commit": "60a884ad8febee8a14be4691591fb0a61cbe8f66",
+    "path": "20261127/resumed-completion/initial-native-publication/native-checkpoint-initial-20261127-02e8a44557c8-v1.request.json",
+    "sha256": "bb0a69b2c05f8eb95d0e564c57d7a62bb43ea5531088b32c153c132e4f9fb180"
+  },
+  "expected_head": "4c2e842beac30e3663a3816722430659befad7ee",
+  "expected_remote_commit": "4c2e842beac30e3663a3816722430659befad7ee",
+  "expected_index_sha256": "b3710e4ce27893e64f86cffc9e317b58b63937a789fd0dab15bcaef90a080036",
+  "expected_index_bytes": 122813,
+  "expected_git_config_sha256": "cabe1e42547b2d4e3e4440120c754e902a9ed42ae4a328350283a79e451b5330",
+  "private_state": [
+    {
+      "path": ".beads/config.json",
+      "exists": true,
+      "bytes": 123,
+      "sha256": "5eca31e8f37cc9a6ff178452c20d11f10396e0a8835f94777705ed67dc63a3da"
+    },
+    {
+      "path": ".beads/.gitignore",
+      "exists": true,
+      "bytes": 136,
+      "sha256": "d4794ae941343d9f3b2ad69497c9f41541186e927a55d338973ef642c396ce0e"
+    },
+    {
+      "path": ".beads/beads.db",
+      "exists": true,
+      "bytes": 10375168,
+      "sha256": "c3adc7e567870a8d5fcd4ccb4b8f263b0f0dd111b7a20309878e011be587b21b"
+    },
+    {
+      "path": ".beads/beads.db-wal",
+      "exists": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": ".beads/beads.db-shm",
+      "exists": true,
+      "bytes": 32768,
+      "sha256": "fd4c9fda9cd3f9ae7c962b0ddf37232294d55580e1aa165aa06129b8549389eb"
+    },
+    {
+      "path": ".beads/beads.db-journal",
+      "exists": false,
+      "bytes": null,
+      "sha256": null
+    }
+  ],
+  "accepted_hooks": [],
+  "hook_review": null,
+  "publication_result_sha256": "adf4f74a91e403f1629096aab3a4e60196cde8d4f60953c3239203ac1486617b",
+  "publication_supervisor_sha256": "2558e0a1b55a3f137612e3b1de026795f8383ffb3293e12eb7cdc4ee78e36237",
+  "prerequisite": "Use with the existing independent initial-publication acceptance and exact retention/ref review. Successful accepted publisher74a19e0f rechecks unchanged configuration, private state and hooks at completion; the existing deletion publisher rechecks these same expected values before mutation.",
+  "checkpoint_tree": "32885dc8df86ccb85c873042b9f8762006b487b6",
+  "commit_tree": "bb3ea386201c16f32ca955037b71880d73b5391a",
+  "publication_result": {
+    "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-initial-20261127-02e8a44557c8-v1/result.json",
+    "bytes": 67162,
+    "sha256": "adf4f74a91e403f1629096aab3a4e60196cde8d4f60953c3239203ac1486617b"
+  },
+  "publication_supervisor": {
+    "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-checkpoint-initial-20261127-02e8a44557c8-v1.supervisor/result.json",
+    "bytes": 27361,
+    "sha256": "2558e0a1b55a3f137612e3b1de026795f8383ffb3293e12eb7cdc4ee78e36237"
+  },
+  "independent_actual_review": null,
+  "checks": {
+    "exact_raw_result_supervisor_and_index_hashes": true,
+    "actual_commit_equals_remote_commit": true,
+    "unchanged_private_config_hooks_from_exact_bb0_request": true,
+    "owned_job_finished_cleanly": true,
+    "no_new_pc_read_or_ref_mutation": true
+  }
+}

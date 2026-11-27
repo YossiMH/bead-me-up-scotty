@@ -1,0 +1,44 @@
+{
+  "schema_version": 1,
+  "status": "prepared_only_actual_bindings_pending",
+  "deletion_phase_when_complete": "delete-reviewed-task-refs",
+  "publisher": {
+    "helper_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+    "supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+    "history_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+    "directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization"
+  },
+  "actual_review_owner": "/root/review_scotty",
+  "actual_values_required": {
+    "archive": [
+      "final transfer/tree",
+      "exact founding32-parent archive commit and remote ref readback",
+      "final86-row inventory/digest",
+      "actual receipt and independent actual review hashes"
+    ],
+    "native": [
+      "accepted initial checkpoint publication result",
+      "actual native main/remote agreement and retained ancestry",
+      "actual main-retention receipt/review hashes"
+    ],
+    "both": [
+      "fresh existing main/index/config/private/hook guards",
+      "accepted retention pins and actual attestations",
+      "completed request identity"
+    ]
+  },
+  "immutable_receipt_staging_plan": "Keep final transfer and founding archive fixed during both deletions. Root may create an unreferenced descendant containing actual receipt/review/request files and stage from its immutable SHA. After both deletion outcomes/readbacks, advance the archive to a descendant retaining those records.",
+  "collector": {
+    "derived_source_bytes": 5714,
+    "derived_source_sha256": "017d324bea6e7d3457a0170fbf798d12cd417fcd453ae3ffa525419d42b436c4",
+    "fixed_outputs": [
+      "native publisher result",
+      "native supervisor result",
+      "scotty publisher result",
+      "scotty supervisor result"
+    ],
+    "run_paths": "The same run/output paths in the two request templates; no new collector/executor is introduced."
+  },
+  "private_scope": "Scotty private guard is only.env.local; private.beads excluded. Native retains its existing six identity guards.",
+  "resource_bounds": "Accepted publisher128MiB old-space/512MiB aggregate/180seconds/BelowNormal/3GiB entry/1GiB live/3.5GiB outer remain unchanged."
+}

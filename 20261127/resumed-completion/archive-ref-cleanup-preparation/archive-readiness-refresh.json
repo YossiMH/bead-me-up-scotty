@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "status": "recovered_prepared_snapshot_only",
+  "author": "/root/review_scotty",
+  "observed_readback_processed_utc": "2026-11-27T17:44:42.303Z",
+  "publisher": {
+    "helper_sha256": "74a19e0fbb798db46c3342c0d028f4901cdde868e0356955d829fd45b039c5d7",
+    "supervisor_sha256": "08af8828e5164d5509b6248bce89836dfa959dfe30e09adf63c20924384471e9",
+    "history_sha256": "2f0f403c5747047bf452514513a9bfb2e18b59b83675be268d348ba88b4b303b",
+    "directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/git-finalization"
+  },
+  "source_readiness": {
+    "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/721dd65e4a83e6be256950728f622c2da36d9e52/20261127/archive-readiness-snapshot/readiness.json",
+    "sha256": "905954e2884b40e8709461f79e8cd0049aae9aa34e46dcbdf72104858a6c6402"
+  },
+  "prior_complete_graph_proof": {
+    "url": "https://github.com/YossiMH/bead-me-up-scotty/blob/721dd65e4a83e6be256950728f622c2da36d9e52/20261127/archive-readiness-snapshot/graph-proof.json",
+    "bytes": 56140,
+    "sha256": "28167f9a58cfa4454059d38ff817b50d57d03be9d1e65d5692d44a3dd52d7e84",
+    "nodes": 640,
+    "complete_parent_closure": true,
+    "all_prior_86_app_refs_covered": true,
+    "pairwise_independent_32_parents": true
+  },
+  "observed_ref_counts": {
+    "scotty": 86,
+    "non_transfer_scotty": 85,
+    "native": 2
+  },
+  "comparison": {
+    "scotty": {
+      "namesMatch": true,
+      "changed": [
+        {
+          "ref": "refs/heads/task/build-transfer-20261111",
+          "previous_sha": "be1b80e8258e30c253459ef003a1e69bb7fe3866",
+          "sha": "32b4f8203d61789b2fb1e94807ddf5cb424b903f"
+        }
+      ]
+    },
+    "native": {
+      "namesMatch": true,
+      "changed": []
+    }
+  },
+  "mains_at_snapshot": {
+    "scotty": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+    "native": "025ebc6a38013402b1936e932c104348aec06fd4"
+  },
+  "archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+  "archive_absent_at_observation": true,
+  "transfer_extension": {
+    "file": "basis/transfer-extension.json",
+    "sha256": "437c6fced8cd1661f8174a2015914e1d724c9119620a01bb4f0ccd541c9969ec",
+    "base": "9d34662501095f50536221c9850478f5f65fa9e3",
+    "head": "32b4f8203d61789b2fb1e94807ddf5cb424b903f",
+    "linear_commits": 24,
+    "prior_graph_reused": true
+  },
+  "archive_parent_preparation": {
+    "parents": [
+      null,
+      "09c66f0563f86c90b1a588b829115b3aec356010",
+      "107b49cb690ffc1a8bbd591bbec1bc2412b4962c",
+      "1a5096a6cfe91096497aa02c3d1dbd56abed3f1e",
+      "1b2f9a2da3d5f4a64d71e58bc159b0ae22f27f6d",
+      "1c4b9b35fcf6c00f522849be037432de90e8ea6a",
+      "2168ee51f06ea5b498bbbc7b00a833f19581fb26",
+      "311b299868b27886ba9002dcd27c66dc252d4505",
+      "36a86233907052b4e22f49f5ab570a4f0dacf5c6",
+      "3847da49b76a8526f3d9621d77be8f7e70d5334b",
+      "3bb89f6a3f47da4cba49a448b7e8ba05cb15981d",
+      "3d8a0ff0d6eca4edb8ba9fa2951fd4afbea9a7ad",
+      "3db3742bfb91e3b38cf35535fa95403f2de3a093",
+      "457ae66a702f9515e8255bab0837fa51993acdb4",
+      "4855e53de5d74d6d16fbfc934ddcfcfdf8a23f78",
+      "5753653247952185fef0b8c2c83ecacb6bbb190a",
+      "5b930b7d0ff152eb2a0f80e24e278033399f46cd",
+      "6b9a796690729037cd8a959cf1afd858711f8404",
+      "6f57eee5cf24b65c59dafe49502d3a2b4a6d9d7e",
+      "7f01716a3fb628f2d2c89e8f9ab53d472dede697",
+      "93f47da2a5110da7f2a3266bceac9f5d31c8b375",
+      "a0b0a6ae2bc179b4dc40f95ba44890e37e9069b8",
+      "b52da105df70b9b019bedece85848a9d9817504d",
+      "ba6ebdb4c20da1d7b8d0266ef3e5e97f90fcba1d",
+      "bb2b16edb91b5c22553ce1badd87a4dc59a05b94",
+      "cdb79305ec07c52ff9a3f2995af6fc1d27780043",
+      "d1bc227388e8c6a162639a45d9b8d52618ff710b",
+      "d32fb4a6db5b5f19f6501795542dcaea971ff1ca",
+      "e5cea420faa1804c8b13ffeab77d5248e818395f",
+      "e86bd323a010fd3b7825472306d6f80c954b5764",
+      "ea2deb25060a3f163550c44ce572e831312b321b",
+      "f5c055381acc8ef24b2a3c1cfa2c11c950c25060"
+    ],
+    "parent_count": 32,
+    "additional_parent_count": 31,
+    "final_transfer": null,
+    "final_transfer_tree": null,
+    "coverage_basis": "All85 non-transfer app tips remain unchanged; the recorded transfer extends the proven transfer by24 single-parent commits. Reuse the same31 additional parents. Bind only the final transfer/tree and verify its new extension before actual retention acceptance.",
+    "native_basis": "Both task tips are2d801ba455b7a722daf644a7615445117d57e8e9, the proven sole parent of baseline main025ebc6a38013402b1936e932c104348aec06fd4. Bind the actually published native checkpoint main after its raw result acceptance."
+  },
+  "snapshot_ref_digests": {
+    "scotty": "cf87d281dc10172c41b18162897a37e70e75ad190e070357f5997fc42043cf9a",
+    "native": "9b2fc7f35aa8018e6252a0fe0929dabafce797e3a17606ed0f238e10121345bf"
+  },
+  "future": {
+    "final_transfer": null,
+    "final_transfer_tree": null,
+    "final_live_inventory_sha256": null,
+    "native_checkpoint_main": null,
+    "initial_native_checkpoint_publication_result_sha256": null,
+    "actual_archive_commit": null,
+    "actual_archive_receipt_sha256": null,
+    "actual_archive_review_sha256": null,
+    "actual_native_retention_receipt_sha256": null,
+    "actual_native_retention_review_sha256": null,
+    "actual_app_deletion_result_sha256": null,
+    "actual_native_deletion_result_sha256": null
+  },
+  "ordering": "Accepted restore verification and initial native checkpoint publication precede actual archive/main retention acceptance and exact leased atomic task-ref deletion. Keep final transfer and founding archive fixed until both deletions settle.",
+  "activity": {
+    "pc_calls": false,
+    "ref_mutations": false,
+    "archive_created": false,
+    "refs_deleted": false,
+    "product_tests": false
+  },
+  "recovery_note": "Reconstructed after cloud reset from held readbacks and immutable templates. The exact observed inventory, two prepared requests and receipt template reproduce their previously reported hashes. The readiness provenance is refreshed with a direct immutable24-commit extension record; no full graph walk is repeated."
+}
