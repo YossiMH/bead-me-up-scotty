@@ -184,10 +184,17 @@ See [v0.2.0 release notes](docs/releases/v0.2.0.md) for the first versioned rele
 Choose the Demo project to explore without a CLI; a failed live backend does
 not fall back to demo data.
 
+From a source checkout, install dependencies and build the production app:
+
 ```bash
-npm install
-npm run dev            # http://localhost:3000
+npm ci
+npm run build
+npm run serve
 ```
+
+Open the URL printed by the launcher; the default port is 3000. For the already
+installed Windows checkout, start the production build with
+`launch-scotty.bat --no-open` as described below.
 
 - **Original bd data:** run from (or point Settings at) a directory containing a
   `.beads` repo, with `bd` on your `PATH`. Override the repo with
@@ -202,9 +209,12 @@ npm run dev            # http://localhost:3000
 Set the human actor / allowlist, repo path, and theme in **Settings** (stored
 under your OS config dir, not in beads).
 
-For a production source installation, run `npm ci`, `npm run build`, then
-`npm run serve` or `npm start`. Set the backend executable variables when
-starting the server.
+Set the backend executable variables when starting the server. The installed
+Windows native pin and its qualification are documented in
+[Backend compatibility](docs/backend-compatibility.md#use-a-local-bead-rs-fork-on-windows).
+Use `npm start` as an alternative production launcher. For active source
+development, `npm run dev` starts the development server and bypasses the
+production tray controller.
 
 ### Windows system tray
 
@@ -214,7 +224,8 @@ choose **Exit** to stop that launcher's server and remove the icon. Closing a
 browser tab leaves the server running. `npm run serve` and `npm start` retain
 one icon across supervised self-update restarts.
 
-From the source checkout, start without opening a browser:
+From the Windows checkout after its production build is installed, start without
+opening a browser:
 
 ```powershell
 .\launch-scotty.bat --no-open
