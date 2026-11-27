@@ -1,0 +1,15 @@
+{
+  "schema_version": 1,
+  "status": "accepted_independent_request_and_invocation_derivation_review",
+  "reviewer": "root",
+  "request_sha256": "7d18a7444b818a9f5b136514da63804cd2e26c0787a5d81f4899645af08c54be",
+  "request_bytes": 5123,
+  "source_request_sha256": "5d8a7d3a02666da373fb7a85867af6dec5f2381b5110b5f0c33a7269ae4bca9a",
+  "changes": [
+    "Only request helper_sha256 changes to independently accepted a137cfa1.",
+    "Wrapper only changes supervisor source directory, fresh v2 request filename and corresponding input hash.",
+    "Encoded command matches reviewed admission script except omitted final newline; original resource/time/priority bounds unchanged."
+  ],
+  "remaining_execution_condition": "Independently reviewed preserving recovery must complete and verify the checkpoint-only baseline and absent fixed phase/supervisor output paths before executing this fresh request. No replay of the consumed v1 proposal.",
+  "findings": []
+}

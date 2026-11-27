@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "status": "passed_preparation_author_inspections",
+  "author": "/root/finish_preparation",
+  "files": [
+    {
+      "file": "history-restore-original-20261127-v2.request.json",
+      "bytes": 5123,
+      "sha256": "7d18a7444b818a9f5b136514da63804cd2e26c0787a5d81f4899645af08c54be"
+    },
+    {
+      "file": "history-restore-original-v2-admission.ps1",
+      "bytes": 955,
+      "sha256": "2b2ff2ec9e566163b238ab27d1c3a9b617ccacdf5688a4f14f8223bfd669aad2"
+    },
+    {
+      "file": "history-restore-original-v2-admission-invocation.json",
+      "bytes": 3724,
+      "sha256": "b711478b0f3987871cb3879b996be46e51ee8657d45ed5813d1dd0dcd8f0ca26"
+    },
+    {
+      "file": "restore-original-v2-derivation.json",
+      "bytes": 1454,
+      "sha256": "ab5bec64e388d0d4de25c7339584d5110ce667716c41bf1e2aa8090447713fdd"
+    }
+  ],
+  "passes": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Compare complete request to immutable original: only helper_sha256 changes, preserving all three accepted predecessor pins, original baseline, phase, attestations and future nulls. Preserve fixed supervisor output for recovery-owned reconciliation."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Compare admission to immutable accepted wrapper: exactly supervisor location, request filename and exact request SHA change. Decode complete EncodedCommand to identical prepared source. All resource bounds and arguments remain unchanged; recovery acceptance is an explicit prerequisite."
+    }
+  ],
+  "independent_review_performed": false,
+  "pc_actions": 0,
+  "ref_mutations": 0,
+  "builds": 0,
+  "tests": 0,
+  "prepared_utc": "2026-11-27T16:38:07.614217+00:00"
+}
