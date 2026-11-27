@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_at_utc": "2026-11-27T13:50:58.059872+00:00",
+  "scope": "Actual clean non-force Riftri removal of the single current linked continuation worktree; retained parent clones and recovery/qualification data remain active.",
+  "preflight": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/cloud-worktree-removal-preflight.json",
+    "bytes": 1378,
+    "sha256": "bc6c8646702280446388f6c23edf44b342bf8591e8103a803c29af6fb1423320"
+  },
+  "actual_result": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/cloud-worktree-removal-result.json",
+    "bytes": 1194,
+    "sha256": "4300221854af50f1970b73058aa9236ce25a97cc963cee9e3b08f0723c46de02"
+  },
+  "target": "/tmp/beads-2889282bfcec/continuation",
+  "removed_head": "581cdb2a1b778c67d32b6fc890b704d09f3d0333",
+  "removed_tree": "71459817936be9fb1c1639230858387d3dbd307b",
+  "command": [
+    "/tmp/beads-2889282bfcec/tools/node_modules/.bin/riftri",
+    "exec",
+    "--",
+    "git",
+    "-C",
+    "/tmp/beads-2889282bfcec/scotty",
+    "worktree",
+    "remove",
+    "/tmp/beads-2889282bfcec/continuation"
+  ],
+  "exit_code": 0,
+  "elapsed_seconds": 0.215663,
+  "independent_readback": {
+    "target_absent": true,
+    "scotty_worktrees": "worktree /tmp/beads-2889282bfcec/scotty\nHEAD 717667dd46d5d27cb6708120429927bbadd57b5e\nbranch refs/heads/task/build-transfer-20261111\n\n",
+    "native_worktrees": "worktree /tmp/beads-2889282bfcec/native\nHEAD 2d801ba455b7a722daf644a7615445117d57e8e9\nbranch refs/heads/main\n\n",
+    "removed_commit_tree_still_available_in_parent_object_database": "71459817936be9fb1c1639230858387d3dbd307b",
+    "retained_directories": {
+      "/workspace/scratch/2889282bfcec/recovery": true,
+      "/tmp/beads-2889282bfcec/scotty": true,
+      "/tmp/beads-2889282bfcec/native": true,
+      "/tmp/checkpoint-crlf-qualification-5": true,
+      "/tmp/qualified-linux-final-recovery": true,
+      "/tmp/qualified-node25-recovery": true
+    }
+  },
+  "checks": [
+    "Read both complete records and rehashed them. The actual receipt pins the exact preflight SHA256, and both record the same explicit Riftri exec -- git -C scotty worktree remove command with no force option.",
+    "Preflight recorded a clean detached continuation at 581cdb2a1b778c67d32b6fc890b704d09f3d0333, tree 71459817936be9fb1c1639230858387d3dbd307b, and exactly one linked worktree besides its parent checkout. All agents confirmed no active dependency before root removed it.",
+    "The actual command exited 0 with empty stdout/stderr in 0.215663 seconds. The exact target path is absent; a fresh independent read-only worktree-list query matches the reported remaining parent-only registration in each repository.",
+    "Both original parent checkout HEADs/branch registrations remain unchanged. A fresh rev-parse confirms the removed immutable commit/tree is still available in the Scotty parent object database without fetch or object replacement.",
+    "All six explicitly retained recovery, parent-clone, successful qualification and qualified-tool directories remain present. No broader filesystem scan, repository mutation, branch deletion or cleanup was performed by this reviewer.",
+    "This is evidence of an actual completed non-force removal of this specific worktree. Earlier paths merely absent after cloud resets remain described as reset absence; this receipt does not convert them into removal claims.",
+    "Future root-owned transfer publication uses a private temporary Git index in the existing clone. Parent object databases, qualification data and remaining task-owned files still require their separate final cleanup decisions."
+  ],
+  "remaining_cleanup_scope": [
+    "Retained cloud parent clones and tool/qualification paths when no longer needed",
+    "Exact Windows scheduled-task and failed-cache cleanup",
+    "Temporary remote-ref retention/deletion and final original history publication"
+  ],
+  "findings": []
+}

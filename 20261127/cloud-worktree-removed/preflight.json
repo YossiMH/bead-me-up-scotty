@@ -1,0 +1,32 @@
+{
+  "utc": "2026-11-27T13:48:39.443429+00:00",
+  "status": "ready",
+  "target": "/tmp/beads-2889282bfcec/continuation",
+  "head": "581cdb2a1b778c67d32b6fc890b704d09f3d0333",
+  "tree": "71459817936be9fb1c1639230858387d3dbd307b",
+  "porcelain": "",
+  "scotty_worktrees": "worktree /tmp/beads-2889282bfcec/scotty\nHEAD 717667dd46d5d27cb6708120429927bbadd57b5e\nbranch refs/heads/task/build-transfer-20261111\n\nworktree /tmp/beads-2889282bfcec/continuation\nHEAD 581cdb2a1b778c67d32b6fc890b704d09f3d0333\ndetached\n\n",
+  "native_worktrees": "worktree /tmp/beads-2889282bfcec/native\nHEAD 2d801ba455b7a722daf644a7615445117d57e8e9\nbranch refs/heads/main\n\n",
+  "riftri": "/tmp/beads-2889282bfcec/tools/node_modules/.bin/riftri",
+  "retained": [
+    "/workspace/scratch/2889282bfcec/recovery",
+    "/tmp/beads-2889282bfcec/scotty",
+    "/tmp/beads-2889282bfcec/native",
+    "/tmp/checkpoint-crlf-qualification-5",
+    "/tmp/qualified-linux-final-recovery",
+    "/tmp/qualified-node25-recovery"
+  ],
+  "command": [
+    "/tmp/beads-2889282bfcec/tools/node_modules/.bin/riftri",
+    "exec",
+    "--",
+    "git",
+    "-C",
+    "/tmp/beads-2889282bfcec/scotty",
+    "worktree",
+    "remove",
+    "/tmp/beads-2889282bfcec/continuation"
+  ],
+  "force": false,
+  "future_publications": "Private root-owned temporary Git index in existing cloud clone; no further linked worktree needed."
+}

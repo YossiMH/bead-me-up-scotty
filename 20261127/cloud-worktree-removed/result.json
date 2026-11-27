@@ -1,0 +1,32 @@
+{
+  "status": "passed",
+  "started_utc": "2026-11-27T13:49:26.276224+00:00",
+  "finished_utc": "2026-11-27T13:49:26.491887+00:00",
+  "preflight_sha256": "bc6c8646702280446388f6c23edf44b342bf8591e8103a803c29af6fb1423320",
+  "command": [
+    "/tmp/beads-2889282bfcec/tools/node_modules/.bin/riftri",
+    "exec",
+    "--",
+    "git",
+    "-C",
+    "/tmp/beads-2889282bfcec/scotty",
+    "worktree",
+    "remove",
+    "/tmp/beads-2889282bfcec/continuation"
+  ],
+  "exit_code": 0,
+  "stdout": "",
+  "stderr": "",
+  "target_exists": false,
+  "scotty_worktrees_after": "worktree /tmp/beads-2889282bfcec/scotty\nHEAD 717667dd46d5d27cb6708120429927bbadd57b5e\nbranch refs/heads/task/build-transfer-20261111\n\n",
+  "native_worktrees_after": "worktree /tmp/beads-2889282bfcec/native\nHEAD 2d801ba455b7a722daf644a7615445117d57e8e9\nbranch refs/heads/main\n\n",
+  "retained_paths": {
+    "/workspace/scratch/2889282bfcec/recovery": true,
+    "/tmp/beads-2889282bfcec/scotty": true,
+    "/tmp/beads-2889282bfcec/native": true,
+    "/tmp/checkpoint-crlf-qualification-5": true,
+    "/tmp/qualified-linux-final-recovery": true,
+    "/tmp/qualified-node25-recovery": true
+  },
+  "new_worktree_created": false
+}

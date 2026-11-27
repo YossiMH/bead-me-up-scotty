@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_at_utc": "2026-11-27T13:52:15.026883+00:00",
+  "scope": "Prepared request/invocation acceptance for the unchanged independently accepted four-cache cleanup helper; the exclusive-window attestation remains false.",
+  "files": {
+    "README.md": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/cache4-request-preparation/README.md",
+      "bytes": 3535,
+      "sha256": "67f581a8396d1a2eb58bdeda7fd90589e1e3ac2d172c75f91967ad74b8d682f9"
+    },
+    "author-inspections.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/cache4-request-preparation/author-inspections.json",
+      "bytes": 6737,
+      "sha256": "a116c2175bf8dc3abca5eeaf3822f64112f0dc33a68140c4f75708e3da7ffb9a"
+    },
+    "failed-tray-cache-cleanup4-20261127-2889282bfcec.request.prepared.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/cache4-request-preparation/failed-tray-cache-cleanup4-20261127-2889282bfcec.request.prepared.json",
+      "bytes": 277,
+      "sha256": "0edc381cbe41395bc8087ac1adb1b89decfdadae16fcf9ae4620ca37de008b27"
+    },
+    "invocation.prepared.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/cache4-request-preparation/invocation.prepared.json",
+      "bytes": 1106,
+      "sha256": "156449714f0799f624e842681c62786ebf3c7908a8a576b1a3aa4a43440253f8"
+    }
+  },
+  "basis": {
+    "request.template.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/request.template.json",
+      "bytes": 277,
+      "sha256": "0edc381cbe41395bc8087ac1adb1b89decfdadae16fcf9ae4620ca37de008b27"
+    },
+    "invocation.template.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/invocation.template.json",
+      "bytes": 1099,
+      "sha256": "99958ed7b19b23c153c663655492e00fbbaa09a1ae505eff71df96bb9e1c5a58"
+    },
+    "remove-exact-tray-caches4-20261127.ps1": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/remove-exact-tray-caches4-20261127.ps1",
+      "bytes": 23136,
+      "sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32"
+    },
+    "fixed-identity-provenance.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/fixed-identity-provenance.json",
+      "bytes": 3726,
+      "sha256": "81c5789ad2aec4f21c039298c7f253cbfa9f3cc62b7de7f709502dd00c8f23cb"
+    },
+    "author-inspections.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/author-inspections.json",
+      "bytes": 6036,
+      "sha256": "3530587cc241744770e0b01876eaf329b26971eb83e892188e50ba81d4f38790"
+    },
+    "source_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/failed-tray-cache-cleanup4-source-review.json",
+      "bytes": 6187,
+      "sha256": "e680587e299759a8463b3b0ad0a8ee9b5dfd58091f736fbb68b1b15a4d017dd7"
+    }
+  },
+  "comparison": {
+    "request_matches_all277_template_bytes": true,
+    "exclusive_owned_cache_window": false,
+    "three_invocation_changes_only": [
+      "Fill InputSha256 with exact prepared false-request hash",
+      "Join the same four expected-effect sentences into one string",
+      "Replace inherited PowerShell call-operator executable prefix with the direct quoted Windows executable"
+    ],
+    "complete_invocation_inverse_exact": true,
+    "all_author_payload_and_basis_identities_rehashed_exact": true,
+    "source_unchanged": true,
+    "command_characters": 490
+  },
+  "checks": [
+    "Read all four final preparation files, the unchanged template/invocation and the cited independent source review; inspected the exact early request-validation and false-flag refusal in the accepted helper.",
+    "The prepared request contains only schema 1, the exact bf86 source hash, its one fixed fresh output directory and exclusive_owned_cache_window=false. It is byte-identical to the 277-byte accepted template and exposes no cache-path or process selector.",
+    "The source checks that false/true field as an actual boolean and requires true before output creation or cache-file access/deletion. This prepared false request cannot perform the proposed cleanup.",
+    "Rehashed all six source/template/provenance/author/review basis files and all three final author payload entries. The exact four target files, nineteen PID/birth identities, hash-pinned failed results and resource/cleanup behavior remain source constants.",
+    "Reversing the exact three declared invocation changes reconstructs all 1,099 original template bytes. All remaining PowerShell arguments, helper/request paths, cwd and 70-second outer timeout remain unchanged.",
+    "Root confirmed the broker accepts a direct executable command with scalar command/cwd/expected_effects strings and numeric timeout_ms. The corrected invocation starts with the fixed quoted Windows PowerShell executable, retains Hidden, NoLogo, NoProfile and NonInteractive, and has no shell-call operator or extra broker field.",
+    "The preparation accurately preserves the source budget: BelowNormal, 1 GiB initial/live free memory, 256 MiB helper RSS, 48-second work deadline, 60-second hard self bound and 100 ms sampling. Actual parsing, exclusive-window readiness and resource observations remain future execution evidence.",
+    "Both complete final author inspections were repeated after the invocation-prefix correction, and the original accepted template remains intact."
+  ],
+  "resolved_findings": [
+    {
+      "id": "CACHE4-INVOCATION-1",
+      "finding": "The inherited ampersand program prefix required a PowerShell shell, while the current broker executes a direct command.",
+      "resolution": "Root confirmed the execution contract; the separately prepared invocation now uses the exact direct quoted Windows executable. Full remaining-token equality and inverse reconstruction pass."
+    },
+    {
+      "id": "CACHE4-INVOCATION-SCHEMA",
+      "finding": "The inherited expected_effects array did not match the broker scalar schema.",
+      "resolution": "The prepared invocation joins the same four effect sentences into one string; all other scalar fields retain their accepted values."
+    }
+  ],
+  "execution_boundary": {
+    "preparation_accepted": true,
+    "actual_cleanup_accepted": false,
+    "pc_actions_by_reviewer": false,
+    "final_request_needed": "Root establishes the exclusive owned-cache window, retains separately completed true request bytes, recomputes the exact request hash and updates only InputSha256. Review and stage that concrete request before the one bounded execution.",
+    "ordinary_ps51_parse_pending": true,
+    "actual_result_needed": "Reconcile exact source/request bindings, retained raw backups, all owner checks and deletion receipts, final absence and resource outcome. Preserve partial failures before any successor."
+  },
+  "findings": []
+}
