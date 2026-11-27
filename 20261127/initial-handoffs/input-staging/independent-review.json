@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "scope": "Independent source and exact-binding review for one fixed eight-file staging attempt; actual staging remains pending.",
+  "reviewed_at_utc": "2026-11-27T13:37:27.726875+00:00",
+  "source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/handoff-inputs-stage/stage-handoff-inputs.cjs",
+    "bytes": 4534,
+    "sha256": "ea4b243045db31666fda053515ce203b0bd6544abcd158dbce34868e388dd97c"
+  },
+  "invocation": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/handoff-inputs-stage/invocation.json",
+    "bytes": 3351,
+    "sha256": "816fafcf6c69ce3e5aa17e44d027dbc889f7a004c372afa3a9db85b8f8a11579"
+  },
+  "file_manifest": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/handoff-inputs-stage/files.json",
+    "bytes": 2281,
+    "sha256": "6326782de208ad47b3b0984a628916e1b936a19f39c1f8e69d4c56edb6f035c4"
+  },
+  "author_inspections": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/handoff-inputs-stage/author-inspections.json",
+    "bytes": 1533,
+    "sha256": "0c6a37d84afd4db7beac530f094fa7ace889f0a8dc3a68718efa4494d7c600cb"
+  },
+  "accepted_baseline": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/stage-installed-acceptance.cjs",
+    "bytes": 3570,
+    "sha256": "0907a7aaadf00495c627a59e968637edf5dc326a7f4fb2aee8c50234657db196"
+  },
+  "immutable_source_commit": "31d28b7e4fc23c8d56cfd43bb3f48c9cd81823f8",
+  "comparison": {
+    "complete_baseline_and_candidate_read": true,
+    "complete_inverse_matches_baseline_bytes": true,
+    "only_changes": [
+      "Fixed destination root",
+      "Immutable source prefix",
+      "Eight fixed source/destination/hash/length records",
+      "directory(path.dirname(p)) immediately before each exclusive write"
+    ],
+    "all_eight_local_reviewed_bytes_equal_immutable_git_blobs": true,
+    "items_array_equals_separate_manifest": true,
+    "raw_transfer_bytes": 95475,
+    "gzip_invocation_decodes_to_exact_source": true,
+    "command_characters": 2692,
+    "invocation_tool_fields": [
+      "command",
+      "cwd",
+      "timeout_ms",
+      "expected_effects"
+    ]
+  },
+  "files": [
+    {
+      "n": "coordination-20261124/revision-9/native-documents-20261127-v1.request.json",
+      "s": "20261127/initial-handoffs/native-publication/native-documents-20261127-v1.request.json",
+      "h": "227e4889dc252d722b8fb9a94dff643f9bbbb925e6248858389aa80175724791",
+      "b": 3524
+    },
+    {
+      "n": "coordination-20261124/revision-9/checkpoint-only-inputs/publish-scotty-documents-20261127-2889282bfcec.request.json",
+      "s": "20261127/initial-handoffs/app-publication/publish-scotty-documents-20261127-2889282bfcec.request.json",
+      "h": "7e5ca1b50246dfc2b0837e3d88f4fcdcb26231edc02fb87980e4b4ce8825c15d",
+      "b": 3269
+    },
+    {
+      "n": "coordination-20261124/revision-9/checkpoint-only-inputs/native-handoff-final-text-review.json",
+      "s": "20261127/initial-handoffs/native-handoff-final-text-review.json",
+      "h": "1798222c75283975a39de6862941763100c91b313c9b60ea5b3abf7dfae90b40",
+      "b": 16394
+    },
+    {
+      "n": "coordination-20261124/revision-9/checkpoint-only-inputs/app-handoff-final-text-review.json",
+      "s": "20261127/initial-handoffs/app-handoff-final-text-review.json",
+      "h": "b36af077a90948fb4c9a066c1666b1179966b07d44b5b909a121d61441abd715",
+      "b": 24264
+    },
+    {
+      "n": "coordination-20261124/revision-9/checkpoint-only-inputs/native-documents-request-review.json",
+      "s": "20261127/initial-handoffs/native-documents-request-review.json",
+      "h": "6858a8927dc719cf27eb9996747e02436fb18663ae9288b3c1f7be9405bd146b",
+      "b": 8746
+    },
+    {
+      "n": "coordination-20261124/revision-9/checkpoint-only-inputs/app-documents-request-review.json",
+      "s": "20261127/initial-handoffs/app-documents-request-review.json",
+      "h": "d125d06f7fd107a37715ef12267948b8dd12935983f4580354bda9c7e2cd529c",
+      "b": 9955
+    },
+    {
+      "n": "final-installation-v9-20261125-1151/remove-exact-tray-caches4-20261127.ps1",
+      "s": "20261127/failed-tray-cache-cleanup4/remove-exact-tray-caches4-20261127.ps1",
+      "h": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32",
+      "b": 23136
+    },
+    {
+      "n": "final-installation-v9-20261125-1151/failed-tray-cache-cleanup4-source-review.json",
+      "s": "20261127/failed-tray-cache-cleanup4/source-review.json",
+      "h": "e680587e299759a8463b3b0ad0a8ee9b5dfd58091f736fbb68b1b15a4d017dd7",
+      "b": 6187
+    }
+  ],
+  "checks": [
+    "Read the complete candidate source, author record, manifest and invocation; read the full accepted baseline. Reversing the three fixed declarations and removing exactly the added destination-parent check reconstructs the full 3,570-byte baseline at SHA256 0907a7aaadf00495c627a59e968637edf5dc326a7f4fb2aee8c50234657db196.",
+    "Rehashed all eight local reviewed files and read their exact blobs from immutable commit 31d28b7e4fc23c8d56cfd43bb3f48c9cd81823f8. Every source path, byte length and SHA256 matches the staging manifest and both concrete publisher requests.",
+    "All eight destinations remain under the exact owned task root. They contain no absolute child path or parent traversal. Request/review locations match the reviewed publisher invocation and consumer references; the cleanup helper and its independent review are staged as data and are not executed.",
+    "All destinations must be absent before downloads begin. Each file is written with wx only after exact length/hash verification and a fresh ordinary/nonredirected check of its complete destination-parent chain, then read back and rehashed.",
+    "A single BelowNormal Node process with 64 MiB old-space uses the unchanged 1 GiB free-memory and 128 MiB own-RSS checks at admission and transfer/write checkpoints, 20-second request bounds, 60-second total timer and 70-second outer invocation bound. Downloads are sequential and each incoming body is capped at its exact expected byte length.",
+    "The immutable HTTPS prefix is fixed; non-200 responses refuse. Existing destinations and partial previous outputs refuse a replay. The existing stopped/completed output preserves any files already written for reconciliation; no overwrite, retry, recursive enumeration, child launch or cleanup was added.",
+    "Decoded the complete gzip/base64 source from the exact invocation and compared it byte-for-byte with the reviewed source. The whole command matches the accepted one-process source-evaluation shape and stays below the Windows command length limit.",
+    "The root author record reports two complete clean inspections; its source identity, inverse claim, total byte count and command length independently reconcile."
+  ],
+  "execution_boundary": {
+    "pc_actions_by_reviewer": false,
+    "staging_or_download_executed_by_reviewer": false,
+    "repository_or_task_store_mutations": false,
+    "source_acceptance_only": true,
+    "fresh_destination_absence_and_memory_conditions_checked_by_actual_source": true,
+    "if_partial_or_failed": "Preserve the actual receipt and completed files; reconcile before preparing any separately named or narrowed continuation."
+  },
+  "findings": []
+}

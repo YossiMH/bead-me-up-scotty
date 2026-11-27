@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_at_utc": "2026-11-27T13:38:51.530328+00:00",
+  "scope": "Independent narrow source/invocation review of the six fixed document-publication receipt collector; actual publisher execution and receipt acceptance remain separate.",
+  "source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-publications.cjs",
+    "bytes": 5652,
+    "sha256": "ad4f82861ee2dd57ccb00e2715cba0c17fa03a52e1ca3d0e128f7ac774fae152"
+  },
+  "invocation": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-publications-command.json",
+    "bytes": 3819,
+    "sha256": "db0a34ec1241c99f492ffcfe0f9fce3d3fdf6474867c1e3e4076ae8f8f78d3a0"
+  },
+  "author_binding_record": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/collect-document-publications-binding-review.json",
+    "bytes": 705,
+    "sha256": "0b1bfc728ce9d3ded2b19a4de74d78f2f9135360e3718f271929803ecb85c6ab"
+  },
+  "accepted_baseline_source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/configured-installed-closure-collector/collect-configured-installed-closure-20261127.cjs",
+    "bytes": 5474,
+    "sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df"
+  },
+  "accepted_baseline_review": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-review.json",
+    "bytes": 1083,
+    "sha256": "67a81878d444b04d75ed6908a26d8a91ecd1c5ba9b5f669eb169e20fe0794f9e"
+  },
+  "fixed_paths": [
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1/result.json",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1.supervisor/result.json",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1/original-git-baseline.json",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-native-documents-20261127-v1/index-after.raw",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-scotty-documents-20261127-2889282bfcec/result.json",
+    "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-scotty-documents-20261127-2889282bfcec.supervisor/result.json"
+  ],
+  "exact_bindings": {
+    "native_request_sha256": "227e4889dc252d722b8fb9a94dff643f9bbbb925e6248858389aa80175724791",
+    "app_request_sha256": "7e5ca1b50246dfc2b0837e3d88f4fcdcb26231edc02fb87980e4b4ce8825c15d",
+    "publisher_sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+    "supervisor_sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52"
+  },
+  "comparison": {
+    "complete_source_and_baseline_read": true,
+    "complete_inverse_exact": true,
+    "only_changes": [
+      "Fixed native/app output directory declarations",
+      "Six exact file paths",
+      "Complete eight-entry ancestor list",
+      "Two output-scope label occurrences"
+    ],
+    "decoded_invocation_exact_source": true,
+    "complete_invocation_shape_verified": true,
+    "command_characters": 3284,
+    "initial_chunk_arguments": [
+      "0",
+      "-"
+    ]
+  },
+  "checks": [
+    "The four driver/supervisor result paths exactly equal both accepted concrete requests. The accepted documents branch copies the native index-after.raw after document adoption and post-state checks, then saves original-git-baseline.json after full original-object identity verification and final remote/index/configuration checks.",
+    "Reversing only the four fixed declaration/label groups reconstructs the full accepted 5,474-byte source 1598cd0f exactly. No filesystem, resource, gzip, output or argument-validation function changed.",
+    "All reads remain limited to six named files and their fixed parent metadata. Existing files must be ordinary, unchanged across held-handle read and final snapshot checks; missing files are represented explicitly. There is no directory enumeration, child process, write, native command, application private-store read or product execution.",
+    "The reader transports raw bytes, including the native index copy and PowerShell JSON with 64-bit creation ticks. It never parses or rewrites a result JSON. Each raw file has its exact length/hash/base64; the stable package excludes changing time and memory observations.",
+    "The unchanged single BelowNormal Node64 envelope enforces 1 GiB free memory, 128 MiB own RSS, 15-second elapsed/hard deadlines and 100 ms resource sampling. Each file is bounded to 2 MiB and the aggregate to 4 MiB.",
+    "Asynchronous level 1 gzip, a 37,500-byte compressed chunk, per-chunk/package hashes and the 65,000-character output limit remain unchanged. Only exact offset plus package hash may continue a prior package; every positive offset requires the expected 64-character digest and changed package bytes refuse.",
+    "The decoded gzip source in the exact 3,284-character invocation equals the frozen candidate bytes. Its first read passes 0 and dash, cwd F:/Dev, 15,000 ms outer bound and only the four supported connector argument fields.",
+    "Read the root binding preparation record and independently verified its stated inverse, source identity, command length and source roundtrip."
+  ],
+  "acceptance_boundary": {
+    "read_only_preparation_accepted": true,
+    "pc_execution_by_reviewer": false,
+    "publisher_success_not_inferred": true,
+    "missing_or_failed_receipts": "Retain exact observations and reconcile; collector complete means transport complete, not publisher accepted.",
+    "continuation": "Use returned next_offset_bytes and package_sha256 with the same exact source; preserve all chunks before decoding and rehashing the full raw package."
+  },
+  "findings": []
+}

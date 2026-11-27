@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "passed_author_preparation",
+  "author": "/root",
+  "utc": "2026-11-27T13:32:45.076342+00:00",
+  "baseline_sha256": "0907a7aaadf00495c627a59e968637edf5dc326a7f4fb2aee8c50234657db196",
+  "source_sha256": "ea4b243045db31666fda053515ce203b0bd6544abcd158dbce34868e388dd97c",
+  "source_bytes": 4534,
+  "complete_inverse_exact": true,
+  "source_delta": "Only root,immutable source prefix,eight exact destination/source/hash/length bindings,and directory(path.dirname(p)) immediately before every exclusive write. All existing downloader,resource,timeout,size,hash/readback,partial-preservation and output code remains unchanged.",
+  "wrapper": "Exact previously accepted gzip/base64 source-evaluation pattern; decoded source bytes independently match.",
+  "command_characters": 2692,
+  "raw_transfer_bytes": 95475,
+  "author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "findings": [],
+      "checks": "Read entire source and all eight bindings; compare full inverse to accepted source; bind each destination to exact reviewed invocation/review path and its published source hash."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "findings": [],
+      "checks": "Re-read the complete source with all fixed path components; check added full destination-parent walk before write,exclusive absence/readback checks,standard compressed invocation and unchanged failure/partial/deadline behavior."
+    }
+  ],
+  "independent_review_pending": true,
+  "pc_execution": null
+}
