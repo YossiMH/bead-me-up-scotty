@@ -1,0 +1,123 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Independent review of actual four-task native closure and the exact prepared history-preserve activation request, using previously accepted helpers unchanged.",
+  "inputs": {
+    "closure_result": {
+      "file": "closure-result.json",
+      "bytes": 5945,
+      "sha256": "e6ba7661808c1b6b53e82421aa122d6edade632b00a2ee71c2f5d1dd3d06e11c"
+    },
+    "closure_supervisor_result": {
+      "file": "closure-supervisor-result.json",
+      "bytes": 7514,
+      "sha256": "b7c74c4fea0c9fccf218f98a102d61586ef4d08a08b602f71986fbf227383097"
+    },
+    "closure_final_execution": {
+      "file": "closure-final-execution.json",
+      "sha256": "b78d6a0cbe19b481666722f1beb208ad48ef0248197470475647fcd4f5f5f719"
+    },
+    "closure_collector_execution": {
+      "file": "closure-collector-execution.json",
+      "sha256": "5c0708ac8bc2ebf3d810ec2502ffac5e496f575da686c6b4487515e0f916eb37"
+    },
+    "reviewed_closure_request": {
+      "file": "../handoff-closure-concrete/close-handoffs-accepted-20261127.json",
+      "sha256": "29a88a793bd240f725c982ec12076f65a6a3f8215d79a9293f780948743f428c"
+    },
+    "accepted_predecessor": {
+      "file": "../configured-installed-closure/result.json",
+      "sha256": "6b0cbed2c93a5e517a50fb6e10f98382ff8cc480edff2336c97c96ff332f8a73"
+    },
+    "closure_driver_sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3",
+    "closure_supervisor_sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426"
+  },
+  "closure": {
+    "accepted": true,
+    "closed_count": 54,
+    "open_count": 1,
+    "changed_tasks": [
+      {"key": "backend-handoff", "id": "beadrs-1371879c", "revision_before": 3, "revision_after": 4, "status_after": "closed"},
+      {"key": "app-handoff", "id": "beadrs-f0039a6a", "revision_before": 5, "revision_after": 6, "status_after": "closed"},
+      {"key": "backend-text-review", "id": "beadrs-30f13b5b", "revision_before": 3, "revision_after": 4, "status_after": "closed"},
+      {"key": "app-text-review", "id": "beadrs-c62c1990", "revision_before": 5, "revision_after": 6, "status_after": "closed"}
+    ],
+    "other_task_summaries_unchanged": 51,
+    "remaining_task": {
+      "id": "beadrs-3ec972f8",
+      "title": "Preserve final task records and remove finished worktrees",
+      "status": "open",
+      "revision": 5,
+      "ready": true
+    },
+    "original_issue_count_preserved": 954,
+    "original_records_unchanged": true,
+    "configuration_and_checkpoint_pointer_unchanged": true,
+    "native_manifest_used_no_auto_flush": true,
+    "preservation_evidence": "The exact accepted driver emits its successful result only after full before/after record, task-plan, dependency, configuration, and checkpoint-pointer reconciliation; the receipt reports those assertions passed.",
+    "execution": {
+      "driver_exit_code": 0,
+      "supervisor_exit_code": 0,
+      "broker_exit_code": 0,
+      "elapsed_seconds": 33.288,
+      "peak_owned_rss_bytes": 240398336,
+      "owned_rss_limit_bytes": 536870912,
+      "entry_available_bytes": 2536710144,
+      "entry_available_minimum_bytes": 1073741824,
+      "observed_owned_processes": 11,
+      "all_observed_owned_processes_exited_zero": true,
+      "killed_processes": 0,
+      "remaining_job_members": [],
+      "errors": [],
+      "assisted_cleanup": false,
+      "stdout_or_stderr_dropped": false
+    },
+    "transport": {
+      "collector_compressed_sha256": "98c150bdeeb80c4b44706cd341bf322fc6a6e7a5ce38c698098b277895e40bfe",
+      "collector_uncompressed_sha256": "edb3bbd421f6e83157c85c0d5721f472a07454dd4ab020494667f5969c8075db",
+      "collector_files_match_retained_raw_receipts": true,
+      "supervisor_stdout_matches_raw_receipt_plus_crlf": true,
+      "integer_birth_ticks_preserved": true
+    }
+  },
+  "preserve_request": {
+    "accepted_for_root_execution": true,
+    "file": "history-preserve.request.json",
+    "bytes": 4638,
+    "sha256": "e91c3e1f66eb7a236bf9e8dfdd0806a8e747c5be348dfbb913168b55f7e0b28f",
+    "bound_inert_predecessor_sha256": "ce8f8b032d2260df74c67b0063f47710b05f4a9e48bb7a8972da19f1e5596b6a",
+    "only_changes": [
+      "phase: null -> preserve",
+      "attestations.exclusive_native_writer_window: false -> true",
+      "attestations.installed_reviews_accepted: false -> true",
+      "attestations.initial_handoff_reviews_accepted: false -> true"
+    ],
+    "exact_forward_and_reverse_byte_reconstruction_passed": true,
+    "future_phase_inputs_remain_inert": true,
+    "history_driver_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+    "history_supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+    "final_native_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "adoption_prerequisites": {
+      "native_review_sha256": "7971876adafd855dc9770e462a3ebe0b8dcfa3b1a5dcdae467274974556c6166",
+      "app_review_sha256": "ee3cc2717e3a3ce4ec0fcd5a739b1f6126c58c2d7616d3f678561676a15bea9a",
+      "original_git_baseline_sha256": "44f268e069e6eac889cdda068d00734dbc62eff53c7723184d5a95886b917e97",
+      "rehash_and_review_passed": true
+    },
+    "exclusive_writer_basis": "Parent supplied fresh observations of absent prior output directories and no active helper processes, confirmed the previous cloud activity ended, published resumption ownership, and owns serialized PC commands. This reviewer did not independently observe live PC state.",
+    "lock_boundary": "Existing native operation and publication locks cover their individual commands; parent owns the cross-phase sole-writer window. No external lock should be held across this unchanged helper's own native commands.",
+    "execution_outcome": "Not yet executed; acceptance is for the exact preserve request and unchanged supervisor. A successful preserve result must be collected and reviewed before binding freeze's predecessor."
+  },
+  "findings": [],
+  "limitations": [
+    "Full raw before/after inventories remain on the PC; their preservation assertions were evaluated through the exact accepted driver and collected successful receipts.",
+    "This review accepts the four-task closure and preserve request readiness. It does not accept an unexecuted history phase or declare cleanup complete."
+  ],
+  "reviewer_activity": {
+    "pc_calls": 0,
+    "builds": 0,
+    "product_tests": 0,
+    "product_changes": 0,
+    "additional_execution_gates": 0
+  }
+}
