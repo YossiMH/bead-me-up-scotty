@@ -1,0 +1,99 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_root_review",
+  "owner": "root02e8a44557c8",
+  "requests": [
+    {
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/scheduled-task-cleanup23-20261127-2889282bfcec.request.json",
+      "source": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/cleanup-preparation/scheduled-task-cleanup23-20261127-2889282bfcec.request.json",
+      "repository_path": "20261127/resumed-completion/cleanup-preparation/scheduled-task-cleanup23-20261127-2889282bfcec.request.json",
+      "bytes": 1062,
+      "sha256": "47dbdf86148f2852376aa73dc45bffdaa23df86fbcd9eabddb26eae73177671d",
+      "staging_item": {
+        "n": "scheduled-task-cleanup23-20261127-2889282bfcec.request.json",
+        "s": "20261127/resumed-completion/cleanup-preparation/scheduled-task-cleanup23-20261127-2889282bfcec.request.json",
+        "h": "47dbdf86148f2852376aa73dc45bffdaa23df86fbcd9eabddb26eae73177671d",
+        "b": 1062
+      },
+      "destination_absence_observed": false,
+      "transfer_policy": "Root uses the accepted hash/length-checked create-new stager, binds the immutable published source commit, and retains readback; never overwrite a preexisting request."
+    },
+    {
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/failed-tray-cache-cleanup4-20261127-2889282bfcec.request.json",
+      "source": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/cleanup-preparation/failed-tray-cache-cleanup4-20261127-2889282bfcec.request.json",
+      "repository_path": "20261127/resumed-completion/cleanup-preparation/failed-tray-cache-cleanup4-20261127-2889282bfcec.request.json",
+      "bytes": 276,
+      "sha256": "a53e91d0a1028e01201603dd99fc357712b588bee453890805a6714df85892d7",
+      "staging_item": {
+        "n": "failed-tray-cache-cleanup4-20261127-2889282bfcec.request.json",
+        "s": "20261127/resumed-completion/cleanup-preparation/failed-tray-cache-cleanup4-20261127-2889282bfcec.request.json",
+        "h": "a53e91d0a1028e01201603dd99fc357712b588bee453890805a6714df85892d7",
+        "b": 276
+      },
+      "destination_absence_observed": false,
+      "transfer_policy": "Root uses the accepted hash/length-checked create-new stager, binds the immutable published source commit, and retains readback; never overwrite a preexisting request."
+    }
+  ],
+  "existing_helpers": [
+    {
+      "path": "20261127/scheduled-task-cleanup23/remove-exact-scheduled-tasks23-20261127.ps1",
+      "bytes": 27226,
+      "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93",
+      "pc_path": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/remove-exact-scheduled-tasks23-20261127.ps1",
+      "staging_basis": {
+        "path": "20261127/scheduled-task-cleanup23/execution/cleanup23-stage-execution.json",
+        "bytes": 933,
+        "sha256": "71ad857f480dc23a3f3e26d78beabf33d13155dda91fea7bcad9e078d0d97a99"
+      },
+      "source_review": {
+        "path": "20261127/scheduled-task-cleanup23/scheduled-task-cleanup23-source-review.json",
+        "bytes": 7863,
+        "sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc"
+      }
+    },
+    {
+      "path": "20261127/failed-tray-cache-cleanup4/remove-exact-tray-caches4-20261127.ps1",
+      "bytes": 23136,
+      "sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32",
+      "pc_path": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/remove-exact-tray-caches4-20261127.ps1",
+      "staging_basis": "Prior root staging report retained in the accepted cache4 request-preparation README; current parser must hash the exact staged source before parsing.",
+      "source_review": {
+        "path": "20261127/failed-tray-cache-cleanup4/source-review.json",
+        "bytes": 6187,
+        "sha256": "e680587e299759a8463b3b0ad0a8ee9b5dfd58091f736fbb68b1b15a4d017dd7"
+      }
+    }
+  ],
+  "fixed_outputs": [
+    {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-cleanup23-20261127-2889282bfcec",
+      "absence_observed": false
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/failed-tray-cache-cleanup4-20261127-2889282bfcec",
+      "absence_observed": false
+    }
+  ],
+  "existing_parser": {
+    "path": "20261127/failed-tray-cache-cleanup4/parser/parse-cache4-command.json",
+    "bytes": 4154,
+    "sha256": "886001fd27b7c82f82a0195b141a312d4b1fc8d8346ba8dfd93f872fbda64b7c"
+  },
+  "existing_collector": {
+    "source": {
+      "path": "20261127/task-cleanup-result-collector/collect-task-cleanup-receipts-20261127.cjs",
+      "bytes": 5447,
+      "sha256": "97fb10a0603b832c6a7199b72cb7da40c43e52a2b4bb205720916ec6b297e61b"
+    },
+    "initial_arguments": [
+      "0",
+      "-"
+    ],
+    "review": {
+      "path": "20261127/task-cleanup-result-collector/independent-review.json",
+      "bytes": 6946,
+      "sha256": "85c3610d26dbe9e8f5bc8f7888deee969466d5dc05dfb57d7d917770ab94572a"
+    }
+  },
+  "helper_or_stager_changes": "None. This package contains request/invocation data and evidence metadata only. Root supplies a published immutable commit to the existing accepted staging mechanism."
+}

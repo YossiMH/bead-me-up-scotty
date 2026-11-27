@@ -1,0 +1,40 @@
+{
+    "schema_version":  1,
+    "status":  "failed",
+    "phase":  "preserve",
+    "started_utc":  "2026-11-27T15:16:32.9271897Z",
+    "timeout_seconds":  180,
+    "work_stop_seconds":  168,
+    "max_total_resident_mib":  512,
+    "baseline_free_required_gib":  3,
+    "minimum_free_during_work_gib":  1,
+    "node_heap_mib":  128,
+    "priority":  "BelowNormal",
+    "sample_interval_ms":  100,
+    "cleanup_errors":  [
+
+                       ],
+    "cleanup_assisted":  false,
+    "owned_processes":  [
+
+                        ],
+    "publication_lock_initial":  {
+                                     "present":  false
+                                 },
+    "input_manifest":  "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\revision-9\\checkpoint-only-inputs\\history-preserve-20261127-v1.request.json",
+    "input_manifest_sha256":  "e91c3e1f66eb7a236bf9e8dfdd0806a8e747c5be348dfbb913168b55f7e0b28f",
+    "binary":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe",
+    "binary_sha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "node":  "C:\\Program Files\\nodejs\\node.exe",
+    "node_sha256":  "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa",
+    "session_id":  0,
+    "baseline_free_physical_bytes":  3081035776,
+    "error":  "System.Management.Automation.RuntimeException: At least 3 GiB free physical RAM is required before checkpoint work.",
+    "remaining_job_members":  [
+
+                              ],
+    "peak_total_resident_bytes":  121946112,
+    "duration_seconds":  10.968,
+    "finished_utc":  "2026-11-27T15:16:43.8951142Z",
+    "state":  "finished"
+}

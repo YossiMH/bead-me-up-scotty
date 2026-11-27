@@ -1,0 +1,61 @@
+{
+  "schema_version": 1,
+  "status": "two_clean_author_inspections_complete_pending_independent_root_review",
+  "author": "/root/review_scotty",
+  "candidate_sha256": "eb04f4f3e8f0bf25dd773482b3326c7585a9eba553f53c1a1ad187be6fbe4616",
+  "files": {
+    "failed-tray-cache-cleanup4-20261127-2889282bfcec.request.json": {
+      "bytes": 276,
+      "sha256": "a53e91d0a1028e01201603dd99fc357712b588bee453890805a6714df85892d7"
+    },
+    "failed-tray-cache-cleanup4.invocation.json": {
+      "bytes": 1106,
+      "sha256": "227d4de9a609f8c65bc11bfe296b645350412072f456abf64960042635e3866f"
+    },
+    "preparation-evidence.json": {
+      "bytes": 8268,
+      "sha256": "637d1da8ccedefdd7f3e03e3de59ffd0ab4407b14772f68fc8a653aff3fe4e7b"
+    },
+    "scheduled-task-cleanup23-20261127-2889282bfcec.request.json": {
+      "bytes": 1062,
+      "sha256": "47dbdf86148f2852376aa73dc45bffdaa23df86fbcd9eabddb26eae73177671d"
+    },
+    "scheduled-task-cleanup23.invocation.json": {
+      "bytes": 1479,
+      "sha256": "95990ff8fc7574d640d1d6ee8355169144b08c2ae217a869cd41c23f3e2cd43b"
+    },
+    "staging-inputs.json": {
+      "bytes": 5269,
+      "sha256": "631e4369fbad0b720dd53c6d2ebf19be6e7829a5b1834825628ea118d45ceadf"
+    }
+  },
+  "passes": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "checks": [
+        "All request bytes invert exactly to accepted prepared requests by restoring only the existing booleans.",
+        "All final invocation data invert exactly to accepted invocation data by reversing only documented prefix/placeholders/hash substitutions.",
+        "Staging paths, filenames, lengths and hashes match exact final request bytes.",
+        "Both helper sources remain their exact accepted hashes; no new helper or tests.",
+        "Fresh destination/output absence remains false/unobserved and is left to existing guarded staging/execution."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "checks": [
+        "Every referenced retained acceptance/failure/source/review identity rehashes exactly from the current durable cloud checkout.",
+        "Configured acceptance is passed with no findings; failed attempts remain separate preserved failure records.",
+        "Root exclusive-window assertions are identified as root coordination commitments rather than fresh PC observations.",
+        "cleanup23 exact-source Windows PowerShell parse evidence is retained; cache4 last parser attempt was waiting-for-memory and is accurately pending.",
+        "History prerequisite, staging absence, helper live checks, partial-attempt reconciliation and private/user-work retention are accurately scoped; no cleanup success is claimed."
+      ]
+    }
+  ],
+  "source_or_helper_changes": false,
+  "tests_added_or_run": false,
+  "pc_actions": false,
+  "shared_head_index_remote_changes": false,
+  "scope": "Final request and invocation data, staging identities, and observed-versus-pending evidence for the two unchanged accepted cleanup helpers."
+}
