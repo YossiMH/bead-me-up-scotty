@@ -1,0 +1,97 @@
+{
+    "status":  "failed",
+    "started_utc":  "2026-11-27T09:13:14.3128146Z",
+    "requested_source":  {
+                             "scotty":  "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+                             "backend":  "2d801ba455b7a722daf644a7615445117d57e8e9"
+                         },
+    "binary_sha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "events":  [
+                   {
+                       "phase":  "repository_preflight",
+                       "utc":  "2026-11-27T09:13:21.9071730Z",
+                       "detail":  {
+                                      "path":  "F:\\Dev\\bead-me-up-scotty",
+                                      "before":  "459a74537cbbe1dff521c6fc7ad1ce3ec2890683",
+                                      "final":  "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+                                      "origin":  "https://github.com/YossiMH/bead-me-up-scotty.git",
+                                      "remote_before":  "459a74537cbbe1dff521c6fc7ad1ce3ec2890683"
+                                  }
+                   },
+                   {
+                       "phase":  "repository_preflight",
+                       "utc":  "2026-11-27T09:13:22.7083662Z",
+                       "detail":  {
+                                      "path":  "F:\\Dev\\bead-rs",
+                                      "before":  "afac9fa0ce9533a707d745018d16a25e4ccff492",
+                                      "final":  "2d801ba455b7a722daf644a7615445117d57e8e9",
+                                      "origin":  "git@github.com:jedarden/bead-rs.git",
+                                      "remote_before":  "afac9fa0ce9533a707d745018d16a25e4ccff492"
+                                  }
+                   },
+                   {
+                       "phase":  "preservation_ready",
+                       "utc":  "2026-11-27T09:13:23.9632103Z",
+                       "detail":  {
+                                      "environment_sha256":  "43b1936a3108059ffddf649a461340bbd4f493b581d76827bf8258dbaf565552",
+                                      "baseline":  "55f17568be93442abc6e4725d3e159448e0c9ab5",
+                                      "index_sha256":  "8b9de62e05335aa677de1a20642f031883bd8a7e7ef6a878dda3337c0d6c9b5f",
+                                      "source_count":  15,
+                                      "old_pin":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-376537b7917f.exe",
+                                      "old_pin_sha256":  "376537b7917f18d33383a3e4bd3eb9e0955bb42d1a60b73aef5c81865662af28"
+                                  }
+                   },
+                   {
+                       "phase":  "private_index_prepared",
+                       "utc":  "2026-11-27T09:13:24.2237053Z",
+                       "detail":  {
+                                      "raw_files_unchanged":  15,
+                                      "path":  "F:\\Dev\\.bead-edit-20261111\\install-v9-retry-20261127-2889282bfcec\\scotty-index.prepared",
+                                      "sha256":  "26acf1c2d1e94545debb530c26b0b02d245f1a7eddd16028d3a384a3ca1686e6",
+                                      "tree":  "55f17568be93442abc6e4725d3e159448e0c9ab5"
+                                  }
+                   },
+                   {
+                       "phase":  "baseline_adoption_started",
+                       "utc":  "2026-11-27T09:13:25.3781645Z",
+                       "detail":  {
+                                      "expected_old":  "459a74537cbbe1dff521c6fc7ad1ce3ec2890683",
+                                      "new":  "55f17568be93442abc6e4725d3e159448e0c9ab5"
+                                  }
+                   },
+                   {
+                       "phase":  "index_lock_acquired",
+                       "utc":  "2026-11-27T09:13:25.3872688Z",
+                       "detail":  {
+                                      "path":  "F:\\Dev\\bead-me-up-scotty\\.git\\index.lock",
+                                      "identity":  "8448e07a48e06bfc:0000000000408ec1000000000000003c"
+                                  }
+                   }
+               ],
+    "application":  "not_started_by_installer",
+    "rollback":  "Reconcile the recorded phase before retry; preserved files and previous runtime are retained. No automatic Git/index reset or process restart.",
+    "input_hashes":  {
+                         "runtime_manifest":  "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+                         "preservation_manifest":  "70d934585d06c76787e5293a93f7960d6594e869cd719bf0f62ad46a532fa362",
+                         "binary_provenance":  "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5"
+                     },
+    "last_server_absence_check_utc":  "2026-11-27T09:13:24.7314444Z",
+    "job_helper_sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "updated_utc":  "2026-11-27T09:13:25.9223139Z",
+    "external_tray_modules":  [
+                                  {
+                                      "git_blob":  "329e2379c0dc72b396d9fa12872c7db39700451f",
+                                      "path":  "bin/windows-tray.mjs",
+                                      "source_commit":  "5232c8b94804064ab71af571ee28797667bd72bd",
+                                      "sha256":  "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446"
+                                  },
+                                  {
+                                      "git_blob":  "c3a31c8bd8b73f21ab15573080794198b12934dc",
+                                      "path":  "bin/windows-tray-host.mjs",
+                                      "source_commit":  "5232c8b94804064ab71af571ee28797667bd72bd",
+                                      "sha256":  "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd"
+                                  }
+                              ],
+    "error":  "Prepared index changed during validation.",
+    "completed_utc":  "2026-11-27T09:13:25.9217874Z"
+}

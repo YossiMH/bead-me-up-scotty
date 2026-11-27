@@ -1,0 +1,88 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "frontend_audit",
+  "review_type": "Independent frozen source review of the focused Windows private-index qualification",
+  "reviewed_utc": "2026-11-27T09:29:47.616311+00:00",
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/index-refresh-qualification/windows/qualify-private-index-refresh-20261127.ps1",
+      "bytes": 22837,
+      "sha256": "269638d84252ff895cc5790687923a67f16ffa20ee0a650a502d15176935ad0c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-refresh-qualification/windows/README.md",
+      "bytes": 4766,
+      "sha256": "84ae4f71f3edfc131a73d56f067650961c6dcd7bbf82db47ed2f67579ed40e00"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-refresh-qualification/windows/author-inspections.json",
+      "bytes": 7258,
+      "sha256": "d39749a27d8a6ddc860ed782c69df065505ff27be0fcf06b4615a1b788d5ff88"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-supervisor-retry-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-preservation-reconciliation.json",
+      "bytes": 6988,
+      "sha256": "3e9ebf53930fcfdeb6cf942023ff226239a9618e6a10bb9236e76951191cb300"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-private-index-failure-review.json",
+      "bytes": 7954,
+      "sha256": "469c0ecb4ffea76a170ded402035ddd1ae1518addebc2494b0e630955daaac77"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-refresh-qualification/linux-result.json",
+      "bytes": 7094,
+      "sha256": "ac9c04b28df2591569da686c459461b23de2120cb5ab92ccdaa094117b4f232d"
+    }
+  ],
+  "checks": [
+    {
+      "name": "complete frozen source and author packet",
+      "status": "passed",
+      "detail": "Read the complete script, README and two-pass author record. All recorded file, actual failure/preservation and cloud-result identities match independent size/SHA-256 readback. The final Git argument variable is gitArguments and no unsupported PowerShell unsigned type aliases were introduced."
+    },
+    {
+      "name": "accepted controller code reused exactly",
+      "status": "passed",
+      "detail": "Independently compared all eight complete functions against supervisor 719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d: Assert-That, Hash, Task-Path, Safe-Path, Quote-Argument, Refresh-Owned, Sample-Budget and Stop-Owned are unchanged. Entire Add-Type block is byte-identical and hashes 46c4b1c744530dd2289edbf496b90bdc68be55e363853961841f8c61dc16baa2. Entire final catch/finally/exit tail is byte-identical and hashes 554b09d7d87fc79cc2380b4e2867231056020515d689d56c84bca4a8ff57a7f7."
+    },
+    {
+      "name": "original repository is read-only",
+      "status": "passed",
+      "detail": "Only ls-files --stage -z with the explicit failed private index and ls-tree -r -z --full-tree for immutable baseline 55f17568be93442abc6e4725d3e159448e0c9ab5 run against original Scotty. Full mode/blob/path text must equal a complete stage-zero baseline map. Retained index 13af66e5997b12b75d8ef920eb7e9310968ce5b7b676a1dcc8bc35a46278a887 and original index 8b9de62e05335aa677de1a20642f031883bd8a7e7ef6a878dda3337c0d6c9b5f are hashed before/after that comparison and again after the fixture. Result emits counts/hashes, not raw source or backup contents."
+    },
+    {
+      "name": "exact narrow control and correction",
+      "status": "passed",
+      "detail": "All mutation verbs target the new owned repo containing .gitattributes and two CRLF text files. Two private copies start from identical cacheinfo-prepared bytes under GIT_OPTIONAL_LOCKS=0. Default diff must exit 0 and alter bytes; the command-local diff.autoRefreshIndex=false case must exit 0 and preserve every byte through subsequent ls-files/write-tree. Both full maps and trees must match. Deliberate changed fixture content must still return exit 1 without changing index bytes; original fixture HEAD/index and both product indexes remain exact."
+    },
+    {
+      "name": "fresh ownership and bounded native operations",
+      "status": "passed",
+      "detail": "New task-owned output is required; paths reject reparse traversal; Git and Job helper hashes are fixed. Child-only empty global/system config and hook path isolate the disposable qualification without persistent config changes. Every Git call is hidden, quoted, noninteractive and sequential, under the same owned Job; it has a 10-second bound, asynchronous pipes and bounded output checks. No product executable, database, network operation or broad test is invoked."
+    },
+    {
+      "name": "resource and outcome guards",
+      "status": "passed",
+      "detail": "Controller requires 1 GiB free RAM before Git work and during 100 ms sampling, sets BelowNormal and caps sampled aggregate resident memory at 256 MiB. Work stops at 48 seconds, with a 60-second owned Job deadline and 12-second cleanup reserve. Exact inherited member/handle cleanup is retained; assistance, errors, leftovers or deadline/memory violation cannot be accepted as a pass. Root invocation additionally requires fresh at-least-1-GiB admission before starting this helper."
+    },
+    {
+      "name": "cloud precursor corroboration",
+      "status": "passed",
+      "detail": "Read the retained 7094-byte cloud result ac9c04b28df2591569da686c459461b23de2120cb5ab92ccdaa094117b4f232d and independently decoded its three raw DIRC-v2 index artifacts. Their checksums validate; the corrected copy is byte-identical to the prepared index. The control differs only in stat fields for added.txt and tracked.txt, with identical paths, modes, blobs, flags and extensions. This corroborates the proposed mechanism and does not substitute for the pending installed-Git Windows result."
+    }
+  ],
+  "findings": [],
+  "pending": [
+    "Root publishes/stages the exact helper and obtains its ordinary Windows PowerShell 5.1 parse.",
+    "One fresh bounded Windows fixture must pass every retained-index/control/correction/refusal condition and normal cleanup.",
+    "Actual result is independently reviewed before the one-line installer correction is qualified; installation remains pending."
+  ],
+  "scope": "Frozen fixture source/preparation acceptance only. No Windows execution, installation or task closure is claimed."
+}

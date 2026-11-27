@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "author": "/root/delivery_audit",
+  "recorded_utc": "2026-11-27T09:27:23.429743+00:00",
+  "scope": "One focused Windows qualification of the command-local Git diff index correction, preceded by a read-only retained private-index comparison.",
+  "files": [
+    {
+      "path": "qualify-private-index-refresh-20261127.ps1",
+      "bytes": 22837,
+      "sha256": "269638d84252ff895cc5790687923a67f16ffa20ee0a650a502d15176935ad0c"
+    },
+    {
+      "path": "README.md",
+      "bytes": 4766,
+      "sha256": "84ae4f71f3edfc131a73d56f067650961c6dcd7bbf82db47ed2f67579ed40e00"
+    }
+  ],
+  "actual_basis": [
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-retry-20261127-2889282bfcec/install-result.json",
+      "bytes": 6204,
+      "sha256": "22195c6b222f7798440ac27122febb75faed1c4ff0cc836120adc84d3920a0f2"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-preservation-reconciliation.json",
+      "bytes": 6988,
+      "sha256": "3e9ebf53930fcfdeb6cf942023ff226239a9618e6a10bb9236e76951191cb300"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-private-index-failure-review.json",
+      "bytes": 7954,
+      "sha256": "469c0ecb4ffea76a170ded402035ddd1ae1518addebc2494b0e630955daaac77"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/index-refresh-qualification/linux-result.json",
+      "bytes": 7094,
+      "sha256": "ac9c04b28df2591569da686c459461b23de2120cb5ab92ccdaa094117b4f232d"
+    }
+  ],
+  "borrowed_controller": {
+    "source": {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-supervisor-retry-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d"
+    },
+    "complete_functions": [
+      "Assert-That",
+      "Hash",
+      "Task-Path",
+      "Safe-Path",
+      "Quote-Argument",
+      "Refresh-Owned",
+      "Sample-Budget",
+      "Stop-Owned"
+    ],
+    "functions_byte_identical": true,
+    "csharp_sha256": "46c4b1c744530dd2289edbf496b90bdc68be55e363853961841f8c61dc16baa2",
+    "csharp_byte_identical": true,
+    "catch_and_finally_sha256": "554b09d7d87fc79cc2380b4e2867231056020515d689d56c84bca4a8ff57a7f7",
+    "catch_and_finally_byte_identical": true
+  },
+  "resource_contract": {
+    "baseline_free_bytes": 1073741824,
+    "live_free_bytes": 1073741824,
+    "aggregate_resident_bytes": 268435456,
+    "work_seconds": 48,
+    "hard_seconds": 60,
+    "cleanup_reserve_seconds": 12,
+    "sample_interval_ms": 100,
+    "each_git_command_seconds": 10,
+    "git_stdout_characters": 262144,
+    "git_stderr_characters": 32768,
+    "priority": "BelowNormal",
+    "parallel_git_commands": 1
+  },
+  "source_repository_scope": {
+    "repository": "F:\\Dev\\bead-me-up-scotty",
+    "baseline": "55f17568be93442abc6e4725d3e159448e0c9ab5",
+    "commands": [
+      "ls-files --stage -z with explicit retained private GIT_INDEX_FILE",
+      "ls-tree -r -z --full-tree for the immutable baseline"
+    ],
+    "retained_private_index_sha256": "13af66e5997b12b75d8ef920eb7e9310968ce5b7b676a1dcc8bc35a46278a887",
+    "real_index_sha256": "8b9de62e05335aa677de1a20642f031883bd8a7e7ef6a878dda3337c0d6c9b5f",
+    "preservation_checks": "Both raw hashes before and after the read-only comparison and after the entire tiny fixture. Complete stage-0 mode/blob/path map must exactly equal the recursive baseline tree.",
+    "raw_product_bytes_emitted": false
+  },
+  "fixture_scope": {
+    "fresh_output": "F:\\Dev\\.bead-edit-20261111\\index-refresh-qualification-20261127-2889282bfcec",
+    "repository_files": [
+      ".gitattributes",
+      "tracked.txt",
+      "added.txt"
+    ],
+    "crlf_normalization": true,
+    "optional_locks": "0",
+    "global_system_config_isolated_in_child": true,
+    "hooks_disabled_with_command_local_empty_path": true,
+    "control_expected": "Default diff exits0 and changes private-index bytes while preserving full entries/tree.",
+    "correction_expected": "Command-local diff.autoRefreshIndex=false exits0 and preserves all bytes through entries/tree validation.",
+    "negative_expected": "Changing fixture content gives corrected diff exit1 while preserving private-index bytes.",
+    "original_fixture_index_and_head_preserved": true
+  },
+  "consecutive_complete_author_inspections": [
+    {
+      "sequence": 1,
+      "status": "clean",
+      "scope": "Read complete assembled script and README against the accepted controller, actual failure/preservation records and the focused cloud reproduction.",
+      "checked": [
+        "All eight existing controller functions, C# declarations and full catch/finally remain byte-identical.",
+        "Original app calls are only the two requested reads with explicit private index; all mutation verbs target the new tiny fixture.",
+        "HashText receives only full staged-entry text, which is compared exactly and returned as a hash/count.",
+        "Fresh path, fixed Git/helper SHA, exact baseline and both raw-index guards match the retained actual observations.",
+        "One child at a time uses the owned Job, periodic budget checks, 10-second native command bound and scalar-only result records."
+      ],
+      "findings": []
+    },
+    {
+      "sequence": 2,
+      "status": "clean",
+      "scope": "Read the entire final script again, retrace each read/write/native command and final cleanup, compare immutable borrowed sections and verify final README invocation and pending Windows scope.",
+      "checked": [
+        "The control and corrected cases begin from identical private bytes, validate full entries/tree and run the changed-content refusal with its sole allowed exit1.",
+        "Git arguments use the accepted Windows quoting function and explicit UTF8 pipes; child-only configuration and GIT_OPTIONAL_LOCKS do not mutate inherited global state.",
+        "Owned processes are disposed after the original helper retains exact handles; only known Job members may be stopped and assistance makes the final result fail.",
+        "Failure before or during qualification retains its owned output; successful output requires complete index preservation and all cases, then unchanged normal cleanup guards.",
+        "No product executable, original database, source mutation, remote/network call or broad product test is included.",
+        "Ordinary exact-file PS5.1 parsing, independent source review and actual Windows qualification remain required."
+      ],
+      "findings": []
+    }
+  ],
+  "performed_checks": "Full source inspection and exact static comparisons; the separately recorded tiny cloud Git fixture was actually executed. This Windows script has not been executed by the author.",
+  "pending": [
+    "Independent source review of these exact bytes.",
+    "Root staging/hash check and ordinary Windows PowerShell5.1 AST parse.",
+    "Root single actual Windows qualification with fresh at-least1GiB headroom.",
+    "Independent actual result acceptance before qualifying the new installer correction."
+  ],
+  "retention": "Keep the cloud and Windows tiny fixture outputs and both failed installer attempts until root reconciles final owned cleanup. No linked author worktree was created.",
+  "findings": []
+}

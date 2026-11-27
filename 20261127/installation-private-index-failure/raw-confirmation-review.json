@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "frontend_audit",
+  "reviewed_utc": "2026-11-27T09:22:29.269861+00:00",
+  "review_type": "Narrow raw-file confirmation supplement to the accepted failed-installer preservation review",
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-private-index-failure-review.json",
+      "bytes": 7954,
+      "sha256": "469c0ecb4ffea76a170ded402035ddd1ae1518addebc2494b0e630955daaac77"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-retry-20261127-2889282bfcec.supervisor/result.json",
+      "bytes": 33610,
+      "sha256": "015fc668051269c3af32d558a0b734745bb471a41592cca1e9ab662c61b7f143"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-retry-20261127-2889282bfcec.supervisor/driver.stdout.log",
+      "bytes": 6206,
+      "sha256": "7256267c49de0fe65e09fdc0ad45a9682e3efde9e288c27646903198c91d743e"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-raw-readback.json",
+      "bytes": 53659,
+      "sha256": "318b23c57c9e43813b8aeb2298c9c5aeb035967ae53dbf62e5cdef99ffd0bc28"
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact disk result recovered",
+      "status": "passed",
+      "detail": "Rehashed the 33610-byte raw supervisor result to 015fc668051269c3af32d558a0b734745bb471a41592cca1e9ab662c61b7f143. It exactly equals its recovered readback base64 and the byte-for-byte complete JSON block in the previously retained execution stdout, including every large integer start_ticks value."
+    },
+    {
+      "name": "exact child output recovered",
+      "status": "passed",
+      "detail": "Rehashed the 6206-byte driver stdout to 7256267c49de0fe65e09fdc0ad45a9682e3efde9e288c27646903198c91d743e. It exactly equals its recovered readback bytes and the existing 6204-byte inner install-result.json plus CRLF. Parsed objects are identical."
+    },
+    {
+      "name": "unchanged acceptance boundary",
+      "status": "passed",
+      "detail": "These disk-byte identities confirm the source result already used by the failure/preservation review. The separate normalized observation still rounds large process ticks and is superseded for precise identity by the raw result. No phase, resource, cleanup, preservation or failure conclusion changes."
+    }
+  ],
+  "findings": [],
+  "installation_accepted": false,
+  "task_closure_accepted": false,
+  "scope": "Exact raw-result confirmation only; the prior failed attempt remains immutable and installation remains pending."
+}

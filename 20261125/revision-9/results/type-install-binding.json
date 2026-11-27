@@ -168,7 +168,7 @@
   },
   "task_closer_bound_to_actual_mapping": true,
   "pending": [
-    "Run the separately reviewed corrected installer after current memory and port checks; retain the failed first attempt.",
+    "Qualify and accept the private-index validation correction, then run its separately named installer into a new output when memory permits.",
     "Accept the actual configured launch and installed review.",
     "Publish handoffs, preserve native history through the accepted supported restore route, and finish owned cleanup."
   ],
@@ -218,7 +218,7 @@
       ]
     }
   },
-  "updated_utc": "2026-11-27T09:08:28.358643+00:00",
+  "updated_utc": "2026-11-27T09:31:02.684692+00:00",
   "previous_status": {
     "commit": "d02907bfc521bb49a478bc1e82877405484e91d3",
     "sha256": "c1338e963ca1a2b4caaa1b868f72e05411fb217c7ae3fd36987afa84d085cd86"
@@ -305,7 +305,7 @@
   "remaining_active_cloud_execution": true,
   "assignment_complete": false,
   "latest_continuation": {
-    "checked_utc": "2026-11-27T09:01:55.954605+00:00",
+    "checked_utc": "2026-11-27T09:23:24.171053+00:00",
     "source_status": "Both final commit objects and all four required ancestry relationships are present locally. Fresh readback confirms original HEADs and indexes, fifteen original app files, private env and old pin. Native source is clean.",
     "pc_command_access": "Emergency Maintenance command access works through fresh prepared one-shot actions; root owns sequential execution.",
     "task_mapping": "Revision 9 completed and independently reviewed: 55 tasks, 91 edges, 1009 issues, and all954 original records retained.",
@@ -313,14 +313,14 @@
     "task_closure": "Both preparation tasks closed at08:47:30 and independently accepted;47 of55 tasks are closed, with install ready at revision5.",
     "tray": "Exit, parent-loss and restart75-exit all passed in the logged-in Windows session and are independently accepted. Peak aggregate518172672 bytes; no assisted cleanup or remaining Job members.",
     "download": "Both final ZIPs are downloaded and SHA256-verified. The native-only continuation passed and is independently accepted. The original interrupted download remains retained.",
-    "installation": "First actual attempt stopped during backend repository validation before any source/index/runtime/pin publication. Exact original state was independently confirmed unchanged. SSH origin spelling and the reporting null-backup conversion require a separately reviewed corrected copy.",
+    "installation": "Two attempts remain retained. The compatibility attempt passed remote validation and prepared private backups, then refused changed private-index bytes before replacing the actual index. Original source/index/env/pin/config and old runtime remain unchanged; owned lock was removed.",
     "source_fetch": "The original fetch reached the180-second bound while serializing live Process objects in progress logs. Both commits arrived; no fetch replay is needed. The two-line logging correction passed static review but was not executed. Large original process graphs remain private on the PC.",
     "history": "The checkpoint-only route is independently accepted, including full128MiB qualification and exact WindowsPS5.1 parsing. All actual history phases remain pending.",
-    "next_action": "Run the separately reviewed corrected installer into a new output directory when at least3GiB is freshly available. Use corrected configured helper8db39140 after installation acceptance.",
+    "next_action": "Qualify the targeted private Git diff setting and accept its separate fresh installer copy. Then perform installation and configured launch when fresh memory permits.",
     "active_session": "Root /workspace/scratch/2889282bfcec owns PC execution and task-store writes. Other continuations must respect this active session and retained attempt markers.",
     "assignment_complete": false
   },
-  "pc_action_summary": "Revision9 materialization and32 accepted task closures completed;47 of55 tasks are closed. Real tray checks, both final ZIPs and final560-file runtime staging passed. First install stopped before source changes; original state is confirmed unchanged. Corrected installation, configured launch, handoffs, native history and cleanup remain.",
+  "pc_action_summary": "47 of55 tasks are closed. Product tests, actual tray checks, final downloads and runtime staging passed. Both stopped installer attempts are retained; original product state remains unchanged. Installation correction, configured launch, handoffs, native history and cleanup remain.",
   "actual_accepted_cloud_closure": {
     "status": "passed",
     "independent_result_review": "passed",
@@ -578,7 +578,39 @@
       "path": "20261127/installation-retry/source-review.json",
       "sha256": "9667058382358a6ac24f73f6afe40d576d30816d7c05b38b78a22c2c53279342"
     },
+    "windows_ps51_parse": {
+      "status": "passed",
+      "path": "20261127/installation-retry/windows-ps51-parse.json"
+    },
+    "actual_execution": "failed before index publication; original state remains unchanged"
+  },
+  "actual_installation_private_index_attempt": {
+    "status": "failed",
+    "directory": "20261127/installation-private-index-failure",
+    "proposal_id": "P71wJHASLD_J8zTd0ghtu9Qom5XqJ6iQ_zWhpMfNv68",
+    "duration_seconds": 13.087,
+    "peak_total_resident_bytes": 394457088,
+    "minimum_free_physical_bytes": 5754097664,
+    "cleanup_assisted": false,
+    "remaining_job_members": 0,
+    "driver_result_sha256": "22195c6b222f7798440ac27122febb75faed1c4ff0cc836120adc84d3920a0f2",
+    "supervisor_result_sha256": "015fc668051269c3af32d558a0b734745bb471a41592cca1e9ab662c61b7f143",
+    "error": "Prepared index changed during validation.",
+    "last_phase": "index_lock_acquired",
+    "index_publication_started": false,
+    "original_source_index_environment_pin_config_preserved": true,
+    "original_index_lock_absent": true,
+    "private_backup_contents_remain_on_pc": true,
+    "failure_review_sha256": "469c0ecb4ffea76a170ded402035ddd1ae1518addebc2494b0e630955daaac77",
+    "raw_confirmation_sha256": "5e3419bc1dbedea3c1010a8408d6d6235602169be45357317e68a4b44d278372",
+    "proposed_correction": "Command-local diff.autoRefreshIndex=false for the private-index validation, pending exact Windows qualification and source acceptance."
+  },
+  "private_index_correction_qualification": {
+    "directory": "20261127/index-refresh-qualification",
+    "script_sha256": "269638d84252ff895cc5790687923a67f16ffa20ee0a650a502d15176935ad0c",
+    "source_review_sha256": "2cdedd7db279e303d4e63d276907883d90a82488e0e6f1829f26869f04a5e94e",
+    "linux_result": "passed: default diff refreshes stat bytes; command-local false preserves them and still rejects changed content",
     "windows_ps51_parse": "pending",
-    "actual_execution": "not started"
+    "windows_execution": "pending"
   }
 }

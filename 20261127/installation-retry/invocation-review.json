@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "reviewer": "frontend_audit",
+  "review_type": "independent static review of the fresh compatibility installation invocation",
+  "reviewed_utc": "2026-11-27T09:12:17.158653+00:00",
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-invocation.json",
+      "bytes": 3417,
+      "sha256": "41e6527403af9914f98dd31d88d020e2ddbec1847511f7627cf966bd0e333ad7"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/final-install-invocation.json",
+      "bytes": 3063,
+      "sha256": "0ed050ba0d0dc8ad37d18a10597c214de41ccf560d19d9c5a4b14b573536c4de"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/final-install-invocation-review.json",
+      "bytes": 3366,
+      "sha256": "927166c355520651558f0599200b6a90fbd1682aed69ae6731343a40fb620920"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-retry-source-review.json",
+      "bytes": 7445,
+      "sha256": "9667058382358a6ac24f73f6afe40d576d30816d7c05b38b78a22c2c53279342"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-first-attempt-failure-review.json",
+      "bytes": 9228,
+      "sha256": "5da64d48592579de484e79f6310cecd8b558a9ec236d98e13be5baabc399f41b"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/installation-retry/20261127/installation-retry/windows-install-supervisor-retry-20261127.ps1",
+      "bytes": 23767,
+      "sha256": "719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d"
+    }
+  ],
+  "checks": [
+    {
+      "name": "exact limited command change",
+      "status": "passed",
+      "detail": "Reversing the supervisor filename/hash, two occurrences of the new attempt directory basename, and two added review fields reproduces the entire previously accepted command exactly. Working directory and 195000 ms connector timeout are unchanged. Descriptive expected_effects accurately records the compatibility correction and fresh attempt."
+    },
+    {
+      "name": "frozen corrected source and prior failure binding",
+      "status": "passed",
+      "detail": "The invocation pins supervisor 719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d, whose accepted source binds corrected driver c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638. Added receipt fields pin the independent source review and the reconciled unchanged first failed attempt. The two driver changes remain exact measured native origin and qualified true-null result saving."
+    },
+    {
+      "name": "unchanged concrete argument contract",
+      "status": "passed",
+      "detail": "JobHelperPath still targets the accepted helper. StageResultSha256 is 63b718e5a84b679496fbfea68320248181c230ece667b1043ea4f98c9c41b93c and StageSupervisorResultSha256 is c75506863b6aadd827f04584345865671d56a0a136b11dc95e3cc4def329827f. ScottyPorts remains integer array 3000 and 43972. The fresh install-v9-retry-20261127-2889282bfcec and its .supervisor sibling must both be absent."
+    },
+    {
+      "name": "foreground resource and preservation checks retained",
+      "status": "passed",
+      "detail": "Fresh hidden BelowNormal host checks at least 3 GiB free RAM, absence of PORT/BEAD_BIN at Process/User/Machine scopes, continued absence of .env and .env.production, free required ports and exact supervisor bytes. Same-host supervisor invocation retains its separately accepted 512 MiB aggregate, 3 GiB initial/immediate, 1 GiB live, 168-second work and 180-second hard deadline with bounded owned cleanup."
+    },
+    {
+      "name": "outcome interpretation",
+      "status": "passed",
+      "detail": "The early waiting-for-memory result with exit 0 is a postponement. Acceptance still requires the exact Windows PowerShell 5.1 parse, fresh real run, successful inner and supervisor receipts, complete source/runtime/pin/publication results and cleanup reconciliation. No prior attempt is replayed and the old failed attempt remains evidence."
+    }
+  ],
+  "findings": [],
+  "scope": "Prepared invocation only. This review makes no installation or runtime acceptance claim."
+}

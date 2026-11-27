@@ -1,0 +1,280 @@
+{
+  "status": "passed",
+  "scope": "Tiny disposable cloud Git fixture; exact Windows qualification remains required.",
+  "utc": "2026-11-27T09:19:30.924841+00:00",
+  "git_version": "git version 2.56.1",
+  "optional_locks": "0",
+  "fixture_path": "/tmp/beads-2889282bfcec/index-refresh-qualification/linux-fixture",
+  "crlf_attributes": "*.txt text eol=crlf",
+  "prepared_sha256": "e71f229359fdc3351b238a90f70efd62bba1937944fd7a240cb1ab872a0b7ac9",
+  "expected_tree": "642226cc249fef92114147875d777ad44f7c7979",
+  "cases": [
+    {
+      "name": "control",
+      "exit_code": 0,
+      "before_sha256": "e71f229359fdc3351b238a90f70efd62bba1937944fd7a240cb1ab872a0b7ac9",
+      "after_diff_sha256": "6b5323b00cf70292ca1a046f47d96cf60823dc713fe972ea1f4962b035b25d70",
+      "after_ls_files_sha256": "6b5323b00cf70292ca1a046f47d96cf60823dc713fe972ea1f4962b035b25d70",
+      "final_sha256": "6b5323b00cf70292ca1a046f47d96cf60823dc713fe972ea1f4962b035b25d70",
+      "bytes": 297,
+      "stage_mode_blob_path_entries_equal": true,
+      "tree_equal": true,
+      "tree": "642226cc249fef92114147875d777ad44f7c7979",
+      "untracked_paths": 0
+    },
+    {
+      "name": "command-local-false",
+      "exit_code": 0,
+      "before_sha256": "e71f229359fdc3351b238a90f70efd62bba1937944fd7a240cb1ab872a0b7ac9",
+      "after_diff_sha256": "e71f229359fdc3351b238a90f70efd62bba1937944fd7a240cb1ab872a0b7ac9",
+      "after_ls_files_sha256": "e71f229359fdc3351b238a90f70efd62bba1937944fd7a240cb1ab872a0b7ac9",
+      "final_sha256": "e71f229359fdc3351b238a90f70efd62bba1937944fd7a240cb1ab872a0b7ac9",
+      "bytes": 297,
+      "stage_mode_blob_path_entries_equal": true,
+      "tree_equal": true,
+      "tree": "642226cc249fef92114147875d777ad44f7c7979",
+      "untracked_paths": 0
+    }
+  ],
+  "changed_content_refusal": {
+    "exit_code": 1,
+    "prepared_index_bytes_unchanged": true
+  },
+  "fixture_original_index_and_head_unchanged": true,
+  "commands": [
+    {
+      "arguments": [
+        "init",
+        "--quiet",
+        "--initial-branch=main"
+      ],
+      "index": null,
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "add",
+        "--",
+        ".gitattributes",
+        "tracked.txt"
+      ],
+      "index": null,
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "-c",
+        "user.name=Index fixture",
+        "-c",
+        "user.email=index-fixture@example.invalid",
+        "commit",
+        "--quiet",
+        "-m",
+        "Fixture baseline"
+      ],
+      "index": null,
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "rev-parse",
+        "HEAD"
+      ],
+      "index": null,
+      "exit_code": 0,
+      "stdout_bytes": 41,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "hash-object",
+        "-w",
+        "--path=tracked.txt",
+        "--",
+        "tracked.txt"
+      ],
+      "index": null,
+      "exit_code": 0,
+      "stdout_bytes": 41,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "hash-object",
+        "-w",
+        "--path=added.txt",
+        "--",
+        "added.txt"
+      ],
+      "index": null,
+      "exit_code": 0,
+      "stdout_bytes": 41,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "update-index",
+        "--add",
+        "--cacheinfo",
+        "100644,4ca12e63cdf06782fbc2ec4a8d38f11f169b0dca,tracked.txt",
+        "--cacheinfo",
+        "100644,f8dbbb5d436c0089ee6d80748ecad885abe1a838,added.txt"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/prepared.index",
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "write-tree"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/prepared.index",
+      "exit_code": 0,
+      "stdout_bytes": 41,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/prepared.index",
+      "exit_code": 0,
+      "stdout_bytes": 187,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "diff",
+        "--exit-code",
+        "--quiet",
+        "--"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/control.index",
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "ls-files",
+        "--others",
+        "--exclude-standard",
+        "-z"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/control.index",
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/control.index",
+      "exit_code": 0,
+      "stdout_bytes": 187,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "write-tree"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/control.index",
+      "exit_code": 0,
+      "stdout_bytes": 41,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "-c",
+        "diff.autoRefreshIndex=false",
+        "diff",
+        "--exit-code",
+        "--quiet",
+        "--"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/command-local-false.index",
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "ls-files",
+        "--others",
+        "--exclude-standard",
+        "-z"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/command-local-false.index",
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "ls-files",
+        "--stage",
+        "-z"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/command-local-false.index",
+      "exit_code": 0,
+      "stdout_bytes": 187,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "write-tree"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/command-local-false.index",
+      "exit_code": 0,
+      "stdout_bytes": 41,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "-c",
+        "diff.autoRefreshIndex=false",
+        "diff",
+        "--exit-code",
+        "--quiet",
+        "--"
+      ],
+      "index": "/tmp/beads-2889282bfcec/index-refresh-qualification/command-local-false.index",
+      "exit_code": 1,
+      "stdout_bytes": 0,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "rev-parse",
+        "HEAD"
+      ],
+      "index": null,
+      "exit_code": 0,
+      "stdout_bytes": 41,
+      "stderr_bytes": 0
+    },
+    {
+      "arguments": [
+        "--version"
+      ],
+      "index": null,
+      "exit_code": 0,
+      "stdout_bytes": 19,
+      "stderr_bytes": 0
+    }
+  ],
+  "product_execution": false,
+  "pc_execution": false
+}

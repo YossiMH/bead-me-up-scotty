@@ -1,0 +1,133 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "review_type": "Independent reconciliation of a failed compatibility installer attempt and preserved original state",
+  "reviewer": "frontend_audit",
+  "reviewed_utc": "2026-11-27T09:20:31.498200+00:00",
+  "installation_status": "failed",
+  "installation_accepted": false,
+  "task_closure_accepted": false,
+  "replay_allowed": false,
+  "inputs": [
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-execution.json",
+      "bytes": 36848,
+      "sha256": "14e8528143432034d6e103a372309c612c97f0b555fbb7384e55d72a5ecb9e34"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-supervisor-observation.json",
+      "bytes": 18653,
+      "sha256": "b558b22f1769a52e694f6e424e455199066dbc83c204bdf1231722743b98d744"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/pc-results/install-v9-retry-20261127-2889282bfcec/install-result.json",
+      "bytes": 6204,
+      "sha256": "22195c6b222f7798440ac27122febb75faed1c4ff0cc836120adc84d3920a0f2"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-readback.json",
+      "bytes": 10277,
+      "sha256": "271de24f241ba6a5b2940002b2d55389a1542c40b9675a7da1e332b78ae849ef"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-preservation-reconciliation.json",
+      "bytes": 6988,
+      "sha256": "3e9ebf53930fcfdeb6cf942023ff226239a9618e6a10bb9236e76951191cb300"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-preservation-reconciliation-execution.json",
+      "bytes": 6006,
+      "sha256": "d5971cee35cb27a8900a7742c799d2fe3f77988caebad4d214da58a91db2c08c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-state-reconciliation.json",
+      "bytes": 9367,
+      "sha256": "3861e51b1e46a2200be54c11c749292dd08d961bde6d7685152bd9ee17ca91fd"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-ps51-parse.json",
+      "bytes": 713,
+      "sha256": "cbfd7682ebe8b69bc09cab4e30e326b466fa0fabbd55ffa12dbb19d11120d6ac"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/install-retry-ps51-parse-execution.json",
+      "bytes": 1053,
+      "sha256": "988d3615a4a96e1394102b41dc97ac337aad6c4059d141d2baa14de84146866c"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/installation-retry-source-review.json",
+      "bytes": 7445,
+      "sha256": "9667058382358a6ac24f73f6afe40d576d30816d7c05b38b78a22c2c53279342"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/reviews/install-retry-invocation-review.json",
+      "bytes": 4083,
+      "sha256": "7b6314ea2a663c5dfb097cdb84d70988d6d5a3f8f479d227ec82bfe5c34498aa"
+    }
+  ],
+  "actual_execution": {
+    "started_utc": "2026-11-27T09:13:12.9972849Z",
+    "finished_utc": "2026-11-27T09:13:26.0863297Z",
+    "driver_exit_code": 1,
+    "duration_seconds": 13.087,
+    "peak_total_resident_bytes": 394457088,
+    "minimum_observed_free_physical_bytes": 5754097664,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": []
+  },
+  "checks": [
+    {
+      "name": "exact input and parser identities",
+      "status": "passed",
+      "detail": "Windows PowerShell 5.1.26100.9818 parsed both exact corrected scripts with zero errors at 09:10:41, without executing their bodies. Actual execution pins driver c3c61ad33112ead3746325a32446b1aa786ee622532c69b9dad846838f721638, supervisor 719f352cc46a8d23bdf3dd3df1f8f9d662d1f4b9ef1985191000fceb80018e4d and the accepted stage receipts. The inner 6204-byte result exactly matches its recovered base64 bytes and SHA 22195c6b222f7798440ac27122febb75faed1c4ff0cc836120adc84d3920a0f2."
+    },
+    {
+      "name": "complete bounded execution evidence",
+      "status": "passed",
+      "detail": "Outer execution exits 1 with zero dropped stdout/stderr bytes and empty stderr. Its full stdout parses as the preflight and complete supervisor records. The exact numeric process ticks are read directly from that original stdout with a lossless integer parser. The separate normalized observation rounds large start_ticks values; all other fields are identical. No raw supervisor-file byte hash is inferred from that normalized copy."
+    },
+    {
+      "name": "primary failure and phase boundary",
+      "status": "passed",
+      "detail": "The inner error is Prepared index changed during validation. Both repository preflights, preservation_ready, private_index_prepared, baseline_adoption_started and index_lock_acquired were persisted. Exact source locates the failed hash assertion after private diff and ls-files, before reading preparedBytes, writing them to the lock, index_publication_started, File.Replace, source update-ref, runtime swap, pin selection or remote pushes. The true-null Save-Result correction persisted the primary error; child stderr is empty."
+    },
+    {
+      "name": "fresh original state comparison",
+      "status": "passed",
+      "detail": "The 09:16:50 observation exactly matches the retained 08:57 reconciliation for both repository HEADs, raw-index hashes, statuses, configs, all 15 source path/size/hash records, .env.local and old pin hashes, PORT/BEAD_BIN scopes, selected environment lines and absent relevant processes. The readback execution exits 0 with no dropped bytes and its parsed stdout exactly equals the observation. Ports 3000 and 43972 remain free. Config equality is only between the retained 08:57 and 09:16 observations."
+    },
+    {
+      "name": "preparation and lock cleanup",
+      "status": "passed",
+      "detail": "Attempt inventory contains source-before, env.local.before, scotty-index.before, scotty-index.prepared, task owner and failed result. No replaced-index backup or previous runtime directory exists. Original index.lock is absent. The 26330-byte index backup SHA 8b9de62e05335aa677de1a20642f031883bd8a7e7ef6a878dda3337c0d6c9b5f equals the unchanged original app index. Exact cleanup source deletes the acquired lock only after its recorded identity matches."
+    },
+    {
+      "name": "prior installation retained",
+      "status": "passed",
+      "detail": "The final native pin is absent; original pin and .env remain exact; installed BUILD_ID is the prior YHFpYLvHE99qaExIBY8FL; staged final runtime still exists. Original heads remain app 459a74537cbbe1dff521c6fc7ad1ce3ec2890683 and native afac9fa0ce9533a707d745018d16a25e4ccff492. No application process was started."
+    },
+    {
+      "name": "diagnostic scope",
+      "status": "passed",
+      "detail": "The private prepared index remains 27402 bytes but its raw SHA changed from recorded 26acf1c2d1e94545debb530c26b0b02d245f1a7eddd16028d3a384a3ca1686e6 to observed 13af66e5997b12b75d8ef920eb7e9310968ce5b7b676a1dcc8bc35a46278a887. Logical-entry inspection and a target Windows control/correction qualification are separate pending evidence. Git documents diff stat refresh, but this error alone does not prove its exact mechanism on the installed Git. GIT_OPTIONAL_LOCKS=0 was already set."
+    }
+  ],
+  "normalized_observation_caveat": {
+    "field": "owned_processes[].start_ticks",
+    "rounded_entries": 55,
+    "first_difference": {
+      "pid": 38564,
+      "actual_start_ticks": "639313675940284835",
+      "normalized_start_ticks": "639313675940284800"
+    },
+    "authoritative_source": "Complete original install-retry-execution.json stdout preserves all integer digits; normalized observation is not used for exact process birth identity."
+  },
+  "findings": [],
+  "required_next_steps": [
+    "Keep the failed attempt and backups unchanged; do not replay its output path.",
+    "Qualify the narrow private-diff correction and independently review a separately named fresh installer/supervisor binding.",
+    "Keep configured launch blocked until successful independently accepted installation; update its exact installation bindings."
+  ],
+  "scope": "PASS accepts failure diagnosis, bounded cleanup and original-state preservation only. Installation, configured launch and task closure remain pending."
+}
