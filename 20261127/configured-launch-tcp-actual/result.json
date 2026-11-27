@@ -1,0 +1,340 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "started_utc":  "2026-11-27T12:29:05.5483981Z",
+    "repository":  "F:\\Dev\\bead-me-up-scotty",
+    "port":  43972,
+    "priority":  "BelowNormal",
+    "node_heap_mib":  128,
+    "timeout_seconds":  120,
+    "owned_resident_limit_mib":  512,
+    "interactive_session_id":  1,
+    "commands":  [
+                     {
+                         "name":  "init",
+                         "exit_code":  0
+                     },
+                     {
+                         "name":  "readback",
+                         "exit_code":  0
+                     },
+                     {
+                         "name":  "type-readback",
+                         "exit_code":  0
+                     }
+                 ],
+    "requests":  [
+                     {
+                         "method":  "GET",
+                         "route":  "/api/projects",
+                         "status":  200
+                     },
+                     {
+                         "method":  "POST",
+                         "route":  "/api/projects",
+                         "status":  201
+                     },
+                     {
+                         "method":  "GET",
+                         "route":  "/api/p/native-workspace/beads",
+                         "status":  200
+                     },
+                     {
+                         "method":  "POST",
+                         "route":  "/api/p/native-workspace/beads",
+                         "status":  201
+                     },
+                     {
+                         "method":  "PATCH",
+                         "route":  "/api/p/native-workspace/beads/launchsmoke-b5eedcda",
+                         "status":  200
+                     },
+                     {
+                         "method":  "GET",
+                         "route":  "/api/p/native-workspace/beads/launchsmoke-b5eedcda",
+                         "status":  200
+                     }
+                 ],
+    "cleanup":  "passed; all observed owned processes exited and port is free",
+    "explorer_process_ids":  [
+                                 8504
+                             ],
+    "node_executable":  "C:\\Program Files\\nodejs\\node.exe",
+    "source_sha256":  {
+                          "F:\\Dev\\bead-me-up-scotty\\.env.local":  "f9987d51bd7cf55417d085ec400e56b2cc338a523d4bbf45b908a55dde066cb0",
+                          "F:\\Dev\\bead-me-up-scotty\\scripts\\fixtures\\windows-tray-observer.mjs":  "1d05437e77c42ccf33d700a193d201ce64b63385a20732f466b5ada3128b358c",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray.ps1":  "fc7249848722f4b3fbff6351523a30be5864082288efcca51bd9212867344923",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray.mjs":  "8ae12c3708ed9b1fda8b3f919605a22adccec8c406d9114fb0733a2314158396",
+                          "F:\\Dev\\bead-me-up-scotty\\launch-scotty.bat":  "a343db89360e1bd922da36bd921b17419fc10837e49c6d916ca72f83032004e8",
+                          "F:\\Dev\\bead-me-up-scotty\\scripts\\fixtures\\windows-tray-click.ps1":  "4df81d91044d7d615856dc49fc20cee4dff35c4bc4ae81a23b135cbb56d70937",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\bead-me-up-scotty.mjs":  "f8bbeef1741d6560fc64f6fcf22351b3d22bd580693ce63cbb5e7e5f70817f7c",
+                          "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray-host.mjs":  "4775f6ed906e042da3ca0bf7995b2d52658b8e70dfbfcb884088e15f95b99ec9",
+                          "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\windows-task-job.ps1":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+                      },
+    "configured_pin":  "F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-0431a828bf95.exe",
+    "binary_sha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "build_id":  "YIOHeRJTEdlOszyc4LyHr",
+    "job_initial_members":  [
+                                36184
+                            ],
+    "job_accounting":  "All members of the exact retained Job at each sample, including console hosts and short native children; PID, birth and process handle retained.",
+    "hard_deadline_exit_code":  124,
+    "minimum_observed_free_physical_bytes":  2253275136,
+    "launch_headroom":  [
+                            {
+                                "minimum_bytes":  3221225472,
+                                "utc":  "2026-11-27T12:29:07.6514947Z",
+                                "available_physical_bytes":  3610763264
+                            }
+                        ],
+    "issue_id":  "launchsmoke-b5eedcda",
+    "verified_fields":  [
+                            "title",
+                            "description",
+                            "priority",
+                            "issue_type",
+                            "notes"
+                        ],
+    "workspace":  "F:\\Dev\\.bead-edit-20261111\\configured-v9-tcp-20261127-2889282bfcec\\native-workspace",
+    "app_registry":  "F:\\Dev\\.bead-edit-20261111\\configured-v9-tcp-20261127-2889282bfcec\\config",
+    "tray":  {
+                 "clicked":  true,
+                 "disposed":  true,
+                 "menuText":  "Exit",
+                 "iconVisible":  true
+             },
+    "tray_cache":  {
+                       "fixture_sha256":  "4df81d91044d7d615856dc49fc20cee4dff35c4bc4ae81a23b135cbb56d70937",
+                       "helper_script":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray\\session-qXL17Z\\windows-tray.ps1",
+                       "helper_sha256":  "fc7249848722f4b3fbff6351523a30be5864082288efcca51bd9212867344923",
+                       "host_sha256":  "4775f6ed906e042da3ca0bf7995b2d52658b8e70dfbfcb884088e15f95b99ec9",
+                       "removed":  true,
+                       "host_script":  "F:\\Dev\\bead-me-up-scotty\\bin\\windows-tray-host.mjs",
+                       "host_pid":  66828,
+                       "executed_script":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-me-up-scotty\\tray-smoke\\session-UTLFlu\\windows-tray-click.ps1"
+                   },
+    "memory_start":  {
+                         "freeBytes":  3584004096,
+                         "minimumBytes":  3221225472,
+                         "checkedAt":  1795782547746
+                     },
+    "native_invocations":  28,
+    "remaining_job_members":  [
+
+                              ],
+    "port_free":  true,
+    "peak_owned_resident_bytes":  515334144,
+    "processes":  [
+                      {
+                          "kind":  "fixture-cli",
+                          "pid":  66656,
+                          "started_utc":  "2026-11-27T12:29:07.5348375Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      },
+                      {
+                          "kind":  "batch",
+                          "pid":  62436,
+                          "started_utc":  "2026-11-27T12:29:07.6577709Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      },
+                      {
+                          "kind":  "controller",
+                          "pid":  39024,
+                          "started_utc":  "2026-11-27T12:29:07.6962753Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      },
+                      {
+                          "kind":  "tray-host",
+                          "pid":  66828,
+                          "started_utc":  "2026-11-27T12:29:07.7990043Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      },
+                      {
+                          "kind":  "tray",
+                          "pid":  46792,
+                          "started_utc":  "2026-11-27T12:29:07.8607419Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      },
+                      {
+                          "kind":  "server",
+                          "pid":  59760,
+                          "started_utc":  "2026-11-27T12:29:09.5459736Z",
+                          "session_id":  1,
+                          "exit_code":  1
+                      },
+                      {
+                          "kind":  "native",
+                          "pid":  61948,
+                          "started_utc":  null,
+                          "session_id":  null,
+                          "exit_code":  0
+                      },
+                      {
+                          "kind":  "fixture-cli",
+                          "pid":  2064,
+                          "started_utc":  "2026-11-27T12:29:13.1995437Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      },
+                      {
+                          "kind":  "fixture-cli",
+                          "pid":  62052,
+                          "started_utc":  "2026-11-27T12:29:13.3247288Z",
+                          "session_id":  1,
+                          "exit_code":  0
+                      }
+                  ],
+    "job_measurements":  {
+                             "samples":  35,
+                             "peak_resident_bytes":  515334144,
+                             "peak_member_count":  10,
+                             "budget_exceeded":  false,
+                             "cleanup_assisted":  false
+                         },
+    "job_processes":  [
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  0,
+                              "birth_filetime":  134402561475348375,
+                              "process_id":  66656,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:07.5348375Z",
+                              "image":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  9699328,
+                              "birth_filetime":  134402561476577709,
+                              "process_id":  62436,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:07.6577709Z",
+                              "image":  "C:\\Windows\\System32\\cmd.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8216576,
+                              "birth_filetime":  134402561476685864,
+                              "process_id":  14772,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:07.6685864Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  58109952,
+                              "birth_filetime":  134402561476962753,
+                              "process_id":  39024,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:07.6962753Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  52883456,
+                              "birth_filetime":  134402561477990043,
+                              "process_id":  66828,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:07.7990043Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  107192320,
+                              "birth_filetime":  134402561478607419,
+                              "process_id":  46792,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:07.8607419Z",
+                              "image":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8208384,
+                              "birth_filetime":  134402561478793390,
+                              "process_id":  59968,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:07.8793390Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  1,
+                              "peak_resident_bytes":  114585600,
+                              "birth_filetime":  134402561495459736,
+                              "process_id":  59760,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:09.5459736Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  8855552,
+                              "birth_filetime":  134402561502200197,
+                              "process_id":  64308,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:10.2200197Z",
+                              "image":  "C:\\Windows\\System32\\cmd.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  0,
+                              "birth_filetime":  134402561520224501,
+                              "process_id":  38800,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:12.0224501Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  0,
+                              "birth_filetime":  134402561523420845,
+                              "process_id":  63844,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:12.3420845Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  0,
+                              "birth_filetime":  134402561523329503,
+                              "process_id":  34684,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:12.3329503Z",
+                              "image":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  3227648,
+                              "birth_filetime":  134402561527137935,
+                              "process_id":  64080,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:12.7137935Z",
+                              "image":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  0,
+                              "birth_filetime":  134402561531995437,
+                              "process_id":  2064,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:13.1995437Z",
+                              "image":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  0,
+                              "birth_filetime":  134402561533247288,
+                              "process_id":  62052,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T12:29:13.3247288Z",
+                              "image":  "F:\\Dev\\bead-me-up-scotty\\.scotty-local\\bin\\bead-0431a828bf95.exe"
+                          }
+                      ],
+    "cleanup_errors":  [
+
+                       ],
+    "completed_utc":  "2026-11-27T12:29:14.0648154Z"
+}
