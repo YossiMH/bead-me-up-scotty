@@ -1,0 +1,283 @@
+{
+  "schema_version": 1,
+  "status": "accepted_product_initial_history_and_initial_publication_facts_final_completion_actuals_pending",
+  "prepared_by": "/root/review_scotty",
+  "sources": {
+    "product_docs": "https://github.com/YossiMH/bead-me-up-scotty/blob/b8caabf90652598f889f0b0bbc4e66d1b20a1877/docs/backend-compatibility.md",
+    "readme": "https://github.com/YossiMH/bead-me-up-scotty/blob/b8caabf90652598f889f0b0bbc4e66d1b20a1877/README.md",
+    "installed_review": "https://github.com/YossiMH/bead-me-up-scotty/blob/3151657df5939a2756d504860d655c058b808828/20261127/configured-launch-tcp-actual/installed-final-review.json",
+    "configured_result": "https://github.com/YossiMH/bead-me-up-scotty/blob/cf1e018022086e0118aa76cd64cdd0d02317850d/20261127/configured-launch-tcp-actual/result.json",
+    "configured_review": "https://github.com/YossiMH/bead-me-up-scotty/blob/3151657df5939a2756d504860d655c058b808828/20261127/configured-launch-tcp-actual/configured-tcp-actual-review.json",
+    "tray_review": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/results/tray-runspace-actual-review.json",
+    "native_linux_review": "https://github.com/YossiMH/bead-me-up-scotty/blob/6e70133a8e70e374e6b0b7e1931f8c829b113021/20261125/revision-9/results/native-linux-qualification-review.json",
+    "native_windows_review": "https://github.com/YossiMH/bead-me-up-scotty/blob/60df4701ad68eafcf34f3f614087c41e57fa44f8/20261125/revision-9/results/native-windows-qualification-review.json"
+  },
+  "source_commits": {
+    "native": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "app": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219"
+  },
+  "documentation_baselines": {
+    "native": "025ebc6a38013402b1936e932c104348aec06fd4",
+    "app": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+    "scope": "Accepted documentation text baselines; native checkpoint main advanced separately to the accepted initial publication and final publication remains pending."
+  },
+  "installed_runtime": {
+    "native_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "native_installed_path": "F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-0431a828bf95.exe",
+    "native_bytes": 12243456,
+    "build_id": "YIOHeRJTEdlOszyc4LyHr"
+  },
+  "editing": {
+    "content_fields": [
+      "title",
+      "description",
+      "custom type",
+      "notes"
+    ],
+    "other_controls": [
+      "priority",
+      "status",
+      "assignee",
+      "individual label add/remove",
+      "typed dependency add/remove"
+    ],
+    "dependency_types": [
+      "blocks",
+      "relates_to",
+      "verifies"
+    ],
+    "scalar_semantics": "One guarded native update with current revision and legitimate claim credential when required; priority changes preserve an audit reason and no-op edits avoid duplicate priority events.",
+    "limits": {
+      "title_utf8_bytes": 4096,
+      "description_notes_and_type_each_utf8_bytes": 4194304,
+      "temporary_file_threshold_combined_utf8_bytes": 8192
+    },
+    "recovery": "Committed/uncertain failures retain relevant drafts and identifiers; Refresh without resubmitting reconciles current values without automatic mutation replay.",
+    "managed_fields": "IDs, creation/completion timestamps, claim metadata and comments are not arbitrary scalar PATCH fields.",
+    "labels": "Individual deltas preserve unrelated labels but are not issue-revision compare-and-swap or fenced claim operations; the native label event actor is system."
+  },
+  "tray": {
+    "supported_production_launchers": [
+      "scotty",
+      "bead-me-up-scotty",
+      "npm run serve",
+      "npm start",
+      "launch-scotty.bat"
+    ],
+    "exit": "Stops that launcher's server, disposes the icon and cleans its copied helper/session directory.",
+    "browser_tab": "Closing a browser tab leaves the server running.",
+    "restart": "Supervised self-update restart retains one icon while replacing the server.",
+    "parent_loss": "Helper cleans its own copied file/session after the launcher disappears.",
+    "installed_start_command": ".\\launch-scotty.bat --no-open",
+    "headless_override": "BMUS_TRAY=0",
+    "desktop_requirements": "Windows PowerShell, Windows Forms, interactive desktop, absolute usable LOCALAPPDATA; existing execution policy retained.",
+    "development": "npm run dev and direct next start bypass the production tray controller."
+  },
+  "accepted_validation": {
+    "configured_installed": {
+      "duration_seconds": 8.5164173,
+      "http_requests": 6,
+      "http_statuses": [
+        200,
+        201
+      ],
+      "edited_readback_fields": [
+        "title",
+        "description",
+        "priority",
+        "issue type",
+        "notes"
+      ],
+      "native_invocations": 28,
+      "actual_tray_exit": true,
+      "peak_aggregate_resident_bytes": 515334144,
+      "cleanup_assisted": false,
+      "cleanup_errors": 0,
+      "remaining_job_members": 0,
+      "port_released": 43972,
+      "shutdown_note": "Production Next server exited 1 during requested shutdown; batch/controller/tray host/tray exited 0; acceptance retained this distinction."
+    },
+    "tray_lifecycle": {
+      "cases": [
+        "real Exit",
+        "parent-loss cleanup",
+        "exit-75 restart retaining one icon then real Exit"
+      ],
+      "duration_seconds": 15.483,
+      "peak_aggregate_resident_bytes": 518172672
+    },
+    "native_linux": {
+      "passed": 1913,
+      "failed": 0,
+      "preexisting_ignored": 8,
+      "affected_suite_passed": 95
+    },
+    "native_windows": {
+      "core_passed": 25,
+      "editing_passed": 73,
+      "ordinary_conformance_passed": 12,
+      "deliberate_characterization_green": 10,
+      "deliberate_characterization_red": 2,
+      "characterization_note": "Two retained RED characterization findings concern publication amplification and split comparison after deliberate out-of-band issue-row deletion; ordinary conformance passed."
+    },
+    "app": {
+      "selected_adapter_checks_passed": 115,
+      "lint": true,
+      "typescript": true,
+      "production_build": true
+    }
+  },
+  "final_actuals_pending": [
+    "actual archive coverage and exact86 app plus2 native ref deletions",
+    "remaining owned disposable/retained-path inventory and cleanup-task close",
+    "accepted55/0 original task inventory",
+    "final publish/restore/checkpoint publication and final generation/root",
+    "completion documentation final evidence bindings, text review and actual adoption",
+    "final local/remote heads and independent reconciliation"
+  ],
+  "publication_status": "Stable product, initial history finalization, initial checkpoint publication and exact task/cache/worktree outcomes are accepted. Full assignment completion and final documentation adoption remain pending their actual records.",
+  "accepted_interrupted_restore_preservation": {
+    "status": "passed_independent_actual_review",
+    "review_file": "resumed-completion/quarantine-restore-original-actual-review.json",
+    "review_sha256": "6a51f26431280e79fbb718b8509badd703a71a0e45164d85056d909489d68511",
+    "stdout_sha256": "ba5eaafe5a9af19522855e667b7019609dfa20845e850ffa9f084333f51b334c",
+    "proposal_id": "67vtFWJ_qXhtSjG1zEOoXz4IKSLXoOEPG40nT4jVJ8o",
+    "retained_database_bytes": 8946056,
+    "preserving_renames": 5,
+    "original_database_and_sidecars_absent": true,
+    "original_checkpoint_config_and_index_unchanged": true,
+    "failed_phase_and_supervisor_retained": true,
+    "elapsed_ms": 207,
+    "peak_rss_bytes": 55259136,
+    "minimum_free_bytes": 8836972544,
+    "remaining": "Historical first-attempt preservation receipt. Later successful native restoration and accepted Git finalization supersede its database-absence observation.",
+    "observation_scope": "Accepted first-attempt preservation only, before the subsequent restore-original v2 attempt. Its observed database absence is historical."
+  },
+  "recovery": {
+    "basis_commit": "60a884ad8febee8a14be4691591fb0a61cbe8f66",
+    "source": "Recovered accepted template and retained source bytes after the transient task directories reset; newly recovered packet has its own manifest.",
+    "no_final_completion_claim": true
+  },
+  "historical_v3_pre_finalization_status": {
+    "status": "v3_native_restore_succeeded_within_bound_git_staging_finalization_pending",
+    "review_file": "resumed-completion/quarantine-restore-original-v2-actual-review.json",
+    "review_sha256": "4f3ba9c041e3801e9e1fec9c0c52002abb0d0be8a61cfb15c644295517b8444f",
+    "stdout_sha256": "5312061fe32c3433c02d8e8811ae096cfe1ca32506466569638eaa24d1ca70cb",
+    "proposal_id": "i38Cxi351XkdZsLyKLJYLPGsuIYDZMBIDzCcVD-QKIc",
+    "preserving_renames": 5,
+    "retained_database_bytes": 8946056,
+    "elapsed_ms": 251,
+    "peak_rss_bytes": 56655872,
+    "minimum_free_bytes": 6836510720,
+    "retained_attempt_packages": [
+      "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-155752",
+      "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/interrupted-restore-original-20261127-165019"
+    ],
+    "last_accepted_original_database_state": "V3 native restore, sync status and full inventory exited 0; the original database is 10,375,168 bytes with no WAL, SHM or journal. The driver stopped at the exact staged-only Git guard before authority-transfer-complete and result were written. Checkpoint staging and the finalization tail remain pending; no native replay or quarantine is indicated.",
+    "accepted_memory_source": {
+      "review_file": "resumed-completion/memory-v3-source-request-independent-review.json",
+      "review_sha256": "be12e1b70fa0a3aefb13ef3d1ea9209a804fad3f7ada041b404a999385f65695",
+      "supervisor_sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553",
+      "v3_request_sha256": "cea2607f98bd6ce036e3429ed122a20addc9e8f73faf8bac67d3dc941e4c2625",
+      "node_old_space_mib": 128,
+      "node_semi_space_mib": 4,
+      "aggregate_owned_resident_mib": 512,
+      "windows_actual_restore_result": {
+        "supervisor_status": "failed_at_later_git_guard",
+        "native_restore_status_inventory_exit_code": 0,
+        "aggregate_peak_resident_bytes": 425422848,
+        "duration_seconds": 22.786,
+        "cleanup_assisted": false,
+        "cleanup_errors": [],
+        "remaining_job_members": [],
+        "supervisor_file": "resumed-completion/restore-original-v3-supervisor-stdout.json",
+        "supervisor_bytes": 10543,
+        "supervisor_sha256": "7f602f052593f58de3e6ce1b5fac5bc9bb56b1d1a942db26efca5de6396de59c"
+      }
+    },
+    "preserving_reset_observation": "The second preserving reset left the original database absent at that earlier observation; the successful v3 native restore has since recreated it. Both failed-attempt retention packages remain retained.",
+    "v3_boundary": {
+      "evidence_file": "resumed-completion/restore-original-v3-index-boundary-analysis.json",
+      "evidence_bytes": 5736,
+      "evidence_sha256": "403547ba2f6d0d49f61dce1f99710159243245ad86a8b5b6ff8ead485e0757b2",
+      "selected_generation": "gen-e09b2a4118d7bb5f125c5294c0934514",
+      "selected_root_sha256": "9b7297fe4c9563612975aad01c517d3080ba78ef4305040da1c79c5e1daa580b",
+      "issues": 1009,
+      "events": 11523,
+      "receipts": 7,
+      "attempt_outcomes": 413,
+      "local_sequence": 11523,
+      "original_git_index": "unchanged from pre-restore baseline; checkpoint working bytes advanced",
+      "final_phase_result": "absent at boundary observation",
+      "authority_transfer_complete": "absent at boundary observation",
+      "required_next_action": "Finalize checkpoint Git staging and the original uncompleted read-only verification/retention tail with explicit preserved-attempt provenance."
+    },
+    "observation_scope": "Historical interrupted v3 state; superseded by the accepted initial Git finalizer below. No replay is required."
+  },
+  "accepted_initial_history_finalization": {
+    "status": "passed_independent_actual_review",
+    "review_url": "https://github.com/YossiMH/bead-me-up-scotty/blob/013ad1de77f3cce7e697f647ce6e348925fc901e/20261127/resumed-completion/git-finalization-actual/actual-and-next-restore-review.json",
+    "review_sha256": "c697845d475ab293e39ae17ca05d94cf71920a49d6e50232b4aa88f134d2140b",
+    "driver_result_sha256": "8618cc4253cb0f8ac27bbd21a735ca296f4158d181aa4d9b65032a1de2af799a",
+    "supervisor_result_sha256": "bb3ebaa6c2b71731fef317cce1402c1645f55c5c5ae822f8e472f7012036e907",
+    "authority": "F:/Dev/bead-rs",
+    "issues": 1009,
+    "original_issues_preserved": 954,
+    "attempt_outcomes_preserved": 413,
+    "generation": "gen-e09b2a4118d7bb5f125c5294c0934514",
+    "root_sha256": "9b7297fe4c9563612975aad01c517d3080ba78ef4305040da1c79c5e1daa580b",
+    "local_sequence": 11523,
+    "native_replayed": false,
+    "duration_seconds": 38.859,
+    "peak_aggregate_resident_bytes": 378179584,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "observation_scope": "Initial accepted authority/finalization. Final close and final generation/publication have separate pending actuals."
+  },
+  "accepted_initial_checkpoint_publication": {
+    "status": "passed_independent_actual_review",
+    "review_file": "20261127/resumed-completion/initial-native-publication-actual/actual-review.json",
+    "review_bytes": 5834,
+    "review_sha256": "e358c2cfbd5e26c6d291c43c6d9ef498e9d28af9f2574f9dd9671c6351985307",
+    "result_bytes": 67162,
+    "result_sha256": "adf4f74a91e403f1629096aab3a4e60196cde8d4f60953c3239203ac1486617b",
+    "supervisor_bytes": 27361,
+    "supervisor_sha256": "2558e0a1b55a3f137612e3b1de026795f8383ffb3293e12eb7cdc4ee78e36237",
+    "local_and_remote_main": "4c2e842beac30e3663a3816722430659befad7ee",
+    "checkpoint_tree": "32885dc8df86ccb85c873042b9f8762006b487b6",
+    "peak_aggregate_resident_bytes": 381784064,
+    "observation_scope": "Initial checkpoint publication accepted by review_bead_rs. Future final publication fields remain unset. The immutable review permalink is supplied by root after mounting the accepted actual packet."
+  },
+  "accepted_cleanup": {
+    "review_url": "https://github.com/YossiMH/bead-me-up-scotty/blob/013ad1de77f3cce7e697f647ce6e348925fc901e/20261127/resumed-completion/cleanup-actual/cleanup23-cache4-actual-review.json",
+    "review_sha256": "f9252eff434308ccdbd5ca5654d6bbf9ce67580d43a17054ee50bd0ca6b5b427",
+    "scheduled_task_result_sha256": "7449491acde5d69accb3514c223a9fc85b6c2e60008748da236ee5d0e806329b",
+    "failed_cache_result_sha256": "f85fad89f0a8c06ebd29284b056858bd3e1e1d054e659e974dd5525bc2ead654",
+    "scheduled_tasks_removed": 23,
+    "private_xml_backups_retained": 23,
+    "failed_cache_files_and_directories_removed": 4,
+    "cache_backup_bytes": 14723,
+    "owner_identities_absent": 19,
+    "worktree_review_url": "https://github.com/YossiMH/bead-me-up-scotty/blob/013ad1de77f3cce7e697f647ce6e348925fc901e/20261127/cloud-worktree-removed/independent-review.json",
+    "worktree_receipt_sha256": "4300221854af50f1970b73058aa9236ce25a97cc963cee9e3b08f0723c46de02",
+    "worktree_review_sha256": "e49a7f985576d0aaedffbdb525ce593f92d11679a503e5b74f96314ad7951f30",
+    "worktree_scope": "Accepted non-force Riftri removal of the cloud continuation worktree; parent clones and fixtures deliberately retained at that observation."
+  },
+  "material_operational_limitation": {
+    "scope": "Installed native automatic Git staging on Windows",
+    "observed_problem": "Native automatic staging of397 checkpoint paths failed with Windows error206 (argument list too long), after durable native checkpoint publication.",
+    "accepted_resolution": "The operational finalizer stages verified paths via stdin, revalidates the unchanged publication invariants and completes the retained phase without native replay.",
+    "installed_binary_modified_by_reconciliation": false,
+    "avoid_claim": "Do not describe this operational recovery as a product-level fix to the native automatic Git staging argument-length limitation."
+  },
+  "preservation": {
+    "original_app_user_edited_files": 15,
+    "retain_original_raw_files_and_index_environment_copies": true,
+    "prior_native_pin": "bead-376537b7917f.exe",
+    "prior_next_build_id": "YHFpYLvHE99qaExIBY8FL",
+    "installed_acceptance_review_url": "https://github.com/YossiMH/bead-me-up-scotty/blob/717acefc5bf677c8d18dcf16b692117042bae4ae/20261127/installation-completed/actual-review.json",
+    "installed_acceptance_review_sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e",
+    "scope": "No original user edits or rollback material become deletion targets in the completion-document requests."
+  }
+}

@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "bound_for_existing_independent_acceptance",
+  "basis_tree": "70f4efa4015cf56c5f8e30fe7f98ef3272c092f4",
+  "frozen_transfer": {
+    "commit": "8dfbd35a460fb5f8da289e1ac26119cb213abfa3",
+    "tree": "69f4f0f0cdc573370342681a0719ea49b52276ce",
+    "app_main": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+    "native_main": "4c2e842beac30e3663a3816722430659befad7ee"
+  },
+  "founding_archive": "53f981bce9b13bc9c84d3138c9e99a26c0eb911d",
+  "app_refs_sha256": "5a28346bddf8566fd7b3ee91d833a5de0900247d949d76cc41f8f8a0cb931647",
+  "native_refs_sha256": "9b2fc7f35aa8018e6252a0fe0929dabafce797e3a17606ed0f238e10121345bf",
+  "native_guard_sha256": "a3446b7cbcb9f922a92c4ad552f470569f98291759e641ec80505065961295d5",
+  "native_publication_actual_review_sha256": "e358c2cfbd5e26c6d291c43c6d9ef498e9d28af9f2574f9dd9671c6351985307",
+  "scotty_expected_guard_basis": {
+    "commit": "8dfbd35a460fb5f8da289e1ac26119cb213abfa3",
+    "path": "20261127/document-adoption-actual/scotty-documents-adoption-review.json",
+    "sha256": "ee3cc2717e3a3ce4ec0fcd5a739b1f6126c58c2d7616d3f678561676a15bea9a",
+    "reuse": "Expected unchanged post-document-adoption state; existing publisher rechecks before mutation."
+  },
+  "author_inspections": [
+    {
+      "status": "passed",
+      "scope": "Exact actual receipt/review hashes, fixed main/archive/transfer identities, unchanged85 app plus updated transfer lease, and exact two native leases match accepted templates."
+    },
+    {
+      "status": "passed",
+      "scope": "All guards match accepted actual sources, requests differ only in completed data fields, and admissions invert exactly to the accepted initial publisher form."
+    }
+  ],
+  "phase_or_product_source_change": false,
+  "new_test": false,
+  "new_executor": false,
+  "new_review_gate": false,
+  "pc_action": false,
+  "ref_action": false,
+  "requests": [
+    {
+      "repository": "native",
+      "request": "native-task-ref-deletion-20261127-02e8a44557c8-v1.request.json",
+      "request_bytes": 3411,
+      "request_sha256": "64844e88ea56d3caa1cbf86fbbaf517db4ef71f7e0c972e2e57a28e138dab9bb",
+      "admission": "native-task-ref-deletion-admission.ps1",
+      "admission_bytes": 1008,
+      "admission_sha256": "77d288cdc218ac6010e2e291e285a7abd19a3b759b017095b603331f7c036c4c",
+      "invocation_characters": 2798,
+      "exact_ref_count": 2,
+      "expected_head": "4c2e842beac30e3663a3816722430659befad7ee",
+      "expected_index_sha256": "b3710e4ce27893e64f86cffc9e317b58b63937a789fd0dab15bcaef90a080036",
+      "retention_receipt_sha256": "a468d6496a58572a151e9f9ae6bd8fd8d2a3b64432ae7c0b57a5ca3e8ffe9d0e",
+      "retention_review_sha256": "aa3d5ba12708b949fd18a3b2be816b95599956415cc3546dbf34177b3f9c634b"
+    },
+    {
+      "repository": "scotty",
+      "request": "scotty-task-ref-deletion-20261127-02e8a44557c8-v1.request.json",
+      "request_bytes": 2586,
+      "request_sha256": "a1ced820d63316588cf526a1240ed10e2a1e2464d051b0a885b707d834ac4f0e",
+      "admission": "scotty-task-ref-deletion-admission.ps1",
+      "admission_bytes": 1008,
+      "admission_sha256": "6662f3f3aa783c900fef2cbe999c57f5ad7c66addd77133c21f8715d9b131a76",
+      "invocation_characters": 2798,
+      "exact_ref_count": 86,
+      "expected_head": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+      "expected_index_sha256": "af34dccf7686601e19860c393dc4cb45452b0c0546389b5e0a0238b19bda8cf5",
+      "retention_receipt_sha256": "7603a117f7b25e6f693b71ef0dffd2cfdd118a8f4d6e3354c811aa250042c78e",
+      "retention_review_sha256": "f31aa4800efbc4ce68e017e0cf085ce1e941d81efba98d6dc327619b05cabfd2"
+    }
+  ]
+}

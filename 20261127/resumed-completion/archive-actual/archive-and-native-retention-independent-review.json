@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root/review_scotty",
+  "scope": "Existing actual archive and native-main retention receipts accepted for the already reviewed exact86 app/two native leased cleanup requests.",
+  "findings": [],
+  "observed_utc": "2026-11-27 18:29:03 UTC",
+  "root_readbacks": {
+    "file": "root-readbacks.json",
+    "bytes": 25135,
+    "sha256": "fa92d1f3cc820b1e1321e7c4c1409fee41fd27dc9b11314f427dd1a6116f7b2c"
+  },
+  "proof": {
+    "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/archive-actual/retention-coverage-proof.json",
+    "bytes": 5597,
+    "sha256": "abff9e69c80ad6ae63393de0659dc50945c06392655eb602e5a9cfa44690e0a8"
+  },
+  "accepted_receipts_and_reviews": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/archive-actual/scotty-archive-retention-20261127-02e8a44557c8-v1.json",
+      "bytes": 13622,
+      "sha256": "7603a117f7b25e6f693b71ef0dffd2cfdd118a8f4d6e3354c811aa250042c78e"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/archive-actual/native-main-retention-20261127-02e8a44557c8-v1.json",
+      "bytes": 471,
+      "sha256": "a468d6496a58572a151e9f9ae6bd8fd8d2a3b64432ae7c0b57a5ca3e8ffe9d0e"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/archive-actual/scotty-archive-retention-20261127-02e8a44557c8-v1.review.json",
+      "bytes": 872,
+      "sha256": "f31aa4800efbc4ce68e017e0cf085ce1e941d81efba98d6dc327619b05cabfd2"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/archive-actual/native-main-retention-20261127-02e8a44557c8-v1.review.json",
+      "bytes": 866,
+      "sha256": "aa3d5ba12708b949fd18a3b2be816b95599956415cc3546dbf34177b3f9c634b"
+    }
+  ],
+  "retained": {
+    "archive_ref": "refs/heads/archive/bead-editing-complete-20261127",
+    "founding_archive_commit": "53f981bce9b13bc9c84d3138c9e99a26c0eb911d",
+    "final_transfer_commit": "8dfbd35a460fb5f8da289e1ac26119cb213abfa3",
+    "tree": "69f4f0f0cdc573370342681a0719ea49b52276ce",
+    "scotty_main": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+    "native_main": "4c2e842beac30e3663a3816722430659befad7ee"
+  },
+  "checks": [
+    "Exact86/2 reviewed names and tips match root fresh readback; all85 non-transfer app tips match accepted graph coverage.",
+    "Actual founding archive has exact final transfer tree and exactly32 ordered distinct accepted parents. Its remote ref directly reads back at the same immutable commit.",
+    "Six directly read single-parent commits extend the recovered24-commit chain; no additional graph walk or source mutation was needed.",
+    "Both native task tips remain ancestors through025ebc6a to accepted published main4c2e842b, which root read back unchanged.",
+    "Canonical sorted ref digests and exact receipt SHA256 fields satisfy the unchanged accepted publisher retention contract.",
+    "Root preserves final transfer and founding archive through deletion; later evidence may be carried in an unreferenced descendant and the archive advanced after both deletion results."
+  ],
+  "actual_deletion_results": "pending",
+  "activity": "Read-only cloud/GitHub review and creation of data receipts. No PC calls, source/index/ref changes or product tests."
+}

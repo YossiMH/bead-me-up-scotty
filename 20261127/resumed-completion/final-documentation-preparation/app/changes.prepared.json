@@ -1,0 +1,41 @@
+{
+  "schema_version": 1,
+  "status": "prepared_with_accepted_stable_facts_final_actuals_pending",
+  "executable": false,
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "b8caabf90652598f889f0b0bbc4e66d1b20a1877"
+  },
+  "operations": [
+    {
+      "path": "docs/backend-compatibility.md",
+      "kind": "insert_before_exact_anchor",
+      "anchor": "<!-- delivery-state:start -->",
+      "anchor_count": 1,
+      "insert_from": "compatibility-completion.prepared.md",
+      "suffix": "\n",
+      "completed_insert_sha256": null
+    },
+    {
+      "path": "docs/backend-compatibility.md",
+      "kind": "replace_exact_once",
+      "old": "## Delivery state — 2026-11-27\n",
+      "new": "## Earlier delivery snapshot — 2026-11-27 12:58 UTC\n"
+    },
+    {
+      "path": "docs/backend-compatibility.md",
+      "kind": "replace_exact_once",
+      "old": "This section records the current delivery snapshot.",
+      "new": "This section preserves the accepted 12:58 UTC delivery snapshot. The later\ncompletion record above governs current status."
+    },
+    {
+      "path": "README.md",
+      "kind": "replace_exact_once",
+      "old": "See [Windows launch and shutdown](docs/backend-compatibility.md#windows-launch-and-shutdown)\nfor details.\n",
+      "new": "See [Windows launch and shutdown](docs/backend-compatibility.md#windows-launch-and-shutdown)\nfor details.\nThe [delivery completion record](docs/backend-compatibility.md#delivery-completion)\ncontains the final native task-history, publication and cleanup readback.\n"
+    }
+  ],
+  "actual_completed_document_sha256": null,
+  "actual_completed_readme_sha256": null,
+  "actual_text_review_sha256": null
+}

@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "prepared_only",
+  "executable": false,
+  "purpose": "Small future completion block after actual accepted 55/0, original history publication and cleanup. Existing 50/5 details stay as a clearly dated historical snapshot.",
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "b8caabf90652598f889f0b0bbc4e66d1b20a1877",
+    "files": {
+      "docs/backend-compatibility.md": {
+        "bytes": 80782,
+        "sha256": "04fdc705d9b7de7d653644c8cbe3adb9c82dabe806f303360956e1924cbdf06f",
+        "git_blob": "a7600c632422b0c6605f3b609ddb38f79fe4e640"
+      },
+      "README.md": {
+        "bytes": 25639,
+        "sha256": "d121977f0202b90a003e6feea37fa14f8f0edb1a1ed2375a632ee899da82bd27",
+        "git_blob": "2f9296f733ab66e04c524c704e783663341213b2"
+      }
+    },
+    "final_text_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/backend/reviews/app-handoff-final-text-review.json",
+      "bytes": 24264,
+      "sha256": "b36af077a90948fb4c9a066c1666b1179966b07d44b5b909a121d61441abd715"
+    },
+    "main_publication": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/initial-handoff-main-publication.json",
+      "bytes": 1026,
+      "sha256": "16d6deb98f5472e161eabe857de4ceafd901afd88a7ab09c7025026bbfb85733"
+    }
+  },
+  "completion_gate_expected_values": {
+    "closed": 55,
+    "open": 0,
+    "cleanup_task_status": "closed",
+    "meaning": "Requirements for later acceptance; no actual final outcome is asserted."
+  },
+  "actual_values": {
+    "PENDING_READBACK_UTC": null,
+    "PENDING_COMPLETION_STATUS": null,
+    "PENDING_CLOSED_COUNT": null,
+    "PENDING_OPEN_COUNT": null,
+    "PENDING_CLEANUP_TASK_STATUS": null,
+    "PENDING_CLEANUP_TASK_REVISION": null,
+    "PENDING_TASK_RESULT_URL": null,
+    "PENDING_TASK_RESULT_SHA256": null,
+    "PENDING_HISTORY_STATUS_AND_SUMMARY": null,
+    "PENDING_CLEANUP_STATUS_AND_SUMMARY": null,
+    "PENDING_REF_STATUS_AND_SUMMARY": null,
+    "PENDING_FINAL_RESTORE_URL": null,
+    "PENDING_FINAL_RESTORE_SHA256": null,
+    "PENDING_GENERATION_ID": null,
+    "PENDING_ROOT_SHA256": null,
+    "PENDING_PUBLICATION_STATUS": null,
+    "PENDING_CHECKPOINT_COMMIT": null,
+    "PENDING_CHECKPOINT_REMOTE_COMMIT": null,
+    "PENDING_CHECKPOINT_TREE": null,
+    "PENDING_PUBLICATION_RESULT_URL": null,
+    "PENDING_PUBLICATION_RESULT_SHA256": null,
+    "PENDING_CLEANUP_RESULT_URL": null,
+    "PENDING_CLEANUP_RESULT_SHA256": null,
+    "PENDING_ARCHIVE_REF": null,
+    "PENDING_ARCHIVE_COMMIT": null,
+    "PENDING_REF_RESULT_URL": null,
+    "PENDING_REF_RESULT_SHA256": null,
+    "PENDING_NATIVE_HEAD": null,
+    "PENDING_APP_HEAD": null,
+    "PENDING_COMPLETION_REVIEW_URL": null,
+    "PENDING_COMPLETION_REVIEW_SHA256": null
+  },
+  "publication": {
+    "future_completed_block_sha256": null,
+    "future_document_sha256": null,
+    "future_readme_sha256": null,
+    "future_text_review_sha256": null,
+    "future_document_commit": null,
+    "future_windows_adoption_result_sha256": null,
+    "future_windows_adoption_review_sha256": null
+  },
+  "retention": "Preserve the accepted complete baseline and every actual attempt/review. This ordinary file packet creates no worktree. Root retains it through normal reviewed publication."
+}
