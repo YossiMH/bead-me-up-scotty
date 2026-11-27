@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "task_key": "type-install-binding",
-  "status": "PENDING_PC_MAPPING_AND_EXECUTION",
+  "status": "PENDING_PC_INSTALLATION_AND_EXECUTION",
   "author": "/root",
   "continuation_revision": 9,
   "candidate_commit": "9e1adece7ff896ce1d6bfdbceed049421bda96af",
@@ -155,16 +155,26 @@
       "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
     }
   },
-  "actual_materialization": null,
+  "actual_materialization": {
+    "status": "passed",
+    "completed_utc": "2026-11-27T06:11:47.851Z",
+    "mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "tasks": 55,
+    "edges": 91,
+    "total_issues": 1009,
+    "original_issues_preserved": 954,
+    "result_path": "20261127/results/materialization-v9.json",
+    "review_path": "20261127/results/materialization-v9-review.json"
+  },
   "task_closer_bound_to_actual_mapping": false,
   "pending": [
-    "PC installation remains pending because the available connections could not start the requested command. Re-establish permitted command access and inspect current state before following the existing revision 9 instructions.",
-    "One accepted direct revision 6 to 9 transition, verified actual 55-ID/91-edge mapping, exact mapping-bound closer and dependency-ordered reconciliation of accepted cloud results.",
-    "Actual logged-in-session tray/Exit/restart, bounded small-archive transfer/staging, guarded installation, configured launch and installed review.",
-    "Accurate canonical handoffs, original native history publication and verification, final native task closure and Riftri worktree/temporary-branch cleanup."
+    "Finish the actual mapping-bound closer and record already accepted cloud results in dependency order.",
+    "Reconcile partial final installer input staging; download and verify the two exact archives through the bounded transfer helper.",
+    "Run actual logged-in-session tray Exit/restart checks, complete checked installation, configured launch and installed review.",
+    "Publish accurate canonical handoffs, original native history and final task closure; finish task-owned worktree and temporary-branch cleanup."
   ],
-  "native_mutations": 0,
-  "pc_actions": 0,
+  "native_mutations": 81,
+  "pc_actions": 3,
   "worktree_cleanup": {
     "status": "pending",
     "latest_probe": {
@@ -177,19 +187,17 @@
     },
     "successor_instructions": "20261125/revision-9/final-installation/README.md#worktree-cleanup-if-this-process-ends",
     "current_session": {
-      "path": "/tmp/beads-handoff-3a99cdcea53b",
-      "parent": "/workspace/scratch/3af3ad4d81c9/bead-me-up-scotty",
+      "path": "/tmp/beads-2889282bfcec/continuation",
+      "parent": "/tmp/beads-2889282bfcec/scotty",
       "created_with": "Riftri 0.7.0 command passthrough to a detached sparse Git worktree",
-      "base_commit": "29a64951c762f468309329267ee44b43ec122a8b",
-      "last_observed_state": "Clean; no edits or commits were made in this temporary worktree.",
-      "cleanup_status": "pending after the cloud terminal became unavailable",
-      "next_action": "When that cloud environment returns, verify the exact worktree path, status, registration and unpublished commits. Preserve any later work; remove this task-owned worktree without force through Riftri. If the path is absent, reconcile its parent Git registration. Do not delete either parent checkout."
+      "cleanup_status": "in use; remove without force after its commits are retained remotely",
+      "next_action": "Verify status, registration and unpublished commits; preserve later work and remove only this task worktree through Riftri. The closer author has a separate registered worktree whose cleanup is also required."
     }
   },
-  "updated_utc": "2026-11-26 20:41:08 UTC",
+  "updated_utc": "2026-11-27T06:24:21.369890+00:00",
   "previous_status": {
-    "commit": "a54c9b5208f8c206c7c67e1f6f12fa65f10ddf60",
-    "sha256": "2b4e7af6d53e6653726d32c1320639c6f3807f806b4e096dc63397841c210322"
+    "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+    "sha256": "59d9dc58f3c52aa71e8350aa0212e9ce2dd3aae43b524d49cf84f48e5238e94d"
   },
   "final_measured_packet": {
     "commit": "70819afe79e783d0db2b10a299155cbeda470d1e",
@@ -270,52 +278,19 @@
       "status": "PASS as retained draft; canonical publication pending actual PC gates"
     }
   },
-  "remaining_active_cloud_execution": false,
+  "remaining_active_cloud_execution": true,
   "assignment_complete": false,
   "latest_continuation": {
-    "checked_utc": "2026-11-26 20:41:08 UTC",
-    "previous_continuation_commit": "29a64951c762f468309329267ee44b43ec122a8b",
-    "source_review": "Separate fresh native and app inspections found no new blocking code defect. The native reviewer also matched all 13 source, document and test file hashes in the accepted final review. Existing checks remain applicable; no source or installer change is needed.",
-    "native_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
-    "app_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
-    "source_publication": "Both remote main branches were read at the baselines required by the accepted installer: native afac9fa0ce9533a707d745018d16a25e4ccff492 and app 459a74537cbbe1dff521c6fc7ad1ce3ec2890683. The installer independently requires those remote baselines three times. Publish main through its existing checked installation procedure.",
-    "downloads": {
-      "status": "Both required build downloads were available with the expected hashes, sizes and producer runs. Recheck metadata before transfer.",
-      "app": {
-        "id": 15003467178,
-        "bytes": 7056005,
-        "sha256": "15a503c45ded58ea48fcce7dd293b563d741a3424b64a39a6bd05edf5b1d409d",
-        "expires_utc": "2026-12-09T08:08:16Z"
-      },
-      "native": {
-        "id": 15014634952,
-        "bytes": 4524263,
-        "sha256": "6bdb10496f976621d0b5545a8ef3b591a317e4a07d7e1f9276eb42d5fa09bba8",
-        "expires_utc": "2026-12-09T11:12:08Z"
-      }
-    },
-    "pc_installation": "pending",
-    "current_task_mapping": "not read; revision 9 actual IDs remain unknown",
-    "pc_command_access": "Supported PC command access remained unavailable. The administrator read-only inspection was refused before starting. No installation, source update or task mutation was attempted.",
-    "next_action": "When supported PC command access returns, inspect current repositories, memory, configuration, processes and previous attempts. Resume the existing revision 9 procedure: actual task mapping, already-staged tray checks, exact archive staging and installation, configured launch, original history reconciliation and cleanup.",
-    "continuation_check": {
-      "status": "enabled",
-      "frequency": "hourly",
-      "first_check_local": "2026-11-26 13:45 America/Los_Angeles",
-      "behavior": "Read the current handoff and check permitted PC access. Continue the authorized installation when access returns; remain quiet for unchanged unavailability. Respect active work, uncertain operations and foreground Unreal/VR resource limits. Disable after the full assignment is complete."
-    },
-    "temporary_cloud_worktree": {
-      "path": "/tmp/beads-handoff-3a99cdcea53b",
-      "parent": "/workspace/scratch/3af3ad4d81c9/bead-me-up-scotty",
-      "created_with": "Riftri 0.7.0 command passthrough to a detached sparse Git worktree",
-      "base_commit": "29a64951c762f468309329267ee44b43ec122a8b",
-      "last_observed_state": "Clean; no edits or commits were made in this temporary worktree.",
-      "cleanup_status": "pending after the cloud terminal became unavailable",
-      "next_action": "When that cloud environment returns, verify the exact worktree path, status, registration and unpublished commits. Preserve any later work; remove this task-owned worktree without force through Riftri. If the path is absent, reconcile its parent Git registration. Do not delete either parent checkout."
-    },
-    "cloud_terminal": "The shared workspace reported 45 MiB free; a historical object read failed for lack of disk space. Later the terminal connection became unavailable. The cause of that later interruption is unconfirmed. No unrelated files were removed.",
-    "historical_cleanup": "Earlier unavailable worktree registrations remain pending; preserve the existing cleanup instructions.",
-    "private_diagnosis_file": "Beads_PC_Access_Diagnosis_2026-11-26.json",
+    "checked_utc": "2026-11-27T06:24:21.369890+00:00",
+    "source_status": "Accepted app 0309539 and native 2d801ba remain unchanged. Both PC source checkouts still match installer baselines; the fifteen original app changes remain present.",
+    "pc_command_access": "Emergency Maintenance command execution is available in this session. Use the accepted bounded task helpers and reconcile each actual result.",
+    "task_mapping": "Revision 9 completed and independently reviewed: 55 tasks, 91 edges and 1009 issues; all original 954 records retained.",
+    "mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "installation": "pending; final helper-file transfer stopped at its live memory check and needs exact file readback before resuming",
+    "tray": "pending; no test process started. The scheduled-task creation interface returned an error; the COM alternative then stopped before registration at its memory check.",
+    "next_action": "Complete the reviewed closer and bounded download helper while finishing the existing staged-file transfer. Resume actual tray checks when the launch memory condition is met; then follow the existing checked installer, configured launch, history and cleanup procedure.",
+    "prior_cloud_worktree_cleanup": "The absent previous continuation worktree registration was removed through Riftri and its absence was verified.",
     "assignment_complete": false
-  }
+  },
+  "pc_action_summary": "Revision 9 inputs staged, direct task transition completed and independently accepted. Final installer input staging started; partial files require readback before continuation. No app or tray test has started."
 }

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "frontend_audit",
+  "reviewed_utc": "2026-11-27T06:22:59.836258+00:00",
+  "scope": "Actual revision-9 coordination materialization and its retained supervisor receipt.",
+  "continuation_revision": 9,
+  "reviewed_files": {
+    "mapping-v9.json": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "materialization-v9-supervisor-result.json": "0459789997852d676a1b1745d60552c9a2faab523fe1f055ec346be859c69cc0",
+    "continuation/20261125/revision-9/install-binding/plan.json": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "continuation/20261125/revision-9/install-binding/plan-review.json": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+    "continuation/20261125/revision-9/install-binding/materialize-v9.mjs": "239e3f21c95853415baed4d50e9b2fcb3829105adec72b26ec0f077acd96c686",
+    "continuation/20261125/revision-9/install-binding/materialize-v9-supervisor.ps1": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3"
+  },
+  "checks": {
+    "mapping_hash": true,
+    "mapping_bound_by_supervisor": true,
+    "accepted_plan_bound": true,
+    "accepted_plan_review_bound": true,
+    "exact_driver_and_supervisor_bound": true,
+    "base_actual_revision_6_bound": true,
+    "complete_55_task_mapping_unique_ids": true,
+    "all_32_previous_ids_preserved": true,
+    "all_23_new_tasks_open_revision_1": true,
+    "mapping_rows_match": true,
+    "exact_3_reopens_open_revision_4": true,
+    "operation_counts_match_reviewed_plan": true,
+    "inventory_and_edge_counts_match": true,
+    "all_preservation_and_complete_verification_flags_true": true,
+    "ready_frontier_matches_plan_and_actual_statuses": true,
+    "successful_single_attempt_no_forced_cleanup": true,
+    "accepted_resource_limits_observed": true
+  },
+  "findings": [],
+  "accepted_result": {
+    "total_issues": 1009,
+    "original_issues_preserved": 954,
+    "continuation_tasks": 55,
+    "blocking_edges": 91,
+    "new_tasks": 23,
+    "description_updates": 15,
+    "added_dependencies": 40,
+    "reopened": {
+      "checkpoint-linux-build": "beadrs-9c6d0088",
+      "checkpoint-linux-checks": "beadrs-50ff08d3",
+      "checkpoint-full-suite": "beadrs-0890de3c"
+    },
+    "ready_task_keys": [
+      "candidate-review",
+      "tray-repair-review",
+      "type-plan-review",
+      "windows-plan-review",
+      "windows-tray"
+    ],
+    "duration_seconds": 11.896,
+    "peak_total_resident_bytes": 321232896,
+    "remaining_owned_processes": 0
+  },
+  "evidence_basis": "The exact hash-bound, previously accepted materializer requires complete inventory, complete descriptions and graph, preserved original rows and history, unchanged config/checkpoint pointer, and per-operation readbacks before emitting the successful mapping. The exact accepted supervisor returned exit 0 and bound that mapping digest. Independent review reproduced the mapping/plan/key/count/status/frontier/hash comparisons from the retrieved records.",
+  "additional_raw_output_required": [],
+  "limits": [
+    "Raw before/after inventories and command streams remain in the private recorded output directory; this review did not retrieve them independently.",
+    "This materialization receipt does not establish task completion, explicit flush, Git publication, installation, logged-in tray behavior, or worktree cleanup."
+  ],
+  "remaining_delivery": "Explicit flush and checked Git publication remain required; preserve the exact task IDs for subsequent guarded task updates. Never replay materialization after this successful attempt."
+}
