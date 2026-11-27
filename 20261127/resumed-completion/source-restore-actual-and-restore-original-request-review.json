@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/review_bead_rs",
+  "evidence": {
+    "source-restore-final-execution.json": {
+      "bytes": 23913,
+      "sha256": "53041a207d635c5c497a71cb21827bb31507341b949c7dd56d9211cd82c793a8"
+    },
+    "source-restore-collector-execution.json": {
+      "bytes": 29556,
+      "sha256": "6ab963e42ed33f2bde95071de9da5486f5cad76ad38784ce86d5096aa42ef96f"
+    },
+    "source-restore-driver-result.json": {
+      "bytes": 13811,
+      "sha256": "ae8c1d41f9805cdd02b7270d3a2b5a0c26808e8b251a26a300bccba43dc1de52"
+    },
+    "source-restore-supervisor-result.json": {
+      "bytes": 10019,
+      "sha256": "ffcf917612db980ab4afe3e3f8d690dfa06555afbb591ca7cd59226b739bbfb8"
+    },
+    "history-restore-original.request.json": {
+      "bytes": 5123,
+      "sha256": "5d8a7d3a02666da373fb7a85867af6dec5f2381b5110b5f0c33a7269ae4bca9a"
+    },
+    "history-restore-original-admission.ps1": {
+      "bytes": 935,
+      "sha256": "68e3c7648300b368787f4bcc09876e779b34796ff85e1b3204d675fb88d806f2"
+    },
+    "history-restore-original-admission-invocation.json": {
+      "bytes": 3256,
+      "sha256": "0089fde4417d1e7b69a175bef6f3a17d3b42f9597e796e802815dc2293974639"
+    }
+  },
+  "source_restore": {
+    "accepted": true,
+    "request_sha256": "c242e146de9359f12b1aeccc987319c95a52f796d36b4f1b0ef0ad15e27a8d65",
+    "runtime_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "verified_generation": "gen-23f6aa665b9916fd8e7d60a08600bc33",
+    "verified_root_sha256": "712301ae10d6a9b60f70059b618e163783ac294a2823082b2447285795bae3eb",
+    "matches_accepted_freeze": true,
+    "original_canonical_restore_verified": true,
+    "original_native_opened": false,
+    "original_git_and_configuration_before_after_receipts_identical": true,
+    "semantic_basis": "The unchanged accepted source verifies the canonical original checkpoint in a fresh disposable target and the frozen continuation in another fresh target, including restored inventory, aligned checkpoint, full database/corpus and recovery audit checks. Original-store absence and original Git state are rechecked.",
+    "duration_seconds": 36.453,
+    "peak_owned_resident_bytes": 528416768,
+    "entry_free_physical_bytes": 4019032064,
+    "observed_owned_processes": 16,
+    "all_observed_exited_zero": true,
+    "remaining_job_members": [],
+    "cleanup_errors": [],
+    "cleanup_assisted": false,
+    "within_unchanged_limits": true
+  },
+  "transport": {
+    "complete_collector_package_and_raw_receipt_hashes_match": true,
+    "supervisor_execution_stdout_is_raw_receipt_plus_crlf": true,
+    "request_runtime_plan_materialization_and_result_bindings_match": true,
+    "integer_process_birth_ticks_preserved": true,
+    "execution_and_collection_exit_zero_without_drops": true,
+    "collector_within_accepted_limits": true
+  },
+  "restore_original_request": {
+    "accepted_for_root_execution": true,
+    "sha256": "5d8a7d3a02666da373fb7a85867af6dec5f2381b5110b5f0c33a7269ae4bca9a",
+    "predecessor": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+      "sha256": "ae8c1d41f9805cdd02b7270d3a2b5a0c26808e8b251a26a300bccba43dc1de52"
+    },
+    "exact_byte_reconstruction_passed": true,
+    "only_changes": [
+      "phase set to restore-original",
+      "supervisor_output set to assigned restore-original directory",
+      "prior.source-restore path/hash bound to this accepted actual result"
+    ],
+    "all_other_fields_unchanged": true,
+    "admission_exact_accepted_form": true,
+    "admission_only_changes": [
+      "phase label",
+      "exact request path",
+      "accepted request hash"
+    ],
+    "encoded_payload_matches_source_except_terminal_lf": true,
+    "phase_result_not_yet_accepted": true
+  },
+  "findings": [],
+  "decision": "Root may execute this exact original-repository restore request with the unchanged supervisor, native runtime, admission guard and serialized writer ownership. The accepted helper rechecks original database absence and preserved state before initialization/restoration. No additional collection or gate is needed.",
+  "activity": {
+    "pc_calls": 0,
+    "product_tests": 0,
+    "builds": 0,
+    "helper_edits": 0
+  }
+}
