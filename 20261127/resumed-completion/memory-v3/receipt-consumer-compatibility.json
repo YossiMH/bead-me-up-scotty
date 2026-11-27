@@ -1,0 +1,33 @@
+{
+  "schema_version": 1,
+  "status": "passed_source_compatibility_inspection",
+  "author": "/root/finish_preparation",
+  "history_driver_sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773",
+  "publisher_sha256": "7db3143e5982cf0bec76c2f3d641976d078e176cfcba89b8d8e191c996654ff2",
+  "checks": [
+    "The history driver consumes process.argv.slice(2) as request path/hash/deadline. Node consumes the new V8 option before script execution; it does not add an application argument. The measured CLI invocation preserves the same program-argument parsing.",
+    "The history driver's prior() and kept() consumers read phase/runtime/plan/materialization/output hashes from driver results. They do not inspect supervisor.command or require a fixed supervisor result key set.",
+    "The publisher's phaseRecord/phaseOutput consumers read passed driver results, original authority, selected generation/root, staged Git state and the retained request.helper_sha256. The history helper remains a137 and the new supervisor flag changes none of those values.",
+    "The fixed history and document receipt collectors transport raw bytes and metadata. They do not parse or index supervisor.command.",
+    "The unchanged outer admission invokes PowerShell with InputManifest/InputSha256/TimeoutSeconds/MaxOwnedResidentMiB. Only its supervisor path and completed request hash need rebinding.",
+    "The supervisor resolves the history driver with PSScriptRoot and a fixed driver basename. Its own PSCommandPath is checked dynamically against manifest.supervisor_sha256; no own-basename check prevents the new filename in existing I.",
+    "The publisher pair imports the same a137 bytes already installed in I. Keeping this path unchanged avoids unnecessary publisher derivatives.",
+    "NODE_OPTIONS and NODE_PATH are removed by the existing supervisor before Node starts, preserving the explicit CLI bound. No execution, deadline, ownership or memory cap guard was removed."
+  ],
+  "actual_review_binding": {
+    "supervisor_command_expected_order": [
+      "exact pinned Node executable",
+      "--max-old-space-size=128",
+      "--max-semi-space-size=4",
+      "unchanged a137 history driver",
+      "completed request path",
+      "exact completed request SHA256",
+      "absolute work deadline"
+    ],
+    "legacy_node_heap_mib": 128,
+    "new_node_semi_space_mib": 4,
+    "history_result_schema_changed": false,
+    "supervisor_result_change": "One additional node_semi_space_mib field and one additional option in command. Independent actual review should check this new exact order.",
+    "pc_execution_accepted": null
+  }
+}

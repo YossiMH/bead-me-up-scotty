@@ -1,0 +1,189 @@
+{
+  "schema_version": 1,
+  "status": "passed_cloud_memory_comparison",
+  "candidate": {
+    "path": "checkpoint-only-handoff-crlf-supervisor-20261127-memory-v3.ps1",
+    "bytes": 19243,
+    "sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553"
+  },
+  "baseline_supervisor": {
+    "bytes": 19195,
+    "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+    "source_commit": "34474ecfb41f8845fb2302782e774286cef6c9c9",
+    "source_path": "20261127/resumed-completion/memory-reduction/checkpoint-only-handoff-crlf-supervisor-20261127.ps1"
+  },
+  "history_driver": {
+    "sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773",
+    "bytes": 84430,
+    "unchanged": true
+  },
+  "measured_runtime": {
+    "node_version": "v25.2.1",
+    "platform": "linux-x64",
+    "node_sha256": "ff2d367cbba86845f4634df2197955188549a129f486b88e955fac037ab29950",
+    "node_archive_sha256": "b9f6a97e81c89a9df45526b4f86dafdccaf12b82295f7bf35bdb2b0f5e68744f",
+    "native_source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "native_sha256": "fa0514a3d105d8951d2bc302c1f4ce46fb9e6ed4be21a2a89300d16b77a1ac1c",
+    "artifact_id": 15016141673,
+    "artifact_sha256": "0ff1219eb6c86dee6b311387cf35b7fcfac6904df55b1e39d8159787f0baf8c2"
+  },
+  "fixture": {
+    "original_canonical_selected_bytes": 17063501,
+    "original_source_commit": "025ebc6a38013402b1936e932c104348aec06fd4",
+    "original_counts": {
+      "issues": 954,
+      "events": 11264,
+      "receipts": 5,
+      "attempt_outcomes": 413
+    },
+    "continuation": "Existing accepted qualification fixture:55 tasks,91 dependency additions,54 closes,200 manifest operations. IDs/times generated afresh; this is not the PC continuation store.",
+    "manifest_bytes": 374345,
+    "manifest_sha256": "0711db4f174934e669850121ffe5cd5036d1ef223eb3734f70215768ceedde66",
+    "manifest_source_commit": "721dd65e4a83e6be256950728f622c2da36d9e52",
+    "manifest_source_packet": "20261127/checkpoint-crlf-handoff/qualification-evidence.json",
+    "source_snapshot_bytes": 8992708,
+    "source_snapshot_sha256": "ec711ee846a376c563663c1ff3f416c702cf4300a7673a551de3c6fc27b513aa",
+    "retained_inventory_rows": 1009
+  },
+  "measurement_import": {
+    "sha256": "eb8bfcb59369bf2c6671e585c91df6ee327ef3a9ee0fdc9a6fde988917eac067",
+    "changes": [
+      "Export selectedManifest",
+      "Export retainCheckpoint",
+      "Export inventoryMap"
+    ],
+    "algorithm_changes": false
+  },
+  "measurements": {
+    "baseline": {
+      "outer_duration_seconds": 17.956588444998488,
+      "profile_duration_ms": 17679,
+      "heap_size_limit": 335544320,
+      "peak_node_rss": 402702336,
+      "peak_native_rss": 59854848,
+      "peak_node_and_native_rss": 432988160,
+      "pre_native": {
+        "rss": 372490240,
+        "heapTotal": 215908352,
+        "heapUsed": 91420208,
+        "external": 4721757,
+        "arrayBuffers": 1076267
+      },
+      "maximum_live_graph_set": {
+        "rss": 365346816,
+        "heapTotal": 235507712,
+        "heapUsed": 101904232,
+        "external": 9552127,
+        "arrayBuffers": 5906637
+      },
+      "maximum_sampled_heap_used": 168677800,
+      "source_counts": {
+        "issues": 1009,
+        "events": 11465,
+        "receipts": 6,
+        "attempt_outcomes": 413
+      },
+      "restored_counts": {
+        "issues": 1009,
+        "events": 11466,
+        "receipts": 7,
+        "attempt_outcomes": 413
+      }
+    },
+    "semispace4": {
+      "outer_duration_seconds": 18.357425613001396,
+      "profile_duration_ms": 17974,
+      "heap_size_limit": 146800640,
+      "peak_node_rss": 262656000,
+      "peak_native_rss": 59834368,
+      "peak_node_and_native_rss": 309202944,
+      "pre_native": {
+        "rss": 248655872,
+        "heapTotal": 120823808,
+        "heapUsed": 106994016,
+        "external": 4721757,
+        "arrayBuffers": 1076267
+      },
+      "maximum_live_graph_set": {
+        "rss": 236457984,
+        "heapTotal": 121810944,
+        "heapUsed": 112521728,
+        "external": 9583424,
+        "arrayBuffers": 5937934
+      },
+      "maximum_sampled_heap_used": 114390160,
+      "source_counts": {
+        "issues": 1009,
+        "events": 11465,
+        "receipts": 6,
+        "attempt_outcomes": 413
+      },
+      "restored_counts": {
+        "issues": 1009,
+        "events": 11466,
+        "receipts": 7,
+        "attempt_outcomes": 413
+      }
+    }
+  },
+  "decision": {
+    "max_semi_space_mib": 4,
+    "old_space_mib": 128,
+    "explicit_gc": false,
+    "history_algorithm_changes": false,
+    "additional_measurements_needed": false,
+    "reason": "A 180 MiB reduction in total V8 heap allowance prevented the default 128 MiB new-space residency. Both complete memory-relevant paths passed, including conservative overlapping live graphs. Node/native peak fell123,785,216 bytes."
+  },
+  "limits": [
+    "These are Linux process observations; they are not a successful Windows restore receipt.",
+    "No PowerShell supervisor/conhost is present in the cloud aggregate. Existing Windows512MiB aggregate enforcement remains unchanged.",
+    "The reproduction uses the accepted synthetic55-task fixture, not live PC data. Git metadata/index operations are excluded; the exact imported checkpoint, database, inventory and retention validators are exercised."
+  ],
+  "evidence": [
+    {
+      "path": "evidence/baseline-profile-result.json",
+      "bytes": 61842,
+      "sha256": "4b293a998992a4955c77f814f03016be9b9beb0e8eac8d1a67d1722ee2224839"
+    },
+    {
+      "path": "evidence/baseline-external-memory.json",
+      "bytes": 176233,
+      "sha256": "152fca4177d41579eef6b7fa378bb251ed1989135097d9394618db0bc98910ea"
+    },
+    {
+      "path": "evidence/semispace4-profile-result.json",
+      "bytes": 61601,
+      "sha256": "c5b1defa3a6df149edd04d47b6be0cbe63b2303021acdde5bb9b156228287014"
+    },
+    {
+      "path": "evidence/semispace4-external-memory.json",
+      "bytes": 179084,
+      "sha256": "b92b80a55f1231b8156eded4db386c795a68379168dd89f027c0384790c2683b"
+    },
+    {
+      "path": "evidence/profile-restore-memory.mjs",
+      "bytes": 9527,
+      "sha256": "2f212adce274b1f1407f16d89582312d4c4e7ad51c33f5f22af7bac467ae113a"
+    },
+    {
+      "path": "evidence/measure-one.py",
+      "bytes": 1660,
+      "sha256": "105d7814e037d997b500de50b29350a559223f94fca94027d05c963b09f26b07"
+    },
+    {
+      "path": "evidence/prepare-audit-snapshot.mjs",
+      "bytes": 1797,
+      "sha256": "11f0dffbf9ac84498a591da55459e49cd812fc936c92abfb46ccedcf504fdabc"
+    },
+    {
+      "path": "evidence/fixture-identities.json",
+      "bytes": 920,
+      "sha256": "4473dfff0d521a364a95a855dc65646deaa772aa8e84f5a2b74c256731ceecdd"
+    },
+    {
+      "path": "evidence/fixture-setup-commands.json",
+      "bytes": 1453,
+      "sha256": "e3077644b330c0a7b7843ba8e52a321ca5fbe7d2c62aaaf43d146bc4c90edf30"
+    }
+  ]
+}

@@ -1,0 +1,14 @@
+import fs from 'node:fs';
+import path from 'node:path';
+import assert from 'node:assert/strict';
+import {checkpoint,databaseSnapshot,selectedManifest,digest,verifyOriginalRetention,ORIGINAL_CHECKOUT} from './checkpoint-measurement-import.mjs';
+const root=path.dirname(new URL(import.meta.url).pathname),fixture=path.join(root,'fixture'),source=path.join(fixture,'synthetic-continuation');
+const cp=checkpoint(path.join(source,'.beads/checkpoint'));
+assert.equal(cp.pointer.issue_count,1009);assert.equal(cp.pointer.event_count,11465);assert.equal(cp.pointer.attempt_outcome_count,413);
+const snapshot=await databaseSnapshot(path.join(source,'.beads/beads.db'));
+fs.writeFileSync(path.join(fixture,'source-snapshot.json'),JSON.stringify(snapshot,null,2)+'\n',{flag:'wx'});
+const originalEntries=Object.fromEntries(Object.entries(ORIGINAL_CHECKOUT).map(([name,v])=>[name,{mode:'100644',blob:v.blob,bytes:v.canonical_bytes}]));
+verifyOriginalRetention(path.join(fixture,'original-raw'),path.join(fixture,'original-canonical'),originalEntries);
+const meta={source_pointer:cp.pointer,source_files:cp.files,source_manifest:selectedManifest(path.join(source,'.beads/checkpoint')),source_snapshot_bytes:fs.statSync(path.join(fixture,'source-snapshot.json')).size,source_snapshot_sha256:digest(fs.readFileSync(path.join(fixture,'source-snapshot.json'))),original_entries:originalEntries};
+fs.writeFileSync(path.join(fixture,'memory-fixture.json'),JSON.stringify(meta,null,2)+'\n',{flag:'wx'});
+console.log(JSON.stringify({source_counts:{issues:cp.pointer.issue_count,events:cp.pointer.event_count,receipts:cp.pointer.receipt_count,attempt_outcomes:cp.pointer.attempt_outcome_count},snapshot_bytes:meta.source_snapshot_bytes,selected_bytes:Object.values(meta.source_manifest).reduce((s,x)=>s+x.bytes,0)}));

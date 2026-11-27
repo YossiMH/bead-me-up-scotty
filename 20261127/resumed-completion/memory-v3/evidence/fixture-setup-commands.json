@@ -1,0 +1,74 @@
+[
+  {
+    "label": "init",
+    "args": [
+      "--no-auto-flush",
+      "init",
+      "--prefix",
+      "beadrs"
+    ],
+    "status": 0,
+    "elapsed_seconds": 0.018539003998739645,
+    "stdout_bytes": 0,
+    "stderr_bytes": 312
+  },
+  {
+    "label": "restore",
+    "args": [
+      "restore",
+      "--source",
+      "/tmp/beads-02e8a44557c8-memory-engineering/fixture/original-canonical",
+      "--generation",
+      "gen-a569f746bbb268015d996c8ed4c76f57",
+      "--actor",
+      "checkpoint-only-cloud-source",
+      "--prefix",
+      "beadrs",
+      "--format",
+      "json"
+    ],
+    "status": 0,
+    "elapsed_seconds": 6.402826028999698,
+    "stdout_bytes": 1196,
+    "stderr_bytes": 96914
+  },
+  {
+    "label": "manifest",
+    "args": [
+      "--no-auto-flush",
+      "manifest",
+      "commit",
+      "--input",
+      "/tmp/beads-02e8a44557c8-memory-engineering/fixture-manifest.json",
+      "--format",
+      "json"
+    ],
+    "status": 0,
+    "elapsed_seconds": 0.5771277130006638,
+    "stdout_bytes": 79431,
+    "stderr_bytes": 139
+  },
+  {
+    "label": "flush",
+    "args": [
+      "sync",
+      "flush-only"
+    ],
+    "status": 0,
+    "elapsed_seconds": 4.463325501001236,
+    "stdout_bytes": 0,
+    "stderr_bytes": 4798
+  },
+  {
+    "label": "inventory",
+    "args": [
+      "list",
+      "--all",
+      "--json"
+    ],
+    "status": 0,
+    "elapsed_seconds": 0.05669828999816673,
+    "stdout_bytes": 3023643,
+    "stderr_bytes": 0
+  }
+]

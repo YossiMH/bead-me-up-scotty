@@ -1,0 +1,20 @@
+--- accepted/checkpoint-only-handoff-crlf-supervisor-20261127.ps1
++++ candidate/checkpoint-only-handoff-crlf-supervisor-20261127-memory-v3.ps1
+@@ -20,7 +20,7 @@
+ $Streams=[Collections.Generic.List[object]]::new()
+ $Result=[ordered]@{schema_version=1;status='failed';phase=$Phase;started_utc=[DateTime]::UtcNow.ToString('o')
+     timeout_seconds=$TimeoutSeconds;work_stop_seconds=($TimeoutSeconds-12);max_total_resident_mib=$MaxOwnedResidentMiB
+-    baseline_free_required_gib=3;minimum_free_during_work_gib=1;node_heap_mib=128;priority='BelowNormal';sample_interval_ms=100
++    baseline_free_required_gib=3;minimum_free_during_work_gib=1;node_heap_mib=128;node_semi_space_mib=4;priority='BelowNormal';sample_interval_ms=100
+     cleanup_errors=$CleanupErrors;cleanup_assisted=$false;owned_processes=$Owned}
+ function Assert-That([bool]$Value,[string]$Message){if(-not $Value){throw $Message}}
+ function Hash([string]$Value){return (Get-FileHash -LiteralPath $Value -Algorithm SHA256).Hash.ToLowerInvariant()}
+@@ -224,7 +224,7 @@
+     $workDeadline=[DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()+[long](($TimeoutSeconds-22-$Clock.Elapsed.TotalSeconds)*1000)
+     Assert-That ($workDeadline -gt [DateTimeOffset]::UtcNow.ToUnixTimeMilliseconds()) 'Prerequisites consumed work budget.'
+     $start=[Diagnostics.ProcessStartInfo]::new();$start.FileName=$NodePath
+-    $arguments=@('--max-old-space-size=128',$driver,$InputManifest,$InputSha256,[string]$workDeadline)
++    $arguments=@('--max-old-space-size=128','--max-semi-space-size=4',$driver,$InputManifest,$InputSha256,[string]$workDeadline)
+     $start.Arguments=($arguments|ForEach-Object{Quote-Argument $_})-join ' '
+     $start.WorkingDirectory=$repository;$start.UseShellExecute=$false;$start.CreateNoWindow=$true
+     $start.RedirectStandardInput=$true;$start.RedirectStandardOutput=$true;$start.RedirectStandardError=$true
