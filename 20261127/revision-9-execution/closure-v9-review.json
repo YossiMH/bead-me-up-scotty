@@ -1,0 +1,563 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/delivery_audit",
+  "independent": true,
+  "reviewed_utc": "2026-11-27T06:39:49.327114+00:00",
+  "scope": "Complete static review of the separately named revision-9 completion driver, bounded Windows supervisor, focused checks, exact 27-task request, retained acceptance basis and invocation instructions.",
+  "candidate_directory": "20261127/revision-9-execution",
+  "reviewed_files": {
+    "README.md": {
+      "sha256": "44d695fc9343f921c973dc90efda076b42a9ca8787c481d5c1b168290e3f5770",
+      "bytes": 8480
+    },
+    "close-accepted-cloud-20261127.json": {
+      "sha256": "f22148bb1f58fac237ce9935e72ca98592aaa6a36a2df3f29b58e9d855cc363e",
+      "bytes": 16535
+    },
+    "close-accepted-cloud-basis-20261127.json": {
+      "sha256": "b4517f7e57a7ff9f88b1e2c15ab5fa7e401d0bed3668fee1c0b3882ae57fa7cf",
+      "bytes": 13513
+    },
+    "record-accepted-tasks-v9-supervisor.ps1": {
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426",
+      "bytes": 17282
+    },
+    "record-accepted-tasks-v9.mjs": {
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3",
+      "bytes": 13438
+    },
+    "test-record-accepted-tasks-v9.mjs": {
+      "sha256": "c561cfea7dbe3cf59a682cd6ab7c414a6484eb321354abbe4ab86287c124c1cb",
+      "bytes": 7955
+    },
+    "author-checks.json": {
+      "sha256": "df9078f48dd90cc6948726a54580b399ebf276a4c7611fbc18131974e6e9da42",
+      "bytes": 7059
+    }
+  },
+  "fixed_inputs": {
+    "source_commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+    "accepted_plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "accepted_plan_review_sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+    "actual_mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "old_closer_sha256": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+    "accepted_supervisor_sha256": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3",
+    "coordination_binary_sha256": "25a05bdfd8feaea92faf6827e9268e597d25432826f1082c7ebadc3af8658798",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "store_uuid": "1c4f5d56-dcff-cbc5-ddf9-c536653c45f4"
+  },
+  "method": [
+    "Read the complete driver, supervisor, test file, request, basis, final README and author record. Compared the complete driver delta with the accepted revision-6 closer and the complete supervisor delta with the accepted revision-9 materializer wrapper.",
+    "Read each selected task requirement and completion condition from the exact accepted revision-9 plan, retaining the common ownership, resource, preservation and publication instructions.",
+    "Read the retained acceptance decisions and their source/run/qualification details for every selected closure. Compared all 14 referenced records against their exact Git objects at the immutable basis commit; every SHA-256 matched.",
+    "Independently reconciled all 27 requested keys, actual IDs, open statuses, revisions and directed prerequisites against the actual materialization mapping. No provisional ID or current closed task is selected.",
+    "Inspected the supplied 13-case success/refusal check source, its recorded successful Node syntax/test results and both complete clean author inspections. Rehashed all seven final candidate files after the author freeze."
+  ],
+  "driver_checks": [
+    "Exact accepted plan, actual materialization and request bytes are checked before output creation or native commands; request fields must bind that same plan and mapping.",
+    "The complete live 1009-row inventory must preserve all 954 original rows and every continuation title, description, resource list and directed edge. The actual graph must equal the accepted 55-task/91-edge graph.",
+    "Only named open, unassigned, current-revision tasks whose declared prerequisites are already closed or earlier in the request produce close operations. Final preserve-and-clean closure is explicitly excluded from this isolated-store runner.",
+    "One native manifest contains the revision-guarded closes. Exact dry-run counts, a second unchanged live inventory and repeated immutable input/manifest hashes precede its single commit. All native invocations disable automatic checkpoint flushing.",
+    "Per-command intent/output/exit records and the exclusive output directory preserve uncertain outcomes. The driver refuses the final-history authority-freeze marker, using the exact marker written by the accepted history helper.",
+    "Post-commit comparison permits only requested status, revision and update-time changes while ignoring only derived dependency fields. Original rows and all other stored task fields remain checked; configuration, original inventory input and current checkpoint pointer are rehashed unchanged."
+  ],
+  "supervisor_checks": {
+    "embedded_csharp_byte_identical": true,
+    "unchanged_functions": [
+      "Assert-That",
+      "Hash",
+      "Safe-Path",
+      "Quote-Argument",
+      "Refresh-Owned",
+      "Stop-Owned"
+    ],
+    "sample_budget_delta": "Only the deadline error message changes; resource behavior is unchanged.",
+    "retained_limits": {
+      "baseline_free_gib": 1,
+      "aggregate_owned_resident_mib": 512,
+      "node_heap_mib": 128,
+      "total_seconds": 180,
+      "work_stop_seconds": 168,
+      "sampling_ms": 100,
+      "native_call_seconds": 15,
+      "priority": "BelowNormal"
+    },
+    "ownership": "Same retained process handles, PID/start identity, session membership, unnamed task Job and owned-only cleanup. The hard deadline and cleanup accounting are unchanged.",
+    "binding": "The wrapper pins the new driver, qualified Job helper, accepted plan/review, actual mapping and supplied request. Result readback must match driver/request/plan/mapping identities and observed exit zero.",
+    "paths_and_attempts": "Local non-reparse paths, fresh output directories and authority-freeze refusal precede native execution."
+  },
+  "request_acceptance": {
+    "request_sha256": "f22148bb1f58fac237ce9935e72ca98592aaa6a36a2df3f29b58e9d855cc363e",
+    "tasks_to_close": 27,
+    "already_closed": 15,
+    "expected_closed_after": 42,
+    "expected_open_after": 13,
+    "task_checks": [
+      {
+        "key": "type-plan-review",
+        "id": "beadrs-59794133",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "v7-plan",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "windows-plan-review",
+        "id": "beadrs-4d20040a",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "v9-plan",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-backend-tests",
+        "id": "beadrs-aae3f903",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "native-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-app-tests",
+        "id": "beadrs-0ba2e5ba",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "app-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "windows-maintenance-red-build",
+        "id": "beadrs-7163da63",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "windows-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "windows-test-fixtures",
+        "id": "beadrs-ecdd626a",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "windows-fixtures",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-backend-red-build",
+        "id": "beadrs-f0af3211",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "native-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-backend-tests-review",
+        "id": "beadrs-3d6a4f90",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "native-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-app-red",
+        "id": "beadrs-12630573",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "app-red",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-app-tests-review",
+        "id": "beadrs-e19b45c3",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "app-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "windows-maintenance-red",
+        "id": "beadrs-1058323a",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "windows-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-backend-red",
+        "id": "beadrs-9b877e7d",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "native-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-app-change",
+        "id": "beadrs-23215060",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "app-final",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "windows-checkpoint-tests-review",
+        "id": "beadrs-fd1bdb83",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "windows-tests",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-backend-change",
+        "id": "beadrs-6ba949cd",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "native-final",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-app-checks",
+        "id": "beadrs-96c08619",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "app-final",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-app-review",
+        "id": "beadrs-bd751f6e",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "app-final",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "windows-checkpoint-repair",
+        "id": "beadrs-9a124cf2",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "native-final",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "checkpoint-linux-build",
+        "id": "beadrs-9c6d0088",
+        "current_revision": 4,
+        "expected_closed_revision": 5,
+        "accepted_result": "native-builds",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "checkpoint-windows-build",
+        "id": "beadrs-70721b6a",
+        "current_revision": 2,
+        "expected_closed_revision": 3,
+        "accepted_result": "native-builds",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "checkpoint-repair-review",
+        "id": "beadrs-aee6eabb",
+        "current_revision": 2,
+        "expected_closed_revision": 3,
+        "accepted_result": "native-final",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-backend-checks",
+        "id": "beadrs-7454daee",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "native-affected",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-backend-review",
+        "id": "beadrs-83bf86f3",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "native-final",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "checkpoint-linux-checks",
+        "id": "beadrs-50ff08d3",
+        "current_revision": 4,
+        "expected_closed_revision": 5,
+        "accepted_result": "native-linux",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "checkpoint-windows-checks",
+        "id": "beadrs-cd3f5a63",
+        "current_revision": 2,
+        "expected_closed_revision": 3,
+        "accepted_result": "native-windows",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "checkpoint-full-suite",
+        "id": "beadrs-0890de3c",
+        "current_revision": 4,
+        "expected_closed_revision": 5,
+        "accepted_result": "native-linux",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      },
+      {
+        "key": "type-windows-roundtrip",
+        "id": "beadrs-4cbebb4a",
+        "current_revision": 1,
+        "expected_closed_revision": 2,
+        "accepted_result": "app-windows",
+        "all_declared_prerequisites_satisfied_in_request_order": true,
+        "required_result_covered_by_retained_acceptance": true
+      }
+    ],
+    "accepted_result_records": {
+      "v7-plan": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-7/plan-review.json",
+        "sha256": "9d0673d5f7c5d151bf4fdf250295b7ec60ad3326df7e313fa06be06216e27ce1"
+      },
+      "v9-plan": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/plan-review.json",
+        "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+      },
+      "native-tests": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-7/results/type-backend-tests-review.json",
+        "sha256": "6002a6e957acc5fea4c812c50f5f8f81642186718407de675f0cd7166e32dd7c"
+      },
+      "app-tests": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-7/results/type-app-tests-review.json",
+        "sha256": "56864be83fd6420581ee084212f4102626ac2a74b3d23d7b17ca5d3e07ef4d5f"
+      },
+      "app-red": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-7/results/type-app-red.json",
+        "sha256": "396000c050794a6697cc82ca30e81b29d6f07334b59accc1d707110733d3dc44"
+      },
+      "windows-tests": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/windows-checkpoint-tests-review.json",
+        "sha256": "c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11"
+      },
+      "windows-fixtures": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/windows-test-fixtures-review.json",
+        "sha256": "ab031c1c6c5ce3706fa183b148d84a6a9b84c1825c02e1f7a79ef6385cc4d1c1"
+      },
+      "native-builds": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/native-final-build-results-review.json",
+        "sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5"
+      },
+      "native-affected": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/type-backend-checks-review.json",
+        "sha256": "66f8c9b060745de0947cdd92eafbe74aef723fee7e9e56896b616da3589c1f05"
+      },
+      "native-linux": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/native-linux-qualification-review.json",
+        "sha256": "5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf"
+      },
+      "native-windows": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+        "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae"
+      },
+      "native-final": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/native-final-review.json",
+        "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+      },
+      "app-final": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/type-app-review.json",
+        "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e"
+      },
+      "app-windows": {
+        "repository": "YossiMH/bead-me-up-scotty",
+        "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+        "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+        "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b"
+      }
+    },
+    "all_14_result_hashes_match_immutable_git_objects": true,
+    "additional_result_relationships": [
+      "The app Red record is independently accepted by type-app-tests-review, including all 48 cases and the ten intended failures.",
+      "The native tests review accepts both exact compilation and the eleven-case Red execution; its later artifact-upload failure remains explicitly retained and was already judged nonblocking for this acceptance.",
+      "The Windows tests review accepts the actual six-case maintenance Red and exact tests-only fixture candidate before the two-predicate production correction.",
+      "The final native review covers both native review task keys and the exact final source, platform builds, affected checks, full Linux suite and original-corpus recovery. The final app review includes the completed final-native Windows roundtrip.",
+      "Review tasks whose graph permits an early static start are closed here on already completed final review evidence. Their required actual results exist in the retained evidence even where the separate result task is recorded later in this same atomic closure request."
+    ],
+    "preserved_qualifications": [
+      "Final native source is 2d801ba455b7a722daf644a7615445117d57e8e9 and app source is 0309539797fd7d016e2b8fd8bdc0ae9cefc20219.",
+      "Full Linux qualification reports 1913 passes, zero failures and eight pre-existing ignores; the 95 directly affected cases pass.",
+      "Windows qualification reports 98 ordinary passes and complete prescribed characterization coverage. The ten GREEN and two caught RED classifications remain distinct; the two RED outcomes are not relabeled as ordinary passing assertions.",
+      "The native smoke includes 54 successful commands and one expected stale-revision refusal. Original-corpus acceptance preserves 954 issues, 11264 events, five provenance receipts and 413 outcomes.",
+      "Logged-in PC tray, installation, configured launch, final task-history publication and cleanup are outside these 27 completed cloud tasks."
+    ],
+    "remaining_open_tasks": [
+      {
+        "key": "windows-tray",
+        "id": "beadrs-ea7bc5dd",
+        "status": "open",
+        "revision": 3
+      },
+      {
+        "key": "candidate-review",
+        "id": "beadrs-ba8cbd23",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "install",
+        "id": "beadrs-0bab2976",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "configured-launch",
+        "id": "beadrs-c9526055",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "installed-review",
+        "id": "beadrs-47da80ac",
+        "status": "open",
+        "revision": 3
+      },
+      {
+        "key": "backend-handoff",
+        "id": "beadrs-1371879c",
+        "status": "open",
+        "revision": 3
+      },
+      {
+        "key": "app-handoff",
+        "id": "beadrs-f0039a6a",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "backend-text-review",
+        "id": "beadrs-30f13b5b",
+        "status": "open",
+        "revision": 3
+      },
+      {
+        "key": "app-text-review",
+        "id": "beadrs-c62c1990",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "preserve-and-clean",
+        "id": "beadrs-3ec972f8",
+        "status": "open",
+        "revision": 5
+      },
+      {
+        "key": "tray-repair-review",
+        "id": "beadrs-a7df9f15",
+        "status": "open",
+        "revision": 2
+      },
+      {
+        "key": "type-install-binding",
+        "id": "beadrs-86f1e737",
+        "status": "open",
+        "revision": 1
+      },
+      {
+        "key": "type-install-binding-review",
+        "id": "beadrs-261d621c",
+        "status": "open",
+        "revision": 1
+      }
+    ],
+    "expected_graph_ready_open_keys": [
+      "tray-repair-review",
+      "windows-tray",
+      "candidate-review",
+      "type-install-binding"
+    ]
+  },
+  "author_checks": {
+    "author_record_sha256": "df9078f48dd90cc6948726a54580b399ebf276a4c7611fbc18131974e6e9da42",
+    "complete_clean_inspections": 2,
+    "node_syntax_checks_exit_zero": 2,
+    "focused_tests": 13,
+    "focused_passed": 13,
+    "focused_failed": 0,
+    "focused_skipped": 0,
+    "candidate_source_hashes_match": true
+  },
+  "resolved_findings": [
+    {
+      "id": "C1",
+      "area": "Invocation instructions",
+      "resolution": "The final README includes the approved process-scoped ExecutionPolicy Bypass flag and explicit hidden launch flags. Driver and supervisor source bytes remained unchanged."
+    }
+  ],
+  "findings": [],
+  "verdict": "PASS for publication and the remaining ordinary Windows parser/preflight step. After that succeeds, root may execute this exact 27-task request once under its reviewed supervisor and independently reconcile the original result bytes.",
+  "remaining_before_mutation": [
+    "Parse the exact PowerShell supervisor successfully.",
+    "Publish and stage the exact accepted bytes; verify staged hashes and fresh attempt/freeze guards.",
+    "Recheck current task state and the retained memory condition through the root-owned execution path."
+  ],
+  "required_actual_acceptance": "Require observed supervisor and driver exit zero, final passed receipts with matching identities, no assisted cleanup or remaining Job member, exactly the 27 requested close transitions and unchanged other rows. Reconcile any interrupted or failed attempt before another mutation.",
+  "actual_task_closure_accepted": false,
+  "reviewer_actions": {
+    "source_edits": 0,
+    "product_builds_or_tests": 0,
+    "pc_calls": 0,
+    "task_store_writes": 0
+  },
+  "cleanup": "After publication and completed use, preserve exact records and remove only the clean task-owned closure-v9 Riftri worktree through the established cleanup path."
+}

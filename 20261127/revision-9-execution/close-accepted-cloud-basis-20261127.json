@@ -1,0 +1,452 @@
+{
+  "schema_version": 1,
+  "request": "close-accepted-cloud-20261127.json",
+  "request_sha256": "f22148bb1f58fac237ce9935e72ca98592aaa6a36a2df3f29b58e9d855cc363e",
+  "source_commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+  "actual_mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+  "total_issues": 1009,
+  "continuation_tasks": 55,
+  "blocking_edges": 91,
+  "original_issues": 954,
+  "tasks_to_close": 27,
+  "already_closed_tasks": 15,
+  "remaining_open_tasks": 13,
+  "accepted_results": {
+    "v7-plan": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-7/plan-review.json",
+      "sha256": "9d0673d5f7c5d151bf4fdf250295b7ec60ad3326df7e313fa06be06216e27ce1"
+    },
+    "v9-plan": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/plan-review.json",
+      "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7"
+    },
+    "native-tests": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-7/results/type-backend-tests-review.json",
+      "sha256": "6002a6e957acc5fea4c812c50f5f8f81642186718407de675f0cd7166e32dd7c"
+    },
+    "app-tests": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-7/results/type-app-tests-review.json",
+      "sha256": "56864be83fd6420581ee084212f4102626ac2a74b3d23d7b17ca5d3e07ef4d5f"
+    },
+    "app-red": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-7/results/type-app-red.json",
+      "sha256": "396000c050794a6697cc82ca30e81b29d6f07334b59accc1d707110733d3dc44"
+    },
+    "windows-tests": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/windows-checkpoint-tests-review.json",
+      "sha256": "c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11"
+    },
+    "windows-fixtures": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/windows-test-fixtures-review.json",
+      "sha256": "ab031c1c6c5ce3706fa183b148d84a6a9b84c1825c02e1f7a79ef6385cc4d1c1"
+    },
+    "native-builds": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/native-final-build-results-review.json",
+      "sha256": "b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5"
+    },
+    "native-affected": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/type-backend-checks-review.json",
+      "sha256": "66f8c9b060745de0947cdd92eafbe74aef723fee7e9e56896b616da3589c1f05"
+    },
+    "native-linux": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/native-linux-qualification-review.json",
+      "sha256": "5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf"
+    },
+    "native-windows": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+      "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae"
+    },
+    "native-final": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/native-final-review.json",
+      "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676"
+    },
+    "app-final": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/type-app-review.json",
+      "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e"
+    },
+    "app-windows": {
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+      "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+      "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b"
+    }
+  },
+  "dependency_order": [
+    {
+      "key": "type-plan-review",
+      "id": "beadrs-59794133",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [],
+      "accepted_result": "v7-plan"
+    },
+    {
+      "key": "windows-plan-review",
+      "id": "beadrs-4d20040a",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [],
+      "accepted_result": "v9-plan"
+    },
+    {
+      "key": "type-backend-tests",
+      "id": "beadrs-aae3f903",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-plan-review"
+      ],
+      "accepted_result": "native-tests"
+    },
+    {
+      "key": "type-app-tests",
+      "id": "beadrs-0ba2e5ba",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-plan-review"
+      ],
+      "accepted_result": "app-tests"
+    },
+    {
+      "key": "windows-maintenance-red-build",
+      "id": "beadrs-7163da63",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "windows-plan-review"
+      ],
+      "accepted_result": "windows-tests"
+    },
+    {
+      "key": "windows-test-fixtures",
+      "id": "beadrs-ecdd626a",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "windows-plan-review"
+      ],
+      "accepted_result": "windows-fixtures"
+    },
+    {
+      "key": "type-backend-red-build",
+      "id": "beadrs-f0af3211",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-backend-tests"
+      ],
+      "accepted_result": "native-tests"
+    },
+    {
+      "key": "type-backend-tests-review",
+      "id": "beadrs-3d6a4f90",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-backend-tests"
+      ],
+      "accepted_result": "native-tests"
+    },
+    {
+      "key": "type-app-red",
+      "id": "beadrs-12630573",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-app-tests"
+      ],
+      "accepted_result": "app-red"
+    },
+    {
+      "key": "type-app-tests-review",
+      "id": "beadrs-e19b45c3",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-app-tests"
+      ],
+      "accepted_result": "app-tests"
+    },
+    {
+      "key": "windows-maintenance-red",
+      "id": "beadrs-1058323a",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "windows-maintenance-red-build"
+      ],
+      "accepted_result": "windows-tests"
+    },
+    {
+      "key": "type-backend-red",
+      "id": "beadrs-9b877e7d",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-backend-red-build"
+      ],
+      "accepted_result": "native-tests"
+    },
+    {
+      "key": "type-app-change",
+      "id": "beadrs-23215060",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-app-tests-review",
+        "type-app-red"
+      ],
+      "accepted_result": "app-final"
+    },
+    {
+      "key": "windows-checkpoint-tests-review",
+      "id": "beadrs-fd1bdb83",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "windows-plan-review",
+        "windows-maintenance-red",
+        "windows-test-fixtures"
+      ],
+      "accepted_result": "windows-tests"
+    },
+    {
+      "key": "type-backend-change",
+      "id": "beadrs-6ba949cd",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-backend-red",
+        "type-backend-tests-review"
+      ],
+      "accepted_result": "native-final"
+    },
+    {
+      "key": "type-app-checks",
+      "id": "beadrs-96c08619",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-app-change"
+      ],
+      "accepted_result": "app-final"
+    },
+    {
+      "key": "type-app-review",
+      "id": "beadrs-bd751f6e",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-app-change"
+      ],
+      "accepted_result": "app-final"
+    },
+    {
+      "key": "windows-checkpoint-repair",
+      "id": "beadrs-9a124cf2",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "windows-checkpoint-tests-review",
+        "type-backend-change"
+      ],
+      "accepted_result": "native-final"
+    },
+    {
+      "key": "checkpoint-linux-build",
+      "id": "beadrs-9c6d0088",
+      "revision": 4,
+      "already_closed_prerequisites": [
+        "checkpoint-repair"
+      ],
+      "earlier_request_prerequisites": [
+        "type-backend-change",
+        "windows-checkpoint-repair"
+      ],
+      "accepted_result": "native-builds"
+    },
+    {
+      "key": "checkpoint-windows-build",
+      "id": "beadrs-70721b6a",
+      "revision": 2,
+      "already_closed_prerequisites": [
+        "checkpoint-repair"
+      ],
+      "earlier_request_prerequisites": [
+        "type-backend-change",
+        "windows-checkpoint-repair"
+      ],
+      "accepted_result": "native-builds"
+    },
+    {
+      "key": "checkpoint-repair-review",
+      "id": "beadrs-aee6eabb",
+      "revision": 2,
+      "already_closed_prerequisites": [
+        "checkpoint-repair"
+      ],
+      "earlier_request_prerequisites": [
+        "windows-checkpoint-repair"
+      ],
+      "accepted_result": "native-final"
+    },
+    {
+      "key": "type-backend-checks",
+      "id": "beadrs-7454daee",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-backend-change",
+        "windows-checkpoint-repair"
+      ],
+      "accepted_result": "native-affected"
+    },
+    {
+      "key": "type-backend-review",
+      "id": "beadrs-83bf86f3",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-backend-change",
+        "windows-checkpoint-repair"
+      ],
+      "accepted_result": "native-final"
+    },
+    {
+      "key": "checkpoint-linux-checks",
+      "id": "beadrs-50ff08d3",
+      "revision": 4,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "checkpoint-linux-build"
+      ],
+      "accepted_result": "native-linux"
+    },
+    {
+      "key": "checkpoint-windows-checks",
+      "id": "beadrs-cd3f5a63",
+      "revision": 2,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "checkpoint-windows-build"
+      ],
+      "accepted_result": "native-windows"
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "id": "beadrs-0890de3c",
+      "revision": 4,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "checkpoint-linux-build"
+      ],
+      "accepted_result": "native-linux"
+    },
+    {
+      "key": "type-windows-roundtrip",
+      "id": "beadrs-4cbebb4a",
+      "revision": 1,
+      "already_closed_prerequisites": [],
+      "earlier_request_prerequisites": [
+        "type-app-checks",
+        "type-backend-checks",
+        "checkpoint-windows-build"
+      ],
+      "accepted_result": "app-windows"
+    }
+  ],
+  "deferred_open_tasks": [
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "revision": 2
+    },
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "revision": 3
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "revision": 5
+    },
+    {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "revision": 5
+    },
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "revision": 5
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "revision": 3
+    },
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "revision": 3
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "revision": 5
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "revision": 3
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "revision": 5
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "revision": 5
+    },
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "revision": 1
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "revision": 1
+    }
+  ]
+}

@@ -1,0 +1,143 @@
+{
+  "schema_version": 1,
+  "accepted_plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+  "materialization_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+  "root_is_sole_state_writer": true,
+  "tasks": [
+    {
+      "key": "type-plan-review",
+      "revision": 1,
+      "reason": "The complete revision 7 plan and expanded type-editing tasks received an independent PASS before any production correction. The later accepted revision 9 plan retains this completed review. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-7/plan-review.json; SHA256 9d0673d5f7c5d151bf4fdf250295b7ec60ad3326df7e313fa06be06216e27ce1."
+    },
+    {
+      "key": "windows-plan-review",
+      "revision": 1,
+      "reason": "Independent PASS accepts the complete revision 9 plan, its 55 distinct tasks and 91 directed blocking edges, the tests-first Windows contention repair, final-source checks and original-state preservation requirements. This is the exact plan used by the successful actual revision 9 materialization. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/plan-review.json; SHA256 e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7."
+    },
+    {
+      "key": "type-backend-tests",
+      "revision": 1,
+      "reason": "Tests-only native candidate 14051553b607bc160fb46f053c52ddeeadf846db added eleven permanent file/stdin, capability, claim, revision, atomicity and state-preservation cases. Independent review accepted their complete design and intended failures. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-7/results/type-backend-tests-review.json; SHA256 6002a6e957acc5fea4c812c50f5f8f81642186718407de675f0cd7166e32dd7c."
+    },
+    {
+      "key": "type-app-tests",
+      "revision": 1,
+      "reason": "Tests-only app source 3d3b0f3850e359bfb8d320d530f132a7e0d67469 received independent PASS. Existing cases and new exact UTF-8 boundaries, early unsupported-type refusal, file cleanup, claimed edits and native/HTTP checks were inspected; the actual 48-case run exposed the ten intended failures. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-7/results/type-app-tests-review.json; SHA256 56864be83fd6420581ee084212f4102626ac2a74b3d23d7b17ca5d3e07ef4d5f."
+    },
+    {
+      "key": "windows-maintenance-red-build",
+      "revision": 1,
+      "reason": "Hosted run 45597738356 compiled the existing six-case redaction_transaction target on unchanged c90f0cdbade93f9e9e6206e9a4d1999fa63afb1b with exit 0. Independent review confirmed both selected executable identities, all post-compile source hashes and the separate actual execution. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/windows-checkpoint-tests-review.json; SHA256 c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11."
+    },
+    {
+      "key": "windows-test-fixtures",
+      "revision": 1,
+      "reason": "Independent PASS accepts tests-only native candidate b492aa51b6f9a6049298d0534674572dc0c5a5e5. It retains the empty publish.lock map entry with a zero-length metadata check and changes only two oversized notes setup calls to existing stdin transport; every production assertion remains intact. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/windows-test-fixtures-review.json; SHA256 ab031c1c6c5ce3706fa183b148d84a6a9b84c1825c02e1f7a79ef6385cc4d1c1."
+    },
+    {
+      "key": "type-backend-red-build",
+      "revision": 1,
+      "reason": "Hosted run 45570938082 compiled native tests-only source 14051553b607bc160fb46f053c52ddeeadf846db with compiler exit 0. The accepted review binds the compiled bead and issue_type_file executable paths and hashes to the subsequent recorded failure run. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-7/results/type-backend-tests-review.json; SHA256 6002a6e957acc5fea4c812c50f5f8f81642186718407de675f0cd7166e32dd7c."
+    },
+    {
+      "key": "type-backend-tests-review",
+      "revision": 1,
+      "reason": "Independent review read all native type-file tests and the specification, verified tests-only source 14051553b607bc160fb46f053c52ddeeadf846db and reconciled the actual compile plus eleven-case expected-failure run. It returned PASS with no findings. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-7/results/type-backend-tests-review.json; SHA256 6002a6e957acc5fea4c812c50f5f8f81642186718407de675f0cd7166e32dd7c."
+    },
+    {
+      "key": "type-app-red",
+      "revision": 1,
+      "reason": "Hosted run 45571286830 ran the complete 48-case native-editing target against tests-only source 3d3b0f3850e359bfb8d320d530f132a7e0d67469. It recorded 38 passes, ten intended failures, no skips or cancellations, command exit 1 and no remaining edit directories. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-7/results/type-app-red.json; SHA256 396000c050794a6697cc82ca30e81b29d6f07334b59accc1d707110733d3dc44."
+    },
+    {
+      "key": "type-app-tests-review",
+      "revision": 1,
+      "reason": "Independent review accepted the complete app type-transport test design and actual hosted run 45571286830: all 32 previous cases and six compatible new controls passed, while exactly ten missing-transport or early-refusal assertions failed. No production code changed in the reviewed tests candidate. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-7/results/type-app-tests-review.json; SHA256 56864be83fd6420581ee084212f4102626ac2a74b3d23d7b17ca5d3e07ef4d5f."
+    },
+    {
+      "key": "windows-maintenance-red",
+      "revision": 1,
+      "reason": "Hosted run 45597738356 executed the complete six-case maintenance target once: five passes, one intended concurrent-request failure and exit 101. Its error was inability to acquire the workspace maintenance lock, with no operation-lock failure, filtered case, timeout or remaining owned child. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/windows-checkpoint-tests-review.json; SHA256 c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11."
+    },
+    {
+      "key": "type-backend-red",
+      "revision": 1,
+      "reason": "Hosted run 45570938082 executed the eleven-case issue_type_file target: one pass, ten expected failures, zero ignores and exit 101. File and stdin cases failed because the unchanged native parser lacked --issue-type-file; all fixtures initialized. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-7/results/type-backend-tests-review.json; SHA256 6002a6e957acc5fea4c812c50f5f8f81642186718407de675f0cd7166e32dd7c."
+    },
+    {
+      "key": "type-app-change",
+      "revision": 1,
+      "reason": "App source 0309539797fd7d016e2b8fd8bdc0ae9cefc20219 implements the reviewed custom-type file transport across native-process, native-edit and native-store, with compatibility documentation. The final independent review accepts those exact files, the fresh runtime and actual Linux and Windows integration results. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/type-app-review.json; SHA256 5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e."
+    },
+    {
+      "key": "windows-checkpoint-tests-review",
+      "revision": 1,
+      "reason": "Independent PASS combines the actual Windows operation-lock failures, the separate five-pass/one-failure maintenance run 45597738356 and exact tests-only fixture source b492aa51b6f9a6049298d0534674572dc0c5a5e5. Complete tests and original logs were inspected before either remaining contention predicate changed. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/windows-checkpoint-tests-review.json; SHA256 c3989da9657d47725b5fc07776086bea5a2e33c354d864cd3df3950bf8d62f11."
+    },
+    {
+      "key": "type-backend-change",
+      "revision": 1,
+      "reason": "The final accepted native source 2d801ba455b7a722daf644a7615445117d57e8e9 contains the additive --issue-type-file reader, optional Boolean capability and schema declaration, documentation and guarded edit integration. The final independent review accepts the complete unchanged source and its successful platform checks. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-final-review.json; SHA256 2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676."
+    },
+    {
+      "key": "type-app-checks",
+      "revision": 1,
+      "reason": "Hosted run 45573503400 passed all 115 adapter checks with zero failures or skips, lint, production build, TypeScript and source comparisons on app 0309539797fd7d016e2b8fd8bdc0ae9cefc20219. The accepted runtime contains 560 files and BUILD_ID YIOHeRJTEdlOszyc4LyHr. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/type-app-review.json; SHA256 5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e."
+    },
+    {
+      "key": "type-app-review",
+      "revision": 1,
+      "reason": "Final independent PASS covers app source 0309539797fd7d016e2b8fd8bdc0ae9cefc20219, its unchanged fresh runtime, two clean author inspections, 115 passing adapter cases and the completed final-native Windows store/HTTP run. The review reports no source or integration findings. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/type-app-review.json; SHA256 5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e."
+    },
+    {
+      "key": "windows-checkpoint-repair",
+      "revision": 1,
+      "reason": "Final native source 2d801ba455b7a722daf644a7615445117d57e8e9 changes only the operation and maintenance lock contention predicates after the accepted tests-only parent. It preserves waits, deadlines, error handling and release behavior. Final independent PASS includes successful fresh Linux and Windows checks. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-final-review.json; SHA256 2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676."
+    },
+    {
+      "key": "checkpoint-linux-build",
+      "revision": 4,
+      "reason": "Linux producer run 45600748319 compiled final source 2d801ba455b7a722daf644a7615445117d57e8e9: 31 commands exited zero, 145 default test harnesses and 147 executables were recorded, formatting and Clippy passed, and all 31 owned process groups cleared. The exact release and metadata hashes are retained. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-final-build-results-review.json; SHA256 b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5."
+    },
+    {
+      "key": "checkpoint-windows-build",
+      "revision": 2,
+      "reason": "Windows producer run 45600413942 compiled final source 2d801ba455b7a722daf644a7615445117d57e8e9: all 18 commands succeeded and ten integration harnesses were retained. Both subsequent download checks passed. The accepted release SHA256 is 0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-final-build-results-review.json; SHA256 b0c2b3aa4ffec04c6a5f786af6fd3b010852f7ffa980c126e71fd36501793dd5."
+    },
+    {
+      "key": "checkpoint-repair-review",
+      "revision": 2,
+      "reason": "Final independent PASS accepts the checkpoint path/publication repairs, portable fixtures and final operation/maintenance contention correction at native 2d801ba455b7a722daf644a7615445117d57e8e9. Successful platform checks preserve all 954 original issues, 11264 events, five receipts and 413 outcomes. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-final-review.json; SHA256 2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676."
+    },
+    {
+      "key": "type-backend-checks",
+      "revision": 1,
+      "reason": "Final-source Linux run 45603324487 passed all 95 cases across nine affected targets, including the complete six-case maintenance target, with no failures, ignores or filtered cases and command exit 0. Independent review matched the exact 2d801ba455b7a722daf644a7615445117d57e8e9 source and retained output. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/type-backend-checks-review.json; SHA256 66f8c9b060745de0947cdd92eafbe74aef723fee7e9e56896b616da3589c1f05."
+    },
+    {
+      "key": "type-backend-review",
+      "revision": 1,
+      "reason": "Final independent PASS accepts all thirteen cumulative changed native files at 2d801ba455b7a722daf644a7615445117d57e8e9, two clean final author inspections, fresh platform builds, 95 affected passes, the complete Linux suite and Windows qualification. Earlier failed candidates retain their original identities. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-final-review.json; SHA256 2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676."
+    },
+    {
+      "key": "checkpoint-linux-checks",
+      "revision": 4,
+      "reason": "Final-source Linux run 45603324487 passed all 1913 default-suite cases with zero failures and eight existing ignores. Every required new and portability test passed, all 652 source files stayed unchanged, and four restores plus six full comparisons preserved the original corpus. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-linux-qualification-review.json; SHA256 5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf."
+    },
+    {
+      "key": "checkpoint-windows-checks",
+      "revision": 2,
+      "reason": "Final-source Windows run 45603696205 passed all 98 ordinary cases and the complete prescribed grid, including its two expected characterization results. The 55-command smoke recorded 54 successes and one expected stale-revision refusal. Original corpus comparisons passed and all five owned Jobs emptied. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-windows-qualification-review.json; SHA256 1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae."
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "revision": 4,
+      "reason": "The complete locked Linux suite on final source 2d801ba455b7a722daf644a7615445117d57e8e9 completed in run 45603324487 with exit 0: 1913 passed, zero failed, eight existing ignored, zero filtered, 145 default harnesses and one doctest group. Independent review reconciled every named result and count. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/native-linux-qualification-review.json; SHA256 5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf."
+    },
+    {
+      "key": "type-windows-roundtrip",
+      "revision": 1,
+      "reason": "Hosted Windows run 45606372926 passed the permanent native-store and production HTTP checks using app 0309539797fd7d016e2b8fd8bdc0ae9cefc20219 and final native 2d801ba455b7a722daf644a7615445117d57e8e9. One PATCH retained the exact 50000-byte custom type, one revision and priority event, claim state and unrelated records; server, port and temporary files cleared. Retained accepted result: YossiMH/bead-me-up-scotty@650f88b5233d94ee732ce7585a51bb8514321541:20261125/revision-9/results/type-windows-roundtrip-review.json; SHA256 856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b."
+    }
+  ]
+}

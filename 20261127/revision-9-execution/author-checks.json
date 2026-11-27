@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "status": "candidate_prepared",
+  "author": "/root/backend_audit",
+  "continuation_revision": 9,
+  "base_commit": "650f88b5233d94ee732ce7585a51bb8514321541",
+  "worktree": "/tmp/beads-2889282bfcec/closure-v9",
+  "branch": "task/closure-v9-20261127",
+  "files": {
+    "README.md": {
+      "sha256": "44d695fc9343f921c973dc90efda076b42a9ca8787c481d5c1b168290e3f5770",
+      "bytes": 8480
+    },
+    "close-accepted-cloud-20261127.json": {
+      "sha256": "f22148bb1f58fac237ce9935e72ca98592aaa6a36a2df3f29b58e9d855cc363e",
+      "bytes": 16535
+    },
+    "close-accepted-cloud-basis-20261127.json": {
+      "sha256": "b4517f7e57a7ff9f88b1e2c15ab5fa7e401d0bed3668fee1c0b3882ae57fa7cf",
+      "bytes": 13513
+    },
+    "record-accepted-tasks-v9-supervisor.ps1": {
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426",
+      "bytes": 17282
+    },
+    "record-accepted-tasks-v9.mjs": {
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3",
+      "bytes": 13438
+    },
+    "test-record-accepted-tasks-v9.mjs": {
+      "sha256": "c561cfea7dbe3cf59a682cd6ab7c414a6484eb321354abbe4ab86287c124c1cb",
+      "bytes": 7955
+    }
+  },
+  "accepted_inputs": {
+    "plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "original_closer_sha256": "597dfe7c65dd135fcc446a54d11385cc64ceac6fc816e2a2469cef7c43589637",
+    "original_supervisor_sha256": "bdf8faffeaed5c3294dbe4daf7ed9cee21e49ecc6870aaaab82e075a39dd57e3"
+  },
+  "changes": [
+    "Add a separately named revision 9 closer; keep all accepted helper files byte-identical.",
+    "Require exact actual mapping bytes and the same mapping SHA in every request.",
+    "Compare all original rows, all 55 task descriptions/resource keys and all 91 directed edges before selection.",
+    "Recheck the complete live inventory and immutable inputs after dry-run; retain each command start and the single commit intent.",
+    "Preserve original input file, configuration and checkpoint pointer; disable automatic flushing on every native command.",
+    "Use the accepted supervisor process/deadline/memory/cleanup code and its byte-identical embedded declaration.",
+    "Prepare 27 dependency-ordered current-revision closes from 14 retained accepted results; defer all 13 other open tasks."
+  ],
+  "checks": [
+    {
+      "command": "node --check 20261127/revision-9-execution/record-accepted-tasks-v9.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "node --check 20261127/revision-9-execution/test-record-accepted-tasks-v9.mjs",
+      "exit_code": 0
+    },
+    {
+      "command": "BEAD_COMPLETION_PLAN_PATH=/tmp/beads-2889282bfcec/continuation/20261125/revision-9/plan.json BEAD_COMPLETION_MAPPING_PATH=/tmp/beads-2889282bfcec/mapping-v9.json node --test 20261127/revision-9-execution/test-record-accepted-tasks-v9.mjs",
+      "node": "v24.22.3",
+      "exit_code": 0,
+      "tests": 13,
+      "passed": 13,
+      "failed": 0,
+      "cancelled": 0,
+      "skipped": 0,
+      "todo": 0,
+      "duration_ms": 273.782913
+    },
+    {
+      "check": "Compare the exact embedded C# declaration with the accepted materializer supervisor",
+      "result": "identical",
+      "blocks": 1
+    },
+    {
+      "check": "Check all accepted-result bytes against the request basis and request SHA against its basis",
+      "result": "passed",
+      "accepted_results": 14,
+      "tasks": 27
+    },
+    {
+      "check": "Check all 27 task reasons against the current required wording exclusions",
+      "result": "passed"
+    },
+    {
+      "command": "git diff --cached --check",
+      "exit_code": 0
+    }
+  ],
+  "focused_cases": [
+    "actual 27-task request",
+    "changed mapping bytes",
+    "wrong or absent request mapping hash",
+    "changed plan or request bytes",
+    "invalid task selections or metadata",
+    "stale revision",
+    "already-closed task",
+    "new assignee",
+    "unfinished prerequisite",
+    "changed original or incomplete inventory",
+    "changed edge kind or removed edge",
+    "changed task description/title/resource keys",
+    "unchanged inputs on successful and refused inspection"
+  ],
+  "powershell_parse": {
+    "status": "pending",
+    "reason": "No PowerShell or .NET runtime is available in this cloud environment. Ordinary parsing of the new supervisor is required before execution.",
+    "embedded_declaration": "Unchanged accepted declaration; its prior successful compile remains applicable."
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "result": "clean",
+      "files": "All six candidate files at the hashes above.",
+      "checks": "Read the complete final driver, supervisor, permanent test, request, dependency/result basis and invocation/cleanup instructions. Traced immutable byte checks before commands, complete live graph/original comparisons, exact task revisions and prerequisite order, dry-run/precommit boundary, single guarded commit and full post-commit comparison. Compared the complete supervisor delta and unchanged process/deadline/cleanup declarations with the accepted wrapper. Matched every reason and current revision to the actual mapping and retained accepted result, with pending tray/binding/install work excluded."
+    },
+    {
+      "pass": 2,
+      "result": "clean",
+      "files": "The same six candidate files and hashes.",
+      "checks": "Repeated complete code and prose inspection after the invocation correction. Checked every failure/timeout path, exclusive output files, root-only state changes, full input retention, real versus derived native fields, no-auto-flush use, frozen-authority refusal and final-cleanup exclusion. Inspected all 13 meaningful refusal/success checks without replacing their actual production functions. Checked known output counts, result hashes, launch arguments, current parser gap, no added product dependency or unrelated mutation, and the exact future-agent Riftri cleanup instruction."
+    }
+  ],
+  "review_correction": "The README uses root's already approved process-only execution-policy invocation with explicit hidden launch; supervisor and product PowerShell behavior are unchanged.",
+  "pc_calls": 0,
+  "native_commands_executed": 0,
+  "task_store_writes": 0,
+  "production_builds_or_tests_repeated": 0,
+  "pending": [
+    "Independent complete static review.",
+    "Ordinary PowerShell parse of the exact new wrapper.",
+    "Root publication and verified remote file identities on the existing permitted transfer branch.",
+    "Root-only execution once, followed by independent reconciliation of exact result bytes."
+  ],
+  "publication": "Root owns publication through the connected GitHub API after review; no independent push or main update.",
+  "cleanup": "After exact publication and completed use, remove only the clean /tmp/beads-2889282bfcec/closure-v9 Riftri worktree. A future agent must reconcile unpublished changes and finish this cleanup if the process ends early."
+}
