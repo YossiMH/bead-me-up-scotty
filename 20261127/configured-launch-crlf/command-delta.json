@@ -1,0 +1,59 @@
+{
+  "baseline_path": "20261127/configured-launch-invocation/command.json",
+  "baseline_bytes": 8028,
+  "baseline_sha256": "0f2c62b716477653288a53503fd27b828757d6b2257bbd8547f9774aeb4c59c4",
+  "baseline_command_characters": 7007,
+  "candidate_command_characters": 7758,
+  "changes": [
+    {
+      "old": "ChatGPT-BeadEditing-Configured-20261127-2889282bfcec",
+      "new": "ChatGPT-BeadEditing-ConfiguredCRLF-20261127-2889282bfcec",
+      "occurrences": 1
+    },
+    {
+      "old": "configured-v9-final-20261125-1151",
+      "new": "configured-v9-crlf-20261127-2889282bfcec",
+      "occurrences": 1
+    },
+    {
+      "old": "configured-task-20261127-2889282bfcec.json",
+      "new": "configured-task-crlf-20261127-2889282bfcec.json",
+      "occurrences": 1
+    },
+    {
+      "old": "windows-configured-launch-host-memory-20261127.ps1",
+      "new": "windows-configured-launch-host-crlf-20261127.ps1",
+      "occurrences": 1
+    },
+    {
+      "old": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae",
+      "new": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880",
+      "occurrences": 1
+    },
+    {
+      "old": "$record='F:\\Dev\\.bead-edit-20261111\\configured-task-crlf-20261127-2889282bfcec.json';",
+      "new": "$record='F:\\Dev\\.bead-edit-20261111\\configured-task-crlf-20261127-2889282bfcec.json'; $stdout=$out+'.stdout.log'; $stderr=$out+'.stderr.log';",
+      "occurrences": 1
+    },
+    {
+      "old": "(Test-Path -LiteralPath $out) -or (Test-Path -LiteralPath $record)",
+      "new": "(Test-Path -LiteralPath $out) -or (Test-Path -LiteralPath $record) -or (Test-Path -LiteralPath $stdout) -or (Test-Path -LiteralPath $stderr)",
+      "occurrences": 2
+    },
+    {
+      "old": "$action.Arguments='-NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -File '+$q+$helper+$q+' -BeadExe '+$q+$pin+$q+' -ExpectedSha256 '+$inputs[2].sha256+' -EvidenceDirectory '+$q+$out+$q+' -Port 43972 -TimeoutSeconds 120 -MaxOwnedResidentMiB 512';",
+      "new": "$action.Arguments='-NoLogo -NoProfile -NonInteractive -ExecutionPolicy Bypass -WindowStyle Hidden -Command '+$q+'$ErrorActionPreference=''Stop''; if((Test-Path -LiteralPath '''+$stdout+''') -or (Test-Path -LiteralPath '''+$stderr+''')){exit 1}; $global:LASTEXITCODE=0; & '''+$helper+''' -BeadExe '''+$pin+''' -ExpectedSha256 '+$inputs[2].sha256+' -EvidenceDirectory '''+$out+''' -Port 43972 -TimeoutSeconds 120 -MaxOwnedResidentMiB 512 1> '''+$stdout+''' 2> '''+$stderr+'''; if(-not $?){exit 1}; exit $global:LASTEXITCODE'+$q;",
+      "occurrences": 1
+    },
+    {
+      "old": "task=$task;output=$out;user=$user;",
+      "new": "task=$task;output=$out;stdout=$stdout;stderr=$stderr;user=$user;",
+      "occurrences": 1
+    },
+    {
+      "old": "@{path=$installSupervisorResult;sha256=$installSupervisorHash} );",
+      "new": "@{path=$installSupervisorResult;sha256=$installSupervisorHash}, @{path=(Join-Path $repo 'bin\\windows-tray.mjs');sha256='8ae12c3708ed9b1fda8b3f919605a22adccec8c406d9114fb0733a2314158396'}, @{path=(Join-Path $repo 'bin\\windows-tray-host.mjs');sha256='4775f6ed906e042da3ca0bf7995b2d52658b8e70dfbfcb884088e15f95b99ec9'} );",
+      "occurrences": 1
+    }
+  ]
+}

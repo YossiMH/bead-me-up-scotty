@@ -1,0 +1,169 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Two complete clean source and invocation preparation inspections; execution is conditional on actual PC source reconciliation and the exact Windows PowerShell 5.1 parser result.",
+  "author": "/root/delivery_audit",
+  "prepared_utc": "2026-11-27T10:31:15.848138+00:00",
+  "retained_transfer_commit": "c6d92ee3370c2488dd499205410629159c53d49c",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 10129,
+      "sha256": "31f4fa688d347f53f8aa0035abb72d8b3b316a84ca68b582e0278d91e00aaa4e"
+    },
+    {
+      "path": "command-delta.json",
+      "bytes": 3208,
+      "sha256": "7dd75a0f3867d3bf72ee5d0f38fa5a164443e542da0a501ed5afe87c135a8ae0"
+    },
+    {
+      "path": "configured-launch-com-body.ps1",
+      "bytes": 7777,
+      "sha256": "4e8a9cdc4d998e41e4d1545907e7bc555b99cf1b5b50666489c46dd1488dcf61"
+    },
+    {
+      "path": "configured-launch-com-command.json",
+      "bytes": 9039,
+      "sha256": "a349d8d7e36730590a0818cca4eb6f4cee262faab5bd2df3891215644ea9aae2"
+    },
+    {
+      "path": "windows-configured-launch-host-crlf-20261127.ps1",
+      "bytes": 48944,
+      "sha256": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880"
+    }
+  ],
+  "baselines": [
+    {
+      "path": "20261127/configured-launch-memory/windows-configured-launch-host-memory-20261127.ps1",
+      "bytes": 48944,
+      "sha256": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae"
+    },
+    {
+      "path": "20261127/configured-launch-invocation/command.json",
+      "bytes": 8028,
+      "sha256": "0f2c62b716477653288a53503fd27b828757d6b2257bbd8547f9774aeb4c59c4"
+    },
+    {
+      "path": "20261127/configured-launch-invocation/concrete-review.json",
+      "bytes": 4100,
+      "sha256": "d1932f7fd409c40400b51dda17665a24679777c63526dfbea3481b47faf9642b"
+    },
+    {
+      "path": "20261127/installation-completed/result.json",
+      "bytes": 16086,
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+    },
+    {
+      "path": "20261127/installation-completed/supervisor-result.json",
+      "bytes": 61457,
+      "sha256": "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760"
+    },
+    {
+      "path": "20261127/installation-completed/actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    }
+  ],
+  "source_change": {
+    "literal_replacements": 2,
+    "full_inverse_sha256": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae",
+    "module_derivation": [
+      {
+        "path": "bin/windows-tray.mjs",
+        "git_blob": "329e2379c0dc72b396d9fa12872c7db39700451f",
+        "canonical_bytes": 6214,
+        "canonical_sha256": "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+        "crlf_bytes": 6385,
+        "crlf_sha256": "8ae12c3708ed9b1fda8b3f919605a22adccec8c406d9114fb0733a2314158396",
+        "actual_pc_observation": null
+      },
+      {
+        "path": "bin/windows-tray-host.mjs",
+        "git_blob": "c3a31c8bd8b73f21ab15573080794198b12934dc",
+        "canonical_bytes": 3571,
+        "canonical_sha256": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+        "crlf_bytes": 3661,
+        "crlf_sha256": "4775f6ed906e042da3ca0bf7995b2d52658b8e70dfbfcb884088e15f95b99ec9",
+        "actual_pc_observation": null
+      }
+    ],
+    "canonical_source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "embedded_csharp_unchanged": true,
+    "embedded_csharp_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+    "all_function_and_finally_bytes_unchanged": true
+  },
+  "invocation_change": {
+    "delta_record": "command-delta.json",
+    "exact_substitution_groups": 10,
+    "inverse_command_equal": true,
+    "readable_body_removes_only_added_line_breaks": true,
+    "command_characters": 7758,
+    "outer_timeout_ms": 30000,
+    "single_task_powershell_host": true,
+    "fresh_output_and_both_stream_logs": true,
+    "exact_raw_module_hashes_checked_before_registration": true,
+    "preserved_install_result_sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673",
+    "preserved_install_supervisor_result_sha256": "ab6141355b9b8b349ba40105cb6d6d23945aec0b5b556ea4db1cfeebcc384760"
+  },
+  "first_attempt": {
+    "task": "ChatGPT-BeadEditing-Configured-20261127-2889282bfcec",
+    "creation_receipt_bytes": 2571,
+    "creation_receipt_sha256": "435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd",
+    "last_observed_utc": "2026-11-27T10:17:26.6178952Z",
+    "last_result": 1,
+    "state": 3,
+    "running_instances": 0,
+    "output_directory_absent": true,
+    "exact_emitted_error_record": null,
+    "replay_allowed": false
+  },
+  "complete_candidate_inspections": [
+    {
+      "status": "passed",
+      "pass": 1,
+      "completed_utc": "2026-11-27T10:29:52.699686+00:00",
+      "complete": true,
+      "clean": true,
+      "checks": [
+        "Full helper inverse recovers all accepted bytes; all resource, ownership, observer, HTTP, tray and cleanup code remains identical.",
+        "Reconciled both canonical Git objects, complete LF and CRLF lengths and hashes, and reversible whole-file newline conversion; observed PC identities remain null.",
+        "Full registration command inverse recovers the accepted concrete command; readable body removes only added line breaks.",
+        "Reviewed the fresh task/output/receipt/log paths, two memory admission checks, complete inputs, unchanged COM creation/session settings, exclusive receipt before one RunEx and helper exit-code capture.",
+        "The two exact raw installed module hashes are now additional pre-registration inputs without changing existing pin/result array positions.",
+        "Read the complete README and every final JSON/body; pending actual observation, parser, execution and task acceptance are stated without claiming the first exact thrown error."
+      ]
+    },
+    {
+      "status": "passed",
+      "pass": 2,
+      "completed_utc": "2026-11-27T10:31:15.847772+00:00",
+      "complete": true,
+      "clean": true,
+      "checks": [
+        "Repeated the complete helper byte inverse and entire registration-command inverse against the accepted immutable baselines; all five final payload hashes are unchanged since inspection 1.",
+        "Read the final helper control flow and preserved source-to-actual-host checks with the exact two-literal diff; the full function/embedded-code/finally tail is byte-identical.",
+        "Rechecked both exact Git blob/SHA bindings against the accepted raw installed result and its complete pinned hash; no canonical content or product source changes are accepted by the correction.",
+        "Rechecked same-process call syntax, fresh-log checks, initialization and preservation of LASTEXITCODE, two stream redirections, exclusive durable creation receipt and one create-only/explicit-session RunEx.",
+        "Rechecked admission and every inherited resource/cleanup condition; the command has 7,758 characters, stays at 30 seconds, and launches no extra process around the helper.",
+        "Read every final prose and data file again, including raw versus canonical terminology, pending observed-PC/parser/runtime fields, preservation of the failed original task and the required later cleanup extension."
+      ]
+    }
+  ],
+  "actual_installed_module_observation": null,
+  "actual_windows_ps51_parse": null,
+  "actual_configured_execution": null,
+  "actual_configured_acceptance": null,
+  "execution_blocked_until": [
+    "Root reconciles the already-started actual PC module read and all relevant first-attempt state.",
+    "Independent source/invocation review accepts these frozen bytes.",
+    "Exact staged helper and concrete action pass the ordinary Windows PowerShell 5.1 AST parser.",
+    "All live one-shot invocation guards pass."
+  ],
+  "code_execution_performed": "Static file/JSON/hash/delta/source comparisons only; no PowerShell body or product check executed.",
+  "root_only_actions": [
+    "PC operations",
+    "task state writes",
+    "publication",
+    "scheduled-task cleanup"
+  ]
+}

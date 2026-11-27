@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "independent": true,
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T10:35:59.417047+00:00",
+  "scope": "Exact separately named two-hash configured-launch correction, fresh same-process logging COM invocation and actual installed-module source reconciliation. This accepts preparation/staging and subsequent ordinary parser gate; the new configured run and behavior acceptance remain pending.",
+  "packet_directory": "/workspace/scratch/2889282bfcec/delivery-recovery/20261127/configured-launch-crlf",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 10129,
+      "sha256": "31f4fa688d347f53f8aa0035abb72d8b3b316a84ca68b582e0278d91e00aaa4e"
+    },
+    {
+      "path": "command-delta.json",
+      "bytes": 3208,
+      "sha256": "7dd75a0f3867d3bf72ee5d0f38fa5a164443e542da0a501ed5afe87c135a8ae0"
+    },
+    {
+      "path": "configured-launch-com-body.ps1",
+      "bytes": 7777,
+      "sha256": "4e8a9cdc4d998e41e4d1545907e7bc555b99cf1b5b50666489c46dd1488dcf61"
+    },
+    {
+      "path": "configured-launch-com-command.json",
+      "bytes": 9039,
+      "sha256": "a349d8d7e36730590a0818cca4eb6f4cee262faab5bd2df3891215644ea9aae2"
+    },
+    {
+      "path": "windows-configured-launch-host-crlf-20261127.ps1",
+      "bytes": 48944,
+      "sha256": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880"
+    },
+    {
+      "path": "author-inspections.json",
+      "bytes": 8180,
+      "sha256": "10358710141b8250bfe9187a7f1901a9be989b4d494a0d70d466a072353a513a"
+    }
+  ],
+  "immutable_baselines": [
+    {
+      "path": "20261127/configured-launch-memory/windows-configured-launch-host-memory-20261127.ps1",
+      "bytes": 48944,
+      "sha256": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae"
+    },
+    {
+      "path": "20261127/configured-launch-invocation/command.json",
+      "bytes": 8028,
+      "sha256": "0f2c62b716477653288a53503fd27b828757d6b2257bbd8547f9774aeb4c59c4"
+    },
+    {
+      "path": "20261127/configured-launch-invocation/concrete-review.json",
+      "bytes": 4100,
+      "sha256": "d1932f7fd409c40400b51dda17665a24679777c63526dfbea3481b47faf9642b"
+    }
+  ],
+  "source_proof": {
+    "literal_changes": 2,
+    "complete_inverse_byte_equal": true,
+    "original_sha256": "8db39140f935b690af58fc2c604ba7a0566945f7c4ea140d6f98637ead75c5ae",
+    "corrected_sha256": "f15cdc8bf98d8565a111951cc6b6dac7200a890e47758971470b3cbbf1395880",
+    "embedded_csharp_unchanged": true,
+    "embedded_csharp_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+    "canonical_product_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "actual_modules": [
+      {
+        "path": "bin/windows-tray.mjs",
+        "raw_bytes": 6385,
+        "raw_sha256": "8ae12c3708ed9b1fda8b3f919605a22adccec8c406d9114fb0733a2314158396",
+        "canonical_lf_bytes": 6214,
+        "canonical_lf_sha256": "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+        "accepted_lf_sha256": "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+        "canonical_matches": true,
+        "crlf_pairs": 171
+      },
+      {
+        "path": "bin/windows-tray-host.mjs",
+        "raw_bytes": 3661,
+        "raw_sha256": "4775f6ed906e042da3ca0bf7995b2d52658b8e70dfbfcb884088e15f95b99ec9",
+        "canonical_lf_bytes": 3571,
+        "canonical_lf_sha256": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+        "accepted_lf_sha256": "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd",
+        "canonical_matches": true,
+        "crlf_pairs": 90
+      }
+    ]
+  },
+  "actual_source_observation": {
+    "status": "accepted",
+    "utc": "2026-11-27T10:30:49.949Z",
+    "observation": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-module-read.json",
+      "bytes": 1057,
+      "sha256": "87a3c54105d8eef8c45330e2629d5f26881c21fa1e78193c6ba414d2c545a734"
+    },
+    "execution": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-module-read-execution.json",
+      "bytes": 1338,
+      "sha256": "194c3563c28c0f2de9f2a37afa84edef4a2e9515af2fc7707ab15070abe9f3d8",
+      "exit_code": 0,
+      "duration_milliseconds": 217,
+      "stdout_dropped": 0,
+      "stderr_dropped": 0
+    },
+    "proof": "Each actual raw file has the exact independently computed LF-to-CRLF length/SHA from its pinned final Git blob, and its normalized bytes match the accepted canonical LF length/SHA. No code content change or arbitrary normalization acceptance is introduced."
+  },
+  "checks": [
+    "The full helper inverse substitutes only the two fixed raw moduleSHA256 values and reproduces every byte of accepted8db39140. All functions, embedded C#/JavaScript, HTTP/native roundtrip, real tray Exit/disposal, parent/session/Job identity checks, timers, budgets and final cleanup remain unchanged.",
+    "Both raw hashes now accept exactly the actual installed CRLF files. Later observer/host/source checks continue to compare the same raw hashes. The command additionally verifies both raw modules before creating the task, without changing the existing input-array positions or accepted installer/runtime identities.",
+    "The complete concrete command reverses all10 recorded substitution groups to accepted0f2c62b7 exactly. The review body differs only by inserted line breaks. cwd and30-second registration call bound are unchanged; the complete command is7758characters.",
+    "New task, output, creation receipt and two log paths are distinct from the first attempt. Every admission output check includes both logs, and the task action checks log absence again before redirection. The fixed paths contain no quote or shell substitution ambiguity.",
+    "The scheduled action uses one fresh hidden PowerShell process with -Command and call operator&, redirecting only the helper success/error text streams. It initializes globalLASTEXITCODE, treats unsuccessful helper completion as failure and explicitly exits with the resulting code. The unchanged helper exposes failures as exit1; its hard Job timer still terminates the process with its existing code. No second PowerShell host or forwarding process is introduced.",
+    "PowerShell text redirection retains ordinary formatted/encoded stream bytes; it is not binary byte-stream capture. Normal result.json remains the helper UTF8 file. Early failed JSON emitted before ArtifactRoot now has a success-stream log. Actual acceptance must read exact raw logs plus disk result and scheduler outcome, and must not infer success from log existence.",
+    "The two3GiB admission checks, expected logged-in user/session1, free43972port, exact successful install hashes/app+nativeheads/runtime/pin and stopped-normal-cleanup requirements remain exact. COM registration is create-only2/interactive3/Limited0/hidden/priority7/no trigger/multipleinstance2/150seconds; full exclusive receipt is durably written before the single RunEx sessionflag4/session1 call.",
+    "The unchanged helper uses120seconds total108work12cleanup,512MiB aggregate Job RSS,128MiB Node,1GiB live free-memory floor and3GiB controller launch threshold. Process/session/parent ownership and owned-only cleanup retain their complete prior acceptance boundary.",
+    "The original first task/receipt remain untouched. Its actual LastResult1/state3/zero instances and absent output are retained. Static source plus actual CRLF bytes proves the old raw-LF hash gate cannot accept those installed modules before ArtifactRoot exists; the exact executed first error was not retained, so it is not claimed as observed.",
+    "Both author full inspections are clean and bind these exact files. The author preparation record correctly keeps actual observations/parser/run null at its freeze time; the separately supplied10:30:49 actual module read is accepted here without rewriting that record."
+  ],
+  "first_attempt": {
+    "task": "ChatGPT-BeadEditing-Configured-20261127-2889282bfcec",
+    "last_result": 1,
+    "state": 3,
+    "running_instances": 0,
+    "output_directory_absent": true,
+    "creation_receipt_sha256": "435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd",
+    "exact_executed_error": "Not retained; source incompatibility is independently established.",
+    "replay_allowed": false
+  },
+  "new_attempt": {
+    "task": "ChatGPT-BeadEditing-ConfiguredCRLF-20261127-2889282bfcec",
+    "output": "F:/Dev/.bead-edit-20261111/configured-v9-crlf-20261127-2889282bfcec",
+    "creation_receipt": "F:/Dev/.bead-edit-20261111/configured-task-crlf-20261127-2889282bfcec.json",
+    "command_sha256": "a349d8d7e36730590a0818cca4eb6f4cee262faab5bd2df3891215644ea9aae2",
+    "actual_execution": "pending",
+    "actual_acceptance": "pending"
+  },
+  "remaining_gates": [
+    "Verify exact stagedf15cdc8b helper and ordinary WindowsPowerShell5.1 AST parse of helper, complete registration body and concrete scheduled -Command action before registration.",
+    "Run only when the unchanged fresh-state/session/3GiB/port/hash admission checks pass. A no-action waiting_for_memory response creates no task; any uncertain registered attempt must be reconciled without replay.",
+    "Accept full actual scheduler result/definition, helper JSON, complete success/error logs, all relevant tray/process/native/HTTP/resource/cleanup receipts before closing configured-launch or installed-review.",
+    "Retain both configured attempts and full private XML. The earlier fixed20-task cleanup preparation is now inapplicable without a separately reviewed exact extension for the failed first and completed new task."
+  ],
+  "primary_references": [
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_powershell_exe?view=powershell-5.1",
+      "checked_claim": "String -Command executes PowerShell code; terminating errors fail; explicit exit LASTEXITCODE retains the chosen process code.",
+      "ref": "turn270574123view0"
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/powershell/module/microsoft.powershell.core/about/about_redirection?view=powershell-5.1",
+      "checked_claim": "Streams1and2 are success/error and redirect through ordinary Out-File semantics; nonappend redirection can overwrite, so fresh-path checks remain required.",
+      "ref": "turn270574123view1"
+    }
+  ],
+  "findings": []
+}
