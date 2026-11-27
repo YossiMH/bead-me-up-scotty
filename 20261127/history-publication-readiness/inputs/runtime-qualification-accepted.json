@@ -1,0 +1,42 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "binary_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+  "author": "/root",
+  "purpose": "Consumer-compatible receipt for previously accepted exact Windows release; original results and reviews remain unchanged.",
+  "pc_execution": false,
+  "new_product_test_execution": false,
+  "kind": "retained-windows-runtime-qualification",
+  "original_result": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "52bfafd7d9ad108bc54e523b6c3f3dc6b4bdb638",
+    "path": "20261125/revision-9/results/native-windows-qualification-45603696205/aggregate/result.json",
+    "sha256": "ac65894f80215aed7ddc03f72935c91095ab9717e0a07a7e66196900129abc1d"
+  },
+  "accepted_by": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "473530433d66206ec6ba8a9980c9ed4bd0e12848",
+    "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+    "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae"
+  },
+  "summary": {
+    "ordinary_case_passes": 98,
+    "ordinary_case_failures": 0,
+    "ordinary_case_ignores": 0,
+    "core_passes": 25,
+    "editing_passes": 73,
+    "ordinary_conformance_cases": 12,
+    "grid_invocations": 12,
+    "grid_green": 10,
+    "grid_red_characterizations": 2,
+    "test_invocations": 37,
+    "driver_commands_exit_zero": 73,
+    "saved_streams_decoded_and_hashed": 221,
+    "owned_windows_jobs_closed_and_empty": 5
+  },
+  "retained_qualifications": [
+    "The twelve ordinary conformance cases pass. The separate deliberate-corruption characterization has ten GREEN and two caught RED reports.",
+    "This receipt accepts the existing qualified release; installation and the configured PC launcher still require their own actual results."
+  ]
+}

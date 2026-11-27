@@ -1,0 +1,176 @@
+{
+  "schema_version": 1,
+  "template_only": true,
+  "status": "prepared_future_requests",
+  "derivation": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "path": "20261127/git-publication/request-templates.json",
+    "selected": [
+      "native_documents",
+      "scotty_documents"
+    ],
+    "changes": "Only helper_sha256 and supervisor_sha256 in each selected inner request change to the separately accepted CRLF pair. No future observation, document identity or attestation is filled."
+  },
+  "fixed_job_helper": {
+    "path": "C:/Users/YossiMH/AppData/Local/bead-edit-20261111/tray-host-execution-20261125/windows-task-job.ps1",
+    "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "templates": {
+    "native_documents": {
+      "schema_version": 1,
+      "phase": "documents",
+      "repository": "native",
+      "run_id": null,
+      "output_directory": null,
+      "supervisor_output": null,
+      "helper_sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+      "supervisor_sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52",
+      "job_helper_path": null,
+      "git": {
+        "path": "C:/Program Files/Git/cmd/git.exe",
+        "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+      },
+      "node": {
+        "path": "C:/Program Files/nodejs/node.exe",
+        "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+      },
+      "expected_head": null,
+      "expected_remote_commit": null,
+      "expected_index_sha256": null,
+      "expected_git_config_sha256": null,
+      "private_state": [
+        {
+          "path": ".beads/config.json",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/.gitignore",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-wal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-shm",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        },
+        {
+          "path": ".beads/beads.db-journal",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "accepted_hooks": null,
+      "hook_review": null,
+      "reviews": [
+        {
+          "path": null,
+          "sha256": null
+        }
+      ],
+      "attestations": {
+        "exclusive_repository_writer": null,
+        "reviewed_request": null,
+        "installed_reviews_accepted": null,
+        "document_reviews_accepted": null
+      },
+      "target_commit": null,
+      "document_files": [
+        {
+          "path": ".marathon/progress.md",
+          "mode": "100644",
+          "bytes": null,
+          "sha256": null,
+          "git_blob": null,
+          "working_bytes": null,
+          "working_sha256": null
+        }
+      ],
+      "document_autocrlf": null
+    },
+    "scotty_documents": {
+      "schema_version": 1,
+      "phase": "documents",
+      "repository": "scotty",
+      "run_id": null,
+      "output_directory": null,
+      "supervisor_output": null,
+      "helper_sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+      "supervisor_sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52",
+      "job_helper_path": null,
+      "git": {
+        "path": "C:/Program Files/Git/cmd/git.exe",
+        "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+      },
+      "node": {
+        "path": "C:/Program Files/nodejs/node.exe",
+        "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa"
+      },
+      "expected_head": null,
+      "expected_remote_commit": null,
+      "expected_index_sha256": null,
+      "expected_git_config_sha256": null,
+      "private_state": [
+        {
+          "path": ".env.local",
+          "exists": null,
+          "bytes": null,
+          "sha256": null
+        }
+      ],
+      "accepted_hooks": null,
+      "hook_review": null,
+      "reviews": [
+        {
+          "path": null,
+          "sha256": null
+        }
+      ],
+      "attestations": {
+        "exclusive_repository_writer": null,
+        "reviewed_request": null,
+        "installed_reviews_accepted": null,
+        "document_reviews_accepted": null
+      },
+      "target_commit": null,
+      "document_files": [
+        {
+          "path": "README.md",
+          "mode": "100644",
+          "bytes": null,
+          "sha256": null,
+          "git_blob": null,
+          "working_bytes": null,
+          "working_sha256": null
+        },
+        {
+          "path": "docs/backend-compatibility.md",
+          "mode": "100644",
+          "bytes": null,
+          "sha256": null,
+          "git_blob": null,
+          "working_bytes": null,
+          "working_sha256": null
+        }
+      ],
+      "document_autocrlf": null
+    }
+  }
+}

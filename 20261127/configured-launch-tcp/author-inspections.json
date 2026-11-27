@@ -1,0 +1,238 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_review",
+  "author": "/root/delivery_audit",
+  "scope": "A separately named fourth configured-launch helper replaces only its single listener-owner cmdlet with a bounded native IPv4/IPv6 owner-PID table query. Actual completion and memory savings remain pending.",
+  "files": {
+    "README.md": {
+      "bytes": 8643,
+      "sha256": "2d48ba01498aa4b20f2ba9eadfa0cd4c0e5fe363a4d90c03e79868611116ae41"
+    },
+    "configured-launch-com-body.ps1": {
+      "bytes": 7773,
+      "sha256": "78ba07202a8eb6292c46b8b1789e9e6daa32986825a719a021c62a5d59f2b9e0"
+    },
+    "configured-launch-com-command.json": {
+      "bytes": 9067,
+      "sha256": "8e94e81e23e78ffd7bbf8f0e3c78e80b0b0a57c5d23ed5e43520e57d498ca359"
+    },
+    "inner-action-parser-input.ps1": {
+      "bytes": 912,
+      "sha256": "8c2c7b8cd43ccbc70d25e312a5265bc87d60574035822f565a148ca375e2ebf9"
+    },
+    "source-and-command-delta.json": {
+      "bytes": 9580,
+      "sha256": "1e372b451f758433f412d9c36edc3ab7a94b398a3c73a65e926cb245fd7b2246"
+    },
+    "windows-configured-launch-host-tcp-20261127.ps1": {
+      "bytes": 53569,
+      "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+    }
+  },
+  "baseline": {
+    "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "directory": "20261127/configured-launch-session",
+    "helper_sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+    "command_sha256": "d67cdc36331e38faf109586b7f2f5839baa483ae5264baa1e6854f87c40a08ea",
+    "inner_action_sha256": "d76984e03fc94022ee7102bcc3763ea28100a402a837cdcf1db8a43873a3aacd"
+  },
+  "basis": {
+    "failed_result": {
+      "bytes": 11603,
+      "sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358",
+      "status": "failed",
+      "duration_seconds": 4.8916348,
+      "job_peak_bytes": 546582528,
+      "ceiling_bytes": 536870912,
+      "completed_request_records": 0,
+      "cleanup_assisted": true,
+      "remaining_job_members": []
+    },
+    "failed_creation": {
+      "bytes": 3901,
+      "sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9"
+    },
+    "independent_failure_review": {
+      "bytes": 12911,
+      "sha256": "dc3b886175ef051803f5f18073a0abccb1e275e08aaeba6657a36cb40aaabfd5"
+    },
+    "interpretation": "The exact failing instruction and whether a first request had been sent are not established by the empty completed-request array. The existing session identity correction passed. Earlier successful runspace savings do not map to a removable second harness in this current one-host invocation."
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "recorded_utc": "2026-11-27T12:10:11.731299+00:00",
+      "static_comparison_utc": "2026-11-27T12:09:57.649515+00:00",
+      "findings": [],
+      "files": {
+        "README.md": {
+          "bytes": 8643,
+          "sha256": "2d48ba01498aa4b20f2ba9eadfa0cd4c0e5fe363a4d90c03e79868611116ae41"
+        },
+        "configured-launch-com-body.ps1": {
+          "bytes": 7773,
+          "sha256": "78ba07202a8eb6292c46b8b1789e9e6daa32986825a719a021c62a5d59f2b9e0"
+        },
+        "configured-launch-com-command.json": {
+          "bytes": 9067,
+          "sha256": "8e94e81e23e78ffd7bbf8f0e3c78e80b0b0a57c5d23ed5e43520e57d498ca359"
+        },
+        "inner-action-parser-input.ps1": {
+          "bytes": 912,
+          "sha256": "8c2c7b8cd43ccbc70d25e312a5265bc87d60574035822f565a148ca375e2ebf9"
+        },
+        "source-and-command-delta.json": {
+          "bytes": 9580,
+          "sha256": "1e372b451f758433f412d9c36edc3ab7a94b398a3c73a65e926cb245fd7b2246"
+        },
+        "windows-configured-launch-host-tcp-20261127.ps1": {
+          "bytes": 53569,
+          "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+        }
+      },
+      "focus": [
+        "Read the complete final helper, including native declarations, ownership/sampling, observer, request/edit/Exit flow and cleanup; read complete body, compact command, inner action, delta and README.",
+        "Checked the documented IPv4/IPv6 structs, table count/alignment, enum/family/state values, network-order ports, duplicate/wildcard retention and strict all-owner assertion.",
+        "Inspected zero/oversized/partial/changed tables, API errors, retries, 500 ms success bound and every native buffer finally path.",
+        "Reconciled the failed Session raw result and the unchanged same-host COM source/pin/runtime/registration/receipt/resource guards.",
+        "After the source reads, re-read the final complete README with the recorded-check wording correction and rehashed all unchanged source/command payloads; no code or invocation changed."
+      ]
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "recorded_utc": "2026-11-27T12:10:11.731299+00:00",
+      "static_comparison_utc": "2026-11-27T12:10:11.731299+00:00",
+      "findings": [],
+      "files": {
+        "README.md": {
+          "bytes": 8643,
+          "sha256": "2d48ba01498aa4b20f2ba9eadfa0cd4c0e5fe363a4d90c03e79868611116ae41"
+        },
+        "configured-launch-com-body.ps1": {
+          "bytes": 7773,
+          "sha256": "78ba07202a8eb6292c46b8b1789e9e6daa32986825a719a021c62a5d59f2b9e0"
+        },
+        "configured-launch-com-command.json": {
+          "bytes": 9067,
+          "sha256": "8e94e81e23e78ffd7bbf8f0e3c78e80b0b0a57c5d23ed5e43520e57d498ca359"
+        },
+        "inner-action-parser-input.ps1": {
+          "bytes": 912,
+          "sha256": "8c2c7b8cd43ccbc70d25e312a5265bc87d60574035822f565a148ca375e2ebf9"
+        },
+        "source-and-command-delta.json": {
+          "bytes": 9580,
+          "sha256": "1e372b451f758433f412d9c36edc3ab7a94b398a3c73a65e926cb245fd7b2246"
+        },
+        "windows-configured-launch-host-tcp-20261127.ps1": {
+          "bytes": 53569,
+          "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+        }
+      },
+      "focus": [
+        "Re-read the entire final helper and full associated prose/body/inner/delta; all six payload identities match the first inspection.",
+        "Recovered the complete accepted helper with exactly two inverse replacements and the prior compact command with exactly five binding inverses.",
+        "Verified all 20 other PowerShell functions, original C# methods, full JavaScript observer and complete final cleanup tail byte-identical.",
+        "Rendered the outer literal/variable action expression without executing PowerShell; it matches the exact 912-byte no-newline parser input. Checked full body/compact equality and 7,754-character command bound.",
+        "Retained 512 MiB aggregate/120-second hard/108-second work/1 GiB live/3 GiB launch limits and future actual/cleanup gates.",
+        "After the source reads, re-read the final complete README with the recorded-check wording correction and rehashed all unchanged source/command payloads; no code or invocation changed."
+      ]
+    }
+  ],
+  "verification": {
+    "source_inverse_exact": true,
+    "command_inverse_exact": true,
+    "body_inverse_exact": true,
+    "inner_action_render_exact": true,
+    "unchanged_functions": [
+      "Register-JobProcess",
+      "Refresh-JobProcesses",
+      "Measure-OwnedJob",
+      "Assert-LaunchHeadroom",
+      "Complete-OwnedJob",
+      "Save-JobEvidence",
+      "Assert-That",
+      "Hash",
+      "Safe-Path",
+      "Quote-Argument",
+      "Test-PortFree",
+      "Add-Owned",
+      "Read-Lines",
+      "Get-TrayCacheEvidence",
+      "Observe-Record",
+      "Observe-Processes",
+      "Check-Budget",
+      "Wait-Until",
+      "Native",
+      "Api"
+    ],
+    "baseline_csharp_sha256": "c0f0fe9ca896a19651c45c048b1908f0fb231e548bffa5896bbd78b358d923ea",
+    "new_csharp_sha256": "ec2d39454190662180fb918ebae43c42f4dcceeb3133f74d5ca2ab193589e977",
+    "observer_sha256": "d00ec76b77ee45d56781a7166f5869963714f1e642090380dad7ed286674d3a3",
+    "cleanup_tail_unchanged": true,
+    "json_utf8_lf_whitespace": "passed",
+    "windows_powershell_5_1_ast_parse": null,
+    "native_api_runtime_qualification": null,
+    "fourth_configured_result": null,
+    "fourth_configured_acceptance": null
+  },
+  "invocation": {
+    "task": "ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec",
+    "helper": "windows-configured-launch-host-tcp-20261127.ps1",
+    "output": "F:/Dev/.bead-edit-20261111/configured-v9-tcp-20261127-2889282bfcec",
+    "creation_receipt": "F:/Dev/.bead-edit-20261111/configured-task-tcp-20261127-2889282bfcec.json",
+    "command_characters": 7754,
+    "inner_action_bytes": 912,
+    "outer_timeout_ms": 30000,
+    "helper_timeout_seconds": 120,
+    "work_seconds": 108,
+    "maximum_aggregate_resident_bytes": 536870912,
+    "live_free_floor_bytes": 1073741824,
+    "immediate_app_launch_free_bytes": 3221225472,
+    "one_powershell_host": true,
+    "registration_flags": 2,
+    "run_flags": 4,
+    "session_id": 1,
+    "run_level": 0,
+    "priority": 7
+  },
+  "remaining": [
+    "Independent source and command review, plus exact staged Windows PowerShell 5.1 AST parsing of helper, outer body and retained inner action.",
+    "Fresh root-only state/headroom checks and one new configured attempt, followed by exact result/log/creation/Task Scheduler reconciliation and independent acceptance.",
+    "Fixed 23-task cleanup preparation with all four configured task definitions; all three failed predecessors preserved."
+  ],
+  "limitations": [
+    "An empty request record list does not prove that no first request had been sent.",
+    "Avoiding the NetTCPIP module is a narrow harness optimization whose actual memory savings and later HTTP peaks remain unknown until the unchanged-budget actual attempt.",
+    "The inherited header mentions -File, while the accepted scheduled action deliberately uses & in its sole -Command host to capture both streams."
+  ],
+  "primary_references": [
+    "https://learn.microsoft.com/en-us/windows/win32/api/iphlpapi/nf-iphlpapi-getextendedtcptable",
+    "https://learn.microsoft.com/en-us/windows/win32/api/iprtrmib/ne-iprtrmib-tcp_table_class",
+    "https://learn.microsoft.com/en-us/windows/win32/api/tcpmib/ns-tcpmib-mib_tcprow_owner_pid",
+    "https://learn.microsoft.com/en-us/windows/win32/api/tcpmib/ns-tcpmib-mib_tcp6row_owner_pid",
+    "https://learn.microsoft.com/en-us/windows/win32/api/tcpmib/ns-tcpmib-mib_tcptable_owner_pid",
+    "https://learn.microsoft.com/en-us/windows/win32/api/tcpmib/ns-tcpmib-mib_tcp6table_owner_pid"
+  ],
+  "activity": {
+    "pc_calls": false,
+    "product_tests": false,
+    "builds": false,
+    "task_state_writes": false,
+    "publication": false
+  },
+  "retention": {
+    "originals_preserved": true,
+    "payload_texts_cached_in_serializable_store": true
+  },
+  "resolved_findings": [
+    {
+      "id": "TCP-PROSE-1",
+      "scope": "README only",
+      "resolution": "The actual receipt establishes no completed HTTP check or scalar edit was recorded; it does not establish whether a first request had been sent or a response arrived around failure.",
+      "source_changed": false
+    }
+  ]
+}

@@ -1,0 +1,100 @@
+{
+  "schema_version": 1,
+  "status": "prepared_inputs_checked",
+  "author": "/root/backend_audit",
+  "checked_utc": "2026-11-27T12:06:08.536Z",
+  "scope": "Concrete small-file staging/readback and prerequisite preparation for unchanged accepted history and publisher helpers. Data/templates and a read-only AST instruction snippet only.",
+  "files": {
+    "README.md": {
+      "bytes": 12548,
+      "sha256": "ac67a60c46d9178d9ea7817893b6c1f16de8bb6c4fc0e1d132ea774a63292dbe"
+    },
+    "inputs/checkpoint-crlf-source-and-qualification-review.json": {
+      "bytes": 13770,
+      "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c"
+    },
+    "inputs/install-result-accepted.json": {
+      "bytes": 16086,
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+    },
+    "inputs/installation-actual-review.json": {
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    },
+    "inputs/runtime-consumer-receipts-review.json": {
+      "bytes": 3893,
+      "sha256": "47cf4723541151a7db1aa580d0c0384fe86dda9e3a64f352fdab286b1907cd7e"
+    },
+    "inputs/runtime-qualification-accepted.json": {
+      "bytes": 1857,
+      "sha256": "a0adc1eb5ca1707977eedcf42b084b0c55207410d2f8eba349572d68866ee3cc"
+    },
+    "inputs/runtime-review-accepted.json": {
+      "bytes": 1014,
+      "sha256": "9e2e68863cc3fa0442b88be4eec6ed0d6aec2e9235e4374658944d7103b44972"
+    },
+    "prerequisite-map.json": {
+      "bytes": 13452,
+      "sha256": "74d3394b2ef2f6e01c90bfca732d07230a0b610e984a8f40e5877faaeb827f0e"
+    },
+    "publisher-documents.request-templates.json": {
+      "bytes": 5208,
+      "sha256": "e6252d9f46a23bb689d9036d4bf2aa6bb0b4f63c659e3a74c2e1fa18e9f00fb8"
+    },
+    "receipt-stage-files.json": {
+      "bytes": 4870,
+      "sha256": "d8316bee27cbd1e74746b1796c413a4b0c0d708e229bbd8a8363adf607388d35"
+    },
+    "source-stage-files.json": {
+      "bytes": 3518,
+      "sha256": "ad3bd4e53f0b2e98781d3170023385f86639b3bbebae867fec12f7ef9194a1cc"
+    }
+  },
+  "inputs": {
+    "history_and_publisher_commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+    "source_review_sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c",
+    "publisher_template_baseline": "717acefc5bf677c8d18dcf16b692117042bae4ae:20261127/git-publication/request-templates.json",
+    "publisher_template_baseline_sha256": "e833d12b8317800228b0909cc2206b1b2e14e09be325a134d43ff389f73a4b89",
+    "history_input_preparation_review_sha256": "1634c7573403f8935873a4a400e64f099110ffbb76c1cf20ac4a851b2410d218"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "scope": "Read the accepted history entry/pin/runtime/baseline/phase boundaries and publisher entry, private/config/hook guards, document FF, remote and baseline producer. Matched the stage manifest and receipt roles against those exact consumers.",
+      "findings_resolved": [
+        "Kept the source review's S copy separate from the C copy needed for retained publisher review pins.",
+        "Kept successful install acceptance distinct from the still-pending combined installed-review and configured outcome.",
+        "Documented app private-store preservation by exact restricted Git paths and no native/app execution, without claiming a full private .beads hash audit.",
+        "Preserved the task-root restriction on the history runtime; its same-byte installed app pin cannot substitute for the staged native path."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "scope": "Read the complete final map/runbook/templates and verify every immutable input and file identity; trace direct phase order, original baseline location and future-null fields.",
+      "checks": [
+        "All five source rows exactly match root's existing history-stage-items.json; all immutable blobs hash-match.",
+        "All six included receipt payloads equal their immutable source bytes, retain lowercase passed and total 45,412 bytes.",
+        "Each selected publisher inner template differs from its accepted baseline only in the two helper hash fields; all future observations, document hashes and attestations remain null.",
+        "The PS readback requires ordinary 5.1, hashes five files and parses only two supervisors inside the existing bounded host; it does not invoke a helper or add another PowerShell process.",
+        "All initial history pins go under C before R exists. Every phase retains its direct/indirect predecessors and original raw-index baseline; future operation results remain unset.",
+        "No source helpers, existing accepted reviews, task graph, product code or actual PC state were changed."
+      ],
+      "findings": []
+    }
+  ],
+  "checked_source_files": 5,
+  "checked_receipt_files": 6,
+  "source_stage_bytes": 182570,
+  "receipt_stage_bytes": 45412,
+  "pc_staging": false,
+  "powershell_parse_executed": false,
+  "helper_execution": false,
+  "task_state_writes": false,
+  "product_tests": false,
+  "builds": false,
+  "pushes": false,
+  "future": "Root must retain and independently accept actual staging/PS parse, fill concrete execution requests from real results and observations, and preserve the existing actual-operation gates.",
+  "cleanup": "Ordinary named cloud packet with no new Git/worktree registration. Exact receipt sources are already durable; root owns any publication and eventual Riftri cleanup after durable equality and fresh state checks."
+}

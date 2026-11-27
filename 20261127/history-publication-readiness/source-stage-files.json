@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "prepared_only",
+  "pc_staging_observed": false,
+  "total_bytes": 182570,
+  "files": [
+    {
+      "name": "checkpoint-only-handoff-crlf-20261127.mjs",
+      "source_path": "20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-20261127.mjs",
+      "bytes": 84410,
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+      "parse": "previously accepted Node source; no execution needed for staging",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "destination": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/checkpoint-only-handoff-crlf-20261127.mjs"
+    },
+    {
+      "name": "checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+      "source_path": "20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+      "bytes": 19195,
+      "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+      "parse": "ordinary Windows PowerShell 5.1 AST",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "destination": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/checkpoint-only-handoff-crlf-supervisor-20261127.ps1"
+    },
+    {
+      "name": "publish-reviewed-git-crlf-20261127.mjs",
+      "source_path": "20261127/checkpoint-crlf-handoff/publish-reviewed-git-crlf-20261127.mjs",
+      "bytes": 45087,
+      "sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+      "parse": "previously accepted Node source; no execution needed for staging",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "destination": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/publish-reviewed-git-crlf-20261127.mjs"
+    },
+    {
+      "name": "publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "source_path": "20261127/checkpoint-crlf-handoff/publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "bytes": 20108,
+      "sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52",
+      "parse": "ordinary Windows PowerShell 5.1 AST",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "destination": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/publish-reviewed-git-crlf-supervisor-20261127.ps1"
+    },
+    {
+      "name": "checkpoint-crlf-source-and-qualification-review.json",
+      "source_path": "20261127/checkpoint-crlf-handoff/independent-review.json",
+      "bytes": 13770,
+      "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c",
+      "parse": "JSON only",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "destination": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/checkpoint-crlf-source-and-qualification-review.json"
+    }
+  ],
+  "copy_rule": "Keep the accepted source bytes unchanged. Create absent files exclusively; if a named destination exists, compare its exact length/hash and reconcile rather than overwriting it. No old accepted helper is replaced.",
+  "dependency": "Both supervisors resolve their adjacent driver. The publisher additionally requires the exact history driver at the fixed final-installation path even for documents mode; it imports only the pure verifier exports."
+}

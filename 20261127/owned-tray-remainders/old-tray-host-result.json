@@ -1,0 +1,255 @@
+{
+    "schema_version":  1,
+    "status":  "failed",
+    "started_utc":  "2026-11-27T06:31:24.4696453Z",
+    "repository":  "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty",
+    "source_revision_reported":  "5232c8b94804064ab71af571ee28797667bd72bd",
+    "port":  43971,
+    "priority":  "BelowNormal",
+    "timeout_seconds":  180,
+    "node_heap_mib":  128,
+    "owned_resident_limit_mib":  512,
+    "interactive_session_id":  1,
+    "cases":  [
+
+              ],
+    "cleanup":  "failed",
+    "identity_observations":  [
+                                  {
+                                      "observed_utc":  "2026-11-27T06:31:26.3838685Z",
+                                      "kind":  "controller",
+                                      "recorded_pid":  10920,
+                                      "process_id":  10920,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T06:31:26.2601804Z",
+                                      "birth_ms":  1795761086260,
+                                      "recorded_started_after":  1795761086036.9043,
+                                      "recorded_at":  1795761086309,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T06:31:26.6611370Z",
+                                      "kind":  "tray-host",
+                                      "recorded_pid":  10496,
+                                      "process_id":  10496,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T06:31:26.3209348Z",
+                                      "birth_ms":  1795761086320,
+                                      "recorded_started_after":  1795761086317,
+                                      "recorded_at":  1795761086325,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T06:31:26.8490333Z",
+                                      "kind":  "tray",
+                                      "recorded_pid":  52040,
+                                      "process_id":  52040,
+                                      "command":  "C:\\WINDOWS\\System32\\WindowsPowerShell\\v1.0\\powershell.exe",
+                                      "expected_name":  "powershell",
+                                      "actual_name":  "powershell",
+                                      "creation_time_utc":  "2026-11-27T06:31:26.3649984Z",
+                                      "birth_ms":  1795761086364,
+                                      "recorded_started_after":  1795761086362,
+                                      "recorded_at":  1795761086377,
+                                      "has_exited":  false
+                                  },
+                                  {
+                                      "observed_utc":  "2026-11-27T06:31:27.3560366Z",
+                                      "kind":  "server",
+                                      "recorded_pid":  7696,
+                                      "process_id":  7696,
+                                      "command":  "C:\\Program Files\\nodejs\\node.exe",
+                                      "expected_name":  "node",
+                                      "actual_name":  "node",
+                                      "creation_time_utc":  "2026-11-27T06:31:27.2515276Z",
+                                      "birth_ms":  1795761087251,
+                                      "recorded_started_after":  1795761087248,
+                                      "recorded_at":  1795761087255,
+                                      "has_exited":  false
+                                  }
+                              ],
+    "user_interactive":  true,
+    "boundaries":  {
+                       "consoles":  "An external preload sets windowsHide on owned Node child launches.",
+                       "forms":  "Real NotifyIcon, real ExitItem.PerformClick and normal helper disposal.",
+                       "registry":  "Each case uses its own XDG_CONFIG_HOME.",
+                       "restart":  "An external preload exits the actual Next child with code 75 after HTTP readiness; no update/build command."
+                   },
+    "explorer_process_ids":  [
+                                 8504
+                             ],
+    "next_version":  "16.3.8",
+    "build_id":  "Eox2_s2VuIuWWAISvMqKK",
+    "source_sha256":  {
+                          "scripts\\fixtures\\windows-tray-observer.mjs":  "a46859f6582fd1d248e4548c7a6d1f00673ab9541c77ed045930aa231c5b45de",
+                          "scripts\\test-windows-tray-smoke.ps1":  "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+                          "scripts\\fixtures\\windows-tray-click.ps1":  "b065d88ba13c4ed4fe4f71ebcb14abaa303fcd98945b9073a84573e3ef691df9",
+                          "bin\\windows-tray.ps1":  "46c98de97680cad44f8aa70c643a9538941cc0a0a6f5b4f86b6b2f0eae5716fb",
+                          "bin\\windows-tray.mjs":  "4205c86aab176cd394c528221d946bcf920f854d26e539164e62cc109c747446",
+                          "bin\\server-controller.mjs":  "89bc2e928407d195c512597e3e315f5005d4723763968d1dbb93ff950e89ceb5",
+                          "scripts\\serve.mjs":  "a66b3e7d24499e5c4ce8f24d64b0acd54a90717dab613bc74cb63527e7ef0865",
+                          "bin\\windows-tray-host.mjs":  "39d1f1e609a787f862cdc21d6fef7aa3c768d981233a12e22c0d2108e93cf0dd"
+                      },
+    "evidence_directory":  "F:\\Dev\\.bead-edit-20261111\\tray-host-check-20261127-2889282bfcec",
+    "job_initial_members":  [
+                                35660
+                            ],
+    "job_accounting":  "All members of the exact retained Job at each sample, including console hosts and short native children; PID, birth and process handle retained.",
+    "hard_deadline_exit_code":  124,
+    "job_helper_sha256":  "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "driver_copy":  {
+                        "sha256":  "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+                        "removed":  true,
+                        "source":  "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty\\scripts\\test-windows-tray-smoke.ps1",
+                        "executed":  "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-driver-20ddfaec51584f96bf737878683ab096\\test-windows-tray-smoke.ps1"
+                    },
+    "launch_headroom":  [
+                            {
+                                "minimum_bytes":  3221225472,
+                                "utc":  "2026-11-27T06:31:25.8861037Z",
+                                "available_physical_bytes":  8439148544
+                            }
+                        ],
+    "error":  "All owned Job members exceeded the aggregate resident-memory budget.",
+    "remaining_job_members":  [
+
+                              ],
+    "processes":  [
+                      {
+                          "exit_code":  -1,
+                          "priority":  "BelowNormal",
+                          "process_id":  34876,
+                          "started_utc":  "2026-11-27T06:31:25.8946862Z",
+                          "session_id":  1,
+                          "kind":  "smoke-runner"
+                      },
+                      {
+                          "exit_code":  -1,
+                          "priority":  "BelowNormal",
+                          "process_id":  10920,
+                          "started_utc":  "2026-11-27T06:31:26.2601804Z",
+                          "session_id":  1,
+                          "kind":  "controller"
+                      },
+                      {
+                          "exit_code":  -1,
+                          "priority":  "BelowNormal",
+                          "process_id":  10496,
+                          "started_utc":  "2026-11-27T06:31:26.3209348Z",
+                          "session_id":  1,
+                          "kind":  "tray-host"
+                      },
+                      {
+                          "exit_code":  -1,
+                          "priority":  "BelowNormal",
+                          "process_id":  52040,
+                          "started_utc":  "2026-11-27T06:31:26.3649984Z",
+                          "session_id":  1,
+                          "kind":  "tray"
+                      },
+                      {
+                          "exit_code":  0,
+                          "priority":  "BelowNormal",
+                          "process_id":  7696,
+                          "started_utc":  "2026-11-27T06:31:27.2515276Z",
+                          "session_id":  1,
+                          "kind":  "server"
+                      }
+                  ],
+    "job_measurements":  {
+                             "samples":  7,
+                             "peak_resident_bytes":  557076480,
+                             "peak_member_count":  9,
+                             "budget_exceeded":  true,
+                             "cleanup_assisted":  true
+                         },
+    "job_processes":  [
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  123723776,
+                              "birth_filetime":  134402346858946862,
+                              "process_id":  34876,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T06:31:25.8946862Z",
+                              "image":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  8658944,
+                              "birth_filetime":  134402346859092864,
+                              "process_id":  49324,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T06:31:25.9092864Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  57221120,
+                              "birth_filetime":  134402346862601804,
+                              "process_id":  10920,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T06:31:26.2601804Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  56164352,
+                              "birth_filetime":  134402346863209348,
+                              "process_id":  10496,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T06:31:26.3209348Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  103809024,
+                              "birth_filetime":  134402346863649984,
+                              "process_id":  52040,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T06:31:26.3649984Z",
+                              "image":  "C:\\Windows\\System32\\WindowsPowerShell\\v1.0\\powershell.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  8679424,
+                              "birth_filetime":  134402346862670644,
+                              "process_id":  40220,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T06:31:26.2670644Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  -1,
+                              "peak_resident_bytes":  8663040,
+                              "birth_filetime":  134402346863790754,
+                              "process_id":  31328,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T06:31:26.3790754Z",
+                              "image":  "C:\\Windows\\System32\\conhost.exe"
+                          },
+                          {
+                              "exit_code":  0,
+                              "peak_resident_bytes":  51810304,
+                              "birth_filetime":  134402346872515276,
+                              "process_id":  7696,
+                              "session_id":  1,
+                              "started_utc":  "2026-11-27T06:31:27.2515276Z",
+                              "image":  "C:\\Program Files\\nodejs\\node.exe"
+                          }
+                      ],
+    "measurements":  {
+                         "max_live_servers":  0,
+                         "heartbeat_utc":  "\/Date(1795761087174)\/",
+                         "peak_resident_bytes":  479739904
+                     },
+    "cleanup_errors":  [
+                           "All owned Job members exceeded the aggregate resident-memory budget.",
+                           "Owned Job descendants required forced cleanup."
+                       ],
+    "completed_utc":  "2026-11-27T06:31:27.7538605Z",
+    "elapsed_seconds":  3.284
+}

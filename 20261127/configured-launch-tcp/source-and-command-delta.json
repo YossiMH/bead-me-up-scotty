@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "source_baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "path": "20261127/configured-launch-session/windows-configured-launch-host-session-20261127.ps1",
+    "sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4"
+  },
+  "source_replacements": [
+    {
+      "old": "    static System.Threading.Timer deadline;\n",
+      "new": "    [DllImport(\"iphlpapi.dll\")] static extern uint GetExtendedTcpTable(IntPtr table, ref uint size, [MarshalAs(UnmanagedType.Bool)] bool order, uint family, uint tableClass, uint reserved);\n    [StructLayout(LayoutKind.Sequential)] struct Tcp4Row {\n        public uint state, localAddress, localPort, remoteAddress, remotePort, owner;\n    }\n    [StructLayout(LayoutKind.Sequential)] struct Tcp6Row {\n        [MarshalAs(UnmanagedType.ByValArray, SizeConst=16)] public byte[] localAddress;\n        public uint localScope, localPort;\n        [MarshalAs(UnmanagedType.ByValArray, SizeConst=16)] public byte[] remoteAddress;\n        public uint remoteScope, remotePort, state, owner;\n    }\n    [StructLayout(LayoutKind.Sequential)] struct Tcp4Table { public uint count; public Tcp4Row first; }\n    [StructLayout(LayoutKind.Sequential)] struct Tcp6Table { public uint count; public Tcp6Row first; }\n    public static int[] ListenerOwners(int port) {\n        if(port<1 || port>65535) throw new ArgumentOutOfRangeException(\"port\");\n        List<int> owners=new List<int>(); Stopwatch clock=Stopwatch.StartNew();\n        // OWNER_PID_LISTENER (3) includes wildcard and duplicate listeners.\n        // Marshal derives both table alignment and row stride from the SDK fields.\n        foreach(uint family in new uint[] { 2, 23 }) {\n            bool ipv4=family==2; Type row=ipv4?typeof(Tcp4Row):typeof(Tcp6Row);\n            int stride=Marshal.SizeOf(row);\n            int header=Marshal.OffsetOf(ipv4?typeof(Tcp4Table):typeof(Tcp6Table),\"first\").ToInt32();\n            int portOffset=Marshal.OffsetOf(row,\"localPort\").ToInt32();\n            int stateOffset=Marshal.OffsetOf(row,\"state\").ToInt32();\n            int ownerOffset=Marshal.OffsetOf(row,\"owner\").ToInt32();\n            if(header!=4 || stride!=(ipv4?24:56) || portOffset!=(ipv4?8:20) ||\n                stateOffset!=(ipv4?0:48) || ownerOffset!=(ipv4?20:52))\n                throw new InvalidOperationException(\"Unexpected native TCP listener layout.\");\n            uint size=0; uint error=GetExtendedTcpTable(IntPtr.Zero,ref size,false,family,3,0);\n            if(error!=122) throw new InvalidOperationException(\"TCP listener size query failed: \"+error);\n            bool complete=false;\n            for(int attempt=0;attempt<3 && clock.ElapsedMilliseconds<500;attempt++) {\n                if(size<(uint)header || size>1048576) throw new InvalidOperationException(\"TCP listener table exceeds its bounded buffer.\");\n                uint capacity=size; IntPtr buffer=Marshal.AllocHGlobal(checked((int)capacity));\n                try {\n                    uint used=capacity; error=GetExtendedTcpTable(buffer,ref used,false,family,3,0);\n                    if(error==122) { size=used; continue; }\n                    if(error!=0) throw new Win32Exception(checked((int)error));\n                    if(used<(uint)header || used>capacity) throw new InvalidOperationException(\"TCP listener table returned an invalid length.\");\n                    int count=Marshal.ReadInt32(buffer,0);\n                    if(count<0 || (long)header+(long)count*stride>used) throw new InvalidOperationException(\"TCP listener table returned an incomplete row set.\");\n                    for(int index=0;index<count;index++) {\n                        int offset=checked(header+index*stride);\n                        if(Marshal.ReadInt32(buffer,offset+stateOffset)!=2) throw new InvalidOperationException(\"TCP listener table contains a non-listener.\");\n                        int localPort=(Marshal.ReadByte(buffer,offset+portOffset)<<8)|Marshal.ReadByte(buffer,offset+portOffset+1);\n                        if(localPort!=port) continue;\n                        int owner=Marshal.ReadInt32(buffer,offset+ownerOffset);\n                        if(owner<=0) throw new InvalidOperationException(\"TCP listener has an invalid owner PID.\");\n                        owners.Add(owner);\n                    }\n                    complete=true; break;\n                } finally { Marshal.FreeHGlobal(buffer); }\n            }\n            if(!complete || clock.ElapsedMilliseconds>=500) throw new InvalidOperationException(\"TCP listeners did not produce a complete bounded snapshot.\");\n        }\n        return owners.ToArray();\n    }\n    static System.Threading.Timer deadline;\n"
+    },
+    {
+      "old": "    $listeners=@(Get-NetTCPConnection -LocalPort $Port -State Listen -ErrorAction SilentlyContinue)\n    Assert-That ($listeners.Count -gt 0 -and @($listeners|Where-Object{$_.OwningProcess -ne $server.process.Id}).Count -eq 0) 'The listening port is not owned by the recorded server.'",
+      "new": "    $listeners=@([Scotty20261125TrayJobInspector]::ListenerOwners($Port))\n    Assert-That ($listeners.Count -gt 0 -and @($listeners|Where-Object{$_ -ne $server.process.Id}).Count -eq 0) 'The listening port is not owned by the recorded server.'"
+    }
+  ],
+  "command_baseline": {
+    "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "path": "20261127/configured-launch-session/configured-launch-com-command.json",
+    "sha256": "d67cdc36331e38faf109586b7f2f5839baa483ae5264baa1e6854f87c40a08ea"
+  },
+  "command_replacements": [
+    {
+      "old": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+      "new": "ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec"
+    },
+    {
+      "old": "configured-v9-session-20261127-2889282bfcec",
+      "new": "configured-v9-tcp-20261127-2889282bfcec"
+    },
+    {
+      "old": "configured-task-session-20261127-2889282bfcec.json",
+      "new": "configured-task-tcp-20261127-2889282bfcec.json"
+    },
+    {
+      "old": "windows-configured-launch-host-session-20261127.ps1",
+      "new": "windows-configured-launch-host-tcp-20261127.ps1"
+    },
+    {
+      "old": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+      "new": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+    }
+  ],
+  "expected_effects_replacement": {
+    "old": "After independent source and ordinary PowerShell 5.1 parser acceptance, verify the exact session-record configured helper, Job helper, installed native pin, both exact CRLF tray module hashes and successful third-installation receipts. Require fresh output, stdout, stderr, receipt and task; the expected logged-in user with Explorer session 1; free port 43972; and 3 GiB available physical memory twice. Use Schedule.Service COM create-only flag 2 and RunEx session flag 4 for one Limited hidden BelowNormal task. Its sole PowerShell host calls the reviewed helper in the same process, preserves its exit code and redirects both PowerShell output streams to new sibling logs, including pre-output failures. The helper keeps its 120-second, 512 MiB, 1 GiB live, 128 MiB Node heap and immediate 3 GiB launch guards. It exercises the installed batch/default pin, five scalar edits and real tray Exit in a new owned fixture and leaves the application stopped. Preserve both failed predecessor tasks, receipts, results and logs. Retain this task, receipt and logs for exact result reconciliation and later owned cleanup; never replay this command after registration or an uncertain outcome.",
+    "new": "After independent source and ordinary PowerShell 5.1 parser acceptance, verify the exact native TCP-listener configured helper, Job helper, installed native pin, both exact CRLF tray module hashes and successful third-installation receipts. Require fresh output, stdout, stderr, receipt and task; the expected logged-in user with Explorer session 1; free port 43972; and 3 GiB available physical memory twice. Use Schedule.Service COM create-only flag 2 and RunEx session flag 4 for one Limited hidden BelowNormal task. Its sole PowerShell host calls the reviewed helper in the same process, preserves its exit code and redirects both PowerShell output streams to new sibling logs, including pre-output failures. The helper keeps its 120-second, 512 MiB, 1 GiB live, 128 MiB Node heap and immediate 3 GiB launch guards. It exercises the installed batch/default pin, five scalar edits and real tray Exit in a new owned fixture and leaves the application stopped. Preserve all three failed predecessor tasks, receipts, results and logs. Retain this task, receipt and logs for exact result reconciliation and later owned cleanup; never replay this command after registration or an uncertain outcome."
+  },
+  "command_characters": 7754,
+  "readable_body_inverse": "Remove LF characters from the readable body to recover the compact text between the unchanged outer -Command quotes.",
+  "inner_action": {
+    "baseline": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/configured-launch-session/inner-action-parser-input.ps1",
+      "bytes": 936,
+      "sha256": "d76984e03fc94022ee7102bcc3763ea28100a402a837cdcf1db8a43873a3aacd"
+    },
+    "derivation": "Only the helper filename and output/log stem change in the separately retained inner-action source. Its no-newline bytes must equal the text rendered by the unchanged outer action expression between -Command quotes."
+  }
+}

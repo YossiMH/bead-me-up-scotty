@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "status": "prepared_only",
+  "pc_staging_observed": false,
+  "total_bytes": 45412,
+  "destination_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs",
+  "files": [
+    {
+      "name": "runtime-qualification-accepted.json",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+      "source_path": "20261127/checkpoint-only-handoff/inputs/runtime-qualification-accepted.json",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/runtime-qualification-accepted.json",
+      "bytes": 1857,
+      "sha256": "a0adc1eb5ca1707977eedcf42b084b0c55207410d2f8eba349572d68866ee3cc",
+      "consumer_role": "runtime.qualification",
+      "status": "passed",
+      "payload_file": "inputs/runtime-qualification-accepted.json"
+    },
+    {
+      "name": "runtime-review-accepted.json",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+      "source_path": "20261127/checkpoint-only-handoff/inputs/runtime-review-accepted.json",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/runtime-review-accepted.json",
+      "bytes": 1014,
+      "sha256": "9e2e68863cc3fa0442b88be4eec6ed0d6aec2e9235e4374658944d7103b44972",
+      "consumer_role": "runtime.review",
+      "status": "passed",
+      "payload_file": "inputs/runtime-review-accepted.json"
+    },
+    {
+      "name": "runtime-consumer-receipts-review.json",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+      "source_path": "20261127/checkpoint-only-handoff/inputs/runtime-consumer-receipts-review.json",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/runtime-consumer-receipts-review.json",
+      "bytes": 3893,
+      "sha256": "47cf4723541151a7db1aa580d0c0384fe86dda9e3a64f352fdab286b1907cd7e",
+      "consumer_role": "Supporting independent provenance for both runtime consumer receipts",
+      "status": "passed",
+      "payload_file": "inputs/runtime-consumer-receipts-review.json"
+    },
+    {
+      "name": "install-result-accepted.json",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+      "source_path": "20261127/installation-completed/result.json",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/install-result-accepted.json",
+      "bytes": 16086,
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673",
+      "consumer_role": "accepted.install",
+      "status": "passed",
+      "payload_file": "inputs/install-result-accepted.json"
+    },
+    {
+      "name": "installation-actual-review.json",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+      "source_path": "20261127/installation-completed/actual-review.json",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/installation-actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e",
+      "consumer_role": "Supporting actual installation acceptance; does not replace pending installed-review task acceptance",
+      "status": "passed",
+      "payload_file": "inputs/installation-actual-review.json"
+    },
+    {
+      "name": "checkpoint-crlf-source-and-qualification-review.json",
+      "repository": "YossiMH/bead-me-up-scotty",
+      "commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+      "source_path": "20261127/checkpoint-crlf-handoff/independent-review.json",
+      "destination": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/checkpoint-crlf-source-and-qualification-review.json",
+      "bytes": 13770,
+      "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c",
+      "consumer_role": "Accepted helper/source qualification for publisher reviews and exact execution preparation",
+      "status": "passed",
+      "payload_file": "inputs/checkpoint-crlf-source-and-qualification-review.json"
+    }
+  ],
+  "copy_rule": "Use exact raw bytes, exclusive creation and exact readback. All records are already accepted historical/actual evidence. Retain originals; the installation review supports the completed install only and is not the pending combined installed-review acceptance.",
+  "review_copy_note": "The source review also appears in the five-file S manifest. A review used by publisher reviews[] must be copied under C or R; its S copy alone is outside retained(). Before preserve, keep R absent and place every accepted pin under C."
+}

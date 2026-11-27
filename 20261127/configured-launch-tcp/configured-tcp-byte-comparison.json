@@ -1,0 +1,53 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "baseline": {
+    "bytes": 49366,
+    "sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4"
+  },
+  "candidate": {
+    "bytes": 53569,
+    "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+  },
+  "complete_source_inverse": true,
+  "source_replacements": 2,
+  "power_shell_functions": 21,
+  "changed_function": [
+    "Initialize-OwnedJob"
+  ],
+  "unchanged_other_functions": [
+    "Register-JobProcess",
+    "Refresh-JobProcesses",
+    "Measure-OwnedJob",
+    "Assert-LaunchHeadroom",
+    "Complete-OwnedJob",
+    "Save-JobEvidence",
+    "Assert-That",
+    "Hash",
+    "Safe-Path",
+    "Quote-Argument",
+    "Test-PortFree",
+    "Add-Owned",
+    "Read-Lines",
+    "Get-TrayCacheEvidence",
+    "Observe-Record",
+    "Observe-Processes",
+    "Check-Budget",
+    "Wait-Until",
+    "Native",
+    "Api"
+  ],
+  "complete_finally_tail_identical": true,
+  "full_command_inverse": true,
+  "command_replacements": 5,
+  "other_invocation_fields_unchanged": true,
+  "readable_body_compact_exact": true,
+  "inner_action_rendered_by_literal_variable_whitelist_exact": true,
+  "inner_action_inverse_exact": true,
+  "inner_action": {
+    "bytes": 912,
+    "sha256": "8c2c7b8cd43ccbc70d25e312a5265bc87d60574035822f565a148ca375e2ebf9"
+  },
+  "command_characters": 7754,
+  "native_lookup_semantics": "Separately reviewed against Microsoft primary SDK field/API descriptions; no native execution by reviewer."
+}

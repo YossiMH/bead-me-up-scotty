@@ -1,0 +1,215 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:11:19.719Z",
+  "scope": "Independent source and fresh invocation acceptance for the fourth configured attempt; actual configured and installed-review acceptance remain pending.",
+  "files": {
+    "windows-configured-launch-host-tcp-20261127.ps1": {
+      "bytes": 53569,
+      "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+    },
+    "configured-launch-com-command.json": {
+      "bytes": 9067,
+      "sha256": "8e94e81e23e78ffd7bbf8f0e3c78e80b0b0a57c5d23ed5e43520e57d498ca359"
+    },
+    "configured-launch-com-body.ps1": {
+      "bytes": 7773,
+      "sha256": "78ba07202a8eb6292c46b8b1789e9e6daa32986825a719a021c62a5d59f2b9e0"
+    },
+    "inner-action-parser-input.ps1": {
+      "bytes": 912,
+      "sha256": "8c2c7b8cd43ccbc70d25e312a5265bc87d60574035822f565a148ca375e2ebf9"
+    },
+    "source-and-command-delta.json": {
+      "bytes": 9580,
+      "sha256": "1e372b451f758433f412d9c36edc3ab7a94b398a3c73a65e926cb245fd7b2246"
+    },
+    "README.md": {
+      "bytes": 8643,
+      "sha256": "2d48ba01498aa4b20f2ba9eadfa0cd4c0e5fe363a4d90c03e79868611116ae41"
+    },
+    "author-inspections.json": {
+      "bytes": 11131,
+      "sha256": "fb96b4fbcfd291a1bc7bcef99a0a7b0f31e86c5419f1c4b24083571db859d7a7"
+    }
+  },
+  "baseline": {
+    "commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "helper_sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+    "source_review_sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0",
+    "command_sha256": "d67cdc36331e38faf109586b7f2f5839baa483ae5264baa1e6854f87c40a08ea",
+    "inner_sha256": "d76984e03fc94022ee7102bcc3763ea28100a402a837cdcf1db8a43873a3aacd"
+  },
+  "failure_basis": {
+    "result_sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358",
+    "independent_failure_review_sha256": "dc3b886175ef051803f5f18073a0abccb1e275e08aaeba6657a36cb40aaabfd5",
+    "result_status": "failed",
+    "aggregate_peak_bytes": 546582528,
+    "limit_bytes": 536870912,
+    "completed_http_records": 0,
+    "interpretation": "The current harness already has one PowerShell host. Avoiding the NetTCPIP command module is a narrow proposed reduction; the failure receipt does not pinpoint the crossing instruction or measure this proposal's memory savings."
+  },
+  "source_comparison": {
+    "status": "passed",
+    "exact_inverse_replacements": 2,
+    "full_baseline_recovered": true,
+    "modified_function": "Initialize-OwnedJob adds only native TCP table declarations and ListenerOwners.",
+    "modified_main_lines": "The listener query returns owner PIDs instead of cmdlet objects; the unchanged requirement remains at least one owner and every owner equal to the retained server PID.",
+    "other_power_shell_functions_identical": 20,
+    "original_csharp_methods_unchanged": true,
+    "full_observer_identical": true,
+    "complete_cleanup_tail_identical": true,
+    "all_other_bytes_identical": true,
+    "byte_comparison": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-byte-comparison.json",
+      "bytes": 1489,
+      "sha256": "d18b8c6f69e7d635ad847cf1da3fdd0de6b0a42c944348456c9490ac555809ea"
+    }
+  },
+  "tcp_adapter_review": {
+    "status": "passed",
+    "p_invoke": "GetExtendedTcpTable returns a DWORD status, receives a pointer and in/out DWORD length, an explicitly marshaled BOOL, address family, table class and reserved zero. The result code directly determines errors.",
+    "families": [
+      2,
+      23
+    ],
+    "table_class": 3,
+    "listen_state": 2,
+    "source_contract": "The Microsoft table-class enumeration selects owner-PID listeners for both families. Both families are queried; matching wildcard, concrete-address and duplicate listeners are all retained.",
+    "layouts": [
+      {
+        "family": "IPv4",
+        "row_bytes": 24,
+        "header_bytes": 4,
+        "state_offset": 0,
+        "port_offset": 8,
+        "owner_offset": 20
+      },
+      {
+        "family": "IPv6",
+        "row_bytes": 56,
+        "header_bytes": 4,
+        "state_offset": 48,
+        "port_offset": 20,
+        "owner_offset": 52
+      }
+    ],
+    "layout_method": "Sequential SDK-equivalent DWORD/inline-byte-array fields feed Marshal.SizeOf and OffsetOf. Explicit expected offsets/strides refuse an unexpected runtime layout. Count plus full rows must fit the API-reported used length, which must fit the allocation.",
+    "port_decoding": "The first two bytes of the network-order local-port field are combined high byte first. Unused DWORD bytes are not interpreted as part of the 16-bit port.",
+    "ownership": "The native adapter returns every matching positive owner PID, without deduplication or address filtering. PowerShell requires a nonempty result and rejects any PID different from the already-retained server Process.Id.",
+    "allocation_and_retries": {
+      "maximum_buffer_bytes": 1048576,
+      "maximum_fill_attempts_per_family": 3,
+      "success_deadline_ms": 500,
+      "every_allocation_freed_in_finally": true
+    },
+    "refusal_cases": [
+      "Invalid input port.",
+      "Unexpected native structure layout.",
+      "Initial size query result other than the documented insufficient-buffer response.",
+      "Zero/short/oversized table buffer.",
+      "Native API error.",
+      "Returned length outside the owned allocation.",
+      "Negative or incomplete row count.",
+      "Any non-listener row in the listener-class table.",
+      "Nonpositive owner for a matching port.",
+      "A changing table that does not settle in three attempts.",
+      "A two-family query finishing at or after the 500 ms success deadline.",
+      "No matching listener or any foreign owner."
+    ],
+    "timing_limit": "The 500 ms check is a completion/refusal bound around synchronous native calls, not an interruptible per-call timer. The unchanged independent hard Job deadline and Scheduler backstop remain active.",
+    "existing_ownership_and_lifetime_checks_unchanged": true,
+    "runtime_native_api_result": null
+  },
+  "primary_sources_independently_read": [
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/iphlpapi/nf-iphlpapi-getextendedtcptable",
+      "supports": "Signature, NULL/insufficient-buffer response, reserved zero, status return and family/table mapping."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/iprtrmib/ne-iprtrmib-tcp_table_class",
+      "supports": "Ordinal 3 owner-PID listener class and both-family tables."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/tcpmib/ns-tcpmib-mib_tcprow_owner_pid",
+      "supports": "IPv4 DWORD field order, network-order port, listening state and owning PID."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/tcpmib/ns-tcpmib-mib_tcp6row_owner_pid",
+      "supports": "IPv6 inline 16-byte addresses and DWORD field order, network-order port and owning PID."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/tcpmib/ns-tcpmib-mib_tcptable_owner_pid",
+      "supports": "IPv4 count/row representation and possible alignment padding."
+    },
+    {
+      "url": "https://learn.microsoft.com/en-us/windows/win32/api/tcpmib/ns-tcpmib-mib_tcp6table_owner_pid",
+      "supports": "IPv6 count/row representation and possible alignment padding."
+    }
+  ],
+  "invocation_review": {
+    "status": "passed",
+    "exact_inverse_binding_substitutions": 5,
+    "complete_command_and_other_fields_recover_baseline": true,
+    "prose_only_expected_effects_update": "Three predecessor failures preserved and the TCP helper name described.",
+    "readable_body_without_lf_equals_compact_command": true,
+    "command_characters": 7754,
+    "timeout_ms": 30000,
+    "task": "ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec",
+    "output": "F:/Dev/.bead-edit-20261111/configured-v9-tcp-20261127-2889282bfcec",
+    "creation_receipt": "F:/Dev/.bead-edit-20261111/configured-task-tcp-20261127-2889282bfcec.json",
+    "inner_action": "Independently tokenized only PowerShell single-quoted literals/doubled apostrophes and the fixed variable whitelist in action.Arguments. Rendering matches every one of the retained 912 no-newline bytes. Reverse path/filename substitutions recover the prior 936-byte inner action.",
+    "create_only_flags": 2,
+    "session_run_flags": 4,
+    "run_level": 0,
+    "interactive_session": 1,
+    "priority": 7,
+    "one_hidden_powershell_host": true,
+    "exclusive_creation_receipt_before_one_run": true,
+    "exact_seven_input_pins_unchanged_except_helper": true,
+    "same_process_stream_capture_and_exit_propagation_unchanged": true,
+    "fresh_output_logs_task_receipt_required": true
+  },
+  "unchanged_execution_contract": {
+    "node_heap_mib": 128,
+    "aggregate_owned_limit_bytes": 536870912,
+    "live_free_floor_bytes": 1073741824,
+    "admission_and_immediate_launch_floor_bytes": 3221225472,
+    "total_seconds": 120,
+    "work_seconds": 108,
+    "cleanup_reserve_seconds": 12,
+    "scheduler_backstop_seconds": 150,
+    "below_normal": true,
+    "session_birth_exact_job_ownership": true,
+    "actual_installed_batch_default_pin": true,
+    "five_api_and_cli_scalar_roundtrips": [
+      "title",
+      "description",
+      "priority",
+      "issue_type",
+      "notes"
+    ],
+    "real_icon_exit_disposal": true,
+    "normal_owned_process_cache_port_cleanup": true,
+    "assisted_cleanup_cannot_pass": true
+  },
+  "author_packet": {
+    "two_complete_clean_final_source_inspections_recorded": true,
+    "all_manifest_hashes_recomputed": true,
+    "final_readme_and_author_record_read": true,
+    "resolved_prose_finding": "README now states that no completed HTTP check or scalar edit was recorded; it does not overclaim whether a first request was sent.",
+    "final_future_gates_truthful": true
+  },
+  "findings": [],
+  "remaining_gates": [
+    "Root stages and ordinarily parses the exact 818b helper, 78ba outer body and 8c2c inner action with Windows PowerShell 5.1.",
+    "Fresh exact state/headroom and one new configured execution. This also executes the new native adapter; parser acceptance alone cannot qualify it.",
+    "Complete raw result, creation, HTTP/native/tray/process/memory/cache/port and final Task Scheduler reconciliation before configured acceptance.",
+    "Distinct installed-review acceptance combining the existing accepted installation/preservation receipt and unchanged source/runtime pins with the new configured success.",
+    "Fixed 23-task cleanup source, exact four configured task definitions and actual cleanup acceptance; all failed predecessors remain preserved."
+  ],
+  "actual_configured_acceptance": false,
+  "reviewer_activity": "Cloud static source/byte, retained-result and primary-reference review. No PC action, native runtime test or product execution."
+}
+

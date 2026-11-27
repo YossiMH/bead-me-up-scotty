@@ -1,0 +1,311 @@
+{
+  "schema_version": 1,
+  "status": "prepared_only",
+  "created_utc": "2026-11-27T12:02:20.128Z",
+  "author": "/root/backend_audit",
+  "scope": "Small installation and prerequisite map for already accepted history/publication helpers. No executable/helper implementation or acceptance criteria are changed.",
+  "roots": {
+    "source": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151",
+    "coordination": "F:/Dev/.bead-edit-20261111/coordination-20261124",
+    "receipts": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs",
+    "retention": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1"
+  },
+  "source_manifest": "source-stage-files.json",
+  "receipt_manifest": "receipt-stage-files.json",
+  "runtime_dependencies": {
+    "node": {
+      "path": "C:/Program Files/nodejs/node.exe",
+      "version": "v25.2.1",
+      "sha256": "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa",
+      "node_heap_mib": 128
+    },
+    "git": {
+      "path": "C:/Program Files/Git/cmd/git.exe",
+      "sha256": "20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c"
+    },
+    "job_helper": {
+      "path": "C:/Users/YossiMH/AppData/Local/bead-edit-20261111/tray-host-execution-20261125/windows-task-job.ps1",
+      "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+    },
+    "native": {
+      "path": "F:/Dev/.bead-edit-20261111/stage-artifacts-v9-final-20261125-1151/native/release/bead-checkpoint-2d801ba455b7.exe",
+      "bytes": 12243456,
+      "sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+      "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "path_requirement": "Retain the staged qualified executable under the owned task root. The same-byte .scotty-local installed pin is outside the history driver's allowed runtime root."
+    }
+  },
+  "existing_coordination_inputs": [
+    {
+      "field": "plan",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/plan.json",
+      "bytes": 419134,
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+      "action": "Verify existing bytes; no materialization or replacement."
+    },
+    {
+      "field": "materialization",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/materialization-result-v9.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+      "action": "Verify original actual mapping; current task revisions come from fresh observed rows, not this initial map."
+    },
+    {
+      "field": "accepted.plan-review",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/plan-review.json",
+      "sha256": "e26b5812b03c37f6183ed3182c67133df78cd17d74fe0b336324df7c849dece7",
+      "required_status": "PASS",
+      "accepted": true,
+      "revision": 9,
+      "expanded_tasks_read": 55,
+      "blocking_edges_read": 91
+    },
+    {
+      "field": "implicit original inventory",
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/inventory-before-node-v3.json",
+      "sha256": null,
+      "action": "Keep the existing original 954-issue inventory. Preserve records its actual hash; all later phases recheck it. Do not synthesize or replace it."
+    }
+  ],
+  "ready_initial_history_pins": {
+    "runtime.qualification": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/runtime-qualification-accepted.json",
+      "sha256": "a0adc1eb5ca1707977eedcf42b084b0c55207410d2f8eba349572d68866ee3cc"
+    },
+    "runtime.review": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/runtime-review-accepted.json",
+      "sha256": "9e2e68863cc3fa0442b88be4eec6ed0d6aec2e9235e4374658944d7103b44972"
+    },
+    "accepted.install": {
+      "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/install-result-accepted.json",
+      "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+    }
+  },
+  "future_pins": [
+    {
+      "field": "accepted.configured-launch",
+      "required_status": "passed",
+      "path": null,
+      "sha256": null,
+      "source": "Future independently accepted successful configured driver result. The failed Session result is ineligible."
+    },
+    {
+      "field": "accepted.installed-review",
+      "required_status": "passed",
+      "path": null,
+      "sha256": null,
+      "source": "Future combined installed-result acceptance after configured success; not installation-actual-review.json alone."
+    },
+    {
+      "field": "accepted.backend-text-review",
+      "required_status": "passed",
+      "path": null,
+      "sha256": null,
+      "source": "Final native text/publication/adoption acceptance binding actual handoff commit; current draft preparation review alone is insufficient."
+    },
+    {
+      "field": "accepted.app-text-review",
+      "required_status": "passed",
+      "path": null,
+      "sha256": null,
+      "source": "Final app text/publication/adoption acceptance binding actual handoff commit; current draft preparation review alone is insufficient."
+    },
+    {
+      "field": "accepted.original-git-baseline",
+      "required_status": "passed",
+      "path": null,
+      "sha256": null,
+      "source": "Native documents mode emits C/git-publication-<run_id>/original-git-baseline.json and index-after.raw after accepted actual document adoption."
+    },
+    {
+      "field": "accepted.cleanup-results",
+      "required_status": "passed",
+      "path": null,
+      "sha256": null,
+      "source": "Future actual cleanup acceptance; required by close, final-publish and final-restore."
+    },
+    {
+      "field": "accepted.cleanup-text-review",
+      "required_status": "passed",
+      "path": null,
+      "sha256": null,
+      "source": "Future cleanup handoff/text acceptance; required by close and both final phases."
+    },
+    {
+      "field": "accepted.checkpoint-publication",
+      "required_status": "passed",
+      "path": null,
+      "sha256": null,
+      "source": "Initial publisher result.json after accepted restore-original plus restore. Required before close and reused by both final phases."
+    }
+  ],
+  "initial_gates": [
+    "Stage/rehash exact sources and retain zero-error ordinary PS5.1 AST receipts for both supervisors.",
+    "Accept successful actual configured launch and combined installed review; complete and independently review final handoff text.",
+    "Publish/adopt exact document-only descendants with unchanged original checkpoint tree and private settings.",
+    "Pin final text/publication acceptance and the produced original-git-baseline under C.",
+    "Preserve must see R absent. Freeze then requires all 54 noncleanup tasks closed and cleanup unassigned/unclaimed. Root owns the exclusive writer window."
+  ],
+  "publisher_document_contract": {
+    "allowed_paths": {
+      "native": [
+        ".marathon/progress.md"
+      ],
+      "scotty": [
+        "README.md",
+        "docs/backend-compatibility.md"
+      ]
+    },
+    "built_sources": {
+      "native": "2d801ba455b7a722daf644a7615445117d57e8e9",
+      "scotty": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219"
+    },
+    "expected_head": null,
+    "target_commit": null,
+    "expected_remote_commit": null,
+    "expected_raw_index_sha256": null,
+    "expected_git_config_sha256": null,
+    "observed_checkout_mode": "true",
+    "require_fresh_guard": true,
+    "private_fields_checked": {
+      "native": [
+        ".beads/config.json",
+        ".beads/.gitignore",
+        ".beads/beads.db",
+        ".beads/beads.db-wal",
+        ".beads/beads.db-shm",
+        ".beads/beads.db-journal"
+      ],
+      "scotty": [
+        ".env.local"
+      ]
+    },
+    "private_app_store": "No app .beads path is opened or written. Every changed path is exactly allowlisted, full unrelated stage-0 entries remain equal, and normal FF under unchanged config touches only the reviewed documents and Git metadata. This is preservation by restricted operations, not a full private app database byte audit.",
+    "hooks": "Fresh effective hook.* configuration must be absent; effective filesystem hook list must equal the reviewed accepted_hooks. The observed empty list may be used only after fresh verification; no hook suppression.",
+    "normal_git": "Explicit immutable HTTPS fork fetch with --no-tags --no-write-fetch-head --no-recurse-submodules --no-auto-maintenance --no-write-commit-graph; ancestor check; merge --ff-only; optional ordinary push if remote is still expected_head. Command-local gc.auto=0, maintenance.auto=false and pack.threads=1. No persistent config changes.",
+    "working_bytes": "Bind canonical LF bytes/SHA/Git blob and actual built-in cat-file --filters bytes/SHA independently under unchanged core.autocrlf=true. All document attributes remain inspected; external filter/encoding/ident transformations are refused.",
+    "baseline_output": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-<run_id>/original-git-baseline.json",
+    "baseline_index": "F:/Dev/.bead-edit-20261111/coordination-20261124/git-publication-<run_id>/index-after.raw",
+    "baseline_required": {
+      "status": "passed",
+      "remote_repository": "YossiMH/bead-rs",
+      "head": null,
+      "remote_commit": null,
+      "checkpoint_tree": "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+      "remote_checkpoint_tree": "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+      "remote_objects_verified": null,
+      "index_sha256": null,
+      "index_backup": {
+        "path": null,
+        "sha256": null
+      }
+    },
+    "reviews_rule": "All reviews[] paths must be strictly under C or R and hash-pinned; 1..8 entries, accepted status passed or PASS, and no open_findings. Before R exists, use C. Fill real installed/configured/text acceptance, not a failed configured result or draft-only acceptance."
+  },
+  "phase_order": [
+    {
+      "phase": "preserve",
+      "direct_prior": [],
+      "requires": "All initial accepted pins, R absent and original DB/sidecars absent."
+    },
+    {
+      "phase": "freeze",
+      "direct_prior": [
+        "preserve"
+      ],
+      "requires": "54 tasks closed; cleanup open/unassigned/claim_epoch 0; freezes coordination authority."
+    },
+    {
+      "phase": "source-restore",
+      "direct_prior": [
+        "preserve",
+        "freeze"
+      ],
+      "requires": "Canonical original 954 and frozen 1,009 disposable restore proofs; original untouched."
+    },
+    {
+      "phase": "restore-original",
+      "direct_prior": [
+        "preserve",
+        "freeze",
+        "source-restore"
+      ],
+      "requires": "Recheck absent DB; supported init+restore; reconcile complete original, scope rows and exact audit/promotion/index proofs."
+    },
+    {
+      "phase": "restore",
+      "direct_prior": [
+        "preserve",
+        "freeze",
+        "source-restore",
+        "restore-original"
+      ],
+      "requires": "Verify initial publication in fresh disposable target before any checkpoint Git commit."
+    },
+    {
+      "operation": "initial checkpoint Git publication",
+      "requires": [
+        "restore-original",
+        "restore"
+      ],
+      "output": "Use actual publisher result.json as accepted.checkpoint-publication; retain its generation_id, root_sha256, commit==remote_commit and checkpoint_tree."
+    },
+    {
+      "phase": "close",
+      "direct_prior": [
+        "preserve",
+        "freeze",
+        "source-restore",
+        "restore-original",
+        "restore"
+      ],
+      "requires": "Actual initial checkpoint publication, cleanup results and cleanup text accepted; all five attestations true; actual pre-close cleanup revision and trimmed 80..4096 reason."
+    },
+    {
+      "phase": "final-publish",
+      "direct_prior": [
+        "preserve",
+        "freeze",
+        "source-restore",
+        "restore-original",
+        "close"
+      ],
+      "requires": "Exact close after-state, same pre-close request revision/reason, no intervening Git/native mutation; original-owned flush."
+    },
+    {
+      "phase": "final-restore",
+      "direct_prior": [
+        "preserve",
+        "freeze",
+        "source-restore",
+        "final-publish"
+      ],
+      "requires": "Exact final-publish after-state; fresh final disposable restore; all 55 closed."
+    },
+    {
+      "operation": "final checkpoint Git publication",
+      "requires": [
+        "final-publish",
+        "final-restore"
+      ],
+      "output": "Actual normal commit/push and remote equality; final staged verifier stays strict."
+    }
+  ],
+  "phase_result_path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/<phase>/result.json",
+  "retention_rule": "Keep C, the baseline raw index, all direct and indirect predecessor outputs, failed attempt records and successful source retention through final-restore and final publication acceptance. Do not replay occupied attempts after interruption.",
+  "supervision": {
+    "outer_power_shell_hosts": 1,
+    "node_heap_mib": 128,
+    "max_aggregate_resident_mib": 512,
+    "start_free_gib": 3,
+    "live_free_gib": 1,
+    "total_seconds": 180,
+    "cleanup_seconds": 12,
+    "priority": "BelowNormal",
+    "hidden": true
+  },
+  "pc_execution": false,
+  "task_mutations": false,
+  "new_graph": false,
+  "new_product_tests": false
+}

@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "author": "/root",
+  "utc": "2026-11-27T12:09:07.877905+00:00",
+  "source": {
+    "path": "read-owned-tray-remainders.cjs",
+    "bytes": 3848,
+    "sha256": "6414c4e9bf0a2614685fc5c5fd8ccdc5379c4a252378a23bc83901020a18c268"
+  },
+  "invocation": {
+    "path": "read-owned-tray-remainders-command.json",
+    "bytes": 5800,
+    "sha256": "2d12d831d1ec7acb6c291e2cbeed49c420e8664d1d1baa37aa5077a194af36b8",
+    "command_characters": 5243
+  },
+  "complete_source_inspections": [
+    {
+      "pass": 1,
+      "findings": [],
+      "checks": "Read both exact Session cache paths against actual processes.jsonl and pinned source hashes; reviewed fixed known task inventory selector and output-path extraction, read-only operations and small resource/output bounds."
+    },
+    {
+      "pass": 2,
+      "findings": [],
+      "checks": "Re-read complete source and rendered invocation; verified no write, child, arbitrary path, recursion or product launch, regular ancestor checks, file bounds and identity readback, pinned raw old result hash and byte-preserving gzip transport. Cloud Node syntax check passed."
+    }
+  ],
+  "execution_claim": false
+}

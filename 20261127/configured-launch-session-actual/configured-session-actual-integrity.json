@@ -1,0 +1,180 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Byte-exact retained evidence reconciliation; configured execution remains failed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:04:58.470442+00:00",
+  "immutable_actual_commit": "2eedc62026cad3befa2afe28b64a2cd62fb798a0",
+  "raw_transport": {
+    "envelope": {
+      "bytes": 21173,
+      "sha256": "d34afbff08319659a9ae257dc20d530846b8256fbbcdf6ba9930a6bdd82817de"
+    },
+    "execution": {
+      "bytes": 359,
+      "sha256": "4cd41c5bcf24894ed85e0737bf48e0bbaa28884bb852d020de1f0b8907028d7c"
+    },
+    "package": {
+      "bytes": 57533,
+      "sha256": "3d312bc89c2f0871454fd82e257944bfc51598de554804e53a143aea55f59026"
+    },
+    "gzip_bytes": 13471,
+    "gzip_sha256": "c422fe29a841f5008efddfddaa7b2296fa8a8d78148796114eb3476125e37060",
+    "raw_files": 11,
+    "present": 9,
+    "missing": [
+      "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/native.jsonl",
+      "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/icon-receipt.json"
+    ],
+    "raw_file_bytes": 41501,
+    "exact_gzip_decode_matches_package": true,
+    "all_raw_file_bytes_lengths_hashes_match": true,
+    "stdout_is_exact_result_text_utf16le_bom_plus_crlf": true,
+    "raw_integer_birth_ticks_preserved": true,
+    "collector_peak_rss_bytes": 51892224,
+    "collector_minimum_free_bytes": 2716856320,
+    "collector_elapsed_ms": 27
+  },
+  "file_manifest": [
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/result.json",
+      "present": true,
+      "bytes": 11603,
+      "sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/controller.json",
+      "present": true,
+      "bytes": 249,
+      "sha256": "e5f89f6d62cd9a58c4c27ab3969f46beb36b5c6540c23ee7eba9cb60f6fabdc1"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/processes.jsonl",
+      "present": true,
+      "bytes": 2221,
+      "sha256": "2164e94bfdbd06ceb457ec36ff311106d70eb770e68ed6e9c849747c86141fce"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/native.jsonl",
+      "present": false
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/icon-receipt.json",
+      "present": false
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/memory-start.json",
+      "present": true,
+      "bytes": 76,
+      "sha256": "4c0df5570e3990a740e87cf27e5ce865f6bcaf57833caf1d5c6a113e60b09dd9"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/stdout.log",
+      "present": true,
+      "bytes": 239,
+      "sha256": "c1bb3449a1dc00bd65610caacbe8d6024ded3fb763ba1476878e027238c85938"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec/stderr.log",
+      "present": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec.stdout.log",
+      "present": true,
+      "bytes": 23212,
+      "sha256": "1db5735f5593b96c6ef017354af262af0235d615e074255e17272ad7369e2ea8"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-v9-session-20261127-2889282bfcec.stderr.log",
+      "present": true,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+    },
+    {
+      "path": "F:/Dev/.bead-edit-20261111/configured-task-session-20261127-2889282bfcec.json",
+      "present": true,
+      "bytes": 3901,
+      "sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9"
+    }
+  ],
+  "registration_and_parse": {
+    "creation": {
+      "bytes": 3901,
+      "sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9"
+    },
+    "launch": {
+      "bytes": 3796,
+      "sha256": "052208df85e6e8b8036ed38dc6cba52dc59c90905c0c874121fdf57cdb454963"
+    },
+    "staging": {
+      "bytes": 1411,
+      "sha256": "d311a5a3cc84ff433a6e1e1ca5994d73f8fa5ab6703a6e5937134a5ca31fa149"
+    },
+    "parse": {
+      "bytes": 1988,
+      "sha256": "bb4e0fdaf3c0eb883d332af304ae1a9e59608ffbf88d08b060fc163deb6d3332"
+    },
+    "all_three_exact_inputs_parse_zero_errors": true,
+    "powershell_version": "5.1.26100.9818",
+    "same_process_action_equals_reviewed_inner_bytes": true,
+    "receipt_fields_match_launch_except_status_and_guid": true,
+    "admission_free_mib": 6473,
+    "created_utc": "2026-11-27T11:32:43.8995565Z",
+    "final_task_state_not_in_this_packet": true
+  },
+  "execution": {
+    "status": "failed",
+    "error": "All owned Job members exceeded the aggregate resident-memory budget.",
+    "started_utc": "2026-11-27T11:32:44.8200843Z",
+    "completed_utc": "2026-11-27T11:32:49.7117191Z",
+    "elapsed_seconds": 4.8916348,
+    "completed_http_records": 0,
+    "native_commands": [
+      {
+        "name": "init",
+        "exit_code": 0
+      }
+    ],
+    "role_records_join_exact_held_job_identity": true,
+    "job_birth_timestamps_exact": true,
+    "observed_controller_child_parents_match": true,
+    "source_hashes_binary_and_build_equal_previous_actual": true,
+    "build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "binary_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "job_samples": 9,
+    "peak_owned_bytes": 546582528,
+    "owned_limit_bytes": 536870912,
+    "overage_bytes": 9711616,
+    "saved_role_peak_bytes": 495308800,
+    "minimum_free_bytes": 6413094912,
+    "descendant_individual_peak_sum_bytes": 368431104,
+    "harness_self_lower_bound_bytes": 178151424,
+    "individual_peak_sum_is_not_simultaneous_sample": true,
+    "cleanup_assisted": true,
+    "cleanup_errors": [
+      "All owned Job members exceeded the aggregate resident-memory budget.",
+      "Owned Job descendants required forced cleanup."
+    ],
+    "remaining_job_members": [],
+    "port_free": true
+  },
+  "prior_comparison": {
+    "result": {
+      "bytes": 37543,
+      "sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36"
+    },
+    "review": {
+      "bytes": 24623,
+      "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729"
+    },
+    "prior_peak_bytes": 518172672,
+    "prior_margin_bytes": 18698240,
+    "current_minus_prior_peak_bytes": 28409856,
+    "prior_build_id": "Eox2_s2VuIuWWAISvMqKK",
+    "prior_source_revision": "5232c8b94804064ab71af571ee28797667bd72bd",
+    "current_build_differs": true
+  },
+  "configured_accepted": false
+}

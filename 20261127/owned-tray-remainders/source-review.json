@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "independent": true,
+  "reviewer": "/root/backend_audit",
+  "reviewed_utc": "2026-11-27T12:10:37.031Z",
+  "scope": "Independent static acceptance of the exact small read-only tray remainder command. This accepts inspection and recovery of an already pinned raw failure record, not cache deletion or cleanup completion.",
+  "source": {
+    "path": "recovery/root/read-owned-tray-remainders.cjs",
+    "bytes": 3848,
+    "sha256": "6414c4e9bf0a2614685fc5c5fd8ccdc5379c4a252378a23bc83901020a18c268"
+  },
+  "evidence": [
+    {
+      "path": "recovery/root/configured-session-actual/processes.jsonl",
+      "bytes": 2221,
+      "sha256": "2164e94bfdbd06ceb457ec36ff311106d70eb770e68ed6e9c849747c86141fce"
+    },
+    {
+      "path": "20261127/configured-launch-session-actual/configured-session-failure-review.json",
+      "bytes": 12911,
+      "sha256": "dc3b886175ef051803f5f18073a0abccb1e275e08aaeba6657a36cb40aaabfd5"
+    },
+    {
+      "path": "20261127/results/tray-host-attempt-20261127.json",
+      "bytes": 630,
+      "sha256": "69027c8d693dfc0dbb2cab41f44a5e450501da673e7ad90d76d5d96f78c54087"
+    }
+  ],
+  "selectors": [
+    "Exactly C:/Users/YossiMH/AppData/Local/bead-me-up-scotty/tray/session-EQDYF7 and tray-smoke/session-0KObLb are inspected. Both paths are independently present in the retained actual process arguments for the failed Session run.",
+    "Directory inspection is shallow and limited to the two literal paths. At most eight names are accepted per directory, and only windows-tray.ps1/windows-tray-click.ps1 may be read. File content is not returned; output contains each observed file's size/hash.",
+    "The only task-definition input is the exact 100,788-byte private inventory SHA 97971b4fb451e6be8839d8ca7e37a8d49f486d1b3b81aaeaf754293d3e7cbd4f. The code then selects exactly one row named ChatGPT-BeadEditing-TrayHost-20261127-2889282bfcec.",
+    "The Arguments selector does not execute XML text. Its EvidenceDirectory regex permits only a single alphanumeric/hyphen child under the fixed F:/Dev/.bead-edit-20261111 root, followed by a delimiter. It cannot admit separators, traversal, drive changes or arbitrary roots.",
+    "The regex accepts the explicit unquoted Windows-backslash argument form. A different leading quoting or XML form fails closed before the result read; there is no alternate directory scan or guessed fallback. The exact private XML remains on the PC and was not recovered or independently asserted by this cloud review.",
+    "The selected result.json must be at most 1 MiB and exactly SHA 0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370 before any raw bytes are returned. That identity agrees with the retained earlier TrayHost failure record."
+  ],
+  "read_and_output_bounds": [
+    "Each path is lstat-checked up its non-root ancestors; symlink paths and nonordinary target/parent shapes refuse. ENOENT on an exact cache directory reports absence, while other failures stop the command.",
+    "Reads compare dev, ino, size, mtimeNs and ctimeNs before/after and require the returned length to match. Cache files and inventory are capped at 128 KiB; the old result is capped at 1 MiB.",
+    "Only the already hash-accepted old result is compressed, with gzip level 1. Its raw and gzip size/hash accompany gzip+base64. The successful JSON line is capped at 60,000 characters; all selected paths/names and payload encoding are ASCII, so this also bounds its UTF-8 bytes before the newline.",
+    "The two cache observations are evidence only. They do not accept ownership of any unexpected file or authorize deletion; the later reviewer must compare exact intended per-folder filenames/hashes and fresh process absence."
+  ],
+  "resource_contract": {
+    "priority": "BelowNormal for the current process",
+    "minimum_free_bytes": 1073741824,
+    "sampled_own_rss_limit_bytes": 134217728,
+    "cooperative_elapsed_limit_ms": 15000,
+    "recommended_node_heap_mib": 64,
+    "required_outer_execution": "Use root's bounded direct Node invocation with a finite outer timeout, preferably 20 seconds, and enough complete stdout capacity for the 60,001-byte maximum successful line. No extra PowerShell host or child process is needed.",
+    "limit_scope": "The source checks are cooperative around local metadata/read operations. They are not an independent timer able to interrupt a blocked synchronous filesystem call. The bounded outer invocation remains necessary; actual timing/RSS and returned bytes must be reconciled."
+  },
+  "effects": {
+    "file_writes": false,
+    "deletions": false,
+    "children": false,
+    "network": false,
+    "product_execution": false,
+    "process_termination": false,
+    "own_priority_change": true,
+    "stdout_only": true
+  },
+  "findings": [],
+  "accepted_for": "Exact read-only inspection/recovery from the two known cache directories and hash-pinned older result, under the stated bounded Node invocation.",
+  "actual_execution_accepted": false,
+  "cache_cleanup_accepted": false,
+  "reviewer_activity": "Read exact source and retained local evidence only. No PC call, product execution, test suite, mutation or source edit."
+}

@@ -1,0 +1,204 @@
+{
+  "schema_version": 1,
+  "review_status": "passed",
+  "configured_execution_status": "failed",
+  "configured_acceptance": false,
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:06:30.666Z",
+  "scope": "Independent byte-exact reconciliation and resource diagnosis of the third configured-launch attempt. This review records a failed guarded run; the configured and installed-review tasks remain pending.",
+  "immutable_actual_evidence": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "2eedc62026cad3befa2afe28b64a2cd62fb798a0",
+    "directory": "20261127/configured-launch-session-actual",
+    "result": {
+      "bytes": 11603,
+      "sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358"
+    },
+    "creation": {
+      "bytes": 3901,
+      "sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9"
+    },
+    "raw_package": {
+      "bytes": 57533,
+      "sha256": "3d312bc89c2f0871454fd82e257944bfc51598de554804e53a143aea55f59026"
+    },
+    "transport": {
+      "bytes": 21173,
+      "sha256": "d34afbff08319659a9ae257dc20d530846b8256fbbcdf6ba9930a6bdd82817de"
+    },
+    "integrity_record": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-session-actual-integrity.json",
+      "bytes": 6752,
+      "sha256": "53de642ac725c8ebde5d05dfa1b4b77c393d8bf1e99eb859fca2014562d27a3f"
+    }
+  },
+  "raw_recovery": {
+    "status": "passed",
+    "fixed_file_count": 11,
+    "present_files": 9,
+    "missing_files": [
+      "native.jsonl",
+      "icon-receipt.json"
+    ],
+    "raw_file_bytes": 41501,
+    "compressed_bytes": 13471,
+    "compressed_sha256": "c422fe29a841f5008efddfddaa7b2296fa8a8d78148796114eb3476125e37060",
+    "complete_single_chunk": true,
+    "all_raw_bytes_lengths_and_hashes_independently_verified": true,
+    "stdout_relation": "The 23,212-byte outer stdout is exactly a UTF-16LE BOM followed by the unmodified UTF-8 result text transcoded to UTF-16LE and CRLF. Both retained stderr files are empty.",
+    "integer_precision": "Raw result bytes remain unchanged; Python arbitrary-precision integers verified all 11 full 100 ns birth timestamps against their recorded UTC timestamps and joined the six role records.",
+    "collector": {
+      "exit_code": 0,
+      "elapsed_ms": 27,
+      "peak_rss_bytes": 51892224,
+      "minimum_free_bytes": 2716856320,
+      "node": "v25.2.1",
+      "heap_mib": 64,
+      "priority": "BelowNormal",
+      "no_transport_drops": true
+    }
+  },
+  "registration_and_source": {
+    "status": "passed",
+    "helper_commit": "717acefc5bf677c8d18dcf16b692117042bae4ae",
+    "helper_bytes": 49366,
+    "helper_sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+    "accepted_source_review_sha256": "5713cad540f42ae68d5aacd7da3d954e7133568acf13c1cf165b1c57e13e09c0",
+    "task": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+    "created_utc": "2026-11-27T11:32:43.8995565Z",
+    "registration_flags": 2,
+    "run_flags": 4,
+    "run_level": 0,
+    "session_id": 1,
+    "priority": 7,
+    "admission_free_mib": 6473,
+    "creation_matches_launch_except_status_and_run_guid": true,
+    "same_process_action_matches_exact_reviewed_inner_bytes": true,
+    "parser": {
+      "powershell_version": "5.1.26100.9818",
+      "utc": "2026-11-27T11:16:28.6068314Z",
+      "all_three_exact_inputs_zero_errors": true,
+      "helper": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+      "outer": "5adb4140150174e89e5d90c2a887fb27224e845f79d014b89266b187e0ca7fae",
+      "inner": "d76984e03fc94022ee7102bcc3763ea28100a402a837cdcf1db8a43873a3aacd",
+      "stderr": "Nested CLIXML contains module preparation progress; nested exit is zero and parser errors are zero."
+    },
+    "all_nine_source_hashes_equal_prior_actual_observation": true,
+    "installed_binary_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "installed_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "final_task_state_and_xml": "Root is collecting the final scheduled-task observation separately; it is not inferred from the launch receipt."
+  },
+  "actual_failure": {
+    "error": "All owned Job members exceeded the aggregate resident-memory budget.",
+    "started_utc": "2026-11-27T11:32:44.8200843Z",
+    "completed_utc": "2026-11-27T11:32:49.7117191Z",
+    "elapsed_seconds": 4.8916348,
+    "init": {
+      "exit_code": 0,
+      "session_id": 1
+    },
+    "reached_roles": [
+      "fixture-cli",
+      "batch",
+      "controller",
+      "tray-host",
+      "tray",
+      "server"
+    ],
+    "observed_parent_edges": [
+      "batch → controller",
+      "controller → tray-host",
+      "tray-host → tray",
+      "controller → server"
+    ],
+    "completed_http_records": 0,
+    "native_api_receipts_present": false,
+    "tray_icon_exit_receipt_present": false,
+    "startup_stdout": "Next.js 16.3.8 reports Ready in 287 ms and next.config.ts took 502 ms. This startup output does not establish the subsequent HTTP editing or real Exit checks.",
+    "exact_stop_location_limit": "The result retains the exception text without a phase/stack marker. Api records a request only after obtaining its response. Empty requests therefore proves no completed recorded HTTP check; it does not independently rule out an initial request having been sent before a later budget sample failed.",
+    "configured_task_pass": false
+  },
+  "resources_and_cleanup": {
+    "total_limit_bytes": 536870912,
+    "aggregate_peak_bytes": 546582528,
+    "overage_bytes": 9711616,
+    "minimum_free_physical_bytes": 6413094912,
+    "launch_free_bytes": 7189151744,
+    "controller_launch_free_bytes": 7171760128,
+    "launch_floor_bytes": 3221225472,
+    "live_floor_bytes": 1073741824,
+    "samples": 9,
+    "peak_member_count": 11,
+    "budget_exceeded": true,
+    "cleanup_assisted": true,
+    "cleanup_errors": [
+      "All owned Job members exceeded the aggregate resident-memory budget.",
+      "Owned Job descendants required forced cleanup."
+    ],
+    "remaining_job_members": [],
+    "port_free": true,
+    "final_process_exit_summary": "Every retained Job handle has an exit code; batch/controller/tray-host/tray have -1 after forced cleanup, the retained server exits 0, and init exits 0.",
+    "role_peak_field": 495308800,
+    "role_peak_interpretation": "Check-Budget assigns PeakResident only after Measure-OwnedJob returns. The failing Measure-OwnedJob sample updates job_measurements, then throws, so the lower peak_owned_resident_bytes field excludes that failing sample. The complete Job peak is authoritative.",
+    "descendant_individual_peak_sum_bytes": 368431104,
+    "harness_self_lower_bound_bytes": 178151424,
+    "self_lower_bound_method": "At the total peak, each descendant contribution is bounded above by its retained individual maximum. Subtracting their summed maxima gives a conservative lower bound on the PowerShell harness contribution. The maxima were sampled at different times; this is not a measured simultaneous process decomposition.",
+    "filesystem_cache_cleanup": "The run never reached its normal cache-removal assertion. Exact cache paths and expected bytes are listed below for a separate read-only observation and narrowly owned cleanup."
+  },
+  "comparison_to_accepted_tray_runspace": {
+    "result_sha256": "c625cb7ceb2b5b5e5c4bf1fea55d132353da0fa9fca650ee1d6ba5fde6c6fa36",
+    "actual_review_sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729",
+    "prior_peak_bytes": 518172672,
+    "prior_margin_bytes": 18698240,
+    "current_peak_difference_bytes": 28409856,
+    "prior_build_id": "Eox2_s2VuIuWWAISvMqKK",
+    "current_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "prior_scope": "Three sequential real tray cases: Exit, parent loss, and restart followed by Exit. Its actual controller launched directly from the smoke driver on the older staged runtime.",
+    "shared_overhead": "Both accepted TrayRunspace and this helper already use Get-CimInstance for process parent/command-line checks and Get-NetTCPConnection for TCP owner verification. The current harness is already one PowerShell process.",
+    "material_difference": "The configured run preserves the real installed batch launcher, which adds its retained cmd process (individual peak 9,650,176 bytes), and must subsequently exercise the final runtime and HTTP/native editing checks.",
+    "inference": "The prior success demonstrates narrow resource headroom for its own cases. It cannot establish that the final installed configured workflow fits. A replacement that only saves the observed 9.3 MiB overage may still encounter higher memory during the uncompleted API work."
+  },
+  "source_based_recommendations": [
+    "Retain the installed batch launcher, exact default native pin, all five API/CLI scalar round trips, real NotifyIcon Exit/disposal and process/cache/port checks.",
+    "Reduce harness overhead without changing the 512 MiB aggregate limit, 3 GiB launch gate, 1 GiB live floor, process/session/birth ownership or cleanup deadlines.",
+    "A bounded direct TCP owner-table lookup can replace Get-NetTCPConnection while preserving the all-listeners-have-the-retained-server-PID assertion. Both IPv4 and IPv6, all matching local addresses, duplicate rows, retry bounds, table layout, allocation release and error refusal require independent source review. Removing that cmdlet may avoid loading the NetTCPIP module; the actual memory saving is an unproven source-based hypothesis until one new bounded run.",
+    "Preserve the two complete prior failures and this third failed output, logs and task. Use separately named source, task, output, streams and receipt for ConfiguredTcp; no existing attempt replay."
+  ],
+  "exact_cache_followup": {
+    "basis": "Raw processes.jsonl binds the original helper, click wrapper and their two session directories. Installed windows-tray.mjs prepareHelperCopy creates only windows-tray.ps1 in its production session. The exact windows-tray-observer.mjs cacheClickFixture creates only windows-tray-click.ps1 in its smoke session; the click wrapper's finalizer also restricts removal to that file and its empty session.",
+    "source_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "fixed_entries": [
+      {
+        "directory": "C:/Users/YossiMH/AppData/Local/bead-me-up-scotty/tray/session-EQDYF7",
+        "file": "windows-tray.ps1",
+        "sha256": "fc7249848722f4b3fbff6351523a30be5864082288efcca51bd9212867344923",
+        "source": "F:/Dev/bead-me-up-scotty/bin/windows-tray.ps1"
+      },
+      {
+        "directory": "C:/Users/YossiMH/AppData/Local/bead-me-up-scotty/tray-smoke/session-0KObLb",
+        "file": "windows-tray-click.ps1",
+        "sha256": "4df81d91044d7d615856dc49fc20cee4dff35c4bc4ae81a23b135cbb56d70937",
+        "source": "F:/Dev/bead-me-up-scotty/scripts/fixtures/windows-tray-click.ps1"
+      }
+    ],
+    "observation_required": "Check only the two exact directory entries, file hashes/type and reparse-point state, with fresh confirmation that this attempt's owned processes are absent. Missing entries are already clean. Any unexpected entry or hash must refuse removal; shared parents and other sessions are outside scope.",
+    "deletion_scope_if_present_and_verified": "Only these two verified files followed by their now-empty exact directories. No recursive deletion or shared-parent cleanup.",
+    "earlier_tray_host_failure": "The retained summary cites raw original result SHA0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370. Its full raw result was lost from the cloud reset and the current summary contains no cache paths. Root may recover its existing exact result/known process logs; no cache-directory scan or guessed session is justified.",
+    "actual_cache_observation_or_deletion_in_this_review": false
+  },
+  "continuation": {
+    "tasks_closed_by_this_review": [],
+    "configured_task_remains_open": true,
+    "installed_review_remains_pending": true,
+    "next_attempt_task_name": "ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec",
+    "fixed_cleanup_count_after_next_registration": 23,
+    "installed_review_after_success": "A separate installed-review record should combine accepted installation/preservation review f21530a4 with unchanged installed source/runtime pins and the independently accepted new configured result.",
+    "next_gates": [
+      "Independent narrow ConfiguredTcp source/invocation review and exact ordinary PS5.1 parse.",
+      "Fresh guarded launch and complete byte-exact raw result/process/HTTP/native/Exit/cache/port/resource evidence.",
+      "Final scheduled-task state/XML and separate configured plus installed-review acceptance before either task closes."
+    ]
+  },
+  "reviewer_activity": "Cloud read-only evidence/source reconciliation and review-file creation. No PC operation or product execution."
+}
+
