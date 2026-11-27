@@ -1,0 +1,138 @@
+{
+  "schema_version": 1,
+  "status": "passed_independent_memory_source_v3_request_review",
+  "reviewer": "/root/review_scotty",
+  "findings": [],
+  "accepted_sources": {
+    "supervisor": {
+      "path": "/tmp/beads-02e8a44557c8-memory-engineering/candidate/checkpoint-only-handoff-crlf-supervisor-20261127-memory-v3.ps1",
+      "bytes": 19243,
+      "sha256": "8bd43e176ce075d14cc9bf2f8a47f5fcecc91028066e5cddb3c63f558bd27553"
+    },
+    "unchanged_driver": {
+      "bytes": 84430,
+      "sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773"
+    },
+    "baseline_supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+  },
+  "accepted_v3_request_and_invocation": [
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/recovered-publication-preparation/history-restore-original-20261127-v3.request.json",
+      "bytes": 5123,
+      "sha256": "cea2607f98bd6ce036e3429ed122a20addc9e8f73faf8bac67d3dc941e4c2625"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/recovered-publication-preparation/history-restore-original-v3-admission.ps1",
+      "bytes": 965,
+      "sha256": "61e18e18ad222217ed771f41df744407316f4b034ed57472a4e00d6142a25182"
+    },
+    {
+      "path": "/tmp/beads-02e8a44557c8-handoff/20261127/resumed-completion/recovered-publication-preparation/history-restore-original-v3-admission-invocation.json",
+      "bytes": 3621,
+      "sha256": "6796aa7a8a0e28bdefe560da778d617df4b0f0dcc248804f7d1e1aecf23a068c"
+    }
+  ],
+  "source_checks": [
+    "Removing the one --max-semi-space-size=4 argument and the one node_semi_space_mib=4 result field reconstructs every original c0c supervisor byte, including the original 19195-byte length/hash.",
+    "The a137 history algorithm is unchanged. The measurement import independently reconstructs exact a137 after removing only the export keywords for selectedManifest, retainCheckpoint and inventoryMap.",
+    "Read the allocation reproduction source and retained profiles: both configurations perform the same validation/allocation sequence, actual native restore, complete corpus/database/inventory comparisons, raw-original promotion and retained checkpoint checks. Maximum source/restored/retained graphs are explicitly held live.",
+    "All 16 source/evidence packet files match packet-files.json length/hash. The two author inspections have no findings.",
+    "The new V8 option is consumed by Node before the script and does not change the three application arguments. Existing NODE_OPTIONS/NODE_PATH clearing preserves the explicit bound.",
+    "The fresh supervisor basename resolves the existing a137 sibling in I; PSCommandPath self-hash binding is dynamic. No old helper is replaced.",
+    "Publisher7db314/596abe still imports the identical a137 path/hash. Driver receipt schema, prior/kept/phaseRecord consumers and byte-transport collectors are compatible with the added supervisor field and command option."
+  ],
+  "request_checks": [
+    "The exact 5123-byte cea2607f request differs from accepted v2 only in supervisor_sha256, which equals the new8bd43e17 source.",
+    "Admission changes only the fixed supervisor basename, v3 request filename and exact request hash. BelowNormal priority,3758096384-byte outer admission,180-second inner and200-second outer limits remain identical.",
+    "Decoded UTF-16LE EncodedCommand equals the complete reviewed admission text. The command remains2682 characters and retains the existing invocation prefix/cwd.",
+    "Both preceding preserving resets are independently settled; the second result verifies the fixed output paths and original DB/sidecars absent. The v3 operation remains subject to all unchanged live freshness, source and resource checks."
+  ],
+  "measured_basis": {
+    "comparison": {
+      "path": "/tmp/beads-02e8a44557c8-memory-engineering/candidate/memory-comparison.json",
+      "bytes": 6896,
+      "sha256": "79dd6d669042c644457d9879d9d902eae42f599ad98bee45e9e6cd69c456fb1d"
+    },
+    "author_inspections": {
+      "path": "/tmp/beads-02e8a44557c8-memory-engineering/candidate/author-inspections.json",
+      "bytes": 1710,
+      "sha256": "87b47677403e955e417150c5b85a573aabc9a1e9a2c71a9d235a61fac0b1008c"
+    },
+    "consumer_compatibility": {
+      "path": "/tmp/beads-02e8a44557c8-memory-engineering/candidate/receipt-consumer-compatibility.json",
+      "bytes": 2641,
+      "sha256": "29a6dcdeadb7cd3026e6330541fed490bdef9fd861627fd83a4348a32a945052"
+    },
+    "packet_index": {
+      "path": "/tmp/beads-02e8a44557c8-memory-engineering/candidate/packet-files.json",
+      "bytes": 2719,
+      "sha256": "d263b430e332ffbcde2cbccd0ee1e0f02e11730e1ff6976d770b73e954047031"
+    },
+    "node_version": "v25.2.1",
+    "platform": "linux-x64",
+    "node_sha256": "ff2d367cbba86845f4634df2197955188549a129f486b88e955fac037ab29950",
+    "fixture": "Exact original four-file corpus,17063501 canonical bytes and954 issues, plus the accepted synthetic55-task/91-edge/54-close fixture. Generated IDs/times are distinct from the PC store.",
+    "baseline": {
+      "heap_limit_bytes": 335544320,
+      "pre_native_node_rss": 372490240,
+      "external_peak_node_rss": 402702336,
+      "external_peak_node_plus_native_rss": 432988160,
+      "profile_duration_ms": 17679
+    },
+    "semispace4": {
+      "heap_limit_bytes": 146800640,
+      "pre_native_node_rss": 248655872,
+      "external_peak_node_rss": 262656000,
+      "external_peak_node_plus_native_rss": 309202944,
+      "maximum_sampled_heap_used": 114390160,
+      "maximum_live_graph_set_heap_used": 112521728,
+      "profile_duration_ms": 17974
+    },
+    "external_sample_peaks_independently_recomputed": true,
+    "node_plus_native_peak_reduction_bytes": 123785216,
+    "explanation": "Old-space128 did not bound total V8 heap: the baseline permitted320MiB and expanded its young-space residency during full database equality before synchronous native spawn. Semi-space4 constrains total allowance to140MiB and produced the measured reduction without removing validators, changing parser lifetimes or adding GC calls.",
+    "primary_runtime_documentation": "https://github.com/nodejs/node/blob/v25.2.1/doc/api/cli.md#--max-semi-space-sizesize-in-mib",
+    "scope_limits": [
+      "Linux measurements are not Windows execution receipts.",
+      "The cloud aggregate omits PowerShell/conhost. Existing512MiB aggregate enforcement remains unchanged.",
+      "Git metadata/index operations were excluded from the allocation reproduction; their operational guards remain byte-identical.",
+      "The synthetic continuation is not an assertion of live PC task/history completion."
+    ]
+  },
+  "unchanged_guards": {
+    "node_old_space_mib": 128,
+    "aggregate_owned_resident_mib": 512,
+    "supervisor_timeout_seconds": 180,
+    "initial_free_gib": 3,
+    "live_free_gib": 1,
+    "priority": "BelowNormal",
+    "job_ownership_cleanup_and_replay_controls": true,
+    "runtime_corpus_checkpoint_index_validations": true
+  },
+  "new_bound": {
+    "node_semi_space_mib": 4,
+    "explicit_gc": false,
+    "history_parser_or_algorithm_change": false
+  },
+  "actual_receipt_expectations": {
+    "command_order": [
+      "pinned Node executable",
+      "--max-old-space-size=128",
+      "--max-semi-space-size=4",
+      "unchanged a137 driver",
+      "exact v3 request path",
+      "cea2607f98bd6ce036e3429ed122a20addc9e8f73faf8bac67d3dc941e4c2625",
+      "absolute work deadline"
+    ],
+    "new_supervisor_field": "node_semi_space_mib:4",
+    "legacy_node_heap_mib_meaning": "128MiB old-space setting; total measured V8 allowance is140MiB."
+  },
+  "boundary": "Accepted exact source, measured evidence and concrete v3 request/invocation for root staging and one supervised restore-original execution. No additional benchmark, syntax or product gate is needed. Actual Windows restoration/authority transfer still requires its resulting accepted receipts.",
+  "activity": {
+    "pc_actions": 0,
+    "ref_writes": 0,
+    "reviewer_product_tests": 0,
+    "reviewer_benchmark_runs": 0,
+    "builds": 0
+  }
+}
