@@ -1,0 +1,171 @@
+{
+    "schema_version":  1,
+    "status":  "passed",
+    "phase":  "freeze",
+    "started_utc":  "2026-11-27T15:44:24.8925532Z",
+    "timeout_seconds":  180,
+    "work_stop_seconds":  168,
+    "max_total_resident_mib":  512,
+    "baseline_free_required_gib":  3,
+    "minimum_free_during_work_gib":  1,
+    "node_heap_mib":  128,
+    "priority":  "BelowNormal",
+    "sample_interval_ms":  100,
+    "cleanup_errors":  [
+
+                       ],
+    "cleanup_assisted":  false,
+    "owned_processes":  [
+                            {
+                                "peak_resident_bytes":  350097408,
+                                "pid":  37096,
+                                "exit_code":  0,
+                                "start_ticks":  639313910664069834,
+                                "name":  "node",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  7516160,
+                                "pid":  49728,
+                                "exit_code":  0,
+                                "start_ticks":  639313910664125617,
+                                "name":  "conhost",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  50792,
+                                "exit_code":  0,
+                                "start_ticks":  639313910668035223,
+                                "name":  null,
+                                "session_id":  null,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  63812,
+                                "exit_code":  0,
+                                "start_ticks":  639313910670013206,
+                                "name":  null,
+                                "session_id":  null,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  45888,
+                                "exit_code":  0,
+                                "start_ticks":  639313910672536303,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  52012,
+                                "exit_code":  0,
+                                "start_ticks":  639313910674987407,
+                                "name":  null,
+                                "session_id":  null,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  13021184,
+                                "pid":  59296,
+                                "exit_code":  0,
+                                "start_ticks":  639313910678032836,
+                                "name":  "bead-checkpoint-2d801ba455b7",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  55070720,
+                                "pid":  8128,
+                                "exit_code":  0,
+                                "start_ticks":  639313910707181026,
+                                "name":  "bead-checkpoint-2d801ba455b7",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  60164,
+                                "exit_code":  0,
+                                "start_ticks":  639313910827532423,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  8933376,
+                                "pid":  63312,
+                                "exit_code":  0,
+                                "start_ticks":  639313910826717638,
+                                "name":  "bead-checkpoint-2d801ba455b7",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  63420,
+                                "exit_code":  0,
+                                "start_ticks":  639313910848483587,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  22928,
+                                "exit_code":  0,
+                                "start_ticks":  639313910848112121,
+                                "name":  null,
+                                "session_id":  null,
+                                "killed_by_supervisor":  false
+                            },
+                            {
+                                "peak_resident_bytes":  0,
+                                "pid":  57964,
+                                "exit_code":  0,
+                                "start_ticks":  639313910853357218,
+                                "name":  "git",
+                                "session_id":  0,
+                                "killed_by_supervisor":  false
+                            }
+                        ],
+    "publication_lock_initial":  {
+                                     "present":  false
+                                 },
+    "input_manifest":  "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\revision-9\\checkpoint-only-inputs\\history-freeze-20261127-v1.request.json",
+    "input_manifest_sha256":  "1be28b142e8ff049982728d071058b5057a49b26c22f2e29894fd87d57e66a51",
+    "binary":  "F:\\Dev\\.bead-edit-20261111\\stage-artifacts-v9-final-20261125-1151\\native\\release\\bead-checkpoint-2d801ba455b7.exe",
+    "binary_sha256":  "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "node":  "C:\\Program Files\\nodejs\\node.exe",
+    "node_sha256":  "91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa",
+    "session_id":  0,
+    "baseline_free_physical_bytes":  4197462016,
+    "state":  "finished",
+    "hard_deadline_exit_code":  124,
+    "driver_pid":  37096,
+    "command":  [
+                    "C:\\Program Files\\nodejs\\node.exe",
+                    "--max-old-space-size=128",
+                    "F:\\Dev\\.bead-edit-20261111\\final-installation-v9-20261125-1151\\checkpoint-only-handoff-crlf-20261127.mjs",
+                    "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\revision-9\\checkpoint-only-inputs\\history-freeze-20261127-v1.request.json",
+                    "1be28b142e8ff049982728d071058b5057a49b26c22f2e29894fd87d57e66a51",
+                    "1795794422886"
+                ],
+    "driver_exit_code":  0,
+    "publication_lock_final":  {
+                                   "present":  false
+                               },
+    "phase_result":  "F:\\Dev\\.bead-edit-20261111\\preservation-checkpoint-only-20261127-v1\\phases\\freeze\\result.json",
+    "phase_result_sha256":  "ac743406703ee2ced9c35456032debbddb981ffb05957865a30ffabf943c4521",
+    "remaining_job_members":  [
+
+                              ],
+    "peak_total_resident_bytes":  523091968,
+    "duration_seconds":  21.321,
+    "finished_utc":  "2026-11-27T15:44:46.2116979Z"
+}

@@ -1,0 +1,52 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Persisted independent acceptance already reported to root; no new inspection.",
+  "freeze": {
+    "accepted": true,
+    "driver_result_sha256": "ac743406703ee2ced9c35456032debbddb981ffb05957865a30ffabf943c4521",
+    "supervisor_result_sha256": "cf4a207b3526838417d71de22482e55e5c0581f6f7cfd8ab74382a9a171ec48e",
+    "request_sha256": "1be28b142e8ff049982728d071058b5057a49b26c22f2e29894fd87d57e66a51",
+    "authority": "isolated-frozen",
+    "generation": "gen-23f6aa665b9916fd8e7d60a08600bc33",
+    "root_sha256": "712301ae10d6a9b60f70059b618e163783ac294a2823082b2447285795bae3eb",
+    "complete_transport_and_supervisor_stdout_match_raw_receipts": true,
+    "request_runtime_plan_materialization_and_result_bindings_match": true,
+    "before_after_inventory_stdout_identical": true,
+    "original_git_and_configuration_receipts_identical": true,
+    "semantic_basis": "The unchanged accepted source checks the complete frozen corpus and database tables, preserving original records and all issues while publishing the isolated checkpoint.",
+    "duration_seconds": 21.321,
+    "peak_owned_resident_bytes": 523091968,
+    "owned_processes": 13,
+    "all_observed_exited_zero": true,
+    "remaining_job_members": [],
+    "cleanup_errors": [],
+    "cleanup_assisted": false,
+    "within_unchanged_limits": true
+  },
+  "source_restore_request": {
+    "accepted_for_root_execution": true,
+    "file": "history-source-restore.request.json",
+    "bytes": 4958,
+    "sha256": "c242e146de9359f12b1aeccc987319c95a52f796d36b4f1b0ef0ad15e27a8d65",
+    "predecessor_path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+    "predecessor_sha256": "ac743406703ee2ced9c35456032debbddb981ffb05957865a30ffabf943c4521",
+    "exact_byte_reconstruction_passed": true,
+    "only_changes": [
+      "phase set to source-restore",
+      "supervisor_output set to assigned source-restore directory",
+      "prior.freeze path/hash bound to the accepted actual freeze result"
+    ],
+    "all_other_fields_unchanged": true,
+    "phase_result_not_yet_reviewed": true
+  },
+  "findings": [],
+  "decision": "Root may execute the exact source-restore request with the unchanged supervisor and existing guards under serialized writer ownership. No additional collection or gate is needed.",
+  "reviewer_activity": {
+    "pc_calls": 0,
+    "product_tests": 0,
+    "builds": 0,
+    "helper_edits": 0
+  }
+}
