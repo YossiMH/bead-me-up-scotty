@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:19:14.908Z",
+  "scope": "Independent preparation acceptance for the exact 23-registration cleanup extension. Actual configured success, compatible four-definition observation, filled-request acceptance and cleanup execution remain pending.",
+  "files": {
+    "remove-exact-scheduled-tasks23-20261127.ps1": {
+      "bytes": 27226,
+      "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+    },
+    "author-inspections.json": {
+      "bytes": 9237,
+      "sha256": "34b147333ad0e33e61fc3f07a5e49b7bff3aa1b9f0fad7b0d0aa259af242e3a2"
+    },
+    "README.md": {
+      "bytes": 11747,
+      "sha256": "9f46fe468f72212198c2937f36f69250216398326c0072377110dfcd3f2967df"
+    },
+    "request.template.json": {
+      "bytes": 703,
+      "sha256": "82602c4c1153805e38c28e71cf9155eaa00f8eb6c293abeef95f2109efdb0586"
+    },
+    "invocation.template.json": {
+      "bytes": 1287,
+      "sha256": "58fd8b6c5b660dec2415f3ba2cd28e8746f06018b8feb206b2e2bb82bb29c02f"
+    },
+    "source-delta.json": {
+      "bytes": 7000,
+      "sha256": "5e18c5d1f0e0473f377b299a8e31ad1544e27454f3ed3e01b675a179666ce2c5"
+    },
+    "task-names.json": {
+      "bytes": 2924,
+      "sha256": "81bb83ae58641d4ca42e46a8c36e7a93f0f11665afdb847c67d5dbba9581859e"
+    }
+  },
+  "baseline": {
+    "commit": "2a62978c93befa9a08566765344320e45ffbcb2c",
+    "helper_sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414",
+    "review_sha256": "d7e63570b39ec31c12e7f6fde105d0df6204764b6b840d44fd5a3a77b07d840a"
+  },
+  "source_verification": {
+    "full_source_read": true,
+    "full_readme_templates_names_delta_author_read": true,
+    "complete_inverse_exact": true,
+    "source_substitutions": 14,
+    "unchanged_function_bodies": 11,
+    "unchanged_csharp": true,
+    "unchanged_deletion_finally_tail_except_exact_final_count": true,
+    "original_nineteen_names_order_identical": true,
+    "comparison": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/scheduled-task-cleanup23-byte-comparison.json",
+      "bytes": 1224,
+      "sha256": "2c7a07b5a7a0b7b7932ff04efc4fd16622d393fbe1f90cf73eed014342c0c607"
+    },
+    "all_manifest_hashes_and_both_author_passes_verified": true
+  },
+  "fixed_attempts": [
+    {
+      "order": 20,
+      "name": "ChatGPT-BeadEditing-Configured-20261127-2889282bfcec",
+      "required_last_result": 1,
+      "required_state": "Original output directory remains absent; exact creation retained.",
+      "creation_sha256": "435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd"
+    },
+    {
+      "order": 21,
+      "name": "ChatGPT-BeadEditing-ConfiguredCRLF-20261127-2889282bfcec",
+      "required_last_result": 1,
+      "required_state": "Exact failed session-observation result and clean owned completion retained.",
+      "result_sha256": "4068f777aeb3e7b5d29cd9f7ce3918a4c0eda44b8a9a6f0344157d6b085ff183"
+    },
+    {
+      "order": 22,
+      "name": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+      "required_last_result": 1,
+      "required_state": "Exact failed aggregate-memory result with budget_exceeded and cleanup_assisted true, no remaining Job members and free port.",
+      "creation_sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9",
+      "result_sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358"
+    },
+    {
+      "order": 23,
+      "name": "ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec",
+      "required_last_result": 0,
+      "required_state": "Future independently accepted configured success with normal owned completion and exact final installed pin/runtime.",
+      "helper_sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1",
+      "actual_result": null
+    }
+  ],
+  "preservation_and_scope": {
+    "failed_attempts_remain_failed": true,
+    "original_helpers_and_receipts_preserved": true,
+    "raw_input_copies": 11,
+    "private_full_xml_backups": 23,
+    "input_locks": "Accepted input streams remain open without write/delete sharing.",
+    "definition_comparison": "All exact task names and root-folder paths, complete ordinal XML text and full UTF-8 XML hash must match the private retained observation.",
+    "private_xml_backup": "Exclusive UTF-16LE BOM file, durable flush, exact decoded text readback and retained raw hash/length.",
+    "idle_checks": "Each selected task must be ready and have zero running instances, with ready state rechecked after the instance query. Elevated visibility and the root exclusive registration window remain required.",
+    "deletion": "Exact name only. Save intent, repeat full XML/idle check, DeleteTask(name,0), save successful return, require exact FILE_NOT_FOUND HRESULT, save absence. Finally require all 23 exact names absent.",
+    "no_task_run_or_stop": true,
+    "no_other_process_kill": true,
+    "guard_scope": "The unchanged hard guard can exit only this helper.",
+    "partial_attempts": "Existing output blocks replay; uncertain/partial deletion must be reconciled from service state and exact intended/returned/deleted receipts."
+  },
+  "request_and_downstream_contract": {
+    "future_actual_hashes_null": true,
+    "all_three_attestations_false": true,
+    "template_refuses_before_creating_output": true,
+    "planned_private_definition_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/configured-task-readback-20261127-v3/result.json",
+    "required_definition_schema": {
+      "status": "passed",
+      "tasks_count": 4,
+      "row_fields": [
+        "name",
+        "path",
+        "state",
+        "running_instances",
+        "last_result",
+        "actions",
+        "principal",
+        "settings",
+        "xml"
+      ],
+      "outcomes": [
+        1,
+        1,
+        1,
+        0
+      ],
+      "state": 3,
+      "running_instances": 0
+    },
+    "external_reader_issue": {
+      "draft_sha256": "59cca10880be1613ed7cc3658039a0ea59d0867821880ea73b16175d6537cde2",
+      "finding": "The diagnostic draft writes status=read and instances and omits path/actions/principal/settings, so it cannot satisfy this unchanged strict consumer.",
+      "root_disposition": "Root confirmed that draft was never executed and will preserve it as superseded, then prepare a full-schema reader for independent review.",
+      "consumer_change_required": false,
+      "corrected_reader_and_actual_observation_pending": true
+    },
+    "filled_request_review_required": "Bind exact future result, creation, successful independent configured review, private four-task definition bytes and the three truthful root attestations. Verify principal identity/settings, action and source pins match the intended attempts."
+  },
+  "bounds": {
+    "priority": "BelowNormal",
+    "minimum_start_and_live_free_bytes": 1073741824,
+    "maximum_helper_resident_bytes": 268435456,
+    "work_seconds": 48,
+    "hard_seconds": 60,
+    "sample_interval_ms": 100,
+    "outer_timeout_ms": 70000,
+    "setup": "Initial bounded inputs and Add-Type setup remain inside the outer 70-second timeout; the active hard timer starts before deletion work.",
+    "unchanged": true
+  },
+  "findings_in_frozen_cleanup_source": [],
+  "execution_acceptance": false,
+  "remaining_gates": [
+    "Exact Windows PowerShell 5.1 AST parse.",
+    "Accepted fourth configured result and separate installed review.",
+    "Corrected full-schema four-task reader, actual ready/idle outcomes 1/1/1/0 and exact private XML hashes.",
+    "Independent review of the separately completed request and fresh exclusive registration window.",
+    "One root-owned bounded cleanup and exact result/exit/absence reconciliation."
+  ],
+  "reviewer_activity": "Cloud static and retained-byte review only; no task operation or PC call."
+}
+

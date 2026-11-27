@@ -1,0 +1,81 @@
+{
+  "schema_version": 1,
+  "status": "author-inspections-passed",
+  "author": "/root/frontend_audit",
+  "recorded_utc": "2026-11-27T12:14:03.416Z",
+  "scope": "Fixed eleven-file TCP configured-result collector; exact literal derivative of the independently accepted and actually exercised Session collector.",
+  "files": {
+    "collect-configured-tcp-result-20261127.cjs": {
+      "bytes": 5561,
+      "sha256": "98e491ed377436cdba7c8a65a634da4c108cf4510329a3944e6fd038e1503361"
+    },
+    "invocation.json": {
+      "bytes": 8107,
+      "sha256": "af934034ac44348ba82ec8b74a655f682bec6d54beb172ee1fdf709275b5d50e"
+    },
+    "derivation.json": {
+      "bytes": 2234,
+      "sha256": "9aa1c2fd47b1535467d1e34f0b7eeca3e858fdca3360bfadb0948a8007555785"
+    },
+    "README.md": {
+      "bytes": 4118,
+      "sha256": "3d735fb5e955c25b7acec3ccb1ade8ea796ac4d313e1f8d73ec8707d7e45076e"
+    }
+  },
+  "baseline": {
+    "source_sha256": "19da30c5a7055c3fe3971ed7f609848f2bde86eba08c97c3b227b7d1c6889bad",
+    "invocation_sha256": "74bfdfe0f07695e0972d79003e41da24f392b9f1b6f6d2f6ce4d78e406cc0cbf",
+    "author_sha256": "1700a456273f73e165300133804f120b159e81bbd31b4503f723ca050eb8a0a1",
+    "actual_integrity_review_sha256": "53de642ac725c8ebde5d05dfa1b4b77c393d8bf1e99eb859fca2014562d27a3f",
+    "source_and_invocation_inverse_exact": true
+  },
+  "changes": {
+    "source_literal_groups": 3,
+    "total_occurrences": 4,
+    "invocation": "Only embedded exact source base64 and one prose evidence label; entire original invocation bytes recovered by inverse.",
+    "all_logic_unchanged": true
+  },
+  "passes": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "findings": [],
+      "focus": "Read complete final source, README, derivation and decoded invocation. Verified all eleven paths derive only from the new fixed Tcp stem/creation receipt, all four parent metadata paths, raw-byte retention, guard/stream/finally behavior, and no directory enumeration or writes."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "findings": [],
+      "focus": "Read complete unchanged final source again. Recomputed literal occurrence counts and full inverse; independently decoded invocation source, verified fixed Node64 command prefix and initial 0 - arguments, unchanged timeout, all manifest hashes and stable inner package/chunk identity. Reviewed prior exact actual transport integrity and truthful pending TCP collection scope."
+    }
+  ],
+  "unchanged_bounds": {
+    "priority": "BelowNormal",
+    "node_heap_mib": 64,
+    "initial_live_free_bytes": 1073741824,
+    "own_rss_bytes": 134217728,
+    "total_seconds": 15,
+    "sample_ms": 100,
+    "per_file_bytes": 2097152,
+    "aggregate_raw_bytes": 4194304,
+    "compressed_chunk_bytes": 37500,
+    "base64_payload_characters": 50000,
+    "whole_output_line_characters": 65000,
+    "worker_pool": 1
+  },
+  "command_characters": 7531,
+  "raw_files_never_json_parsed": true,
+  "dynamic_measurements_outside_stable_package": true,
+  "expected_package_sha_required_for_later_chunks": true,
+  "root_review_pending": true,
+  "pc_execution": false,
+  "collector_runtime_execution": false,
+  "product_execution": false,
+  "new_tests": false,
+  "syntax_basis": "Only four string-literal contents changed in the otherwise byte-identical previously syntax-checked and Windows-executed source.",
+  "worktree_registered": false,
+  "retention": "Root publishes exact review packet/evidence before ordinary directory cleanup; no reset absence is credited as worktree removal."
+}
+

@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "review_status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:16:27.097243+00:00",
+  "scope": "Exact failed-attempt cache observation and recovered prior TrayHost raw result; no deletion acceptance",
+  "inputs": {
+    "tray-remainders-readback.json": {
+      "bytes": 5026,
+      "sha256": "b225ea601c8793efb0b3300db67e67116c447f954464a2a50a51a08e74cbbe64"
+    },
+    "tray-remainders-execution.json": {
+      "bytes": 375,
+      "sha256": "c04662ca821b30bf7c9a9770f8838c12c1fd5d0ad4057cee16557beeeecf1ea5"
+    },
+    "old-tray-host-result.json": {
+      "bytes": 14492,
+      "sha256": "0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370"
+    }
+  },
+  "session_caches": [
+    {
+      "path": "C:/Users/YossiMH/AppData/Local/bead-me-up-scotty/tray/session-EQDYF7",
+      "present": true,
+      "entries": [
+        {
+          "name": "windows-tray.ps1",
+          "bytes": 5042,
+          "sha256": "fc7249848722f4b3fbff6351523a30be5864082288efcca51bd9212867344923"
+        }
+      ]
+    },
+    {
+      "path": "C:/Users/YossiMH/AppData/Local/bead-me-up-scotty/tray-smoke/session-0KObLb",
+      "present": true,
+      "entries": [
+        {
+          "name": "windows-tray-click.ps1",
+          "bytes": 2405,
+          "sha256": "4df81d91044d7d615856dc49fc20cee4dff35c4bc4ae81a23b135cbb56d70937"
+        }
+      ]
+    }
+  ],
+  "observed_resource_use": {
+    "elapsed_ms": 17,
+    "own_rss": 50348032,
+    "free_bytes": 3727020032
+  },
+  "old_result": {
+    "raw_bytes_exact": true,
+    "gzip_length_hash_decode_exact": true,
+    "status": "failed",
+    "evidence_directory": "F:\\Dev\\.bead-edit-20261111\\tray-host-check-20261127-2889282bfcec",
+    "driver_copy": {
+      "sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+      "removed": true,
+      "source": "F:\\Dev\\.bead-edit-20261111\\stage-v6\\scotty\\scripts\\test-windows-tray-smoke.ps1",
+      "executed": "C:\\Users\\YossiMH\\AppData\\Local\\bead-edit-20261111\\tray-driver-20ddfaec51584f96bf737878683ab096\\test-windows-tray-smoke.ps1"
+    },
+    "cache_paths_not_present": true,
+    "owned_members_at_completion": []
+  },
+  "next_narrow_read": {
+    "directory": "F:/Dev/.bead-edit-20261111/tray-host-check-20261127-2889282bfcec/temp",
+    "known_child_name_pattern": "^scotty-tray-smoke-[0-9a-f]{32}$",
+    "method": "Bounded immediate entry metadata only; require the uniquely matching ordinary task-owned directory and reject reparse points before reading the two fixed case logs. No recursive or LocalAppData session scan.",
+    "fixed_relative_logs": [
+      "exit/processes.jsonl",
+      "parent-loss/processes.jsonl"
+    ],
+    "purpose": "Derive exact historical helper/click paths and confirm their process IDs/parent chain against raw old result.",
+    "source_basis": {
+      "commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+      "path": "scripts/test-windows-tray-smoke.ps1",
+      "sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+      "root_derivation": "Wrapper owns TEMP/TMP under its exact evidence root/temp; driver creates scotty-tray-smoke- plus a new GUID and fixed exit/parent-loss case paths."
+    }
+  },
+  "cleanup_gate": "Fresh exact owned-process absence and file type/reparse/hash/sole-entry validation before unlinking either Session file and its now-empty exact directory. No deletion or successful cleanup is claimed here.",
+  "new_pc_actions_by_reviewer": false
+}

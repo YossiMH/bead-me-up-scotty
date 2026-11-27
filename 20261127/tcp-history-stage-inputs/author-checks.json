@@ -1,0 +1,82 @@
+{
+  "schema_version": 1,
+  "status": "prepared",
+  "scope": "Fixed TCP source staging, five-file ordinary Windows PowerShell parsing, and separate accepted history receipt staging.",
+  "files": [
+    {
+      "name": "parse-tcp-and-history-command.json",
+      "bytes": 5668,
+      "sha256": "70646b7bc72f9a4e7cb07b9fd2eb65514d1296bc9d43353cd86ce8846e11a162"
+    },
+    {
+      "name": "parse-tcp-and-history-inputs.ps1",
+      "bytes": 1633,
+      "sha256": "ee70f4a083fa47122f269d4a16252eca24aa848e61d7150b8668a8d8a38551f1"
+    },
+    {
+      "name": "stage-history-receipts-command.json",
+      "bytes": 6291,
+      "sha256": "454d541189fe26c1eab5c62306808ba65a34ea7f83e180d43b2708a4b04b4d80"
+    },
+    {
+      "name": "stage-history-receipts.cjs",
+      "bytes": 4163,
+      "sha256": "2eaf41e54e5955312b7d55f38aedbb709f9ce76a9a07bfc2a8f121bf6aa294b7"
+    },
+    {
+      "name": "stage-tcp-inputs-command.json",
+      "bytes": 4731,
+      "sha256": "2074ba5ba00420e5b28242dbd665ebc646acd52927e13284908fca33344c861b"
+    },
+    {
+      "name": "stage-tcp-inputs.cjs",
+      "bytes": 3043,
+      "sha256": "4ccf8c429f3acd2bda6c48dda06f543f8ef5024847fdd2e899035d0ed1e6549d"
+    }
+  ],
+  "baselines": {
+    "downloader_baseline": "dfdaa1e92f878e20f0b6162095ed4f9dbb6700d95487edce387c29afbd05b033",
+    "parser_ps_baseline": "21fd51bbe389fb7854c751aa465fa8f24b5c8034ee8abb8b97e24de702277ebf",
+    "parser_command_baseline": "ae70edb2e4e6f57eb2fa85f743dd95d2258215e5c4d135c950c614542cd230c0"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "scope": "Read both complete downloaders and parser, including fixed destinations/URLs, all nine payload bindings, ancestor and existing-file refusal, exclusive creation, resource checks, timer/error paths, leaf creation, and preservation on partial failure.",
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "scope": "Re-read final source and command bindings; independently decoded both downloader commands and the UTF-16LE parser command, checked all nine retained payload identities and five parser identities, and inverted the parser file-list/encoding substitutions to root's exact prior sources.",
+      "findings": []
+    }
+  ],
+  "bounded_changes_to_root_downloader": [
+    "Fixed TCP3 or receipt6 rows and immutable source roots replace the previous five-file inventory.",
+    "Use base64 encoding of the exact readable Node source to keep command quoting unambiguous; all Windows command strings remain below 8,191 characters.",
+    "Require lstat regular directories without symlink flags and native realpath equality on every ancestor; recheck before each write.",
+    "Use lstat for target absence so existing dangling links are also refused.",
+    "Add an absolute 20-second request timer alongside the inherited socket-inactivity timer; retain the 60-second total timer.",
+    "Check readback byte count as well as SHA-256; retain completed targets on every failure.",
+    "Receipt mode alone may create the final checkpoint-only-inputs leaf after checking its existing parent and ancestry; no recursive directory creation."
+  ],
+  "parser_changes": "Only the two-entry PowerShell input array becomes five entries, and its UTF-16LE encoded argument changes. Parent process, memory admission, hidden child, 20-second timeout, output limit, and result handling are byte-identical to the root baseline.",
+  "validation": {
+    "javascript_syntax": "Both downloaders passed node --check with exit 0; the downloaders themselves were not invoked.",
+    "input_bindings": "All nine payload sizes/SHA-256 values match retained accepted bytes. All six receipt statuses are passed.",
+    "command_roundtrips": "All three commands decode exactly to the frozen readable source.",
+    "ordinary_windows_parse": "Pending actual root execution and receipt.",
+    "actual_downloads": "Pending actual root execution and readback."
+  },
+  "resource_semantics": "Download resource checks are cooperative at admission, each incoming chunk and each item before writing. Timers bound asynchronous network waits; a blocked synchronous filesystem call cannot run a JavaScript timer until it returns. The root retains its 70-second command timeout. Parser resource semantics are unchanged from the root baseline.",
+  "execution_order": [
+    "Root reviews and executes TCP3 staging once.",
+    "Root reconciles TCP3 success, then runs the five-file parser.",
+    "Root checks all five zero-error records before configured launch or history supervisor use.",
+    "Receipt6 staging is independent and can run after configured launch ends."
+  ],
+  "partial_failure": "Do not replay either full downloader after timeout or failure. Inspect all listed target paths, including any target written before a failed readback, retain evidence, and prepare an explicitly narrowed remaining inventory if needed.",
+  "cleanup": "This named packet creates no Git worktree. Retain its source and actual execution receipts durably before removing cloud working copies. The PC staged sources and receipt leaf remain required inputs for later accepted phases and belong in the exact final cleanup inventory."
+}

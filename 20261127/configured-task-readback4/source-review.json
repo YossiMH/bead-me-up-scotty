@@ -1,0 +1,95 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:22:34.257Z",
+  "scope": "Independent source/encoding and cleanup-consumer compatibility review of the corrected fixed four-task definition reader. Actual task observations and cleanup acceptance remain pending.",
+  "source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-four-task-read.ps1",
+    "bytes": 2587,
+    "sha256": "405562277276b27b1eb2737166d4dcca644f48d3401319c8d5c4f1e1361898db"
+  },
+  "invocation": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-four-task-read-command.json",
+    "bytes": 8356,
+    "sha256": "c459e767e1645d5ddd18d88c0f0fe39811270375d2d11452f90afeb35fe1ab29",
+    "command_characters": 7697,
+    "encoded_utf16le_decodes_exact_source": true,
+    "node_heap_mib": 64,
+    "initial_free_bytes": 2147483648,
+    "node_rss_admission_bytes": 134217728,
+    "powershell_timeout_ms": 20000,
+    "outer_timeout_ms": 30000,
+    "child_output_max_bytes": 32768,
+    "hidden_below_normal": true
+  },
+  "output": {
+    "path": "F:/Dev/.bead-edit-20261111/coordination-20261124/configured-task-readback-20261127-v3/result.json",
+    "status": "passed",
+    "schema_version": 1,
+    "fixed_task_count": 4,
+    "maximum_xml_characters_per_task": 65536,
+    "maximum_private_json_bytes": 131072,
+    "fresh_directory_required": true,
+    "exclusive_result_file": true,
+    "complete_xml_stays_private": true,
+    "stdout": "Exact private result hash/length/path and non-XML task identity/action/principal/settings/state metadata."
+  },
+  "consumer": {
+    "helper_sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93",
+    "source_review_sha256": "73c2982da883ac905a718c21f71195f4a6472e9b6e31a0232f413583e8ef87cc",
+    "all_required_fields_present": true,
+    "fields": [
+      "name",
+      "path",
+      "state",
+      "running_instances",
+      "last_result",
+      "actions.type",
+      "actions.path",
+      "actions.arguments",
+      "actions.working_directory",
+      "principal.user_id",
+      "principal.run_level",
+      "principal.logon_type",
+      "settings.priority",
+      "settings.hidden",
+      "settings.enabled",
+      "settings.execution_time_limit",
+      "settings.multiple_instances",
+      "xml"
+    ],
+    "typed_scalar_fields_match": true,
+    "planned_path_matches_request_template": true
+  },
+  "exact_task_order": [
+    "ChatGPT-BeadEditing-Configured-20261127-2889282bfcec",
+    "ChatGPT-BeadEditing-ConfiguredCRLF-20261127-2889282bfcec",
+    "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+    "ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec"
+  ],
+  "source_checks": [
+    "The command contains one exact encoded PowerShell source; independent strict base64/UTF-16LE decoding matches all2587 UTF-8 source bytes.",
+    "The only Scheduler operations connect, select the root folder, fetch four fixed tasks, and read definitions/XML/state/instance counts. No Run, Stop, DeleteTask or unrelated task enumeration is present.",
+    "Exactly one action is required per task; every field consumed by cleanup23 is captured, with complete original XML retained only in private coordination output.",
+    "Private result uses a new file and the printed SHA256 covers exactly its UTF-8 byte array. Outward metadata omits XML.",
+    "The source is read-only with respect to registrations. Its only filesystem writes are the new task-owned private result directory/file."
+  ],
+  "corrected_external_finding": {
+    "superseded_command_bytes": 5909,
+    "superseded_command_sha256": "59cca10880be1613ed7cc3658039a0ea59d0867821880ea73b16175d6537cde2",
+    "preserved_as": "configured-four-task-diagnostic-superseded-command.json",
+    "root_confirmed_never_executed": true,
+    "diagnostic_status_and_field_mismatch_resolved": true
+  },
+  "limits_and_next_gates": [
+    "A status of passed here means the bounded definition read completed; the reader reports actual states and outcomes without converting them into cleanup acceptance.",
+    "After actual execution, independently require all four exact tasks ready with zero instances, outcomes1/1/1/0, and actions/principal/settings matching the four creation receipts.",
+    "The unchanged cleanup helper subsequently pins the complete private observation, rechecks full live XML and idle state, and requires the separately reviewed completed request.",
+    "The full private XML and result bytes remain retained on the PC; this source review does not assert any actual definition or successful fourth configured result."
+  ],
+  "findings": [],
+  "actual_observation": null,
+  "pc_execution_by_reviewer": false
+}
+

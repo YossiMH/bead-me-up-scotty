@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "independent": true,
+  "reviewer": "/root",
+  "utc": "2026-11-27T12:21:56.727451+00:00",
+  "inputs": [
+    {
+      "name": "stage-tcp-inputs-command.json",
+      "bytes": 4731,
+      "sha256": "2074ba5ba00420e5b28242dbd665ebc646acd52927e13284908fca33344c861b"
+    },
+    {
+      "name": "stage-tcp-inputs.cjs",
+      "bytes": 3043,
+      "sha256": "4ccf8c429f3acd2bda6c48dda06f543f8ef5024847fdd2e899035d0ed1e6549d"
+    },
+    {
+      "name": "parse-tcp-and-history-command.json",
+      "bytes": 5668,
+      "sha256": "70646b7bc72f9a4e7cb07b9fd2eb65514d1296bc9d43353cd86ce8846e11a162"
+    },
+    {
+      "name": "parse-tcp-and-history-inputs.ps1",
+      "bytes": 1633,
+      "sha256": "ee70f4a083fa47122f269d4a16252eca24aa848e61d7150b8668a8d8a38551f1"
+    }
+  ],
+  "checks": [
+    "Read both complete sources. Downloader has exactly three accepted fixed targets, immutablecf462 source, before/after hashes, exclusive writes, regular and resolved ancestors, unchanged small resource bounds and absolute request deadline. No child or product execution.",
+    "Parser has exactly the3 accepted TCP helper/outer/inner hashes and2 accepted CRLF supervisors. Before/after hashes and ordinary PS5.1 AST only; no input execution. Same small Node parent/hiddenPS/2GiBinitial/20sec child bounds.",
+    "Independently decoded both exact invocation strings, proving byte equality with reviewed sources and commands below8191 characters."
+  ],
+  "findings": []
+}

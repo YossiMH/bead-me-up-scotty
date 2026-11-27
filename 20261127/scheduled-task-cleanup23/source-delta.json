@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "source_baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "2a62978c93befa9a08566765344320e45ffbcb2c",
+    "path": "20261127/scheduled-task-cleanup22/remove-exact-scheduled-tasks22-20261127.ps1",
+    "sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414",
+    "source_review_sha256": "d7e63570b39ec31c12e7f6fde105d0df6204764b6b840d44fd5a3a77b07d840a"
+  },
+  "source_replacements": [
+    {
+      "old": "# Removes only the fixed twenty-two completed task registrations after exact XML and idle checks.",
+      "new": "# Removes only the fixed twenty-three completed task registrations after exact XML and idle checks.",
+      "count": 1
+    },
+    {
+      "old": "$ExpectedOutput=Join-Path $Coordination 'scheduled-task-cleanup22-20261127-2889282bfcec'",
+      "new": "$ExpectedOutput=Join-Path $Coordination 'scheduled-task-cleanup23-20261127-2889282bfcec'",
+      "count": 1
+    },
+    {
+      "old": "$ConfiguredName='ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec'\n$CreationPath=Join-Path $TaskRoot 'configured-task-session-20261127-2889282bfcec.json'\n$ConfiguredResultPath=Join-Path $TaskRoot 'configured-v9-session-20261127-2889282bfcec\\result.json'\n$ConfiguredHelperSha='33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4'",
+      "new": "$FailedThirdName='ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec'\n$FailedThirdCreationPath=Join-Path $TaskRoot 'configured-task-session-20261127-2889282bfcec.json'\n$FailedThirdCreationSha='c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9'\n$FailedThirdResultPath=Join-Path $TaskRoot 'configured-v9-session-20261127-2889282bfcec\\result.json'\n$FailedThirdResultSha='e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358'\n$ConfiguredName='ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec'\n$CreationPath=Join-Path $TaskRoot 'configured-task-tcp-20261127-2889282bfcec.json'\n$ConfiguredResultPath=Join-Path $TaskRoot 'configured-v9-tcp-20261127-2889282bfcec\\result.json'\n$ConfiguredHelperSha='818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1'",
+      "count": 1
+    },
+    {
+      "old": "baseline_sha256=$BaselineSha;expected_task_count=22;removed=",
+      "new": "baseline_sha256=$BaselineSha;expected_task_count=23;removed=",
+      "count": 1
+    },
+    {
+      "old": "    $failedSecondResult=Read-PinnedJson $FailedSecondResultPath $FailedSecondResultSha 4404\n",
+      "new": "    $failedSecondResult=Read-PinnedJson $FailedSecondResultPath $FailedSecondResultSha 4404\n    $failedThirdCreation=Read-PinnedJson $FailedThirdCreationPath $FailedThirdCreationSha 3901\n    $failedThirdResult=Read-PinnedJson $FailedThirdResultPath $FailedThirdResultSha 11603\n",
+      "count": 1
+    },
+    {
+      "old": "    $creation=Read-PinnedJson $CreationPath $manifest.configured.creation_sha256 65536\n",
+      "new": "    Assert-That ($failedThirdResult.value.status -ceq 'failed' -and $failedThirdResult.value.error -ceq 'All owned Job members exceeded the aggregate resident-memory budget.') 'The third configured failure record differs.'\n    Assert-That ($failedThirdResult.value.port_free -eq $true -and @($failedThirdResult.value.remaining_job_members).Count -eq 0 -and $failedThirdResult.value.job_measurements.cleanup_assisted -eq $true -and $failedThirdResult.value.job_measurements.budget_exceeded -eq $true) 'The retained third failure lacks its exact bounded-stop outcome.'\n    $creation=Read-PinnedJson $CreationPath $manifest.configured.creation_sha256 65536\n",
+      "count": 1
+    },
+    {
+      "old": "    Assert-That ($definition.value.status -ceq 'passed' -and @($definition.value.tasks).Count -eq 3) 'Expected all three exact configured task definitions.'",
+      "new": "    Assert-That ($definition.value.status -ceq 'passed' -and @($definition.value.tasks).Count -eq 4) 'Expected all four exact configured task definitions.'",
+      "count": 1
+    },
+    {
+      "old": "        @{name=$ConfiguredName;created=$creation.value;helper='windows-configured-launch-host-session-20261127.ps1';helper_sha256=$ConfiguredHelperSha;last_result=0}",
+      "new": "        @{name=$FailedThirdName;created=$failedThirdCreation.value;helper='windows-configured-launch-host-session-20261127.ps1';helper_sha256='33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4';last_result=1},\n        @{name=$ConfiguredName;created=$creation.value;helper='windows-configured-launch-host-tcp-20261127.ps1';helper_sha256=$ConfiguredHelperSha;last_result=0}",
+      "count": 1
+    },
+    {
+      "old": "$names=@($OriginalNames)+@($FailedFirstName,$FailedSecondName,$ConfiguredName)",
+      "new": "$names=@($OriginalNames)+@($FailedFirstName,$FailedSecondName,$FailedThirdName,$ConfiguredName)",
+      "count": 1
+    },
+    {
+      "old": "replay_allowed=$false;task_count=22}",
+      "new": "replay_allowed=$false;task_count=23}",
+      "count": 1
+    },
+    {
+      "old": "@{name='configured-second-failed-result.json';pin=$failedSecondResult},@{name='configured-creation.json';pin=$creation}",
+      "new": "@{name='configured-second-failed-result.json';pin=$failedSecondResult},@{name='configured-third-failed-creation.json';pin=$failedThirdCreation},@{name='configured-third-failed-result.json';pin=$failedThirdResult},@{name='configured-creation.json';pin=$creation}",
+      "count": 1
+    },
+    {
+      "old": "@{path=$FailedSecondResultPath;sha256=$failedSecondResult.sha256},@{path=$CreationPath;sha256=$creation.sha256}",
+      "new": "@{path=$FailedSecondResultPath;sha256=$failedSecondResult.sha256},@{path=$FailedThirdCreationPath;sha256=$failedThirdCreation.sha256},@{path=$FailedThirdResultPath;sha256=$failedThirdResult.sha256},@{path=$CreationPath;sha256=$creation.sha256}",
+      "count": 1
+    },
+    {
+      "old": "result_sha256=$FailedSecondResultSha})",
+      "new": "result_sha256=$FailedSecondResultSha},@{task=$FailedThirdName;last_result=1;result_status='failed';creation_sha256=$FailedThirdCreationSha;result_sha256=$FailedThirdResultSha;cleanup_assisted=$true;budget_exceeded=$true})",
+      "count": 1
+    },
+    {
+      "old": "Assert-That ($Removed.Count -eq 22)",
+      "new": "Assert-That ($Removed.Count -eq 23)",
+      "count": 1
+    }
+  ],
+  "candidate_helper": {
+    "filename": "remove-exact-scheduled-tasks23-20261127.ps1",
+    "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+  },
+  "scope": "Fixed input bindings, exact observed third failure retention, fourth future success binding, count 23 and fresh output only; all functions and C# guard unchanged.",
+  "future_fields": "All future actual Tcp creation/result/review/definition hashes remain null. The definition path identifies root's planned four-task readback; every root attestation remains false.",
+  "readme_source": "Derived from the full retained cleanup22 README with the exact count/outcome/input/identity updates recorded in this packet."
+}

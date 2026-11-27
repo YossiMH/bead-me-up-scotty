@@ -1,0 +1,66 @@
+{
+  "schema_version": 1,
+  "scope": "Exact fixed-path/scope derivative of accepted read-only Session collector",
+  "baseline": {
+    "source": {
+      "bytes": 5577,
+      "sha256": "19da30c5a7055c3fe3971ed7f609848f2bde86eba08c97c3b227b7d1c6889bad"
+    },
+    "invocation": {
+      "bytes": 8131,
+      "sha256": "74bfdfe0f07695e0972d79003e41da24f392b9f1b6f6d2f6ce4d78e406cc0cbf"
+    },
+    "author_sha256": "1700a456273f73e165300133804f120b159e81bbd31b4503f723ca050eb8a0a1"
+  },
+  "substitutions": [
+    {
+      "old": "configured-v9-session-20261127-2889282bfcec",
+      "new": "configured-v9-tcp-20261127-2889282bfcec",
+      "count": 1
+    },
+    {
+      "old": "configured-task-session-20261127-2889282bfcec.json",
+      "new": "configured-task-tcp-20261127-2889282bfcec.json",
+      "count": 1
+    },
+    {
+      "old": "configured-session-fixed11-raw",
+      "new": "configured-tcp-fixed11-raw",
+      "count": 2
+    }
+  ],
+  "complete_source_inverse_exact": true,
+  "candidate_source": {
+    "bytes": 5561,
+    "sha256": "98e491ed377436cdba7c8a65a634da4c108cf4510329a3944e6fd038e1503361"
+  },
+  "candidate_invocation": {
+    "bytes": 8107,
+    "sha256": "af934034ac44348ba82ec8b74a655f682bec6d54beb172ee1fdf709275b5d50e"
+  },
+  "invocation_changes": "Only embedded exact source base64 plus the single configured-session to configured-tcp label in expected_effects. Exact inverse recovers the entire previous invocation JSON bytes.",
+  "command_characters": 7531,
+  "bounds_unchanged": {
+    "node_heap_mib": 64,
+    "priority": "BelowNormal",
+    "initial_live_free_bytes": 1073741824,
+    "own_rss_bytes": 134217728,
+    "total_ms": 15000,
+    "sample_ms": 100,
+    "max_file_bytes": 2097152,
+    "max_raw_aggregate_bytes": 4194304,
+    "max_chunk_bytes": 37500,
+    "max_payload_characters": 50000,
+    "max_output_line_characters": 65000
+  },
+  "baseline_actual": {
+    "status": "passed_evidence_transport",
+    "commit": "2eedc62026cad3befa2afe28b64a2cd62fb798a0",
+    "compressed_bytes": 13471,
+    "raw_package_bytes": 57533,
+    "raw_file_bytes": 41501,
+    "exact_raw_integrity_review_sha256": "53de642ac725c8ebde5d05dfa1b4b77c393d8bf1e99eb859fca2014562d27a3f"
+  },
+  "new_pc_execution": null,
+  "new_result": null
+}

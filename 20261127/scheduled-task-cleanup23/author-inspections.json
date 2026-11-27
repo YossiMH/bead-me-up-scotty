@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "status": "ready_for_independent_review",
+  "author": "/root/delivery_audit",
+  "scope": "Narrow fixed 23-task extension of the accepted cleanup22 helper. It preserves the first three configured failures and requires a future independently accepted fourth configured success before exact registration removal.",
+  "files": {
+    "README.md": {
+      "bytes": 11747,
+      "sha256": "9f46fe468f72212198c2937f36f69250216398326c0072377110dfcd3f2967df"
+    },
+    "invocation.template.json": {
+      "bytes": 1287,
+      "sha256": "58fd8b6c5b660dec2415f3ba2cd28e8746f06018b8feb206b2e2bb82bb29c02f"
+    },
+    "remove-exact-scheduled-tasks23-20261127.ps1": {
+      "bytes": 27226,
+      "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+    },
+    "request.template.json": {
+      "bytes": 703,
+      "sha256": "82602c4c1153805e38c28e71cf9155eaa00f8eb6c293abeef95f2109efdb0586"
+    },
+    "source-delta.json": {
+      "bytes": 7000,
+      "sha256": "5e18c5d1f0e0473f377b299a8e31ad1544e27454f3ed3e01b675a179666ce2c5"
+    },
+    "task-names.json": {
+      "bytes": 2924,
+      "sha256": "81bb83ae58641d4ca42e46a8c36e7a93f0f11665afdb847c67d5dbba9581859e"
+    }
+  },
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "2a62978c93befa9a08566765344320e45ffbcb2c",
+    "directory": "20261127/scheduled-task-cleanup22",
+    "files": [
+      {
+        "file": "remove-exact-scheduled-tasks22-20261127.ps1",
+        "bytes": 25332,
+        "sha256": "3877d47abe9699e60061f738e1642f4122ef26c702a7bc1d90c7b41fddb88414"
+      },
+      {
+        "file": "source-review.json",
+        "bytes": 7953,
+        "sha256": "d7e63570b39ec31c12e7f6fde105d0df6204764b6b840d44fd5a3a77b07d840a"
+      }
+    ],
+    "immutable_git_bytes_verified": true
+  },
+  "actual_third_attempt": {
+    "creation": {
+      "bytes": 3901,
+      "sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9"
+    },
+    "result": {
+      "bytes": 11603,
+      "sha256": "e9ebb93fc64c308a235219b267e7887667cc91587b3061877c026cbae49e3358"
+    },
+    "independent_failure_review": {
+      "bytes": 12911,
+      "sha256": "dc3b886175ef051803f5f18073a0abccb1e275e08aaeba6657a36cb40aaabfd5"
+    },
+    "status": "failed",
+    "error": "All owned Job members exceeded the aggregate resident-memory budget.",
+    "port_free": true,
+    "remaining_job_members": [],
+    "cleanup_assisted": true,
+    "budget_exceeded": true
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "recorded_utc": "2026-11-27T12:14:35.703315+00:00",
+      "static_comparison_utc": "2026-11-27T12:13:44.475418+00:00",
+      "findings": [],
+      "files": {
+        "README.md": {
+          "bytes": 11747,
+          "sha256": "9f46fe468f72212198c2937f36f69250216398326c0072377110dfcd3f2967df"
+        },
+        "invocation.template.json": {
+          "bytes": 1287,
+          "sha256": "58fd8b6c5b660dec2415f3ba2cd28e8746f06018b8feb206b2e2bb82bb29c02f"
+        },
+        "remove-exact-scheduled-tasks23-20261127.ps1": {
+          "bytes": 27226,
+          "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+        },
+        "request.template.json": {
+          "bytes": 703,
+          "sha256": "82602c4c1153805e38c28e71cf9155eaa00f8eb6c293abeef95f2109efdb0586"
+        },
+        "source-delta.json": {
+          "bytes": 7000,
+          "sha256": "5e18c5d1f0e0473f377b299a8e31ad1544e27454f3ed3e01b675a179666ce2c5"
+        },
+        "task-names.json": {
+          "bytes": 2924,
+          "sha256": "81bb83ae58641d4ca42e46a8c36e7a93f0f11665afdb847c67d5dbba9581859e"
+        }
+      },
+      "focus": [
+        "Read the full final helper, complete README, request/invocation/names/delta, and actual new creation/result bindings.",
+        "Verified each of the 14 source substitutions and recovered the complete accepted baseline; inspected every unchanged function, C# guard and deletion/finally path.",
+        "Checked fixed original 19 and all four configured names in order, retained three failed attempts, exact actual third failure/cleanup flags, future fourth success requirement, and all 11 raw input copies.",
+        "Inspected every full XML comparison, exact idle check, private backup, durable intent/return/absence record and failure/refusal path."
+      ]
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "recorded_utc": "2026-11-27T12:14:35.703315+00:00",
+      "static_comparison_utc": "2026-11-27T12:14:35.703315+00:00",
+      "findings": [],
+      "files": {
+        "README.md": {
+          "bytes": 11747,
+          "sha256": "9f46fe468f72212198c2937f36f69250216398326c0072377110dfcd3f2967df"
+        },
+        "invocation.template.json": {
+          "bytes": 1287,
+          "sha256": "58fd8b6c5b660dec2415f3ba2cd28e8746f06018b8feb206b2e2bb82bb29c02f"
+        },
+        "remove-exact-scheduled-tasks23-20261127.ps1": {
+          "bytes": 27226,
+          "sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93"
+        },
+        "request.template.json": {
+          "bytes": 703,
+          "sha256": "82602c4c1153805e38c28e71cf9155eaa00f8eb6c293abeef95f2109efdb0586"
+        },
+        "source-delta.json": {
+          "bytes": 7000,
+          "sha256": "5e18c5d1f0e0473f377b299a8e31ad1544e27454f3ed3e01b675a179666ce2c5"
+        },
+        "task-names.json": {
+          "bytes": 2924,
+          "sha256": "81bb83ae58641d4ca42e46a8c36e7a93f0f11665afdb847c67d5dbba9581859e"
+        }
+      },
+      "focus": [
+        "Re-read the complete final helper and all associated prose/templates/delta; all six payload hashes match the first inspection.",
+        "Recomputed full forward/inverse equality, all 11 function bodies, complete C# guard, unchanged deletion/finally tail after only 22→23 count reversal, and original 19 names/order.",
+        "Reconciled new failed third pins against exact raw bytes and required result fields; the fourth definition path is explicitly planned with all future actual hashes null and root attestations false.",
+        "Verified fresh cleanup output, exact helper/request/hash invocation placeholders, ordinary PS5.1 parser gate and unchanged 1 GiB/256 MiB/48s/60s/70s boundaries."
+      ]
+    }
+  ],
+  "verification": {
+    "forward_inverse_exact": true,
+    "source_substitutions": 14,
+    "unchanged_functions": [
+      "Assert-That",
+      "Hash",
+      "Safe-Path",
+      "Hash-Bytes",
+      "Read-PinnedJson",
+      "Save-Bytes",
+      "Save-Json",
+      "Release-Com",
+      "Check-Budget",
+      "Check-Task",
+      "Require-Absent"
+    ],
+    "csharp_sha256": "ecf8a90d776e20a782019aafe84322b84c09fc3bd0d812e895f1dd68ccea6f54",
+    "deletion_finally_tail_unchanged_except_count": true,
+    "original_names_unchanged": 19,
+    "configured_expected_last_results": [
+      1,
+      1,
+      1,
+      0
+    ],
+    "raw_input_copies": 11,
+    "request_delta_exact": true,
+    "invocation_delta_exact": true,
+    "actual_third_creation_failure_reconciled": true,
+    "utf8_lf_json_whitespace": "passed",
+    "ordinary_windows_powershell_5_1_ast_parse": null,
+    "actual_four_task_definition_readback": null,
+    "actual_tcp_acceptance": null,
+    "actual_filled_request_review": null,
+    "actual_cleanup_result": null
+  },
+  "invocation": {
+    "helper": "remove-exact-scheduled-tasks23-20261127.ps1",
+    "helper_sha256": "4b5c57817efcbf019568dc1a6cfdc4868d8c1f99dda3d86cf077afc193385c93",
+    "output_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/scheduled-task-cleanup23-20261127-2889282bfcec",
+    "planned_definition_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/configured-task-readback-20261127-v3/result.json",
+    "expected_task_count": 23,
+    "minimum_start_live_free_bytes": 1073741824,
+    "maximum_helper_resident_bytes": 268435456,
+    "work_seconds": 48,
+    "hard_seconds": 60,
+    "sample_interval_ms": 100,
+    "outer_timeout_ms": 70000,
+    "priority": "BelowNormal",
+    "requires_elevated_exact_instance_visibility": true,
+    "root_is_sole_executor": true
+  },
+  "retention": {
+    "original_helper_and_records_preserved": true,
+    "original_full_xml_stays_private_on_pc": true,
+    "four_configured_full_xml_stays_private_on_pc": true,
+    "all_failed_attempts_remain_failed": true,
+    "new_private_input_copies": 11,
+    "full_private_xml_backups": 23,
+    "payload_texts_cached_in_serializable_store": true
+  },
+  "remaining": [
+    "Independent source preparation review, exact staged Windows PowerShell 5.1 AST parsing and future successful Tcp result acceptance.",
+    "Exact four-task complete XML readback in fixed order, with actual outcomes 1/1/1/0, ready state and zero instances; all definitions remain PC-private.",
+    "A separately filled and independently reviewed actual request, root's fresh exclusive registration window and one bounded execution.",
+    "Exact raw cleanup result/exit/absence reconciliation; interrupted or partial attempts require state reconciliation and cannot be replayed."
+  ],
+  "activity": {
+    "pc_calls": false,
+    "product_tests": false,
+    "builds": false,
+    "task_state_writes": false,
+    "registration_removals": false,
+    "publication": false
+  }
+}

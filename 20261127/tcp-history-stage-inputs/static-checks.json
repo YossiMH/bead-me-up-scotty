@@ -1,0 +1,130 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Cloud static input and command-binding checks; actual PC downloads and Windows parsing remain pending",
+  "utc": "2026-11-27T12:22:56.327347+00:00",
+  "files": [
+    {
+      "name": "parse-tcp-and-history-command.json",
+      "bytes": 5668,
+      "sha256": "70646b7bc72f9a4e7cb07b9fd2eb65514d1296bc9d43353cd86ce8846e11a162"
+    },
+    {
+      "name": "parse-tcp-and-history-inputs.ps1",
+      "bytes": 1633,
+      "sha256": "ee70f4a083fa47122f269d4a16252eca24aa848e61d7150b8668a8d8a38551f1"
+    },
+    {
+      "name": "stage-history-receipts-command.json",
+      "bytes": 6291,
+      "sha256": "454d541189fe26c1eab5c62306808ba65a34ea7f83e180d43b2708a4b04b4d80"
+    },
+    {
+      "name": "stage-history-receipts.cjs",
+      "bytes": 4163,
+      "sha256": "2eaf41e54e5955312b7d55f38aedbb709f9ce76a9a07bfc2a8f121bf6aa294b7"
+    },
+    {
+      "name": "stage-tcp-inputs-command.json",
+      "bytes": 4731,
+      "sha256": "2074ba5ba00420e5b28242dbd665ebc646acd52927e13284908fca33344c861b"
+    },
+    {
+      "name": "stage-tcp-inputs.cjs",
+      "bytes": 3043,
+      "sha256": "4ccf8c429f3acd2bda6c48dda06f543f8ef5024847fdd2e899035d0ed1e6549d"
+    }
+  ],
+  "checks": {
+    "stage-tcp-inputs": {
+      "source_roundtrip": true,
+      "command_characters": 4171,
+      "node_heap_mib": 64,
+      "no_children_import": true,
+      "verified_payloads": [
+        {
+          "destination_name": "windows-configured-launch-host-tcp-20261127.ps1",
+          "bytes": 53569,
+          "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+        },
+        {
+          "destination_name": "configured-launch-tcp-com-body-20261127.ps1",
+          "bytes": 7773,
+          "sha256": "78ba07202a8eb6292c46b8b1789e9e6daa32986825a719a021c62a5d59f2b9e0"
+        },
+        {
+          "destination_name": "configured-launch-tcp-inner-action-20261127.ps1",
+          "bytes": 912,
+          "sha256": "8c2c7b8cd43ccbc70d25e312a5265bc87d60574035822f565a148ca375e2ebf9"
+        }
+      ]
+    },
+    "stage-history-receipts": {
+      "source_roundtrip": true,
+      "command_characters": 5663,
+      "node_heap_mib": 64,
+      "no_children_import": true,
+      "verified_payloads": [
+        {
+          "destination_name": "runtime-qualification-accepted.json",
+          "bytes": 1857,
+          "sha256": "a0adc1eb5ca1707977eedcf42b084b0c55207410d2f8eba349572d68866ee3cc"
+        },
+        {
+          "destination_name": "runtime-review-accepted.json",
+          "bytes": 1014,
+          "sha256": "9e2e68863cc3fa0442b88be4eec6ed0d6aec2e9235e4374658944d7103b44972"
+        },
+        {
+          "destination_name": "runtime-consumer-receipts-review.json",
+          "bytes": 3893,
+          "sha256": "47cf4723541151a7db1aa580d0c0384fe86dda9e3a64f352fdab286b1907cd7e"
+        },
+        {
+          "destination_name": "install-result-accepted.json",
+          "bytes": 16086,
+          "sha256": "a2fe1009af72bbc776d8c4f7db46e0905d2a7d1e5ec18119b1d3abeef0798673"
+        },
+        {
+          "destination_name": "installation-actual-review.json",
+          "bytes": 8792,
+          "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+        },
+        {
+          "destination_name": "checkpoint-crlf-source-and-qualification-review.json",
+          "bytes": 13770,
+          "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c"
+        }
+      ]
+    },
+    "parser": {
+      "source_roundtrip": true,
+      "only_file_array_changed": true,
+      "only_encoded_command_changed": true,
+      "command_characters": 5153,
+      "files": [
+        {
+          "name": "windows-configured-launch-host-tcp-20261127.ps1",
+          "sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1"
+        },
+        {
+          "name": "configured-launch-tcp-com-body-20261127.ps1",
+          "sha256": "78ba07202a8eb6292c46b8b1789e9e6daa32986825a719a021c62a5d59f2b9e0"
+        },
+        {
+          "name": "configured-launch-tcp-inner-action-20261127.ps1",
+          "sha256": "8c2c7b8cd43ccbc70d25e312a5265bc87d60574035822f565a148ca375e2ebf9"
+        },
+        {
+          "name": "checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+          "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+        },
+        {
+          "name": "publish-reviewed-git-crlf-supervisor-20261127.ps1",
+          "sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52"
+        }
+      ],
+      "ordinary_windows_parse_pending": true
+    }
+  }
+}
