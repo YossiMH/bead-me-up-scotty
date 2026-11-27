@@ -1,0 +1,384 @@
+{
+  "schema_version": 1,
+  "status": "prepared_inputs_ready_for_independent_review",
+  "author": "/root/delivery_audit",
+  "scope": "Separate 13-file CRLF-compatible history input derivative; no helper algorithms or actual task state changed.",
+  "files": {
+    "01-preserve.request.template.json": {
+      "bytes": 3509,
+      "sha256": "4eee6dfe686aed62a0c79b56a5eb792c09956736e894d43be88dde1d86e7aa1a"
+    },
+    "02-freeze.request.template.json": {
+      "bytes": 3507,
+      "sha256": "a5a54eb93303974a7efc379c5d0bf157354744193f1521afaba7eca5fe22b37d"
+    },
+    "03-source-restore.request.template.json": {
+      "bytes": 3515,
+      "sha256": "0387b64ec5f014a5ea5961f5d52946cca117fdd0611255e191f71cc187d575a6"
+    },
+    "04-restore-original.request.template.json": {
+      "bytes": 3517,
+      "sha256": "fe68433bd63f02ce94670a2d239c4985878c973e373cf3a1dc73673be86a79c9"
+    },
+    "05-restore.request.template.json": {
+      "bytes": 3508,
+      "sha256": "3aef8b1f3a293898325d4cf658329430665139f5c4db7eca5b10fc19e637fdf1"
+    },
+    "06-close.request.template.json": {
+      "bytes": 3506,
+      "sha256": "4b8d0aa7b92888a8b87c95f4fe8a9f287fa5d2cca2505f1d4eefd78c69fe7d3c"
+    },
+    "07-final-publish.request.template.json": {
+      "bytes": 3514,
+      "sha256": "5c09ae4c93aaac305ebd9d3282fcd343a865bfa8925620a468a84b2e4057ac50"
+    },
+    "08-final-restore.request.template.json": {
+      "bytes": 3514,
+      "sha256": "a17f217ab91acfaa94d29ea7ad92696953ba50ac8438be8bd7e256c519edcee1"
+    },
+    "README.md": {
+      "bytes": 18409,
+      "sha256": "f715a2d9aa40c333902fc2894895ece7ac934257da4d576c2b728b6e0476b1bb"
+    },
+    "checkpoint-publication.receipt.template.json": {
+      "bytes": 139,
+      "sha256": "ab0576022a4b6c70f87e6196cc7f21dd993bb3730409c29b800ef2dd54fc1d0b"
+    },
+    "input-checklist.json": {
+      "bytes": 23452,
+      "sha256": "1052b3b165e9f83b1321a6634191f4f517038b826da5d51b1dd43b226c6fe0db"
+    },
+    "original-git-baseline.receipt.template.json": {
+      "bytes": 304,
+      "sha256": "981bb8bfc0b363d8a946ca03e0586e2ed85da381c6be871dd943b7b11111c1fc"
+    }
+  },
+  "baseline": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "durable_ref": "c6d92ee3370c2488dd499205410629159c53d49c",
+    "recovered_via": "Root-restored continuation from current durable transfer history; complete13-file baseline cached before deriving.",
+    "directory": "20261127/history-phase-inputs",
+    "readme_sha256": "50779a13ce42bd13da838f9ea636133d5579b0e2f604bf3f9b905816f5c79d22",
+    "checklist_sha256": "5df815324baad521a89d50f5376075b7bdeff7f87eeab705a46ecda341208788",
+    "author_record_sha256": "14cb32a325a1fdc2c521498f166a583f9cc6cfd207ddf5fb61324c263cf48f91"
+  },
+  "bindings": {
+    "old_helper_sha256": "ff1597b37c873888aef55af6c67b39cd29efeb025d007fe11659ccb81a32cc46",
+    "old_supervisor_sha256": "1dd2e70b74236b87f5192ea1d9129ccdaa059b14e47f4bdd8fc8ebe3046341f5",
+    "helper_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+    "supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+    "publisher_sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+    "publisher_supervisor_sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52",
+    "cloud_qualification_sha256": "fe2056c92c6cc1946550fd7215341e40cb8b7fec9af766ca6b32523c49059f03",
+    "compatibility_author_sha256": "4b9599b7cd488ec204e53bd7e9cfa0305d62009dafd6ed63ea909ac9bc798730"
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "completed_utc": "2026-11-27T11:28:47.863864+00:00",
+      "complete": true,
+      "findings": [],
+      "files": {
+        "01-preserve.request.template.json": {
+          "bytes": 3509,
+          "sha256": "4eee6dfe686aed62a0c79b56a5eb792c09956736e894d43be88dde1d86e7aa1a"
+        },
+        "02-freeze.request.template.json": {
+          "bytes": 3507,
+          "sha256": "a5a54eb93303974a7efc379c5d0bf157354744193f1521afaba7eca5fe22b37d"
+        },
+        "03-source-restore.request.template.json": {
+          "bytes": 3515,
+          "sha256": "0387b64ec5f014a5ea5961f5d52946cca117fdd0611255e191f71cc187d575a6"
+        },
+        "04-restore-original.request.template.json": {
+          "bytes": 3517,
+          "sha256": "fe68433bd63f02ce94670a2d239c4985878c973e373cf3a1dc73673be86a79c9"
+        },
+        "05-restore.request.template.json": {
+          "bytes": 3508,
+          "sha256": "3aef8b1f3a293898325d4cf658329430665139f5c4db7eca5b10fc19e637fdf1"
+        },
+        "06-close.request.template.json": {
+          "bytes": 3506,
+          "sha256": "4b8d0aa7b92888a8b87c95f4fe8a9f287fa5d2cca2505f1d4eefd78c69fe7d3c"
+        },
+        "07-final-publish.request.template.json": {
+          "bytes": 3514,
+          "sha256": "5c09ae4c93aaac305ebd9d3282fcd343a865bfa8925620a468a84b2e4057ac50"
+        },
+        "08-final-restore.request.template.json": {
+          "bytes": 3514,
+          "sha256": "a17f217ab91acfaa94d29ea7ad92696953ba50ac8438be8bd7e256c519edcee1"
+        },
+        "README.md": {
+          "bytes": 18409,
+          "sha256": "f715a2d9aa40c333902fc2894895ece7ac934257da4d576c2b728b6e0476b1bb"
+        },
+        "checkpoint-publication.receipt.template.json": {
+          "bytes": 139,
+          "sha256": "ab0576022a4b6c70f87e6196cc7f21dd993bb3730409c29b800ef2dd54fc1d0b"
+        },
+        "input-checklist.json": {
+          "bytes": 23452,
+          "sha256": "1052b3b165e9f83b1321a6634191f4f517038b826da5d51b1dd43b226c6fe0db"
+        },
+        "original-git-baseline.receipt.template.json": {
+          "bytes": 304,
+          "sha256": "981bb8bfc0b363d8a946ca03e0586e2ed85da381c6be871dd943b7b11111c1fc"
+        }
+      },
+      "templates": [
+        {
+          "file": "01-preserve.request.template.json",
+          "phase": "preserve",
+          "bytes": 3509,
+          "sha256": "4eee6dfe686aed62a0c79b56a5eb792c09956736e894d43be88dde1d86e7aa1a",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "02-freeze.request.template.json",
+          "phase": "freeze",
+          "bytes": 3507,
+          "sha256": "a5a54eb93303974a7efc379c5d0bf157354744193f1521afaba7eca5fe22b37d",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "03-source-restore.request.template.json",
+          "phase": "source-restore",
+          "bytes": 3515,
+          "sha256": "0387b64ec5f014a5ea5961f5d52946cca117fdd0611255e191f71cc187d575a6",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "04-restore-original.request.template.json",
+          "phase": "restore-original",
+          "bytes": 3517,
+          "sha256": "fe68433bd63f02ce94670a2d239c4985878c973e373cf3a1dc73673be86a79c9",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "05-restore.request.template.json",
+          "phase": "restore",
+          "bytes": 3508,
+          "sha256": "3aef8b1f3a293898325d4cf658329430665139f5c4db7eca5b10fc19e637fdf1",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "06-close.request.template.json",
+          "phase": "close",
+          "bytes": 3506,
+          "sha256": "4b8d0aa7b92888a8b87c95f4fe8a9f287fa5d2cca2505f1d4eefd78c69fe7d3c",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "07-final-publish.request.template.json",
+          "phase": "final-publish",
+          "bytes": 3514,
+          "sha256": "5c09ae4c93aaac305ebd9d3282fcd343a865bfa8925620a468a84b2e4057ac50",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "08-final-restore.request.template.json",
+          "phase": "final-restore",
+          "bytes": 3514,
+          "sha256": "a17f217ab91acfaa94d29ea7ad92696953ba50ac8438be8bd7e256c519edcee1",
+          "two_hash_inverse_exact": true
+        }
+      ],
+      "all_eight_only_two_hash_substitutions": true,
+      "both_receipt_templates_byte_identical": true,
+      "all_original_future_fields_roots_dependencies_baseline_schema_and_runtime_pins_preserved": true,
+      "all_new_component_bytes_match_frozen_packet": true,
+      "current_raw_and_canonical_totals_match": true,
+      "activity": "Static text/JSON/hash comparisons; no helper execution.",
+      "focus": [
+        "Read complete original and final README/checklist, every phase template, both inert receipt schemas and frozen compatibility README/source identities.",
+        "Confirmed exactly two hash substitutions per request with full-byte inverse; all phases, prior/accepted future nulls, attestations, runtime/plan/map pins and roots unchanged.",
+        "Reconciled exact original raw/canonical four-file lengths, separate retention paths, canonical-original restore preceding frozen-continuation restore, and unchanged original53-object Git proof.",
+        "Checked original-git-baseline timing/schema, coordination-only raw-index copy, every-phase retention and initial/final publication ordering.",
+        "Checked first-publication previous.json fixed raw/canonical identities, strict final verifier and both phase-request hash bindings; future execution remains gated.",
+        "Reconciled final author-metadata correction to 10021-byte record 4b9599b7; all source/runtime and eight request payloads remain unchanged.",
+        "Corrected the sole unpublished source-packet locator to root's exact de71118c/20261127/checkpoint-crlf-handoff permalink; every request/schema byte remains unchanged."
+      ]
+    },
+    {
+      "pass": 2,
+      "completed_utc": "2026-11-27T11:29:37.639499+00:00",
+      "complete": true,
+      "findings": [],
+      "files": {
+        "01-preserve.request.template.json": {
+          "bytes": 3509,
+          "sha256": "4eee6dfe686aed62a0c79b56a5eb792c09956736e894d43be88dde1d86e7aa1a"
+        },
+        "02-freeze.request.template.json": {
+          "bytes": 3507,
+          "sha256": "a5a54eb93303974a7efc379c5d0bf157354744193f1521afaba7eca5fe22b37d"
+        },
+        "03-source-restore.request.template.json": {
+          "bytes": 3515,
+          "sha256": "0387b64ec5f014a5ea5961f5d52946cca117fdd0611255e191f71cc187d575a6"
+        },
+        "04-restore-original.request.template.json": {
+          "bytes": 3517,
+          "sha256": "fe68433bd63f02ce94670a2d239c4985878c973e373cf3a1dc73673be86a79c9"
+        },
+        "05-restore.request.template.json": {
+          "bytes": 3508,
+          "sha256": "3aef8b1f3a293898325d4cf658329430665139f5c4db7eca5b10fc19e637fdf1"
+        },
+        "06-close.request.template.json": {
+          "bytes": 3506,
+          "sha256": "4b8d0aa7b92888a8b87c95f4fe8a9f287fa5d2cca2505f1d4eefd78c69fe7d3c"
+        },
+        "07-final-publish.request.template.json": {
+          "bytes": 3514,
+          "sha256": "5c09ae4c93aaac305ebd9d3282fcd343a865bfa8925620a468a84b2e4057ac50"
+        },
+        "08-final-restore.request.template.json": {
+          "bytes": 3514,
+          "sha256": "a17f217ab91acfaa94d29ea7ad92696953ba50ac8438be8bd7e256c519edcee1"
+        },
+        "README.md": {
+          "bytes": 18409,
+          "sha256": "f715a2d9aa40c333902fc2894895ece7ac934257da4d576c2b728b6e0476b1bb"
+        },
+        "checkpoint-publication.receipt.template.json": {
+          "bytes": 139,
+          "sha256": "ab0576022a4b6c70f87e6196cc7f21dd993bb3730409c29b800ef2dd54fc1d0b"
+        },
+        "input-checklist.json": {
+          "bytes": 23452,
+          "sha256": "1052b3b165e9f83b1321a6634191f4f517038b826da5d51b1dd43b226c6fe0db"
+        },
+        "original-git-baseline.receipt.template.json": {
+          "bytes": 304,
+          "sha256": "981bb8bfc0b363d8a946ca03e0586e2ed85da381c6be871dd943b7b11111c1fc"
+        }
+      },
+      "templates": [
+        {
+          "file": "01-preserve.request.template.json",
+          "phase": "preserve",
+          "bytes": 3509,
+          "sha256": "4eee6dfe686aed62a0c79b56a5eb792c09956736e894d43be88dde1d86e7aa1a",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "02-freeze.request.template.json",
+          "phase": "freeze",
+          "bytes": 3507,
+          "sha256": "a5a54eb93303974a7efc379c5d0bf157354744193f1521afaba7eca5fe22b37d",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "03-source-restore.request.template.json",
+          "phase": "source-restore",
+          "bytes": 3515,
+          "sha256": "0387b64ec5f014a5ea5961f5d52946cca117fdd0611255e191f71cc187d575a6",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "04-restore-original.request.template.json",
+          "phase": "restore-original",
+          "bytes": 3517,
+          "sha256": "fe68433bd63f02ce94670a2d239c4985878c973e373cf3a1dc73673be86a79c9",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "05-restore.request.template.json",
+          "phase": "restore",
+          "bytes": 3508,
+          "sha256": "3aef8b1f3a293898325d4cf658329430665139f5c4db7eca5b10fc19e637fdf1",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "06-close.request.template.json",
+          "phase": "close",
+          "bytes": 3506,
+          "sha256": "4b8d0aa7b92888a8b87c95f4fe8a9f287fa5d2cca2505f1d4eefd78c69fe7d3c",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "07-final-publish.request.template.json",
+          "phase": "final-publish",
+          "bytes": 3514,
+          "sha256": "5c09ae4c93aaac305ebd9d3282fcd343a865bfa8925620a468a84b2e4057ac50",
+          "two_hash_inverse_exact": true
+        },
+        {
+          "file": "08-final-restore.request.template.json",
+          "phase": "final-restore",
+          "bytes": 3514,
+          "sha256": "a17f217ab91acfaa94d29ea7ad92696953ba50ac8438be8bd7e256c519edcee1",
+          "two_hash_inverse_exact": true
+        }
+      ],
+      "all_eight_only_two_hash_substitutions": true,
+      "both_receipt_templates_byte_identical": true,
+      "all_original_future_fields_roots_dependencies_baseline_schema_and_runtime_pins_preserved": true,
+      "all_new_component_bytes_match_frozen_packet": true,
+      "current_raw_and_canonical_totals_match": true,
+      "activity": "Static text/JSON/hash comparisons; no helper execution.",
+      "focus": [
+        "Reread all final payloads and their complete unchanged phase/input contracts; exact final hashes match pass1.",
+        "Verified both receipt templates are byte-identical; reconstructed the entire old checklist after removing only documented compatibility metadata and one retention reminder.",
+        "Rehashed all8 frozen compatibility component files, including helper/supervisor/publisher pair/template/README/qualification/author record.",
+        "Confirmed every future observation, actual result, review, Git head/index/commit, cleanup revision/reason and root attestation remains unset.",
+        "Reviewed no-replay semantics, fresh phase and supervisor paths, root-only authority transfer, native supported init/restore route and unchanged128MiB/512MiB/1GiB/3GiB/180s limits.",
+        "The only final payload change is the recorded compatibility author's corrected byte length and SHA; inverse comparison recovers the prior checklist exactly.",
+        "Final published source locator resolves to the accepted de71118c packet; the README's sole locator change preserves all phase instructions and future execution requirements."
+      ]
+    }
+  ],
+  "verification": {
+    "all_eight_two_hash_inverses_exact": true,
+    "receipt_templates_byte_identical": true,
+    "baseline_schema_dependency_order_runtime_and_future_fields_unchanged": true,
+    "all_frozen_component_hashes_checked": true,
+    "json_utf8_lf_whitespace": "passed",
+    "new_helper_executed": false,
+    "actual_phase_requests_created": false
+  },
+  "remaining": {
+    "independent_input_packet_review": null,
+    "independent_compatibility_source_review": null,
+    "independent_compatibility_qualification_review": null,
+    "exact_windows_supervisor_parse": null,
+    "staged_source_readback": null,
+    "accepted_actual_installed_configured_and_initial_handoff_receipts": null,
+    "post_handoff_original_git_baseline": null,
+    "actual_history_phase_results": null
+  },
+  "recovery": {
+    "all13_final_texts_retained_in_serializable_store": true,
+    "old_packet_unchanged": true,
+    "no_claim_of_lost_unpublished_candidate_recovery": true
+  },
+  "activity": {
+    "pc_calls": false,
+    "helper_source_edits": false,
+    "phase_execution": false,
+    "task_writes": false,
+    "tests": false,
+    "builds": false,
+    "publication": false
+  },
+  "maintainer_audit": "Two complete clean final text/schema inspections with exact template inverses; runtime readiness and actual phase acceptance remain separately recorded.",
+  "metadata_update": {
+    "previous_author_record_sha256": "8689ae5dd103e16e73c97d36aac3dce7c758bfdaf1f86db5047c09e9d08dac2d",
+    "reason": "The compatibility author corrected one inspection sentence; this input packet changes only that author record's byte length and SHA binding. All eight requests, both receipt schemas and the README remain unchanged.",
+    "independent_compatibility_review_received": {
+      "path": "recovery/frontend/reviews/checkpoint-crlf-source-and-qualification-review.json",
+      "bytes": 13770,
+      "sha256": "8b05fa674dc1f5a04f284fe17b9072c155a3ad2d9690df9c0691a160bb993f1c"
+    }
+  },
+  "locator_correction": {
+    "from": "The source packet is `20261127/checkpoint-crlf-compatibility`. Its exact",
+    "to": "The source packet is [the immutable published checkpoint-only handoff](https://github.com/YossiMH/bead-me-up-scotty/tree/de71118c225936b8ca6eac4be5db306eff19219b/20261127/checkpoint-crlf-handoff). Its exact",
+    "previous_author_sha256": "18e1c0ee0dc950ec52e3dd7d31d6577b5d76c4b21fe0fec9e568298bb574834e",
+    "reason": "Independent review found the draft source-directory label differed from root's final publication path; replaced only that prose locator with the immutable published permalink."
+  }
+}
