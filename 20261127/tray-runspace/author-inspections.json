@@ -1,0 +1,111 @@
+{
+  "schema_version": 1,
+  "author": "frontend_audit",
+  "scope": "Remove the extra PowerShell smoke-runner process while preserving the exact reviewed driver and all real tray cases.",
+  "status": "ready_for_independent_source_review",
+  "created_utc": "2026-11-27T06:55:07.852162+00:00",
+  "files": [
+    {
+      "path": "windows-tray-smoke-runspace-20261127.ps1",
+      "bytes": 62483,
+      "sha256": "5119d47a4eaf69933594940217d8a16f9d3934eb014cd8caf04e54b3487c23c5"
+    },
+    {
+      "path": "README.md",
+      "bytes": 5523,
+      "sha256": "9a405be27b8e3c772bd0a393ae419063f42ba0c4d19238a03156632892dce284"
+    }
+  ],
+  "source": {
+    "wrapper_commit": "524a0433eb41951869b7de70f5305048ccc4d4e4",
+    "wrapper_path": "20261125/revision6-wrappers/windows-tray-smoke-host-20261125.ps1",
+    "wrapper_sha256": "a0361798ea83299b10ea8da616d17a2ec9fb46ec556643be2f05698bbf051c5f",
+    "driver_commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+    "driver_path": "scripts/test-windows-tray-smoke.ps1",
+    "driver_sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "prior_failed_receipt_sha256": "0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370"
+  },
+  "mechanical_inspection": {
+    "unchanged_function_count": 22,
+    "unchanged_functions": [
+      "Initialize-OwnedJob",
+      "Register-JobProcess",
+      "Refresh-JobProcesses",
+      "Measure-OwnedJob",
+      "Assert-LaunchHeadroom",
+      "Complete-OwnedJob",
+      "Save-JobEvidence",
+      "Assert-That",
+      "Get-SafeLocalPath",
+      "Get-TrayCacheEvidence",
+      "ConvertTo-NativeArgument",
+      "Add-OwnedProcess",
+      "Observe-Record",
+      "Read-Records",
+      "Observe-Processes",
+      "Wait-Until",
+      "Test-PortFree",
+      "Assert-OwnedListener",
+      "Start-Headless",
+      "Read-Stream",
+      "Save-RunLogs",
+      "Get-ChildEntry"
+    ],
+    "changed_existing_functions": [
+      "Check-Budget"
+    ],
+    "new_functions": [
+      "Start-ExistingSmokeRunspace",
+      "Request-ExistingSmokeStop",
+      "Complete-ExistingSmokeRunspace"
+    ],
+    "embedded_job_inspector_unchanged": true,
+    "complete_restart_case_unchanged": true,
+    "original_driver_has_no_exit_statement": true,
+    "short_unsigned_type_aliases": 0,
+    "trailing_whitespace_lines": 0,
+    "product_or_test_source_changes": 0
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "files": "Complete final wrapper and README",
+      "coverage": "Read the entire wrapper and exact driver; compared all original functions and complete restart block. Traced isolated runspace startup, script parameters, direct controller ownership, inherited Job, resource sampling, exact driver hash, normal completion, complete two-case JSON, stderr capture, independent post-case checks and the unchanged restart case."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "files": "Same final wrapper and README",
+      "coverage": "Rechecked the complete flow and every exit path: setup failure before invocation, terminating driver errors including finally after emitted JSON, expected silent lookup errors, aggregate/free-memory/time refusal, BeginStop, Job reclamation, bounded stop completion, incomplete-cancellation hard timer, disposal, all process-environment restoration/readback, console restoration, output files and final status. Verified a stuck or failed invocation cannot pass, and no product/test semantics or accepted original bytes were modified."
+    }
+  ],
+  "limits": {
+    "node_heap_mib": 128,
+    "maximum_owned_resident_mib": 512,
+    "launch_free_gib": 3,
+    "live_free_gib": 1,
+    "work_seconds": 168,
+    "hard_seconds": 180,
+    "priority": "BelowNormal"
+  },
+  "pending": [
+    "Independent source review.",
+    "Windows PowerShell 5.1 exact-file syntax/runtime check.",
+    "One real bounded interactive-session Exit/parent-loss/restart run and independent result review."
+  ],
+  "runtime_accepted": false,
+  "pc_calls": 0,
+  "product_tests_or_builds_executed": false,
+  "worktree": {
+    "path": "/tmp/beads-2889282bfcec/tray-runspace",
+    "branch": "task/tray-runspace-2889282bfcec",
+    "base": "5614839e9e6c47dfcf923f1ceabb708bd752ebbb",
+    "manager": "Riftri exec with explicit sparse ordinary Git worktree; optimized backend unavailable.",
+    "cleanup": "Pending root packet retention. Future agents must preserve work and remove this exact clean worktree through Riftri without force if this process ends.",
+    "pushes": 0
+  }
+}

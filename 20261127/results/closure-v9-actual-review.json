@@ -1,0 +1,441 @@
+{
+  "schema_version": 1,
+  "status": "PASS",
+  "accepted": true,
+  "reviewer": "/root/delivery_audit",
+  "independent": true,
+  "reviewed_utc": "2026-11-27T06:50:46.172896+00:00",
+  "scope": "Reconcile the actual root-executed 27-task native completion against the independently accepted request, actual revision-9 mapping and bounded supervisor receipt.",
+  "inputs": {
+    "closure-v9-result.json": {
+      "bytes": 7430,
+      "sha256": "2eb8a4a62adbbadb2659bb8b080e973ed06c9f468b7d40ba968cc4423f32c749",
+      "matches_original_readback_bytes": true
+    },
+    "closure-v9-supervisor-result.json": {
+      "bytes": 6484,
+      "sha256": "0a552d0cebf444c6fb3c62a51867a0afe72b4fee670f5e44c935d0ba50da1b23",
+      "matches_original_readback_bytes": true
+    },
+    "closure-v9-commit-exit.json": {
+      "bytes": 53,
+      "sha256": "5be607aa6069756a424013851e837a1d6719ca60a53323cc1dcdd74f0dd1cb8a",
+      "matches_original_readback_bytes": true
+    }
+  },
+  "accepted_bindings": {
+    "request_sha256": "f22148bb1f58fac237ce9935e72ca98592aaa6a36a2df3f29b58e9d855cc363e",
+    "mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
+    "plan_sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582",
+    "driver_sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3",
+    "supervisor_sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426",
+    "job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f",
+    "static_review_sha256": "ff0dfc38919df499b62bd6c2974a807c06c853e37bbc019e140daa414c1cc771"
+  },
+  "checks": [
+    "Decoded each original raw readback value as UTF-8 and compared it byte-for-byte with the retained local native result, supervisor result and native commit exit record. All reported lengths and SHA-256 values match.",
+    "Matched actual request, mapping, plan, driver, supervisor and Job-helper identities to the accepted closure packet. The supervisor binds the exact observed native result hash.",
+    "Compared every one of the 55 continuation IDs with the actual materialization. The closed map equals the exact requested 27 key/ID pairs.",
+    "All 27 selected tasks were open in the mapping and are now closed at exactly revision plus one. Every other task retains its prior status and revision; all 28 unselected tasks are preserved.",
+    "Independently derived the four ready open tasks from the accepted graph and actual final statuses; IDs, titles and revisions exactly match the native ready result.",
+    "Observed native commit exit zero and driver exit zero, successful finished supervisor result, empty cleanup errors, no assisted termination and no remaining Job members. Every retained child exited zero without supervisor termination.",
+    "Resource readbacks stay inside the accepted start, aggregate memory and elapsed-time limits.",
+    "The accepted exact driver reaches its successful receipt only after complete before/precommit/after inventory, original-row and stored-field comparisons and unchanged-input hashes. The actual receipt records those checks as passed, including original 954 rows, configuration and checkpoint pointer."
+  ],
+  "actual_counts": {
+    "continuation_tasks": 55,
+    "requested_closed": 27,
+    "unselected_preserved": 28,
+    "closed_after": 42,
+    "open_after": 13
+  },
+  "closed_transitions": [
+    {
+      "key": "checkpoint-linux-build",
+      "id": "beadrs-9c6d0088",
+      "before_revision": 4,
+      "after_revision": 5
+    },
+    {
+      "key": "checkpoint-windows-build",
+      "id": "beadrs-70721b6a",
+      "before_revision": 2,
+      "after_revision": 3
+    },
+    {
+      "key": "checkpoint-linux-checks",
+      "id": "beadrs-50ff08d3",
+      "before_revision": 4,
+      "after_revision": 5
+    },
+    {
+      "key": "checkpoint-windows-checks",
+      "id": "beadrs-cd3f5a63",
+      "before_revision": 2,
+      "after_revision": 3
+    },
+    {
+      "key": "checkpoint-repair-review",
+      "id": "beadrs-aee6eabb",
+      "before_revision": 2,
+      "after_revision": 3
+    },
+    {
+      "key": "checkpoint-full-suite",
+      "id": "beadrs-0890de3c",
+      "before_revision": 4,
+      "after_revision": 5
+    },
+    {
+      "key": "type-plan-review",
+      "id": "beadrs-59794133",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-backend-tests",
+      "id": "beadrs-aae3f903",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-backend-red-build",
+      "id": "beadrs-f0af3211",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-backend-red",
+      "id": "beadrs-9b877e7d",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-backend-tests-review",
+      "id": "beadrs-3d6a4f90",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-backend-change",
+      "id": "beadrs-6ba949cd",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-backend-checks",
+      "id": "beadrs-7454daee",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-backend-review",
+      "id": "beadrs-83bf86f3",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-app-tests",
+      "id": "beadrs-0ba2e5ba",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-app-red",
+      "id": "beadrs-12630573",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-app-tests-review",
+      "id": "beadrs-e19b45c3",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-app-change",
+      "id": "beadrs-23215060",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-app-checks",
+      "id": "beadrs-96c08619",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-app-review",
+      "id": "beadrs-bd751f6e",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "type-windows-roundtrip",
+      "id": "beadrs-4cbebb4a",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "windows-plan-review",
+      "id": "beadrs-4d20040a",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "windows-checkpoint-tests-review",
+      "id": "beadrs-fd1bdb83",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "windows-checkpoint-repair",
+      "id": "beadrs-9a124cf2",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "windows-maintenance-red-build",
+      "id": "beadrs-7163da63",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "windows-maintenance-red",
+      "id": "beadrs-1058323a",
+      "before_revision": 1,
+      "after_revision": 2
+    },
+    {
+      "key": "windows-test-fixtures",
+      "id": "beadrs-ecdd626a",
+      "before_revision": 1,
+      "after_revision": 2
+    }
+  ],
+  "unchanged_tasks": [
+    {
+      "key": "plan-review",
+      "id": "beadrs-3f06f163",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "reconcile",
+      "id": "beadrs-42379588",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "cloud-checks",
+      "id": "beadrs-fa756e78",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-prepare",
+      "id": "beadrs-0b3a11f9",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-runner-review",
+      "id": "beadrs-37f8c2bb",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "browser-check",
+      "id": "beadrs-08532231",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "tray-diagnose",
+      "id": "beadrs-9422c821",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "install",
+      "id": "beadrs-0bab2976",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "status": "open",
+      "revision": 3
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "status": "open",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair",
+      "id": "beadrs-417f998c",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair-checks",
+      "id": "beadrs-22b44782",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "installer-repair",
+      "id": "beadrs-f588ab27",
+      "status": "closed",
+      "revision": 5
+    },
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "status": "open",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-tests",
+      "id": "beadrs-940d77c6",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-red-build",
+      "id": "beadrs-0eaf8a73",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-red-checks",
+      "id": "beadrs-ce0423c1",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-tests-review",
+      "id": "beadrs-b1038d26",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "checkpoint-repair",
+      "id": "beadrs-b72dc0dc",
+      "status": "closed",
+      "revision": 2
+    },
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "status": "open",
+      "revision": 1
+    },
+    {
+      "key": "type-install-binding-review",
+      "id": "beadrs-261d621c",
+      "status": "open",
+      "revision": 1
+    }
+  ],
+  "ready_open_tasks": [
+    {
+      "key": "tray-repair-review",
+      "id": "beadrs-a7df9f15",
+      "revision": 2,
+      "title": "Review the tray repair and exact installer allowance"
+    },
+    {
+      "key": "windows-tray",
+      "id": "beadrs-ea7bc5dd",
+      "revision": 3,
+      "title": "Check the Windows tray and Exit action"
+    },
+    {
+      "key": "candidate-review",
+      "id": "beadrs-ba8cbd23",
+      "revision": 5,
+      "title": "Review the recovered implementation and results"
+    },
+    {
+      "key": "type-install-binding",
+      "id": "beadrs-86f1e737",
+      "revision": 1,
+      "title": "Bind installation and task recovery to the final type correction"
+    }
+  ],
+  "execution": {
+    "started_utc": "2026-11-27T06:42:48.9484621Z",
+    "finished_utc": "2026-11-27T06:42:50.6765233Z",
+    "duration_seconds": 1.726,
+    "peak_total_resident_bytes": 255275008,
+    "baseline_free_physical_bytes": 3010469888,
+    "native_commit_exit": 0,
+    "driver_exit": 0,
+    "supervisor_status": "passed",
+    "cleanup_assisted": false,
+    "remaining_job_members": 0,
+    "cleanup_errors": []
+  },
+  "preservation_evidence": "The complete-row and original-input assertions belong to the exact independently reviewed executor and passed before it wrote the bound result. This reconciliation separately compares every returned continuation ID/status/revision against the prior actual mapping.",
+  "findings": [],
+  "verdict": "PASS. The 27 accepted cloud tasks are recorded as closed in the existing isolated coordination store. Their dependency state and all remaining task states match the accepted request.",
+  "remaining": [
+    "Actual logged-in Windows tray and combined candidate/repair review.",
+    "Final artifact transfer/staging and installation binding acceptance.",
+    "Installation, configured launch and installed review.",
+    "Repository handoffs, original-history transfer, explicit checkpoint flush/publication and final cleanup."
+  ],
+  "checkpoint_publication": "Explicit flush and checked publication remain required.",
+  "reviewer_actions": {
+    "pc_calls": 0,
+    "native_commands": 0,
+    "tests_or_builds": 0,
+    "task_store_writes": 0
+  }
+}

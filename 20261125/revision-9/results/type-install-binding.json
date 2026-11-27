@@ -168,7 +168,6 @@
   },
   "task_closer_bound_to_actual_mapping": true,
   "pending": [
-    "Complete independent reconciliation of the actual 27-task closure.",
     "Finish the reviewed Windows PowerShell compatibility correction, then download and stage the two exact Windows archives.",
     "Complete the smaller tray-test wrapper, then run actual logged-in-session tray Exit, parent-loss and restart checks.",
     "Complete reviewed installation, configured launch and installed review, then publish handoffs and original native history and finish task-owned cleanup."
@@ -190,13 +189,25 @@
       "parent": "/tmp/beads-2889282bfcec/scotty",
       "created_with": "Riftri 0.7.0 command passthrough to a detached sparse Git worktree",
       "cleanup_status": "in use; remove without force after its commits are retained remotely",
-      "next_action": "Verify status, registration and unpublished commits; preserve later work and remove only this task worktree through Riftri. The closer author has a separate registered worktree whose cleanup is also required."
+      "next_action": "Verify status, registration and unpublished commits; preserve later work and remove only this task worktree through Riftri. The closer author has a separate registered worktree whose cleanup is also required.",
+      "additional_worktrees": [
+        {
+          "path": "/tmp/beads-2889282bfcec/closure-v9",
+          "branch": "task/closure-v9-20261127",
+          "status": "Contains reviewed closer and in-progress installer wrapper; retain all changes before removal."
+        },
+        {
+          "path": "/tmp/beads-2889282bfcec/tray-runspace",
+          "branch": "task/tray-runspace-2889282bfcec",
+          "status": "Reviewed tray packet retained by this update; commit its exact files before removing the worktree through Riftri."
+        }
+      ]
     }
   },
-  "updated_utc": "2026-11-27T06:47:20.012787+00:00",
+  "updated_utc": "2026-11-27T07:00:13.871868+00:00",
   "previous_status": {
-    "commit": "5614839e9e6c47dfcf923f1ceabb708bd752ebbb",
-    "sha256": "54835605ad344b8bc85d2bba0c2c907dff9feab2310ba9e782c6768e7c57f276"
+    "commit": "f8c871f50ebc54a426db016769056ab069e2c100",
+    "sha256": "b2e258a50c1b8861af3bfa167397636c7375c07458c3fe593b73cae3068bd866"
   },
   "final_measured_packet": {
     "commit": "70819afe79e783d0db2b10a299155cbeda470d1e",
@@ -280,24 +291,24 @@
   "remaining_active_cloud_execution": true,
   "assignment_complete": false,
   "latest_continuation": {
-    "checked_utc": "2026-11-27T06:47:20.012787+00:00",
+    "checked_utc": "2026-11-27T07:00:13.871868+00:00",
     "source_status": "Accepted app 0309539 and native 2d801ba remain unchanged. Both PC source checkouts still match installer baselines; the fifteen original app changes remain present.",
-    "pc_command_access": "Emergency Maintenance command execution is available in this session. Use the accepted bounded task helpers and reconcile each actual result.",
+    "pc_command_access": "Emergency Maintenance successfully ran the task update and closure, then became intermittent. The latest preparation and read-only status calls timed out without launching work. Wait for the supported connection; preserve running user sessions and never replay a consumed action.",
     "task_mapping": "Revision 9 completed and independently reviewed: 55 tasks, 91 edges and 1009 issues; all original 954 records retained.",
     "mapping_sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3",
-    "installation": "All original final installer/staging inputs and the Job helper are staged and hash-verified. The downloaded build archives and actual installation remain pending.",
-    "tray": "The actual logged-in-session test stopped after 3.284 seconds at 557076480 bytes aggregate RSS. All owned Job members exited; no case completed. The separate smoke-driver PowerShell and console account for about 126 MiB; a reviewed runspace variant is being prepared. Preserve the failed result and scheduled task record.",
-    "next_action": "Use only independently reviewed compatibility copies after their staged hashes and ordinary parser checks pass. Run download/staging sequentially while completing the lighter tray wrapper and bounded installer wrapper. Preserve all failed attempts.",
+    "installation": "All original final installer/staging inputs and the Job helper are staged and hash-verified. Compatibility staging stopped at its 1 GiB memory condition; subsequent exact readback found both new files absent. The build archives and actual installation remain pending.",
+    "tray": "The first actual test stopped at 557076480 bytes aggregate RSS with no cases completed and no owned processes left. The smaller wrapper in 20261127/tray-runspace passed independent source review and preserves the exact driver, restart case and process limits. Its ordinary Windows parser check and actual logged-in run remain pending.",
+    "next_action": "Stage and parse the reviewed PowerShell 5.1 copies after checking current available memory and attempt state. Download and stage the exact builds sequentially. Stage/parse the reviewed smaller tray wrapper, then run it in the logged-in session when at least 3 GiB is available. Finish the bounded installer wrapper review and source-object preparation in parallel.",
     "prior_cloud_worktree_cleanup": "The absent previous continuation worktree registration was removed through Riftri and its absence was verified.",
     "assignment_complete": false,
-    "task_closure": "The mapping-bound closer completed all 27 requested transitions; 42 of 55 tasks are now closed and 13 remain open. Independent actual-result reconciliation is in progress.",
+    "task_closure": "All 27 requested transitions are independently accepted. The complete returned mapping has 42 closed and 13 open tasks; the other 28 statuses and revisions are unchanged.",
     "download": "The first downloader failed at initialization because Windows PowerShell 5.1 does not recognize [ulong]. Readback confirmed no download, claim or output directory was created. The separately named [uint64] compatibility copies passed independent review; use 20261127/powershell51/accepted-invocations.json after staged hash and parser checks.",
     "active_session": "Root /workspace/scratch/2889282bfcec owns current PC execution and task-store writes; other continuations must respect this active session and retained attempt markers."
   },
   "pc_action_summary": "Revision 9 task transition and 27 accepted-cloud-task closures completed. Original 954 issues preserved. Final immutable helpers staged. Real tray attempt stopped at the aggregate 512 MiB cap with no owned processes left; downloader compatibility failure occurred before output creation. Source installation remains pending.",
   "actual_accepted_cloud_closure": {
     "status": "passed",
-    "independent_result_review": "pending",
+    "independent_result_review": "passed",
     "closed_this_request": 27,
     "closed_total": 42,
     "open_total": 13,
@@ -307,13 +318,22 @@
     "peak_total_resident_bytes": 255275008,
     "cleanup_assisted": false,
     "remaining_job_members": 0,
-    "result_path": "20261127/results/closure-v9.json"
+    "result_path": "20261127/results/closure-v9.json",
+    "review_path": "20261127/results/closure-v9-actual-review.json",
+    "review_sha256": "85fcb599cf322396415aec90ecfaf86a7e8e01d2abf66d8b0ccb5c2651e1e139"
   },
   "windows_powershell_51_compatibility": {
     "status": "source_review_passed",
     "directory": "20261127/powershell51",
     "downloader_sha256": "a5ba9dbfc7a56816a447d17e75131127d1e327d73b3dfd1fe158545e794e6555",
     "stage_supervisor_sha256": "9c69f55d98c634013ec596398cae1c2c822d373647abd8c4cb863ca405b32d4d",
+    "actual_parser_and_execution": "pending"
+  },
+  "tray_runspace_preparation": {
+    "status": "source_review_passed",
+    "directory": "20261127/tray-runspace",
+    "wrapper_sha256": "5119d47a4eaf69933594940217d8a16f9d3934eb014cd8caf04e54b3487c23c5",
+    "review_sha256": "5d98207c5927aa49931b0cb5ede780a937a901ebd009e894f97850373dadfcc2",
     "actual_parser_and_execution": "pending"
   }
 }

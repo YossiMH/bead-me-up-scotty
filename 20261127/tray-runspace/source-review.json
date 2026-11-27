@@ -1,0 +1,152 @@
+{
+  "schema_version": 1,
+  "reviewer": "delivery_audit",
+  "review_kind": "independent_source_and_packet_review",
+  "status": "pass",
+  "scope": "Review the frozen lighter tray wrapper and its complete author packet against the accepted wrapper, exact unchanged smoke driver, retained failure and current resource requirements.",
+  "files": [
+    {
+      "path": "20261127/tray-runspace/windows-tray-smoke-runspace-20261127.ps1",
+      "bytes": 62483,
+      "sha256": "5119d47a4eaf69933594940217d8a16f9d3934eb014cd8caf04e54b3487c23c5"
+    },
+    {
+      "path": "20261127/tray-runspace/README.md",
+      "bytes": 5523,
+      "sha256": "9a405be27b8e3c772bd0a393ae419063f42ba0c4d19238a03156632892dce284"
+    },
+    {
+      "path": "20261127/tray-runspace/author-inspections.json",
+      "bytes": 4643,
+      "sha256": "0201dbc6dfa4150ed6eb15c8179ec952ff8905cd6bd8d94b673be8cec9ac61be"
+    }
+  ],
+  "independently_verified_baselines": {
+    "wrapper": {
+      "commit": "524a0433eb41951869b7de70f5305048ccc4d4e4",
+      "path": "20261125/revision6-wrappers/windows-tray-smoke-host-20261125.ps1",
+      "bytes": 52753,
+      "sha256": "a0361798ea83299b10ea8da616d17a2ec9fb46ec556643be2f05698bbf051c5f"
+    },
+    "driver": {
+      "commit": "5232c8b94804064ab71af571ee28797667bd72bd",
+      "path": "scripts/test-windows-tray-smoke.ps1",
+      "sha256": "4e13d7172c8f520c17ae1698cc9428b5b5a87aaa3ed30e2bcc7a2dcbad870279",
+      "complete_source_read": true,
+      "exit_statements": 0
+    },
+    "job_helper": {
+      "commit": "524a0433eb41951869b7de70f5305048ccc4d4e4",
+      "path": "windows-task-job.ps1",
+      "sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+    },
+    "prior_actual_failure": {
+      "sha256": "0974b117a9586541024de04f1d2b4c87db59362dfd37556d57f355dbee815370",
+      "status": "failed",
+      "cases_completed": 0,
+      "peak_total_resident_bytes": 557076480,
+      "limit_bytes": 536870912,
+      "extra_smoke_runner_peak_resident_bytes": 123723776,
+      "extra_smoke_runner_console_peak_resident_bytes": 8658944,
+      "remaining_job_members": 0,
+      "cleanup_assisted": true,
+      "failure_remains_retained": true
+    }
+  },
+  "mechanical_comparison": {
+    "unchanged_existing_function_count": 22,
+    "unchanged_existing_functions": [
+      "Initialize-OwnedJob",
+      "Register-JobProcess",
+      "Refresh-JobProcesses",
+      "Measure-OwnedJob",
+      "Assert-LaunchHeadroom",
+      "Complete-OwnedJob",
+      "Save-JobEvidence",
+      "Assert-That",
+      "Get-SafeLocalPath",
+      "Get-TrayCacheEvidence",
+      "ConvertTo-NativeArgument",
+      "Add-OwnedProcess",
+      "Observe-Record",
+      "Read-Records",
+      "Observe-Processes",
+      "Wait-Until",
+      "Test-PortFree",
+      "Assert-OwnedListener",
+      "Start-Headless",
+      "Read-Stream",
+      "Save-RunLogs",
+      "Get-ChildEntry"
+    ],
+    "changed_existing_functions": {
+      "Check-Budget": "Adds an observed free-physical-memory minimum and refuses below 1 GiB; existing aggregate resident, process identity, single-server, heartbeat and deadline checks remain."
+    },
+    "new_functions": [
+      "Start-ExistingSmokeRunspace",
+      "Request-ExistingSmokeStop",
+      "Complete-ExistingSmokeRunspace"
+    ],
+    "embedded_job_inspector_byte_identical": true,
+    "complete_restart_case_byte_identical": true,
+    "powershell_short_unsigned_aliases_found": 0,
+    "worktree_change_set": "Exactly the three new packet files were staged; no product, smoke-driver or accepted original wrapper changes."
+  },
+  "reviewed_behavior": [
+    {
+      "area": "Actual defect and proposed reduction",
+      "conclusion": "The retained attempt failed the aggregate 512 MiB bound before completing a case. The new wrapper executes the same driver in an asynchronous runspace in its existing PowerShell process, removing the separate smoke-runner process and its console host. All runspace allocations remain included in the wrapper's resident-memory sample. The actual memory reduction requires Windows execution evidence."
+    },
+    {
+      "area": "Exact driver and test semantics",
+      "conclusion": "The local execution copy is checked against both the observed repository hash and the fixed independently reviewed driver SHA-256. AddCommand invokes that file with the same repository, Node, port and optional binary arguments. Its real Exit and parent-loss cases, helper caching, host parent chain, source-hash checks, actual HTTP readiness and final cleanup remain intact. The complete restart-and-Exit case is unchanged."
+    },
+    {
+      "area": "Runspace isolation and ownership",
+      "conclusion": "The new runspace has its own script variables and functions and receives the selected repository location. The wrapper continues sampling on its original thread. Controllers created by the runspace have the wrapper PID as parent, which the accepted identity check already allows; the actual Job membership, executable path, birth time, parent relation and interactive session checks remain required."
+    },
+    {
+      "area": "Successful completion",
+      "conclusion": "The wrapper waits for the asynchronous invocation to complete, observes EndInvoke, requires Completed state without cancellation, parses the full two-case pass JSON and applies the existing independent session/exit/headroom checks. The exact driver has no exit statement and sets Stop error preference; a terminating error in its finally propagates through EndInvoke even if it emitted JSON earlier. HadErrors is retained as evidence because the existing driver deliberately uses silent process lookups; it does not replace the normal-completion and case assertions."
+    },
+    {
+      "area": "Temporary environment and stderr",
+      "conclusion": "Only the explicit child environment used by the old launcher is temporarily installed in this dedicated process. Every touched variable is captured before alteration and restored with a readback after invocation completion. Console.Error is restored and its synchronized log writer is closed. No original environment values are added to the result. Restoration or disposal failure cannot produce a passing final status."
+    },
+    {
+      "area": "Cancellation and incomplete cleanup",
+      "conclusion": "Cancellation is requested with BeginStop before owned Job cleanup. The wrapper then allows at most three seconds for the invocation to finish within the existing hard deadline reserve. EndInvoke and, when relevant, EndStop are observed before normal disposal and state restoration. An unfinished invocation or stop callback is recorded as cleanup failure, preserves the local driver copy and keeps the hard Job timer armed. The exact owned Job and retained process handles bound reclamation."
+    },
+    {
+      "area": "Resource and UI controls",
+      "conclusion": "The accepted Job inspector, hidden child launch modes, BelowNormal priority, complete Job accounting and owned cleanup are unchanged. The proposed invocation retains a 128 MiB Node heap, 512 MiB total resident bound, immediate 3 GiB controller launch gate, 1 GiB live free-memory gate, 168-second work allowance and 180-second hard Job deadline. Both original driver controllers still enforce the independent immediate preload memory gate."
+    },
+    {
+      "area": "Failure evidence and scope",
+      "conclusion": "The new filename and fresh evidence directory preserve the original failed attempt. The final receipt records runspace identity, state, cancellation, disposal, restoration and retained output paths. The README accurately describes pending actual validation and the owned worktree cleanup obligation. Both complete clean author inspections bind the reviewed bytes."
+    }
+  ],
+  "findings": [],
+  "decision": "The frozen packet is suitable for publication, exact-file Windows PowerShell 5.1 parsing and one root-owned bounded actual tray attempt under the accepted invocation values.",
+  "runtime_acceptance": {
+    "status": "pending",
+    "required_actual_evidence": [
+      "The exact published wrapper and sibling Job-helper hashes match on the PC, the selected port is freshly free, and the new evidence path is absent.",
+      "The exact Windows PowerShell 5.1 file parses and starts in the existing interactive Explorer session with the approved process-only launch option.",
+      "Exit, parent-loss and restart75-exit all pass with normal EndInvoke completion, successful disposal/restoration, no assisted cleanup and no remaining owned Job members.",
+      "The actual resource receipt remains within the retained limits and is independently reconciled."
+    ],
+    "source_review_does_not_claim_actual_memory_reduction_or_case_success": true
+  },
+  "review_method": {
+    "complete_final_wrapper_read": true,
+    "complete_readme_and_author_record_read": true,
+    "complete_unchanged_driver_read": true,
+    "immutable_git_objects_read_with_lazy_fetch_disabled": true,
+    "local_sha256_and_static_comparisons_only": true,
+    "product_code_edits": 0,
+    "product_tests_or_builds": 0,
+    "pc_calls": 0,
+    "task_state_writes": 0
+  }
+}
