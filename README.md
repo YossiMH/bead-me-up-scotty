@@ -251,6 +251,8 @@ reported and stops the launcher. Development `npm run dev` and direct
 `next start` commands bypass this tray launcher.
 See [Windows launch and shutdown](docs/backend-compatibility.md#windows-launch-and-shutdown)
 for details.
+The [delivery completion record](docs/backend-compatibility.md#delivery-completion)
+contains the final native task-history, publication and cleanup readback.
 
 ### Focus view
 
