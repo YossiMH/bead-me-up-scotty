@@ -1,0 +1,260 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:43:03.035426+00:00",
+  "scope": "Distinct independent installed-result acceptance against the original request, combining retained final product/browser/platform qualification, independently accepted actual installation/preservation/publication, and the newly accepted real configured default-pin run. Final documentation/history publication and cleanup retain their own tasks.",
+  "task_acceptance": {
+    "task_key": "installed-review",
+    "task_id": "beadrs-47da80ac",
+    "expected_revision": 3,
+    "may_close_after_retaining_this_review": true,
+    "configured_launch_precondition": "passed in the separate exact configured review bound below",
+    "current_accepted_task_state": "48 closed / 7 open before the proposed two-task closure; this review does not claim that closure ran."
+  },
+  "source_commit": "2d801ba455b7a722daf644a7615445117d57e8e9",
+  "source_commits": {
+    "app": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "native": "2d801ba455b7a722daf644a7615445117d57e8e9"
+  },
+  "binary_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+  "installed_identities": {
+    "native_executable_bytes": 12243456,
+    "native_metadata_bytes": 2058,
+    "native_metadata_sha256": "21ca90e29fc4588d23b31210cd5ffe6838c136ce70b76458b71370beeeff18f5",
+    "installed_pin": "F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-0431a828bf95.exe",
+    "runtime_build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "runtime_expanded_bytes": 27426391,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "installed_env_bytes": 131,
+    "installed_env_sha256": "f9987d51bd7cf55417d085ec400e56b2cc338a523d4bbf45b908a55dde066cb0",
+    "external_configured_helper_sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1",
+    "helper_changes": "The separately reviewed compatibility/resource harness changes preserve product sources and all configured assertions; the final818b helper uses bounded native TCP owner inspection."
+  },
+  "evidence": {
+    "accepted_final_candidate": {
+      "path": "20261127/results/candidate-final-review.json",
+      "bytes": 12147,
+      "sha256": "966f7f2165a1bde5f5676cde3bb88f61a5469b32314bde6a6acd380900722957"
+    },
+    "actual_installation_and_preservation": {
+      "path": "20261127/installation-completed/actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    },
+    "actual_configured_launch": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-review.json",
+      "bytes": 12544,
+      "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b"
+    },
+    "actual_configured_integrity": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-integrity.json",
+      "bytes": 6466,
+      "sha256": "7cf695bd86e1ee34c857d7207c87f62e0b592ae80d635287ed903cb0f61c3471"
+    },
+    "four_completed_task_definitions": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-four-task-actual-review.json",
+      "bytes": 4615,
+      "sha256": "5e843314800e717560dbe4825ee888892a6c440631d15e151b899951881efe51"
+    },
+    "actual_install_task_closure": {
+      "path": "20261127/installation-completed/closure/result.json",
+      "bytes": 5925,
+      "sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+    },
+    "retained_product_platform_review_bindings": {
+      "native_final": {
+        "path": "20261125/revision-9/results/native-final-review.json",
+        "sha256": "2534363abac195e6f8e2ef91077381ec816dd68448315831bff2fa65fe878676",
+        "bytes": 18086,
+        "commit": "7d30c840514d318a4588d979a90c20bcf07d8734"
+      },
+      "native_linux": {
+        "path": "20261125/revision-9/results/native-linux-qualification-review.json",
+        "sha256": "5c7b5a50865607b09a09be183a1fc19cc105ec7eb6747e0f0d0bc5646cbe1daf",
+        "bytes": 19043,
+        "commit": "6e70133a8e70e374e6b0b7e1931f8c829b113021"
+      },
+      "native_windows": {
+        "path": "20261125/revision-9/results/native-windows-qualification-review.json",
+        "sha256": "1f179de0d1f0f359bc503e36d6cb5d8d6b335dfb07903cde4573640c9f5da1ae",
+        "bytes": 27661,
+        "commit": "60df4701ad68eafcf34f3f614087c41e57fa44f8"
+      },
+      "app_final": {
+        "path": "20261125/revision-9/results/type-app-review.json",
+        "sha256": "5586e296a78ddb91c5849cd591813196b6fd8ecb11ac6d49dcc042ae4638657e",
+        "bytes": 10323,
+        "commit": "46785d535d046f044d6dc3c65487da6f3076953c"
+      },
+      "app_real_windows_http": {
+        "path": "20261125/revision-9/results/type-windows-roundtrip-review.json",
+        "sha256": "856b14675fd669e5c30290ab8e1eca1e63cc55d9c73b34990ca5ab7cd9bb3b2b",
+        "bytes": 14106,
+        "commit": "76a04b979a372b51bcb0d0bbffa52f4105b1a541"
+      },
+      "runtime_inventory": {
+        "path": "20261125/revision-9/results/app-runtime-inventory-review.json",
+        "sha256": "f8497b908253b33a5902b412776bf13c3b1cac5fcb1e286a04f1e992aa937525",
+        "bytes": 7530,
+        "commit": "a10c6eed3ab6c167ded7a12a817430a816a9672f"
+      },
+      "browser": {
+        "path": "20261125/browser-result-review.json",
+        "sha256": "3caeb542f211d1dccebe75fff7e364b7d3d6e9a90d87f406ee28c93533b71741",
+        "bytes": 10164
+      },
+      "tray_repair": {
+        "path": "20261127/results/tray-repair-final-review.json",
+        "sha256": "22783d2693e0ec706ebfa979ac01250dfa3e6d515305bd4a335c949586ffb23b",
+        "bytes": 6362
+      },
+      "actual_tray": {
+        "path": "20261127/results/tray-runspace-actual-review.json",
+        "sha256": "8a0f8e464b54f89d22aeeb2f9dacd9e96accc3d957527efb55457fb2e81ec729",
+        "bytes": 24623
+      }
+    }
+  },
+  "requirements": [
+    {
+      "requirement": "Edit existing native beads: title, description and priority",
+      "status": "passed",
+      "basis": "Final native atomic-update/revision/claim qualification and app integration are accepted on exact2d801/030953. Actual installed configured PATCH and GET plus independent native show prove persisted quoted Unicode title,multiline description and priority0 through the selected0431 pin. Atomic priority reason/audit behavior remains established by the retained final native/app checks; the configured smoke is not relabelled as a new full concurrency suite."
+    },
+    {
+      "requirement": "Issue type, notes, status, assignee and preserved issue identity/history",
+      "status": "passed",
+      "basis": "Type and notes additionally pass the fresh installed API/native readback. Retained final native/app qualification covers status,assignment,closed-issue editing,revision/claim fencing,history/audit preservation and long file-backed inputs. The final real Windows long-type round trip and exact source bridge connect those checks to this installed release. IDs,timestamps,claims and unrelated records remain protected by the accepted update contract and native tests."
+    },
+    {
+      "requirement": "Typed dependency editing and remaining app operations",
+      "status": "passed",
+      "basis": "The accepted candidate reuses reviewed incoming/outgoing dependency direction/kind,labels,comments,checklists,lifecycle,assignment and read-only behavior. Its browser bridge compares tested38c21 source with final030953: UI/API routes/serve/controller are unchanged; changed adapters and tray files have their own final-source acceptance. All three retained real browser flows passed, including expected refusals and injected post-write failures without repeated mutation. The fresh configured run deliberately adds five scalar delivery checks, not a new dependency/browser execution."
+    },
+    {
+      "requirement": "Bead-me-up-scotty uses the native editing features",
+      "status": "passed",
+      "basis": "The accepted115-test app qualification and real Windows native round trip establish capability gating,atomic edits,large UTF-8 arguments,legacy fallback and exact request-owned cleanup. Fresh launch-scotty.bat starts the installed production build, loads the one .env.local pin without inheriting BEAD_BIN, advertises the five required editable fields, persists edits through the real HTTP API and logs28 successful exact-pin native invocations in the isolated workspace."
+    },
+    {
+      "requirement": "Windows system tray exists while running and has Exit",
+      "status": "passed",
+      "basis": "The fresh configured result and exact icon receipt establish one real visible tray icon with menuText Exit,click and disposal through the installed launcher. Batch,controller,tray-host,tray and server are individually observed in the exact owned Job; actual host/helper cache hashes match accepted installed bytes. Earlier separately accepted logged-in Exit,parent-loss and restart-plus-Exit cases cover the unchanged tray modules; their older230-file runtime remains distinctly scoped from this final560-file runtime."
+    },
+    {
+      "requirement": "Exit stops the owned server and releases resources",
+      "status": "passed",
+      "basis": "After real Exit, the batch/controller/tray-host/tray exit0; the Next child exits1 during the requested production shutdown. The production controller sets stopping before signaling, so that child close is not a new launch failure. The harness reports no assistance,errors or remaining members, the owned port is free, and both caches created by this successful run are absent. Final Scheduler outcome0 agrees; prior failed caches/registrations still require the separate exact cleanup."
+    },
+    {
+      "requirement": "Install in the existing repositories and preserve user work",
+      "status": "passed",
+      "basis": "Installation f215 independently accepts all15 original raw source backups,original index/environment before-and-replaced copies,old pin/runtime,exact prepared-index adoption and normal source fast-forwards. Fresh09:52 preservation verified both final clean HEADs,unchanged recorded Git configuration and exact user-fork mains. The configured run binds those installed source/pin/build identities and performs all native operations in its new fixture and all app registry writes in its isolated config. It does not open the original canonical native store."
+    },
+    {
+      "requirement": "Protect the foreground Unreal/VR session during verification",
+      "status": "passed_for_observed_controls",
+      "basis": "Actual app checks were hidden,limited to the existing session,BelowNormal and bounded. The final run admitted above3GiB, retained at least2253275136B free, used an observed515334144B aggregate Job peak below512MiB, and ended in8.5164173s with no assisted cleanup. Source inspection establishes no product build,GPU work,broad termination or visible foreground input. These measured controls do not claim that unrelated foreground workload was measured."
+    }
+  ],
+  "checks": [
+    {
+      "name": "Retained final native qualification",
+      "status": "passed",
+      "exits": "Required ordinary suites passed; deliberately characterized refusals remain separate.",
+      "counts": {
+        "affected_checks": 95,
+        "full_suite_passes": 1913,
+        "full_suite_failures": 0,
+        "existing_ignored": 8,
+        "harnesses": 145,
+        "windows_ordinary_passes": 98,
+        "windows_core": 25,
+        "windows_editing": 73,
+        "windows_ordinary_conformance_included_in_98": 12,
+        "windows_smoke_commands": 55,
+        "smoke_zero_exits": 54,
+        "expected_stale_exit4": 1,
+        "separate_characterization_cells": 12,
+        "characterization_green": 10,
+        "caught_characterization_red": 2
+      }
+    },
+    {
+      "name": "Retained final app,Windows roundtrip and browser qualification",
+      "status": "passed",
+      "exits": "115 app tests pass; lint/build/TypeScript/diff checks exit0. Three retained browser flows pass.",
+      "limits": "Existing lint/Node/npm/Turbopack warnings and historical raw-output retention qualifications remain unchanged. Some earlier raw artifacts are unavailable; the complete retained independent reviews and their exact immutable source/evidence bindings are reused."
+    },
+    {
+      "name": "Actual installation,preservation and product publication",
+      "status": "passed",
+      "driver_exit": 0,
+      "supervisor_exit": 0,
+      "required_commands": "accepted",
+      "limits": "One allowed optional Git config lookup exited1; installation was not an all-child-zero run. All560 staged runtime files were rehashed immediately before install; later BUILD_ID observations are not represented as another full560-file hash pass."
+    },
+    {
+      "name": "Actual installed configured default-pin route",
+      "status": "passed",
+      "scheduler_exit": 0,
+      "batch_exit": 0,
+      "fixture_cli_exits": [
+        0,
+        0,
+        0
+      ],
+      "native_calls": 28,
+      "native_call_exits": [
+        0
+      ],
+      "http_statuses": [
+        200,
+        201,
+        200,
+        201,
+        200,
+        200
+      ],
+      "limits": "Next server exit1 is retained as requested shutdown behavior; five scalar fields are the fresh installed smoke scope."
+    },
+    {
+      "name": "Complete raw evidence and final task-state reconciliation",
+      "status": "passed",
+      "collector_exit": 0,
+      "definition_reader_exit": 0,
+      "limits": "All11 actual raw files/hash/ticks are verified. Four task actions/settings match receipts and all are idle with outcomes1/1/1/0; full XML remains privately hash-bound."
+    }
+  ],
+  "output_paths": {
+    "actual_result": "YossiMH/bead-me-up-scotty@cf1e018022086e0118aa76cd64cdd0d02317850d/20261127/configured-launch-tcp-actual/result.json",
+    "configured_review": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-review.json",
+    "installation_review": "20261127/installation-completed/actual-review.json",
+    "candidate_review": "20261127/results/candidate-final-review.json",
+    "per_file_integrity": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-integrity.json",
+    "four_task_metadata_review": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-four-task-actual-review.json"
+  },
+  "changed_files": {
+    "reviewer_product_changes": [],
+    "installed_changes": "Accepted native/app source descendants,560-file production runtime,hash-derived new native pin/provenance and validated BEAD_BIN selection. Original recovery copies remain preserved.",
+    "new_review_artifact": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/installed-final-review.json"
+  },
+  "git_result": {
+    "status": "passed_reused_actual_installation_publication",
+    "native_main": "2d801ba455b7a722daf644a7615445117d57e8e9",
+    "app_main": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "basis": "The accepted installation/preservation review includes independent cloud remote-main readback. No new product-source changes were introduced by the configured helpers. Documentation descendants and native checkpoint commits are separate future publications.",
+    "reviewer_commit_or_push": false
+  },
+  "open_items": [
+    "Finalize,independently review and publish both canonical product handoffs and their actual text-review tasks.",
+    "Execute the separately qualified original checkpoint-only/CRLF history route,preserve original raw checkpoint/corpus,then publish and verify its generations through the reviewed bounded publisher.",
+    "Perform the fixed scheduled-task cleanup,exact failed-run cache cleanup,archive/temporary-ref cleanup and owned Riftri worktree cleanup with fresh live guards.",
+    "Retain this review and the exact two-task close request before root changes the canonical task state."
+  ],
+  "findings": [],
+  "decision": "PASS for installed native editing,app integration and real configured tray delivery. The installed-review task may close at observed revision3 after this record is durably retained. This record does not close handoff,history or cleanup work."
+}

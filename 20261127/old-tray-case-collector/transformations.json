@@ -1,0 +1,50 @@
+{
+  "schema_version": 1,
+  "baseline": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/configured-tcp-result-collector/collect-configured-tcp-result-20261127.cjs",
+    "bytes": 5561,
+    "sha256": "98e491ed377436cdba7c8a65a634da4c108cf4510329a3944e6fd038e1503361"
+  },
+  "source": {
+    "bytes": 6161,
+    "sha256": "7177b000607a71683ef827c4bb6f041d4b6fab931b6723825547cb0db53bca5c"
+  },
+  "substitutions": [
+    {
+      "old": "const root='F:/Dev/.bead-edit-20261111',name='configured-v9-tcp-20261127-2889282bfcec',run=root+'/'+name;\nconst paths=['result.json','controller.json','processes.jsonl','native.jsonl','icon-receipt.json','memory-start.json','stdout.log','stderr.log'].map(n=>run+'/'+n).concat([root+'/'+name+'.stdout.log',root+'/'+name+'.stderr.log',root+'/configured-task-tcp-20261127-2889282bfcec.json']);",
+      "new": "const root='F:/Dev/.bead-edit-20261111',run=root+'/tray-host-check-20261127-2889282bfcec',temp=run+'/temp';",
+      "count": 1
+    },
+    {
+      "old": "async function main(){",
+      "new": "async function names(){check();const d=await fs.opendir(temp,{bufferSize:8}),a=[];let n=0;try{for(;;){check();const e=await d.read();if(!e)break;n+=e.name.length;if(a.length>=32||n>4096)throw error('directory-size-cap');a.push(e.name);}}finally{await d.close();}return a.sort();}\nasync function main(){",
+      "count": 1
+    },
+    {
+      "old": " const parents=['F:/','F:/Dev',root,run],parentStates=[];\n for(const p of parents){check();const s=await stat(p);if(s&&(s.isSymbolicLink()||!s.isDirectory()))throw error('unsafe-parent');parentStates.push([p,s?String(s.dev)+':'+String(s.ino):null]);}",
+      "new": " const parents=['F:/','F:/Dev',root,run,temp],parentStates=[];\n async function parent(p,required){check();const s=await stat(p);if((required&&!s)||(s&&(s.isSymbolicLink()||!s.isDirectory())))throw error('unsafe-parent');parentStates.push([p,s?String(s.dev)+':'+String(s.ino):null]);}\n for(const p of parents)await parent(p,true);\n const entries=await names(),matches=entries.filter(n=>/^scotty-tray-smoke-[0-9a-f]{32}$/.test(n));if(matches.length!==1)throw error('expected-one-smoke-directory');\n const selected=temp+'/'+matches[0];await parent(selected,true);\n const cases=['exit','parent-loss'],paths=cases.map(n=>selected+'/'+n+'/processes.jsonl');for(const n of cases)await parent(selected+'/'+n,false);",
+      "count": 1
+    },
+    {
+      "old": "before.size>2097152n||before.size<0n||total+Number(before.size)>4194304",
+      "new": "before.size>32768n||before.size<0n||total+Number(before.size)>65536",
+      "count": 1
+    },
+    {
+      "old": " for(const [p,identity] of parentStates){",
+      "new": " if(JSON.stringify(await names())!==JSON.stringify(entries))throw error('directory-entries-changed');\n for(const [p,identity] of parentStates){",
+      "count": 1
+    },
+    {
+      "old": "{schema_version:1,scope:'configured-tcp-fixed11-raw',files}",
+      "new": "{schema_version:1,scope:'old-tray-host-case-logs-fixed2-raw',directory:temp,entries,selected,files}",
+      "count": 1
+    },
+    {
+      "old": "encoding:'gzip+base64',scope:'configured-tcp-fixed11-raw'",
+      "new": "encoding:'gzip+base64',scope:'old-tray-host-case-logs-fixed2-raw'",
+      "count": 1
+    }
+  ],
+  "complete_source_inverse_exact": true
+}

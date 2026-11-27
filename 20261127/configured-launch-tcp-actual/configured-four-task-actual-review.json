@@ -1,0 +1,106 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "scope": "Independent complete non-XML metadata/action/principal/settings comparison for the four configured attempts; exact private full-XML retention identity accepted through the reviewed collector",
+  "evidence": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-four-task-readback.json",
+      "bytes": 7112,
+      "sha256": "71b9b461027a14f313a56bc11445ff9214c429bc0d4174b3d9609696efb91a64"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-four-task-readback-execution.json",
+      "bytes": 8621,
+      "sha256": "363e1a565309097999da8ae95d2ec764ed0830f680055522062d27ceefc5c999"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-four-task-read.ps1",
+      "bytes": 2587,
+      "sha256": "405562277276b27b1eb2737166d4dcca644f48d3401319c8d5c4f1e1361898db"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-four-task-read-command.json",
+      "bytes": 8356,
+      "sha256": "c459e767e1645d5ddd18d88c0f0fe39811270375d2d11452f90afeb35fe1ab29"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-four-task-reader-source-review.json",
+      "bytes": 4713,
+      "sha256": "ba51b46dddc22e36beae3ddf1398fbe57f9f8bc19a194b8b54109ea096ab81e1"
+    }
+  ],
+  "private_full_definition_result": {
+    "path": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\configured-task-readback-20261127-v3\\result.json",
+    "bytes": 21481,
+    "sha256": "e3324f17e074de8af9fde5f726b5c57ebd25e28b183de74cb648d5999e859326",
+    "uploaded_or_read_full_xml_in_cloud": false
+  },
+  "tasks": [
+    {
+      "name": "ChatGPT-BeadEditing-Configured-20261127-2889282bfcec",
+      "creation": {
+        "path": "/tmp/beads-2889282bfcec/continuation/20261127/configured-launch-first-attempt/creation-receipt.json",
+        "bytes": 2571,
+        "sha256": "435f47d69b28b32107325aba9bf72fe5675402725a31120bd6092ebf87a06efd"
+      },
+      "state": 3,
+      "running_instances": 0,
+      "last_result": 1,
+      "last_run": "2026-11-27T10:10:39.0000000Z",
+      "exact_action_path_arguments_working_directory_match": true,
+      "normalized_existing_user_and_limits_match": true
+    },
+    {
+      "name": "ChatGPT-BeadEditing-ConfiguredCRLF-20261127-2889282bfcec",
+      "creation": {
+        "path": "/tmp/beads-2889282bfcec/continuation/20261127/configured-launch-crlf-actual/configured-task-crlf-20261127-2889282bfcec.json",
+        "bytes": 3868,
+        "sha256": "dca8d968ad1df097eb56baf80bede0c1453894974a6cdea4b4f6b29f9d5164e6"
+      },
+      "state": 3,
+      "running_instances": 0,
+      "last_result": 1,
+      "last_run": "2026-11-27T10:47:03.0000000Z",
+      "exact_action_path_arguments_working_directory_match": true,
+      "normalized_existing_user_and_limits_match": true
+    },
+    {
+      "name": "ChatGPT-BeadEditing-ConfiguredSession-20261127-2889282bfcec",
+      "creation": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-session-actual/configured-task-session-20261127-2889282bfcec.json",
+        "bytes": 3901,
+        "sha256": "c86cf9a2fadf5958ebf4c126c30321bb87373bd6d9971370ab74a3a151a00cc9"
+      },
+      "state": 3,
+      "running_instances": 0,
+      "last_result": 1,
+      "last_run": "2026-11-27T11:32:43.0000000Z",
+      "exact_action_path_arguments_working_directory_match": true,
+      "normalized_existing_user_and_limits_match": true
+    },
+    {
+      "name": "ChatGPT-BeadEditing-ConfiguredTcp-20261127-2889282bfcec",
+      "creation": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/root/tcp-actual/configured-task-tcp-20261127-2889282bfcec.json",
+        "bytes": 3857,
+        "sha256": "35be7aaa5fdf9555a11ab5cb88dc1c1ccb76433247677bc4c7698361c9a525b4"
+      },
+      "state": 3,
+      "running_instances": 0,
+      "last_result": 0,
+      "last_run": "2026-11-27T12:29:04.0000000Z",
+      "exact_action_path_arguments_working_directory_match": true,
+      "normalized_existing_user_and_limits_match": true
+    }
+  ],
+  "read_resources": {
+    "duration_ms": 1039,
+    "node_rss_bytes": 44425216,
+    "free_physical_bytes": 6465925120,
+    "child_exit": 0,
+    "outer_exit": 0
+  },
+  "findings": [],
+  "acceptance_limit": "All four completed registrations are idle and exact accepted actions/settings are retained. This is preparation evidence for the independently reviewed fixed23 cleanup, whose filled request, per-task live XML/idle rechecks and actual deletions remain pending."
+}

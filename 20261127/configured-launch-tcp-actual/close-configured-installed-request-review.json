@@ -1,0 +1,131 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:44:38.790162+00:00",
+  "scope": "Narrow independent acceptance of the exact two-task close request against the accepted plan, actual mapping, latest accepted 48/7 state and separate configured/installed acceptance. The closure itself has not run.",
+  "request": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/close-configured-installed-accepted-20261127.json",
+    "bytes": 2045,
+    "sha256": "b320e4f81d810d0e22c47544e3160cafa509fb3e3f1ef8a5e1ec2517843f3849"
+  },
+  "evidence": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/baseline/plan-revision9-recovered.json",
+      "bytes": 419134,
+      "sha256": "18130e44ab27047dcb397de53caa0a9006c56cfd478d417f884e42452ff62582"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/results/materialization-v9-result.json",
+      "bytes": 11930,
+      "sha256": "6d1cca5e2495011ae3dac4320e622f67c6f871186ef112edd8f51f8c98d1e5b3"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/installation-completed/closure/result.json",
+      "bytes": 5925,
+      "sha256": "040aa7c5fc0c149c9551f9f4d44842bd624a5374e6e43109c47a6106736552b0"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/revision-9-execution/record-accepted-tasks-v9.mjs",
+      "bytes": 13438,
+      "sha256": "906ac53c59f612da14c93eaff723f1a59b27273128dee5a7030a2901acef62b3"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/revision-9-execution/record-accepted-tasks-v9-supervisor.ps1",
+      "bytes": 17282,
+      "sha256": "d2bb536208688ce70d9a3b5493fca3271d09b98ae37828ff339853c081535426"
+    },
+    {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/revision-9-execution/closure-v9-review.json",
+      "bytes": 25650,
+      "sha256": "ff0dfc38919df499b62bd6c2974a807c06c853e37bbc019e140daa414c1cc771"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-four-task-actual-review.json",
+      "bytes": 4615,
+      "sha256": "5e843314800e717560dbe4825ee888892a6c440631d15e151b899951881efe51"
+    }
+  ],
+  "transitions": [
+    {
+      "key": "configured-launch",
+      "id": "beadrs-c9526055",
+      "before_status": "open",
+      "before_revision": 5,
+      "expected_after_status": "closed",
+      "expected_after_revision": 6,
+      "acceptance": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-review.json",
+        "bytes": 12544,
+        "sha256": "ebe3a62e564a17568d6f7ae16596fe2809cc43782327057200d8406323771e8b"
+      }
+    },
+    {
+      "key": "installed-review",
+      "id": "beadrs-47da80ac",
+      "before_status": "open",
+      "before_revision": 3,
+      "expected_after_status": "closed",
+      "expected_after_revision": 4,
+      "acceptance": {
+        "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/installed-final-review.json",
+        "bytes": 16318,
+        "sha256": "b3bdf0990e7513c9ea57f31b72aecaee582c1b284193dfb78a233c157f84703b"
+      }
+    }
+  ],
+  "expected_counts": {
+    "tasks": 55,
+    "blocking_edges": 91,
+    "total_issues": 1009,
+    "original_issues": 954,
+    "closed_before": 48,
+    "open_before": 7,
+    "closed_after": 50,
+    "open_after": 5,
+    "other_continuation_tasks_preserved": 53
+  },
+  "remaining_open": [
+    {
+      "key": "backend-handoff",
+      "id": "beadrs-1371879c",
+      "revision": 3
+    },
+    {
+      "key": "app-handoff",
+      "id": "beadrs-f0039a6a",
+      "revision": 5
+    },
+    {
+      "key": "backend-text-review",
+      "id": "beadrs-30f13b5b",
+      "revision": 3
+    },
+    {
+      "key": "app-text-review",
+      "id": "beadrs-c62c1990",
+      "revision": 5
+    },
+    {
+      "key": "preserve-and-clean",
+      "id": "beadrs-3ec972f8",
+      "revision": 5
+    }
+  ],
+  "checks": [
+    "Exact request bytes and the complete two reasons were read and matched to the actual accepted installation/configured/task-state evidence.",
+    "Only configured-launch revision 5 and installed-review revision 3 are selected. Their actual IDs are taken from the accepted mapping, both are open and ready in the latest accepted installation closure, and their install prerequisite is closed.",
+    "The unchanged generic driver and supervisor hashes match their prior independent acceptance. Existing live inventory, assignment, revision, exact graph, original 954-record preservation, one-shot dry-run/commit, exclusive output and authority-freeze guards still apply.",
+    "The configured reason correctly describes the real default pin, runtime, six HTTP calls, 28 native calls, five persisted fields, real Exit, current cache removal, unassisted cleanup, exact raw result and final Scheduler outcome. Natural completion here means no harness cleanup assistance; the separate acceptance expressly retains Next shutdown exit 1.",
+    "The installed reason binds the accepted original preservation and exact configured identities. Four completed task outcomes remain 1,1,1,0. Handoff, original native history and final cleanup remain pending, and no failed attempt is relabelled.",
+    "This request changes no task description, edge, source or original checkpoint. Expected status/revision transitions are configured 5 to 6 and installed-review 3 to 4; all other 53 continuation tasks retain their current stored state."
+  ],
+  "findings": [],
+  "prerequisites_before_execution": [
+    "Root durably retains both actual acceptance records and this exact request/review.",
+    "Root uses the unchanged accepted supervisor with exact input hashes and a fresh one-shot output; its existing live/resource/freeze guards must pass."
+  ],
+  "actual_closure_accepted": false,
+  "required_actual_acceptance": "Require driver and supervisor success with the exact request/plan/mapping identities, exactly these two transitions, original 954 rows and all other task fields/edges preserved, no assisted cleanup or remaining owned members. Do not claim 50/5 until that result is reconciled."
+}

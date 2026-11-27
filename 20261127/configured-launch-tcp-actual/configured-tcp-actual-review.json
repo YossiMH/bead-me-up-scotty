@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "verdict": "PASS",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_utc": "2026-11-27T12:40:54.043977+00:00",
+  "scope": "Independent acceptance of the fourth, separately named ConfiguredTcp execution against the actually installed batch launcher, production runtime and default native pin, plus final exact four-task non-XML definition/state reconciliation.",
+  "task_acceptance": {
+    "task_key": "configured-launch",
+    "task_id": "beadrs-c9526055",
+    "expected_revision": 5,
+    "may_close_after_retaining_this_review": true,
+    "other_tasks_closed_by_this_record": false
+  },
+  "source_commits": {
+    "app": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "native": "2d801ba455b7a722daf644a7615445117d57e8e9"
+  },
+  "binary_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+  "accepted_runtime": {
+    "installed_pin": "F:/Dev/bead-me-up-scotty/.scotty-local/bin/bead-0431a828bf95.exe",
+    "build_id": "YIOHeRJTEdlOszyc4LyHr",
+    "runtime_files": 560,
+    "runtime_expanded_bytes": 27426391,
+    "runtime_manifest_sha256": "612790bc18617630f9257ab2a901f8e12a0cd6dda6bf566c414e646e1745f1c7",
+    "installation_review": {
+      "path": "20261127/installation-completed/actual-review.json",
+      "bytes": 8792,
+      "sha256": "f21530a4cadc045e1fa052fa29f187a866e6ae81610197a4e2ea93301f1d780e"
+    },
+    "configured_helper_sha256": "818b25d528f0c07b7a913ec6aa6611359cff0aca5d9a3f5c6d523e9577543bf1",
+    "task_job_helper_sha256": "2758a6ff94c0eecdfa360363469069dfa8470efc1f91228812146919a978921f"
+  },
+  "actual_raw_retention": {
+    "repository": "YossiMH/bead-me-up-scotty",
+    "commit": "cf1e018022086e0118aa76cd64cdd0d02317850d",
+    "result_path": "20261127/configured-launch-tcp-actual/result.json",
+    "result_bytes": 17558,
+    "result_sha256": "54e074ed3162fbae9a30deb0843733f918392264291c74f079c9676c3df13701",
+    "all_eleven_raw_files_and_raw_package": "The exact recovered files and package were independently rehashed; full per-file identities are in the bound integrity record."
+  },
+  "evidence": [
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-actual-integrity.json",
+      "bytes": 6466,
+      "sha256": "7cf695bd86e1ee34c857d7207c87f62e0b592ae80d635287ed903cb0f61c3471"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-tcp-source-review.json",
+      "bytes": 10985,
+      "sha256": "4c26f4fc6188dc141808c3b5597926eff3aa1d626f01c89a12251f43270643fe"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/configured-tcp/source-and-command-delta.json",
+      "bytes": 9580,
+      "sha256": "1e372b451f758433f412d9c36edc3ab7a94b398a3c73a65e926cb245fd7b2246"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/tcp-launch-execution.json",
+      "bytes": 3752,
+      "sha256": "1e4a8c047ab5264ec3d391bc4ace219d9a5598495e9a3fd725063ad971c09c0c"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/tcp-history-parse-execution.json",
+      "bytes": 2312,
+      "sha256": "69fed359146aaf440421ef2679dd1dba9b2828119c12335f3884bf6de6263802"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/tcp-staging-execution.json",
+      "bytes": 1169,
+      "sha256": "a36939fab81e0cd04f0a6604071f8c4e10f81ee223c4140036339f7148afd17a"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/tcp-collector-execution.json",
+      "bytes": 358,
+      "sha256": "710f0df3b678684477a12f9f74e8ec793cbfb6f16c8ab63a3901bac0d38a4862"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/tcp-collector-envelope.json",
+      "bytes": 28024,
+      "sha256": "299f1b9d7dfde6974a963bc1c11a1683cc219166446713f42c255fb187457ef9"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/reviews/configured-four-task-actual-review.json",
+      "bytes": 4615,
+      "sha256": "5e843314800e717560dbe4825ee888892a6c440631d15e151b899951881efe51"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-four-task-readback.json",
+      "bytes": 7112,
+      "sha256": "71b9b461027a14f313a56bc11445ff9214c429bc0d4174b3d9609696efb91a64"
+    },
+    {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-four-task-readback-execution.json",
+      "bytes": 8621,
+      "sha256": "363e1a565309097999da8ae95d2ec764ed0830f680055522062d27ceefc5c999"
+    }
+  ],
+  "checks": [
+    {
+      "name": "Exact source, staging and ordinary parsing",
+      "status": "passed",
+      "exit_code": 0,
+      "establishes": "The 53569-byte helper818b25d5,7773-byte outer action78ba0720 and912-byte inner action8c2c7b8c match the accepted preparation and staged identities. All three parsed with zero errors on Windows PowerShell5.1.26100.9818 at12:22:50Z. The same batch also parsed the two history supervisors but did not execute any parser input."
+    },
+    {
+      "name": "Fresh one-shot logged-in task",
+      "status": "passed",
+      "exit_code": 0,
+      "establishes": "The exact creation receipt matches the launch result and all seven input hashes, helper/default-pin/install-result/install-supervisor/module identities, action string and working directory. COM create-only2, RunEx flag4/session1, existing limited user, priority7, hidden action and fresh paths match the accepted invocation. An earlier uncertain proposal was separately observed expired; this acceptance uses only the later actual launch."
+    },
+    {
+      "name": "Installed default selection and production route",
+      "status": "passed",
+      "establishes": "Actual launch-scotty.bat starts the installed CLI, one external Node tray host, one ordinary -File PowerShell tray helper and one next start server on loopback43972. The controller reports inheritedBeadBin=false; its installed .env.local contains the one verified0431 pin. The configured native hash and BUILD_ID match the accepted installation/runtime. Source evidence records all nine source/helper/environment hashes; the two current raw CRLF tray module hashes equal the accepted compatibility pins."
+    },
+    {
+      "name": "HTTP and native scalar round trip",
+      "status": "passed",
+      "http_calls": 6,
+      "http_statuses": [
+        200,
+        201,
+        200,
+        201,
+        200,
+        200
+      ],
+      "native_observed_invocations": 28,
+      "native_exit_codes": [
+        0
+      ],
+      "fixture_cli_commands": [
+        {
+          "name": "init",
+          "exit_code": 0
+        },
+        {
+          "name": "readback",
+          "exit_code": 0
+        },
+        {
+          "name": "type-readback",
+          "exit_code": 0
+        }
+      ],
+      "establishes": "A new isolated native workspace is registered into a new isolated app registry. The exact helper asserts editable title,description,priority,issue_type,notes; creates one issue; patches quoted/Japanese title,multiline Japanese description,priority0,custom type launch_check and multiline Japanese notes; checks returned PATCH and GET values and independent native show/query readback. All28 raw native start records have one matching zero-exit/null-signal close record with the exact default pin and fixture cwd."
+    },
+    {
+      "name": "Real tray Exit and natural owned completion",
+      "status": "passed",
+      "batch_exit_code": 0,
+      "controller_exit_code": 0,
+      "tray_host_exit_code": 0,
+      "tray_exit_code": 0,
+      "next_server_exit_code": 1,
+      "establishes": "The exact icon receipt says visible=true,menuText=Exit,clicked=true,disposed=true. Actual process records match held Job birth identities/session1 and the batch\u2192controller\u2192tray-host\u2192tray chain; the server is another controller child. Exit completed the production shutdown path, all observed owned processes exited without harness assistance, both current helper/click cache directories disappeared, and the port was released."
+    },
+    {
+      "name": "Complete bounded result transport",
+      "status": "passed",
+      "exit_code": 0,
+      "establishes": "The18492-byte gzip and98536-byte raw package rehash exactly; all11fixed files are present and byte-exact, totaling72140rawbytes. Both stderr files are empty. Outer stdout is exactly a UTF-16LE-BOM encoding of raw result plus CRLF. Large birth ticks are compared as Python integers from original bytes. Collector exited0 without dropped output in15ms measured work at51818496B RSS."
+    },
+    {
+      "name": "Final four-task state and definition metadata",
+      "status": "passed",
+      "exit_code": 0,
+      "establishes": "The full non-XML action/principal/settings metadata matches all four exact retained creation receipts. Every task is ready3 with0instances; outcomes remain1,1,1,0. The last TCP run is12:29:04Z and Scheduler exit0. The reviewed reader retained21481B of full XML privately with SHAe3324f17e074de8af9fde5f726b5c57ebd25e28b183de74cb648d5999e859326; its content was not uploaded to this reviewer."
+    }
+  ],
+  "resource_observation": {
+    "started_utc": "2026-11-27T12:29:05.5483981Z",
+    "completed_utc": "2026-11-27T12:29:14.0648154Z",
+    "duration_seconds": 8.5164173,
+    "priority": "BelowNormal",
+    "node_heap_mib": 128,
+    "configured_timeout_seconds": 120,
+    "work_deadline_seconds": 108,
+    "cleanup_reserve_seconds": 12,
+    "scheduler_execution_limit_seconds": 150,
+    "launch_threshold_bytes": 3221225472,
+    "registration_free_mib": 3682,
+    "immediate_launch_free_bytes": 3610763264,
+    "controller_launch_free_bytes": 3584004096,
+    "live_free_threshold_bytes": 1073741824,
+    "minimum_observed_free_bytes": 2253275136,
+    "aggregate_cap_bytes": 536870912,
+    "peak_aggregate_owned_resident_bytes": 515334144,
+    "remaining_cap_bytes": 21536768,
+    "job_samples": 35,
+    "peak_job_member_count": 10,
+    "budget_exceeded": false,
+    "cleanup_assisted": false,
+    "cleanup_errors": [],
+    "remaining_job_members": [],
+    "port_free": true
+  },
+  "preservation_and_limits": [
+    "The run uses only its fresh native-workspace/config/temp paths and owned local-app-data cache copies. Every logged native command names that fixture workspace. The original native store and normal Scotty registry are outside the run scope; preservation of the original installation/source/index/environment/runtime copies remains established by the separate accepted installation review.",
+    "Next server exit1 is the actual requested shutdown observation, not hidden as an all-zero process result. The production controller sets stopping before signaling and ignores the subsequent server close as a new failure; controller/batch exit0, empty stderr, real Exit receipt and unassisted cleanup satisfy the accepted contract.",
+    "One fast native role record has null session/start fields. Its exact observer start/close pair proves successful command completion; no synthetic retained Job identity is assigned. The controller/server/tray-host/tray identity chain has full held session1/birth evidence.",
+    "The new run verifies five scalar fields through the installed route. Status,assignee,labels,typed dependencies,other backend operations and browser recovery rely on the retained final candidate/source/platform reviews and are addressed separately in installed-review.",
+    "The aggregate peak is an observed Job sample peak; it is not a claim that every instantaneous allocation or unrelated foreground workload was measured.",
+    "All three earlier configured attempts remain failures with their original evidence. This acceptance applies only to ConfiguredTcp. Old failed-run cache cleanup and scheduled-task deletion remain separate cleanup work."
+  ],
+  "changed_files": {
+    "product_source": [],
+    "product_configuration": [],
+    "authorized_fixture_outputs": "Fresh configured-v9-tcp evidence/native workspace/registry/temp plus its two own cache directories, which were removed by Exit. No product source fix was introduced by the TCP listener adapter."
+  },
+  "git_result": "Read-only review; exact installed product main/source publication is reused from accepted installation f21530a4. Root publishes this project evidence separately. No reviewer commit or push.",
+  "open_items": [
+    "Independent installed-review record follows this actual acceptance.",
+    "Canonical handoff text/publication,original native history reconciliation/publication and final cleanup remain separate tasks."
+  ],
+  "findings": []
+}

@@ -1,0 +1,64 @@
+{
+  "schema_version": 1,
+  "status": "passed_author_source_preparation",
+  "author": "/root/frontend_audit",
+  "utc": "2026-11-27T12:33:42.336668+00:00",
+  "scope": "One read-only old TrayHost case-log evidence collection; no PC execution or product validation claimed",
+  "source_sha256": "7177b000607a71683ef827c4bb6f041d4b6fab931b6723825547cb0db53bca5c",
+  "files": [
+    {
+      "path": "README.md",
+      "bytes": 4923,
+      "sha256": "6cc4c6affb7a2a0524940b44c1ead8b5fd0c98edd4e72ead86f6b59f9888010a"
+    },
+    {
+      "path": "collect-old-tray-case-logs-20261127.cjs",
+      "bytes": 6161,
+      "sha256": "7177b000607a71683ef827c4bb6f041d4b6fab931b6723825547cb0db53bca5c"
+    },
+    {
+      "path": "invocation.json",
+      "bytes": 4426,
+      "sha256": "fc13a49e0219b5d6e273c20638dbfcb34525474010b270ae30edddaa0a6ce959"
+    },
+    {
+      "path": "preparation-checks.json",
+      "bytes": 533,
+      "sha256": "720ad7658025b1b62784da6495ab36b89c0570073df8f18bd5a94e67c852d252"
+    },
+    {
+      "path": "transformations.json",
+      "bytes": 3309,
+      "sha256": "4940713f396de8a705ec74c4989d2e807c905181c9bd268248b833de692bc006"
+    }
+  ],
+  "complete_source_inspections": [
+    {
+      "pass": 1,
+      "status": "passed",
+      "findings": [],
+      "checks": [
+        "Read complete final source and all seven transformation blocks against the accepted TCP collector; independently inverted the complete source to its exact baseline hash.",
+        "Traced exact old temp path from retained old result and source-derived GUID/case naming; bounded only immediate entries, one selected ordinary directory and two fixed logs.",
+        "Checked required ancestor identities, missing-case/log representation, byte/aggregate caps, held-file identity and final directory/file rechecks, finally-closing handles and directories.",
+        "Decoded the rendered gzip/base64 command and compared exact source bytes, Node path, heap/priority/admission/live/RSS/deadline bounds and trailing chunk arguments."
+      ]
+    },
+    {
+      "pass": 2,
+      "status": "passed",
+      "findings": [],
+      "checks": [
+        "Re-read complete frozen source and README after invocation/derivation checks; reconciled every scope and bound with the actual code.",
+        "Rechecked unchanged inherited timer/output/failure behavior and asynchronous raw read/gzip paths; source gzip is a fixed 2670-byte input under the outer deadline.",
+        "Verified raw logs remain unparsed; deterministic package contains only stable paths/names/raw records while runtime resource measurements remain outside it.",
+        "Rechecked first-chunk/continuation full-package identity refusal, 37500-byte chunks/50000-character payload/65000-character response and 3708-character command.",
+        "Cloud Node v24.22.3 syntax-only check exited0 with empty streams. No collector execution, Windows action, product run or fixture run occurred."
+      ]
+    }
+  ],
+  "independent_review": null,
+  "actual_pc_execution": null,
+  "actual_result": null,
+  "cleanup": "Ordinary packet directory only; retain exact packet in transfer history before removal. Collector creates no PC artifacts."
+}
