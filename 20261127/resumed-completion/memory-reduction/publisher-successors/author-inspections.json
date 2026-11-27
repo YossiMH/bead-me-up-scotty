@@ -1,0 +1,69 @@
+{
+  "schema_version": 1,
+  "status": "passed_static_author_inspections_prepared_only",
+  "author": "/root/finish_preparation",
+  "source_commit": "de71118c225936b8ca6eac4be5db306eff19219b",
+  "memory_candidate_commit": "925dc93eb7610b9f912c57ea9f8a640d7153cd1a",
+  "history_binding": {
+    "old_history_path": "F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/checkpoint-only-handoff-crlf-20261127.mjs",
+    "new_history_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/checkpoint-only-handoff-crlf-20261127.mjs",
+    "old_history_sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671",
+    "new_history_sha256": "a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773",
+    "stage_directory": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs"
+  },
+  "files": [
+    {
+      "name": "publish-reviewed-git-crlf-20261127.mjs",
+      "bytes": 45107,
+      "sha256": "7db3143e5982cf0bec76c2f3d641976d078e176cfcba89b8d8e191c996654ff2",
+      "baseline_sha256": "7d8be7200885652d7be1f15034574ebed128fd36724804e0764ab9c0a0259a13",
+      "changed_lines": [
+        13,
+        14
+      ]
+    },
+    {
+      "name": "publish-reviewed-git-crlf-supervisor-20261127.ps1",
+      "bytes": 20128,
+      "sha256": "596abef58957b4b1bab83042f0e0ee07ba331715923787bd9a44c8bbe9313b50",
+      "baseline_sha256": "b86a74ad4d01e4f77dad554eda951cc0859122cf7a9ccf70dfb2892a1c0f2d52",
+      "changed_lines": [
+        148,
+        149
+      ]
+    }
+  ],
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "scope": "Trace matching history import/source hash and supervisor history-file check to the accepted candidate under existing I. Both source files change only their single history path and single history SHA. Initial/final phase receipt identity checks stay enforced."
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "scope": "Reconstruct exact candidates from immutable accepted sources; invert both substitutions to full baseline byte equality. Confirm each file changes exactly two adjacent constant lines, no runtime/control-flow/allowlist/timeout/budget/hook/private/ref behavior changes and all successor files can be co-staged without overwriting accepted helpers."
+    }
+  ],
+  "request_updates": {
+    "helper_sha256": "7db3143e5982cf0bec76c2f3d641976d078e176cfcba89b8d8e191c996654ff2",
+    "supervisor_sha256": "596abef58957b4b1bab83042f0e0ee07ba331715923787bd9a44c8bbe9313b50",
+    "supervisor_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/publish-reviewed-git-crlf-supervisor-20261127.ps1",
+    "note": "Apply only after independent successor source acceptance to separately completed actual requests; retain earlier prepared requests unchanged."
+  },
+  "unchanged": {
+    "node_old_space_mib": 128,
+    "aggregate_rss_mib": 512,
+    "all_exported_history_verification_functions": true,
+    "history_supervisor_sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6",
+    "qualified_native_runtime_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a"
+  },
+  "syntax_parse_performed": false,
+  "syntax_parse_note": "Cloud execution environment unavailable; candidates alter only already-quoted ASCII path/hash literals.",
+  "independent_review_performed": false,
+  "remote_publication_performed": false,
+  "pc_actions": 0,
+  "tests": 0,
+  "builds": 0,
+  "publication_scope": "Prepared publisher and supervisor history-path/hash substitutions, exact diffs and author inspections only; independent source acceptance, staging and execution remain pending."
+}

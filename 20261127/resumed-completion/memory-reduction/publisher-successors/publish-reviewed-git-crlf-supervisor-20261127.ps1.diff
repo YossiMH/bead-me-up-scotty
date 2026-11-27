@@ -1,0 +1,13 @@
+--- a/publish-reviewed-git-crlf-supervisor-20261127.ps1
++++ b/publish-reviewed-git-crlf-supervisor-20261127.ps1
+@@ -145,8 +145,8 @@
+     Assert-That ($binary -eq 'C:\Program Files\Git\cmd\git.exe') 'Expected the observed Git path.'
+     Assert-That ($manifest.git.sha256 -eq '20d0dde30a65afb6e5810a883700a94dcd77fbf3b44b32868d45bf7c9b30137c') 'Expected the observed Git executable.'
+     Assert-That ((Hash $binary)-eq $manifest.git.sha256) 'Git executable differs.'
+-    $history=Safe-Path 'F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/checkpoint-only-handoff-crlf-20261127.mjs'
++    $history=Safe-Path 'F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/checkpoint-only-handoff-crlf-20261127.mjs'
+-    Assert-That ((Hash $history)-eq '1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671') 'Accepted history verifier differs.'
++    Assert-That ((Hash $history)-eq 'a137cfa15065abfb26fb362572a47c0b63f7c10270a86a908aa2558703a04773') 'Accepted history verifier differs.'
+     $NodePath=Safe-Path $manifest.node.path
+     Assert-That ($manifest.node.sha256 -eq '91ec09dda8f20556f366110859f106ab189d45f8f6a2bd092e6785174ad4a0fa') 'Expected the observed Node 25.2.1 executable.'
+     Assert-That ((Hash $NodePath)-eq $manifest.node.sha256) 'Node executable differs.'
