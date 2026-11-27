@@ -1,0 +1,35 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "scope": "Tiny cloud-only byte transport qualification; collector/Windows/product not executed",
+  "completed_utc": "2026-11-27T11:46:31.538259+00:00",
+  "source_sha256": "50dfefec1da471bdc49bce8b7ff71b9c627cd4238389b8877b1639bc749641d4",
+  "node_sha256": "ff2d367cbba86845f4634df2197955188549a129f486b88e955fac037ab29950",
+  "arguments": [
+    "--max-old-space-size=64"
+  ],
+  "exit_code": 0,
+  "stdout": "{\"status\":\"passed\",\"node\":\"v25.2.1\",\"checks\":[\"deterministic-identical-gzip\",\"zero-header-mtime\",\"multiple37500-byte-chunks\",\"at-most50000-base64-characters\",\"exact-gzip-reassembly\",\"raw-unicode-and-large-birth-tick-preserved\",\"empty-and-missing-distinct\"],\"gzip_bytes\":66324,\"parts\":2,\"raw_tick_file_sha256\":\"3d06a50566a5eac3251c897c7930231fa26e455132ed63a02240ea0c876eb9d8\",\"uncompressed_sha256\":\"cb6df6447620514ffd91800740a7344fa3b58b039229f2760cbd84443e64c209\",\"gzip_sha256\":\"1053864b0d74fe09623ce8a40b48bb6fd12fb14c0344f1d828f80196b4dcfbb6\",\"pc_executed\":false,\"collector_executed\":false,\"product_executed\":false}\n",
+  "stderr": "",
+  "result": {
+    "status": "passed",
+    "node": "v25.2.1",
+    "checks": [
+      "deterministic-identical-gzip",
+      "zero-header-mtime",
+      "multiple37500-byte-chunks",
+      "at-most50000-base64-characters",
+      "exact-gzip-reassembly",
+      "raw-unicode-and-large-birth-tick-preserved",
+      "empty-and-missing-distinct"
+    ],
+    "gzip_bytes": 66324,
+    "parts": 2,
+    "raw_tick_file_sha256": "3d06a50566a5eac3251c897c7930231fa26e455132ed63a02240ea0c876eb9d8",
+    "uncompressed_sha256": "cb6df6447620514ffd91800740a7344fa3b58b039229f2760cbd84443e64c209",
+    "gzip_sha256": "1053864b0d74fe09623ce8a40b48bb6fd12fb14c0344f1d828f80196b4dcfbb6",
+    "pc_executed": false,
+    "collector_executed": false,
+    "product_executed": false
+  }
+}

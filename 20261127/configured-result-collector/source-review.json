@@ -1,0 +1,29 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "accepted": true,
+  "reviewer": "/root",
+  "reviewed_utc": "2026-11-27T11:47:44.144802+00:00",
+  "source": {
+    "bytes": 5577,
+    "sha256": "19da30c5a7055c3fe3971ed7f609848f2bde86eba08c97c3b227b7d1c6889bad"
+  },
+  "invocation": {
+    "bytes": 8131,
+    "sha256": "74bfdfe0f07695e0972d79003e41da24f392b9f1b6f6d2f6ce4d78e406cc0cbf",
+    "command_characters": 7551
+  },
+  "complete_source_and_invocation_read": true,
+  "embedded_base64_is_exact_source": true,
+  "checks": [
+    "Only eleven fixed task-owned files; no directory traversal or recursive fixture/private app store read.",
+    "BelowNormal Node64, one worker, initial/live1GiB free, ownRSS128MiB,15second deadline; no child or write.",
+    "BigInt file identities and exact-size handle reads reject changes and cap raw bytes; observed files rechecked before packaging.",
+    "Original JSON bytes remain base64; no result parsing or precision loss.",
+    "Fixed file order and static package data keep gzip stable across chunk reads; dynamic measurements remain outside.",
+    "37500byte chunk and65000character response bound; continuation requires matching complete package digest.",
+    "Missing files and refusals are observed states, not configured success."
+  ],
+  "open_findings": [],
+  "pc_execution_claimed": false
+}

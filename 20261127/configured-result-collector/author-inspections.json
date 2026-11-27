@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "author-inspections-passed",
+  "author": "/root/frontend_audit",
+  "scope": "Fixed11-file read-only configured-session evidence transport, root-owned PC execution pending",
+  "frozen_utc": "2026-11-27T11:48:33.649383+00:00",
+  "files": {
+    "collect-configured-session-result-20261127.cjs": {
+      "bytes": 5577,
+      "sha256": "19da30c5a7055c3fe3971ed7f609848f2bde86eba08c97c3b227b7d1c6889bad"
+    },
+    "invocation.json": {
+      "bytes": 8131,
+      "sha256": "74bfdfe0f07695e0972d79003e41da24f392b9f1b6f6d2f6ce4d78e406cc0cbf"
+    },
+    "README.md": {
+      "bytes": 5019,
+      "sha256": "5fb05fb1063caf80e1f0bca9728830f0ee0cf17cd2bb770c257d56646bb0c347"
+    },
+    "syntax-check.json": {
+      "bytes": 343,
+      "sha256": "8fd5603abe78a0aefa6681222dcb33fde86bc3986fe2b0037770b7e4106c729d"
+    },
+    "transport-check.cjs": {
+      "bytes": 2309,
+      "sha256": "50dfefec1da471bdc49bce8b7ff71b9c627cd4238389b8877b1639bc749641d4"
+    },
+    "transport-check.json": {
+      "bytes": 1897,
+      "sha256": "9c44f563a915649a1df06ca224fbe2121a8a7c4bf887cdf9ced6d085deaa6304"
+    }
+  },
+  "source_bytes": 5577,
+  "source_sha256": "19da30c5a7055c3fe3971ed7f609848f2bde86eba08c97c3b227b7d1c6889bad",
+  "invocation_sha256": "74bfdfe0f07695e0972d79003e41da24f392b9f1b6f6d2f6ce4d78e406cc0cbf",
+  "command_characters": 7551,
+  "source_bindings": {
+    "configured_helper_sha256": "33c6aba33ba436a0bfac320f3518f9334d8ba9b808a6d8079248bc8ab44976a4",
+    "app_commit": "0309539797fd7d016e2b8fd8bdc0ae9cefc20219",
+    "observer_paths": [
+      "scripts/fixtures/windows-tray-observer.mjs",
+      "scripts/fixtures/windows-tray-click.ps1"
+    ],
+    "source_read_only_confirmed": true
+  },
+  "passes": [
+    {
+      "pass": 1,
+      "complete": true,
+      "clean": true,
+      "findings": [],
+      "reviewed": "Complete final source after the prefreeze exact-size-read tightening, source-derived file allowlist, priority/admission/live guard, file handles, exact bounded reads, parent/file stability and all failure paths."
+    },
+    {
+      "pass": 2,
+      "complete": true,
+      "clean": true,
+      "findings": [],
+      "reviewed": "Complete unchanged final source, decoded invocation byte equality, complete README, syntax receipt and tiny raw-byte transport result; deterministic package/chunk identity, large tick preservation, output/flush/deadline behavior and future chunk argument restrictions."
+    }
+  ],
+  "checks": {
+    "exact_embedded_source": true,
+    "command_under8191_characters": true,
+    "fixed_content_files": 11,
+    "fixed_parent_metadata_paths": 4,
+    "raw_file_json_parse": false,
+    "recursive_reads": false,
+    "directory_enumeration": false,
+    "child_processes": false,
+    "writes": false,
+    "task_actions": false,
+    "syntax_node25_2_1": "passed",
+    "deterministic_gzip_zero_mtime": "passed",
+    "two_chunk_reassembly": "passed",
+    "maximum_chunk_base64_characters": 50000,
+    "maximum_output_line_characters": 65000,
+    "raw_tick_preserved": "134402500253322259",
+    "empty_and_missing_distinguished": true
+  },
+  "resource_bounds": {
+    "node_heap_mib": 64,
+    "priority": "BelowNormal",
+    "initial_and_live_free_bytes": 1073741824,
+    "own_rss_cap_bytes": 134217728,
+    "sampling_ms": 100,
+    "hard_seconds": 15,
+    "outer_timeout_ms": 15000,
+    "per_file_raw_cap_bytes": 2097152,
+    "aggregate_raw_cap_bytes": 4194304,
+    "process_only_worker_pool": 1
+  },
+  "chunk_protocol": {
+    "inner_dynamic_fields": false,
+    "fixed_file_order": true,
+    "gzip_level": 1,
+    "gzip_mtime_observed": 0,
+    "chunk_bytes": 37500,
+    "later_chunk_requires_expected_package_sha256": true,
+    "later_offset_has_no_path_control": true,
+    "oversized_raw_file_refuses_without_truncation": true
+  },
+  "pc_execution": false,
+  "collector_execution": false,
+  "product_execution": false,
+  "worktree_registered": false,
+  "publication_by_author": false,
+  "root_review": "Root has independently read the frozen source/invocation and reported no finding; final exact embedded-source comparison and actual invocation remain root-owned."
+}
