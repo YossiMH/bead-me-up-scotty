@@ -1,0 +1,89 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/review_bead_rs",
+  "evidence": {
+    "preserve-success-execution.json": {
+      "bytes": 17515,
+      "sha256": "a7e0b9fa5049c4c3ffe17df7b3b6599680769762b1066b56df82dc95984abc5c"
+    },
+    "preserve-success-collector-execution.json": {
+      "bytes": 28876,
+      "sha256": "2f708033d4c5b0c27271fa44edc9f628c0c973b1e9a6893610fdd732bb3aa60c"
+    },
+    "preserve-driver-result.json": {
+      "bytes": 13658,
+      "sha256": "cd0ef5d40bdf9e7bd34af52c7e0c46867ef702ad21be385d58a8ae0199b78dd7"
+    },
+    "preserve-supervisor-result.json": {
+      "bytes": 7176,
+      "sha256": "408240acd0919906aaffa49df03d4b793b75eafe5d3a347e9c528968bf1390d4"
+    },
+    "history-freeze.request.json": {
+      "bytes": 4789,
+      "sha256": "1be28b142e8ff049982728d071058b5057a49b26c22f2e29894fd87d57e66a51"
+    }
+  },
+  "preserve": {
+    "accepted": true,
+    "request_sha256": "e91c3e1f66eb7a236bf9e8dfdd0806a8e747c5be348dfbb913168b55f7e0b28f",
+    "runtime_sha256": "0431a828bf95038641a0c55b4cf11c5800b52881940a13bd2f56b02f0b27177a",
+    "original_generation": "gen-a569f746bbb268015d996c8ed4c76f57",
+    "original_head": "025ebc6a38013402b1936e932c104348aec06fd4",
+    "original_checkpoint_tree": "ff0759095a01edb38ca4bb8aa90fbdb84476e0f7",
+    "original_database_and_sidecars_absent": true,
+    "git_before_after_identical": true,
+    "git_configuration_before_after_identical": true,
+    "raw_selected_bytes": 17088721,
+    "canonical_selected_bytes": 17063501,
+    "original_corpus": {
+      "issues": 954,
+      "events": 11264,
+      "provenance_receipts": 5,
+      "attempt_outcomes": 413
+    },
+    "semantic_basis": "The unchanged accepted preserve branch checks retained raw/canonical bytes, source generation/root/sequence and corpus counts; retains config/gitignore/raw index; compares original hashes and complete Git state; then emits this successful result. Its proof-file hashes are retained in the collected result.",
+    "duration_seconds": 7.324,
+    "entry_free_bytes": 4275003392,
+    "peak_owned_rss_bytes": 330780672,
+    "observed_owned_processes": 10,
+    "all_observed_exited_zero": true,
+    "remaining_job_members": [],
+    "cleanup_errors": [],
+    "cleanup_assisted": false
+  },
+  "transport": {
+    "package_sha256": "8ef8930cb309bd40aa65896f59f48229861ecd1b9f4f60ee303bf401e80a6cb0",
+    "uncompressed_sha256": "0b03c7e0d4a88398ee21e33a5efbc6a08763b82b5634b0b9a1fb5b292f44fa5f",
+    "both_raw_receipts_exact": true,
+    "execution_stdout_exact_raw_supervisor_plus_crlf": true,
+    "integer_birth_ticks_preserved": true,
+    "execution_and_collector_exit_zero_without_drops": true,
+    "collector_within_existing_limits": true
+  },
+  "freeze_request": {
+    "accepted_for_root_execution": true,
+    "sha256": "1be28b142e8ff049982728d071058b5057a49b26c22f2e29894fd87d57e66a51",
+    "predecessor": {
+      "path": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+      "sha256": "cd0ef5d40bdf9e7bd34af52c7e0c46867ef702ad21be385d58a8ae0199b78dd7"
+    },
+    "only_changes": [
+      "phase set to freeze",
+      "supervisor_output set to assigned freeze directory",
+      "prior.preserve path/hash bound to this accepted actual result"
+    ],
+    "exact_byte_reconstruction_passed": true,
+    "remaining_fields_unchanged": true,
+    "freeze_executed": false
+  },
+  "findings": [],
+  "boundary": "Root may execute this exact freeze request with the unchanged supervisor under existing guards and serialized writer ownership. No supplemental stream discrepancy requires collection.",
+  "activity": {
+    "pc_calls": 0,
+    "product_tests": 0,
+    "builds": 0,
+    "helper_edits": 0,
+    "additional_gates": 0
+  }
+}

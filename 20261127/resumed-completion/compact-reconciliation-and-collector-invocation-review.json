@@ -1,0 +1,60 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Cloud-only compact readback preparation and data-only staging / short invocation assessment for the unchanged accepted history receipt collector.",
+  "command_length_assessment": {
+    "existing_collector_command_characters": 7776,
+    "existing_packet_documented_boundary": 8191,
+    "headroom_characters": 415,
+    "existing_packet_maximum_continuation_characters": 7862,
+    "facts": [
+      "The existing accepted collector README and prior independent review explicitly record lengths below their documented 8191-character boundary.",
+      "Emergency admin_prepare documentation says it freezes the exact command and does not execute it. The runtime launcher implementation and any preparation payload limit are not exposed in the inspected metadata.",
+      "Root reported repeated timeouts/errors for the long collector prepare without a proposal ID and no collector execution, while a short BelowNormal memory probe prepared/executed successfully."
+    ],
+    "conclusion": "The evidence supports trying a much smaller request. It does not establish that a Windows command-length boundary was exceeded or caused the prepare timeout. No undocumented wrapper overhead or server limit is assumed."
+  },
+  "compact_readback": {
+    "invocation": "preserve-prelaunch-readback-invocation.prepared.json",
+    "command_characters": 5542,
+    "output_limit_utf8_bytes": 9500,
+    "receipt_text_retained_exactly": true,
+    "limited_process_query": "Only named native/helper process families whose visible command line matches the known history or closure helper, plus bead executables. It supplements root-owned exclusive-writer reconciliation and does not prove universal process absence."
+  },
+  "staging": {
+    "accepted_collector_bytes": 5739,
+    "accepted_collector_sha256": "f0c931ccf0b9dbfd2938c5ff690727c72f333edcc5bcce08ea2670b63bb28b3b",
+    "immutable_source_commit": "878cea786486d581f3fbaad5564f9ef7183e002f",
+    "immutable_source_path": "20261127/history-phase-receipt-collector/collect-history-phase-receipts-20261127.cjs",
+    "immutable_git_blob_rehashed_in_cloud": true,
+    "existing_stager_sha256": "d2d12b1f5e4d6b6741f186cf3e8f0cc0f3599d7e9a8dba072a226947a40196cb",
+    "prepared_stager": "stage-history-collector.prepared.cjs",
+    "prepared_stager_sha256": "80643e69ece689a73b1d9e801f5d5b047d193b78a3d4c65058f735dc5ef35028",
+    "only_change": "The one items-array descriptor supplies the collector destination, immutable source path, expected bytes and expected hash; full inverse restores every prior stager byte.",
+    "prepared_invocation": "stage-history-collector-invocation.prepared.json",
+    "prepared_invocation_sha256": "5b66192a037f8276361c3860eb9630febbf2001c85920483504112ac4b0cfa2c",
+    "command_characters": 1968,
+    "create_new_and_all_guards_unchanged": true,
+    "source_or_collector_executed_by_reviewer": false
+  },
+  "short_collector_invocation": {
+    "file": "staged-history-collector-invocation.prepared.json",
+    "sha256": "153ce0a527815e1f887b41bbe7abcd842cd70ac2f4d44ead5fb4c6fb96201982",
+    "command_characters": 435,
+    "fixed_module_path": "F:/Dev/.bead-edit-20261111/coordination-20261124/revision-9/checkpoint-only-inputs/collect-history-phase-receipts-20261127.cjs",
+    "collector_body_unchanged": true,
+    "source_hash_checked_before_require": true,
+    "argument_reasoning": "Both the existing inline-e launch and the new -e require launch leave the trailing phase, offset and hash arguments at process.argv.slice(1). Requiring the module does not add its filename to process.argv. Launching it as node file.cjs would add that filename and would violate this collector argument contract.",
+    "scope_reasoning": "The collector uses fixed absolute receipt paths and core modules, without __dirname-dependent behavior. A fresh Node process avoids module-cache reuse. The existing source establishes the same resource, file identity, transport and phase checks.",
+    "continuation_rule": "Replace only trailing phase, offset and expected package hash according to the existing accepted contract."
+  },
+  "findings": [],
+  "activity": {
+    "pc_calls": 0,
+    "product_tests": 0,
+    "builds": 0,
+    "accepted_helper_edits": 0,
+    "collector_body_execution": 0
+  }
+}

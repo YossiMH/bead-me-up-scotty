@@ -1,0 +1,32 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/finish_preparation",
+  "scope": "Independent static review of one exact guarded failure-retention rename; no history phase acceptance",
+  "reviewed_script": {
+    "file": "retain-preserve-entry-memory-failure.prepared.ps1",
+    "bytes": 3145,
+    "sha256": "04a1fe7fd14af76f7dd9b804027dd457b1ec9a707553648e56f51d37c749b040"
+  },
+  "accepted_supervisor_source": {
+    "bytes": 19195,
+    "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+  },
+  "findings": [],
+  "reasoning": [
+    "The failed history supervisor creates its evidence directory before the entry-memory assertion; before.json, driver streams and Node start follow that assertion. The observed failed stdout has empty owned-process and remaining-member lists, no cleanup assistance and no cleanup errors.",
+    "The prepared action requires source ordinary directory, sole ordinary result.json of exactly 1749 bytes and expected SHA256, absent same-parent destination and absent history retention root before its sole mutation.",
+    "The only mutation is Directory.Move(source,destination), retaining all exact receipt bytes under a sibling name. It starts no child and changes no native/app source, private store, checkpoint, request, helper or resource guard.",
+    "Postconditions require source and history retention root absent and unchanged archived receipt SHA256. An interruption requires observation of both exact paths; no automatic replay."
+  ],
+  "prerequisites_before_execution": [
+    "Independently collect and retain the actual raw PC result.json: exactly 1749 bytes, SHA256 45b534444efe459e62c44a94ded1271b8afb5cc8e569989cff39aae3f5266709. The cloud stdout reconstruction alone does not satisfy this.",
+    "Confirm no history driver or other helper remains, and history retention root is absent.",
+    "Root retains the exclusive writer window and executes the exact reviewed script once through a fresh bounded Emergency proposal, at most 15 seconds, using its 10-second pre-move budget."
+  ],
+  "actual_raw_pc_receipt_observed_by_this_reviewer": false,
+  "execution_performed": false,
+  "history_phase_passed": false,
+  "mutations_performed_by_reviewer": false,
+  "reviewed_utc": "2026-11-27T15:26:51.294838+00:00"
+}

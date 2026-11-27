@@ -1,0 +1,85 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/review_bead_rs",
+  "scope": "Actual reconciliation and retention of the consumed preserve entry-memory deferral; exact accepted history helpers remain unchanged.",
+  "evidence": {
+    "preserve-failure-collector-execution.json": {
+      "bytes": 7604,
+      "sha256": "52f9e3e4bdbcba5a06f52e34eb2ebe7ada0cf9447ae4ba89e943e338cb2f4ce7"
+    },
+    "preserve-entry-memory-supervisor-result.json": {
+      "bytes": 1749,
+      "sha256": "45b534444efe459e62c44a94ded1271b8afb5cc8e569989cff39aae3f5266709"
+    },
+    "preserve-reconcile-short-execution.json": {
+      "bytes": 1315,
+      "sha256": "6c6e9d1d2f39e0ff55735e6daff0af41006f9be3b33a7faa4354177a43e384a1"
+    },
+    "retain-preserve-entry-memory-failure-execution.json": {
+      "bytes": 2269,
+      "sha256": "800f324a7bdbf0a6c002a30bb85815a5dabc2c3a5167ae28081f42d1db70ebcf"
+    }
+  },
+  "receipt_binding": {
+    "raw_bytes": 1749,
+    "raw_sha256": "45b534444efe459e62c44a94ded1271b8afb5cc8e569989cff39aae3f5266709",
+    "original_supervisor_stdout_is_raw_plus_crlf": true,
+    "collector_package_sha256": "3cfcf3c64a59b3762142bf93711bdbe43ad533edfce075bf34bb7318133b3ed7",
+    "collector_uncompressed_sha256": "185b1de3edc6cc58bccb2af91bcde15364389f691fe68ab149a3d90174b00e88",
+    "complete_transport_hashes_and_raw_bytes_match": true,
+    "phase_driver_result_absent": true
+  },
+  "reconciled_failure": {
+    "phase": "preserve",
+    "failure": "Unchanged 3 GiB admission guard rejected 3081035776 free bytes before launching the history driver.",
+    "owned_processes": [],
+    "remaining_job_members": [],
+    "cleanup_errors": [],
+    "cleanup_assisted": false,
+    "source_directory_entries": [
+      "result.json"
+    ],
+    "archive_absent_before_rename": true,
+    "retention_root_absent_before_rename": true,
+    "matching_helper_processes": 0,
+    "process_observation_scope": "Limited relevant-helper query supplied by root; root retains serialized cross-phase writer ownership."
+  },
+  "retention": {
+    "accepted": true,
+    "proposal_id": "j5sqecRroc-9ebcLA13Xvlc83lXSnvYUxg7py2Q7Ud8",
+    "job_id": "j1795793501733-31932-1891502992051173140",
+    "operation": "One same-parent rename retained the entire failed supervisor directory.",
+    "archive": "F:\\Dev\\.bead-edit-20261111\\coordination-20261124\\checkpoint-only-supervision-preserve-20261127-v1-entry-memory-20261127-151643Z",
+    "source_path_freed_for_fresh_attempt": true,
+    "raw_receipt_hash_preserved": true,
+    "retention_root_absent_after_rename": true,
+    "elapsed_seconds": 0.208,
+    "exit_code": 0,
+    "stdout_or_stderr_dropped": false
+  },
+  "collector_resources": {
+    "elapsed_ms": 11,
+    "peak_rss_bytes": 52830208,
+    "minimum_free_bytes": 2292649984,
+    "priority": "BelowNormal",
+    "node_heap_mib": 64,
+    "within_unchanged_accepted_limits": true
+  },
+  "decision": {
+    "failure_reconciliation_accepted": true,
+    "failure_retention_accepted": true,
+    "same_preserve_request_ready_for_fresh_execution": true,
+    "request_sha256": "e91c3e1f66eb7a236bf9e8dfdd0806a8e747c5be348dfbb913168b55f7e0b28f",
+    "history_phase_completed": false,
+    "execution_boundary": "Use a fresh proposal under the unchanged supervisor and resource limits when its entry guard allows. Bind freeze only to a separately accepted successful preserve result."
+  },
+  "findings": [],
+  "reviewer_activity": {
+    "pc_calls": 0,
+    "helper_edits": 0,
+    "guard_changes": 0,
+    "product_tests": 0,
+    "builds": 0
+  }
+}

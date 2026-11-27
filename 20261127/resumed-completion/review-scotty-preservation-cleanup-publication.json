@@ -1,0 +1,266 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "actor": "/root/review_scotty",
+  "authorization": "Root authorized one serial GitHub connector publication of this exact allowlist, expected head 878cea786486d581f3fbaad5564f9ef7183e002f, with force false; root reserved remote-ref mutation during this operation.",
+  "repository": "YossiMH/bead-me-up-scotty",
+  "branch": "task/build-transfer-20261111",
+  "previous_commit": "878cea786486d581f3fbaad5564f9ef7183e002f",
+  "base_tree": "b476b6c3983be6dba908d1844a44de462c2fcb81",
+  "commit": "4a0ee2d0da5aae8bfe7a3632b86e5a72918cea5c",
+  "tree": "12808d6806f30f3dbfa132241922d13025d36a24",
+  "url": "https://github.com/YossiMH/bead-me-up-scotty/commit/4a0ee2d0da5aae8bfe7a3632b86e5a72918cea5c",
+  "message": "Retain memory-deferred preservation and reviewed exact cleanup requests",
+  "force": false,
+  "expected_sha": "878cea786486d581f3fbaad5564f9ef7183e002f",
+  "update_result": {
+    "success": true
+  },
+  "remote_ref_after": "4a0ee2d0da5aae8bfe7a3632b86e5a72918cea5c",
+  "whole_tree_delta_exact": true,
+  "whole_tree_delta_method": "Fetched and compared base/new root, 20261127 and resumed-completion trees; only CURRENT.md, the five explicitly authorized preservation files and the eight cleanup-preparation files changed. Checked every resulting blob SHA, mode and type. All other entries are exact.",
+  "files": [
+    {
+      "path": "20261127/CURRENT.md",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 7264,
+      "sha256": "77a4ee429ab4f9e7a8ffd9dc335e14db49c748d471bb6344de0820e0927b708c",
+      "blob_sha": "d614d14a37b7ba7429bfc360dff4f329e5722b10",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/stage-preserve-request.cjs",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2746,
+      "sha256": "d2d12b1f5e4d6b6741f186cf3e8f0cc0f3599d7e9a8dba072a226947a40196cb",
+      "blob_sha": "b7de545fa31b675b9550efb2d0f0c57f71fe188b",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/stage-preserve-request-invocation.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2538,
+      "sha256": "d6657c2b1b39308d40781cd439cba2f47c8dbe2dbadca2beb938e447edc1447f",
+      "blob_sha": "c02a23af9f3191e97c3ddac101bcc9b9fe98e991",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/stage-preserve-execution.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1672,
+      "sha256": "80356c67b7b783d56b729e52273d9aa5ede4458d6637e50002b9c8fa4e30f8c0",
+      "blob_sha": "afffe9e0dbf06f81efb33ddbaab683877a63c640",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/preserve-execution.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5149,
+      "sha256": "0cb2de9b9acc555883972d78d71f16a97a80e2f0417634d1263570f74b61ec63",
+      "blob_sha": "319a5205caf704482166eb611b3372647b8f9f76",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/preserve-deferred-supervisor-stdout.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1751,
+      "sha256": "c62710e678616ba2fab229b0f18af912122100fe7340e02264d77d0ec282fdcf",
+      "blob_sha": "6b9451e3d2d1ef0cd62cec1cc927c81394ebedc1",
+      "crlf_count": 40
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/author-inspections.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2985,
+      "sha256": "55a30f9ae63b4c9c758079c0331766b52622ea86195d5a6e92eae1d009753683",
+      "blob_sha": "43dcf5a280983297b6a2d0d88340bd425a2446ad",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/failed-tray-cache-cleanup4-20261127-2889282bfcec.request.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 276,
+      "sha256": "a53e91d0a1028e01201603dd99fc357712b588bee453890805a6714df85892d7",
+      "blob_sha": "691648344be7a80ef238fb59eca3554c5dd6f7d4",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/failed-tray-cache-cleanup4.invocation.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1106,
+      "sha256": "227d4de9a609f8c65bc11bfe296b645350412072f456abf64960042635e3866f",
+      "blob_sha": "4181895a19d63f44eb0abf8d1f6512279154ba9d",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/independent-root-review.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 2262,
+      "sha256": "501b06b04014f70414775977c3f7c5cf36273624935b4828cc8457268e127859",
+      "blob_sha": "b16060fe2825a8e387f26af9d559cd678c087202",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/preparation-evidence.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 8268,
+      "sha256": "637d1da8ccedefdd7f3e03e3de59ffd0ab4407b14772f68fc8a653aff3fe4e7b",
+      "blob_sha": "277ee1f12e488437dd2767825aee3b42e296ae6b",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/scheduled-task-cleanup23-20261127-2889282bfcec.request.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1062,
+      "sha256": "47dbdf86148f2852376aa73dc45bffdaa23df86fbcd9eabddb26eae73177671d",
+      "blob_sha": "6329b450f1dccc6a3649984371faceffc00d3afa",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/scheduled-task-cleanup23.invocation.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 1479,
+      "sha256": "95990ff8fc7574d640d1d6ee8355169144b08c2ae217a869cd41c23f3e2cd43b",
+      "blob_sha": "f18e859bf0044226db4a2a2335a2c16ef0b34927",
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/staging-inputs.json",
+      "mode": "100644",
+      "type": "blob",
+      "bytes": 5269,
+      "sha256": "631e4369fbad0b720dd53c6d2ebf19be6e7829a5b1834825628ea118d45ceadf",
+      "blob_sha": "7562a10544336ddc0c6a683c71f1c0dad38fb46f",
+      "crlf_count": 0
+    }
+  ],
+  "raw_readback": [
+    {
+      "path": "20261127/CURRENT.md",
+      "blob_sha": "d614d14a37b7ba7429bfc360dff4f329e5722b10",
+      "bytes": 7264,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/author-inspections.json",
+      "blob_sha": "43dcf5a280983297b6a2d0d88340bd425a2446ad",
+      "bytes": 2985,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/failed-tray-cache-cleanup4-20261127-2889282bfcec.request.json",
+      "blob_sha": "691648344be7a80ef238fb59eca3554c5dd6f7d4",
+      "bytes": 276,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/failed-tray-cache-cleanup4.invocation.json",
+      "blob_sha": "4181895a19d63f44eb0abf8d1f6512279154ba9d",
+      "bytes": 1106,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/independent-root-review.json",
+      "blob_sha": "b16060fe2825a8e387f26af9d559cd678c087202",
+      "bytes": 2262,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/preparation-evidence.json",
+      "blob_sha": "277ee1f12e488437dd2767825aee3b42e296ae6b",
+      "bytes": 8268,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/scheduled-task-cleanup23-20261127-2889282bfcec.request.json",
+      "blob_sha": "6329b450f1dccc6a3649984371faceffc00d3afa",
+      "bytes": 1062,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/scheduled-task-cleanup23.invocation.json",
+      "blob_sha": "f18e859bf0044226db4a2a2335a2c16ef0b34927",
+      "bytes": 1479,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/cleanup-preparation/staging-inputs.json",
+      "blob_sha": "7562a10544336ddc0c6a683c71f1c0dad38fb46f",
+      "bytes": 5269,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/preserve-deferred-supervisor-stdout.json",
+      "blob_sha": "6b9451e3d2d1ef0cd62cec1cc927c81394ebedc1",
+      "bytes": 1751,
+      "utf8_content_exact": true,
+      "crlf_count": 40
+    },
+    {
+      "path": "20261127/resumed-completion/preserve-execution.json",
+      "blob_sha": "319a5205caf704482166eb611b3372647b8f9f76",
+      "bytes": 5149,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/stage-preserve-execution.json",
+      "blob_sha": "afffe9e0dbf06f81efb33ddbaab683877a63c640",
+      "bytes": 1672,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/stage-preserve-request-invocation.json",
+      "blob_sha": "c02a23af9f3191e97c3ddac101bcc9b9fe98e991",
+      "bytes": 2538,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    },
+    {
+      "path": "20261127/resumed-completion/stage-preserve-request.cjs",
+      "blob_sha": "b7de545fa31b675b9550efb2d0f0c57f71fe188b",
+      "bytes": 2746,
+      "utf8_content_exact": true,
+      "crlf_count": 0
+    }
+  ],
+  "raw_byte_preservation": "Read local bytes and decoded strict UTF-8 without newline conversion. GitHub refetched blob text matched each original content string exactly. The 1,751-byte deferred supervisor receipt retains all 40 CRLF sequences.",
+  "local_git": {
+    "head_before": "878cea786486d581f3fbaad5564f9ef7183e002f",
+    "head_after": "878cea786486d581f3fbaad5564f9ef7183e002f",
+    "index_before": {
+      "exists": true,
+      "sha256": "d9fcc5f5c48f99605f229b58d8166e84c9770af37fe9da7e3dfe9cb0aae9d8a5"
+    },
+    "index_after": {
+      "exists": true,
+      "sha256": "d9fcc5f5c48f99605f229b58d8166e84c9770af37fe9da7e3dfe9cb0aae9d8a5"
+    },
+    "unchanged": true
+  },
+  "source_files_unchanged_after_publication": true,
+  "outside_scope_preserved": "No local HEAD/index or product ref change; no PC action or private-store access; final-delivery-preparation remains a separate unpublished draft."
+}
