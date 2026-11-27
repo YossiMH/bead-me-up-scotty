@@ -63,3 +63,7 @@ Final-history preparation is under `resumed-completion/final-history-preparation
 The continuation automation `Automation_bf044f8d0c5c8191922467e3f48372a8` reads this archive and remains enabled until complete.
 
 Paths: `T=F:/Dev/.bead-edit-20261111`; `C=T/coordination-20261124`; `I=C/revision-9/checkpoint-only-inputs`; `R=T/preservation-checkpoint-only-20261127-v1`.
+
+## Accepted cleanup closure inputs
+
+The completed cleanup aggregate is `resumed-completion/cleanup-closure-preparation/cleanup-results-accepted.json`,15,432bytes/SHA-256 `866424a608939f8021526fd8d2ba0dfeb60fb94755f2dc65550f1ae263e4e9d7`. Its accepted text review is6,344bytes/SHA-256 `9e4df7c68a2052eda2973776d1631121f8e543a93a4e2d0020de05a09c66124b`. Shared context is2,265bytes/SHA-256 `66c971794309de41acf9fb632597691e9a5e88e93c557501a5be126ea9dad7e1`. The shared pre-close revision is5 and exact close reason SHA-256 is `e0ea269a1d466a871bd78bfebb23e45ed3a7e1b16025b84fa6e75062eeef3406`. All actual cleanup outcomes are bound; the last task has not yet been closed. The next concrete close request may attest that this canonical handoff and accepted cleanup records are published, then must stage and hash-verify its exact inputs before execution.
