@@ -1,0 +1,121 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_at_utc": "2026-11-27T13:44:47.451858+00:00",
+  "scope": "Independent source and fixed-phase binding acceptance for the read-only history receipt collector. Actual phases, supervisor results and collection remain separate.",
+  "packet_files": {
+    "README.md": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-receipt-collector/README.md",
+      "bytes": 4635,
+      "sha256": "7ba4ce5f61ef1d1116f148e310c219cdb8e56666e8a84448914477ee9fc8f52e"
+    },
+    "author-inspections.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-receipt-collector/author-inspections.json",
+      "bytes": 5594,
+      "sha256": "f8a755a3a41aff8509bf99039696adf5606869cb99d5e5604d5f527d2c0d5857"
+    },
+    "collect-history-phase-receipts-20261127.cjs": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-receipt-collector/collect-history-phase-receipts-20261127.cjs",
+      "bytes": 5739,
+      "sha256": "f0c931ccf0b9dbfd2938c5ff690727c72f333edcc5bcce08ea2670b63bb28b3b"
+    },
+    "derivation.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-receipt-collector/derivation.json",
+      "bytes": 6614,
+      "sha256": "052ae29138ac00f31308aea8eea48b9b382da490d94ead7c76ccb0deecd88f05"
+    },
+    "invocation.json": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/delivery/history-phase-receipt-collector/invocation.json",
+      "bytes": 8580,
+      "sha256": "5b92917a1a45a15974a7d1e664c2956e470098d8817fcae53cad705caeaa8cef"
+    }
+  },
+  "accepted_baseline_source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/configured-installed-closure-collector/collect-configured-installed-closure-20261127.cjs",
+    "bytes": 5474,
+    "sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df"
+  },
+  "accepted_baseline_review": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-review.json",
+    "bytes": 1083,
+    "sha256": "67a81878d444b04d75ed6908a26d8a91ecd1c5ba9b5f669eb169e20fe0794f9e"
+  },
+  "accepted_history": {
+    "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-20261127.mjs",
+    "bytes": 84410,
+    "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+  },
+  "accepted_supervisor": {
+    "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+    "bytes": 19195,
+    "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+  },
+  "phase_map": {
+    "preserve": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-preserve-20261127-v1/result.json"
+    },
+    "freeze": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-freeze-20261127-v1/result.json"
+    },
+    "source-restore": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-source-restore-20261127-v1/result.json"
+    },
+    "restore-original": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1/result.json"
+    },
+    "restore": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-20261127-v1/result.json"
+    },
+    "close": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/close/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-close-20261127-v1/result.json"
+    },
+    "final-publish": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-publish-20261127-v1/result.json"
+    },
+    "final-restore": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-restore/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-restore-20261127-v1/result.json"
+    }
+  },
+  "comparison": {
+    "complete_baseline_source_and_final_source_read": true,
+    "all_five_packet_files_read": true,
+    "five_substitutions_forward_and_inverse_exact": true,
+    "all_four_basis_identities_rehashed_exact": true,
+    "all_four_author_payload_manifest_entries_rehashed_exact": true,
+    "invocation_decoded_source_exact": true,
+    "complete_command_shape_exact": true,
+    "initial_command_characters": 7776,
+    "maximum_continuation_command_characters": 7862
+  },
+  "checks": [
+    "The candidate adds only five declared substitutions: fixed retention/phase map, strict phase-plus-offset/hash argument selection, the two extra fixed retention ancestors, and phase/scope fields in the stable and outer records. Reversing them recovers all 5,474 baseline bytes at 1598cd0f; forwarding them recovers all 5,739 candidate bytes at f0c931cc.",
+    "Object.hasOwn validates membership in exactly the eight accepted phase names before selecting either path. No arbitrary path or output-name argument is accepted. The same phase selects exactly its driver result and assigned supervisor result, with eight complete fixed ancestor entries.",
+    "The final 1015 history source uses the fixed preservation root and the same eight phase names. The unchanged c0c289 supervisor accepts those phases, requires the coordination checkpoint-only-supervision- prefix and writes result.json. Backend independently confirmed all eight exact assigned suffixes; its future request-preparation packet must retain these same paths.",
+    "The raw file/parent/held-handle signature, final snapshot, missing-file representation, gzip, chunk identity and error handling blocks are byte-identical to the accepted collector. No receipt JSON is parsed or regenerated, so 64-bit ticks survive as original raw bytes.",
+    "A single BelowNormal Node process with 64 MiB heap, 1 GiB initial/live free memory, 128 MiB own RSS and 15-second internal/outer bounds remains unchanged. Sampling stays 100 ms; each file is capped at 2 MiB and aggregate raw bytes at 4 MiB.",
+    "The stable package contains only fixed scope, selected phase and ordered raw-file records. Timing/memory measurements remain outside it. Unchanged async level 1 gzip emits at most 37,500 compressed bytes per response with a 65,000-character whole-line ceiling.",
+    "The exact initial invocation decodes to the reviewed source and appends preserve, 0, dash. The longest accepted phase plus Number.MAX_SAFE_INTEGER decimal offset and 64-character digest is 7,862 characters, below 8,191. Only command, cwd, timeout_ms, expected_effects are supplied to the connector.",
+    "Every positive offset requires the exact package SHA256. Continuation retains the same phase and returned package identity; a different phase or changed receipt bytes changes the stable package digest and refuses the prior identity.",
+    "Read the full derivation, README and both clean author inspection records. The recorded cloud syntax-only check is retained as author evidence; this independent review performed byte comparisons and source inspection without executing the collector body."
+  ],
+  "acceptance_boundary": {
+    "read_only_source_preparation": true,
+    "pc_actions_by_reviewer": false,
+    "product_execution_by_reviewer": false,
+    "actual_history_or_cleanup_acceptance": false,
+    "run_only_after_selected_phase_has_settled": true,
+    "missing_or_failed_files": "Keep their explicit raw observations and reconcile them; transport complete does not imply phase success.",
+    "future_requests": "Bind the actual phase supervisor_output to the fixed map; no collector path override or silent substitution is permitted.",
+    "continuation": "Use the same phase, exact returned next_offset_bytes and package_sha256, rehash each part and assembled gzip, then rehash every decoded raw file."
+  },
+  "findings": []
+}

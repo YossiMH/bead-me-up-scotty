@@ -1,0 +1,109 @@
+{
+  "schema_version": 1,
+  "status": "prepared_exact_derivation_pending_independent_review",
+  "baseline_source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/configured-installed-closure-collector/collect-configured-installed-closure-20261127.cjs",
+    "bytes": 5474,
+    "sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df"
+  },
+  "baseline_review": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-review.json",
+    "bytes": 1083,
+    "sha256": "67a81878d444b04d75ed6908a26d8a91ecd1c5ba9b5f669eb169e20fe0794f9e"
+  },
+  "source": {
+    "path": "collect-history-phase-receipts-20261127.cjs",
+    "bytes": 5739,
+    "sha256": "f0c931ccf0b9dbfd2938c5ff690727c72f333edcc5bcce08ea2670b63bb28b3b"
+  },
+  "history": {
+    "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-20261127.mjs",
+    "bytes": 84410,
+    "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+  },
+  "supervisor": {
+    "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+    "bytes": 19195,
+    "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+  },
+  "substitutions": [
+    {
+      "old": "const root='F:/Dev/.bead-edit-20261111',coord=root+'/coordination-20261124',run=coord+'/completed-20261127-configured-installed',supervised=coord+'/completed-20261127-configured-installed-supervisor';\nconst paths=[run+'/result.json',supervised+'/result.json'];",
+      "new": "const root='F:/Dev/.bead-edit-20261111',coord=root+'/coordination-20261124',retained=root+'/preservation-checkpoint-only-20261127-v1';\nconst phases=Object.fromEntries('preserve freeze source-restore restore-original restore close final-publish final-restore'.split(' ').map(p=>[p,coord+'/checkpoint-only-supervision-'+p+'-20261127-v1']));",
+      "count": 1
+    },
+    {
+      "old": " const args=process.argv.slice(1);if(args.length!==2||!/^(0|[1-9][0-9]*)$/.test(args[0])||!(args[1]==='-'||/^[a-f0-9]{64}$/.test(args[1])))throw error('invalid-chunk-arguments');\n const offset=Number(args[0]),expected=args[1];if(!Number.isSafeInteger(offset)||(offset>0&&expected==='-'))throw error('missing-chunk-identity');",
+      "new": " const args=process.argv.slice(1);if(args.length!==3||!Object.hasOwn(phases,args[0])||!/^(0|[1-9][0-9]*)$/.test(args[1])||!(args[2]==='-'||/^[a-f0-9]{64}$/.test(args[2])))throw error('invalid-phase-or-chunk-arguments');\n const phase=args[0],offset=Number(args[1]),expected=args[2];if(!Number.isSafeInteger(offset)||(offset>0&&expected==='-'))throw error('missing-chunk-identity');\n const run=retained+'/phases/'+phase,supervised=phases[phase],paths=[run+'/result.json',supervised+'/result.json'];",
+      "count": 1
+    },
+    {
+      "old": "const parents=['F:/','F:/Dev',root,coord,run,supervised],parentStates=[];",
+      "new": "const parents=['F:/','F:/Dev',root,coord,retained,retained+'/phases',run,supervised],parentStates=[];",
+      "count": 1
+    },
+    {
+      "old": "scope:'configured-installed-closure-fixed2-raw',files",
+      "new": "scope:'checkpoint-phase-fixed2-raw',phase,files",
+      "count": 1
+    },
+    {
+      "old": "scope:'configured-installed-closure-fixed2-raw',offset_bytes",
+      "new": "scope:'checkpoint-phase-fixed2-raw',phase,offset_bytes",
+      "count": 1
+    }
+  ],
+  "complete_inverse_exact": true,
+  "phase_map": {
+    "preserve": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/preserve/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-preserve-20261127-v1/result.json"
+    },
+    "freeze": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/freeze/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-freeze-20261127-v1/result.json"
+    },
+    "source-restore": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/source-restore/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-source-restore-20261127-v1/result.json"
+    },
+    "restore-original": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore-original/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-original-20261127-v1/result.json"
+    },
+    "restore": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/restore/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-restore-20261127-v1/result.json"
+    },
+    "close": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/close/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-close-20261127-v1/result.json"
+    },
+    "final-publish": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-publish/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-publish-20261127-v1/result.json"
+    },
+    "final-restore": {
+      "driver_result": "F:/Dev/.bead-edit-20261111/preservation-checkpoint-only-20261127-v1/phases/final-restore/result.json",
+      "supervisor_result": "F:/Dev/.bead-edit-20261111/coordination-20261124/checkpoint-only-supervision-final-restore-20261127-v1/result.json"
+    }
+  },
+  "resource_and_held_file_parent_algorithms_unchanged": true,
+  "raw_receipt_json_parsing": false,
+  "invocation_source_base64_exact": true,
+  "command_characters": 7776,
+  "maximum_continuation_command_characters": 7862,
+  "invocation_fields": [
+    "command",
+    "cwd",
+    "timeout_ms",
+    "expected_effects"
+  ],
+  "actual_phase_execution": null,
+  "actual_collection": null,
+  "phase_map_authority": {
+    "supervisor_prefix": "Exact accepted c0c289 supervisor requires the coordination checkpoint-only-supervision- prefix.",
+    "assigned_names": "Backend confirmed the eight checkpoint-only-supervision-<phase>-20261127-v1 names for its new inert history-phase-request-preparation packet.",
+    "existing_published_templates_unchanged": true
+  }
+}

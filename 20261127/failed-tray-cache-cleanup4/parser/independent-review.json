@@ -1,0 +1,70 @@
+{
+  "schema_version": 1,
+  "status": "passed",
+  "reviewer": "/root/frontend_audit",
+  "reviewed_at_utc": "2026-11-27T13:45:50.850619+00:00",
+  "scope": "Independent narrow binding review of the ordinary Windows PowerShell 5.1 syntax-only check for the accepted four-cache cleanup helper.",
+  "parser_source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/parse-cache4-input.ps1",
+    "bytes": 1105,
+    "sha256": "a95a57cb1469c16100809858471611914546ca7b97c3a78b1944b870349aa556"
+  },
+  "invocation": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/parse-cache4-command.json",
+    "bytes": 4154,
+    "sha256": "886001fd27b7c82f82a0195b141a312d4b1fc8d8346ba8dfd93f872fbda64b7c"
+  },
+  "author_binding": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/parse-cache4-binding-review.json",
+    "bytes": 317,
+    "sha256": "bb5db34d56a356f23489db8fd10442d1ddb9430dde782c7c64b63a6a1ede1f93"
+  },
+  "baseline_parser": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/parse-cleanup23-input.ps1",
+    "bytes": 1110,
+    "sha256": "df4cae4900e60b30dbdfb0efc6fe59ea8fb77f71666adc904c4a25279c2356fd"
+  },
+  "baseline_invocation": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/parse-cleanup23-command.json",
+    "bytes": 4169,
+    "sha256": "43017446d978b5ab65a6c32134dc551edda84c13479daee23124ef7a2e578954"
+  },
+  "baseline_binding_review": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/cleanup23-stage-parse-binding-review.json",
+    "bytes": 740,
+    "sha256": "88e5f2257c6b994f15818331d9e579a492e23b6f503fc5b1aa32913dc966faf0"
+  },
+  "accepted_target_source": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/frontend/failed-tray-cache-cleanup4/remove-exact-tray-caches4-20261127.ps1",
+    "bytes": 23136,
+    "sha256": "bf86b45f86688b2940ede2606801af5f88921ceea91af93715fcdd747cb8ae32"
+  },
+  "accepted_target_review": {
+    "path": "/workspace/scratch/2889282bfcec/recovery/root/failed-tray-cache-cleanup4-source-review.json",
+    "bytes": 6187,
+    "sha256": "e680587e299759a8463b3b0ad0a8ee9b5dfd58091f736fbb68b1b15a4d017dd7"
+  },
+  "checks": [
+    "Read the complete final parser, outer Node command and root binding record, then the complete accepted parser baseline. Reversing only the cache4 filename and exact source SHA256 reconstructs every baseline byte.",
+    "The target is exactly F:/Dev/.bead-edit-20261111/final-installation-v9-20261125-1151/remove-exact-tray-caches4-20261127.ps1 at bf86b45f. This is the accepted source staged and rehashed in the eight-file staging receipt.",
+    "Both encoded commands decode as UTF-16LE to their exact adjacent parser source bytes. Replacing only the final encoded payload with the baseline payload reconstructs the whole accepted outer command; cwd and 30-second outer timeout remain unchanged.",
+    "The parser requires ordinary Windows PowerShell 5.1, sets its own priority BelowNormal, hashes the exact source before ParseFile, requires zero parser errors and rehashes it afterward. It records executed_inputs=false; no target script statement or cleanup operation is invoked.",
+    "The unchanged outer command runs one Node64 process at BelowNormal, checks 2 GiB initial free memory and 128 MiB own RSS before spawning the fixed hidden PowerShell executable, limits that child to 20 seconds and 32 KiB output, and retains child exit/status/stdout/stderr.",
+    "The exact command is 3,745 characters and uses only command, cwd, timeout_ms, expected_effects connector fields. It preserves the accepted parse-only resource contract; it does not claim the separate mutation-helper aggregate/live monitor is active during parsing.",
+    "Root records two complete clean author reads; the source identity, whole-source inverse and encoded payload claims independently reconcile."
+  ],
+  "comparison": {
+    "two_literal_source_inverse_exact": true,
+    "utf16le_payloads_exact": true,
+    "whole_outer_command_inverse_exact": true,
+    "command_characters": 3745
+  },
+  "acceptance_boundary": {
+    "source_preparation_accepted": true,
+    "actual_windows_parse_pending": true,
+    "actual_cache_cleanup_pending": true,
+    "reviewer_pc_actions": false,
+    "target_source_execution": false
+  },
+  "findings": []
+}

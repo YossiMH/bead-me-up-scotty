@@ -1,0 +1,146 @@
+{
+  "schema_version": 1,
+  "status": "prepared_for_independent_source_review",
+  "author": "/root/delivery_audit",
+  "scope": "Read-only raw transport of exactly two receipts for one of eight fixed checkpoint history phases.",
+  "files": {
+    "README.md": {
+      "bytes": 4635,
+      "sha256": "7ba4ce5f61ef1d1116f148e310c219cdb8e56666e8a84448914477ee9fc8f52e"
+    },
+    "collect-history-phase-receipts-20261127.cjs": {
+      "bytes": 5739,
+      "sha256": "f0c931ccf0b9dbfd2938c5ff690727c72f333edcc5bcce08ea2670b63bb28b3b"
+    },
+    "derivation.json": {
+      "bytes": 6614,
+      "sha256": "052ae29138ac00f31308aea8eea48b9b382da490d94ead7c76ccb0deecd88f05"
+    },
+    "invocation.json": {
+      "bytes": 8580,
+      "sha256": "5b92917a1a45a15974a7d1e664c2956e470098d8817fcae53cad705caeaa8cef"
+    }
+  },
+  "basis": {
+    "baseline_source": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/frontend/configured-installed-closure-collector/collect-configured-installed-closure-20261127.cjs",
+      "bytes": 5474,
+      "sha256": "1598cd0fb37252f06790719079640b45835144d09019d5d2ceb2238bb37683df"
+    },
+    "baseline_review": {
+      "path": "/workspace/scratch/2889282bfcec/recovery/root/configured-installed-closure-collector-review.json",
+      "bytes": 1083,
+      "sha256": "67a81878d444b04d75ed6908a26d8a91ecd1c5ba9b5f669eb169e20fe0794f9e"
+    },
+    "history": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-20261127.mjs",
+      "bytes": 84410,
+      "sha256": "1015fa587954ecd1d0deddf8391789377b8c81cdf51ffa36994e7568df69c671"
+    },
+    "supervisor": {
+      "path": "/tmp/beads-2889282bfcec/continuation/20261127/checkpoint-crlf-handoff/checkpoint-only-handoff-crlf-supervisor-20261127.ps1",
+      "bytes": 19195,
+      "sha256": "c0c289a9bce78e761d6773ab59298b7e8c61ac9e9da4cefd52a9023497fd34e6"
+    }
+  },
+  "derivation": {
+    "substitution_groups": 5,
+    "complete_forward_and_inverse_exact": true,
+    "unchanged_helpers": [
+      "sha",
+      "error",
+      "check",
+      "emit",
+      "stop",
+      "signature",
+      "stat"
+    ],
+    "complete_parent_file_read_and_snapshot_block_exact": true,
+    "gzip_chunk_block_exact": true,
+    "phase_map_matches_backend_assignment": true,
+    "history_and_supervisor_unchanged": true
+  },
+  "author_inspections": [
+    {
+      "pass": 1,
+      "status": "clean",
+      "complete_source_read": true,
+      "read": [
+        "Complete accepted collector and complete proposed source.",
+        "Accepted history retention/phase constants and supervisor output validation.",
+        "Final phase catalog and invocation contract."
+      ],
+      "checked": [
+        "Strict eight-name membership is checked before selecting any receipt path; no path argument is accepted.",
+        "Offset/hash arguments retain the baseline canonical decimal, safe-integer and positive-offset identity checks.",
+        "Each phase selects only its driver result and exact corrected supervisor result; all eight parent paths are included.",
+        "Held reads and unparsed base64 preserve complete receipt bytes and 64-bit ticks."
+      ],
+      "findings": []
+    },
+    {
+      "pass": 2,
+      "status": "clean",
+      "complete_source_read": true,
+      "read": [
+        "Complete final source and README again.",
+        "Full five-substitution derivation, fixed eight-phase path map and complete decoded invocation source with all outer arguments."
+      ],
+      "checked": [
+        "Both full-source transformations recover the accepted baseline exactly.",
+        "All seven unchanged helpers, the complete file/parent read-and-recheck block and gzip/chunk block compare byte for byte.",
+        "All four source/review input identities match; phase names agree with backend's corrected future request assignment.",
+        "Initial inline command is 7,776 characters; the longest supported phase/offset/hash command is 7,862 characters.",
+        "The parser check examines source syntax only; actual phase and collector results remain unset."
+      ],
+      "findings": []
+    }
+  ],
+  "checks": {
+    "static_proof_status": "passed",
+    "node_syntax_only": {
+      "command": "node --check collect-history-phase-receipts-20261127.cjs",
+      "exit_code": 0,
+      "stdout_bytes": 0,
+      "source_body_executed": false
+    },
+    "embedded_invocation_source_exact": true,
+    "invocation_fields": [
+      "command",
+      "cwd",
+      "timeout_ms",
+      "expected_effects"
+    ],
+    "command_characters": 7776,
+    "maximum_continuation_command_characters": 7862,
+    "raw_json_never_parsed": true,
+    "source_forward_and_inverse_exact": true
+  },
+  "resource_contract": {
+    "node_heap_mib": 64,
+    "priority": "BelowNormal",
+    "initial_and_live_free_bytes": 1073741824,
+    "own_rss_cap_bytes": 134217728,
+    "interval_ms": 100,
+    "internal_deadline_ms": 15000,
+    "connector_timeout_ms": 15000,
+    "per_file_bytes": 2097152,
+    "total_file_bytes": 4194304,
+    "compressed_chunk_bytes": 37500,
+    "whole_response_characters": 65000
+  },
+  "findings": [],
+  "actual_phase_execution": null,
+  "actual_collection": null,
+  "activity": {
+    "pc_calls": false,
+    "pc_execution": false,
+    "collector_body_execution": false,
+    "product_tests": false,
+    "builds": false,
+    "accepted_helper_edits": false,
+    "task_state_writes": false,
+    "publication": false
+  },
+  "retention": "This packet is an ordinary cloud author directory. Root retains it in transfer history before later cleanup; the collector creates no PC artifacts."
+}
